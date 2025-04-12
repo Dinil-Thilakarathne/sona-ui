@@ -5,8 +5,10 @@ import { heroContent } from "@/libs/constants";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center space-y-6 text-center">
-      <h1 className="text-4xl font-bold md:text-6xl">{heroContent.header}</h1>
+    <section className="relative flex min-h-[calc(100vh-75px)] flex-col items-center justify-center space-y-6 overflow-clip text-center">
+      <h1 className="text-4xl font-bold md:text-6xl lg:text-8xl">
+        {heroContent.header}
+      </h1>
 
       <p className="max-w-2xl text-lg text-gray-600 md:text-xl">
         {heroContent.description}
@@ -18,7 +20,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="absolute right-0 bottom-0 -z-10 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-blue-400 to-purple-300 opacity-50 blur-3xl"></div>
+      <div className="absolute -right-[15%] -bottom-[10%] -z-10 aspect-square w-[50vw] rounded-full bg-gradient-to-br from-blue-400 to-purple-300 opacity-50 blur-3xl" />
     </section>
   );
 };
