@@ -14,14 +14,14 @@ const ComponentCard: React.FC<ComponentItemsProps> = ({
   return (
     <div className="flex flex-col overflow-clip rounded-lg border bg-white p-2 shadow-md">
       {/* Image Section */}
-      <div className="relative mx-auto h-fit w-fit">
+      <div className="relative m-auto flex w-fit grow items-center justify-center">
         {imgSrc && (
           <Image
             src={imgSrc}
             alt={name}
             width={720}
             height={250}
-            className="w-auto rounded-t-lg md:rounded-t-none md:rounded-l-lg"
+            className="w-auto rounded-t-lgk md:rounded-t-none md:rounded-l-lg"
           />
         )}
       </div>

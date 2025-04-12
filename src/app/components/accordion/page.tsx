@@ -69,6 +69,16 @@ const Page = () => {
         />
       ),
     },
+    {
+      title: "AnimatedPlusMinusButton.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          filePath="components/accordion/AnimatedPlusMinusButton.txt"
+          language="tsx"
+          className=""
+        />
+      ),
+    },
   ];
   return (
     <div className="space-y-8">
