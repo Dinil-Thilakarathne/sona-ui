@@ -1,0 +1,14 @@
+import React from "react";
+
+import RippleButton, { RippleButtonText } from "./RippleButton";
+
+const Page = () => {
+
+  return (
+    <RippleButton className="text-white">
+      <RippleButtonText text="Hover me!" />
+    </RippleButton>
+  );
+};
+
+export default Page;
