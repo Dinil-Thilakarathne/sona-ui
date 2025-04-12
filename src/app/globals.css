@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-:root {
-
-}
-
 @theme inline {
-
+  --font-clash-display: "ClashDisplay", sans-serif;
 }
-
