@@ -10,7 +10,7 @@ interface TagProps {
 
 const Tag: React.FC<TagProps> = ({ text, type = "default", className }) => {
   const baseClasses =
-    "inline-flex items-center px-3 py-1 rounded-full text-sm ";
+    "inline-flex items-center px-2 py-0.5 rounded-full text-sm ";
 
   const typeClasses = {
     new: "bg-green-200 text-green-800",

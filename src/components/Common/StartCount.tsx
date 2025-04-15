@@ -12,9 +12,9 @@ const StartCount = () => {
   return (
     <span className="flex items-center justify-center space-x-1.5 text-sm">
       <FaGithub />
-      <span>Star on GitHub</span>
-      <FaStar className="text-sm" />
-      <span>0{stars}</span>
+      <span className="leading-[14px]">Star on GitHub</span>
+      <FaStar className="mb-0.5 text-[14px]" />
+      <span className="leading-[14px]">0{stars}</span>
     </span>
   );
 };

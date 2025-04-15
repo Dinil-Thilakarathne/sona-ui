@@ -13,7 +13,6 @@ interface SidebarLinkProps extends LinkProps, ComponentItemsProps {
 }
 
 const SidebarLink = ({ name, tag, className, ...props }: SidebarLinkProps) => {
-
   const isDisabled = tag === "soon";
 
   return isDisabled ? (
