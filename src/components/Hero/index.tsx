@@ -2,21 +2,35 @@ import React from "react";
 
 import Tag from "../Common/Tag";
 import { heroContent } from "@/libs/constants";
+import Button from "../Button";
+import Fade from "../Common/Fade";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[calc(100vh-75px)] flex-col items-center justify-center space-y-6 overflow-clip text-center">
-      <h1 className="text-4xl font-bold md:text-6xl lg:text-8xl">
-        {heroContent.header}
-      </h1>
+    <section className="relative flex min-h-[calc(100vh-75px)] flex-col items-center justify-center space-y-4 overflow-clip text-center">
+      <Fade preset="Fade-up" delay={0.05}>
+        <Button className="flex items-center justify-center space-x-2" disabled>
+          <heroContent.flag.icon />
+          <span>{heroContent.flag.text}</span>
+        </Button>
+      </Fade>
+      <Fade preset="Fade-up">
+        <h1 className="text-4xl font-bold md:text-6xl lg:text-8xl">
+          {heroContent.header}
+        </h1>
+      </Fade>
 
-      <p className="max-w-2xl text-lg text-gray-600 md:text-xl">
-        {heroContent.description}
-      </p>
+      <Fade preset="Fade-up" delay={0.1}>
+        <p className="max-w-2xl text-lg text-gray-600 md:text-xl">
+          {heroContent.description}
+        </p>
+      </Fade>
 
       <div className="mt-4 flex flex-wrap justify-center gap-4">
-        {heroContent.techStack.map((tech) => (
-          <Tag key={tech} text={tech} type="featured" />
+        {heroContent.techStack.map((tech, i) => (
+          <Fade preset="Fade-up" delay={0.15 + i * 0.1} key={tech}>
+            <Tag text={tech} type="featured" />
+          </Fade>
         ))}
       </div>
 
