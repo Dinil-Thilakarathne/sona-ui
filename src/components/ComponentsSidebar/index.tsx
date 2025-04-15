@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
     <>
       {/* Menu Icon for Mobile */}
       <motion.button
-        className="fixed right-4 bottom-4 z-50 block rounded-full bg-white p-4 md:hidden"
+        className="fixed right-4 bottom-4 z-50 block rounded-full bg-white p-4 lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col border-r border-gray-200 bg-white p-4 transition-transform duration-300 md:relative md:min-h-[calc(100vh-75px)] md:translate-x-0 md:bg-transparent ${
+        className={`fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col border-r bg-white p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 lg:bg-transparent ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
 
         <div className="w-full grow" />
 
-        <nav className="flex flex-col space-y-2 md:hidden">
+        <nav className="flex flex-col space-y-2 lg:hidden">
           <h3 className="border-b text-lg font-medium">Navigation</h3>
           {navLinks.map((link) => (
             <div key={link.name} className="flex items-start space-y-0.5">
@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
       {/* Overlay for Mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black opacity-50 md:hidden"
+          className="fixed inset-0 z-30 bg-black opacity-50 lg:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
