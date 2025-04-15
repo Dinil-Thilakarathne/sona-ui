@@ -58,7 +58,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
   return (
     <div
       className={cn(
-        "relative w-full max-w-[360px] overflow-x-auto rounded-lg border bg-[rgb(40,44,52)] p-4 md:max-w-full",
+        "relative w-full max-w-[calc(100vw-16px)] overflow-x-auto rounded-lg border bg-[rgb(40,44,52)] p-4 lg:max-w-full",
         className,
       )}
     >
