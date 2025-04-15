@@ -11,12 +11,6 @@ export const useGitStars = (owner: string, repo: string) => {
   const [stars, setStars] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!owner || !repo) {
-      console.log("Owner and repository name are required.");
-      console.log(false);
-      return;
-    }
-
     const fetchStars = async () => {
       try {
         const response = await fetch(
@@ -33,8 +27,6 @@ export const useGitStars = (owner: string, repo: string) => {
         console.log(
           err instanceof Error ? err.message : "An unknown error occurred.",
         );
-      } finally {
-        console.log(false);
       }
     };
 

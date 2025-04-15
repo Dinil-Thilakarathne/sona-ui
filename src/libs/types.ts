@@ -4,12 +4,17 @@ export type navLinksProps = {
   tag?: "new" | "soon";
 };
 
-export type ComponentItemsProps = {
+export interface ComponentItemsProps {
   name: string;
   href: string;
   tag?: "new" | "soon";
   featured?: boolean;
   imgSrc?: string;
   imgAlt?: string;
-  link?: string;
-};
+  metadata?: {
+    title: string;
+    description: string;
+    keywords: string[];
+    openGraphImage: string;
+  };
+}

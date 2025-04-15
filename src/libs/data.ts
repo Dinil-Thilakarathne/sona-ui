@@ -5,7 +5,7 @@ export const navLinks: navLinksProps[] = [
   { name: "Components", href: "/components" },
 ];
 
-export const ComponentSidebarItems: ComponentItemsProps[] = [
+export const ComponentItems: ComponentItemsProps[] = [
   {
     name: "Accordion",
     href: "/components/accordion",
@@ -13,6 +13,12 @@ export const ComponentSidebarItems: ComponentItemsProps[] = [
     featured: true,
     imgSrc: "/components/accordion/img.png",
     imgAlt: "Accordion",
+    metadata: {
+      title: "Accordion Component - Sona UI",
+      description: "A flexible and accessible accordion component for React.",
+      keywords: ["Accordion", "React", "UI Component", "Sona UI"],
+      openGraphImage: "/components/accordion/img.png",
+    },
   },
   {
     name: "Ripple Button",
@@ -21,5 +27,11 @@ export const ComponentSidebarItems: ComponentItemsProps[] = [
     featured: true,
     imgSrc: "/components/rippleButton/img.png",
     imgAlt: "Ripple Button",
+    metadata: {
+      title: "Ripple Button Component - Sona UI",
+      description: "An interactive button with a ripple effect for modern UIs.",
+      keywords: ["Ripple Button", "React", "UI Component", "Sona UI"],
+      openGraphImage: "/components/rippleButton/img.png",
+    },
   },
 ];
