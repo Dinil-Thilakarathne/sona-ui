@@ -9,6 +9,10 @@ import {
 } from "./Accordion";
 import { CodeSyntaxHighlighter } from "@/components/Common/CodeSyntaxHighlighter";
 import Tabs from "@/components/Common/Tabs";
+import { Metadata } from "next";
+import { getComponentMetadata } from "@/hooks/metadata";
+
+export const metadata: Metadata = getComponentMetadata("Accordion");
 
 const Page = () => {
   const accordionData = [

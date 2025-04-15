@@ -1,11 +1,9 @@
 import React from "react";
 import ComponentCard from "@/components/ComponentCard";
-import { ComponentSidebarItems } from "@/libs/data";
+import { ComponentItems } from "@/libs/data";
 
 const Page = () => {
-  const FeaturedComponents = ComponentSidebarItems.filter(
-    (comp) => comp.featured,
-  );
+  const FeaturedComponents = ComponentItems.filter((comp) => comp.featured);
   return (
     <div className="space-y-8 p-4 md:p-8">
       {/* Hero Section */}

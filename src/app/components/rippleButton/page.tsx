@@ -4,6 +4,10 @@ import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import RippleButton, { RippleButtonText } from "./RippleButton";
 import { CodeSyntaxHighlighter } from "@/components/Common/CodeSyntaxHighlighter";
 import Tabs from "@/components/Common/Tabs";
+import { Metadata } from "next";
+import { getComponentMetadata } from "@/hooks/metadata";
+
+export const metadata: Metadata = getComponentMetadata("Ripple Button");
 
 const Page = () => {
 
