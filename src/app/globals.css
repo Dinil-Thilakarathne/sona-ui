@@ -2,4 +2,6 @@
 
 @theme inline {
   --font-clash-display: "ClashDisplay", sans-serif;
+
+  --breakpoint-xs: 24rem;
 }
