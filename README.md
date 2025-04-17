@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sona UI - Modern React Component Library
 
-## Getting Started
+Sona UI is a modern, open-source React component library designed to help developers build beautiful, accessible, and responsive web applications faster. Built with React and TailwindCSS, Sona UI provides a collection of reusable components that are easy to integrate and customize.
 
-First, run the development server:
+## 🌟 Features
+
+- **Reusable Components**: A growing collection of components like Accordion, Tabs, Ripple Button, and more.
+- **Responsive Design**: Components are designed to work seamlessly across devices.
+- **Accessibility**: Built with accessibility in mind to ensure inclusivity.
+- **Customizable**: Easily customize components to match your design system.
+- **Open Source**: Free to use and contribute.
+
+## 🚀 Getting Started
+
+Follow these steps to get started with Sona UI:
+
+### 1. Clone the Repository
 
 ```bash
+git clone https://github.com/Dinil-Thilakarathne/sona-ui.git
+cd sona-ui
+```
+
+### 2. Install Dependencies
+
+Install the required dependencies using Bun, npm, or yarn:
+
+```bash
+bun install
+# or
+npm install
+# or
+yarn install
+```
+
+### 3. Run the Development Server
+
+Start the development server:
+
+```bash
+bun dev
+# or
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the project in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📚 Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Explore the documentation to learn more about the components and how to use them:
 
-## Learn More
+- [Accordion Component](src/app/components/accordion/page.tsx)
+- [Ripple Button Component](src/app/components/rippleButton/page.tsx)
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions from the community! Here's how you can contribute:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes and push them to your fork.
+4. Submit a pull request to the main repository.
 
-## Deploy on Vercel
+Please make sure to follow our [contribution guidelines](CONTRIBUTING.md).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⭐ Give Us a Star
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you find this project helpful, please consider giving us a star on [GitHub](https://github.com/Dinil-Thilakarathne/sona-ui). It helps us grow and reach more developers!
+
+## 🛠️ Built With
+
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+
+## 📬 Feedback
+
+We'd love to hear your feedback! Feel free to open an issue or reach out to us on [GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using Sona UI! Together, let's build amazing web applications. 🚀
