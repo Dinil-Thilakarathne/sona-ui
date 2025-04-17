@@ -4,10 +4,16 @@ import Tag from "../Common/Tag";
 import { heroContent } from "@/libs/constants";
 import Button from "../Button";
 import Fade from "../Common/Fade";
+import Sidebar from "../ComponentsSidebar";
+import { ComponentItems } from "@/libs/data";
 
 const Hero = () => {
   return (
     <section className="relative flex min-h-[calc(100vh-75px)] flex-col items-center justify-center space-y-4 overflow-clip text-center">
+      <div className="absolute top-0 left-0 lg:hidden">
+        <Sidebar title="Components" items={ComponentItems} />
+      </div>
+
       <Fade preset="Fade-up" delay={0.05}>
         <Button className="flex items-center justify-center space-x-2" disabled>
           <heroContent.flag.icon />

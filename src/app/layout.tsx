@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { clashDisplay } from "@/fonts";
 import { SITE_METADATA } from "@/libs/constants";
+import { PostHogProvider } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,8 +61,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased`}
       >
-        <Header />
-        {children}
+        <PostHogProvider>
+          <Header />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );
