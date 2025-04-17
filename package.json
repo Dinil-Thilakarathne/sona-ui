@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
     "clsx": "^2.1.1",
     "lenis": "^1.2.3",
     "motion": "^12.6.5",
