@@ -21,7 +21,7 @@ const ComponentCard: React.FC<ComponentItemsProps> = ({
             alt={name}
             width={720}
             height={250}
-            className="w-auto rounded-t-lgk md:rounded-t-none md:rounded-l-lg"
+            className="rounded-t-lgk w-auto md:rounded-t-none md:rounded-l-lg"
           />
         )}
       </div>

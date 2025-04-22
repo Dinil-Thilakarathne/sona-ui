@@ -55,6 +55,8 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     : content.split("\n").slice(0, 10).join("\n") +
       (content.split("\n").length > 10 ? "\n..." : "");
 
+  console.log(displayedContent);
+
   return (
     <div
       className={cn(
@@ -62,33 +64,24 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
         className,
       )}
     >
-      <SyntaxHighlighterLib
-        language={language}
-        style={oneDark}
-        lineProps={{
-          style: { whiteSpace: "pre-wrap" },
-        }}
-        wrapLines={true}
-        wrapLongLines={true}
-        customStyle={{
-          fontSize: "0.875rem",
-          lineHeight: "1.5",
-          wordWrap: "break-word",
-          whiteSpace: "pre-wrap",
-        }}
-      >
-        {displayedContent}
-      </SyntaxHighlighterLib>
-
-      <div className="relative flex w-full items-center justify-center">
-        {content.split("\n").length > 10 && (
-          <Button
-            onClick={toggleExpand}
-            className="sticky bottom-2 text-sm hover:underline"
-          >
-            {isExpanded ? "Show Less" : "Show More"}
-          </Button>
-        )}
+      <div className="max-h-[40vh] overflow-y-scroll">
+        <SyntaxHighlighterLib
+          language={language}
+          style={oneDark}
+          lineProps={{
+            style: { whiteSpace: "pre-wrap" },
+          }}
+          wrapLines={true}
+          wrapLongLines={true}
+          customStyle={{
+            fontSize: "0.875rem",
+            lineHeight: "1.5",
+            wordWrap: "break-word",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {displayedContent}
+        </SyntaxHighlighterLib>
       </div>
 
       <Button
@@ -97,6 +90,21 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
       >
         {copied ? "Copied!" : "Copy Code"}
       </Button>
+
+      {!isExpanded && (
+        <div className="absolute bottom-0 left-0 h-[50%] w-full bg-white/70 mask-t-from-0% mask-t-to-70%" />
+      )}
+
+      <div className="relative bottom-2 left-0 flex w-full items-center justify-center">
+        {content.split("\n").length > 10 && (
+          <Button
+            onClick={toggleExpand}
+            className="relative bottom-2 text-sm hover:underline"
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
