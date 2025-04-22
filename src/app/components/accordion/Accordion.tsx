@@ -92,7 +92,7 @@ const AccordionItemHeader = ({
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between text-balance rounded-xl px-8 py-4">
+    <div className="flex items-center justify-between rounded-xl px-8 py-4 text-balance">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} strokeColor={strokeColor} />
     </div>
