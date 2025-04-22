@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface Tab {
   title: string;

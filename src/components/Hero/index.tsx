@@ -1,11 +1,11 @@
 import React from "react";
 
 import Tag from "../Common/Tag";
-import { heroContent } from "@/libs/constants";
+import { heroContent } from "@/lib/constants";
 import Button from "../Button";
 import Fade from "../Common/Fade";
 import Sidebar from "../ComponentsSidebar";
-import { ComponentItems } from "@/libs/data";
+import { ComponentItems } from "@/lib/data";
 
 const Hero = () => {
   return (

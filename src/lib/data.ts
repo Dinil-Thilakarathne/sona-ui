@@ -13,7 +13,7 @@ export const ComponentItems: ComponentItemsProps[] = [
   {
     name: "Accordion",
     href: "/components/accordion",
-    tag: "new",
+    tag: undefined,
     featured: true,
     imgSrc: "/components/accordion/img.png",
     imgAlt: "Accordion",
@@ -27,7 +27,7 @@ export const ComponentItems: ComponentItemsProps[] = [
   {
     name: "Ripple Button",
     href: "/components/rippleButton",
-    tag: "new",
+    tag: undefined,
     featured: true,
     imgSrc: "/components/rippleButton/img.png",
     imgAlt: "Ripple Button",
@@ -36,6 +36,20 @@ export const ComponentItems: ComponentItemsProps[] = [
       description: "An interactive button with a ripple effect for modern UIs.",
       keywords: ["Ripple Button", "React", "UI Component", "Sona UI"],
       openGraphImage: "/components/rippleButton/img.png",
+    },
+  },
+  {
+    name: "Stagger Text",
+    href: "/components/staggerText",
+    tag: "new",
+    featured: true,
+    imgSrc: "/components/staggerText/img.png",
+    imgAlt: "Stagger Text",
+    metadata: {
+      title: "Stagger Text Component - Sona UI",
+      description: "A text component with staggered animation.",
+      keywords: ["Stagger Text", "React", "UI Component", "Sona UI"],
+      openGraphImage: "/components/staggerText/img.png",
     },
   },
 ];

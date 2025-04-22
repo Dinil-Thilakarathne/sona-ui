@@ -1,0 +1,12 @@
+import React from "react";
+
+import StaggerText from "./StaggerText";
+
+const Page = () => {
+
+  return (
+    <StaggerText text="Hover me!" />
+  );
+};
+
+export default Page;

@@ -1,6 +1,6 @@
 import React from "react";
 import ComponentCard from "@/components/ComponentCard";
-import { ComponentItems } from "@/libs/data";
+import { ComponentItems } from "@/lib/data";
 
 const Page = () => {
   const FeaturedComponents = ComponentItems.filter((comp) => comp.featured);

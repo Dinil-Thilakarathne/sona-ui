@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 import { FiMenu } from "react-icons/fi";
 
 import SidebarLink from "../Common/SidebarLink";
-import { navLinks } from "@/libs/data";
-import { ComponentItemsProps } from "@/libs/types";
+import { navLinks } from "@/lib/data";
+import { ComponentItemsProps } from "@/lib/types";
 
 interface SidebarProps {
   title: string;

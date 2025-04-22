@@ -3,7 +3,7 @@
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;

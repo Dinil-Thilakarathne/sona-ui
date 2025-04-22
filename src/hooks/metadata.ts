@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import { ComponentItems } from "@/libs/data";
+import { ComponentItems } from "@/lib/data";
 
 export const getComponentMetadata = (componentName: string): Metadata => {
   const compMetadata = ComponentItems.find(
-    (item) => item.name === componentName
+    (item) => item.name === componentName,
   )?.metadata;
 
   return {

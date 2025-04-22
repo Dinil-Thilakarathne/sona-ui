@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "@/components/ComponentsSidebar";
-import { ComponentItems } from "@/libs/data";
+import { ComponentItems } from "@/lib/data";
 
 const ComponentLayout: React.FC<{ children: React.ReactNode }> = ({
   children,

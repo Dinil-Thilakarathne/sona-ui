@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Button from "../Button";
 import Tag from "../Common/Tag";
-import { ComponentItemsProps } from "@/libs/types";
+import { ComponentItemsProps } from "@/lib/types";
 
 const ComponentCard: React.FC<ComponentItemsProps> = ({
   imgSrc,
@@ -21,7 +21,7 @@ const ComponentCard: React.FC<ComponentItemsProps> = ({
             alt={name}
             width={720}
             height={250}
-            className="w-auto rounded-t-lgk md:rounded-t-none md:rounded-l-lg"
+            className="rounded-t-lgk w-auto md:rounded-t-none md:rounded-l-lg"
           />
         )}
       </div>
