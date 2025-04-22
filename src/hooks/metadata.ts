@@ -3,7 +3,7 @@ import { ComponentItems } from "@/libs/data";
 
 export const getComponentMetadata = (componentName: string): Metadata => {
   const compMetadata = ComponentItems.find(
-    (item) => item.name === componentName
+    (item) => item.name === componentName,
   )?.metadata;
 
   return {
