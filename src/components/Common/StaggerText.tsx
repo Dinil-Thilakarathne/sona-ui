@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import {motion} from "motion/react"
+import { motion } from "motion/react";
 
 import { cn } from "@/libs/utils";
 
