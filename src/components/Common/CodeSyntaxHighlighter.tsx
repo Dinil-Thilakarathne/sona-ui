@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighterLib } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Button from "../Button";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface SyntaxHighlighterProps {
   filePath: string; // Path relative to the public/ directory

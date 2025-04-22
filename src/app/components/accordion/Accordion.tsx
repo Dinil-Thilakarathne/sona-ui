@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { motion } from "motion/react";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
 
 // Types

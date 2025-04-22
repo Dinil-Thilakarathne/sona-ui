@@ -2,7 +2,7 @@
 import React, { useMemo, useRef } from "react";
 import { motion, useInView, Variants } from "motion/react";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 type Preset = "Fade-in" | "Fade-up" | "Fade-down";
 

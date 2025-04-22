@@ -6,8 +6,8 @@ import StartCount from "../Common/StartCount";
 import Button from "../Button";
 import SidebarLink from "../Common/SidebarLink";
 
-import { navLinks } from "@/libs/data";
-import { GIT_REP_LINK } from "@/libs/constants";
+import { navLinks } from "@/lib/data";
+import { GIT_REP_LINK } from "@/lib/constants";
 
 const Header = () => {
   return (

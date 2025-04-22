@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { motion } from "motion/react";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface RippleButtonProps {
   children: React.ReactNode;

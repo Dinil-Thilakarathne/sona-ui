@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import Button from "../Button";
 import Tag from "../Common/Tag";
-import { ComponentItemsProps } from "@/libs/types";
+import { ComponentItemsProps } from "@/lib/types";
 
 const ComponentCard: React.FC<ComponentItemsProps> = ({
   imgSrc,

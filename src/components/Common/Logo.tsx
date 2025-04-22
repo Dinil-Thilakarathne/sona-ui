@@ -1,6 +1,6 @@
 import React from "react";
 import Tag from "./Tag";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;

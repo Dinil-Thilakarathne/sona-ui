@@ -4,8 +4,8 @@ import Link, { LinkProps } from "next/link";
 import StaggerText from "./StaggerText";
 import Tag from "./Tag";
 
-import { cn } from "@/libs/utils";
-import { ComponentItemsProps } from "@/libs/types";
+import { cn } from "@/lib/utils";
+import { ComponentItemsProps } from "@/lib/types";
 
 interface SidebarLinkProps extends LinkProps, ComponentItemsProps {
   href: string;
