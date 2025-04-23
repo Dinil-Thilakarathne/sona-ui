@@ -52,4 +52,18 @@ export const ComponentItems: ComponentItemsProps[] = [
       openGraphImage: "/components/staggerText/img.png",
     },
   },
+  {
+    name: "Spinning Text",
+    href: "/components/spinningText",
+    tag: "new",
+    featured: true,
+    imgSrc: "/components/spinningText/img.png",
+    imgAlt: "Spinning Text",
+    metadata: {
+      title: "Spinning Text Component - Sona UI",
+      description: "A text component with staggered animation.",
+      keywords: ["Stagger Text", "React", "UI Component", "Sona UI"],
+      openGraphImage: "/components/spinningText/img.png",
+    },
+  },
 ];
