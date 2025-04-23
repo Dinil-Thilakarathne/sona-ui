@@ -2,6 +2,11 @@ import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import { SpinningText } from "./SpinningText";
 import { CodeSyntaxHighlighter } from "@/components/Common/CodeSyntaxHighlighter";
 import Tabs from "@/components/Common/Tabs";
+import { Metadata } from "next";
+import { getComponentMetadata } from "@/hooks/metadata";
+
+export const metadata: Metadata = getComponentMetadata("Spinning Text");
+
 
 const Page = () => {
         const tabsData = [
