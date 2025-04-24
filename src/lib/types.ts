@@ -1,4 +1,4 @@
-type tagVariants = "new" | "soon" | "updated" | "featured";
+type tagVariants = "new" | "soon" | "updated" | "featured" | "default";
 
 export interface TagProps {
   text: string;
