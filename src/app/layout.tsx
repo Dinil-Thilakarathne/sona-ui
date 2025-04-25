@@ -3,8 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { clashDisplay } from "@/fonts";
-import { SITE_METADATA } from "@/lib/constants";
 import { PostHogProvider } from "./providers";
+import { SITE_METADATA } from "@/config/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
