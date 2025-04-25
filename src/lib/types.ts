@@ -15,14 +15,8 @@ export type navLinksProps = {
 export interface ComponentItemsProps {
   name: string;
   href: string;
+  slug?: string;
   tag?: tagVariants;
   featured?: boolean;
   imgSrc?: string;
-  imgAlt?: string;
-  metadata?: {
-    title: string;
-    description: string;
-    keywords: string[];
-    openGraphImage: string;
-  };
 }
