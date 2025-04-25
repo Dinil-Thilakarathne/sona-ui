@@ -1,61 +1,70 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighterLib } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Button from "../Button";
 import { cn } from "@/lib/utils";
+// Removed unused 'path' import
 
 interface SyntaxHighlighterProps {
-  filePath: string; // Path relative to the public/ directory
+  code?: string; // Path relative to the public/ directory
+  filePath?: {
+    directory: string; // Directory path relative to the public/ directory
+    fileName: string; // File name with extension
+  }; // Path relative to the public/ directory
   language: string;
   className?: string;
 }
 
 export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
+  code,
   filePath,
   language,
   className,
 }) => {
-  const [content, setContent] = useState<string | null>(null);
+  const [codeContent, setCodeContent] = useState<string | null>(code || null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    const fetchFileContent = async () => {
-      try {
-        const response = await fetch(`/${filePath}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch file content");
-        }
-        const text = await response.text();
-        setContent(text);
-      } catch (error) {
-        console.error("Error fetching file content:", error);
-        setContent(null); // Set content to null if there's an error
-      } finally {
-      }
-    };
-
-    fetchFileContent();
-  }, [filePath]);
-
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
-  if (!content) return null;
+  useEffect(() => {
+    if (filePath) {
+      const fetchFileContent = async () => {
+        try {
+          const response = await fetch(
+            `/api/read-file?directory=${filePath.directory}&fileName=${filePath.fileName}`
+          );
+          const data = await response.json();
+          if (data.content) {
+            setCodeContent(data.content);
+          } else {
+            setCodeContent("// Error loading code from file.");
+          }
+        } catch (error) {
+          console.error("Error fetching file content:", error);
+          setCodeContent("// Error loading code from file.");
+        }
+      };
+
+      fetchFileContent();
+    }
+  }, [filePath]);
+
+  if (!codeContent) return null;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(content);
+    navigator.clipboard.writeText(codeContent);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const displayedContent = isExpanded
-    ? content
-    : content.split("\n").slice(0, 10).join("\n") +
-      (content.split("\n").length > 10 ? "\n..." : "");
+    ? codeContent
+    : codeContent.split("\n").slice(0, 10).join("\n") +
+      (codeContent.split("\n").length > 10 ? "\n..." : "");
 
-  console.log(displayedContent);
 
   return (
     <div
@@ -96,7 +105,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
       )}
 
       <div className="relative bottom-2 left-0 flex w-full items-center justify-center">
-        {content.split("\n").length > 10 && (
+        {codeContent.split("\n").length > 10 && (
           <Button
             onClick={toggleExpand}
             className="relative bottom-2 text-sm hover:underline"
@@ -108,3 +117,4 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     </div>
   );
 };
+
