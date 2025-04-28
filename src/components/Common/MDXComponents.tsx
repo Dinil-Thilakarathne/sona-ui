@@ -30,7 +30,7 @@ const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "font-heading mt-2 scroll-m-20 text-4xl font-bold",
+        "font-heading mt-2 scroll-m-20 text-2xl lg:text-4xl font-bold",
         className,
       )}
       {...props}
@@ -39,7 +39,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl lg:text-2xl font-semibold tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -48,7 +48,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+        "font-heading mt-8 scroll-m-20 text-lg lg:text-xl font-semibold tracking-tight",
         className,
       )}
       {...props}
@@ -95,6 +95,15 @@ const components = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <CustomLink
       className={cn("font-medium underline underline-offset-4", className)}
+      {...props}
+    />
+  ),
+  p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p
+      className={cn(
+        "text-sm md:text-base",
+        className,
+      )}
       {...props}
     />
   ),

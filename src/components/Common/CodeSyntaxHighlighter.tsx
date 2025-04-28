@@ -5,14 +5,13 @@ import { Prism as SyntaxHighlighterLib } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Button from "../Button";
 import { cn } from "@/lib/utils";
-// Removed unused 'path' import
 
 interface SyntaxHighlighterProps {
-  code?: string; // Path relative to the public/ directory
+  code?: string;
   filePath?: {
     directory: string; // Directory path relative to the public/ directory
     fileName: string; // File name with extension
-  }; // Path relative to the public/ directory
+  };
   language: string;
   className?: string;
 }
@@ -31,10 +30,11 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
 
   useEffect(() => {
     if (filePath) {
+      console.log("Fetching file content from:", filePath);
       const fetchFileContent = async () => {
         try {
           const response = await fetch(
-            `/api/read-file?directory=${filePath.directory}&fileName=${filePath.fileName}`
+            `/api/read-file?directory=${filePath.directory}&fileName=${filePath.fileName}`,
           );
           const data = await response.json();
           if (data.content) {
@@ -52,6 +52,23 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     }
   }, [filePath]);
 
+  useEffect(() => {
+    if (code) {
+      setCodeContent(code);
+    }
+  }, [code]);
+
+  useEffect(() => {
+    if (codeContent && !filePath) {
+      if (codeContent.split("\n").length <= 10) {
+        setIsExpanded(true);
+      }
+    }
+    if(filePath) {
+      setIsExpanded(false);
+    }
+  }, [codeContent, filePath]);
+
   if (!codeContent) return null;
 
   const handleCopy = () => {
@@ -60,11 +77,12 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
+
+  // Display only the first 10 lines of code if not expanded
   const displayedContent = isExpanded
     ? codeContent
     : codeContent.split("\n").slice(0, 10).join("\n") +
       (codeContent.split("\n").length > 10 ? "\n..." : "");
-
 
   return (
     <div
@@ -104,7 +122,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
         <div className="absolute bottom-0 left-0 h-[50%] w-full bg-white/70 mask-t-from-0% mask-t-to-70%" />
       )}
 
-      <div className="relative bottom-2 left-0 flex w-full items-center justify-center">
+      <div className="absolute bottom-2 left-0 flex w-full items-center justify-center">
         {codeContent.split("\n").length > 10 && (
           <Button
             onClick={toggleExpand}
@@ -117,4 +135,3 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     </div>
   );
 };
-
