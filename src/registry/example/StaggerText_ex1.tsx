@@ -5,7 +5,7 @@ import StaggerText from "../sonaui/staggerText/StaggerText";
 const StaggerText_ex1 = () => {
   return (
     <ComponentWrapper className="flex items-center justify-center">
-      <StaggerText text="Hover me!" />
+      <StaggerText text="Stagger Text!!" />
     </ComponentWrapper>
   );
 };
