@@ -23,7 +23,23 @@ An interactive button with a ripple effect for modern UIs.
 <Tabs
   tabs={[
     {
-      title: "Accordion.tsx",
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+    return (
+              <RippleButton>
+                <RippleButtonText text="Hover me!" />
+              </RippleButton>
+    )
+}`
+          }
+        />
+      ),
+    },
+    {
+      title: "Ripple Button.tsx",
       content: (
         <CodeSyntaxHighlighter
           language="tsx"
@@ -36,5 +52,3 @@ An interactive button with a ripple effect for modern UIs.
     },
   ]}
 />
-
-

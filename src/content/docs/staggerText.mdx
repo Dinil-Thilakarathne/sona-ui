@@ -22,8 +22,22 @@ A text component with staggered animation.
 
 <Tabs
   tabs={[
+        {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+    return (
+          <StaggerText text="Hover me!" />
+    )
+}`
+          }
+        />
+      ),
+    },
     {
-      title: "Accordion.tsx",
+      title: "StaggerText.tsx",
       content: (
         <CodeSyntaxHighlighter
           language="tsx"

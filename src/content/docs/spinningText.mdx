@@ -18,8 +18,22 @@ tags: ["UI", "Text", "Component"]
 
 <Tabs
   tabs={[
+        {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+    return (
+        <SpinningText>This is example text!</SpinningText>
+    )
+}`
+          }
+        />
+      ),
+    },
     {
-      title: "Accordion.tsx",
+      title: "SpinningText.tsx",
       content: (
         <CodeSyntaxHighlighter
           language="tsx"
