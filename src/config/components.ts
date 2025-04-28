@@ -14,14 +14,18 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
   },
   {
     name: "Spinning Text",
-    tag: "new",
     slug: "spinningText",
     href: "/docs/spinningText",
   },
   {
     name: "Stagger Text",
-    tag: "new",
     slug: "staggerText",
     href: "/docs/staggerText",
+  },
+  {
+    name: "Vertical Tab",
+    tag: "new",
+    slug: "verticalTab",
+    href: "/docs/verticalTab",
   },
 ];
