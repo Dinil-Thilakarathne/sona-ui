@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-interface RippleButtonProps {
+export interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -86,7 +86,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
 
 export default RippleButton;
 
-interface RippleButtonTextProps {
+export interface RippleButtonTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   text: string;
   className?: string;
 }
