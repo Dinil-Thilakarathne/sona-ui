@@ -8,6 +8,7 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
   },
   {
     name: "Ripple Button",
+    tag: "updated",
     slug: "rippleButton",
     href: "/docs/rippleButton",
   },
