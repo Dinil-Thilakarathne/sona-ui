@@ -52,7 +52,7 @@ const Accordion_ex1 = () => {
         className="mx-auto flex max-w-4xl flex-col gap-y-4"
       >
         {accordionData.map((item) => (
-          <AccordionItem key={item.value} className="border">
+          <AccordionItem key={item.value} className="border bg-blue-100">
             <AccordionItemTrigger value={item.value}>
               <AccordionItemHeader value={item.value}>
                 <span className="flex-1">{item.title}</span>
