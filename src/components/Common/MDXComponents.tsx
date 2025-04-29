@@ -6,6 +6,7 @@ import { CodeSyntaxHighlighter } from "./CodeSyntaxHighlighter";
 import ComponentWrapper from "./ComponentWrapper";
 import Tabs from "./Tabs";
 import ComponentPreview from "./ComponentPreview";
+import PropTable from "./PropTable";
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const href = props.href;
@@ -111,6 +112,7 @@ const components = {
   ComponentWrapper,
   Tabs,
   ComponentPreview,
+  PropTable,
 };
 
 interface MDXProps {
