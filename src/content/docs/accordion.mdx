@@ -51,4 +51,28 @@ The `Accordion` component allows you to toggle the visibility of content section
   ]}
 />
 
+## Props
 
+<PropTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      default: "required",
+      description: "The content to be displayed inside the accordion.",
+    },
+    {
+      name: "allowMultiple",
+      type: "boolean",
+      default: "false",
+      description:
+        "Allows multiple accordion items to be open at the same time.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the accordion container.",
+    },
+  ]}
+/>

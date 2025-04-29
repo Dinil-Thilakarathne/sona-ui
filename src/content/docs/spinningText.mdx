@@ -17,21 +17,6 @@ The `SpinningText` component is a dynamic and visually engaging UI element that 
 - **Accessible**: Includes a screen-reader-friendly version of the text for better accessibility.
 - **Lightweight**: Built with `motion` for smooth animations and optimized performance.
 
-## Props
-
-Below are the props supported by the `SpinningText` component:
-
-- **`children`** (`string | string[]`, required): The text content to be animated.
-- **`style`** (`CSSProperties`, optional): Custom styles for the container.
-- **`duration`** (`number`, default: `10`): Duration of the spinning animation in seconds.
-- **`className`** (`string`, optional): Additional CSS classes for the container.
-- **`reverse`** (`boolean`, default: `false`): Reverses the spinning direction when set to `true`.
-- **`fontSize`** (`number`, optional): Font size of the text.
-- **`radius`** (`number`, default: `5`): Radius of the circular path in `ch` units.
-- **`transition`** (`Transition`, optional): Custom transition settings for the animation.
-- **`variants`** (`{ container?: Variants; item?: Variants }`, optional): Custom animation variants for the container and individual characters.
-
-## Dependencies
 
 ## Preview
 
@@ -71,3 +56,61 @@ Below are the props supported by the `SpinningText` component:
 />
 
 
+## Props
+
+<PropTable data={[
+  {
+    name: "children",
+    type: "string | string[]",
+    default: "required",
+    description: "The text content to be animated. It can be a single string or an array of strings.",
+  },
+  {
+    name: "style",
+    type: "CSSProperties",
+    default: "undefined",
+    description: "Custom styles for the container.",
+  },
+  {
+    name: "duration",
+    type: "number",
+    default: "10",
+    description: "Duration of the spinning animation in seconds.",
+  },
+  {
+    name: "className",
+    type: "string",
+    default: "undefined",
+    description: "Additional CSS classes for the container.",
+  },
+  {
+    name: "reverse",
+    type: "boolean",
+    default: "false",
+    description: "Reverses the spinning direction when set to `true`.",
+  },
+  {
+    name: "fontSize",
+    type: "number",
+    default: "undefined",
+    description: "Font size of the text.",
+  },
+  {
+    name: "radius",
+    type: "number",
+    default: "5",
+    description: "Radius of the circular path in `ch` units.",
+  },
+  {
+    name: "transition",
+    type: "Transition",
+    default: "undefined",
+    description: "Custom transition settings for the animation. Merges with the default transition.",
+  },
+  {
+    name: "variants",
+    type: "{ container?: Variants; item?: Variants }",
+    default: "undefined",
+    description: "Custom animation variants for the container and individual characters.",
+  },
+]} />
