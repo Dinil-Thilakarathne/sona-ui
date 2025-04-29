@@ -6,9 +6,32 @@ tags: ["UI", "Text", "Component"]
 
 # Spinning Text Component
 
+The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.
 
 ## Features
 
+- **Circular Animation**: Spins text in a circular path for a unique visual effect.
+- **Customizable Speed**: Control the animation duration with the `duration` prop.
+- **Reverse Animation**: Easily reverse the spinning direction using the `reverse` prop.
+- **Flexible Styling**: Customize the font size, radius, and additional styles via props.
+- **Accessible**: Includes a screen-reader-friendly version of the text for better accessibility.
+- **Lightweight**: Built with `motion` for smooth animations and optimized performance.
+
+## Props
+
+Below are the props supported by the `SpinningText` component:
+
+- **`children`** (`string | string[]`, required): The text content to be animated.
+- **`style`** (`CSSProperties`, optional): Custom styles for the container.
+- **`duration`** (`number`, default: `10`): Duration of the spinning animation in seconds.
+- **`className`** (`string`, optional): Additional CSS classes for the container.
+- **`reverse`** (`boolean`, default: `false`): Reverses the spinning direction when set to `true`.
+- **`fontSize`** (`number`, optional): Font size of the text.
+- **`radius`** (`number`, default: `5`): Radius of the circular path in `ch` units.
+- **`transition`** (`Transition`, optional): Custom transition settings for the animation.
+- **`variants`** (`{ container?: Variants; item?: Variants }`, optional): Custom animation variants for the container and individual characters.
+
+## Dependencies
 
 ## Preview
 
