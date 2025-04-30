@@ -1,0 +1,90 @@
+---
+title: Tab Slider
+slug: tabSlider
+tags: ["UI", "tabs", "Component"]
+---
+
+# Tab Slider Component
+
+The `TabSlider` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.
+
+## Features
+
+- **Smooth Animations**: Transitions between tabs with fluid animations.
+- **Customizable**: Easily customize styles, colors, and behavior.
+- **Responsive**: Works seamlessly across different screen sizes.
+- **Lightweight**: Minimal dependencies and optimized for performance.
+
+## Preview
+
+<ComponentPreview componentPath="TabSlider_ex1.tsx" />
+
+## Source Code
+
+<Tabs
+  tabs={[
+    {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`
+export default function Page() {
+    const TabData: TabDataType[] = [
+    {
+        title: "Home",
+        icon: FaHome,
+    },
+    {
+        title: "Profile",
+        icon: FaUser,
+    },
+    {
+        title: "Settings",
+        icon: FaCog,
+    },
+    {
+        title: "Logout",
+        icon: FaSignOutAlt,
+    },
+    ];
+
+    return (
+             <TabSlider tabs={TabData} />
+    )
+}`
+          }
+        />
+      ),
+    },
+    {
+      title: "TabSlider.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          filePath={{
+            directory: "/src/registry/sonaui/TabSlider",
+            fileName: "TabSlider.tsx",
+          }}
+        />
+      ),
+    },
+  ]}
+/>
+
+## Props
+
+<PropTable data={[
+  {
+    name: "tabs",
+    type: "{ title: string; icon: IconType}[]",
+    default: "required",
+    description: "An array of tab objects, each containing a title and an icon for the tab.",
+  },
+  {
+    name: "containerClassName",
+    type: "string",
+    default: "undefined",
+    description: "Additional class names for the container element.",
+  },
+]} />

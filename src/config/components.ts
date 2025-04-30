@@ -28,4 +28,10 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
     slug: "verticalTab",
     href: "/docs/verticalTab",
   },
+  {
+    name: "Tab Slider",
+    tag: "new",
+    slug: "tabSlider",
+    href: "/docs/tabSlider",
+  },
 ];
