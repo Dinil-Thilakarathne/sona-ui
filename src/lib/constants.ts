@@ -14,7 +14,7 @@ type heroContentProps = {
 export const heroContent: heroContentProps = {
   flag: {
     icon: BsStars,
-    text: "Soft launch – growing with your feedback",
+    text: "Sona UI v1.0 — ready for your next creative project",
   },
   header: "Sona UI",
   description:
