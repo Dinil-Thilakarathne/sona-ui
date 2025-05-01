@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+import { withContentCollections } from "@content-collections/next";
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // your next.js config
 };
-
-export default nextConfig;
+ 
+// withContentCollections must be the outermost plugin
+export default withContentCollections(nextConfig);

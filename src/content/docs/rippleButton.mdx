@@ -1,0 +1,90 @@
+---
+title: Ripple Button
+slug: rippleButton
+tags: ["UI", "Button", "Component"]
+---
+
+# Ripple Button Component
+
+An interactive button with a ripple effect for modern UIs.
+
+## Features
+
+- Interactive ripple effect on mouse hover.
+- Customizable styles and colors.
+- Lightweight and reusable.
+
+## Preview
+
+<ComponentPreview componentPath="RippleButton_ex1.tsx" />
+
+## Source code
+
+<Tabs
+  tabs={[
+    {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+    return (
+              <RippleButton>
+                <RippleButtonText text="Hover me!" />
+              </RippleButton>
+    )
+}`}
+        />
+      ),
+    },
+    {
+      title: "Ripple Button.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          filePath={{
+            directory: "/src/registry/sonaui/rippleButton",
+            fileName: "rippleButton.tsx",
+          }}
+        />
+      ),
+    },
+  ]}
+/>
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      default: "required",
+      description: "The content to be displayed inside the button.",
+    },
+    {
+      name: "scaleAmount",
+      type: "number",
+      default: "25",
+      description: "The scale amount for the ripple effect.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the button.",
+    },
+    {
+      name: "duration",
+      type: "number",
+      default: "0.5",
+      description: "Duration of the ripple animation in seconds.",
+    },
+    {
+      name: "rippleStyle",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the ripple effect.",
+    },
+  ]}
+/>

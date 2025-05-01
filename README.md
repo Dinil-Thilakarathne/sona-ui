@@ -2,6 +2,17 @@
 
 Sona UI is a modern, open-source React component library designed to help developers build beautiful, accessible, and responsive web applications faster. Built with React and TailwindCSS, Sona UI provides a collection of reusable components that are easy to integrate and customize.
 
+## 📖 Table of Contents
+
+- [Features](#-features)
+- [Getting Started](#-getting-started)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [Support](#-support)
+- [Built With](#-built-with)
+- [Feedback](#-feedback)
+- [License](#-license)
+
 ## 🌟 Features
 
 - **Reusable Components**: A growing collection of components like Accordion, Tabs, Ripple Button, and more.
@@ -53,6 +64,7 @@ Explore the documentation to learn more about the components and how to use them
 
 - [Accordion Component](src/app/components/accordion/page.tsx)
 - [Ripple Button Component](src/app/components/rippleButton/page.tsx)
+- [Spinning Text Component](src/app/components/spinningText/page.tsx)
 
 ## 🤝 Contributing
 
@@ -65,10 +77,6 @@ We welcome contributions from the community! Here's how you can contribute:
 
 Please make sure to follow our [contribution guidelines](CONTRIBUTING.md).
 
-## ⭐ Give Us a Star
-
-If you find this project helpful, please consider giving us a star on [GitHub](https://github.com/Dinil-Thilakarathne/sona-ui). It helps us grow and reach more developers!
-
 ## 🛠️ Built With
 
 - [React](https://reactjs.org/)
@@ -78,6 +86,10 @@ If you find this project helpful, please consider giving us a star on [GitHub](h
 ## 📬 Feedback
 
 We'd love to hear your feedback! Feel free to open an issue or reach out to us on [GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## 🛡️ Support
+
+If you encounter any issues or have questions, please open an issue on [GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
 
 ## 📄 License
 

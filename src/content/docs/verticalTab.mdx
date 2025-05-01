@@ -1,0 +1,104 @@
+---
+title: Vertical Tabs
+slug: verticalTab
+tags: ["UI", "tabs", "Component"]
+---
+
+# Vertical Tab Component
+
+The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.
+
+## Features
+
+- **Dynamic Indicator**: The indicator moves smoothly between tabs, starting from the active tab for better UX.
+- **Hover Effects**: Highlights tabs on hover with a dynamic indicator.
+- **Customizable**: Easily customize styles, colors, and behavior.
+- **Responsive**: Works seamlessly across different screen sizes.
+- **Lightweight**: Minimal dependencies and optimized for performance.
+
+
+## Preview
+
+<ComponentPreview componentPath="VerticalTab_ex1.tsx" />
+
+## Source Code
+
+<Tabs
+  tabs={[
+        {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+const VerticalTabs_data = [
+  {
+    title: "Home",
+  },
+  {
+    title: "Profile",
+  },
+  {
+    title: "Settings",
+  },
+  {
+    title: "Help",
+  },
+  {
+    title: "About",
+  },
+  {
+    title: "Contact",
+  },
+  {
+    title: "Feedback",
+  },
+];
+
+    return (
+              <VerticalTab tabs={VerticalTabs_data} indicatorBgColor="bg-blue-200"/>
+    )
+}`
+          }
+        />
+      ),
+    },
+    {
+      title: "VerticalTab.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          filePath={{
+            directory: "/src/registry/sonaui/verticalTab",
+            fileName: "VerticalTab.tsx",
+          }}
+        />
+      ),
+    },
+  ]}
+/>
+
+## Props
+
+<PropTable data={[
+  {
+    name: "tabs",
+    type: "{ title: string }[]",
+    default: "required",
+    description: "An array of tab objects, each containing a title for the tab.",
+  },
+  {
+    name: "indicatorBgColor",
+    type: "string",
+    default: "'bg-blue-500'",
+    description: "The background color of the indicator. Accepts Tailwind CSS classes.",
+  },
+]} />
+
+
+## Dependencies
+
+This component uses the following third-party dependencies:
+
+- [`react-use-measure`](https://github.com/pmndrs/react-use-measure)
+
