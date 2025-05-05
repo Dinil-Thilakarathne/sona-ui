@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node copy-sources.js",
     "dev": "next dev --turbopack",
+    "prebuild": "node copy-sources.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
