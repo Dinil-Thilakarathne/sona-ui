@@ -2,7 +2,7 @@
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import React from "react";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import TabSlider from "../sonaui/TabSlider/TabSlider";
+import ExpandableTabs from "../sonaui/expandableTabs/ExpandableTabs";
 import { IconType } from "react-icons";
 
 type TabDataType = {
@@ -29,12 +29,12 @@ const TabData: TabDataType[] = [
   },
 ];
 
-const TabSlider_ex1 = () => {
+const ExpandableTabs_ex1 = () => {
   return (
-    <ComponentWrapper>
-      <TabSlider tabs={TabData} />
+    <ComponentWrapper className="border-none shadow-none">
+      <ExpandableTabs tabs={TabData} />
     </ComponentWrapper>
   );
 };
 
-export default TabSlider_ex1;
+export default ExpandableTabs_ex1;
