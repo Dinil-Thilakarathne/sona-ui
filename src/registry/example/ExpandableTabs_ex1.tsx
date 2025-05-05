@@ -31,7 +31,7 @@ const TabData: TabDataType[] = [
 
 const ExpandableTabs_ex1 = () => {
   return (
-    <ComponentWrapper className="border-none shadow-none">
+    <ComponentWrapper>
       <ExpandableTabs tabs={TabData} />
     </ComponentWrapper>
   );

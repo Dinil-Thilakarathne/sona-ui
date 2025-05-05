@@ -34,7 +34,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
       const fetchFileContent = async () => {
         try {
           const response = await fetch(
-            `/api/read-file?directory=${filePath.directory}&fileName=${filePath.fileName}`,
+            `/api/read-file?folder=${filePath.directory}&file=${filePath.fileName}`,
           );
           const data = await response.json();
           if (data.content) {
@@ -64,7 +64,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
         setIsExpanded(true);
       }
     }
-    if(filePath) {
+    if (filePath) {
       setIsExpanded(false);
     }
   }, [codeContent, filePath]);
@@ -76,7 +76,6 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
 
   // Display only the first 10 lines of code if not expanded
   const displayedContent = isExpanded

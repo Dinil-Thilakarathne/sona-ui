@@ -1,0 +1,42 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Support __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Paths
+const sourceBase = path.join(__dirname, "src", "registry", "sonaui");
+const targetBase = path.join(__dirname, "public", "__registry__", "sonaui");
+
+function copyTSXFilesRecursively(srcDir, targetDir) {
+  const items = fs.readdirSync(srcDir, { withFileTypes: true });
+
+  items.forEach((item) => {
+    const srcPath = path.join(srcDir, item.name);
+    const targetPath = path.join(targetDir, item.name);
+
+    if (item.isDirectory()) {
+      copyTSXFilesRecursively(srcPath, targetPath); // Recurse into subfolders
+    } else if (item.isFile() && path.extname(item.name) === ".tsx") {
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
+      }
+
+      const content = fs.readFileSync(srcPath, "utf-8");
+      const fileName = path.basename(item.name, ".tsx") + ".txt";
+      const destPath = path.join(targetDir, fileName);
+
+      fs.writeFileSync(destPath, content, "utf-8");
+      console.log(`✔ Copied: ${srcPath} → ${destPath}`);
+    }
+  });
+}
+
+try {
+  copyTSXFilesRecursively(sourceBase, targetBase);
+  console.log("✅ All .tsx files copied and converted to .txt under /public/__registry__/");
+} catch (err) {
+  console.error("❌ Error during copy:", err);
+}

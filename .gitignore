@@ -43,3 +43,6 @@ next-env.d.ts
 
 # content collection
 /.content-collections
+
+# component public registry
+/public/__registry__

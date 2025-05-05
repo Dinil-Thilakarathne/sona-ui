@@ -30,6 +30,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-  ],
+, "copy-sources.js"  ],
   "exclude": ["node_modules"]
 }
