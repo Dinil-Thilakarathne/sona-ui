@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import React, { useState } from "react";
 import { IconType } from "react-icons";
 
-interface TabSliderProps {
+interface ExpandableTabsProps {
   tabs: {
     title: string;
     icon: IconType;
@@ -12,13 +12,13 @@ interface TabSliderProps {
   containerClassName?: string;
 }
 
-const TabSlider = ({ tabs, containerClassName }: TabSliderProps) => {
-  const [isActive, setIsActive] = useState(0);
+const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
+  const [isActive, setIsActive] = useState(-1);
 
   return (
     <motion.div
       className={cn(
-        "flex space-x-2 rounded-full border bg-blue-200 p-2 transition-[width] will-change-[width,_contents]",
+        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
         containerClassName,
       )}
       layout
@@ -30,7 +30,7 @@ const TabSlider = ({ tabs, containerClassName }: TabSliderProps) => {
           className={cn(
             "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
             "transition-[width,_background-color] duration-300 ease-in-out",
-            isActive === index && "bg-purple-300",
+            isActive === index && "bg-slate-300",
           )}
           onClick={() => setIsActive(index)}
         >
@@ -53,7 +53,7 @@ const TabSlider = ({ tabs, containerClassName }: TabSliderProps) => {
   );
 };
 
-export default TabSlider;
+export default ExpandableTabs;
 
 const TabItemVariants = {
   active: {

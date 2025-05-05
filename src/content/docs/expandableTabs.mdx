@@ -1,12 +1,12 @@
 ---
-title: Tab Slider
-slug: tabSlider
+title: Expandable Tabs
+slug: expandableTabs
 tags: ["UI", "tabs", "Component"]
 ---
 
-# Tab Slider Component
+# Expandable Tabs Component
 
-The `TabSlider` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.
+The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.
 
 ## Features
 
@@ -17,7 +17,7 @@ The `TabSlider` component is a dynamic and interactive UI element designed for c
 
 ## Preview
 
-<ComponentPreview componentPath="TabSlider_ex1.tsx" />
+<ComponentPreview componentPath="ExpandableTabs_ex1.tsx" />
 
 ## Source Code
 
@@ -50,7 +50,7 @@ export default function Page() {
     ];
 
     return (
-             <TabSlider tabs={TabData} />
+             <ExpandableTabs tabs={TabData} />
     )
 }`
           }
@@ -58,13 +58,13 @@ export default function Page() {
       ),
     },
     {
-      title: "TabSlider.tsx",
+      title: "ExpandableTabs.tsx",
       content: (
         <CodeSyntaxHighlighter
           language="tsx"
           filePath={{
-            directory: "/src/registry/sonaui/TabSlider",
-            fileName: "TabSlider.tsx",
+            directory: "/src/registry/sonaui/ExpandableTabs",
+            fileName: "ExpandableTabs.tsx",
           }}
         />
       ),
