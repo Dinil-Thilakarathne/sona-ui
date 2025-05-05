@@ -1,0 +1,108 @@
+---
+title: Magnetic Button
+slug: magneticButton
+tags: ["UI", "button", "Component"]
+---
+
+# Magnetic Button Component
+
+The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.
+
+## Features
+
+- **Magnetic Effect**: Attracts the cursor when it is within a defined range.
+- **Customizable Intensity**: Adjust the magnetic pull strength.
+- **Flexible Interaction Area**: Choose between self, parent, or global interaction areas.
+- **Smooth Animations**: Uses spring-based animations for smooth transitions.
+- **Lightweight**: Minimal dependencies and optimized for performance.
+
+## Preview
+
+<ComponentPreview componentPath="MagneticButton_ex1.tsx" />
+
+## Source Code
+
+<Tabs
+  tabs={[
+    {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`export default function Page() {
+    return (
+        <div className="rounded-full border border-dashed border-red-400 p-2">
+            <Magnetic interactionArea="parent">
+            <button className="rounded-full bg-blue-400 px-6 py-4 font-semibold text-white cursor-pointer">
+                Magnetic Button
+            </button>
+            </Magnetic>
+        </div>
+        )
+}`}
+        />
+      ),
+    },
+    {
+      title: "MagneticButton.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          filePath={{
+            directory: "/src/registry/sonaui/magnetic",
+            fileName: "MagneticButton.tsx",
+          }}
+        />
+      ),
+    },
+  ]}
+/>
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      default: "required",
+      description: "The content to be rendered inside the magnetic button.",
+    },
+    {
+      name: "magneticIntensity",
+      type: "number",
+      default: "0.6",
+      description: "The intensity of the magnetic pull effect.",
+    },
+    {
+      name: "magneticRange",
+      type: "number",
+      default: "100",
+      description: "The range within which the magnetic effect is active.",
+    },
+    {
+      name: "interactionArea",
+      type: "'self' | 'parent'",
+      default: "'self'",
+      description: "Defines the area of interaction for the magnetic effect.",
+    },
+    {
+      name: "springConfig",
+      type: "SpringOptions",
+      default: "{ stiffness: 30, damping: 6, mass: 0.6 }",
+      description: "Configuration for the spring animation.",
+    },
+    {
+      name: "customClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional class names for custom styling.",
+    },
+  ]}
+/>
+
+## Dependencies
+
+This component uses the following third-party dependencies:
+
+- [`@motion/react`](https://motion.dev/)
