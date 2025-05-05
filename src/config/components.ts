@@ -34,10 +34,10 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
     slug: "expandableTabs",
     href: "/docs/expandableTabs",
   },
-  // {
-  //   name: "Magnetic Button",
-  //   tag: "new",
-  //   slug: "magneticButton",
-  //   href: "/docs/magneticButton",
-  // },
+  {
+    name: "Magnetic Button",
+    tag: "new",
+    slug: "magneticButton",
+    href: "/docs/magneticButton",
+  },
 ];
