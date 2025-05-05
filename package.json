@@ -36,6 +36,9 @@
     "@content-collections/mdx": "^0.2.2",
     "@content-collections/next": "^0.2.6",
     "@eslint/eslintrc": "^3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -44,6 +47,7 @@
     "eslint-config-next": "15.3.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "semantic-release": "^24.2.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
