@@ -46,3 +46,6 @@ next-env.d.ts
 
 # component public registry
 /public/__registry__
+
+# local log files
+*.log

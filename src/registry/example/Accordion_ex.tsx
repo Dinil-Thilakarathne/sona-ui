@@ -8,7 +8,7 @@ import {
   AccordionRoot,
 } from "../sonaui/accordion/Accordion";
 
-const Accordion_ex1 = () => {
+const Accordion_ex = () => {
   const accordionData = [
     {
       value: "item-1",
@@ -68,4 +68,4 @@ const Accordion_ex1 = () => {
   );
 };
 
-export default Accordion_ex1;
+export default Accordion_ex;

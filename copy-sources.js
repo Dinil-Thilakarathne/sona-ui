@@ -10,6 +10,14 @@ const __dirname = path.dirname(__filename);
 const sourceBase = path.join(__dirname, "src", "registry", "sonaui");
 const targetBase = path.join(__dirname, "public", "__registry__", "sonaui");
 
+// Add a function to log messages to a file
+const logFilePath = path.join(__dirname, "copy-sources.log");
+
+function logMessage(message) {
+  const timestamp = new Date().toISOString();
+  fs.appendFileSync(logFilePath, `[${timestamp}] ${message}\n`, "utf-8");
+}
+
 function copyTSXFilesRecursively(srcDir, targetDir) {
   const items = fs.readdirSync(srcDir, { withFileTypes: true });
 
@@ -29,14 +37,16 @@ function copyTSXFilesRecursively(srcDir, targetDir) {
       const destPath = path.join(targetDir, fileName);
 
       fs.writeFileSync(destPath, content, "utf-8");
-      console.log(`✔ Copied: ${srcPath} → ${destPath}`);
+      logMessage(`✔ Copied: ${srcPath} → ${destPath}`);
     }
   });
 }
 
 try {
   copyTSXFilesRecursively(sourceBase, targetBase);
-  console.log("✅ All .tsx files copied and converted to .txt under /public/__registry__/");
+  logMessage(
+    "✅ All .tsx files copied and converted to .txt under /public/__registry__/",
+  );
 } catch (err) {
-  console.error("❌ Error during copy:", err);
+  logMessage(`❌ Error during copy: ${err.message}`);
 }

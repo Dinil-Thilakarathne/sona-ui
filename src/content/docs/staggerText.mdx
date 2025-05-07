@@ -16,13 +16,13 @@ A text component with staggered animation.
 
 ## Preview
 
-<ComponentPreview componentPath="StaggerText_ex1.tsx" />
+<ComponentPreview componentPath="StaggerText_ex.tsx" />
 
 ## Source code
 
 <Tabs
   tabs={[
-        {
+    {
       title: "Page.tsx",
       content: (
         <CodeSyntaxHighlighter
@@ -31,8 +31,7 @@ A text component with staggered animation.
     return (
           <StaggerText text="Hover me!" />
     )
-}`
-          }
+}`}
         />
       ),
     },
@@ -53,23 +52,25 @@ A text component with staggered animation.
 
 ## Props
 
-<PropTable data={[
-  {
-    name: "text",
-    type: "string",
-    default: "required",
-    description: "The text content to be displayed with staggered animation.",
-  },
-  {
-    name: "className",
-    type: "string",
-    default: "undefined",
-    description: "Additional CSS classes for the container.",
-  },
-  {
-    name: "As",
-    type: "'h1' | 'h2' | 'h3' | 'span' | 'p'",
-    default: "'span'",
-    description: "The HTML tag to be used for the text container.",
-  },
-]} />
+<PropTable
+  data={[
+    {
+      name: "text",
+      type: "string",
+      default: "required",
+      description: "The text content to be displayed with staggered animation.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS classes for the container.",
+    },
+    {
+      name: "As",
+      type: "'h1' | 'h2' | 'h3' | 'span' | 'p'",
+      default: "'span'",
+      description: "The HTML tag to be used for the text container.",
+    },
+  ]}
+/>

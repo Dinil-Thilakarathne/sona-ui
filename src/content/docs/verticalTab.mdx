@@ -16,10 +16,9 @@ The `VerticalTab` component is a versatile and interactive UI element designed f
 - **Responsive**: Works seamlessly across different screen sizes.
 - **Lightweight**: Minimal dependencies and optimized for performance.
 
-
 ## Preview
 
-<ComponentPreview componentPath="VerticalTab_ex1.tsx" />
+<ComponentPreview componentPath="VerticalTab_ex.tsx" />
 
 ## Source Code
 
@@ -58,47 +57,50 @@ const VerticalTabs_data = [
     return (
               <VerticalTab tabs={VerticalTabs_data} indicatorBgColor="bg-blue-200"/>
     )
+
 }`
-          }
-        />
-      ),
-    },
-    {
-      title: "VerticalTab.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
+}
+/>
+),
+},
+{
+title: "VerticalTab.tsx",
+content: (
+<CodeSyntaxHighlighter
+language="tsx"
+filePath={{
             directory: "verticalTab",
             fileName: "VerticalTab",
           }}
-        />
-      ),
-    },
-  ]}
+/>
+),
+},
+]}
 />
 
 ## Props
 
-<PropTable data={[
-  {
-    name: "tabs",
-    type: "{ title: string }[]",
-    default: "required",
-    description: "An array of tab objects, each containing a title for the tab.",
-  },
-  {
-    name: "indicatorBgColor",
-    type: "string",
-    default: "'bg-blue-500'",
-    description: "The background color of the indicator. Accepts Tailwind CSS classes.",
-  },
-]} />
-
+<PropTable
+  data={[
+    {
+      name: "tabs",
+      type: "{ title: string }[]",
+      default: "required",
+      description:
+        "An array of tab objects, each containing a title for the tab.",
+    },
+    {
+      name: "indicatorBgColor",
+      type: "string",
+      default: "'bg-blue-500'",
+      description:
+        "The background color of the indicator. Accepts Tailwind CSS classes.",
+    },
+  ]}
+/>
 
 ## Dependencies
 
 This component uses the following third-party dependencies:
 
 - [`react-use-measure`](https://github.com/pmndrs/react-use-measure)
-

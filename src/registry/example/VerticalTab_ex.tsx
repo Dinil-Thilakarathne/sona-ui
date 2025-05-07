@@ -26,7 +26,7 @@ const VerticalTabs_data = [
   },
 ];
 
-const VerticalTab_ex1 = () => {
+const VerticalTab_ex = () => {
   return (
     <div className="flex w-full flex-col items-center justify-center">
       <ComponentWrapper className="_border-none _shadow-none _sm:w-fit">
@@ -36,4 +36,4 @@ const VerticalTab_ex1 = () => {
   );
 };
 
-export default VerticalTab_ex1;
+export default VerticalTab_ex;
