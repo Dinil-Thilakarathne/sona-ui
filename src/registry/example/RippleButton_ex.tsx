@@ -22,7 +22,7 @@ interface RippleButtonEx1Props
   className?: string;
 }
 
-const RippleButton_ex1 = ({
+const RippleButton_ex = ({
   textProps,
   buttonProps,
   className,
@@ -40,4 +40,4 @@ const RippleButton_ex1 = ({
   );
 };
 
-export default RippleButton_ex1;
+export default RippleButton_ex;

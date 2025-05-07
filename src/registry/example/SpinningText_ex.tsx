@@ -2,7 +2,7 @@ import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import React from "react";
 import { SpinningText } from "../sonaui/spinningText/SpinningText";
 
-const SpinningText_ex1 = () => {
+const SpinningText_ex = () => {
   return (
     <ComponentWrapper>
       <div className="flex min-h-[320px] items-center justify-center">
@@ -12,4 +12,4 @@ const SpinningText_ex1 = () => {
   );
 };
 
-export default SpinningText_ex1;
+export default SpinningText_ex;
