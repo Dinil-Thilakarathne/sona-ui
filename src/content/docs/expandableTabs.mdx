@@ -17,7 +17,7 @@ The `ExpandableTabs` component is a dynamic and interactive UI element designed 
 
 ## Preview
 
-<ComponentPreview componentPath="ExpandableTabs_ex1.tsx" />
+<ComponentPreview componentPath="ExpandableTabs_ex.tsx" />
 
 ## Source Code
 
@@ -52,39 +52,43 @@ export default function Page() {
     return (
              <ExpandableTabs tabs={TabData} />
     )
+
 }`
-          }
-        />
-      ),
-    },
-    {
-      title: "ExpandableTabs.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
+}
+/>
+),
+},
+{
+title: "ExpandableTabs.tsx",
+content: (
+<CodeSyntaxHighlighter
+language="tsx"
+filePath={{
             directory: "expandableTabs",
             fileName: "ExpandableTabs",
           }}
-        />
-      ),
-    },
-  ]}
+/>
+),
+},
+]}
 />
 
 ## Props
 
-<PropTable data={[
-  {
-    name: "tabs",
-    type: "{ title: string; icon: IconType}[]",
-    default: "required",
-    description: "An array of tab objects, each containing a title and an icon for the tab.",
-  },
-  {
-    name: "containerClassName",
-    type: "string",
-    default: "undefined",
-    description: "Additional class names for the container element.",
-  },
-]} />
+<PropTable
+  data={[
+    {
+      name: "tabs",
+      type: "{ title: string; icon: IconType}[]",
+      default: "required",
+      description:
+        "An array of tab objects, each containing a title and an icon for the tab.",
+    },
+    {
+      name: "containerClassName",
+      type: "string",
+      default: "undefined",
+      description: "Additional class names for the container element.",
+    },
+  ]}
+/>
