@@ -28,8 +28,6 @@ jobs:
           curl -fsSL https://bun.sh/install | bash
           echo 'export PATH="/home/runner/.bun/bin:$PATH"' >> $GITHUB_ENV
 
-      - name: Install dependencies
-        run: bun install
 
       - name: Run Semantic Release
         env:
