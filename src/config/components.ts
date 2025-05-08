@@ -24,13 +24,11 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
   },
   {
     name: "Vertical Tab",
-    tag: "new",
     slug: "verticalTab",
     href: "/docs/verticalTab",
   },
   {
     name: "Expandable Tabs",
-    tag: "new",
     slug: "expandableTabs",
     href: "/docs/expandableTabs",
   },
@@ -39,5 +37,11 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
     tag: "new",
     slug: "magneticButton",
     href: "/docs/magneticButton",
+  },
+  {
+    name: "Link Preview",
+    tag: "new",
+    slug: "linkPreview",
+    href: "/docs/linkPreview",
   },
 ];
