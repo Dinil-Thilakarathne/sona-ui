@@ -7,6 +7,8 @@ import Header from "@/components/Header";
 import { clashDisplay } from "@/fonts";
 import { PostHogProvider } from "./providers";
 import { SITE_METADATA } from "@/config/site";
+import { ThemeProvider } from "@/components/Common/theme-provider";
+import LayoutWrapper from "@/components/Common/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,13 +61,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} `}
       >
         <PostHogProvider>
-          <Header />
-          {children}
+          <ThemeProvider
+            // attribute="class"
+            // defaultTheme="system"
+            // enableSystem
+            // enableColorScheme
+          >
+            <LayoutWrapper>
+              <Header />
+              {children}
+            </LayoutWrapper>
+          </ThemeProvider>
         </PostHogProvider>
       </body>
     </html>
