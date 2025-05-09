@@ -1,5 +1,5 @@
 const config = {
-  branches: ["main", "dev"],
+  branches: ["master", "dev"],
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
