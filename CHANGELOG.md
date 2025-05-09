@@ -1,3 +1,19 @@
+# [1.1.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.0.0...v1.1.0) (2025-05-09)
+
+
+### Bug Fixes
+
+* enhance styling for StartCount component with group hover effects ([4e74ba4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4e74ba49aaf415fdba07f0c4e522e9a95afd99c5))
+* improve LinkPreview component styling and hover behavior ([a1e6f64](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a1e6f64b940892b6f42373307ad51c23b6f4dc58))
+* remove 'new' tag from Vertical Tab and Expandable Tabs components ([563385d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/563385d00d639d8d5e98765b8a0b21d3ae1cbe48))
+* update branch references from 'main' to 'master' in release configuration ([7744629](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7744629ddb80bd0d29f33dca531a7185102e82f4))
+* update branch references from 'main' to 'master' in release workflow ([9e4807b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9e4807bdcec3188ce8de289289301e9cb106ac01))
+
+
+### Features
+
+* add GitHub Actions workflow to sync components.json to CLI repo ([3c35ce5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3c35ce598bc4f97688f0d140078f3883dc100162))
+
 # 1.0.0 (2025-05-07)
 
 
