@@ -8,6 +8,7 @@ import SidebarLink from "../Common/SidebarLink";
 
 import { navLinks } from "@/lib/data";
 import { GIT_REP_LINK } from "@/lib/constants";
+import { ModeToggle } from "../Common/ModeToggle";
 
 const Header = () => {
   return (
@@ -29,6 +30,7 @@ const Header = () => {
               <SidebarLink {...link} />
             </div>
           ))}
+          <ModeToggle />
         </nav>
       </div>
     </header>
