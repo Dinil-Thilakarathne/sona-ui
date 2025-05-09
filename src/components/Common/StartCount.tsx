@@ -10,10 +10,10 @@ const StartCount = () => {
   const { stars } = useGitStars("Dinil-Thilakarathne", "sona-ui");
 
   return (
-    <span className="flex items-center justify-center space-x-1.5 text-sm">
+    <span className="group flex items-center justify-center space-x-1.5 text-sm">
       <FaGithub />
       <span className="leading-[14px]">Star on GitHub</span>
-      <FaStar className="mb-0.5 text-[14px]" />
+      <FaStar className="mb-0.5 text-[14px] group-hover:text-yellow-400" />
       <span className="leading-[14px]">0{stars}</span>
     </span>
   );

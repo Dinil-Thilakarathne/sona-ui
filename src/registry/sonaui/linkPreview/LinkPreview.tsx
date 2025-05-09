@@ -23,7 +23,6 @@ const LinkPreview = ({
   const [previewRef, previewBounds] = useMeasure();
 
   const [isHover, setIsHover] = useState(false);
-  
 
   return (
     <>
@@ -52,24 +51,28 @@ const LinkPreview = ({
           {isHover && (
             <motion.div
               ref={previewRef}
-              className="absolute overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl origin-center"
+              className="absolute w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl"
               style={{
                 left: previewBounds.width / -2,
                 top: previewBounds.height / -1,
               }}
               initial={{ opacity: 0, width: 0, height: 0 }}
-              animate={{ opacity: 1, width: "auto", height: "auto" }}
-              exit={{ opacity: 0, }}
+              animate={{ opacity: 1, width: "fit-content", height: "auto" }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <motion.div className="flex flex-col gap-y-2 rounded-xl px-4 py-2">
+              <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
                 <div className="flex w-full justify-between text-sm">
                   External Link
                   <Link href={link}>
                     <FaArrowUpRightFromSquare />
                   </Link>
                 </div>
-                <Link href={link} {...linkProps} className="underline">
+                <Link
+                  href={link}
+                  {...linkProps}
+                  className="text-nowrap underline"
+                >
                   {link}
                 </Link>
               </motion.div>

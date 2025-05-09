@@ -1,0 +1,36 @@
+name: Sync components.json to CLI repo
+
+on:
+  push:
+    paths:
+      - 'components.json'  # Only trigger when this file changes
+  workflow_dispatch:
+
+jobs:
+  sync-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Main Repo
+        uses: actions/checkout@v3
+
+      - name: Clone CLI Repo
+        run: |
+          git clone https://x-access-token:${{ secrets.CLI_REPO_TOKEN }}@github.com/Dinil-Thilakarathne/sonaui-cli.git cli-temp
+          cp components.json cli-temp/components.json
+        env:
+          CI: true
+
+      - name: Commit and Push as Yourself
+        run: |
+          cd cli-temp
+          git config user.name "Dinil Thilakarathne"
+          git config user.email "your-email@example.com"
+          git add components.json
+
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
+          else
+            git commit -m "chore: sync components.json from main repo"
+            git push https://x-access-token:${{ secrets.CLI_REPO_TOKEN }}@github.com/<your-username>/<cli-repo-name>.git HEAD:main
+          fi
