@@ -34,7 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h2 className="mb-4 border-b text-lg font-medium text-gray-800">
+        <h2 className="mb-4 border-b text-lg font-medium text-slate-900 dark:text-slate-100">
           {title}
         </h2>
         <nav className="space-y-2">
