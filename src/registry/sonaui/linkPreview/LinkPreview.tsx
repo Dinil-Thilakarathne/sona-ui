@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 import { AnimatePresence, motion } from "motion/react";
@@ -54,7 +54,7 @@ export default function LinkPreview({
               className="absolute w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 dark:bg-slate-600 shadow-xl"
               style={{
                 left: previewBounds.width / -2,
-                top: previewBounds.height / -1,
+                top: previewBounds.height * -1,
               }}
               initial={{ opacity: 0, width: 0, height: 0 }}
               animate={{ opacity: 1, width: "fit-content", height: "auto" }}

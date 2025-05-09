@@ -1,8 +1,9 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { CSSProperties, useMemo } from "react";
 import { motion, Transition, Variants } from "motion/react";
-import React, { CSSProperties, useMemo } from "react";
+
+import { cn } from "@/lib/utils";
 
 type SpinningTextProps = {
   children: string | string[];

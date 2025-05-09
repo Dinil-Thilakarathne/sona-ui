@@ -1,8 +1,10 @@
 "use client";
-import { cn } from "@/lib/utils";
+
+import { useState } from "react";
 import { motion } from "motion/react";
-import React, { useState } from "react";
 import { IconType } from "react-icons";
+
+import { cn } from "@/lib/utils";
 
 interface ExpandableTabsProps {
   tabs: {
