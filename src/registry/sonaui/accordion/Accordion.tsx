@@ -71,7 +71,7 @@ const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
   return (
     <div
       role="presentation"
-      className={cn("relative overflow-hidden rounded-xl bg-white", className)}
+      className={cn("relative overflow-hidden rounded-xl bg-slate-50 dark:bg-gray-300", className)}
       style={style}
     >
       <div className="relative">{children}</div>
@@ -92,7 +92,7 @@ const AccordionItemHeader = ({
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between rounded-xl px-8 py-4 text-balance">
+    <div className="flex items-center justify-between rounded-xl px-8 py-4 text-balance text-slate-900 dark:text-slate-900 font-medium">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} strokeColor={strokeColor} />
     </div>
@@ -166,7 +166,7 @@ const AccordionItemContent = ({
           type: "tween",
         }}
         variants={variants}
-        className="pb-2 text-slate-600"
+        className="pb-2 text-slate-900 dark:text-slate-900"
         ref={ref}
       >
         {children}

@@ -15,12 +15,12 @@ interface VerticalTabProps {
   containerClassName?: string;
 }
 
-const VerticalTab = ({
+export default function VerticalTab({
   tabs,
-  indicatorBgColor = "bg-blue-200",
-  activeTabBgColor = "bg-blue-400",
+  indicatorBgColor = "bg-slate-300",
+  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
   containerClassName = "",
-}: VerticalTabProps) => {
+}: VerticalTabProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showIndicator, setShowIndicator] = useState(false);
 
@@ -56,13 +56,16 @@ const VerticalTab = ({
 
   return (
     <div
-      className={cn("relative flex border-b p-2 w-fit overflow-x-scroll", containerClassName)}
+      className={cn(
+        "relative flex w-fit overflow-x-scroll border-b p-2",
+        containerClassName,
+      )}
       onMouseLeave={() => handleMoueLeave()}
     >
       {showIndicator && (
         <motion.div
           className={cn(
-            "absolute rounded-xl bg-blue-300 will-change-[transform_width_height]",
+            "absolute rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
             indicatorBgColor,
           )}
           initial={{
@@ -88,7 +91,7 @@ const VerticalTab = ({
             className={cn(
               "relative flex cursor-pointer items-center p-2",
               "rounded-xl transition-colors duration-300",
-              "focus:ring-2 focus:ring-blue-300 focus:outline-none",
+              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
               index === activeIndex ? `${activeTabBgColor}` : "",
             )}
             onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
@@ -100,9 +103,7 @@ const VerticalTab = ({
       </div>
     </div>
   );
-};
-
-export default VerticalTab;
+}
 
 interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;

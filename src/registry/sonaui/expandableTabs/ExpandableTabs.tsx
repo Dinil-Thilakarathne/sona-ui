@@ -12,7 +12,10 @@ interface ExpandableTabsProps {
   containerClassName?: string;
 }
 
-const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
+export default function ExpandableTabs({
+  tabs,
+  containerClassName,
+}: ExpandableTabsProps) {
   const [isActive, setIsActive] = useState(-1);
 
   return (
@@ -30,7 +33,7 @@ const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
           className={cn(
             "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
             "transition-[width,_background-color] duration-300 ease-in-out",
-            isActive === index && "bg-slate-300",
+            isActive === index && "bg-slate-300 dark:text-slate-800",
           )}
           onClick={() => setIsActive(index)}
         >
@@ -51,9 +54,7 @@ const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
       ))}
     </motion.div>
   );
-};
-
-export default ExpandableTabs;
+}
 
 const TabItemVariants = {
   active: {

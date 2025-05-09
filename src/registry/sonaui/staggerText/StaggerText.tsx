@@ -13,11 +13,11 @@ interface StaggerTextProps extends React.ComponentPropsWithoutRef<"span"> {
   as?: StaggerTextEleType;
 }
 
-const StaggerText = ({
+export default function StaggerText({
   text = "text",
   className,
   as = "span",
-}: StaggerTextProps) => {
+}: StaggerTextProps) {
   const Tag = as; // Explicitly type as a React component
   const [activeIndex, setActiveIndex] = useState(5);
   const [isActive, setIsActive] = useState(false);
@@ -52,9 +52,7 @@ const StaggerText = ({
       })}
     </Tag>
   );
-};
-
-export default StaggerText;
+}
 
 interface StaggerTextItemProps
   extends React.ComponentPropsWithoutRef<typeof motion.span> {

@@ -20,7 +20,7 @@ interface MagneticProps {
   customClassName?: string;
 }
 
-export function Magnetic({
+export default function Magnetic({
   children,
   magneticIntensity = 0.6,
   magneticRange = 100,
