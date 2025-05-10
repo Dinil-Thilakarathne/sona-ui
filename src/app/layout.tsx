@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950`}
+        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950 dark:text-slate-100`}
       >
         <PostHogProvider>
           <ThemeProvider>
