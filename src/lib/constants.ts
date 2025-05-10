@@ -14,7 +14,7 @@ type heroContentProps = {
 export const heroContent: heroContentProps = {
   flag: {
     icon: BsStars,
-    text: "Sona UI v1.0 — ready for your next creative project",
+    text: "Let your UI shine — light or dark",
   },
   header: "Sona UI",
   description:
@@ -23,5 +23,3 @@ export const heroContent: heroContentProps = {
 };
 
 export const GIT_REP_LINK = "https://github.com/Dinil-Thilakarathne/sona-ui";
-
-
