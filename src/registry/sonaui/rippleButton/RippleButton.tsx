@@ -45,7 +45,7 @@ export default function RippleButton({
   const buttonClasses = useMemo(
     () =>
       cn(
-        "relative overflow-hidden rounded-full border border-slate-950 bg-slate-100 px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
+        "relative overflow-hidden rounded-full border border-slate-950 bg-slate-100 dark:bg-slate-50 px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
         className,
       ),
     [className],
@@ -63,7 +63,7 @@ export default function RippleButton({
         <motion.span
           key={ripple.key}
           className={cn(
-            "pointer-events-none absolute rounded-full bg-black",
+            "pointer-events-none absolute rounded-full bg-slate-900 dark:bg-gray-300",
             rippleStyle,
           )}
           style={{
