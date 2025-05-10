@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, type ReactNode } from "react";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
