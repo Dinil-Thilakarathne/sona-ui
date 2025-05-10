@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   motion,
   useMotionValue,
@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
 interface MagneticProps {
-  children: React.ReactNode;
+  children: ReactNode;
   magneticIntensity?: number;
   magneticRange?: number;
   interactionArea?: "self" | "parent";

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -98,7 +98,7 @@ const StaggerTextItem = ({
 
 interface StaggerItemSegmentProps
   extends React.ComponentPropsWithoutRef<typeof motion.span> {
-  children: React.ReactNode;
+  children: ReactNode;
   isCopy?: boolean;
 }
 

@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useRef,
+  type ReactNode,
+} from "react";
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -8,29 +15,29 @@ import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
 
 // Types
 interface AccordionProps {
-  children: React.ReactNode;
+  children: ReactNode;
   allowMultiple?: boolean;
   className?: string;
 }
 
 interface AccordionItemProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }
 
 interface AccordionItemHeaderProps {
   value: string;
-  children: React.ReactNode;
+  children: ReactNode;
   strokeColor?: string;
 }
 interface AccordionItemTriggerProps {
   value: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 interface AccordionItemContentProps {
-  children: React.ReactNode;
+  children: ReactNode;
   value: string;
 }
 
@@ -71,7 +78,10 @@ const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
   return (
     <div
       role="presentation"
-      className={cn("relative overflow-hidden rounded-xl bg-slate-50 dark:bg-gray-300", className)}
+      className={cn(
+        "relative overflow-hidden rounded-xl bg-slate-50 dark:bg-gray-300",
+        className,
+      )}
       style={style}
     >
       <div className="relative">{children}</div>
@@ -92,7 +102,7 @@ const AccordionItemHeader = ({
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between rounded-xl px-8 py-4 text-balance text-slate-900 dark:text-slate-900 font-medium">
+    <div className="flex items-center justify-between rounded-xl px-8 py-4 font-medium text-balance text-slate-900 dark:text-slate-900">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} strokeColor={strokeColor} />
     </div>
@@ -132,7 +142,7 @@ const AccordionItemContent = ({
   const { openItems } = context;
   const isOpen = openItems.has(value);
 
-  const ref = React.useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
