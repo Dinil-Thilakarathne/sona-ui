@@ -11,7 +11,6 @@ async function getDocFromParams({
 }) {
   const { slug } = await params;
 
-
   if (!slug) {
     throw new Error("Slug is undefined");
   }
@@ -40,11 +39,17 @@ export async function generateMetadata({
       title: doc.title,
       description: doc.description,
       url: `${SITE_METADATA.siteLink}/docs/${doc.slug}`,
+      images: [
+        {
+          url: `${SITE_METADATA.siteLink}/og/${doc.slug}-og.png`,
+          width: 1200,
+          height: 630,
+          alt: doc.title,
+        },
+      ],
     },
   };
 }
-
-
 
 export default async function DocPage({
   params,
