@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.3.0...v2.0.0) (2025-05-10)
+
+
+* feat!: new version released ([20cb49d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/20cb49d2fa784dd480a972ceb4d0661a754fba14))
+
+
+### Features
+
+* add manifest.json for PWA support ([f80cdd9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f80cdd922fdc88c6451962e70e031d02719a2dd4))
+* add robots.txt generation for SEO optimization ([0714dd2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0714dd2fc5f7a8c908d313db7b9fd00ecac201b4))
+* add sitemap generation for improved SEO ([830db1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/830db1fd7681ac1f591f26a7323728933f08daa7))
+
+
+### BREAKING CHANGES
+
+* new version released
+
 # [1.3.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.2.0...v1.3.0) (2025-05-10)
 
 
