@@ -33,13 +33,11 @@ export default function VerticalTab({
     ref(tabElement); // Update the ref dynamically
     setIsMouseOver(true);
     setLastHoveredIndex(index); // Store the last hovered index
-    console.log("Mouse entered", tabElement);
   };
 
   const handleMouseLeave = () => {
     tabRef.current = null;
     setIsMouseOver(false);
-    console.log("Mouse left", tabRef.current);
     ref(null); // Reset the ref when mouse leaves
   };
 
