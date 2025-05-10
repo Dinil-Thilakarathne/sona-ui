@@ -117,7 +117,7 @@ const StaggerItemSegment: React.FC<StaggerItemSegmentProps> = ({
   return (
     <motion.span
       className={cn(
-        "h-fit text-slate-900 uppercase select-none dark:text-slate-50",
+        "h-fit text-slate-900 uppercase select-none dark:text-slate-200",
         isCopy && "absolute top-0 left-0 h-fit w-full",
         isCopy && "translate-y-full",
       )}
