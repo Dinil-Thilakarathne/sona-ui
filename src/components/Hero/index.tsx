@@ -1,48 +1,83 @@
-import React from "react";
+import { type ReactNode } from "react";
 
-import Tag from "../Common/Tag";
 import { heroContent } from "@/lib/constants";
-import Button from "../Button";
-import Fade from "../Common/Fade";
-import Sidebar from "../ComponentsSidebar";
 import { componentNavigationLinks } from "@/config/components";
+import Sidebar from "../ComponentsSidebar";
+import Button from "../Button";
+import {
+  NextjsIcon,
+  ReactIon,
+  TailwindIcon,
+  TypescriptIcon,
+} from "@/assets/svgs";
+import HeroGrid from "./HeroGrid";
+
+const TECH_STACK = [
+  {
+    name: "Next.js",
+    icon: <NextjsIcon />,
+  },
+  {
+    name: "React",
+    icon: <ReactIon />,
+  },
+  {
+    name: "Typescript",
+    icon: <TypescriptIcon />,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <TailwindIcon />,
+  },
+];
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[calc(100vh-75px)] flex-col items-center justify-center space-y-4 overflow-clip text-center">
+    <section className="relative flex min-h-[calc(100vh-75px)] flex-col overflow-clip">
       <div className="absolute top-0 left-0 lg:hidden">
         <Sidebar title="Components" items={componentNavigationLinks} />
       </div>
 
-      <Fade preset="Fade-up" delay={0.05}>
-        <Button className="flex items-center justify-center space-x-2" disabled>
-          <heroContent.flag.icon />
-          <span>{heroContent.flag.text}</span>
-        </Button>
-      </Fade>
-      <Fade preset="Fade-up">
-        <h1 className="text-4xl font-bold md:text-6xl lg:text-8xl">
-          {heroContent.header}
-        </h1>
-      </Fade>
-
-      <Fade preset="Fade-up" delay={0.1}>
-        <p className="max-w-2xl text-lg text-gray-600 md:text-xl">
-          {heroContent.description}
-        </p>
-      </Fade>
-
-      <div className="mt-4 flex flex-wrap justify-center gap-4">
-        {heroContent.techStack.map((tech, i) => (
-          <Fade preset="Fade-up" delay={0.15 + i * 0.1} key={tech}>
-            <Tag text={tech} type="featured" />
-          </Fade>
-        ))}
+      <div className="container mx-auto grid h-full grow items-center space-y-4 px-4 lg:grid-cols-[45%_1fr] lg:flex-row lg:space-y-0 lg:space-x-8">
+        <div className="flex h-fit flex-col gap-y-6">
+          <div className="flex w-fit items-center justify-center space-x-2 rounded-full border-slate-800 bg-slate-50 px-4 py-2 dark:bg-slate-800">
+            <heroContent.flag.icon aria-label="hero-flag-img" />
+            <span className="text-sm">{heroContent.flag.text}</span>
+          </div>
+          <div>
+            <h1 className="text-6xl font-bold lg:text-9xl">
+              {heroContent.header}
+            </h1>
+            <p className="max-w-2xl text-lg text-gray-600 md:text-xl dark:text-gray-300">
+              {heroContent.description}
+            </p>
+          </div>
+          <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
+            <Button link="/docs">
+              <span>Browse components</span>
+            </Button>
+          </div>
+          <div className="flex flex-wrap items-center gap-4 dark:text-white">
+            {TECH_STACK.map((tech) => (
+              <Icon key={tech.name} text={tech.name}>
+                {tech.icon}
+              </Icon>
+            ))}
+          </div>
+        </div>
+        <HeroGrid />
       </div>
-
-      <div className="absolute -right-[15%] -bottom-[10%] -z-10 aspect-square w-[50vw] rounded-full bg-gradient-to-br from-blue-400 to-purple-300 opacity-50 blur-3xl" />
     </section>
   );
 };
 
 export default Hero;
+
+const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
+  return (
+    <div className="flex items-center gap-x-2">
+      {children}
+      <span className="text-sm font-medium">{text}</span>
+    </div>
+  );
+};

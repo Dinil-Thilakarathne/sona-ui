@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, type ReactNode } from "react";
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-export interface RippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+export interface RippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
   scaleAmount?: number;
   className?: string;
   duration?: number;
@@ -19,14 +20,14 @@ interface RippleProps {
   key: number;
 }
 
-const RippleButton: React.FC<RippleButtonProps> = ({
+export default function RippleButton({
   children,
   className,
   scaleAmount = 25,
   duration = 0.5,
   rippleStyle,
   ...props
-}) => {
+}: RippleButtonProps) {
   const [ripple, setRipple] = useState<RippleProps | null>(null);
   const [isHover, setIsHover] = useState(false);
 
@@ -44,7 +45,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
   const buttonClasses = useMemo(
     () =>
       cn(
-        "relative overflow-hidden rounded-full border border-slate-950 bg-slate-100 px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
+        "relative overflow-hidden rounded-full border border-slate-950 bg-slate-100 dark:bg-slate-50 px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
         className,
       ),
     [className],
@@ -62,7 +63,7 @@ const RippleButton: React.FC<RippleButtonProps> = ({
         <motion.span
           key={ripple.key}
           className={cn(
-            "pointer-events-none absolute rounded-full bg-black",
+            "pointer-events-none absolute rounded-full bg-slate-900 dark:bg-gray-300",
             rippleStyle,
           )}
           style={{
@@ -82,18 +83,21 @@ const RippleButton: React.FC<RippleButtonProps> = ({
       {children}
     </button>
   );
-};
+}
 
-export default RippleButton;
-
-export interface RippleButtonTextProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface RippleButtonTextProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
   text: string;
   className?: string;
 }
 
 export function RippleButtonText({ text, className }: RippleButtonTextProps) {
   return (
-    <span className={cn("text-white mix-blend-difference", className)}>
+    <span
+      className={cn("text-white mix-blend-difference", className)}
+      role="presentation"
+      aria-label="ripple-button-text"
+    >
       {text}
     </span>
   );

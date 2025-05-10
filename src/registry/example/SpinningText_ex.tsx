@@ -1,6 +1,6 @@
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import React from "react";
-import { SpinningText } from "../sonaui/spinningText/SpinningText";
+import SpinningText from "../sonaui/spinningText/SpinningText";
 
 const SpinningText_ex = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
-import React, { useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 
 import { cn } from "@/lib/utils";
@@ -15,26 +15,32 @@ interface VerticalTabProps {
   containerClassName?: string;
 }
 
-const VerticalTab = ({
+export default function VerticalTab({
   tabs,
-  indicatorBgColor = "bg-blue-200",
-  activeTabBgColor = "bg-blue-400",
+  indicatorBgColor = "bg-slate-300",
+  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
   containerClassName = "",
-}: VerticalTabProps) => {
+}: VerticalTabProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showIndicator, setShowIndicator] = useState(false);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [lastHoveredIndex, setLastHoveredIndex] = useState<number | null>(null);
 
   const [ref, bounds] = useMeasure();
   const tabRef = useRef<HTMLDivElement | null>(null);
 
-  const handleMouseEnter = (tabElement: HTMLDivElement) => {
-    setShowIndicator(true);
+  const handleMouseEnter = (tabElement: HTMLDivElement, index: number) => {
     tabRef.current = tabElement;
     ref(tabElement); // Update the ref dynamically
+    setIsMouseOver(true);
+    setLastHoveredIndex(index); // Store the last hovered index
+    console.log("Mouse entered", tabElement);
   };
 
-  const handleMoueLeave = () => {
-    setShowIndicator(false);
+  const handleMouseLeave = () => {
+    tabRef.current = null;
+    setIsMouseOver(false);
+    console.log("Mouse left", tabRef.current);
+    ref(null); // Reset the ref when mouse leaves
   };
 
   const handleMouseClick = (i: number) => {
@@ -56,23 +62,30 @@ const VerticalTab = ({
 
   return (
     <div
-      className={cn("relative flex border-b p-2 w-fit overflow-x-scroll", containerClassName)}
-      onMouseLeave={() => handleMoueLeave()}
+      className={cn(
+        "relative flex w-fit overflow-x-scroll border-b p-2",
+        containerClassName,
+      )}
+      onMouseLeave={() => handleMouseLeave()}
     >
-      {showIndicator && (
+      {isMouseOver && tabRef.current && (
         <motion.div
           className={cn(
-            "absolute rounded-xl bg-blue-300 will-change-[transform_width_height]",
+            "absolute left-0 rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
             indicatorBgColor,
           )}
           initial={{
             opacity: 0,
             width: bounds.width,
             height: bounds.height,
+            translateX:
+              lastHoveredIndex !== null && tabs[lastHoveredIndex]
+                ? tabRef.current.offsetLeft
+                : 0,
           }}
           animate={{
             opacity: 1,
-            left: tabRef.current ? tabRef.current.offsetLeft : 0,
+            translateX: tabRef.current ? tabRef.current.offsetLeft : 0,
             width: bounds.width,
             height: bounds.height,
           }}
@@ -88,21 +101,20 @@ const VerticalTab = ({
             className={cn(
               "relative flex cursor-pointer items-center p-2",
               "rounded-xl transition-colors duration-300",
-              "focus:ring-2 focus:ring-blue-300 focus:outline-none",
+              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
               index === activeIndex ? `${activeTabBgColor}` : "",
             )}
-            onMouseEnter={(e) => handleMouseEnter(e.currentTarget)}
+            onMouseEnter={(e) => handleMouseEnter(e.currentTarget, index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             onClick={() => handleMouseClick(index)}
             aria-selected={index === activeIndex}
+            aria-label={`Tab ${index + 1}`}
           />
         ))}
       </div>
     </div>
   );
-};
-
-export default VerticalTab;
+}
 
 interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;

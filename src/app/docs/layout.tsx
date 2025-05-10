@@ -1,8 +1,9 @@
-import React from "react";
+import { type ReactNode } from "react";
+
 import Sidebar from "@/components/ComponentsSidebar";
 import { componentNavigationLinks } from "@/config/components";
 
-const ComponentLayout: React.FC<{ children: React.ReactNode }> = ({
+const ComponentLayout: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   return (

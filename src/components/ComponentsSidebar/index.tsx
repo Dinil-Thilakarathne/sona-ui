@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
     <>
       {/* Menu Icon for Mobile */}
       <motion.button
-        className="fixed right-4 bottom-4 z-50 block rounded-full bg-white p-4 lg:hidden"
+        className="fixed right-4 bottom-4 z-50 block rounded-full bg-white dark:bg-slate-800 p-4 lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -30,11 +30,11 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col border-r bg-white p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 lg:bg-transparent ${
+        className={`fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col border-r bg-white p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 lg:bg-transparent dark:bg-slate-900 dark:lg:bg-slate-950 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <h2 className="mb-4 border-b text-lg font-medium text-gray-800">
+        <h2 className="mb-4 border-b text-lg font-medium text-slate-900 dark:text-slate-300">
           {title}
         </h2>
         <nav className="space-y-2">

@@ -1,8 +1,10 @@
 "use client";
-import { cn } from "@/lib/utils";
+
+import { useState } from "react";
 import { motion } from "motion/react";
-import React, { useState } from "react";
 import { IconType } from "react-icons";
+
+import { cn } from "@/lib/utils";
 
 interface ExpandableTabsProps {
   tabs: {
@@ -12,7 +14,10 @@ interface ExpandableTabsProps {
   containerClassName?: string;
 }
 
-const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
+export default function ExpandableTabs({
+  tabs,
+  containerClassName,
+}: ExpandableTabsProps) {
   const [isActive, setIsActive] = useState(-1);
 
   return (
@@ -30,12 +35,13 @@ const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
           className={cn(
             "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
             "transition-[width,_background-color] duration-300 ease-in-out",
-            isActive === index && "bg-slate-300",
+            isActive === index && "bg-slate-300 dark:text-slate-800",
           )}
           onClick={() => setIsActive(index)}
+          tabIndex={0}
         >
           <div className="h-full grow items-center justify-center">
-            <tab.icon className="text-lg" />
+            <tab.icon className="text-lg" aria-label={`${tab.title}-icon`} />
           </div>
           <motion.span
             className="overflow-hidden text-sm leading-[1]"
@@ -51,9 +57,7 @@ const ExpandableTabs = ({ tabs, containerClassName }: ExpandableTabsProps) => {
       ))}
     </motion.div>
   );
-};
-
-export default ExpandableTabs;
+}
 
 const TabItemVariants = {
   active: {

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -13,48 +13,51 @@ interface StaggerTextProps extends React.ComponentPropsWithoutRef<"span"> {
   as?: StaggerTextEleType;
 }
 
-const StaggerText = ({
+export default function StaggerText({
   text = "text",
   className,
-  as = "span",
-}: StaggerTextProps) => {
+  as = "h1",
+}: StaggerTextProps) {
   const Tag = as; // Explicitly type as a React component
   const [activeIndex, setActiveIndex] = useState(5);
   const [isActive, setIsActive] = useState(false);
   return (
-    <Tag
-      className={cn("overflow-clip tracking-wide select-text", className)}
-      aria-label={text}
-      onCopy={(e) => {
-        e.preventDefault();
-        e.clipboardData.setData("text/plain", text as string);
-        navigator.clipboard.writeText(text as string);
-      }}
-    >
-      {text.split("").map((char, i) => {
-        const delay = Math.abs(activeIndex - i);
-        return (
-          <StaggerTextItem
-            char={char}
-            key={i}
-            onMouseEnter={() => {
-              setActiveIndex(i);
-              setIsActive(true);
-            }}
-            onMouseLeave={() => {
-              setActiveIndex(-1);
-              setIsActive(false);
-            }}
-            delay={delay}
-            isHovered={isActive}
-          />
-        );
-      })}
-    </Tag>
+    <>
+      <h1 className="sr-only" aria-hidden="true">
+        {text}
+      </h1>
+      <Tag
+        className={cn("overflow-clip tracking-wide select-text", className)}
+        aria-label={text}
+        onCopy={(e) => {
+          e.preventDefault();
+          e.clipboardData.setData("text/plain", text as string);
+          navigator.clipboard.writeText(text as string);
+        }}
+      >
+        {text.split("").map((char, i) => {
+          const delay = Math.abs(activeIndex - i);
+          return (
+            <StaggerTextItem
+              char={char}
+              key={i}
+              onMouseEnter={() => {
+                setActiveIndex(i);
+                setIsActive(true);
+              }}
+              onMouseLeave={() => {
+                setActiveIndex(-1);
+                setIsActive(false);
+              }}
+              delay={delay}
+              isHovered={isActive}
+            />
+          );
+        })}
+      </Tag>
+    </>
   );
-};
-
-export default StaggerText;
+}
 
 interface StaggerTextItemProps
   extends React.ComponentPropsWithoutRef<typeof motion.span> {
@@ -100,7 +103,7 @@ const StaggerTextItem = ({
 
 interface StaggerItemSegmentProps
   extends React.ComponentPropsWithoutRef<typeof motion.span> {
-  children: React.ReactNode;
+  children: ReactNode;
   isCopy?: boolean;
 }
 

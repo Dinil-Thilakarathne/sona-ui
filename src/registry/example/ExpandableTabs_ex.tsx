@@ -3,7 +3,7 @@ import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import React from "react";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "../sonaui/expandableTabs/ExpandableTabs";
-import { IconType } from "react-icons";
+import {type IconType } from "react-icons";
 
 type TabDataType = {
   title: string;
