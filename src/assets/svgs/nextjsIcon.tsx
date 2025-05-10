@@ -6,6 +6,7 @@ export default function NextjsIcon() {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label="Next.js Icon"
     >
       <path
         d="M12 0.25C18.4893 0.25 23.75 5.51065 23.75 12C23.75 18.4893 18.4893 23.75 12 23.75C5.51065 23.75 0.25 18.4893 0.25 12C0.25 5.51065 5.51065 0.25 12 0.25Z"

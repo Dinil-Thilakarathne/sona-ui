@@ -1,4 +1,4 @@
-export default function TypescriptIcon() {
+export default function TailwindIcon() {
   return (
     <svg
       width="24"
@@ -6,6 +6,7 @@ export default function TypescriptIcon() {
       viewBox="0 0 24 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-label="Typescript Icon"
     >
       <g clipPath="url(#clip0_59_11)">
         <path
