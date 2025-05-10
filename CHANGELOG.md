@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.0...v2.0.1) (2025-05-10)
+
+
+### Bug Fixes
+
+* update button link to point to the correct documentation home page ([3198621](https://github.com/Dinil-Thilakarathne/sona-ui/commit/31986210882286d02ad4cb10c77f00d9aa5905e5))
+
 # [2.0.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.3.0...v2.0.0) (2025-05-10)
 
 
