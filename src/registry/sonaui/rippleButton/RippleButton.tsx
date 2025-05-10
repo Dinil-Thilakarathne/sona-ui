@@ -93,7 +93,11 @@ export interface RippleButtonTextProps
 
 export function RippleButtonText({ text, className }: RippleButtonTextProps) {
   return (
-    <span className={cn("text-white mix-blend-difference", className)}>
+    <span
+      className={cn("text-white mix-blend-difference", className)}
+      role="presentation"
+      aria-label="ripple-button-text"
+    >
       {text}
     </span>
   );

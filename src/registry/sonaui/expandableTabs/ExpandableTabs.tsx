@@ -38,9 +38,10 @@ export default function ExpandableTabs({
             isActive === index && "bg-slate-300 dark:text-slate-800",
           )}
           onClick={() => setIsActive(index)}
+          tabIndex={0}
         >
           <div className="h-full grow items-center justify-center">
-            <tab.icon className="text-lg" />
+            <tab.icon className="text-lg" aria-label={`${tab.title}-icon`} />
           </div>
           <motion.span
             className="overflow-hidden text-sm leading-[1]"
