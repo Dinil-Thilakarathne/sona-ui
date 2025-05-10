@@ -1,3 +1,5 @@
+import { type ReactNode } from "react";
+
 import { cn } from "@/lib/utils";
 import Fade from "@/components/Common/Fade";
 import ExpandableTabs_ex from "@/registry/example/ExpandableTabs_ex";
@@ -35,7 +37,7 @@ export default function HeroGrid() {
 }
 
 type GridItemProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   index: number;
   className?: string;
 };

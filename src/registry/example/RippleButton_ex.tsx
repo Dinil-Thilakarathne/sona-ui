@@ -1,5 +1,6 @@
+import { type ReactNode } from "react";
+
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
-import React from "react";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
@@ -8,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 interface LocalRippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: React.ReactNode;
+  children?: ReactNode;
   scaleAmount?: number;
   className?: string;
   duration?: number;
