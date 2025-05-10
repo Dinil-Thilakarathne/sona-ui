@@ -28,11 +28,9 @@ const VerticalTabs_data = [
 
 const VerticalTab_ex = () => {
   return (
-    <div className="flex w-full flex-col items-center justify-center">
-      <ComponentWrapper className="_border-none _shadow-none _sm:w-fit">
-        <VerticalTab tabs={VerticalTabs_data} />
-      </ComponentWrapper>
-    </div>
+    <ComponentWrapper>
+      <VerticalTab tabs={VerticalTabs_data} />
+    </ComponentWrapper>
   );
 };
 

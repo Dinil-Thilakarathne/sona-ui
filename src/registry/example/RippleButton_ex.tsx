@@ -17,8 +17,8 @@ interface LocalRippleButtonProps
 
 interface RippleButtonEx1Props
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonProps: LocalRippleButtonProps;
-  textProps: RippleButtonTextProps;
+  buttonProps?: LocalRippleButtonProps;
+  textProps?: RippleButtonTextProps;
   className?: string;
 }
 
