@@ -41,7 +41,7 @@ const Hero = () => {
       <div className="container mx-auto grid h-full grow grid-cols-[45%_1fr] items-center space-y-4 px-4 lg:flex-row lg:space-y-0 lg:space-x-8">
         <div className="flex h-fit flex-col gap-y-6">
           <div className="flex w-fit items-center justify-center space-x-2 rounded-full border-slate-800 bg-slate-50 px-4 py-2 dark:bg-slate-800">
-            <heroContent.flag.icon />
+            <heroContent.flag.icon aria-label="hero-flag-img" />
             <span>{heroContent.flag.text}</span>
           </div>
           <div>
@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
           <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
             <Button link="/docs">
-              <span >Browse components</span>
+              <span>Browse components</span>
             </Button>
           </div>
           <div className="flex flex-wrap items-center gap-4 dark:text-white">

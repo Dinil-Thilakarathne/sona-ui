@@ -1,7 +1,6 @@
 import { type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
-import Fade from "@/components/Common/Fade";
 import ExpandableTabs_ex from "@/registry/example/ExpandableTabs_ex";
 import Magnetic_ex from "@/registry/example/MagneticButton_ex";
 import RippleButton_ex from "@/registry/example/RippleButton_ex";
@@ -28,7 +27,7 @@ export default function HeroGrid() {
   return (
     <div className="grid max-h-[calc(100vh-75px)] grid-cols-2 grid-rows-2 gap-2 px-4 py-8">
       {HERO_GRID_ITEMS.map((item, index) => (
-        <GridItem key={index} className={cn(item.className)} index={index}>
+        <GridItem key={index} className={cn(item.className)}>
           {item.component}
         </GridItem>
       ))}
@@ -38,19 +37,18 @@ export default function HeroGrid() {
 
 type GridItemProps = {
   children: ReactNode;
-  index: number;
   className?: string;
 };
 
-const GridItem = ({ children, className, index }: GridItemProps) => {
+const GridItem = ({ children, className }: GridItemProps) => {
   return (
-    <Fade
-      preset="Fade-up"
-      delay={0.2 + index * 0.1}
-      containerClasses={className}
-      className="flex h-full items-center justify-center rounded-lg border border-slate-100 shadow-md shadow-slate-400 *:h-full *:border-0 dark:shadow-slate-600"
+    <div
+      className={cn(
+        "flex h-full items-center justify-center rounded-lg border border-slate-100 shadow-md shadow-slate-400 *:h-full *:border-0 dark:shadow-slate-600",
+        className,
+      )}
     >
       {children}
-    </Fade>
+    </div>
   );
 };
