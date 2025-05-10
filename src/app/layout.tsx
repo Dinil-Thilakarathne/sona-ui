@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
+import { type Metadata } from "next";
+import { type ReactNode } from "react";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
-import Header from "@/components/Header";
 import { clashDisplay } from "@/fonts";
 import { PostHogProvider } from "./providers";
 import { SITE_METADATA } from "@/config/site";
 import { ThemeProvider } from "@/components/Common/theme-provider";
+import Header from "@/components/Header";
 import LayoutWrapper from "@/components/Common/LayoutWrapper";
 
 const geistSans = Geist({
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -67,10 +69,10 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <ThemeProvider
-            // attribute="class"
-            // defaultTheme="system"
-            // enableSystem
-            // enableColorScheme
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            enableColorScheme
           >
             <LayoutWrapper>
               <Header />
