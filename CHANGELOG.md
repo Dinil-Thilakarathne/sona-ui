@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.1.0...v1.2.0) (2025-05-10)
+
+
+### Bug Fixes
+
+* update CLI repo URL in sync workflow ([15fb4fc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/15fb4fc99cb68d7328fe35b1769c465c026a07ff))
+
+
+### Features
+
+* add components.json to define UI component registry ([59eb7c1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/59eb7c1d4297f0fc710c641b70724e89adf94ce0))
+
 # [1.1.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.0.0...v1.1.0) (2025-05-09)
 
 
