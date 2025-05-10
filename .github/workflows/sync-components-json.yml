@@ -32,5 +32,5 @@ jobs:
             echo "✅ No changes to commit."
           else
             git commit -m "chore: sync components.json from main repo"
-            git push https://x-access-token:${{ secrets.CLI_REPO_TOKEN }}@github.com/<your-username>/<cli-repo-name>.git HEAD:main
+            git push https://x-access-token:${{ secrets.CLI_REPO_TOKEN }}@github.com/Dinil-Thilakarathne/sonaui-cli.git HEAD:main
           fi

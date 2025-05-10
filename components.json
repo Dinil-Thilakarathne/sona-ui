@@ -1,0 +1,34 @@
+{
+  "Accordion": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/accordion/Accordion.tsx",
+    "dependencies": ["AnimatedPlusMinusButton"]
+  },
+  "AnimatedPlusMinusButton": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/accordion/AnimatedPlusMinusButton.tsx",
+    "dependencies": []
+  },
+  "ExpandableTabs": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/expandableTabs/ExpandableTabs.tsx",
+    "dependencies": []
+  },
+  "LinkPreview": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/linkPreview/LinkPreview.tsx",
+    "dependencies": []
+  },
+  "MagneticButton": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/magnetic/MagneticButton.tsx",
+    "dependencies": []
+  },
+  "RippleButton": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/rippleButton/RippleButton.tsx",
+    "dependencies": []
+  },
+  "SpinningText": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/spinningText/SpinningText.tsx",
+    "dependencies": []
+  },
+  "VerticalTab": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/verticalTab/VerticalTab.tsx",
+    "dependencies": []
+  }
+}
