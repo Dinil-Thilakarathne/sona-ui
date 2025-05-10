@@ -10,7 +10,6 @@ import { PostHogProvider } from "./providers";
 import { SITE_METADATA } from "@/config/site";
 import { ThemeProvider } from "@/components/Common/theme-provider";
 import Header from "@/components/Header";
-import LayoutWrapper from "@/components/Common/LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,19 +64,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} `}
+        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950`}
       >
         <PostHogProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            enableColorScheme
-          >
-            <LayoutWrapper>
-              <Header />
-              {children}
-            </LayoutWrapper>
+          <ThemeProvider>
+            <Header />
+            {children}
           </ThemeProvider>
         </PostHogProvider>
       </body>
