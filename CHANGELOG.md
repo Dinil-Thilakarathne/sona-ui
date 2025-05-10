@@ -1,3 +1,25 @@
+# [1.3.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.2.0...v1.3.0) (2025-05-10)
+
+
+### Bug Fixes
+
+* update Sidebar title color for improved accessibility and consistency ([ebb7c11](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ebb7c11092aa4b264a1a7fc1277120a7b28669c9))
+
+
+### Features
+
+* add currentVersion field to SITE_METADATA for version tracking ([2b2dfee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2b2dfeeed1008d3773cf7b1fe98c4deb5cf9920b))
+* add custom variant for dark theme in globals.css ([f18f32f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f18f32f7d3ce4574ad192010a10133cb0a3e2fcf))
+* add lucide-react and next-themes dependencies ([a05e231](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a05e231cd4cdd3ac82d8e3be023aed6cbc39789f))
+* add ModeToggle component for theme switching ([799bb49](https://github.com/Dinil-Thilakarathne/sona-ui/commit/799bb49fe1a64626de7efabbf8a04e3dc6572d8b))
+* add ModeToggle component to Header for theme switching ([68b1b54](https://github.com/Dinil-Thilakarathne/sona-ui/commit/68b1b547afc547d6def42a796189a39f56e5f02b))
+* add new Open Graph images ([c958a66](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c958a664db7c29bf8d4e59559911f5111fdad364))
+* add SVG icons for React, TypeScript, Tailwind, and Next.js ([99e9412](https://github.com/Dinil-Thilakarathne/sona-ui/commit/99e941222fa95fa7a612bec8565240454520bce7))
+* create LayoutWrapper component and update Tag component for dark theme support ([ed371f4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ed371f499d21264bdd0ca736b796116889e85743))
+* implement HeroGrid component and integrate it into Hero section ([7708fd6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7708fd64427e92684ec16db33ab8232904cbcc0d))
+* implement ThemeProvider and integrate it into RootLayout ([4fec934](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4fec9343f2a72e3dc96ba13888fefcb6ab5a97d1))
+* refactor Hero component to use SVG icons and improve layout structure ([ae01365](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ae013659309ffdf75e0ce059b615c9afbcc26430))
+
 # [1.2.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v1.1.0...v1.2.0) (2025-05-10)
 
 
