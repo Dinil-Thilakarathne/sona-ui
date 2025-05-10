@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useRef } from "react";
+import { useMemo, useRef, type ReactNode } from "react";
 import { motion, useInView, Variants } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type Preset = "Fade-in" | "Fade-up" | "Fade-down";
 
 interface FadeProps {
-  children: React.ReactNode;
+  children: ReactNode;
   preset: Preset;
   fadeVariants?: Variants;
   containerClasses?: string;

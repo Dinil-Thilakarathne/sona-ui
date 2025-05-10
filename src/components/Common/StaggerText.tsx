@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
@@ -117,7 +117,7 @@ const StaggerItemSegment: React.FC<StaggerItemSegmentProps> = ({
   return (
     <motion.span
       className={cn(
-        "h-fit uppercase select-none text-slate-900 dark:text-slate-50",
+        "h-fit text-slate-900 uppercase select-none dark:text-slate-50",
         isCopy && "absolute top-0 left-0 h-fit w-full",
         isCopy && "translate-y-full",
       )}

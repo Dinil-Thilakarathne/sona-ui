@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 interface Tab {
   title: string;
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
 interface TabsProps {
