@@ -14,6 +14,7 @@ interface FadeProps {
   delay?: number;
   once?: boolean;
   bottomMargin?: number;
+  className?: string;
 }
 
 const presetVariants: Record<Preset, Variants> = {
@@ -33,6 +34,7 @@ const Fade = ({
   delay = 0,
   once = false,
   bottomMargin = -50,
+  className = "",
 }: FadeProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -57,6 +59,7 @@ const Fade = ({
         initial="initial"
         animate={isInView ? "animate" : "initial"}
         transition={{ type: "tween", duration: 0.75, delay: delay }}
+        className={className}
       >
         {children}
       </motion.div>
