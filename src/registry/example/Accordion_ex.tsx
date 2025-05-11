@@ -49,7 +49,8 @@ export default function Accordion_ex() {
     <ComponentWrapper>
       <AccordionRoot
         allowMultiple={false}
-        className="mx-auto flex max-w-4xl flex-col gap-y-4"
+        className="mx-auto max-w-4xl"
+        variant="splitted"
       >
         {accordionData.map((item) => (
           <AccordionItem key={item.value}>
@@ -67,4 +68,3 @@ export default function Accordion_ex() {
     </ComponentWrapper>
   );
 }
-
