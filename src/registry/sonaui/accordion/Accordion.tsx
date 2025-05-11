@@ -95,11 +95,11 @@ const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
     <div
       role="presentation"
       className={cn(
-        "relative overflow-hidden bg-slate-50 dark:bg-gray-400",
+        "relative overflow-hidden bg-slate-50 dark:bg-gray-300",
         variant === "default" &&
           "border-b border-slate-200 dark:border-slate-700 dark:text-gray-800",
         variant === "bordered" &&
-          "border border-slate-200 bg-transparent **:text-white dark:border-slate-700 dark:bg-transparent",
+          "border border-slate-200 bg-transparent dark:border-slate-700 dark:bg-transparent",
         variant === "splitted" && "rounded-2xl dark:text-gray-800",
         className,
       )}
@@ -119,7 +119,7 @@ const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between rounded-xl px-8 py-4 font-medium text-balance">
+    <div className="flex items-center justify-between rounded-xl px-8 pt-4 font-medium text-balance">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} />
     </div>
@@ -164,7 +164,7 @@ const AccordionItemContent = ({
 
   useEffect(() => {
     if (ref.current) {
-      setHeight(ref.current.offsetHeight);
+      setHeight(ref.current.offsetHeight + 16);
     }
   }, [isOpen]);
 
@@ -178,7 +178,7 @@ const AccordionItemContent = ({
     <motion.div
       role="region"
       aria-hidden={!isOpen}
-      className={`overflow-hidden px-8 text-sm transition-[height] duration-300`}
+      className={`overflow-hidden px-8 py-2 text-sm transition-[height] duration-300`}
       initial={{ height: 0 }}
       animate={{ height: isOpen ? height : 0 }}
       transition={{ duration: 0.3, ease: "easeIn" }}
@@ -192,8 +192,8 @@ const AccordionItemContent = ({
           delay: 0.3,
           type: "tween",
         }}
+        // className="pb-2"
         variants={variants}
-        className="pb-2"
         ref={ref}
       >
         {children}
