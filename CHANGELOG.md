@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.1...v2.0.2) (2025-05-11)
+
+
+### Bug Fixes
+
+*  clean up transition properties ([988284f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/988284fc7dfad5a0884cecd65f104a95eb0ceee8))
+
 ## [2.0.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.0...v2.0.1) (2025-05-10)
 
 
