@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 
 import { heroContent } from "@/lib/constants";
-import { componentNavigationLinks } from "@/config/components";
+import { sortedComponentNavigationLinks } from "@/config/components";
 import Sidebar from "../ComponentsSidebar";
 import Button from "../Button";
 import {
@@ -35,10 +35,10 @@ const Hero = () => {
   return (
     <section className="relative flex min-h-[calc(100vh-75px)] flex-col overflow-clip">
       <div className="absolute top-0 left-0 lg:hidden">
-        <Sidebar title="Components" items={componentNavigationLinks} />
+        <Sidebar title="Components" items={sortedComponentNavigationLinks} />
       </div>
 
-      <div className="container mx-auto grid h-full grow items-center space-y-4  lg:grid-cols-[45%_1fr] lg:flex-row lg:space-y-0 lg:space-x-8">
+      <div className="container mx-auto grid h-full grow items-center space-y-4 lg:grid-cols-[45%_1fr] lg:flex-row lg:space-y-0 lg:space-x-8">
         <div className="flex h-fit flex-col gap-y-6">
           <div className="flex w-fit items-center justify-center space-x-2 rounded-full border-slate-800 bg-slate-50 px-4 py-2 dark:bg-slate-800">
             <heroContent.flag.icon aria-label="hero-flag-img" />
