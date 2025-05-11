@@ -45,3 +45,7 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
     href: "/docs/linkPreview",
   },
 ];
+
+export const sortedComponentNavigationLinks = componentNavigationLinks.sort((a, b) => {
+  return a.name.localeCompare(b.name);
+});
