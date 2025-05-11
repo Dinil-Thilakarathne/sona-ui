@@ -3,12 +3,12 @@ import { ComponentItemsProps } from "@/lib/types";
 export const componentNavigationLinks: ComponentItemsProps[] = [
   {
     name: "Accordion",
+    tag: "updated",
     slug: "accordion",
     href: "/docs/accordion",
   },
   {
     name: "Ripple Button",
-    tag: "updated",
     slug: "rippleButton",
     href: "/docs/rippleButton",
   },
