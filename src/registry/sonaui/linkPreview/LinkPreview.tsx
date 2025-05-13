@@ -64,7 +64,7 @@ export default function LinkPreview({
         {isHover && desktop && (
           <motion.div
             ref={previewRef}
-            className="fixed z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
             style={{
               left: containerBounds.left - previewBounds.width / 2,
               top: containerBounds.top - previewBounds.height,
