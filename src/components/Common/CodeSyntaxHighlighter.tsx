@@ -30,7 +30,6 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
 
   useEffect(() => {
     if (filePath) {
-      console.log("Fetching file content from:", filePath);
       const fetchFileContent = async () => {
         try {
           const response = await fetch(

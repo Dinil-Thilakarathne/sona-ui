@@ -1,8 +1,9 @@
-import { allDocs, Doc } from ".content-collections/generated";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+import { allDocs, Doc } from ".content-collections/generated";
 import { SITE_METADATA } from "@/config/site";
 import DocClient from "./DocClient";
-import { notFound } from "next/navigation";
 
 async function getDocFromParams({
   params,
@@ -12,14 +13,15 @@ async function getDocFromParams({
   const { slug } = await params;
 
   if (!slug) {
-    throw new Error("Slug is undefined");
+    notFound();
   }
 
   // Find the document by slug
-  const doc = allDocs.find((doc: Doc) => doc.slugAsParams === `docs/${slug}`);
+  const doc = allDocs.find((doc: Doc) => doc.slug == slug);
+
 
   if (!doc) {
-    throw new Error("Document not found");
+    notFound();
   }
 
   return doc;

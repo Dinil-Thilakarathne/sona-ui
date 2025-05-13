@@ -2,8 +2,8 @@
 title: Accordion
 slug: accordion
 tags: ["UI", "Accordion", "Component"]
-componentPath: "src/app/components/accordion/Accordion.tsx"
-examplePath: "src/app/components/accordion/example/AccordionExample.tsx"
+componentPath: "src/registry/sonaui/accordion/Accordion.tsx"
+examplePath: "src/registry/sonaui/accordion/Accordion_ex.tsx"
 ---
 
 # Accordion Component
@@ -15,6 +15,8 @@ The `Accordion` component allows you to toggle the visibility of content section
 - Expandable and collapsible sections.
 - Customizable animations.
 - Lightweight and reusable.
+- Supports multiple open items with the `allowMultiple` prop.
+- Three variants: `default`, `bordered`, and `splitted`.
 
 ## Preview
 
@@ -73,6 +75,12 @@ The `Accordion` component allows you to toggle the visibility of content section
       type: "string",
       default: "undefined",
       description: "Additional CSS classes for the accordion container.",
+    },
+    {
+      name: "variant",
+      type: "'default' | 'bordered' | 'splitted'",
+      default: "default",
+      description: "The visual style of the accordion.",
     },
   ]}
 />

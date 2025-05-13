@@ -4,11 +4,9 @@ import { motion } from "framer-motion";
 
 interface AnimatedPlusMinusButtonProps {
   size?: number;
-  strokeColor?: string;
   isOpen?: boolean;
 }
 const AnimatedPlusMinusButton = ({
-  strokeColor = "black",
   size = 24,
   isOpen = false,
 }: AnimatedPlusMinusButtonProps) => {
@@ -31,7 +29,7 @@ const AnimatedPlusMinusButton = ({
           y1="12"
           x2="23"
           y2="12"
-          stroke={strokeColor}
+          stroke="currentColor"
           strokeWidth="1"
           variants={{
             closed: { opacity: 1 },
@@ -46,7 +44,7 @@ const AnimatedPlusMinusButton = ({
           y1="1"
           x2="12"
           y2="23"
-          stroke={strokeColor}
+          stroke="currentColor"
           strokeWidth="1"
           variants={{
             closed: { rotate: 0, opacity: 1 },

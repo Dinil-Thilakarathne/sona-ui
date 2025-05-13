@@ -3,12 +3,12 @@ import { ComponentItemsProps } from "@/lib/types";
 export const componentNavigationLinks: ComponentItemsProps[] = [
   {
     name: "Accordion",
+    tag: "updated",
     slug: "accordion",
     href: "/docs/accordion",
   },
   {
     name: "Ripple Button",
-    tag: "updated",
     slug: "rippleButton",
     href: "/docs/rippleButton",
   },
@@ -34,14 +34,25 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
   },
   {
     name: "Magnetic Button",
-    tag: "new",
     slug: "magneticButton",
     href: "/docs/magneticButton",
   },
   {
     name: "Link Preview",
-    tag: "new",
+    tag: "updated",
     slug: "linkPreview",
     href: "/docs/linkPreview",
   },
+  // {
+  //   name: "Marquee",
+  //   tag: "new",
+  //   slug: "marquee",
+  //   href: "/docs/marquee",
+  // },
 ];
+
+export const sortedComponentNavigationLinks = componentNavigationLinks.sort(
+  (a, b) => {
+    return a.name.localeCompare(b.name);
+  },
+);
