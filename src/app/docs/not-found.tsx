@@ -1,6 +1,7 @@
 "use client";
-import NumberFlow from "@number-flow/react";
+
 import { useEffect, useState } from "react";
+import NumberFlow from "@number-flow/react";
 
 const NotFound = () => {
   const [count, setCount] = useState<number>(111);
