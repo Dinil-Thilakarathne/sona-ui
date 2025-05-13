@@ -34,13 +34,12 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
   },
   {
     name: "Magnetic Button",
-    tag: "new",
     slug: "magneticButton",
     href: "/docs/magneticButton",
   },
   {
     name: "Link Preview",
-    tag: "new",
+    tag: "updated",
     slug: "linkPreview",
     href: "/docs/linkPreview",
   },
