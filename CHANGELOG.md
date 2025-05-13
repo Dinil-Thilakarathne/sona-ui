@@ -1,3 +1,40 @@
+# [2.1.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.2...v2.1.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* adjust padding and heading size in Hero component ([094c9e9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/094c9e96a7f373394fd48fbec5d9f5d05bfab9ec))
+* change position style of LinkPreview component from fixed to absolute ([e2b1c69](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e2b1c690984f6ed2adaf601e87e7136a312f4d80))
+* clean up commented-out Marquee component in navigation links ([cc24d10](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cc24d10a48590696300a802998b8adfd6f44a13a))
+* refactor LinkPreview component for improved hover behavior and responsiveness ([c99d62d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c99d62dd08d2e0a7b127ea61b9f417e647f489e5))
+* remove 'tag' from Docs link and reorder navLinks ([c0513fc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c0513fc65798221a83e96a589247973e698e9cc2))
+* remove debug log from CodeSyntaxHighlighter component ([7c57e88](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7c57e887455793e9147c73f8b1e94f9757d6cad3))
+* reorder imports in NotFound component for better organization ([08ea02d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/08ea02de616b46a866328d34f94cd547335558ce))
+* replace error throws with notFound calls for better error handling in document retrieval ([0ee37b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0ee37b7ec2cfa1bbb4be25093b0dd21ee1effbc6))
+* update Accordion component paths and enhance documentation with variant prop details ([f0252ac](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f0252ac5b5631437ee2acda86f4392d286041032))
+* update Accordion component styles and add variant prop ([073c5ad](https://github.com/Dinil-Thilakarathne/sona-ui/commit/073c5ad3b17df0e576e079b431484e3a544df494))
+* update AccordionItem styles for improved visual consistency ([f662e70](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f662e70f23dd5ac97e14a4af26f110cda5e77193))
+* update component navigation links to use sortedComponentNavigationLinks ([872a4a1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/872a4a1ff29d06f39d5b8a16238ed79b2f0fa503))
+* update tag for Accordion and remove tag from Ripple Button ([83781a0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/83781a0179af1d9b3266815fe955eb54e83bf6fc))
+* update tag for Magnetic Button and Link Preview components ([9b39f49](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9b39f49e65da11659847c1c0cf2698e7654b94b1))
+
+
+### Features
+
+* add @number-flow/react dependency ([34228fa](https://github.com/Dinil-Thilakarathne/sona-ui/commit/34228fa32e681daacf32f993f24807c5c488cbeb))
+* add main NotFound page ([9c013d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9c013d63c5e57a98acbf5b34e184c989a1ab3326))
+* add Marquee component documentation with features, props, and dependencies ([1a5d92c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1a5d92cab58cb6ab098fcf0a7771c762cedd4dbe))
+* add Marquee component to components registry ([784569b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/784569bce8d2d4892f385e27959709dd919a6f88))
+* add MarqueeExample component showcasing tech stack with icons ([b701bb8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b701bb82ba355d27e2cb8574860fc426185e174b))
+* add ModeToggle component to Sidebar for theme switching ([3d46fcf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3d46fcf8267f07f8633dc2df85f520fa55f3176b))
+* add sorted component navigation links for improved organization ([e95fe89](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e95fe89111707bfcf22341f9ba214349dd0f7cc4))
+* add useClock hook for managing time-based animations ([445f632](https://github.com/Dinil-Thilakarathne/sona-ui/commit/445f63241233990dd54a73968b5466675904945e))
+* add useMediaQuery hook for responsive design handling ([8418475](https://github.com/Dinil-Thilakarathne/sona-ui/commit/841847558e3dbbb84e3bb96f04f3801424470d30))
+* enhance Accordion component with variant support ([f53c4ce](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f53c4ce7d980695206f06d8aefcbdac3e1863072))
+* implement dynamic star count display using NumberFlow component ([9527a32](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9527a325642b959574fe48d2ff43eed21b1bef41))
+* implement Marquee component with dynamic scrolling and item duplication ([12f45dd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/12f45dd688a14b6db9d16bb8c18b59deeee0de4f))
+* implement NotFound component for docs route ([f7786ec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f7786ec0e60bb88fa08200b92f4095a111c02db4))
+
 ## [2.0.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.1...v2.0.2) (2025-05-11)
 
 
