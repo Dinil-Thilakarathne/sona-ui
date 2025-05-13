@@ -44,8 +44,16 @@ export const componentNavigationLinks: ComponentItemsProps[] = [
     slug: "linkPreview",
     href: "/docs/linkPreview",
   },
+  // {
+  //   name: "Marquee",
+  //   tag: "new",
+  //   slug: "marquee",
+  //   href: "/docs/marquee",
+  // },
 ];
 
-export const sortedComponentNavigationLinks = componentNavigationLinks.sort((a, b) => {
-  return a.name.localeCompare(b.name);
-});
+export const sortedComponentNavigationLinks = componentNavigationLinks.sort(
+  (a, b) => {
+    return a.name.localeCompare(b.name);
+  },
+);
