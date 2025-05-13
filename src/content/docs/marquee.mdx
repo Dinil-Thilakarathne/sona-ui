@@ -1,0 +1,163 @@
+---
+title: Marquee
+slug: marquee
+tags: ["UI", "animation", "Component"]
+---
+
+# Marquee Component
+
+The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.
+
+## Features
+
+- **Customizable Speed**: Adjust the scrolling speed dynamically.
+- **Responsive Design**: Automatically adapts to the container's dimensions.
+- **Interactive**: Supports hover and scroll-based interactions.
+- **Smooth Animations**: Uses spring-based animations for fluid transitions.
+- **Lightweight**: Optimized for performance with minimal dependencies.
+
+## Preview
+
+<ComponentPreview componentPath="Marquee_ex.tsx" />
+
+## Source Code
+
+<Tabs
+  tabs={[
+    {
+      title: "Page.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`import { type ReactNode } from "react";
+
+import Marquee from "../sonaui/marquee/Marquee";
+import {
+  NextjsIcon,
+  ReactIon,
+  TailwindIcon,
+  TypescriptIcon,
+} from "@/assets/svgs";
+
+const TECH_STACK = [
+  {
+    name: "Next.js",
+    icon: <NextjsIcon />,
+  },
+  {
+    name: "React",
+    icon: <ReactIon />,
+  },
+  {
+    name: "Typescript",
+    icon: <TypescriptIcon />,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <TailwindIcon />,
+  },
+];
+
+export default function MarqueeExample() {
+  return (
+      <Marquee
+        duration={10}
+        containerClassName="md:space-x-16 lg:space-x-32"
+        activeHover
+      >
+        <div className="flex items-center gap-x-8 md:gap-x-16 lg:gap-x-32">
+          {TECH_STACK.map((tech) => (
+            <Icon key={tech.name} text={tech.name}>
+              {tech.icon}
+            </Icon>
+          ))}
+        </div>
+      </Marquee>
+  );
+}
+
+const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
+  return (
+    <div className="flex h-16 items-center gap-x-4">
+      <span className="*:h-16 *:w-16">{children}</span>
+      <span className="text-sm font-medium lg:text-lg">{text}</span>
+    </div>
+  );
+};
+`}
+        />
+      ),
+    },
+    {
+      title: "Marquee.tsx",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          filePath={{
+            directory: "marquee",
+            fileName: "Marquee",
+          }}
+        />
+      ),
+    },
+  ]}
+/>
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "children",
+      type: "React.ReactNode",
+      default: "required",
+      description: "The content to be rendered inside the marquee.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description:
+        "Additional class names for custom styling of the marquee items.",
+    },
+    {
+      name: "containerClassName",
+      type: "string",
+      default: "undefined",
+      description:
+        "Additional class names for custom styling of the marquee container.",
+    },
+    {
+      name: "duration",
+      type: "number",
+      default: "1",
+      description: "The duration of the marquee animation in seconds.",
+    },
+    {
+      name: "reverse",
+      type: "boolean",
+      default: "false",
+      description:
+        "Determines whether the marquee scrolls in reverse direction.",
+    },
+    {
+      name: "activeScroll",
+      type: "boolean",
+      default: "false",
+      description: "Enables dynamic speed adjustment based on scroll velocity.",
+    },
+    {
+      name: "activeHover",
+      type: "boolean",
+      default: "false",
+      description: "Pauses the marquee animation when hovered.",
+    },
+  ]}
+/>
+
+## Dependencies
+
+This component uses the following third-party dependencies:
+
+- [`@motion/react`](https://motion.dev/)
+- [`react-use-measure`](https://github.com/pmndrs/react-use-measure)
