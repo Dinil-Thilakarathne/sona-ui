@@ -21,56 +21,37 @@ The `ExpandableTabs` component is a dynamic and interactive UI element designed 
 
 ## Source Code
 
-<Tabs
-  tabs={[
-    {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`
-export default function Page() {
-    const TabData: TabDataType[] = [
-    {
-        title: "Home",
-        icon: FaHome,
-    },
-    {
-        title: "Profile",
-        icon: FaUser,
-    },
-    {
-        title: "Settings",
-        icon: FaCog,
-    },
-    {
-        title: "Logout",
-        icon: FaSignOutAlt,
-    },
-    ];
+### Usage
 
-    return (
-             <ExpandableTabs tabs={TabData} />
-    )
-
-}`
-}
-/>
-),
-},
-{
-title: "ExpandableTabs.tsx",
-content: (
 <CodeSyntaxHighlighter
-language="tsx"
-filePath={{
-            directory: "expandableTabs",
-            fileName: "ExpandableTabs",
-          }}
+  language="tsx"
+  code={
+`
+import { type TabsData, ExpandableTabs } from "./expandableTabs";
+import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
+
+const TabData: TabsData[] = [
+{ title: "Home", icon: FaHome },
+{ title: "Profile", icon: FaUser },
+{ title: "Settings", icon: FaCog },
+{ title: "Logout", icon: FaSignOutAlt },
+];
+
+<ExpandableTabs
+  tabs={TabData}
+  defaultActiveIndex={0}
+  transitionConfig={{ duration: 0.2, ease: "easeInOut" }}
 />
-),
-},
-]}
+` } />
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "expandableTabs",
+    fileName: "ExpandableTabs",
+  }}
 />
 
 ## Props
@@ -79,7 +60,7 @@ filePath={{
   data={[
     {
       name: "tabs",
-      type: "{ title: string; icon: IconType}[]",
+      type: "{ title: string; icon: IconType }[]",
       default: "required",
       description:
         "An array of tab objects, each containing a title and an icon for the tab.",
@@ -87,8 +68,20 @@ filePath={{
     {
       name: "containerClassName",
       type: "string",
-      default: "undefined",
+      default: '""',
       description: "Additional class names for the container element.",
+    },
+    {
+      name: "defaultActiveIndex",
+      type: "number",
+      default: "0",
+      description: "The index of the tab that is active by default.",
+    },
+    {
+      name: "transitionConfig",
+      type: "Transition",
+      default: '{ duration: 0.2, ease: "easeInOut" }',
+      description: "Configuration for the transition animations.",
     },
   ]}
 />
