@@ -20,34 +20,23 @@ A text component with staggered animation.
 
 ## Source code
 
-<Tabs
-  tabs={[
-    {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`export default function Page() {
-    return (
-          <StaggerText text="Hover me!" />
-    )
-}`}
-        />
-      ),
-    },
-    {
-      title: "StaggerText.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "staggerText",
-            fileName: "StaggerText",
-          }}
-        />
-      ),
-    },
-  ]}
+### Usage
+
+<CodeSyntaxHighlighter
+language="tsx"
+code={`import StaggerText from "./StaggerText";
+
+<StaggerText text="Stagger Text!!" as="h1" className="text-2xl" />
+`} />
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "staggerText",
+    fileName: "StaggerText",
+  }}
 />
 
 ## Props
@@ -67,9 +56,9 @@ A text component with staggered animation.
       description: "Additional CSS classes for the container.",
     },
     {
-      name: "As",
+      name: "as",
       type: "'h1' | 'h2' | 'h3' | 'span' | 'p'",
-      default: "'span'",
+      default: "'h3'",
       description: "The HTML tag to be used for the text container.",
     },
   ]}
