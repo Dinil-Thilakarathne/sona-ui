@@ -12,13 +12,15 @@ interface ExpandableTabsProps {
     icon: IconType;
   }[];
   containerClassName?: string;
+  defaultActiveIndex?: number;
 }
 
 export default function ExpandableTabs({
   tabs,
-  containerClassName,
+  containerClassName = "",
+  defaultActiveIndex = 0,
 }: ExpandableTabsProps) {
-  const [isActive, setIsActive] = useState(-1);
+  const [isActive, setIsActive] = useState(defaultActiveIndex);
 
   return (
     <motion.div
@@ -63,13 +65,11 @@ const TabItemVariants = {
   active: {
     opacity: 1,
     width: "auto",
-    height: "auto",
     y: 0,
   },
   inactive: {
     opacity: 0,
     width: 0,
-    height: 0,
     y: 20,
   },
 };
