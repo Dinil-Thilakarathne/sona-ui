@@ -11,7 +11,6 @@ type SpinningTextProps = {
   duration?: number;
   className?: string;
   reverse?: boolean;
-  fontSize?: number;
   radius?: number;
   transition?: Transition;
   variants?: {
