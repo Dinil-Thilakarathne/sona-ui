@@ -22,12 +22,12 @@ const SidebarLink = ({ name, tag, className, ...props }: SidebarLinkProps) => {
         className,
       )}
     >
-      <StaggerText text={name} As="h3" className="text-lg font-medium" />
+      <StaggerText text={name} as="h3" className="text-lg font-medium" />
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
     </div>
   ) : (
     <Link {...props} className={cn("flex items-start space-x-0.5", className)}>
-      <StaggerText text={name} As="h3" className="text-lg font-medium" />
+      <StaggerText text={name} as="h3" className="text-lg font-medium" />
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
     </Link>
   );
