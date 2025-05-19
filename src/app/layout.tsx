@@ -1,7 +1,6 @@
 import { type Metadata } from "next";
 import { type ReactNode } from "react";
 
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
@@ -10,16 +9,6 @@ import { PostHogProvider } from "./providers";
 import { SITE_METADATA } from "@/config/site";
 import { ThemeProvider } from "@/components/Common/theme-provider";
 import Header from "@/components/Header";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: SITE_METADATA.title,
@@ -64,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950 dark:text-slate-100`}
+        className={`${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950 dark:text-slate-100`}
       >
         <PostHogProvider>
           <ThemeProvider>
