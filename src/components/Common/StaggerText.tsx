@@ -8,16 +8,16 @@ import { cn } from "@/lib/utils";
 interface StaggerTextProps {
   text: string;
   className?: string;
-  As?: "h1" | "h2" | "h3" | "span" | "p";
+  as?: "h1" | "h2" | "h3" | "span" | "p";
 }
 
 const StaggerText: React.FC<StaggerTextProps> = ({
   text,
   className,
-  As = "span",
+  as = "h3",
 }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const Tag = As;
+  const Tag = as;
 
   const handleMouseEnter = (index: number) => {
     setActiveIndex(index);
