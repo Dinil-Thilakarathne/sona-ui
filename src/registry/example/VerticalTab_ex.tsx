@@ -1,4 +1,3 @@
-import React from "react";
 import VerticalTab from "../sonaui/verticalTab/VerticalTab";
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
 
