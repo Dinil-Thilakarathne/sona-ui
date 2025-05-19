@@ -49,3 +49,6 @@ next-env.d.ts
 
 # local log files
 *.log
+
+#testing files
+/test
