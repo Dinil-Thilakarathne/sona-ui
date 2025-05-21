@@ -1,5 +1,3 @@
-import React from "react";
-
 import Link, { LinkProps } from "next/link";
 import StaggerText from "./StaggerText";
 import Tag from "./Tag";

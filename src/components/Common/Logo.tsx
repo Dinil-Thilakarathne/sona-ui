@@ -1,4 +1,3 @@
-import React from "react";
 import Tag from "./Tag";
 import { cn } from "@/lib/utils";
 
