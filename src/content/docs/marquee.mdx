@@ -22,85 +22,31 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
 
 ## Source Code
 
-<Tabs
-  tabs={[
-    {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`import { type ReactNode } from "react";
+### Usage
 
-import Marquee from "../sonaui/marquee/Marquee";
-import {
-  NextjsIcon,
-  ReactIon,
-  TailwindIcon,
-  TypescriptIcon,
-} from "@/assets/svgs";
+<CodeSyntaxHighlighter 
+  language="tsx"
+  code={`import Marquee from "../sonaui/marquee/Marquee";
 
-const TECH_STACK = [
-  {
-    name: "Next.js",
-    icon: <NextjsIcon />,
-  },
-  {
-    name: "React",
-    icon: <ReactIon />,
-  },
-  {
-    name: "Typescript",
-    icon: <TypescriptIcon />,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <TailwindIcon />,
-  },
-];
+<Marquee
+  duration={10}
+  containerClassName="md:space-x-16 lg:space-x-32"
+  activeHover={true}
+  activeScroll={false}
+  reverse={false}
+>
+    {...}
+</Marquee>
+`} />
 
-export default function MarqueeExample() {
-  return (
-      <Marquee
-        duration={10}
-        containerClassName="md:space-x-16 lg:space-x-32"
-        activeHover
-      >
-        <div className="flex items-center gap-x-8 md:gap-x-16 lg:gap-x-32">
-          {TECH_STACK.map((tech) => (
-            <Icon key={tech.name} text={tech.name}>
-              {tech.icon}
-            </Icon>
-          ))}
-        </div>
-      </Marquee>
-  );
-}
+### Code
 
-const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
-  return (
-    <div className="flex h-16 items-center gap-x-4">
-      <span className="*:h-16 *:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
-    </div>
-  );
-};
-`}
-        />
-      ),
-    },
-    {
-      title: "Marquee.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "marquee",
-            fileName: "Marquee",
-          }}
-        />
-      ),
-    },
-  ]}
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "marquee",
+    fileName: "Marquee",
+  }}
 />
 
 ## Props
