@@ -1,3 +1,30 @@
+## [2.1.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.0...v2.1.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* add entry for testing files in .gitignore ([133d6fe](https://github.com/Dinil-Thilakarathne/sona-ui/commit/133d6fed10c187ad0be2e5bfaab8dd1f4210a1da))
+* add type annotation for Metadata import and remove unnecessary blank line ([3cb5645](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3cb5645ff887744be81c8431316543c33508a8da))
+* adjust padding in h3 component for improved spacing ([682ad60](https://github.com/Dinil-Thilakarathne/sona-ui/commit/682ad6047852d501eb83a0956b54ca4b688d2d5c))
+* correct casing of 'as' prop in StaggerText component ([6ee4a3a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6ee4a3a77ef8709bb2d03a8f498677a03fd6ee12))
+* correct casing of 'as' prop in StaggerText component in SidebarLink ([d41fc90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d41fc9081ca5563eed29a6058470edd1bb2337ed))
+* refactor ExpandableTabs component to use TabsData type and improve transition configuration ([4a40e11](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4a40e119e58779594f77393b5e246202c58dfc96))
+* remove unnecessary React import from SpinningText_ex and VerticalTab_ex examples ([78a7acd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/78a7acdee6a97dc657e75a83fdd5d0b900049bc6))
+* remove unused font imports and clean up class names in RootLayout ([ec1ac2b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ec1ac2b447e1da745897ffd45a896e59ddf7cb52))
+* reorder import statements in Accordion_ex component for consistency ([bb9738f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bb9738f4edc6f629eeee89250ca2043d7ae8ad22))
+* restructure MagneticButton documentation for clarity and improved usage examples ([1d7e3ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1d7e3cabb83451e24186982a0130f55857811062))
+* set default active index for ExpandableTabs component ([4b14191](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4b14191cda842a37edb3e65fac4d6ce264e8e028))
+* spread linkProps in LinkPreview component ([bbf4d65](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bbf4d65bb2880cd902c580a50984ae08b984abfd))
+* update Accordion documentation with detailed usage example and code snippet ([d1ced51](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d1ced51540fc41bf5c46f88b5faa59d935379881))
+* update background color in CodeSyntaxHighlighter component for better visibility ([3a406af](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3a406afb73d8431168be0d87d72dd2481b83043d))
+* update ExpandableTabs_ex component to improve readability and ensure consistent prop usage ([2689194](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2689194f6d5b01ba55a2cd161243d9327812fff1))
+* update LinkPreview documentation for improved usage clarity and example ([747304b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/747304b5c4a6c3590e2b4565c85d20a439ece930))
+* update RippleButton documentation to improve usage clarity and example ([93e2edf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/93e2edf5b995c8c46e2775eac11f69e2ba814096))
+* update SpinningText documentation for improved usage clarity and example ([afa4510](https://github.com/Dinil-Thilakarathne/sona-ui/commit/afa4510df6442226265215f97085b55980f344ca))
+* update StaggerText and VerticalTab documentation for improved usage clarity and examples ([24397ea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/24397ea2b90845e0e4042981f6873da92b1c1dea))
+* update usage example in ExpandableTabs documentation for clarity and consistency ([b1af632](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b1af6327c303d96077244e5e2541363207a072de))
+* update user email in sync-components-json workflow ([66c7088](https://github.com/Dinil-Thilakarathne/sona-ui/commit/66c708852adb970f7fb2b24eb60f28e6b2777bb2))
+
 # [2.1.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.2...v2.1.0) (2025-05-13)
 
 
