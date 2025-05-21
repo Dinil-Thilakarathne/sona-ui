@@ -20,21 +20,26 @@ The `LinkPreview` component is an interactive UI element that displays a preview
 
 ## Source Code
 
-<Tabs
-  tabs={[
-    {
-      title: "LinkPreview.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "linkPreview",
-            fileName: "LinkPreview",
-          }}
-        />
-      ),
-    },
-  ]}
+### Usage
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  code={`
+<LinkPreview
+  link="https://sona-ui.vercel.app/"
+  text="Sona UI"
+  className="flex h-full w-full items-center justify-center"
+/>`}
+/>
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "linkPreview",
+    fileName: "LinkPreview",
+  }}
 />
 
 ## Props

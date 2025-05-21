@@ -1,4 +1,3 @@
-import React from "react";
 import LinkPreview from "../sonaui/linkPreview/LinkPreview";
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
 

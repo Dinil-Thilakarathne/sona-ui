@@ -22,60 +22,26 @@ The `VerticalTab` component is a versatile and interactive UI element designed f
 
 ## Source Code
 
-<Tabs
-  tabs={[
-        {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`export default function Page() {
-const VerticalTabs_data = [
-  {
-    title: "Home",
-  },
-  {
-    title: "Profile",
-  },
-  {
-    title: "Settings",
-  },
-  {
-    title: "Help",
-  },
-  {
-    title: "About",
-  },
-  {
-    title: "Contact",
-  },
-  {
-    title: "Feedback",
-  },
-];
+### Usage
 
-    return (
-              <VerticalTab tabs={VerticalTabs_data} indicatorBgColor="bg-blue-200"/>
-    )
-
-}`
-}
-/>
-),
-},
-{
-title: "VerticalTab.tsx",
-content: (
 <CodeSyntaxHighlighter
 language="tsx"
-filePath={{
-            directory: "verticalTab",
-            fileName: "VerticalTab",
-          }}
-/>
-),
-},
-]}
+code={`import VerticalTab from "./VerticalTab";
+
+const VerticalTabs_data = [
+{ title: "Home" }, { title: "Profile" }, { title: "Settings" }, { title: "Help" }, { title: "About" }, { title: "Contact" }, { title: "Feedback" }
+];
+
+<VerticalTab tabs={VerticalTabs_data} />` } />
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "verticalTab",
+    fileName: "VerticalTab",
+  }}
 />
 
 ## Props

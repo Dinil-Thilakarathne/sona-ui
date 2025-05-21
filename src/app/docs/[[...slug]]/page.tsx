@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { allDocs, Doc } from ".content-collections/generated";
@@ -18,7 +18,6 @@ async function getDocFromParams({
 
   // Find the document by slug
   const doc = allDocs.find((doc: Doc) => doc.slug == slug);
-
 
   if (!doc) {
     notFound();

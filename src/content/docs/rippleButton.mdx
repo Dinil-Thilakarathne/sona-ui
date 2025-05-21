@@ -20,36 +20,25 @@ An interactive button with a ripple effect for modern UIs.
 
 ## Source code
 
-<Tabs
-  tabs={[
-    {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`export default function Page() {
-    return (
-              <RippleButton>
-                <RippleButtonText text="Hover me!" />
-              </RippleButton>
-    )
-}`}
-        />
-      ),
-    },
-    {
-      title: "Ripple Button.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "rippleButton",
-            fileName: "RippleButton",
-          }}
-        />
-      ),
-    },
-  ]}
+### Usage
+
+<CodeSyntaxHighlighter
+language="tsx"
+code={`import RippleButton, { RippleButtonText } from ".RippleButton";
+
+<RippleButton scaleAmount={25} duration={0.5} rippleStyle="bg-blue-500">
+    <RippleButtonText text="Hover me!" />
+</RippleButton>
+`} />
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "rippleButton",
+    fileName: "RippleButton",
+  }}
 />
 
 ## Props

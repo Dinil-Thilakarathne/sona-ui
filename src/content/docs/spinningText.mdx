@@ -23,34 +23,25 @@ The `SpinningText` component is a dynamic and visually engaging UI element that 
 
 ## Source code
 
-<Tabs
-  tabs={[
-    {
-      title: "Page.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`export default function Page() {
-    return (
-        <SpinningText>This is example text!</SpinningText>
-    )
-}`}
-        />
-      ),
-    },
-    {
-      title: "SpinningText.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "spinningText",
-            fileName: "SpinningText",
-          }}
-        />
-      ),
-    },
-  ]}
+### Usage
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  code={`import SpinningText from "./SpinningText";
+
+<SpinningText duration={10} className="text-4xl" reverse={false} radius={5}>
+  This is example text!
+</SpinningText>
+`} />
+
+### Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "spinningText",
+    fileName: "SpinningText",
+  }}
 />
 
 ## Props

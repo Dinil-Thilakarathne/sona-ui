@@ -85,8 +85,8 @@ export default function LinkPreview({
               </div>
               <Link
                 href={link}
-                {...linkProps}
                 className="text-nowrap underline"
+                {...linkProps}
               >
                 {link}
               </Link>

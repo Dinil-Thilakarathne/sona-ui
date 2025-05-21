@@ -1,5 +1,3 @@
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
-import React from "react";
 import {
   AccordionItem,
   AccordionItemContent,
@@ -7,6 +5,7 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "../sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/ComponentWrapper";
 
 export default function Accordion_ex() {
   const accordionData = [

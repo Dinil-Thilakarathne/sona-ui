@@ -117,7 +117,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
       </Button>
 
       {!isExpanded && (
-        <div className="absolute bottom-0 left-0 h-[50%] w-full bg-white/70 mask-t-from-0% mask-t-to-70%" />
+        <div className="absolute bottom-0 left-0 h-[50%] w-full bg-[rgb(0,0,0)] mask-t-from-0% mask-t-to-70%" />
       )}
 
       <div className="absolute bottom-2 left-0 flex w-full items-center justify-center">
