@@ -14,7 +14,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 
 // Constants
-const DEFAULT_DURATION = 1; // Default duration in seconds
+const DEFAULT_DURATION = 10; // Default duration in seconds
 
 // Helper function to calculate the number of marquee items
 const calculateItemCount = (
