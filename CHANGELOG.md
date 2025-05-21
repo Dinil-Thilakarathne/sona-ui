@@ -1,3 +1,74 @@
+## [2.1.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.0...v2.1.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* add entry for testing files in .gitignore ([133d6fe](https://github.com/Dinil-Thilakarathne/sona-ui/commit/133d6fed10c187ad0be2e5bfaab8dd1f4210a1da))
+* add type annotation for Metadata import and remove unnecessary blank line ([3cb5645](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3cb5645ff887744be81c8431316543c33508a8da))
+* adjust padding in h3 component for improved spacing ([682ad60](https://github.com/Dinil-Thilakarathne/sona-ui/commit/682ad6047852d501eb83a0956b54ca4b688d2d5c))
+* correct casing of 'as' prop in StaggerText component ([6ee4a3a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6ee4a3a77ef8709bb2d03a8f498677a03fd6ee12))
+* correct casing of 'as' prop in StaggerText component in SidebarLink ([d41fc90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d41fc9081ca5563eed29a6058470edd1bb2337ed))
+* refactor ExpandableTabs component to use TabsData type and improve transition configuration ([4a40e11](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4a40e119e58779594f77393b5e246202c58dfc96))
+* remove unnecessary React import from SpinningText_ex and VerticalTab_ex examples ([78a7acd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/78a7acdee6a97dc657e75a83fdd5d0b900049bc6))
+* remove unused font imports and clean up class names in RootLayout ([ec1ac2b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ec1ac2b447e1da745897ffd45a896e59ddf7cb52))
+* reorder import statements in Accordion_ex component for consistency ([bb9738f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bb9738f4edc6f629eeee89250ca2043d7ae8ad22))
+* restructure MagneticButton documentation for clarity and improved usage examples ([1d7e3ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1d7e3cabb83451e24186982a0130f55857811062))
+* set default active index for ExpandableTabs component ([4b14191](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4b14191cda842a37edb3e65fac4d6ce264e8e028))
+* spread linkProps in LinkPreview component ([bbf4d65](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bbf4d65bb2880cd902c580a50984ae08b984abfd))
+* update Accordion documentation with detailed usage example and code snippet ([d1ced51](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d1ced51540fc41bf5c46f88b5faa59d935379881))
+* update background color in CodeSyntaxHighlighter component for better visibility ([3a406af](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3a406afb73d8431168be0d87d72dd2481b83043d))
+* update ExpandableTabs_ex component to improve readability and ensure consistent prop usage ([2689194](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2689194f6d5b01ba55a2cd161243d9327812fff1))
+* update LinkPreview documentation for improved usage clarity and example ([747304b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/747304b5c4a6c3590e2b4565c85d20a439ece930))
+* update RippleButton documentation to improve usage clarity and example ([93e2edf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/93e2edf5b995c8c46e2775eac11f69e2ba814096))
+* update SpinningText documentation for improved usage clarity and example ([afa4510](https://github.com/Dinil-Thilakarathne/sona-ui/commit/afa4510df6442226265215f97085b55980f344ca))
+* update StaggerText and VerticalTab documentation for improved usage clarity and examples ([24397ea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/24397ea2b90845e0e4042981f6873da92b1c1dea))
+* update usage example in ExpandableTabs documentation for clarity and consistency ([b1af632](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b1af6327c303d96077244e5e2541363207a072de))
+* update user email in sync-components-json workflow ([66c7088](https://github.com/Dinil-Thilakarathne/sona-ui/commit/66c708852adb970f7fb2b24eb60f28e6b2777bb2))
+
+# [2.1.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.2...v2.1.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* adjust padding and heading size in Hero component ([094c9e9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/094c9e96a7f373394fd48fbec5d9f5d05bfab9ec))
+* change position style of LinkPreview component from fixed to absolute ([e2b1c69](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e2b1c690984f6ed2adaf601e87e7136a312f4d80))
+* clean up commented-out Marquee component in navigation links ([cc24d10](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cc24d10a48590696300a802998b8adfd6f44a13a))
+* refactor LinkPreview component for improved hover behavior and responsiveness ([c99d62d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c99d62dd08d2e0a7b127ea61b9f417e647f489e5))
+* remove 'tag' from Docs link and reorder navLinks ([c0513fc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c0513fc65798221a83e96a589247973e698e9cc2))
+* remove debug log from CodeSyntaxHighlighter component ([7c57e88](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7c57e887455793e9147c73f8b1e94f9757d6cad3))
+* reorder imports in NotFound component for better organization ([08ea02d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/08ea02de616b46a866328d34f94cd547335558ce))
+* replace error throws with notFound calls for better error handling in document retrieval ([0ee37b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0ee37b7ec2cfa1bbb4be25093b0dd21ee1effbc6))
+* update Accordion component paths and enhance documentation with variant prop details ([f0252ac](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f0252ac5b5631437ee2acda86f4392d286041032))
+* update Accordion component styles and add variant prop ([073c5ad](https://github.com/Dinil-Thilakarathne/sona-ui/commit/073c5ad3b17df0e576e079b431484e3a544df494))
+* update AccordionItem styles for improved visual consistency ([f662e70](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f662e70f23dd5ac97e14a4af26f110cda5e77193))
+* update component navigation links to use sortedComponentNavigationLinks ([872a4a1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/872a4a1ff29d06f39d5b8a16238ed79b2f0fa503))
+* update tag for Accordion and remove tag from Ripple Button ([83781a0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/83781a0179af1d9b3266815fe955eb54e83bf6fc))
+* update tag for Magnetic Button and Link Preview components ([9b39f49](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9b39f49e65da11659847c1c0cf2698e7654b94b1))
+
+
+### Features
+
+* add @number-flow/react dependency ([34228fa](https://github.com/Dinil-Thilakarathne/sona-ui/commit/34228fa32e681daacf32f993f24807c5c488cbeb))
+* add main NotFound page ([9c013d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9c013d63c5e57a98acbf5b34e184c989a1ab3326))
+* add Marquee component documentation with features, props, and dependencies ([1a5d92c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1a5d92cab58cb6ab098fcf0a7771c762cedd4dbe))
+* add Marquee component to components registry ([784569b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/784569bce8d2d4892f385e27959709dd919a6f88))
+* add MarqueeExample component showcasing tech stack with icons ([b701bb8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b701bb82ba355d27e2cb8574860fc426185e174b))
+* add ModeToggle component to Sidebar for theme switching ([3d46fcf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3d46fcf8267f07f8633dc2df85f520fa55f3176b))
+* add sorted component navigation links for improved organization ([e95fe89](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e95fe89111707bfcf22341f9ba214349dd0f7cc4))
+* add useClock hook for managing time-based animations ([445f632](https://github.com/Dinil-Thilakarathne/sona-ui/commit/445f63241233990dd54a73968b5466675904945e))
+* add useMediaQuery hook for responsive design handling ([8418475](https://github.com/Dinil-Thilakarathne/sona-ui/commit/841847558e3dbbb84e3bb96f04f3801424470d30))
+* enhance Accordion component with variant support ([f53c4ce](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f53c4ce7d980695206f06d8aefcbdac3e1863072))
+* implement dynamic star count display using NumberFlow component ([9527a32](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9527a325642b959574fe48d2ff43eed21b1bef41))
+* implement Marquee component with dynamic scrolling and item duplication ([12f45dd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/12f45dd688a14b6db9d16bb8c18b59deeee0de4f))
+* implement NotFound component for docs route ([f7786ec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f7786ec0e60bb88fa08200b92f4095a111c02db4))
+
+## [2.0.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.1...v2.0.2) (2025-05-11)
+
+
+### Bug Fixes
+
+*  clean up transition properties ([988284f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/988284fc7dfad5a0884cecd65f104a95eb0ceee8))
+
 ## [2.0.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.0.0...v2.0.1) (2025-05-10)
 
 
