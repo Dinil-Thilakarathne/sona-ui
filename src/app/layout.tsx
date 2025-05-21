@@ -9,6 +9,8 @@ import { PostHogProvider } from "./providers";
 import { SITE_METADATA } from "@/config/site";
 import { ThemeProvider } from "@/components/Common/theme-provider";
 import Header from "@/components/Header";
+import FeaturedBar from "@/components/Common/FeaturedBar";
+import { FEATURE_FLAG } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: SITE_METADATA.title,
@@ -57,6 +59,7 @@ export default function RootLayout({
       >
         <PostHogProvider>
           <ThemeProvider>
+            {FEATURE_FLAG && <FeaturedBar />}
             <Header />
             {children}
           </ThemeProvider>
