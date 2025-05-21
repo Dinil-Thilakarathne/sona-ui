@@ -15,7 +15,7 @@ const Header = () => {
     <header className="container mx-auto flex min-h-[75px] items-center justify-between border-b p-2 lg:p-4">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
-          <Logo  />
+          <Logo />
         </Link>
       </div>
 
