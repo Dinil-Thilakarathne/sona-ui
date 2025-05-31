@@ -31,7 +31,7 @@ const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
-        "font-heading mt-2 scroll-m-20 text-2xl lg:text-4xl font-bold",
+        "font-heading mt-2 scroll-m-20 text-2xl font-bold lg:text-4xl",
         className,
       )}
       {...props}
@@ -40,7 +40,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl lg:text-2xl font-semibold tracking-tight first:mt-0",
+        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
         className,
       )}
       {...props}
@@ -49,7 +49,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-lg pb-2 lg:text-xl font-semibold tracking-tight",
+        "font-heading mt-8 scroll-m-20 pb-2 text-lg font-semibold tracking-tight lg:text-xl",
         className,
       )}
       {...props}
@@ -100,14 +100,9 @@ const components = {
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      className={cn(
-        "text-sm md:text-base",
-        className,
-      )}
-      {...props}
-    />
+    <p className={cn("text-sm md:text-base", className)} {...props} />
   ),
+  Divider: () => <div className="w-full py-8" />,
   CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,
