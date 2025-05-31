@@ -14,22 +14,25 @@ A text component with staggered animation.
 - Customizable styles and colors.
 - Lightweight and reusable.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="StaggerText_ex.tsx" />
-
-## Source code
-
-### Usage
-
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content: <ComponentPreview componentPath="StaggerText_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
 <CodeSyntaxHighlighter
 language="tsx"
 code={`import StaggerText from "./StaggerText";
 
 <StaggerText text="Stagger Text!!" as="h1" className="text-2xl" />
-`} />
+`} /> ), }, ]} />
 
-### Code
+## Source code
 
 <CodeSyntaxHighlighter
   language="tsx"

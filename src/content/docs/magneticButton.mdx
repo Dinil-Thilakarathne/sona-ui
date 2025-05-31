@@ -16,31 +16,33 @@ The `MagneticButton` component is an interactive UI element that creates a magne
 - **Smooth Animations**: Uses spring-based animations for smooth transitions.
 - **Lightweight**: Minimal dependencies and optimized for performance.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="MagneticButton_ex.tsx" />
-
-## Source Code
-
-### Usage
-
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content: <ComponentPreview componentPath="MagneticButton_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
 <CodeSyntaxHighlighter
 language="tsx"
-code={`import Magnetic from "./Magnetic";
-
+code={`
 <Magnetic
   interactionArea="parent"
   magneticIntensity={0.5}
   magneticRange={100}
   springConfig={{ stiffness: 30, damping: 6, mass: 0.6 }}
 >
-    <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
-      Magnetic Button
-    </button>
+  <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
+    Magnetic Button
+  </button>
 </Magnetic>
-`} />
+`} /> ), }, ]} />
 
-### Code
+## Source Code
 
 <CodeSyntaxHighlighter
   language="tsx"

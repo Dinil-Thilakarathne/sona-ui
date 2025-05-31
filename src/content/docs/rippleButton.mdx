@@ -14,14 +14,17 @@ An interactive button with a ripple effect for modern UIs.
 - Customizable styles and colors.
 - Lightweight and reusable.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="RippleButton_ex.tsx" />
-
-## Source code
-
-### Usage
-
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content: <ComponentPreview componentPath="RippleButton_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
 <CodeSyntaxHighlighter
 language="tsx"
 code={`import RippleButton, { RippleButtonText } from ".RippleButton";
@@ -30,8 +33,12 @@ code={`import RippleButton, { RippleButtonText } from ".RippleButton";
     <RippleButtonText text="Hover me!" />
 </RippleButton>
 `} />
+      ),
+    },
+  ]}
+/>
 
-### Code
+## Source code
 
 <CodeSyntaxHighlighter
   language="tsx"
