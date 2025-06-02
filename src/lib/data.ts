@@ -1,6 +1,6 @@
-import { navLinksProps } from "./types";
+import { type NavLinksPropsType } from "./types";
 
-export const navLinks: navLinksProps[] = [
+export const navLinks: NavLinksPropsType[] = [
   { name: "Docs", href: "/docs/home" },
   {
     name: "Roadmap",
