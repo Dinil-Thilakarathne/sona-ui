@@ -3,9 +3,9 @@ import StaggerText from "./StaggerText";
 import Tag from "./Tag";
 
 import { cn } from "@/lib/utils";
-import { ComponentItemsProps } from "@/lib/types";
+import { type ComponentItemsPropsType } from "@/lib/types";
 
-interface SidebarLinkProps extends LinkProps, ComponentItemsProps {
+interface SidebarLinkProps extends LinkProps, ComponentItemsPropsType {
   href: string;
   className?: string;
 }
