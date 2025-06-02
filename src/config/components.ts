@@ -1,6 +1,6 @@
-import { ComponentItemsProps } from "@/lib/types";
+import { type ComponentItemsPropsType } from "@/lib/types";
 
-export const componentNavigationLinks: ComponentItemsProps[] = [
+export const componentNavigationLinks: ComponentItemsPropsType[] = [
   {
     name: "Accordion",
     tag: "updated",
