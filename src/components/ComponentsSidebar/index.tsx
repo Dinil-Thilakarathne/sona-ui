@@ -6,12 +6,12 @@ import { FiMenu } from "react-icons/fi";
 
 import SidebarLink from "../Common/SidebarLink";
 import { navLinks } from "@/lib/data";
-import { ComponentItemsProps } from "@/lib/types";
+import { type ComponentItemsPropsType } from "@/lib/types";
 import { ModeToggle } from "../Common/ModeToggle";
 
 interface SidebarProps {
   title: string;
-  items: ComponentItemsProps[];
+  items: ComponentItemsPropsType[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
