@@ -1,3 +1,58 @@
+# [2.2.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.1...v2.2.0) (2025-06-05)
+
+
+### Bug Fixes
+
+* add background color to code spans for improved readability ([c370623](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c3706231b9fc49ededef3f6cd56c5ff984768ff4))
+* add CLI usage examples for components ([7a2625e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7a2625e69b4d5caadc0fe466836483cfcc79dc5b))
+* add FEATURE_FLAG constant to constants file ([a8fdb1b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a8fdb1b7d695b32e3a66d06aaef0562bb7e3d53d))
+* add margin-top to CodeSyntaxHighlighter component for better spacing ([f8f3c5f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f8f3c5fa0ccd764ef2f60e28838675179daa26e7))
+* add missing section header for Code in Accordion documentation ([627d89a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/627d89af1554643a7217fa6dd2749aa9a8bd3537))
+* add missing sitemap entry for Marquee documentation ([af73cea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/af73cea436249a2981c21446ea0590120126e0ae))
+* add missing type properties to component navigation links ([feef860](https://github.com/Dinil-Thilakarathne/sona-ui/commit/feef8603d1b5681cdc844905364cbc46fc191530))
+* add missing type property to ComponentItemsProps interface ([6388cd8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6388cd809867d1bf2610339626b7ce5de3e67cf0))
+* add StaggerText component to components registry ([eac2c90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/eac2c90b59e10c82da93bb13bff310dea1dc407a))
+* conditionally render FeaturedBar based on FEATURE_FLAG in RootLayout ([ef467c2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ef467c23b65f853534118ea9477d4a86c2574424))
+* correct type import for navLinksProps in data.ts ([c805b98](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c805b98fbd60deb718f10ddc48dc500f12a75b7d))
+* remove max-width from ComponentWrapper in MarqueeExample for better responsiveness ([77d7505](https://github.com/Dinil-Thilakarathne/sona-ui/commit/77d7505f6b0f979cad22d0f1f32145d748106504))
+* remove unnecessary container class  and improved layout consistency ([43e89b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/43e89b855a81346dfd953062f21f117e02a318f9))
+* remove unnecessary React import in CodeSyntaxHighlighter component ([f155b23](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f155b236fa7f5c98e39b948fdec1854dc2f13e96))
+* remove unnecessary React import in ComponentPreview component ([235cc8d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/235cc8d9b96213761f2a0a930b172c671cd872ca))
+* remove unnecessary React import in Tag component ([490eefc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/490eefc901b0308a1ff5cfbf4e04e7be55027427))
+* remove unnecessary React imports from multiple components ([e25831d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e25831d9231421cb58253113c9bbe2a3814864f4))
+* remove unnecessary space in className for LinkPreview_ex component ([cd07d9b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cd07d9b25a93073841e1ff43cf7cd594f0e9a830))
+* remove unused React import and redundant span in ModeToggle component ([900701d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/900701dc46738c8e03e8b5151ed39fc0adee830f))
+* remove unused React imports from AnimatedPlusMinusButton component ([4cc9927](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4cc992723def7b4e3fda2c72381346ca02ee4975))
+* reorder class names for consistency and improve paragraph component structure ([ce5ebf2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ce5ebf21447bea178866966dc64e9132095b34c9))
+* replace SITE_METADATA with siteMetaData for layout metadata ([333ee9a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/333ee9ae4232bb60a8972fa127934ea0995fd6c2))
+* restore background color in ComponentWrapper for improved visual consistency ([ede0198](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ede0198b1c22ec340d6e29d0febb4f9bd3ad4c9a))
+* restore Marquee component entry in component navigation links ([2c26e5c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2c26e5c1ec83d31153fbbbfd09200d95eff6de88))
+* simplify Marquee documentation by removing unused example code ([1d7e257](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1d7e257a5a260d1ef27c2889edc324be9a71f5ef))
+* standardize spacing for Logo component in Header ([4974d1e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4974d1e1786d8579e74d4021b5c5429d3abb9eee))
+* update CLI commands in documentation to use 'add' instead of 'download' ([52a1a15](https://github.com/Dinil-Thilakarathne/sona-ui/commit/52a1a159dd86e02701eff9b195aecaabe62e303a))
+* update CodeSyntaxHighlighter background color for improved readability ([d50fba2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d50fba21a5373b1f87dd338cbbc814da62b58fee))
+* update ComponentCard to use ComponentItemsPropsType for improved type safety ([0bdbd8e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0bdbd8e5efe3c8221f12a97fc2658039bc15654d))
+* update ComponentLayout to use semantic HTML elements for improved accessibility ([dcd6824](https://github.com/Dinil-Thilakarathne/sona-ui/commit/dcd68249c949a5fced60e6c4fdb39e376e2a2273))
+* update ComponentWrapper background color for improved visual consistency ([30900da](https://github.com/Dinil-Thilakarathne/sona-ui/commit/30900da13041a0beb1a37874d7ee1571a7689920))
+* update default duration in Marquee component from 1 to 10 seconds ([46e4b3e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/46e4b3ea238f82b96228f60d9c09925291842dd0))
+* update Docs link in navLinks for correct routing ([816b926](https://github.com/Dinil-Thilakarathne/sona-ui/commit/816b9268b3c763c6e6a413622fd2b46ae0ef8a3d))
+* update documentation to use Tabs component for preview and usage sections ([0db235c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0db235c457c76eba05c4da561c7dca112fb5dd7d))
+* update globals.css to define theme colors for improved styling consistency ([a1c67c7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a1c67c79e4752b0a17dabbba388f5d2fdc89c6e1))
+* update layout component to use Geist font for improved typography ([09e0178](https://github.com/Dinil-Thilakarathne/sona-ui/commit/09e0178a40e0df739f75149b32b205b3aa6a3a2f))
+* update Logo component to use 'font-clash-display' for improved typography ([d33e0a0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d33e0a07cf13e6983384686be19a45a2b84442b7))
+* update Sidebar component background color for improved visual consistency ([6c2b8e3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6c2b8e36f22f15d9d6222f386e02f10c7a6c4202))
+* update Sidebar component to use ComponentItemsPropsType for improved type safety ([b3f1736](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b3f17367317b6866a986fc024e3730c6407b3754))
+* update Tag component to use TagPropsType for improved type safety ([695955f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/695955fbf2faed441105a3ded805e5210cf38042))
+* update title in home documentation to reflect correct value ([b11e9eb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b11e9eb0a58ed052940b907f707d62a99d737c55))
+* update type import for componentNavigationLinks to use ComponentItemsPropsType for improved type safety ([86d9bf6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/86d9bf64d5e333f992edeef39a0337306247574a))
+* update type import for SidebarLinkProps to use ComponentItemsPropsType ([d72c7b6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d72c7b626934e76a54b3632d30b1b2145ec8c1f5))
+
+
+### Features
+
+* add FeaturedBar component with example text ([1b2d24c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1b2d24c2fbfcbfbd634cba78ed2c371b0abc21e3))
+* add site metadata configuration for SEO and social sharing ([8839153](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8839153a911545b4c467f53e3edf25fb1e81ab24))
+
 ## [2.1.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.0...v2.1.1) (2025-05-21)
 
 
