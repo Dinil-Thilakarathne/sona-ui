@@ -30,7 +30,7 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <ComponentWrapper className="max-w-[976px]">
+    <ComponentWrapper>
       <Marquee
         duration={10}
         containerClassName="md:space-x-16 lg:space-x-32"
