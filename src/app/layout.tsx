@@ -10,8 +10,19 @@ import Header from "@/components/Header";
 import FeaturedBar from "@/components/Common/FeaturedBar";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { siteMetaData } from "@/config/metadata";
+import { Geist, Geist_Mono } from "next/font/google";
 
 export const metadata = siteMetaData;
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
@@ -21,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${clashDisplay.variable} font-clash-display bg-slate-200 antialiased dark:bg-slate-950 dark:text-slate-100`}
+        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased dark:text-slate-100`}
       >
         <PostHogProvider>
           <ThemeProvider>
