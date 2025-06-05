@@ -27,9 +27,9 @@ The `MagneticButton` component is an interactive UI element that creates a magne
     {
       title: "Usage",
       content: (
-<CodeSyntaxHighlighter
-language="tsx"
-code={`
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`
 <Magnetic
   interactionArea="parent"
   magneticIntensity={0.5}
@@ -40,12 +40,21 @@ code={`
     Magnetic Button
   </button>
 </Magnetic>
-`} /> ), },
-{
-  title: "CLI",
-  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli download MagneticButton`}/>
-}
- ]} />
+`}
+        />
+      ),
+    },
+    {
+      title: "CLI",
+      content: (
+        <CodeSyntaxHighlighter
+          language="js"
+          code={`npx @sonacode/sonaui-cli add MagneticButton`}
+        />
+      ),
+    },
+  ]}
+/>
 
 ## Source Code
 
