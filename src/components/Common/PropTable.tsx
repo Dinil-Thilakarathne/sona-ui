@@ -1,7 +1,7 @@
 import { Table, Box, Text } from "@radix-ui/themes";
 
 const CodeCell = ({ content = "" }) => {
-  return <Box>{content}</Box>;
+  return <Box className="w-fit">{content}</Box>;
 };
 
 interface PropTableProps {
@@ -19,7 +19,7 @@ const PropTable = ({ data }: PropTableProps) => {
       <Box className="overflow-x-auto">
         <Table.Root
           variant="surface"
-          className="props-table rounded-lg border border-gray-200 shadow-sm"
+          className="props-table rounded-lg border border-gray-200 text-wrap shadow-sm"
         >
           <Table.Header className="bg-gray-100 dark:bg-gray-800">
             <Table.Row>
@@ -65,7 +65,7 @@ const PropTable = ({ data }: PropTableProps) => {
                   className="px-4 py-4 text-gray-800 dark:text-gray-200"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
-                  <Text>{prop.type}</Text>
+                  <Text className="w-fit">{prop.type}</Text>
                 </Table.Cell>
                 <Table.Cell
                   className="px-4 py-4 text-gray-800 dark:text-gray-200"
@@ -81,7 +81,7 @@ const PropTable = ({ data }: PropTableProps) => {
                   className="px-4 py-4 text-gray-800 dark:text-gray-200"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
-                  <Text>{prop.description}</Text>
+                  <Text className="w-fit">{prop.description}</Text>
                 </Table.Cell>
               </Table.Row>
             ))}

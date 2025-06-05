@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ComponentPreviewProps {
   componentPath: string; // Path to the component example file relative to the `registry/example/` directory

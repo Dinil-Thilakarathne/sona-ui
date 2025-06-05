@@ -1,5 +1,3 @@
-import React from "react";
-
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import Magnetic from "../sonaui/magnetic/MagneticButton";
 

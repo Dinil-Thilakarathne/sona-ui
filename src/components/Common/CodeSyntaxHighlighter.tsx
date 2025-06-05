@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighterLib } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import Button from "../Button";
@@ -85,7 +85,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
   return (
     <div
       className={cn(
-        "relative w-full max-w-[calc(100vw-16px)] overflow-x-auto rounded-lg border bg-[rgb(40,44,52)] p-4 lg:max-w-full",
+        "bg-secondary relative mt-4 w-full max-w-[calc(100vw-16px)] overflow-x-auto rounded-lg border p-4 lg:max-w-full",
         className,
       )}
     >
@@ -103,6 +103,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
             lineHeight: "1.5",
             wordWrap: "break-word",
             whiteSpace: "pre-wrap",
+            backgroundColor: "oklch(0.269 0 0)",
           }}
         >
           {displayedContent}

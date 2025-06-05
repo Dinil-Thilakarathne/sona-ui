@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
@@ -35,8 +34,7 @@ export function ModeToggle() {
         >
           <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rounded-full p-0.5 opacity-75 hover:opacity-100" />
         </button>
-        <span className="sr-only">Toggle theme</span>
-      </div>
+       </div>
     </div>
   );
 }

@@ -1,11 +1,10 @@
-import React from "react";
 import Image from "next/image";
 
 import Button from "../Button";
 import Tag from "../Common/Tag";
-import { ComponentItemsProps } from "@/lib/types";
+import { type ComponentItemsPropsType } from "@/lib/types";
 
-const ComponentCard: React.FC<ComponentItemsProps> = ({
+const ComponentCard: React.FC<ComponentItemsPropsType> = ({
   imgSrc,
   name,
   tag,

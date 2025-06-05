@@ -16,14 +16,17 @@ The `Accordion` component allows you to toggle the visibility of content section
 - Supports multiple open items with the `allowMultiple` prop.
 - Three variants: `default`, `bordered`, and `splitted`.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="Accordion_ex.tsx" />
-
-## Source code
-
-### Usage
-
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content: <ComponentPreview componentPath="Accordion_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
 <CodeSyntaxHighlighter
   language="tsx"
   code={
@@ -90,7 +93,59 @@ content:
     </AccordionItem>
   ))}
 </AccordionRoot>
-`}/>
+`}/> ), }, 
+{
+  title: "Data",
+  content: (
+    <CodeSyntaxHighlighter language="tsx" code={
+      `
+export const accordionData = [
+  {
+    value: "item-1",
+    title: "What is Lorem Ipsum?",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+  },
+
+{
+value: "item-2",
+title: "Why do we use it?",
+content:
+"It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+},
+
+{
+value: "item-3",
+title: "Where can I get some?",
+content:
+"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+},
+
+{
+value: "item-4",
+title: "Is Lorem Ipsum safe to use?",
+content:
+"Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+},
+
+{
+value: "item-5",
+title: "What are the origins of Lorem Ipsum?",
+content:
+"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+},
+];
+`
+}/>
+)
+},
+{
+  title: "CLI",
+  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add Accordion`}/>
+}
+]} />
+
+## Source code
 
 <Tabs
   tabs={[

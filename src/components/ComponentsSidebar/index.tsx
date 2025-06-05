@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { FiMenu } from "react-icons/fi";
 
 import SidebarLink from "../Common/SidebarLink";
 import { navLinks } from "@/lib/data";
-import { ComponentItemsProps } from "@/lib/types";
+import { type ComponentItemsPropsType } from "@/lib/types";
 import { ModeToggle } from "../Common/ModeToggle";
 
 interface SidebarProps {
   title: string;
-  items: ComponentItemsProps[];
+  items: ComponentItemsPropsType[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col space-y-2 border-r bg-white p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 lg:bg-transparent dark:bg-slate-900 dark:lg:bg-slate-950 ${
+        className={`bg-background lg:bg-background fixed top-0 left-0 z-40 flex min-h-screen w-64 transform flex-col space-y-2 border-r p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

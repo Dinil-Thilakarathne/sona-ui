@@ -1,22 +1,31 @@
-type tagVariants = "new" | "soon" | "updated" | "featured" | "default";
+import { type } from "arktype";
 
-export interface TagProps {
-  text: string;
-  type?: tagVariants;
-  className?: string;
-}
+const tagVariants = type('"new" | "soon" | "updated" | "featured" | "default"');
+const typeVariants = type('"Components" | "Text" | "Effects"');
 
-export type navLinksProps = {
-  name: string;
-  href: string;
-  tag?: tagVariants;
-};
+export const navLinksProps = type({
+  name: "string",
+  href: "string",
+  "tag?": tagVariants,
+}).infer;
 
-export interface ComponentItemsProps {
-  name: string;
-  href: string;
-  slug?: string;
-  tag?: tagVariants;
-  featured?: boolean;
-  imgSrc?: string;
-}
+export const ComponentItemsProps = type({
+  name: "string",
+  href: "string",
+  "slug?": "string",
+  "tag?": tagVariants,
+  "featured?": "boolean",
+  "imgSrc?": "string",
+  "type?": typeVariants,
+}).infer;
+
+export const TagProps = type({
+  text: "string",
+  "type?": tagVariants,
+  "className?": "string",
+}).infer;
+
+
+export type ComponentItemsPropsType = typeof ComponentItemsProps;
+export type NavLinksPropsType = typeof navLinksProps;
+export type TagPropsType = typeof TagProps;

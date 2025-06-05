@@ -16,14 +16,17 @@ The `VerticalTab` component is a versatile and interactive UI element designed f
 - **Responsive**: Works seamlessly across different screen sizes.
 - **Lightweight**: Minimal dependencies and optimized for performance.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="VerticalTab_ex.tsx" />
-
-## Source Code
-
-### Usage
-
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content:<ComponentPreview componentPath="VerticalTab_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
 <CodeSyntaxHighlighter
 language="tsx"
 code={`import VerticalTab from "./VerticalTab";
@@ -32,9 +35,14 @@ const VerticalTabs_data = [
 { title: "Home" }, { title: "Profile" }, { title: "Settings" }, { title: "Help" }, { title: "About" }, { title: "Contact" }, { title: "Feedback" }
 ];
 
-<VerticalTab tabs={VerticalTabs_data} />` } />
+<VerticalTab tabs={VerticalTabs_data} />` } /> ), },
+{
+  title: "CLI",
+  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add VerticalTab`}/>
+}
+ ]} />
 
-### Code
+## Source Code
 
 <CodeSyntaxHighlighter
   language="tsx"

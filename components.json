@@ -27,6 +27,10 @@
     "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/spinningText/SpinningText.tsx",
     "dependencies": []
   },
+  "StaggerText": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/staggerText/StaggerText.tsx",
+    "dependencies": []
+  },
   "VerticalTab": {
     "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/verticalTab/VerticalTab.tsx",
     "dependencies": []

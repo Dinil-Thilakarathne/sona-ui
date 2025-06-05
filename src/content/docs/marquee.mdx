@@ -16,91 +16,48 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
 - **Smooth Animations**: Uses spring-based animations for fluid transitions.
 - **Lightweight**: Optimized for performance with minimal dependencies.
 
-## Preview
-
-<ComponentPreview componentPath="Marquee_ex.tsx" />
-
-## Source Code
+<Divider />
 
 <Tabs
   tabs={[
     {
-      title: "Page.tsx",
+      title: "Preview",
+      content: <ComponentPreview componentPath="Marquee_ex.tsx" />,
+    },
+    {
+      title: "Usage",
       content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`import { type ReactNode } from "react";
+<CodeSyntaxHighlighter 
+  language="tsx"
+  code={`import Marquee from "../sonaui/marquee/Marquee";
 
-import Marquee from "../sonaui/marquee/Marquee";
-import {
-  NextjsIcon,
-  ReactIon,
-  TailwindIcon,
-  TypescriptIcon,
-} from "@/assets/svgs";
-
-const TECH_STACK = [
-  {
-    name: "Next.js",
-    icon: <NextjsIcon />,
-  },
-  {
-    name: "React",
-    icon: <ReactIon />,
-  },
-  {
-    name: "Typescript",
-    icon: <TypescriptIcon />,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <TailwindIcon />,
-  },
-];
-
-export default function MarqueeExample() {
-  return (
-      <Marquee
-        duration={10}
-        containerClassName="md:space-x-16 lg:space-x-32"
-        activeHover
-      >
-        <div className="flex items-center gap-x-8 md:gap-x-16 lg:gap-x-32">
-          {TECH_STACK.map((tech) => (
-            <Icon key={tech.name} text={tech.name}>
-              {tech.icon}
-            </Icon>
-          ))}
-        </div>
-      </Marquee>
-  );
-}
-
-const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
-  return (
-    <div className="flex h-16 items-center gap-x-4">
-      <span className="*:h-16 *:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
-    </div>
-  );
-};
-`}
-        />
+<Marquee
+  duration={10}
+  containerClassName="md:space-x-16 lg:space-x-32"
+  activeHover={true}
+  activeScroll={false}
+  reverse={false}
+>
+    {...}
+</Marquee>
+`} />
       ),
     },
     {
-      title: "Marquee.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "marquee",
-            fileName: "Marquee",
-          }}
-        />
-      ),
-    },
+  title: "CLI",
+  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add Marquee`}/>
+}
   ]}
+/>
+
+## Source Code
+
+<CodeSyntaxHighlighter
+  language="tsx"
+  filePath={{
+    directory: "marquee",
+    fileName: "Marquee",
+  }}
 />
 
 ## Props

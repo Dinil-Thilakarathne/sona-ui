@@ -23,3 +23,5 @@ export const heroContent: heroContentProps = {
 };
 
 export const GIT_REP_LINK = "https://github.com/Dinil-Thilakarathne/sona-ui";
+
+export const FEATURE_FLAG = false;

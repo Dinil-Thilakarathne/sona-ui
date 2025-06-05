@@ -1,5 +1,4 @@
 import ComponentWrapper from "@/components/Common/ComponentWrapper";
-import React from "react";
 import StaggerText from "../sonaui/staggerText/StaggerText";
 
 const StaggerText_ex = () => {

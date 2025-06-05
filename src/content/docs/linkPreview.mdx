@@ -14,25 +14,41 @@ The `LinkPreview` component is an interactive UI element that displays a preview
 - **Customizable Icon**: Optionally show an icon next to the link text.
 - **Interactive Design**: Smooth animations and responsive behavior.
 
-## Preview
+<Divider />
 
-<ComponentPreview componentPath="LinkPreview_ex.tsx" />
-
-## Source Code
-
-### Usage
-
-<CodeSyntaxHighlighter
-  language="tsx"
-  code={`
+<Tabs
+  tabs={[
+    {
+      title: "Preview",
+      content: <ComponentPreview componentPath="LinkPreview_ex.tsx" />,
+    },
+    {
+      title: "Usage",
+      content: (
+        <CodeSyntaxHighlighter
+          language="tsx"
+          code={`
 <LinkPreview
   link="https://sona-ui.vercel.app/"
   text="Sona UI"
   className="flex h-full w-full items-center justify-center"
 />`}
+        />
+      ),
+    },
+    {
+      title: "CLI",
+      content: (
+        <CodeSyntaxHighlighter
+          language="js"
+          code={`npx @sonacode/sonaui-cli add LinkPreview`}
+        />
+      ),
+    },
+  ]}
 />
 
-### Code
+## Source Code
 
 <CodeSyntaxHighlighter
   language="tsx"
