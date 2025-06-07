@@ -19,7 +19,7 @@ export default function ProfilePopover() {
     <>
       {isOpen && (
         <motion.div
-          className="bg-popover lg:left-sidebar-width shadow-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] border-slate-200 px-4 py-4 shadow-lg lg:bottom-0 lg:mb-0 lg:px-6 lg:py-6"
+          className="bg-popover lg:left-sidebar-width shadow-primary/20 border-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] px-4 py-4 shadow-lg lg:bottom-0 lg:mb-0 lg:px-6 lg:py-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -46,7 +46,7 @@ export default function ProfilePopover() {
             <Button
               variant="outline"
               href="https://www.linkedin.com/in/dinil-thilakarathne/"
-              className="text-primary hover:text-secondary text-center"
+              className="text-primary text-center"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +67,7 @@ export default function ProfilePopover() {
             height={40}
             className="rounded-full"
           />
-          <div className="flex flex-col items-start text-sm">
+          <div className="text-primary flex flex-col items-start text-sm">
             <span>Dinil Thilakarathne</span>
             <span>@sonaui</span>
           </div>
