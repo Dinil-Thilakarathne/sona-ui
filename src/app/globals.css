@@ -16,6 +16,10 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-sidebar: var(--sidebar);
+
+
+  --sidebar-width: 16rem;
 }
 
 :root {
@@ -27,6 +31,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.145 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  --sidebar: oklch(0.985 0 0);
 }
 
 [data-theme="dark"] {
@@ -38,6 +43,7 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  --sidebar: oklch(0.205 0 0);
 }
 
 pre > code span {
