@@ -9,7 +9,7 @@ interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   className?: string;
   variant?: "default" | "outline" | "filled";
-  href: string;
+  href?: string;
 }
 
 export default function Button({
@@ -23,8 +23,8 @@ export default function Button({
     "px-4 py-2 rounded-full text-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 hover:cursor-pointer transition duration-200 ease-in-out";
 
   const variantClasses = {
-    default: "bg-white text-black hover:bg-slate-100",
-    outline: "border border-gray-300 text-black hover:bg-gray-100",
+    default: "bg-primary text-primary-foreground hover:bg-primary/80",
+    outline: "border border-gray-300 text-black hover:bg-secondary/20",
     filled: "bg-blue-500 text-white hover:bg-blue-600",
   };
 
