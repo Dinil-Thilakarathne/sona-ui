@@ -21,7 +21,6 @@ const calculateItemCount = (
   containerWidth: number,
   itemWidth: number,
 ): number => {
-  console.log(containerWidth, itemWidth);
   return Math.ceil(containerWidth / itemWidth);
 };
 
@@ -50,7 +49,7 @@ export default function Marquee({
   const [count, setCount] = useState(0);
   const [activeDirection, setActiveDirection] = useState<boolean>(false);
   const [speed, setSpeed] = useState(1);
-  const [isHovered, setIsHovered] = useState(activeHover);
+  const [isHovered, setIsHovered] = useState(false);
 
   const [isClient, setIsClient] = useState(false);
 
@@ -103,12 +102,13 @@ export default function Marquee({
 
   // Update speed when hovered
   useEffect(() => {
+    if (!activeHover) return;
     if (isHovered) {
       setSpeed(0);
     } else {
       setSpeed(activeScroll ? velocityFactor.get() : 1);
     }
-  }, [isHovered, activeScroll, velocityFactor]);
+  }, [isHovered, activeScroll, velocityFactor, activeHover]);
 
   const clock = useClock({
     defaultValue: Date.now(),
@@ -157,7 +157,7 @@ const MarqueeItem = forwardRef<HTMLDivElement, MarqueeItemProps>(
   ({ children, className, isCopy, style }, ref) => {
     return (
       <div
-        className={cn("w-fit text-nowrap", isCopy && "absolute", className)}
+        className={cn("w-full text-nowrap", isCopy && "absolute", className)}
         style={style}
         ref={ref}
       >

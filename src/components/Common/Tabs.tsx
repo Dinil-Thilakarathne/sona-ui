@@ -17,16 +17,14 @@ const Tabs: React.FC<TabsProps> = ({ tabs, className }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className={cn("", className)}>
-      <div className="flex max-w-[calc(100vw-16px)] overflow-auto border-b md:max-w-[auto] md:space-x-4">
+    <div className={cn("py-2", className)}>
+      <div className="flex max-w-[calc(100vw-16px)] overflow-auto md:max-w-[auto] md:space-x-4">
         {tabs.map((tab, index) => (
           <button
             key={index}
             className={cn(
-              "px-4 py-2",
-              activeTab === index
-                ? "border-b-2 border-blue-500"
-                : "text-gray-500",
+              "cursor-pointer rounded-lg px-4 py-2 hover:bg-secondary/80",
+              activeTab === index ? "bg-secondary" : "text-gray-500",
             )}
             onClick={() => setActiveTab(index)}
           >
@@ -34,7 +32,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, className }) => {
           </button>
         ))}
       </div>
-      <div className="tabs-content mt-4">{tabs[activeTab]?.content}</div>
+      <div className="tabs-content">{tabs[activeTab]?.content}</div>
     </div>
   );
 };

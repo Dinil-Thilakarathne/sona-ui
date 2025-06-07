@@ -16,7 +16,7 @@ export const ComponentItemsProps = type({
   "tag?": tagVariants,
   "featured?": "boolean",
   "imgSrc?": "string",
-  "type?": typeVariants,
+  type: typeVariants,
 }).infer;
 
 export const TagProps = type({
@@ -24,7 +24,6 @@ export const TagProps = type({
   "type?": tagVariants,
   "className?": "string",
 }).infer;
-
 
 export type ComponentItemsPropsType = typeof ComponentItemsProps;
 export type NavLinksPropsType = typeof navLinksProps;

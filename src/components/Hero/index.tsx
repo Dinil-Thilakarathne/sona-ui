@@ -1,7 +1,6 @@
 import { type ReactNode } from "react";
 
 import { heroContent } from "@/lib/constants";
-import { sortedComponentNavigationLinks } from "@/config/components";
 import Sidebar from "../ComponentsSidebar";
 import Button from "../Button";
 import {
@@ -36,7 +35,7 @@ const Hero = () => {
     // mobile sidebar
     <section className="relative flex min-h-[calc(100vh-75px)] flex-col overflow-clip">
       <div className="absolute top-0 left-0 lg:hidden">
-        <Sidebar title="Components" items={sortedComponentNavigationLinks} />
+        <Sidebar  />
       </div>
 
       <div className="px-4 grid h-full grow items-center space-y-4 lg:grid-cols-[45%_1fr] lg:flex-row lg:space-y-0 lg:space-x-8">

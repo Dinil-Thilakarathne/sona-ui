@@ -16,6 +16,13 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-sidebar: var(--sidebar);
+
+
+  --sidebar-width: 16rem;
+  --spacing-header-height: 4.5rem;
+  --spacing-sidebar-width: var(--sidebar-width);
+  --spacing-mobile-sidebar-height: calc(100svh - var(--spacing-header-height));
 }
 
 :root {
@@ -27,6 +34,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.145 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  --sidebar: oklch(0.985 0 0);
 }
 
 [data-theme="dark"] {
@@ -38,6 +46,7 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
+  --sidebar: oklch(0.205 0 0);
 }
 
 pre > code span {
