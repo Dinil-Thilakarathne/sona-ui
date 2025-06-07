@@ -6,15 +6,10 @@ import { FiMenu } from "react-icons/fi";
 
 import SidebarLink from "../Common/SidebarLink";
 import { navLinks } from "@/lib/data";
-import { type ComponentItemsPropsType } from "@/lib/types";
 import { ModeToggle } from "../Common/ModeToggle";
+import { groupedComponents } from "@/config/components";
 
-interface SidebarProps {
-  title: string;
-  items: ComponentItemsPropsType[];
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
+const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,33 +26,32 @@ const Sidebar: React.FC<SidebarProps> = ({ title, items }) => {
 
       {/* Sidebar */}
       <aside
-        className={`bg-background lg:bg-background fixed top-0 left-0 z-40 flex min-h-screen w-auto transform flex-col space-y-2 border-r p-4 transition-transform duration-300 lg:relative lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
+        className={`bg-secondary lg:bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-0 z-40 flex transform flex-col space-y-2 rounded-r-2xl p-4 transition-transform duration-300 lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between">
-          <h2 className="grow border-b text-lg font-medium text-slate-900 dark:text-slate-300">
-            {title}
-          </h2>
           <div className="lg:hidden">
             <ModeToggle />
           </div>
         </div>
         <nav className="space-y-2">
-          {items.map((item) => (
-            <SidebarLink
-              key={item.name}
-              href={item.href}
-              name={item.name}
-              tag={item.tag}
-              className="text-gray-700 hover:text-gray-900"
-              onClick={() => setIsOpen(false)}
-            />
+          {Object.entries(groupedComponents).map(([type, components]) => (
+            <div key={type}>
+              <h3 className="border-b text-lg font-medium">{type}</h3>
+              {components.map((item) => (
+                <SidebarLink
+                  key={item.name}
+                  href={item.href}
+                  name={item.name}
+                  tag={item.tag}
+                  onClick={() => setIsOpen(false)}
+                />
+              ))}
+            </div>
           ))}
         </nav>
-
         <div className="w-full grow" />
-
         <nav className="flex flex-col space-y-2 lg:hidden">
           <h3 className="border-b text-lg font-medium">Navigation</h3>
           {navLinks.map((link) => (
