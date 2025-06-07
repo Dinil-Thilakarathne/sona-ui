@@ -1,3 +1,32 @@
+# [2.3.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.2.0...v2.3.0) (2025-06-07)
+
+
+### Bug Fixes
+
+* add sidebar color variables for improved theme consistency ([71e6d6e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/71e6d6e01f11d37697399e0117e4af5511fea958))
+* correct type definition for ComponentItemsProps and clean up TagProps export ([3ff7bd5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3ff7bd542e8b91adaa18b0814f25fcbc1b14fb9d))
+* improve Tabs component layout and styling for better user experience ([4a46878](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4a4687895cec041cc60b2d529beb50f39c3932e5))
+* refactor Sidebar component to remove props and integrate grouped components for improved structure ([b58ed69](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b58ed698fca09ad4f224613fbf2a2f30add258f4))
+* refactor SidebarLink component to improve type definitions and remove unused props ([e8a5ae4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e8a5ae47f0ee1cc6d5ed9bc15687c2bf4cd2a769))
+* remove debug log and update hover state handling in Marquee component ([c2fc827](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c2fc827e97d1ece77a6dfe9f8df000259b938348))
+* remove unnecessary tag properties and refactor component grouping logic ([8e00de6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8e00de6ce56e6d71cae0f20641116ab6939b04f6))
+* remove unused props from Sidebar component in Hero section ([a25888d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a25888d86e158ad1b57b547e0dc61aceecc01d12))
+* update Header component to restore fixed positioning and improve SidebarLink prop usage ([cf110dc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cf110dc0c4ce254da621e1924cf1fe796174f1c6))
+* update layout structure to use grid for improved responsiveness ([9db48b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9db48b75894a4825741ff8b729f1abfc62f65b36))
+* update MarqueeExample spacing for improved layout consistency ([fe49854](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fe4985460ae3c5f55eadd9f2682b9b73a69bb480))
+* update Sidebar component usage and improve layout structure ([db21b57](https://github.com/Dinil-Thilakarathne/sona-ui/commit/db21b570576cc1679c6ee7fcf37c924d987b06d2))
+* update Sidebar width to be responsive by changing from fixed to auto ([3ca8924](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3ca8924eb530d3671484a0e8489c51cdf589967d))
+
+
+### Features
+
+* add margin-top class to main element for layout consistency ([2122374](https://github.com/Dinil-Thilakarathne/sona-ui/commit/21223746a61164e279868f34e022e9d7951277a5))
+* add ProfilePopover component to Sidebar for enhanced user interaction ([5bebe5b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5bebe5b5434be6ad57d700419b8e3211a531f347))
+* add ProfilePopover component with user interaction features and profile image ([9230aea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9230aeac7b1bc718e2dc09b8dd9924d71c7d9c73))
+* add spacing variables for header and sidebar to improve layout consistency ([61592b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/61592b80a6c9fcbef11424f9da817386948713b2))
+* add usehooks-ts dependency for improved hooks functionality ([b196a23](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b196a23eede0219380d323e3d5d79966d80d53b3))
+* update layout component to improve structure and layout consistency ([049391a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/049391a341d8b61c09397510a1f37e8b4a1084b4))
+
 # [2.2.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.1...v2.2.0) (2025-06-05)
 
 
