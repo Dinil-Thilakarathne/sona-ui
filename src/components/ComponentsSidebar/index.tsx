@@ -8,6 +8,7 @@ import SidebarLink from "../Common/SidebarLink";
 import { navLinks } from "@/lib/data";
 import { ModeToggle } from "../Common/ModeToggle";
 import { groupedComponents } from "@/config/components";
+import ProfilePopover from "../ProfilePopover";
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <aside
-        className={`bg-secondary lg:bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-0 z-40 flex transform flex-col space-y-2 rounded-r-2xl p-4 transition-transform duration-300 lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
+        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-0 z-40 flex transform flex-col space-y-2 rounded-r-2xl p-4 transition-transform duration-300 lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -60,6 +61,7 @@ const Sidebar: React.FC = () => {
             </div>
           ))}
         </nav>
+        <ProfilePopover/>
       </aside>
 
       {/* Overlay for Mobile */}
