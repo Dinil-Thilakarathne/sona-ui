@@ -4,9 +4,11 @@ import Sidebar from "@/components/ComponentsSidebar";
 
 const ComponentLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <main className="min-h-[calc(100vh-75px) grid grid-cols-1 lg:grid-cols-[25%_1fr] xl:grid-cols-[var(--sidebar-width)_1fr]">
+    <main className="min-h-[calc(100vh-75px) mt-header-height flex">
       <Sidebar />
-      <section className="w-full flex-1 p-2 md:p-6">{children}</section>
+      <section className="lg:ml-sidebar-width w-full flex-1 p-2 md:p-6">
+        {children}
+      </section>
     </main>
   );
 };
