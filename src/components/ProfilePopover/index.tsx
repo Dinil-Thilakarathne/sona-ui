@@ -8,22 +8,22 @@ import { ChevronsUpDown } from "lucide-react";
 import { useOnClickOutside } from "usehooks-ts";
 import Button from "../Button";
 
-
 export default function ProfilePopover() {
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  useOnClickOutside(ref as React.RefObject<HTMLButtonElement>, () => {
+  useOnClickOutside(ref as React.RefObject<HTMLElement>, () => {
     if (isOpen) setIsOpen(false);
   });
   return (
     <>
       {isOpen && (
         <motion.div
-          className="bg-popover lg:left-sidebar-width shadow-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] border-slate-200 px-4 lg:px-6 py-4 lg:py-6 shadow-lg lg:bottom-0 lg:mb-0"
+          className="bg-popover lg:left-sidebar-width shadow-primary/20 border-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] px-4 py-4 shadow-lg lg:bottom-0 lg:mb-0 lg:px-6 lg:py-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
+          ref={ref}
         >
           <div className="flex flex-col space-y-1">
             <h3 className="text-lg font-semibold">I hope you like SonaUI...</h3>
@@ -35,16 +35,20 @@ export default function ProfilePopover() {
           </div>
           <div className="flex flex-col space-y-2">
             <Button
-              link="https://github.com/sponsors/Dinil-Thilakarathne"
+              href="https://github.com/sponsors/Dinil-Thilakarathne"
               variant="default"
               className="mt-2 w-full text-center"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Sponsor me on GitHub
             </Button>
             <Button
               variant="outline"
-              link="https://www.linkedin.com/in/dinil-thilakarathne/"
-              className="text-primary hover:text-secondary text-center"
+              href="https://www.linkedin.com/in/dinil-thilakarathne/"
+              className="text-primary text-center"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Connect on LinkedIn
             </Button>
@@ -54,7 +58,6 @@ export default function ProfilePopover() {
       <button
         className="bg-secondary flex w-full cursor-pointer items-center justify-between rounded-lg p-2"
         onClick={() => setIsOpen(!isOpen)}
-        ref={ref}
       >
         <div className="_justify-center flex items-center space-x-2">
           <Image
@@ -64,7 +67,7 @@ export default function ProfilePopover() {
             height={40}
             className="rounded-full"
           />
-          <div className="flex flex-col items-start text-sm">
+          <div className="text-primary flex flex-col items-start text-sm">
             <span>Dinil Thilakarathne</span>
             <span>@sonaui</span>
           </div>

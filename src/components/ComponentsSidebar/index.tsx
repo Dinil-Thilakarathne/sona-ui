@@ -40,15 +40,17 @@ const Sidebar: React.FC = () => {
           {Object.entries(groupedComponents).map(([type, components]) => (
             <div key={type}>
               <h3 className="border-b text-lg font-medium">{type}</h3>
-              {components.map((item) => (
-                <SidebarLink
-                  key={item.name}
-                  href={item.href}
-                  name={item.name}
-                  tag={item.tag}
-                  onClick={() => setIsOpen(false)}
-                />
-              ))}
+              <div className="flex flex-col space-y-1 pt-1">
+                {components.map((item) => (
+                  <SidebarLink
+                    key={item.name}
+                    href={item.href}
+                    name={item.name}
+                    tag={item.tag}
+                    onClick={() => setIsOpen(false)}
+                  />
+                ))}
+              </div>
             </div>
           ))}
         </nav>
@@ -61,7 +63,7 @@ const Sidebar: React.FC = () => {
             </div>
           ))}
         </nav>
-        <ProfilePopover/>
+        <ProfilePopover />
       </aside>
 
       {/* Overlay for Mobile */}

@@ -34,7 +34,7 @@ const ComponentCard: React.FC<ComponentItemsPropsType> = ({
 
         {/* CTA Section */}
         <div className="mt-2 text-right">
-          <Button link={href} variant="outline" className="text-sm">
+          <Button href={href} variant="outline" className="text-sm">
             View More
           </Button>
         </div>
