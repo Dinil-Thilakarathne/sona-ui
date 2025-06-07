@@ -53,7 +53,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
-            <Button link="/docs/home">
+            <Button href="/docs/home">
               <span>Browse components</span>
             </Button>
           </div>
