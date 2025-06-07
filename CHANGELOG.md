@@ -1,3 +1,18 @@
+## [2.3.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.0...v2.3.1) (2025-06-07)
+
+
+### Bug Fixes
+
+* correct ref type in ProfilePopover and update Button props for consistency ([87aef4e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/87aef4e64f1b77ff42f28885d084a8cb6bd5d19c))
+* format Sidebar component for improved readability and consistency ([b06c36f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b06c36f8c6b0f7781f17db4bac7d929459c10592))
+* make href prop optional and update default variant styles for Button component ([4be89b5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4be89b5cb9f6491b0f413bddfde82f6f8ea49758))
+* update background class for CodeSyntaxHighlighter component ([4652a6e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4652a6e38b429301ec543edb1cb368ef22d85e0c))
+* update background class for consistency in ComponentWrapper component ([d206657](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d206657ed999ff7a625fd8ea7a9f60f47c52ebd6))
+* update Button component to use href prop for navigation consistency ([497e52a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/497e52af0e5ff5921c232afc43218d98b64b531c))
+* update Button component to use href prop instead of link for consistency ([3043f1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3043f1fd2e4e4563ca9e36e2cbffc9c19124b4c6))
+* update color variables for consistency in globals.css ([d06f106](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d06f106241113e11fe44340acf490354c19a7bf3))
+* update shadow and border styles for consistency in ProfilePopover component ([309ef57](https://github.com/Dinil-Thilakarathne/sona-ui/commit/309ef5796e09c7f74eaf267a8bd086d97dd2b409))
+
 # [2.3.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.2.0...v2.3.0) (2025-06-07)
 
 
