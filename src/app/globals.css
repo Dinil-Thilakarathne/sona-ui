@@ -52,3 +52,6 @@
 }
 
 
+pre > code span {
+  background-color: var(--color-codeWrapper);
+}
