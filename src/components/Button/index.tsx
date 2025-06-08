@@ -1,11 +1,10 @@
 "use client";
 
-import type { AnchorHTMLAttributes, ReactNode } from "react";
-import Link from "next/link";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   className?: string;
   variant?: "default" | "outline" | "filled";
@@ -16,7 +15,6 @@ export default function Button({
   children,
   className,
   variant = "default",
-  href,
   ...props
 }: ButtonProps) {
   const baseClasses =
@@ -28,20 +26,11 @@ export default function Button({
     filled: "bg-blue-500 text-white hover:bg-blue-600",
   };
 
-  if (href) {
-    return (
-      <Link
-        href={href}
-        className={cn(baseClasses, variantClasses[variant], className)}
-        {...props}
-      >
-        {children}
-      </Link>
-    );
-  }
-
   return (
-    <button className={cn(baseClasses, variantClasses[variant], className)}>
+    <button
+      className={cn(baseClasses, variantClasses[variant], className)}
+      {...props}
+    >
       {children}
     </button>
   );
