@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { ChevronsUpDown } from "lucide-react";
 import { useOnClickOutside } from "usehooks-ts";
-import Button from "../Button";
+import AnimatedLink from "../Common/AnimatedLink";
 
 export default function ProfilePopover() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,7 +19,7 @@ export default function ProfilePopover() {
     <>
       {isOpen && (
         <motion.div
-          className="bg-popover lg:left-sidebar-width shadow-primary/20 border-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] px-4 py-4 shadow-lg lg:bottom-0 lg:mb-0 lg:px-6 lg:py-6"
+          className="bg-popover shadow-primary/20 border-secondary fixed bottom-16 left-0 mb-4 ml-2 flex w-max max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] px-4 py-4 shadow-lg lg:px-6 lg:py-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -34,7 +34,7 @@ export default function ProfilePopover() {
             </p>
           </div>
           <div className="flex flex-col space-y-2">
-            <Button
+            <AnimatedLink
               href="https://github.com/sponsors/Dinil-Thilakarathne"
               variant="default"
               className="mt-2 w-full text-center"
@@ -42,8 +42,8 @@ export default function ProfilePopover() {
               rel="noopener noreferrer"
             >
               Sponsor me on GitHub
-            </Button>
-            <Button
+            </AnimatedLink>
+            <AnimatedLink
               variant="outline"
               href="https://www.linkedin.com/in/dinil-thilakarathne/"
               className="text-primary text-center"
@@ -51,7 +51,7 @@ export default function ProfilePopover() {
               rel="noopener noreferrer"
             >
               Connect on LinkedIn
-            </Button>
+            </AnimatedLink>
           </div>
         </motion.div>
       )}

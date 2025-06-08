@@ -2,7 +2,6 @@ import { type ReactNode } from "react";
 
 import { heroContent } from "@/lib/constants";
 import Sidebar from "../ComponentsSidebar";
-import Button from "../Button";
 import {
   NextjsIcon,
   ReactIon,
@@ -10,6 +9,7 @@ import {
   TypescriptIcon,
 } from "@/assets/svgs";
 import HeroGrid from "./HeroGrid";
+import AnimatedLink from "../Common/AnimatedLink";
 
 const TECH_STACK = [
   {
@@ -53,9 +53,9 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
-            <Button href="/docs/home">
+            <AnimatedLink href="/docs/home">
               <span>Browse components</span>
-            </Button>
+            </AnimatedLink>
           </div>
           <div className="flex flex-wrap items-center gap-4 dark:text-white">
             {TECH_STACK.map((tech) => (
