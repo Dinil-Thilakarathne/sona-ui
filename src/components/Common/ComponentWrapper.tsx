@@ -15,7 +15,7 @@ const ComponentWrapper: React.FC<ComponentWrapperProps> = ({
   return (
     <div
       className={cn(
-        "xs:w-full bg-compWrapper flex w-[calc(100vw-16px)] items-center justify-center overflow-clip rounded-lg border p-4 shadow-lg sm:w-full md:p-6",
+        "xs:w-full bg-secondary flex w-[calc(100vw-16px)] items-center justify-center overflow-clip rounded-lg border p-4 shadow-lg sm:w-full md:p-6",
         className,
       )}
     >

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import Button from "../Button";
 import Tag from "../Common/Tag";
 import { type ComponentItemsPropsType } from "@/lib/types";
+import AnimatedLink from "../Common/AnimatedLink";
 
 const ComponentCard: React.FC<ComponentItemsPropsType> = ({
   imgSrc,
@@ -34,9 +34,9 @@ const ComponentCard: React.FC<ComponentItemsPropsType> = ({
 
         {/* CTA Section */}
         <div className="mt-2 text-right">
-          <Button href={href} variant="outline" className="text-sm">
+          <AnimatedLink href={href} variant="outline" className="text-sm">
             View More
-          </Button>
+          </AnimatedLink>
         </div>
       </div>
     </div>

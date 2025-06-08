@@ -1,22 +1,21 @@
-"use client";
-
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  className?: string;
+interface AnimatedLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
   variant?: "default" | "outline" | "filled";
-  href?: string;
+  className?: string;
+  children: ReactNode;
 }
 
-export default function Button({
-  children,
-  className,
+export default function AnimatedLink({
+  href,
   variant = "default",
+  className = "",
+  children,
   ...props
-}: ButtonProps) {
+}: AnimatedLinkProps) {
   const baseClasses =
     "px-4 py-2 rounded-full text-sm  focus:outline-none focus:ring-2 focus:ring-offset-2 hover:cursor-pointer transition duration-200 ease-in-out";
 
@@ -27,11 +26,12 @@ export default function Button({
   };
 
   return (
-    <button
+    <Link
+      href={href}
       className={cn(baseClasses, variantClasses[variant], className)}
       {...props}
     >
       {children}
-    </button>
+    </Link>
   );
 }

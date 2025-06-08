@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import Logo from "../Common/Logo";
 import StartCount from "../Common/StartCount";
-import Button from "../Button";
 import SidebarLink from "../Common/SidebarLink";
 
 import { navLinks } from "@/lib/data";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { ModeToggle } from "../Common/ModeToggle";
+import AnimatedLink from "../Common/AnimatedLink";
 
 const Header = () => {
   return (
@@ -19,9 +19,9 @@ const Header = () => {
       </div>
 
       <div className="flex items-center lg:space-x-6">
-        <Button href={GIT_REP_LINK} variant="default" className="">
+        <AnimatedLink href={GIT_REP_LINK} variant="default" className="">
           <StartCount />
-        </Button>
+        </AnimatedLink>
 
         <nav className="hidden items-center space-x-6 lg:flex">
           {navLinks.map((link) => (
