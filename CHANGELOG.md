@@ -1,3 +1,17 @@
+# [2.4.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.1...v2.4.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* add background color for code spans in preformatted text ([eda6989](https://github.com/Dinil-Thilakarathne/sona-ui/commit/eda6989a65568309868ccc6a4ef82160b6df5aa0))
+* refactor Button component to remove href prop and use button element ([e25ef2d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e25ef2dcfb878c487e832c7b35f4296580536f81))
+* update background class for consistency in ComponentWrapper component ([3cd14db](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3cd14dbce4f6d3d2b596e8d558d6916de2adc201))
+
+
+### Features
+
+* add AnimatedLink component for enhanced link styling and behavior ([f788a03](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f788a0315aab182bf46e9a2249fcf9c6e3230f52))
+
 ## [2.3.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.0...v2.3.1) (2025-06-07)
 
 
