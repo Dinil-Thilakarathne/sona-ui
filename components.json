@@ -38,5 +38,9 @@
   "Marquee": {
     "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/marquee/Marquee.tsx",
     "dependencies": []
+  },
+  "BubbleUpButton": {
+    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/bubbleUpButton/BubbleUpButton.tsx",
+    "dependencies": []
   }
 }

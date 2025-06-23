@@ -53,7 +53,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
-            <AnimatedLink href="/docs/home">
+            <AnimatedLink href="/docs/accordion">
               <span>Browse components</span>
             </AnimatedLink>
           </div>
