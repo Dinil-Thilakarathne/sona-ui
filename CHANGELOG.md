@@ -1,3 +1,27 @@
+# [2.5.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.4.0...v2.5.0) (2025-06-23)
+
+
+### Bug Fixes
+
+* adjust positioning of ProfilePopover for improved layout ([093574d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/093574d6f0654227ab2cb1addbe56150c7c3b662))
+* correct import path for BubbleUpButton in example file ([e5a403d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e5a403d77bd3e039469be1d32dc7d9f3b2294b07))
+* remove unnecessary transition object in handleMouseEnter and reorder MotionConfig ([626e6d3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/626e6d347ea8c68579af0f0f99a758519b0896dc))
+* remove uppercase styling from StaggerItemSegment for improved text readability ([4e1356b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4e1356b91e9a891ead5d1b73d1db95b38a5793d5))
+* update default motionControls configuration for BubbleUpButton component ([c20a953](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c20a953421aa675b16f7fbe927d2465d11b07c62))
+* update link in AnimatedLink component to point to the correct documentation page ([22dcb0b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/22dcb0b77dfc9d5fc2982bbd7e10f8e60a09feca))
+* update sidebar width for improved layout consistency ([b8510ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b8510ca33d7634729bca622dd4a8668e36fec6f6))
+
+
+### Features
+
+* add Bubble Up Button to component navigation links ([6f5af42](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6f5af42cc5367fa995cb50bb4649fee9802a857b))
+* add BubbleUpButton component to the components registry ([4d8c439](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4d8c439a2a5e292d5a391777b2898a291450b4d7))
+* add BubbleUpButton component with animated hover effects ([a5dcf38](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a5dcf383703d41598227f6bf31225e7882431bc4))
+* add documentation for BubbleUpButton component with usage examples and props details ([5360eeb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5360eebc08088a569acef59d4cff914272643f12))
+* add example usage for BubbleUpButton component ([87874db](https://github.com/Dinil-Thilakarathne/sona-ui/commit/87874dbdb358b72100bea4793cf85d92bb26280f))
+* enhance BubbleUpButton component with props for children and motion controls ([86984dd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/86984ddbf2a47eaa27383c994ca68a336bf670ed))
+* update BubbleUpButton component with default children and improved motion controls ([b39d4b2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b39d4b2d7f35830d338063805f751ce46677a22e))
+
 # [2.4.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.1...v2.4.0) (2025-06-08)
 
 
