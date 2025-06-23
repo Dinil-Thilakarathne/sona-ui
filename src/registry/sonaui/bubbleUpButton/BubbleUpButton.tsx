@@ -27,14 +27,13 @@ export default function BubbleUpButton({
   const handleMouseEnter = async () => {
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% 100%)",
-      transition: {
-      },
     });
   };
 
   const handleMouseLeave = async () => {
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% -120%)",
+
     });
     controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
   };
@@ -49,13 +48,13 @@ export default function BubbleUpButton({
       )}
       {...props}
     >
-      <MotionConfig {...motionControls}>
-        <motion.div
-          animate={controls}
-          initial={{ scale: 1, clipPath: "ellipse(0% 0% at 50% 100%)" }}
-          className="absolute top-0 left-0 h-full w-full bg-white"
-        />
-      </MotionConfig>
+      <motion.div
+        animate={controls}
+        initial={{ scale: 1, clipPath: "ellipse(0% 0% at 50% 100%)" }}
+        transition={motionControls.transition}
+        className="absolute top-0 left-0 h-full w-full bg-white"
+      />
+      <MotionConfig {...motionControls}></MotionConfig>
       <span className="relative text-white mix-blend-difference">
         {children}
       </span>
