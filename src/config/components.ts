@@ -55,6 +55,12 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     href: "/docs/marquee",
     type: "Effects",
   },
+  {
+    name: "Bubble Up Button",
+    slug: "bubbleUpButton",
+    href: "/docs/bubbleUpButton",
+    type: "Components",
+  }
 ];
 
 export const groupedComponents = componentNavigationLinks.reduce<
