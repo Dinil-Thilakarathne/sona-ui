@@ -7,6 +7,7 @@ import {
   MotionConfigProps,
   useAnimation,
 } from "motion/react";
+import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,10 +15,11 @@ interface BubbleUpButtonProps
   motionControls?: MotionConfigProps;
 }
 export default function BubbleUpButton({
-  children,
+  children = "Hover me!",
   motionControls = {
-    transition: { duration: 2, type: "spring", stiffness: 300, damping: 40 },
+    transition: { type: "spring", stiffness: 200, damping: 40 },
   },
+  className = "",
   ...props
 }: BubbleUpButtonProps) {
   const controls = useAnimation();
@@ -25,6 +27,8 @@ export default function BubbleUpButton({
   const handleMouseEnter = async () => {
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% 100%)",
+      transition: {
+      },
     });
   };
 
@@ -39,7 +43,10 @@ export default function BubbleUpButton({
     <button
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2"
+      className={cn(
+        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
+        className,
+      )}
       {...props}
     >
       <MotionConfig {...motionControls}>
