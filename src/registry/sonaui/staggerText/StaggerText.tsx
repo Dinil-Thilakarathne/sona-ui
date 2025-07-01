@@ -7,23 +7,24 @@ import { cn } from "@/lib/utils";
 
 type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-interface StaggerTextProps extends React.ComponentPropsWithoutRef<"span"> {
-  text: string;
-  className?: string;
-  as?: StaggerTextEleType;
-}
+type StaggerTextProps<T extends StaggerTextEleType> =
+  React.ComponentPropsWithoutRef<T> & {
+    text: string;
+    className?: string;
+    as?: T;
+  };
 
 export default function StaggerText({
   text = "text",
   className,
-  as = "h1",
-}: StaggerTextProps) {
+  as = "h3",
+}: StaggerTextProps<StaggerTextEleType>) {
   const Tag = as; // Explicitly type as a React component
   const [activeIndex, setActiveIndex] = useState(5);
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <h1 className="sr-only" aria-hidden="true">
+      <h1 className="sr-only">
         {text}
       </h1>
       <Tag
@@ -31,8 +32,7 @@ export default function StaggerText({
         aria-label={text}
         onCopy={(e) => {
           e.preventDefault();
-          e.clipboardData.setData("text/plain", text as string);
-          navigator.clipboard.writeText(text as string);
+          e.clipboardData.setData("text/plain", text);
         }}
       >
         {text.split("").map((char, i) => {
