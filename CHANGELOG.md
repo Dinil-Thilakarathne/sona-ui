@@ -1,3 +1,19 @@
+## [2.5.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.0...v2.5.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* add packageManager field to package.json ([cb05e2f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cb05e2f2b4d305c5504f831759da84e60efa8042))
+* add type annotation for variants and improve import statement in StaggerText ([9ba0b62](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9ba0b6272bea31d3c3af3eb342bc011fbf3db0e0))
+* clean up imports and remove unused MotionConfig component in BubbleUpButton ([aece12d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/aece12d045d642b2723a0cc756228aef8ffc4ff9))
+* enhance type safety in StaggerText component and simplify clipboard handling ([dd1ccce](https://github.com/Dinil-Thilakarathne/sona-ui/commit/dd1ccce87ae05346fbf0111ddd2793eb287966b3))
+* enhance type safety in StaggerText component and update default element type ([b761811](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b761811da1051af959495f0f27652e05be9e678c))
+* improve type annotations and formatting in SpinningText component ([d458ec5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d458ec5700ab46f97f4305bfb0022d765d07053c))
+* refactor StaggerText component for improved type safety and performance ([ac07346](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ac07346ac8bc3bffc67d4eb841cd9a77b661361c))
+* update default element type in StaggerText component and improve type definition ([5233e6c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5233e6c3de7aa129193eef2cfc1801207884ba20))
+* update transitionConfig to motionConfig in ExpandableTabs component ([070b62f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/070b62f2248c95efe6f72a2b0c95b210a9ffee95))
+* update transitionConfig to motionConfig in ExpandableTabs_ex component ([25e6853](https://github.com/Dinil-Thilakarathne/sona-ui/commit/25e685349a58b8962bfa9b3656158a8491459db8))
+
 # [2.5.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.4.0...v2.5.0) (2025-06-23)
 
 
