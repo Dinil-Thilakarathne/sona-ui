@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -137,7 +137,7 @@ const StaggerItemSegment = ({
   );
 };
 
-const variants = {
+const variants: Variants = {
   initial: { y: 0 },
   animate: (i: number) => ({
     y: "-100%",
@@ -145,7 +145,7 @@ const variants = {
       delay: i * 0.04,
       duration: 0.4,
       ease: "easeInOut",
-      type: "tween",
+      type: "tween" as const,
     },
   }),
   exit: (i: number) => ({
