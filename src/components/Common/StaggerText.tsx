@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-type StaggerTextProps<T extends StaggerTextEleType = "h1"> =
+type StaggerTextProps<T extends StaggerTextEleType> =
   React.ComponentPropsWithoutRef<T> & {
     text: string;
     className?: string;
@@ -17,8 +17,8 @@ type StaggerTextProps<T extends StaggerTextEleType = "h1"> =
 export default function StaggerText({
   text = "text",
   className,
-  as = "h1",
-}: StaggerTextProps) {
+  as = "h3",
+}: StaggerTextProps<StaggerTextEleType>) {
   const Tag = as; // Explicitly type as a React component
   const [activeIndex, setActiveIndex] = useState(5);
   const [isActive, setIsActive] = useState(false);
