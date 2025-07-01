@@ -35,7 +35,9 @@ const ExpandableTabs_ex = () => {
       <ExpandableTabs
         tabs={TabData}
         defaultActiveIndex={0}
-        transitionConfig={{ duration: 0.2, ease: "easeInOut" }}
+        motionConfig={{
+          transition: { duration: 0.2, ease: "easeInOut" },
+        }}
       />
     </ComponentWrapper>
   );

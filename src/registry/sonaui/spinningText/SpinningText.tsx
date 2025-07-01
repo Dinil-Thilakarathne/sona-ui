@@ -1,7 +1,7 @@
 "use client";
 
 import { CSSProperties, useMemo } from "react";
-import { motion, Transition, Variants } from "motion/react";
+import { motion, type Transition, Variants } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ type SpinningTextProps = {
 
 const BASE_TRANSITION = {
   repeat: Infinity,
-  ease: "linear",
+  ease: "linear" as const,
 };
 
 const BASE_ITEM_VARIANTS = {
@@ -63,7 +63,7 @@ export default function SpinningText({
     return chars;
   }, [textContent]);
 
-  const finalTransition = useMemo(
+  const finalTransition  = useMemo(
     () => ({
       ...BASE_TRANSITION,
       ...transition,
