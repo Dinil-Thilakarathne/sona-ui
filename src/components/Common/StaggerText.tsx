@@ -1,134 +1,155 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
+import { useState, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-interface StaggerTextProps {
+type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+interface StaggerTextProps extends React.ComponentPropsWithoutRef<"span"> {
   text: string;
   className?: string;
-  as?: "h1" | "h2" | "h3" | "span" | "p";
+  as?: StaggerTextEleType;
 }
 
-const StaggerText: React.FC<StaggerTextProps> = ({
-  text,
+export default function StaggerText({
+  text = "text",
   className,
-  as = "h3",
-}) => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const Tag = as;
-
-  const handleMouseEnter = (index: number) => {
-    setActiveIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveIndex(null);
-  };
-
+  as = "h1",
+}: StaggerTextProps) {
+  const Tag = as; // Explicitly type as a React component
+  const [activeIndex, setActiveIndex] = useState(5);
+  const [isActive, setIsActive] = useState(false);
   return (
-    <Tag
-      className={cn("overflow-clip leading-[1] select-text", className)}
-      aria-label={text}
-    >
-      {text.split("").map((char, i) => (
-        <StaggerTextItem
-          key={i}
-          char={char}
-          delay={activeIndex !== null ? Math.abs(activeIndex - i) : 0}
-          isHovered={activeIndex !== null}
-          onMouseEnter={() => handleMouseEnter(i)}
-          onMouseLeave={handleMouseLeave}
-        />
-      ))}
-    </Tag>
+    <>
+      <h1 className="sr-only" aria-hidden="true">
+        {text}
+      </h1>
+      <Tag
+        className={cn("overflow-clip tracking-wide select-text", className)}
+        aria-label={text}
+        onCopy={(e) => {
+          e.preventDefault();
+          e.clipboardData.setData("text/plain", text as string);
+          navigator.clipboard.writeText(text as string);
+        }}
+      >
+        {text.split("").map((char, i) => {
+          const delay = Math.abs(activeIndex - i);
+          return (
+            <StaggerTextItem
+              char={char}
+              key={i}
+              onMouseEnter={() => {
+                setActiveIndex(i);
+                setIsActive(true);
+              }}
+              onMouseLeave={() => {
+                setActiveIndex(-1);
+                setIsActive(false);
+              }}
+              delay={delay}
+              isHovered={isActive}
+            />
+          );
+        })}
+      </Tag>
+    </>
   );
-};
-
-interface StaggerTextItemProps {
-  char: string;
-  delay: number;
-  isHovered: boolean;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
 }
 
-const StaggerTextItem: React.FC<StaggerTextItemProps> = ({
+interface StaggerTextItemProps
+  extends React.ComponentPropsWithoutRef<typeof motion.span> {
+  char: string;
+  delay?: number;
+  isHovered?: boolean;
+}
+
+const StaggerTextItem = ({
   char,
   delay,
   isHovered,
-  onMouseEnter,
-  onMouseLeave,
-}) => {
-  const content = char === " " ? "\u00A0" : char;
-
+  ...props
+}: StaggerTextItemProps) => {
   return (
     <motion.span
+      {...props}
       className="relative inline-flex flex-col"
       role="presentation"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
-      {[false, true].map((isCopy) => (
-        <StaggerItemSegment
-          key={isCopy ? "copy" : "original"}
-          isCopy={isCopy}
-          delay={delay}
-          isHovered={isHovered}
-        >
-          {content}
-        </StaggerItemSegment>
-      ))}
+      <StaggerItemSegment
+        variants={variants}
+        custom={delay}
+        initial="initial"
+        animate={isHovered ? "animate" : "exit"}
+        aria-hidden="true"
+      >
+        {char}
+      </StaggerItemSegment>
+      <StaggerItemSegment
+        isCopy
+        variants={variants}
+        custom={delay}
+        initial="initial"
+        animate={isHovered ? "animate" : "exit"}
+        aria-hidden="true"
+      >
+        {char}
+      </StaggerItemSegment>
     </motion.span>
   );
 };
 
-interface StaggerItemSegmentProps {
-  children: React.ReactNode;
-  isCopy: boolean;
-  delay: number;
-  isHovered: boolean;
+interface StaggerItemSegmentProps
+  extends React.ComponentPropsWithoutRef<typeof motion.span> {
+  children: ReactNode;
+  isCopy?: boolean;
 }
 
-const StaggerItemSegment: React.FC<StaggerItemSegmentProps> = ({
+const StaggerItemSegment = ({
   children,
   isCopy,
-  delay,
-  isHovered,
-}) => {
-  const variants = useMemo(
-    () => ({
-      initial: { y: 0 },
-      animate: {
-        y: "-100%",
-        transition: { delay: delay * 0.04, duration: 0.4, ease: "easeInOut" },
-      },
-      exit: {
-        y: 0,
-        transition: { delay: delay * 0.02, duration: 0.3 },
-      },
-    }),
-    [delay],
-  );
-
+  ...props
+}: StaggerItemSegmentProps) => {
   const content = children === " " ? "\u00A0" : children;
+
+  if (isCopy) {
+    return (
+      <motion.span
+        className="absolute top-[0] left-0 h-fit w-full uppercase select-text"
+        style={{ translate: "0 100%" }}
+        {...props}
+      >
+        {content}
+      </motion.span>
+    );
+  }
 
   return (
     <motion.span
-      className={cn(
-        "h-fit text-slate-900 select-none dark:text-slate-200",
-        isCopy && "absolute top-0 left-0 h-fit w-full",
-        isCopy && "translate-y-full",
-      )}
-      variants={variants}
-      initial="initial"
-      animate={isHovered ? "animate" : "exit"}
+      className="h-fit uppercase select-none"
       aria-hidden="true"
+      {...props}
     >
       {content}
     </motion.span>
   );
 };
 
-export default StaggerText;
+const variants: Variants = {
+  initial: { y: 0 },
+  animate: (i: number) => ({
+    y: "-100%",
+    transition: {
+      delay: i * 0.04,
+      duration: 0.4,
+      ease: "easeInOut",
+      type: "tween" as const,
+    },
+  }),
+  exit: (i: number) => ({
+    y: 0,
+    transition: { delay: i * 0.02, duration: 0.3 },
+  }),
+};
