@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, MotionConfig, type Transition } from "motion/react";
+import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
 import { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
@@ -15,14 +15,14 @@ interface ExpandableTabsProps {
   tabs: TabsData[];
   containerClassName?: string;
   defaultActiveIndex?: number;
-  transitionConfig?: Transition;
+  motionConfig?: MotionConfigProps;
 }
 
 export default function ExpandableTabs({
   tabs,
   containerClassName = "",
   defaultActiveIndex = 0,
-  transitionConfig = {
+  motionConfig = {
     transition: { duration: 0.2, ease: "easeInOut" },
   },
 }: ExpandableTabsProps) {
@@ -36,7 +36,7 @@ export default function ExpandableTabs({
       )}
       layout
     >
-      <MotionConfig transition={transitionConfig}>
+      <MotionConfig {...motionConfig}>
         {tabs.map((tab, index) => (
           <motion.div
             key={index}
