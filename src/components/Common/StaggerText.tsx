@@ -24,9 +24,7 @@ export default function StaggerText({
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <h1 className="sr-only">
-        {text}
-      </h1>
+      <h1 className="sr-only">{text}</h1>
       <Tag
         className={cn("overflow-clip tracking-wide select-text", className)}
         aria-label={text}
@@ -117,7 +115,7 @@ const StaggerItemSegment = ({
   if (isCopy) {
     return (
       <motion.span
-        className="absolute top-[0] left-0 h-fit w-full uppercase select-text"
+        className="absolute top-[0] left-0 h-fit w-full select-text"
         style={{ translate: "0 100%" }}
         {...props}
       >
@@ -127,11 +125,7 @@ const StaggerItemSegment = ({
   }
 
   return (
-    <motion.span
-      className="h-fit uppercase select-none"
-      aria-hidden="true"
-      {...props}
-    >
+    <motion.span className="h-fit select-none" aria-hidden="true" {...props}>
       {content}
     </motion.span>
   );
