@@ -1,12 +1,23 @@
-export default function TypescriptIcon() {
+interface TypescriptIconProps {
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+}
+
+export default function TypescriptIcon({
+  width = 24,
+  height = 24,
+  className,
+}: TypescriptIconProps = {}) {
   return (
     <svg
-      width="24"
-      height="24"
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Typescript Icon"
+      className={className}
     >
       <path
         d="M2 0.25H22C22.9665 0.25 23.75 1.0335 23.75 2V22C23.75 22.9665 22.9665 23.75 22 23.75H2C1.0335 23.75 0.25 22.9665 0.25 22V2C0.25 1.0335 1.0335 0.25 2 0.25Z"
