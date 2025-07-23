@@ -1,35 +1,12 @@
-import { type ReactNode } from "react";
-
 import { heroContent } from "@/lib/constants";
 import Sidebar from "../ComponentsSidebar";
-import {
-  NextjsIcon,
-  ReactIon,
-  TailwindIcon,
-  TypescriptIcon,
-} from "@/assets/svgs";
+
 // import HeroGrid from "./HeroGrid";
 import AnimatedLink from "../Common/AnimatedLink";
 import BgGradient from "../Common/BgGradient";
+import FeatureGrid from "./FeatureGrid";
 
-const TECH_STACK = [
-  {
-    name: "Next.js",
-    icon: <NextjsIcon />,
-  },
-  {
-    name: "React",
-    icon: <ReactIon />,
-  },
-  {
-    name: "Typescript",
-    icon: <TypescriptIcon />,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: <TailwindIcon />,
-  },
-];
+
 
 const Hero = () => {
   return (
@@ -59,15 +36,9 @@ const Hero = () => {
               <span>Browse components</span>
             </AnimatedLink>
           </div>
-          <div className="flex flex-wrap items-center gap-4 dark:text-white">
-            {TECH_STACK.map((tech) => (
-              <Icon key={tech.name} text={tech.name}>
-                {tech.icon}
-              </Icon>
-            ))}
-          </div>
+
         </div>
-        {/* <HeroGrid /> */}
+        <FeatureGrid />
       </div>
     </section>
   );
@@ -75,11 +46,3 @@ const Hero = () => {
 
 export default Hero;
 
-const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
-  return (
-    <div className="flex items-center gap-x-2">
-      {children}
-      <span className="text-sm font-medium">{text}</span>
-    </div>
-  );
-};
