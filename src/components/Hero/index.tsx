@@ -2,11 +2,8 @@ import { heroContent } from "@/lib/constants";
 import Sidebar from "../ComponentsSidebar";
 
 // import HeroGrid from "./HeroGrid";
-import AnimatedLink from "../Common/AnimatedLink";
 import BgGradient from "../Common/BgGradient";
 import FeatureGrid from "./FeatureGrid";
-
-
 
 const Hero = () => {
   return (
@@ -24,19 +21,13 @@ const Hero = () => {
             <span className="text-sm">{heroContent.flag.text}</span>
           </div>
           <div className="flex w-full flex-col items-center text-center">
-            <h1 className="font-clash-display _font-roboto text-6xl font-bold uppercase lg:text-7xl 2xl:text-[20rem]">
+            <h1 className="font-clash-display _font-roboto text-7xl font-bold uppercase lg:text-9xl 2xl:text-[20rem]">
               {heroContent.header}
             </h1>
             <p className="max-w-2xl text-center text-lg text-gray-600 md:text-xl dark:text-gray-300">
               {heroContent.description}
             </p>
           </div>
-          <div className="flex w-fit flex-col items-center justify-center gap-4 lg:flex-row">
-            <AnimatedLink href="/docs/accordion">
-              <span>Browse components</span>
-            </AnimatedLink>
-          </div>
-
         </div>
         <FeatureGrid />
       </div>
@@ -45,4 +36,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
