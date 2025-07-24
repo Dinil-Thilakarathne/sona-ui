@@ -1,3 +1,25 @@
+# [2.6.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.1...v2.6.0) (2025-07-24)
+
+
+### Bug Fixes
+
+* add gradient background utility and keyframes for animation ([9bc248a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bc248ae5eaee5f3a38fd2be217a0c80d4ac7eb5))
+* clean up Hero component markup and comment out unused HeroGrid import ([f05df2c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f05df2c9ac16ec4b7922c6a04adfbfc2d967c4f9))
+* correct import of ReactIcon in index.ts ([faa67ea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/faa67eac976c5af2a593d51f76d572d124e2301e))
+* correct typo in ReactIcon import in Marquee_ex.tsx ([2865c01](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2865c01809c734189877e3a73a7cdfd13ebf51fa))
+* reorder clashDisplay import for consistency in layout.tsx ([23040aa](https://github.com/Dinil-Thilakarathne/sona-ui/commit/23040aa2d22309a356de388a3fd84434eccc2345))
+* streamline markup and remove unnecessary uppercase styling in StaggerText component ([0d122b4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0d122b48fc79f91a2ea3b5164468a4d1b29b99b5))
+
+
+### Features
+
+* add BgGradient component and integrate it into Hero section ([508e999](https://github.com/Dinil-Thilakarathne/sona-ui/commit/508e999703bf88d12e17aa69829d0cd04d299f0a))
+* add ClashDisplay font files and update font import structure ([2f80d8a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2f80d8ac036e7a49343b87d906a78516f6f421d8))
+* add FeatureGrid component to showcase technology stack with buttons ([b890790](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b890790b679ab1677ef9d6ed047d07f8f6b9cce1))
+* enhance FeatureGrid component with dynamic component and category counts, and improve layout structure ([75047ec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/75047ec404fc301728dd2f367fee6f59d47a04b7))
+* enhance SVG icon components to accept customizable width, height, and className props ([1b63bcc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1b63bcc31b1aa7a684cc68176cd394478c18f721))
+* implement FullWidthText component for responsive text sizing ([a57d87e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a57d87eec340451a4cad5b860f390e6748487d32))
+
 ## [2.5.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.0...v2.5.1) (2025-07-01)
 
 
