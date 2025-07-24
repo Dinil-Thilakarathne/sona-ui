@@ -51,7 +51,32 @@
   --sidebar: oklch(0.205 0 0);
 }
 
-
 pre > code span {
   background-color: var(--color-codeWrapper);
+}
+
+@layer utilities {
+  .bg-gradient {
+    background: linear-gradient(
+      -290deg,
+      #00a6f4,
+      #30b1ed 10%,
+      transparent 25%,
+      transparent 50%,
+      #00a6f4 105%,
+      #00a6f4 50%
+    );
+    background-size: 150% 150%;
+    animation: gradientShift 14s ease-in-out infinite;
+  }
+
+  @keyframes gradientShift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 60%;
+    }
+  }
 }

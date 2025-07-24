@@ -11,7 +11,7 @@ import AnimatedLink from "../Common/AnimatedLink";
 
 const Header = () => {
   return (
-    <header className="min-h-header-height bg-background fixed top-0 left-0 z-99 flex w-full items-center justify-between p-2 lg:p-4">
+    <header className="min-h-header-height fixed top-0 left-0 z-99 flex w-full items-center justify-between p-2 lg:p-4">
       <div className="flex items-center">
         <Link href="/" className="flex items-center">
           <Logo />

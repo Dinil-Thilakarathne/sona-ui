@@ -1,12 +1,23 @@
-export default function TailwindIcon() {
+interface TailwindIconProps {
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+}
+
+export default function TailwindIcon({
+  width = 24,
+  height = 16,
+  className,
+}: TailwindIconProps = {}) {
   return (
     <svg
-      width="24"
-      height="16"
+      width={width}
+      height={height}
       viewBox="0 0 24 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Typescript Icon"
+      aria-label="Tailwind Icon"
+      className={className}
     >
       <g clipPath="url(#clip0_59_11)">
         <path
