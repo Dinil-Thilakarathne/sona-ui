@@ -117,7 +117,7 @@ const StaggerItemSegment = ({
   if (isCopy) {
     return (
       <motion.span
-        className="absolute top-[0] left-0 h-fit w-full uppercase select-text"
+        className="absolute top-[0] left-0 h-fit w-full select-text"
         style={{ translate: "0 100%" }}
         {...props}
       >
@@ -128,7 +128,7 @@ const StaggerItemSegment = ({
 
   return (
     <motion.span
-      className="h-fit uppercase select-none"
+      className="h-fit select-none"
       aria-hidden="true"
       {...props}
     >
