@@ -1,3 +1,8 @@
+"use client";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import type { ReactNode } from "react";
 import Button from "@/components/Button";
 import {
@@ -6,13 +11,13 @@ import {
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import {
-  componentNavigationLinks,
-  groupedComponents,
-} from "@/config/components";
 import { cn } from "@/lib/utils";
-import { Copy, GitPullRequest, Layers } from "lucide-react";
+import { GitPullRequest, Layers } from "lucide-react";
+import InfoCard from "./InfoCard";
+import StaggerText from "@/registry/sonaui/staggerText/StaggerText";
 import Link from "next/link";
+
+gsap.registerPlugin(useGSAP);
 
 const TECH_STACK = [
   {
@@ -34,9 +39,17 @@ const TECH_STACK = [
 ];
 
 export default function FeatureGrid() {
-  const componentCount = componentNavigationLinks.length;
-  const categoryCount = Object.keys(groupedComponents).length;
-
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.out", duration: 0.75, delay: 0.5 },
+    });
+    tl.from(".feature-card", {
+      y: "100%",
+      opacity: 0.5,
+      duration: 0.25,
+      stagger: 0.1,
+    });
+  });
   return (
     <div className="grid gap-4 lg:grid-cols-3 lg:gap-8">
       <FeatureCard>
@@ -46,28 +59,16 @@ export default function FeatureGrid() {
           </span>
           Open source
         </Button>
-        <h3 className="text-2xl lg:text-4xl">Want to contribute?</h3>
+        <Link
+          href="https://github.com/Dinil-Thilakarathne/sona-ui"
+          className="text-2xl normal-case lg:text-4xl"
+        >
+          <StaggerText text="Be a contributor" />
+        </Link>
       </FeatureCard>
 
       <FeatureCard>
-        <div className="flex w-full justify-between">
-          <Button
-            className="flex w-fit items-center gap-2 text-white"
-            variant="outline"
-          >
-            npx @sonacode/sonaui-cli
-            <span className="*:scale-75">
-              <Copy />
-            </span>
-          </Button>
-          <Button className="w-fit text-black">
-            <Link href={"/docs/accordion"}>Try it!</Link>
-          </Button>
-        </div>
-        <ul className="ml-auto text-right text-2xl lg:text-4xl">
-          <li>{componentCount} Components</li>
-          <li>{categoryCount} Categories</li>
-        </ul>
+        <InfoCard />
       </FeatureCard>
 
       <FeatureCard>
@@ -77,7 +78,7 @@ export default function FeatureGrid() {
           </span>
           Modern Stack
         </Button>
-        <div className="grid grid-cols-2 grid-rows-2 gap-2 text-black">
+        <div className="_text-black grid grid-cols-2 grid-rows-2 gap-4">
           {TECH_STACK.map((tech) => (
             <Icon key={tech.name} text={tech.name}>
               {tech.icon}
@@ -97,13 +98,15 @@ const FeatureCard = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn(
-        "flex min-h-[175px] flex-col justify-between rounded-xl bg-sky-400/80 p-4 lg:min-h-[200px]",
-        className,
-      )}
-    >
-      {children}
+    <div className="overflow-clip">
+      <div
+        className={cn(
+          "feature-card flex min-h-[175px] flex-col justify-between rounded-xl bg-sky-400/80 p-4 lg:min-h-[200px]",
+          className,
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 };
