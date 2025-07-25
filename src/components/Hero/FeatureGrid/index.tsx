@@ -12,10 +12,10 @@ import {
   TypescriptIcon,
 } from "@/assets/svgs";
 import { cn } from "@/lib/utils";
-import { GitPullRequest, Layers } from "lucide-react";
+import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
 import InfoCard from "./InfoCard";
-import StaggerText from "@/registry/sonaui/staggerText/StaggerText";
 import Link from "next/link";
+import StaggerText from "@/components/Common/StaggerText";
 
 gsap.registerPlugin(useGSAP);
 
@@ -61,9 +61,10 @@ export default function FeatureGrid() {
         </Button>
         <Link
           href="https://github.com/Dinil-Thilakarathne/sona-ui"
-          className="text-2xl normal-case lg:text-4xl"
+          className="flex items-center gap-2 text-2xl normal-case lg:text-4xl"
         >
           <StaggerText text="Be a contributor" />
+          <ArrowUpRight className="aspect-square h-full lg:scale-125" />
         </Link>
       </FeatureCard>
 
