@@ -1,17 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { FiMenu } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
+import { GoSidebarExpand } from "react-icons/go";
+import { GoSidebarCollapse } from "react-icons/go";
 
 import SidebarLink from "../Common/SidebarLink";
 import { navLinks } from "@/lib/data";
-import { ModeToggle } from "../Common/ModeToggle";
+// import { ModeToggle } from "../Common/ModeToggle";
 import { groupedComponents } from "@/config/components";
-import ProfilePopover from "../ProfilePopover";
+// import ProfilePopover from "../ProfilePopover";
 
-const Sidebar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+type SidebarProps = {
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
+
+const Sidebar: React.FC<SidebarProps> = ({
+  isOpen: controlledIsOpen,
+  onOpenChange,
+}) => {
+  const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : uncontrolledIsOpen;
+
+  const setIsOpen = (next: boolean) => {
+    if (!isControlled) {
+      setUncontrolledIsOpen(next);
+    }
+    onOpenChange?.(next);
+  };
+
+  useEffect(() => {
+    if (typeof window === "undefined" || isControlled) return;
+    if (window.innerWidth >= 1024) {
+      setUncontrolledIsOpen(true);
+    }
+  }, [isControlled]);
 
   return (
     <>
@@ -22,20 +49,29 @@ const Sidebar: React.FC = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
       >
-        <FiMenu size={24} />
+        {isOpen ? <MdClose size={24} /> : <FiMenu size={24} />}
       </motion.button>
+
+      <button
+        className="top-header-height absolute left-2 mt-2 invisible cursor-pointer rounded-2xl bg-white p-2 lg:visible"
+        style={isOpen ? { display: "none" } : { display: "block" }}
+        onClick={() => setIsOpen(true)}
+      >
+        <GoSidebarCollapse size={24} />
+      </button>
 
       {/* Sidebar */}
       <aside
-        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-0 z-40 flex transform flex-col space-y-2 rounded-r-2xl p-4 transition-transform duration-300 lg:min-h-[calc(100vh-75px)] lg:translate-x-0 ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-2 z-40 my-4 flex transform flex-col space-y-2 rounded-2xl p-4 transition-transform duration-300 lg:min-h-[calc(100vh-var(--spacing-header-height)-2rem)] ${
+          isOpen ? "translate-x-0" : "-translate-x-[110%]"
         }`}
       >
-        <div className="flex items-center justify-between">
-          <div className="lg:hidden">
-            <ModeToggle />
-          </div>
-        </div>
+        <button
+          className="absolute top-2 right-2 cursor-pointer"
+          onClick={() => setIsOpen(false)}
+        >
+          <GoSidebarExpand size={24} />
+        </button>
         <nav className="space-y-2">
           {Object.entries(groupedComponents).map(([type, components]) => (
             <div key={type}>
@@ -63,7 +99,7 @@ const Sidebar: React.FC = () => {
             </div>
           ))}
         </nav>
-        <ProfilePopover />
+        {/* <ProfilePopover /> */}
       </aside>
 
       {/* Overlay for Mobile */}

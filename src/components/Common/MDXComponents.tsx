@@ -40,7 +40,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
+        "font-heading  mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
         className,
       )}
       {...props}
@@ -67,10 +67,7 @@ const components = {
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="overflow-x-auto">
       <table
-        className={cn(
-          "w-full border-collapse border border-gray-300",
-          className,
-        )}
+        className={cn("border-border w-full border-collapse border", className)}
         {...props}
       />
     </div>

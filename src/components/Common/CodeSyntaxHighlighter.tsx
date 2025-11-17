@@ -85,7 +85,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
   return (
     <div
       className={cn(
-        "bg-codeWrapper relative mt-4 w-full max-w-[calc(100vw-16px)] overflow-x-auto rounded-lg border p-4 lg:max-w-full",
+        "bg-codeWrapper  relative mt-4 w-full max-w-[calc(100vw-16px)] overflow-x-auto rounded-lg border p-4 lg:max-w-full",
         className,
       )}
     >
@@ -105,6 +105,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
             whiteSpace: "pre-wrap",
             backgroundColor: "oklch(0.269 0 0)",
           }}
+          showLineNumbers={true}
         >
           {displayedContent}
         </SyntaxHighlighterLib>
