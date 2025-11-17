@@ -23,7 +23,9 @@
   --sidebar-width: 18rem;
   --spacing-header-height: 4.5rem;
   --spacing-sidebar-width: var(--sidebar-width);
-  --spacing-mobile-sidebar-height: calc(100svh - var(--spacing-header-height));
+  --spacing-mobile-sidebar-height: calc(
+    100svh - var(--spacing-header-height) - 2rem
+  );
 }
 
 :root {
