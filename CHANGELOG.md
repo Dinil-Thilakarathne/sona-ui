@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.0...v2.7.1) (2025-11-17)
+
+
+### Bug Fixes
+
+* remove ThemeProvider wrapper for cleaner layout structure ([d0ee8d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d0ee8d604121380c9ec7686db871811ef1e34dfd))
+
 # [2.7.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.6.0...v2.7.0) (2025-11-17)
 
 
