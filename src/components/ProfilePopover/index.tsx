@@ -67,7 +67,7 @@ export default function ProfilePopover() {
             height={40}
             className="rounded-full"
           />
-          <div className="text-primary flex flex-col items-start text-sm">
+          <div className="flex flex-col items-start text-sm">
             <span>Dinil Thilakarathne</span>
             <span>@sonaui</span>
           </div>

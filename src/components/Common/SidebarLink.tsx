@@ -13,14 +13,20 @@ const SidebarLink = ({ name, tag, href, ...props }: NavLinkProps) => {
   const isDisabled = tag === "soon";
 
   return isDisabled ? (
-    <div className="flex cursor-not-allowed items-start space-x-0.5">
-      <StaggerText text={name} as="h3" className="text-lg font-medium" />
+    <div className="group relative flex cursor-not-allowed items-start space-x-0.5">
+      <h3 className="text-lg font-medium">{name}</h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
+      <div className="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-0 transition-[width] duration-300 group-hover:w-full"></div>
     </div>
   ) : (
-    <Link className={cn("flex items-start space-x-0.5")} href={href} {...props}>
-      <StaggerText text={name} as="h3" className="text-md font-medium" />
+    <Link
+      className={cn("group relative flex items-start space-x-0.5")}
+      href={href}
+      {...props}
+    >
+      <h3 className="text-md font-medium">{name}</h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
+      <div className="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-0 transition-[width] duration-300 group-hover:w-full"></div>
     </Link>
   );
 };
