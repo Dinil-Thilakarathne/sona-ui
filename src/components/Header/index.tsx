@@ -11,7 +11,7 @@ import FadeInComp from "../Common/FadeIn";
 
 const Header = () => {
   return (
-    <header className="min-h-header-height fixed top-0 left-0 z-99 flex w-full items-center justify-between p-2 lg:p-4">
+    <header className="min-h-header-height bg-background fixed top-0 left-0 z-99 flex w-full items-center justify-between p-2 lg:p-4 border-b">
       <div className="flex items-center gap-x-6">
         <Link href="/" className="flex items-center">
           <Logo />
