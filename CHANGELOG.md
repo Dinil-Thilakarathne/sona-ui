@@ -1,3 +1,178 @@
+# [2.6.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.1...v2.6.0) (2025-07-24)
+
+
+### Bug Fixes
+
+* add gradient background utility and keyframes for animation ([9bc248a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bc248ae5eaee5f3a38fd2be217a0c80d4ac7eb5))
+* clean up Hero component markup and comment out unused HeroGrid import ([f05df2c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f05df2c9ac16ec4b7922c6a04adfbfc2d967c4f9))
+* correct import of ReactIcon in index.ts ([faa67ea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/faa67eac976c5af2a593d51f76d572d124e2301e))
+* correct typo in ReactIcon import in Marquee_ex.tsx ([2865c01](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2865c01809c734189877e3a73a7cdfd13ebf51fa))
+* reorder clashDisplay import for consistency in layout.tsx ([23040aa](https://github.com/Dinil-Thilakarathne/sona-ui/commit/23040aa2d22309a356de388a3fd84434eccc2345))
+* streamline markup and remove unnecessary uppercase styling in StaggerText component ([0d122b4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0d122b48fc79f91a2ea3b5164468a4d1b29b99b5))
+
+
+### Features
+
+* add BgGradient component and integrate it into Hero section ([508e999](https://github.com/Dinil-Thilakarathne/sona-ui/commit/508e999703bf88d12e17aa69829d0cd04d299f0a))
+* add ClashDisplay font files and update font import structure ([2f80d8a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2f80d8ac036e7a49343b87d906a78516f6f421d8))
+* add FeatureGrid component to showcase technology stack with buttons ([b890790](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b890790b679ab1677ef9d6ed047d07f8f6b9cce1))
+* enhance FeatureGrid component with dynamic component and category counts, and improve layout structure ([75047ec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/75047ec404fc301728dd2f367fee6f59d47a04b7))
+* enhance SVG icon components to accept customizable width, height, and className props ([1b63bcc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1b63bcc31b1aa7a684cc68176cd394478c18f721))
+* implement FullWidthText component for responsive text sizing ([a57d87e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a57d87eec340451a4cad5b860f390e6748487d32))
+
+## [2.5.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.0...v2.5.1) (2025-07-01)
+
+
+### Bug Fixes
+
+* add packageManager field to package.json ([cb05e2f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cb05e2f2b4d305c5504f831759da84e60efa8042))
+* add type annotation for variants and improve import statement in StaggerText ([9ba0b62](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9ba0b6272bea31d3c3af3eb342bc011fbf3db0e0))
+* clean up imports and remove unused MotionConfig component in BubbleUpButton ([aece12d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/aece12d045d642b2723a0cc756228aef8ffc4ff9))
+* enhance type safety in StaggerText component and simplify clipboard handling ([dd1ccce](https://github.com/Dinil-Thilakarathne/sona-ui/commit/dd1ccce87ae05346fbf0111ddd2793eb287966b3))
+* enhance type safety in StaggerText component and update default element type ([b761811](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b761811da1051af959495f0f27652e05be9e678c))
+* improve type annotations and formatting in SpinningText component ([d458ec5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d458ec5700ab46f97f4305bfb0022d765d07053c))
+* refactor StaggerText component for improved type safety and performance ([ac07346](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ac07346ac8bc3bffc67d4eb841cd9a77b661361c))
+* update default element type in StaggerText component and improve type definition ([5233e6c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5233e6c3de7aa129193eef2cfc1801207884ba20))
+* update transitionConfig to motionConfig in ExpandableTabs component ([070b62f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/070b62f2248c95efe6f72a2b0c95b210a9ffee95))
+* update transitionConfig to motionConfig in ExpandableTabs_ex component ([25e6853](https://github.com/Dinil-Thilakarathne/sona-ui/commit/25e685349a58b8962bfa9b3656158a8491459db8))
+
+# [2.5.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.4.0...v2.5.0) (2025-06-23)
+
+
+### Bug Fixes
+
+* adjust positioning of ProfilePopover for improved layout ([093574d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/093574d6f0654227ab2cb1addbe56150c7c3b662))
+* correct import path for BubbleUpButton in example file ([e5a403d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e5a403d77bd3e039469be1d32dc7d9f3b2294b07))
+* remove unnecessary transition object in handleMouseEnter and reorder MotionConfig ([626e6d3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/626e6d347ea8c68579af0f0f99a758519b0896dc))
+* remove uppercase styling from StaggerItemSegment for improved text readability ([4e1356b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4e1356b91e9a891ead5d1b73d1db95b38a5793d5))
+* update default motionControls configuration for BubbleUpButton component ([c20a953](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c20a953421aa675b16f7fbe927d2465d11b07c62))
+* update link in AnimatedLink component to point to the correct documentation page ([22dcb0b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/22dcb0b77dfc9d5fc2982bbd7e10f8e60a09feca))
+* update sidebar width for improved layout consistency ([b8510ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b8510ca33d7634729bca622dd4a8668e36fec6f6))
+
+
+### Features
+
+* add Bubble Up Button to component navigation links ([6f5af42](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6f5af42cc5367fa995cb50bb4649fee9802a857b))
+* add BubbleUpButton component to the components registry ([4d8c439](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4d8c439a2a5e292d5a391777b2898a291450b4d7))
+* add BubbleUpButton component with animated hover effects ([a5dcf38](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a5dcf383703d41598227f6bf31225e7882431bc4))
+* add documentation for BubbleUpButton component with usage examples and props details ([5360eeb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5360eebc08088a569acef59d4cff914272643f12))
+* add example usage for BubbleUpButton component ([87874db](https://github.com/Dinil-Thilakarathne/sona-ui/commit/87874dbdb358b72100bea4793cf85d92bb26280f))
+* enhance BubbleUpButton component with props for children and motion controls ([86984dd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/86984ddbf2a47eaa27383c994ca68a336bf670ed))
+* update BubbleUpButton component with default children and improved motion controls ([b39d4b2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b39d4b2d7f35830d338063805f751ce46677a22e))
+
+# [2.4.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.1...v2.4.0) (2025-06-08)
+
+
+### Bug Fixes
+
+* add background color for code spans in preformatted text ([eda6989](https://github.com/Dinil-Thilakarathne/sona-ui/commit/eda6989a65568309868ccc6a4ef82160b6df5aa0))
+* refactor Button component to remove href prop and use button element ([e25ef2d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e25ef2dcfb878c487e832c7b35f4296580536f81))
+* update background class for consistency in ComponentWrapper component ([3cd14db](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3cd14dbce4f6d3d2b596e8d558d6916de2adc201))
+
+
+### Features
+
+* add AnimatedLink component for enhanced link styling and behavior ([f788a03](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f788a0315aab182bf46e9a2249fcf9c6e3230f52))
+
+## [2.3.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.3.0...v2.3.1) (2025-06-07)
+
+
+### Bug Fixes
+
+* correct ref type in ProfilePopover and update Button props for consistency ([87aef4e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/87aef4e64f1b77ff42f28885d084a8cb6bd5d19c))
+* format Sidebar component for improved readability and consistency ([b06c36f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b06c36f8c6b0f7781f17db4bac7d929459c10592))
+* make href prop optional and update default variant styles for Button component ([4be89b5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4be89b5cb9f6491b0f413bddfde82f6f8ea49758))
+* update background class for CodeSyntaxHighlighter component ([4652a6e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4652a6e38b429301ec543edb1cb368ef22d85e0c))
+* update background class for consistency in ComponentWrapper component ([d206657](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d206657ed999ff7a625fd8ea7a9f60f47c52ebd6))
+* update Button component to use href prop for navigation consistency ([497e52a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/497e52af0e5ff5921c232afc43218d98b64b531c))
+* update Button component to use href prop instead of link for consistency ([3043f1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3043f1fd2e4e4563ca9e36e2cbffc9c19124b4c6))
+* update color variables for consistency in globals.css ([d06f106](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d06f106241113e11fe44340acf490354c19a7bf3))
+* update shadow and border styles for consistency in ProfilePopover component ([309ef57](https://github.com/Dinil-Thilakarathne/sona-ui/commit/309ef5796e09c7f74eaf267a8bd086d97dd2b409))
+
+# [2.3.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.2.0...v2.3.0) (2025-06-07)
+
+
+### Bug Fixes
+
+* add sidebar color variables for improved theme consistency ([71e6d6e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/71e6d6e01f11d37697399e0117e4af5511fea958))
+* correct type definition for ComponentItemsProps and clean up TagProps export ([3ff7bd5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3ff7bd542e8b91adaa18b0814f25fcbc1b14fb9d))
+* improve Tabs component layout and styling for better user experience ([4a46878](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4a4687895cec041cc60b2d529beb50f39c3932e5))
+* refactor Sidebar component to remove props and integrate grouped components for improved structure ([b58ed69](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b58ed698fca09ad4f224613fbf2a2f30add258f4))
+* refactor SidebarLink component to improve type definitions and remove unused props ([e8a5ae4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e8a5ae47f0ee1cc6d5ed9bc15687c2bf4cd2a769))
+* remove debug log and update hover state handling in Marquee component ([c2fc827](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c2fc827e97d1ece77a6dfe9f8df000259b938348))
+* remove unnecessary tag properties and refactor component grouping logic ([8e00de6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8e00de6ce56e6d71cae0f20641116ab6939b04f6))
+* remove unused props from Sidebar component in Hero section ([a25888d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a25888d86e158ad1b57b547e0dc61aceecc01d12))
+* update Header component to restore fixed positioning and improve SidebarLink prop usage ([cf110dc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cf110dc0c4ce254da621e1924cf1fe796174f1c6))
+* update layout structure to use grid for improved responsiveness ([9db48b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9db48b75894a4825741ff8b729f1abfc62f65b36))
+* update MarqueeExample spacing for improved layout consistency ([fe49854](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fe4985460ae3c5f55eadd9f2682b9b73a69bb480))
+* update Sidebar component usage and improve layout structure ([db21b57](https://github.com/Dinil-Thilakarathne/sona-ui/commit/db21b570576cc1679c6ee7fcf37c924d987b06d2))
+* update Sidebar width to be responsive by changing from fixed to auto ([3ca8924](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3ca8924eb530d3671484a0e8489c51cdf589967d))
+
+
+### Features
+
+* add margin-top class to main element for layout consistency ([2122374](https://github.com/Dinil-Thilakarathne/sona-ui/commit/21223746a61164e279868f34e022e9d7951277a5))
+* add ProfilePopover component to Sidebar for enhanced user interaction ([5bebe5b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5bebe5b5434be6ad57d700419b8e3211a531f347))
+* add ProfilePopover component with user interaction features and profile image ([9230aea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9230aeac7b1bc718e2dc09b8dd9924d71c7d9c73))
+* add spacing variables for header and sidebar to improve layout consistency ([61592b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/61592b80a6c9fcbef11424f9da817386948713b2))
+* add usehooks-ts dependency for improved hooks functionality ([b196a23](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b196a23eede0219380d323e3d5d79966d80d53b3))
+* update layout component to improve structure and layout consistency ([049391a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/049391a341d8b61c09397510a1f37e8b4a1084b4))
+
+# [2.2.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.1...v2.2.0) (2025-06-05)
+
+
+### Bug Fixes
+
+* add background color to code spans for improved readability ([c370623](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c3706231b9fc49ededef3f6cd56c5ff984768ff4))
+* add CLI usage examples for components ([7a2625e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7a2625e69b4d5caadc0fe466836483cfcc79dc5b))
+* add FEATURE_FLAG constant to constants file ([a8fdb1b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a8fdb1b7d695b32e3a66d06aaef0562bb7e3d53d))
+* add margin-top to CodeSyntaxHighlighter component for better spacing ([f8f3c5f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f8f3c5fa0ccd764ef2f60e28838675179daa26e7))
+* add missing section header for Code in Accordion documentation ([627d89a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/627d89af1554643a7217fa6dd2749aa9a8bd3537))
+* add missing sitemap entry for Marquee documentation ([af73cea](https://github.com/Dinil-Thilakarathne/sona-ui/commit/af73cea436249a2981c21446ea0590120126e0ae))
+* add missing type properties to component navigation links ([feef860](https://github.com/Dinil-Thilakarathne/sona-ui/commit/feef8603d1b5681cdc844905364cbc46fc191530))
+* add missing type property to ComponentItemsProps interface ([6388cd8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6388cd809867d1bf2610339626b7ce5de3e67cf0))
+* add StaggerText component to components registry ([eac2c90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/eac2c90b59e10c82da93bb13bff310dea1dc407a))
+* conditionally render FeaturedBar based on FEATURE_FLAG in RootLayout ([ef467c2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ef467c23b65f853534118ea9477d4a86c2574424))
+* correct type import for navLinksProps in data.ts ([c805b98](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c805b98fbd60deb718f10ddc48dc500f12a75b7d))
+* remove max-width from ComponentWrapper in MarqueeExample for better responsiveness ([77d7505](https://github.com/Dinil-Thilakarathne/sona-ui/commit/77d7505f6b0f979cad22d0f1f32145d748106504))
+* remove unnecessary container class  and improved layout consistency ([43e89b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/43e89b855a81346dfd953062f21f117e02a318f9))
+* remove unnecessary React import in CodeSyntaxHighlighter component ([f155b23](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f155b236fa7f5c98e39b948fdec1854dc2f13e96))
+* remove unnecessary React import in ComponentPreview component ([235cc8d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/235cc8d9b96213761f2a0a930b172c671cd872ca))
+* remove unnecessary React import in Tag component ([490eefc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/490eefc901b0308a1ff5cfbf4e04e7be55027427))
+* remove unnecessary React imports from multiple components ([e25831d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e25831d9231421cb58253113c9bbe2a3814864f4))
+* remove unnecessary space in className for LinkPreview_ex component ([cd07d9b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cd07d9b25a93073841e1ff43cf7cd594f0e9a830))
+* remove unused React import and redundant span in ModeToggle component ([900701d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/900701dc46738c8e03e8b5151ed39fc0adee830f))
+* remove unused React imports from AnimatedPlusMinusButton component ([4cc9927](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4cc992723def7b4e3fda2c72381346ca02ee4975))
+* reorder class names for consistency and improve paragraph component structure ([ce5ebf2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ce5ebf21447bea178866966dc64e9132095b34c9))
+* replace SITE_METADATA with siteMetaData for layout metadata ([333ee9a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/333ee9ae4232bb60a8972fa127934ea0995fd6c2))
+* restore background color in ComponentWrapper for improved visual consistency ([ede0198](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ede0198b1c22ec340d6e29d0febb4f9bd3ad4c9a))
+* restore Marquee component entry in component navigation links ([2c26e5c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2c26e5c1ec83d31153fbbbfd09200d95eff6de88))
+* simplify Marquee documentation by removing unused example code ([1d7e257](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1d7e257a5a260d1ef27c2889edc324be9a71f5ef))
+* standardize spacing for Logo component in Header ([4974d1e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4974d1e1786d8579e74d4021b5c5429d3abb9eee))
+* update CLI commands in documentation to use 'add' instead of 'download' ([52a1a15](https://github.com/Dinil-Thilakarathne/sona-ui/commit/52a1a159dd86e02701eff9b195aecaabe62e303a))
+* update CodeSyntaxHighlighter background color for improved readability ([d50fba2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d50fba21a5373b1f87dd338cbbc814da62b58fee))
+* update ComponentCard to use ComponentItemsPropsType for improved type safety ([0bdbd8e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0bdbd8e5efe3c8221f12a97fc2658039bc15654d))
+* update ComponentLayout to use semantic HTML elements for improved accessibility ([dcd6824](https://github.com/Dinil-Thilakarathne/sona-ui/commit/dcd68249c949a5fced60e6c4fdb39e376e2a2273))
+* update ComponentWrapper background color for improved visual consistency ([30900da](https://github.com/Dinil-Thilakarathne/sona-ui/commit/30900da13041a0beb1a37874d7ee1571a7689920))
+* update default duration in Marquee component from 1 to 10 seconds ([46e4b3e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/46e4b3ea238f82b96228f60d9c09925291842dd0))
+* update Docs link in navLinks for correct routing ([816b926](https://github.com/Dinil-Thilakarathne/sona-ui/commit/816b9268b3c763c6e6a413622fd2b46ae0ef8a3d))
+* update documentation to use Tabs component for preview and usage sections ([0db235c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0db235c457c76eba05c4da561c7dca112fb5dd7d))
+* update globals.css to define theme colors for improved styling consistency ([a1c67c7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a1c67c79e4752b0a17dabbba388f5d2fdc89c6e1))
+* update layout component to use Geist font for improved typography ([09e0178](https://github.com/Dinil-Thilakarathne/sona-ui/commit/09e0178a40e0df739f75149b32b205b3aa6a3a2f))
+* update Logo component to use 'font-clash-display' for improved typography ([d33e0a0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d33e0a07cf13e6983384686be19a45a2b84442b7))
+* update Sidebar component background color for improved visual consistency ([6c2b8e3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6c2b8e36f22f15d9d6222f386e02f10c7a6c4202))
+* update Sidebar component to use ComponentItemsPropsType for improved type safety ([b3f1736](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b3f17367317b6866a986fc024e3730c6407b3754))
+* update Tag component to use TagPropsType for improved type safety ([695955f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/695955fbf2faed441105a3ded805e5210cf38042))
+* update title in home documentation to reflect correct value ([b11e9eb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b11e9eb0a58ed052940b907f707d62a99d737c55))
+* update type import for componentNavigationLinks to use ComponentItemsPropsType for improved type safety ([86d9bf6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/86d9bf64d5e333f992edeef39a0337306247574a))
+* update type import for SidebarLinkProps to use ComponentItemsPropsType ([d72c7b6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d72c7b626934e76a54b3632d30b1b2145ec8c1f5))
+
+
+### Features
+
+* add FeaturedBar component with example text ([1b2d24c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1b2d24c2fbfcbfbd634cba78ed2c371b0abc21e3))
+* add site metadata configuration for SEO and social sharing ([8839153](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8839153a911545b4c467f53e3edf25fb1e81ab24))
+
 ## [2.1.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.1.0...v2.1.1) (2025-05-21)
 
 
