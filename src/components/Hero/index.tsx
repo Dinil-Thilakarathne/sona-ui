@@ -55,9 +55,7 @@ export default function Hero() {
               ease: "power2.inOut",
             }}
           >
-            <h1 className="_text-5xl text-[20vw] leading-none uppercase">
-              Sona ui
-            </h1>
+            <h1 className="text-[20vw] leading-[0.8] uppercase">Sona ui</h1>
           </SplitTextComp>
         </div>
       </div>
