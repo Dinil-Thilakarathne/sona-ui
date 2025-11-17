@@ -4,7 +4,6 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
 import { PostHogProvider } from "./providers";
-import { ThemeProvider } from "@/components/Common/theme-provider";
 import Header from "@/components/Header";
 import FeaturedBar from "@/components/Common/FeaturedBar";
 import { FEATURE_FLAG } from "@/lib/constants";
@@ -35,11 +34,9 @@ export default function RootLayout({
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased dark:text-slate-100`}
       >
         <PostHogProvider>
-          <ThemeProvider>
-            {FEATURE_FLAG && <FeaturedBar />}
-            <Header />
-            {children}
-          </ThemeProvider>
+          {FEATURE_FLAG && <FeaturedBar />}
+          <Header />
+          {children}
         </PostHogProvider>
       </body>
     </html>
