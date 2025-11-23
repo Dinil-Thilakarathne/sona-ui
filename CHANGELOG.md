@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.1...v2.8.0) (2025-11-23)
+
+
+### Features
+
+* add GitHub issue templates for bug reports, feature requests, and UI component requests. ([a3bd0eb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a3bd0eba35e352caacd188761d2ea1e43a650719))
+
 ## [2.7.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.0...v2.7.1) (2025-11-17)
 
 
