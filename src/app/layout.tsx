@@ -3,14 +3,13 @@ import { type ReactNode } from "react";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
-import { clashDisplay } from "@/fonts";
 import { PostHogProvider } from "./providers";
-import { ThemeProvider } from "@/components/Common/theme-provider";
 import Header from "@/components/Header";
 import FeaturedBar from "@/components/Common/FeaturedBar";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { siteMetaData } from "@/config/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
+import { clashDisplay } from "@/fonts";
 
 export const metadata = siteMetaData;
 
@@ -35,11 +34,9 @@ export default function RootLayout({
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased dark:text-slate-100`}
       >
         <PostHogProvider>
-          <ThemeProvider>
-            {FEATURE_FLAG && <FeaturedBar />}
-            <Header />
-            {children}
-          </ThemeProvider>
+          {FEATURE_FLAG && <FeaturedBar />}
+          <Header />
+          {children}
         </PostHogProvider>
       </body>
     </html>

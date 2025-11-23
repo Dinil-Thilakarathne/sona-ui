@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "baseUrl": ".",
     "plugins": [
@@ -20,8 +24,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "@/*": [
+        "./src/*"
+      ],
+      "content-collections": [
+        "./.content-collections/generated"
+      ]
     }
   },
   "include": [
@@ -29,7 +37,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
-, "copy-sources.js"  ],
-  "exclude": ["node_modules"]
+    ".contentlayer/generated",
+    "copy-sources.js",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

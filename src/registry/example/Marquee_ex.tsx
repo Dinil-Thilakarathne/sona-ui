@@ -4,7 +4,7 @@ import ComponentWrapper from "@/components/Common/ComponentWrapper";
 import Marquee from "../sonaui/marquee/Marquee";
 import {
   NextjsIcon,
-  ReactIon,
+  ReactIcon,
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
@@ -16,7 +16,7 @@ const TECH_STACK = [
   },
   {
     name: "React",
-    icon: <ReactIon />,
+    icon: <ReactIcon />,
   },
   {
     name: "Typescript",
