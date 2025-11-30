@@ -19,6 +19,12 @@
   --color-sidebar: var(--sidebar);
   --color-codeWrapper: var(--codeWrapper);
   --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 
   --sidebar-width: 18rem;
   --spacing-header-height: 4.5rem;
@@ -41,6 +47,12 @@
   --compWrapper: oklch(0.269 0 0);
   --codeWrapper: oklch(0.269 0 0);
   --border: oklch(0.746 0.16 232.661);
+  --input: oklch(14.958% 0.00002 271.152);
+  --ring: oklch(0.746 0.16 232.661);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(34.846% 0.00004 271.152);
+  --accent: oklch(86.07% 0.0001 271.152);
+  --accent-foreground: oklch(0% 0 0);
 }
 
 [data-theme="dark"] {
@@ -54,6 +66,12 @@
   --secondary-foreground: oklch(0.985 0 0);
   --sidebar: oklch(0.205 0 0);
   --border: oklch(0.746 0.16 232.661);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
 }
 
 pre > code span {

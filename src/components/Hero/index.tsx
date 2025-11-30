@@ -20,7 +20,7 @@ export default function Hero() {
                 yPercent: 40,
               }}
             >
-              <p className="text-right text-balance md:max-w-[50vw]">
+              <p className="text-right md:max-w-[35vw] lg:text-xl">
                 A modern UI component library built with React and TailwindCSS
                 to help you build beautiful and accessible web applications
                 faster.
@@ -46,7 +46,7 @@ export default function Hero() {
             variant="words, chars"
             maskType="chars"
             animationProps={{
-              duration: 0.6,
+              duration: 0.4,
               stagger: 0.1,
               rotate: 4,
               filter: "blur(4px)",
@@ -55,7 +55,9 @@ export default function Hero() {
               ease: "power2.inOut",
             }}
           >
-            <h1 className="text-[20vw] leading-[0.8] uppercase">Sona ui</h1>
+            <h1 className="font-clash-display text-[20vw] leading-[0.8] font-medium uppercase">
+              Sona ui
+            </h1>
           </SplitTextComp>
         </div>
       </div>

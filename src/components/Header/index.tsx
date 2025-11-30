@@ -8,6 +8,7 @@ import { navLinks } from "@/lib/data";
 import { GIT_REP_LINK } from "@/lib/constants";
 // import { ModeToggle } from "../Common/ModeToggle";
 import FadeInComp from "../Common/FadeIn";
+import { Search } from "../Search";
 
 const Header = () => {
   return (
@@ -37,7 +38,8 @@ const Header = () => {
         </nav>
       </div>
 
-      <div className="flex items-center lg:space-x-6">
+      <div className="flex items-center gap-2 lg:space-x-6">
+        <Search />
         <FadeInComp
           animationProps={{
             duration: 0.4,

@@ -10,7 +10,7 @@ const DocsLayoutShell: React.FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.innerWidth >= 1024) {
-      setIsSidebarOpen(true);
+      setIsSidebarOpen(false);
     }
   }, []);
 
