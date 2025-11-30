@@ -11,6 +11,7 @@ const docs = defineCollection({
     tags: z.array(z.string()).optional(),
     slug: z.string(),
     image: z.string().optional(),
+    searchable: z.boolean().optional().default(true),
   }),
   transform: async (document, context) => {
     const slugAsParams = document._meta.path
