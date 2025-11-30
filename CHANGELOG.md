@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.8.0...v2.9.0) (2025-11-30)
+
+
+### Features
+
+* add documentation searching feature ([#41](https://github.com/Dinil-Thilakarathne/sona-ui/issues/41)) ([4905767](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4905767635cb61abbcce29b9b0c13d63f14e9b93))
+
 # [2.8.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.1...v2.8.0) (2025-11-23)
 
 
