@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Sidebar */}
       <aside
-        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-2 z-40 my-4 flex transform flex-col space-y-2 overflow-y-scroll rounded-2xl lg:rounded-lg border p-4 transition-transform duration-300 lg:min-h-[calc(100vh-var(--spacing-header-height)-2rem)] ${
+        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-2 z-40 my-4 flex transform flex-col space-y-2 overflow-y-scroll rounded-2xl border p-4 transition-transform duration-300 lg:min-h-[calc(100vh-var(--spacing-header-height)-2rem)] lg:rounded-lg ${
           isOpen ? "translate-x-0" : "-translate-x-[110%]"
         }`}
       >

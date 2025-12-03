@@ -25,6 +25,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-header: var(--color-sidebar);
 
   --sidebar-width: 16rem;
   --spacing-header-height: 4.5rem;
@@ -35,7 +36,7 @@
 }
 
 :root {
-  --color-background: oklch(92.494% 0.00011 271.152);
+  --color-background: oklch(0.985 0 0);
   --foreground: oklch(0.145 0 0);
   --popover: oklch(0.985 0 0);
   --popover-foreground: oklch(0.145 0 0);
