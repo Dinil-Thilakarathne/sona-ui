@@ -26,7 +26,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
-  --sidebar-width: 18rem;
+  --sidebar-width: 16rem;
   --spacing-header-height: 4.5rem;
   --spacing-sidebar-width: var(--sidebar-width);
   --spacing-mobile-sidebar-height: calc(
@@ -50,7 +50,7 @@
   --input: oklch(14.958% 0.00002 271.152);
   --ring: oklch(0.746 0.16 232.661);
   --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(34.846% 0.00004 271.152);
+  --muted-foreground: oklch(0.5517 0.0138 285.94);
   --accent: oklch(86.07% 0.0001 271.152);
   --accent-foreground: oklch(0% 0 0);
 }
