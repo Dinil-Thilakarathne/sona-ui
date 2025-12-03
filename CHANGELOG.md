@@ -1,3 +1,57 @@
+# [2.9.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.8.0...v2.9.0) (2025-11-30)
+
+
+### Features
+
+* add documentation searching feature ([#41](https://github.com/Dinil-Thilakarathne/sona-ui/issues/41)) ([4905767](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4905767635cb61abbcce29b9b0c13d63f14e9b93))
+
+# [2.8.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.1...v2.8.0) (2025-11-23)
+
+
+### Features
+
+* add GitHub issue templates for bug reports, feature requests, and UI component requests. ([a3bd0eb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a3bd0eba35e352caacd188761d2ea1e43a650719))
+
+## [2.7.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.7.0...v2.7.1) (2025-11-17)
+
+
+### Bug Fixes
+
+* remove ThemeProvider wrapper for cleaner layout structure ([d0ee8d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d0ee8d604121380c9ec7686db871811ef1e34dfd))
+
+# [2.7.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.6.0...v2.7.0) (2025-11-17)
+
+
+### Bug Fixes
+
+* add background color to Header component for improved visibility ([b047556](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b047556cb42083dd0af3e8256b9cd1fe309aaa5d))
+* add missing border class to CodeSyntaxHighlighter component ([e268d3a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e268d3a4637237b13bae05cd9261253fba1f2768))
+* add missing border class to ComponentWrapper component ([384596f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/384596f4a3ff72c179122b25cd7a6529fe9d48fb))
+* correct color background value in globals.css ([2d768d0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2d768d09b3bb6a8c2ed582674c6e2b70f134d3d0))
+* correct primary color values in globals.css for consistency ([ded6f8d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ded6f8d6ce72853f53d997e838a695cadefdedaf))
+* remove redundant border class from Header component for cleaner styling ([ca18d20](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ca18d20102dab3a141b438f8359d7e56a89dcf65))
+* remove redundant class names for improved readability in CodeSyntaxHighlighter, ComponentWrapper, and MDXComponents ([8313ece](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8313ecee5f9bbcf4627b2b8a4145c0acd6af3c6e))
+* remove unnecessary heading from DocClient component ([acf0e70](https://github.com/Dinil-Thilakarathne/sona-ui/commit/acf0e700b3bb33ab0685ad81a0263744cdd22e8b))
+* remove unnecessary text color class from ProfilePopover component ([23093bc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/23093bc7cc72295f56ba8a9afa19169b6b7a5a7f))
+* remove unnecessary uppercase styling from StaggerItemSegment component ([3b9a5bb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3b9a5bb5c4de3b6a94da179c05e65cd941f2b384))
+* update border classes for consistency in MDXComponents ([20ae9b0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/20ae9b0eca22016bbbd92cd57d29690efec497d3))
+* update Hero component heading class for improved styling ([df89bd6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/df89bd6dcfc36acd9a7ec0138ad162f44ad2a695))
+* update navLinks for consistency and clarity ([c6c9907](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c6c9907e8d4ab98bada9dfd4fdaf1c4d801d94c5))
+* update tsconfig.json for improved formatting and jsx option ([c73359e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c73359e8139d2ffe195e5a9e33423e1fe9b8d585))
+
+
+### Features
+
+* add comprehensive CONTRIBUTING.md file with detailed guidelines ([71ae46d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/71ae46d649a955805739d0cc68b6c638d969ac52))
+* add GSAP and GSAP React dependencies to enhance animation capabilities ([93fe628](https://github.com/Dinil-Thilakarathne/sona-ui/commit/93fe6288cf6c145335600ab349829f652915728c))
+* add InfoCard component to display component and category counts ([674b6e4](https://github.com/Dinil-Thilakarathne/sona-ui/commit/674b6e47b0f573d1f7df40382e191022e46a6008))
+* add new custom ui component ([0b5724e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/0b5724ee128cf3a1f858ea614d724b9b8ee474de))
+* enhance SidebarLink and StartCount components with improved styling and animations ([47a9f3d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/47a9f3d329412514ff63849fa472e8c402a6d7e2))
+* implement DocsLayoutShell component and refactor ComponentLayout for improved structure ([8aa43c1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8aa43c13a603303069de638f606e1d49e21efa01))
+* implement GSAP animations in Hero component and refactor layout for improved structure ([951a16f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/951a16fb6a820d4bf9efe2f9d98b70fb4ae99d89))
+* integrate GSAP for animations in FeatureGrid and refactor layout for improved structure ([433cf42](https://github.com/Dinil-Thilakarathne/sona-ui/commit/433cf42e1d99720b2b875ff987e6a18638377ef6))
+* update FeatureGrid component with improved link styling and import adjustments ([ec7d75f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ec7d75fdd14bfef99209d26ef0bbbe8bed31b7ec))
+
 # [2.6.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.5.1...v2.6.0) (2025-07-24)
 
 
