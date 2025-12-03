@@ -12,17 +12,20 @@ import {
 import { ArrowRight, SearchIcon } from "lucide-react";
 import { useSearch } from "@/hooks/useSearch";
 import { useRouter } from "next/navigation";
-import { Dialog, DialogTitle } from "@radix-ui/react-dialog";
+import { DialogTitle } from "@radix-ui/react-dialog";
 import { VisuallyHidden } from "@radix-ui/themes";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export function Search() {
   const [open, setOpen] = React.useState(false);
   const { query, setQuery, results } = useSearch();
   const router = useRouter();
 
+  const isDesktop = useMediaQuery("(min-width: 1024px) and (pointer: fine)");
+
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey) && isDesktop) {
         e.preventDefault();
         setOpen((open) => !open);
       }
@@ -30,7 +33,7 @@ export function Search() {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [isDesktop]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -41,7 +44,7 @@ export function Search() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="border-input hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring text-muted-foreground inline-flex items-center gap-2 rounded-md border bg-transparent px-3 py-1.5 text-sm font-medium whitespace-nowrap shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
+        className="border-input hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring text-muted-foreground hidden items-center gap-2 rounded-md border bg-transparent px-3 py-1.5 text-sm font-medium whitespace-nowrap shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 lg:inline-flex"
       >
         <SearchIcon className="h-4 w-4" />
         <span className="hidden lg:inline-flex">Search documentation...</span>
@@ -79,7 +82,7 @@ export function Search() {
             </CommandEmpty>
             <CommandGroup
               heading="Pages"
-              className="text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:pb-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium"
+              className="text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden pb-4 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:pb-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium"
             >
               {results.map((doc) => (
                 <CommandItem
