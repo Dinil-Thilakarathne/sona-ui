@@ -10,6 +10,7 @@ import { FEATURE_FLAG } from "@/lib/constants";
 import { siteMetaData } from "@/config/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
 import { clashDisplay } from "@/fonts";
+import { ThemeProvider } from "@/components/Common/theme-provider";
 
 export const metadata = siteMetaData;
 
@@ -34,9 +35,16 @@ export default function RootLayout({
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased dark:text-slate-100`}
       >
         <PostHogProvider>
-          {FEATURE_FLAG && <FeaturedBar />}
-          <Header />
-          {children}
+          <ThemeProvider
+            defaultTheme="light"
+            attribute="class"
+            enableSystem
+            forcedTheme="light"
+          >
+            {FEATURE_FLAG && <FeaturedBar />}
+            <Header />
+            {children}
+          </ThemeProvider>
         </PostHogProvider>
       </body>
     </html>
