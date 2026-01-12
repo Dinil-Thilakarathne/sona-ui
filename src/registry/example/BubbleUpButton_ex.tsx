@@ -1,4 +1,4 @@
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import BubbleUpButton from "@/registry/sonaui/bubbleUpButton/BubbleUpButton";
 
 export default function BubbleUpButtonExample() {

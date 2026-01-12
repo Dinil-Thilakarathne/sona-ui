@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 import { FiMenu } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 
-import SidebarLink from "../Common/SidebarLink";
+import SidebarLink from "../Common/sidebar-link";
 import { navLinks } from "@/lib/data";
 import { groupedComponents } from "@/config/components";
 import { useMediaQuery } from "@/hooks/useMediaQuery";

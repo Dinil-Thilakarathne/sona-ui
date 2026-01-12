@@ -67,4 +67,5 @@ const Fade = ({
   );
 };
 
+
 export default Fade;

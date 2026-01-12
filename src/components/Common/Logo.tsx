@@ -1,5 +1,5 @@
-import Tag from "./Tag";
 import { cn } from "@/lib/utils";
+import Tag from "./tag";
 
 interface LogoProps {
   className?: string;
@@ -24,5 +24,6 @@ const Logo = ({ className, showVersion, version }: LogoProps) => {
     </div>
   );
 };
+
 
 export default Logo;

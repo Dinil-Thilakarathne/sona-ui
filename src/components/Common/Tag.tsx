@@ -20,4 +20,5 @@ const Tag: React.FC<TagPropsType> = ({ text, type = "default", className }) => {
   return <span className={cn(baseClasses, typeClass, className)}>{text}</span>;
 };
 
+
 export default Tag;

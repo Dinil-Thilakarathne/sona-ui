@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import Tag from "../Common/Tag";
+import Tag from "../Common/tag";
 import { type ComponentItemsPropsType } from "@/lib/types";
-import AnimatedLink from "../Common/AnimatedLink";
+import AnimatedLink from "../Common/animated-link";
 
 const ComponentCard: React.FC<ComponentItemsPropsType> = ({
   imgSrc,

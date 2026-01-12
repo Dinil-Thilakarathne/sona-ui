@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-import Logo from "../Common/Logo";
-import StartCount from "../Common/StartCount";
-import SidebarLink from "../Common/SidebarLink";
+import Logo from "../Common/logo";
+import StartCount from "../Common/start-count";
+import SidebarLink from "../Common/sidebar-link";
 
 import { navLinks } from "@/lib/data";
 import { GIT_REP_LINK } from "@/lib/constants";
-// import { ModeToggle } from "../Common/ModeToggle";
-import FadeInComp from "../Common/FadeIn";
+import FadeInComp from "../Common/fade-in";
 import { Search } from "../Search";
+import { ModeToggle } from "../Common/theme-toggle";
 
 const Header = () => {
   return (
@@ -55,8 +55,7 @@ const Header = () => {
               <StartCount />
             </Link>
           </FadeInComp>
-          {/* hide this light theme is better :) */}
-          {/* <ModeToggle /> */}
+          <ModeToggle />
         </div>
       </div>
     </header>

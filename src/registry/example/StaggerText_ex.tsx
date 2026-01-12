@@ -1,4 +1,4 @@
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import StaggerText from "../sonaui/staggerText/StaggerText";
 
 const StaggerText_ex = () => {

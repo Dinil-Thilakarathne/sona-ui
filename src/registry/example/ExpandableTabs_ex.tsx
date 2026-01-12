@@ -1,6 +1,6 @@
 "use client";
 
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "../sonaui/expandableTabs/ExpandableTabs";
 import { type IconType } from "react-icons";

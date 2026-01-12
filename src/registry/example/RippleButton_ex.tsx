@@ -1,14 +1,13 @@
 import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
 } from "../sonaui/rippleButton/RippleButton";
 import { cn } from "@/lib/utils";
 
-interface LocalRippleButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -16,8 +15,7 @@ interface LocalRippleButtonProps
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;

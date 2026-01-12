@@ -1,4 +1,4 @@
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import SpinningText from "../sonaui/spinningText/SpinningText";
 
 const SpinningText_ex = () => {

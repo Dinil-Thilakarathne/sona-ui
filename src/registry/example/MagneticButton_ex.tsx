@@ -1,4 +1,4 @@
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import Magnetic from "../sonaui/magnetic/MagneticButton";
 
 const Magnetic_ex = () => {

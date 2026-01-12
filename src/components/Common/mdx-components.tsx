@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useMDXComponent } from "@content-collections/mdx/react";
-import { CodeSyntaxHighlighter } from "./CodeSyntaxHighlighter";
-import ComponentWrapper from "./ComponentWrapper";
-import Tabs from "./Tabs";
-import ComponentPreview from "./ComponentPreview";
-import PropTable from "./PropTable";
+import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
+import ComponentWrapper from "./component-wrapper";
+import Tabs from "./tabs";
+import ComponentPreview from "./component-preview";
+import PropTable from "./prop-table";
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const href = props.href;
@@ -40,7 +40,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading  mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
+        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
         className,
       )}
       {...props}

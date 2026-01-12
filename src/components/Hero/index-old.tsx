@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 
 import { heroContent } from "@/lib/constants";
 import Sidebar from "../ComponentsSidebar";
-import BgGradient from "../Common/BgGradient";
+import BgGradient from "../Common/bg-gradient";
 import FeatureGrid from "./FeatureGrid";
 import { useRef } from "react";
 

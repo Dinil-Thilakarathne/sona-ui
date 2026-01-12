@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 import Marquee from "../sonaui/marquee/Marquee";
 import {
   NextjsIcon,
@@ -31,12 +31,8 @@ const TECH_STACK = [
 export default function MarqueeExample() {
   return (
     <ComponentWrapper>
-      <Marquee
-        duration={10}
-        containerClassName="md:space-x-16 "
-        activeHover
-      >
-        <div className="flex items-center gap-x-8 md:gap-x-16 ">
+      <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+        <div className="flex items-center gap-x-8 md:gap-x-16">
           {TECH_STACK.map((tech) => (
             <Icon key={tech.name} text={tech.name}>
               {tech.icon}

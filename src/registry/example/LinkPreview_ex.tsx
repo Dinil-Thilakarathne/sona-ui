@@ -1,5 +1,5 @@
 import LinkPreview from "../sonaui/linkPreview/LinkPreview";
-import ComponentWrapper from "@/components/Common/ComponentWrapper";
+import ComponentWrapper from "@/components/Common/component-wrapper";
 
 const LinkPreview_ex = () => {
   return (

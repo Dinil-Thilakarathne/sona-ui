@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
 import InfoCard from "./InfoCard";
 import Link from "next/link";
-import StaggerText from "@/components/Common/StaggerText";
+import StaggerText from "@/components/Common/stagger-text";
 
 gsap.registerPlugin(useGSAP);
 
