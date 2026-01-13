@@ -13,7 +13,7 @@ import { ModeToggle } from "../Common/theme-toggle";
 const Header = () => {
   return (
     <header className="min-h-header-height fixed top-0 left-0 z-99 w-full p-2 lg:px-2">
-      <div className="bg-header flex w-full items-center justify-between rounded-lg border px-2 py-4">
+      <div className="bg-background/40 flex w-full items-center justify-between rounded-lg border px-2 py-4 backdrop-blur-md">
         <div className="flex items-center gap-x-6">
           <Link href="/" className="flex items-center">
             <Logo />

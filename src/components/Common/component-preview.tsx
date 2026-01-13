@@ -1,38 +1,48 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/tabs/tabs";
+import {
+  CodeBlock,
+  CodeBlockCode,
+  CodeBlockHeader,
+  CodeBlockPre,
+} from "@/components/code-block/code-block";
 
 interface ComponentPreviewProps {
-  componentPath: string; // Path to the component example file relative to the `registry/example/` directory
+  component: React.ReactNode;
+  code: string;
 }
 
 const ComponentPreview: React.FC<ComponentPreviewProps> = ({
-  componentPath,
+  component,
+  code,
 }) => {
-  const [Component, setComponent] = useState<React.ComponentType | null>(null);
-
-  useEffect(() => {
-    const loadComponent = async () => {
-      try {
-        const importedModule = await import(
-          `@/registry/example/${componentPath}`
-        );
-        setComponent(() => importedModule.default);
-      } catch (error) {
-        console.error(`Error loading component at ${componentPath}:`, error);
-      }
-    };
-
-    loadComponent();
-  }, [componentPath]);
-
-  if (!Component) {
-    return <div>Loading component preview...</div>;
-  }
-
   return (
-    <div className="py-4">
-      <Component />
-    </div>
+    <Tabs defaultValue="preview" className="w-full">
+      <TabsList data-orientation="horizontal">
+        <TabsTrigger value="preview">Preview</TabsTrigger>
+        <TabsTrigger value="code">Code</TabsTrigger>
+      </TabsList>
+      <TabsContent
+        value="preview"
+        className="flex min-h-[350px] items-center justify-center"
+      >
+        {component}
+      </TabsContent>
+      <TabsContent value="code" className="">
+        <CodeBlock language="tsx" code={code}>
+          <CodeBlockHeader />
+          <CodeBlockPre>
+            <CodeBlockCode />
+          </CodeBlockPre>
+        </CodeBlock>
+      </TabsContent>
+    </Tabs>
   );
 };
 

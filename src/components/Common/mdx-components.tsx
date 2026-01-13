@@ -5,7 +5,21 @@ import { useMDXComponent } from "@content-collections/mdx/react";
 import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
 import ComponentWrapper from "./component-wrapper";
 import Tabs from "./tabs";
-import ComponentPreview from "./component-preview";
+import {
+  Tabs as NewTabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/tabs/tabs";
+import {
+  CodeBlock,
+  CodeBlockCode,
+  CodeBlockHeader,
+  CodeBlockLineNumbers,
+  CodeBlockPre,
+} from "@/components/code-block/code-block";
+import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
+import { ComponentInstallationServer } from "./component-installation-server";
 import PropTable from "./prop-table";
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -103,8 +117,18 @@ const components = {
   CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,
+  NewTabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  CodeBlock,
+  CodeBlockCode,
+  CodeBlockHeader,
+  CodeBlockLineNumbers,
+  CodeBlockPre,
   ComponentPreview,
   PropTable,
+  ComponentInstallation: ComponentInstallationServer,
 };
 
 interface MDXProps {

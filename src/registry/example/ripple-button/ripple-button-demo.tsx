@@ -4,7 +4,7 @@ import ComponentWrapper from "@/components/Common/component-wrapper";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
-} from "../sonaui/rippleButton/RippleButton";
+} from "@/registry/sonaui/rippleButton/RippleButton";
 import { cn } from "@/lib/utils";
 
 interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -10,7 +10,7 @@ interface ScrollUpButtonProps
 export default function ScrollUpButton({ text }: ScrollUpButtonProps) {
   return (
     <motion.button
-      className="bg-foreground relative flex cursor-pointer flex-col overflow-hidden rounded-2xl px-6 py-3 text-white select-none"
+      className="bg-foreground relative flex cursor-pointer flex-col overflow-hidden rounded-2xl px-6 py-3 text-background select-none"
       initial="initial"
       whileHover="hover"
       animate="initial"

@@ -135,15 +135,6 @@ html {
     100svh - var(--spacing-header-height) - 2rem
   );
 
-  /* Radius */
-  --radius-xs: calc(var(--radius) - 6px);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 2px);
-  --radius-2xl: calc(var(--radius) + 4px);
-  --radius-3xl: calc(var(--radius) + 6px);
-  --radius-4xl: calc(var(--radius) + 8px);
 
   /*Custom Easings */
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);

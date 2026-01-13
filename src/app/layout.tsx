@@ -5,7 +5,7 @@ import "@radix-ui/themes/styles.css";
 
 import { PostHogProvider } from "./providers";
 import Header from "@/components/Header";
-import FeaturedBar from "@/components/Common/FeaturedBar";
+import FeaturedBar from "@/components/Common/featured-bar";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { siteMetaData } from "@/config/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -32,15 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased dark:text-slate-100`}
+        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background antialiased`}
       >
         <PostHogProvider>
-          <ThemeProvider
-            defaultTheme="light"
-            attribute="class"
-            enableSystem
-            forcedTheme="light"
-          >
+          <ThemeProvider>
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
             {children}

@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 
 import ComponentWrapper from "@/components/Common/component-wrapper";
-import Marquee from "../sonaui/marquee/Marquee";
+import Marquee from "@/registry/sonaui/marquee/Marquee";
 import {
   NextjsIcon,
   ReactIcon,

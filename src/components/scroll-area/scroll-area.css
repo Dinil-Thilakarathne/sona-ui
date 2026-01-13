@@ -1,0 +1,77 @@
+/* -------------------------------------------------------------------------------------------------
+ * Scroll-Driven Animations for Native Scroll Fade Edges (Progressive Enhancement)
+ * Chrome 115+, Safari 26+ (future), Firefox flag-only
+ * Fallback: Static fades (always visible where configured)
+ * -------------------------------------------------------------------------------------------------*/
+
+/* Animatable custom properties for fade amounts */
+@property --scroll-fade-top {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scroll-fade-bottom {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scroll-fade-left {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scroll-fade-right {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+/**
+ * Vertical scroll fade animation
+ * Uses small percentages (2%) so fade completes quickly:
+ * - 500px content: ~10px to complete fade
+ * - 2000px content: ~40px to complete fade
+ *
+ * Note: Unlike Base UI which uses pixel-based CSS variables, scroll-driven
+ * animations are percentage-based. This is a tradeoff for native scroll support.
+ */
+@keyframes scroll-fade-y {
+  0% {
+    --scroll-fade-top: 0px;
+    --scroll-fade-bottom: var(--scroll-fade-size);
+  }
+  2% {
+    --scroll-fade-top: var(--scroll-fade-size);
+  }
+  98% {
+    --scroll-fade-bottom: var(--scroll-fade-size);
+  }
+  100% {
+    --scroll-fade-top: var(--scroll-fade-size);
+    --scroll-fade-bottom: 0px;
+  }
+}
+
+/**
+ * Horizontal scroll fade animation
+ * Same logic as vertical but for left/right
+ */
+@keyframes scroll-fade-x {
+  0% {
+    --scroll-fade-left: 0px;
+    --scroll-fade-right: var(--scroll-fade-size);
+  }
+  2% {
+    --scroll-fade-left: var(--scroll-fade-size);
+  }
+  98% {
+    --scroll-fade-right: var(--scroll-fade-size);
+  }
+  100% {
+    --scroll-fade-left: var(--scroll-fade-size);
+    --scroll-fade-right: 0px;
+  }
+}

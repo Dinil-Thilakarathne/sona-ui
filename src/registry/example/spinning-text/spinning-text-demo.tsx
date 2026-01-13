@@ -1,5 +1,5 @@
 import ComponentWrapper from "@/components/Common/component-wrapper";
-import SpinningText from "../sonaui/spinningText/SpinningText";
+import SpinningText from "@/registry/sonaui/spinningText/SpinningText";
 
 const SpinningText_ex = () => {
   return (

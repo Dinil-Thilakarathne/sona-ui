@@ -4,7 +4,7 @@ import {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "../sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/Accordion";
 import ComponentWrapper from "@/components/Common/component-wrapper";
 
 export default function Accordion_ex() {

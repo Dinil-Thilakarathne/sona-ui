@@ -1,6 +1,6 @@
 "use client";
 
-import { Mdx } from "@/components/Common/MDXComponents";
+import { Mdx } from "@/components/Common/mdx-components";
 
 interface DocClientProps {
   doc: {

@@ -1,6 +1,7 @@
 "use client";
 
 import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { Button as BaseButton } from "@base-ui/react/button";
 
 import { cn } from "@/lib/utils";
 
@@ -27,11 +28,11 @@ export default function Button({
   };
 
   return (
-    <button
+    <BaseButton
       className={cn(baseClasses, variantClasses[variant], className)}
       {...props}
     >
       {children}
-    </button>
+    </BaseButton>
   );
 }
