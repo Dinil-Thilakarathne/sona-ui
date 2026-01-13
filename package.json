@@ -10,7 +10,8 @@
   "scripts": {
     "predev": "node copy-sources.js",
     "dev": "next dev --turbopack",
-    "prebuild": "node copy-sources.js",
+    "prebuild": "node copy-sources.js && bun run build:registry",
+    "build:registry": "bun run scripts/build-registry.ts",
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint"
