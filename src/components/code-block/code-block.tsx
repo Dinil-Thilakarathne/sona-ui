@@ -9,6 +9,8 @@ import {
   useContext,
 } from "react";
 import * as React from "react";
+import { Menu } from "@base-ui/react/menu";
+import { ChevronDown, Check } from "lucide-react";
 import { mergeProps } from "@base-ui/react/merge-props";
 import { useRender } from "@base-ui/react/use-render";
 import { cn } from "@/lib/utils";
@@ -327,6 +329,49 @@ interface CodeBlockTabsProps
   variant?: React.ComponentProps<typeof TabsList>["variant"];
 }
 
+function CodeBlockTabsMobileDropDown({
+  tabs,
+  activeTab,
+  onTabChange,
+}: BaseTabsProps) {
+  const activeLabel = tabs.find((t) => t.value === activeTab)?.label;
+
+  return (
+    <div className="w-full md:hidden">
+      <Menu.Root>
+        <Menu.Trigger className="border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring data-[state=open]:border-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm focus:ring-1 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50">
+          <span>{activeLabel}</span>
+          <ChevronDown className="h-4 w-4 opacity-50" />
+        </Menu.Trigger>
+        <Menu.Portal>
+          <Menu.Positioner
+            align="start"
+            sideOffset={4}
+            className="z-50 w-(--anchor-width)"
+          >
+            <Menu.Popup className="bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-(--anchor-width) overflow-hidden rounded-md border p-1 shadow-md">
+              {tabs.map((tab) => (
+                <Menu.Item
+                  key={tab.value}
+                  className="focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-8 pl-2 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50"
+                  onClick={(e) => onTabChange?.(tab.value, e as any)}
+                >
+                  <span className="flex items-center gap-2">{tab.label}</span>
+                  {tab.value === activeTab && (
+                    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+                      <Check className="h-4 w-4" />
+                    </span>
+                  )}
+                </Menu.Item>
+              ))}
+            </Menu.Popup>
+          </Menu.Positioner>
+        </Menu.Portal>
+      </Menu.Root>
+    </div>
+  );
+}
+
 function CodeBlockTabs({
   tabs,
   activeTab,
@@ -337,21 +382,30 @@ function CodeBlockTabs({
   ...props
 }: CodeBlockTabsProps) {
   const tabsElement = (
-    <Tabs value={activeTab} onValueChange={onTabChange} className="gap-1">
-      <div className="scrollbar-hide flex max-w-full items-center overflow-x-auto">
-        <TabsList
-          variant={variant}
-          size="small"
-          className="w-max bg-transparent p-0 shadow-none! ring-0"
-        >
-          {tabs.map((tab) => (
-            <TabsTrigger key={tab.value} value={tab.value}>
-              {tab.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+    <>
+      <div className="hidden md:flex">
+        <Tabs value={activeTab} onValueChange={onTabChange} className="gap-1">
+          <div className="scrollbar-hide flex max-w-full items-center overflow-x-auto">
+            <TabsList
+              variant={variant}
+              size="small"
+              className="w-max bg-transparent p-0 shadow-none! ring-0"
+            >
+              {tabs.map((tab) => (
+                <TabsTrigger key={tab.value} value={tab.value}>
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+        </Tabs>
       </div>
-    </Tabs>
+      <CodeBlockTabsMobileDropDown
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabChange={onTabChange}
+      />
+    </>
   );
 
   const defaultProps = {
