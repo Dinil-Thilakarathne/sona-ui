@@ -47,7 +47,7 @@ export default function Accordion_ex() {
   return (
     <ComponentWrapper>
       <AccordionRoot
-        allowMultiple={false}
+        allowMultiple={true}
         className="mx-auto max-w-4xl"
       >
         {accordionData.map((item) => (

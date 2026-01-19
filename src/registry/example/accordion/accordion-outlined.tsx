@@ -49,6 +49,7 @@ export default function Accordion_ex() {
       <AccordionRoot
         allowMultiple={false}
         className="mx-auto max-w-4xl"
+        variant="outlined"
       >
         {accordionData.map((item) => (
           <AccordionItem key={item.value}>

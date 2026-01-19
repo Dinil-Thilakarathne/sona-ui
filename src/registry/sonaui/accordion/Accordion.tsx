@@ -12,9 +12,10 @@ import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
+import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
-type AccordionVariant = "default" | "bordered" | "splitted";
+type AccordionVariant = "default" | "outlined" | "splitted";
 
 interface AccordionProps {
   children: ReactNode;
@@ -23,7 +24,43 @@ interface AccordionProps {
   variant?: AccordionVariant;
 }
 
-interface AccordionItemProps {
+const accordionWrapperVarinats = cva(
+  "flex flex-col overflow-clip rounded-2xl",
+  {
+    variants: {
+      variant: {
+        default: "overflow-clip rounded-2xl",
+        outlined: "overflow-clip rounded-2xl",
+        splitted: "overflow-clip rounded-2xl",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const accordionItemVariants = cva(
+  "relative overflow-hidden bg-background text-foreground",
+  {
+    variants: {
+      variant: {
+        default: "border-b border-border",
+        outlined:
+          "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
+        splitted: "rounded-2xl ",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+interface AccordionItemProps
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof accordionItemVariants> {
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -74,8 +111,7 @@ const AccordionRoot = ({
       <div
         role="presentation"
         className={cn(
-          "flex flex-col",
-          variant === "default" && "overflow-clip rounded-2xl",
+          accordionWrapperVarinats({ variant }),
           variant === "splitted" && "gap-y-2",
           className,
         )}
@@ -86,7 +122,12 @@ const AccordionRoot = ({
   );
 };
 
-const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
+const AccordionItem = ({
+  children,
+  className,
+  style,
+  ...props
+}: AccordionItemProps) => {
   const context = useContext(AccordionContext);
   if (!context)
     throw new Error("AccordionItem must be used within AccordionRoot");
@@ -94,16 +135,9 @@ const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
   return (
     <div
       role="presentation"
-      className={cn(
-        "relative overflow-hidden bg-slate-50 dark:bg-gray-300",
-        variant === "default" &&
-          "border-b border-slate-200 dark:border-slate-700 dark:text-gray-800",
-        variant === "bordered" &&
-          "border border-slate-200 bg-transparent dark:border-slate-700 dark:bg-transparent",
-        variant === "splitted" && "rounded-2xl dark:text-gray-800",
-        className,
-      )}
+      className={cn(accordionItemVariants({ variant }), className)}
       style={style}
+      {...props}
     >
       <div className="relative">{children}</div>
     </div>
