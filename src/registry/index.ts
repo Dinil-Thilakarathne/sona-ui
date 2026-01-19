@@ -1,8 +1,10 @@
 // This file is auto-generated. Do not edit.
 import * as React from "react";
 import magnetic_button_magnetic_button_demo from "@/registry/example/magnetic-button/magnetic-button-demo";
-import accordion_accordion_bordered from "@/registry/example/accordion/accordion-bordered";
+import accordion_accordion_splitted from "@/registry/example/accordion/accordion-splitted";
 import accordion_accordion_demo from "@/registry/example/accordion/accordion-demo";
+import accordion_accordion_multistep from "@/registry/example/accordion/accordion-multistep";
+import accordion_accordion_outlined from "@/registry/example/accordion/accordion-outlined";
 import spinning_text_spinning_text_demo from "@/registry/example/spinning-text/spinning-text-demo";
 import bubble_up_button_bubble_up_button_demo from "@/registry/example/bubble-up-button/bubble-up-button-demo";
 import marquee_marquee_demo from "@/registry/example/marquee/marquee-demo";
@@ -16,6 +18,8 @@ export type RegistryEntry = {
   name: string;
   component: React.ComponentType;
   code: string;
+  imports: string;
+  anatomy: string;
 };
 
 export const exampleRegistry: Record<string, RegistryEntry[]> = {
@@ -42,12 +46,29 @@ const Magnetic_ex = () => {
 
 export default Magnetic_ex;
 `,
+      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
+import Magnetic from "@/registry/sonaui/magnetic/MagneticButton";`,
+      anatomy: `const Magnetic_ex = () => {
+  return (
+    <ComponentWrapper>
+      <div className="rounded-full border border-dashed border-slate-400 p-2">
+        <Magnetic interactionArea="parent">
+          <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
+            Magnetic Button
+          </button>
+        </Magnetic>
+      </div>
+    </ComponentWrapper>
+  );
+};
+
+export default Magnetic_ex;`,
     }
   ],
   "accordion": [
     {
-      name: "bordered",
-      component: accordion_accordion_bordered,
+      name: "splitted",
+      component: accordion_accordion_splitted,
       code: `import {
   AccordionItem,
   AccordionItemContent,
@@ -118,6 +139,74 @@ export default function Accordion_ex() {
   );
 }
 `,
+      imports: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={false}
+        className="mx-auto max-w-4xl"
+        variant="splitted"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}`,
     },
     {
       name: "default",
@@ -173,7 +262,6 @@ export default function Accordion_ex() {
       <AccordionRoot
         allowMultiple={false}
         className="mx-auto max-w-4xl"
-        variant="splitted"
       >
         {accordionData.map((item) => (
           <AccordionItem key={item.value}>
@@ -192,6 +280,355 @@ export default function Accordion_ex() {
   );
 }
 `,
+      imports: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={false}
+        className="mx-auto max-w-4xl"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}`,
+    },
+    {
+      name: "multistep",
+      component: accordion_accordion_multistep,
+      code: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";
+
+export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={true}
+        className="mx-auto max-w-4xl"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}
+`,
+      imports: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={true}
+        className="mx-auto max-w-4xl"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}`,
+    },
+    {
+      name: "outlined",
+      component: accordion_accordion_outlined,
+      code: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";
+
+export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={false}
+        className="mx-auto max-w-4xl"
+        variant="outlined"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}
+`,
+      imports: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/Accordion";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `export default function Accordion_ex() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <ComponentWrapper>
+      <AccordionRoot
+        allowMultiple={false}
+        className="mx-auto max-w-4xl"
+        variant="outlined"
+      >
+        {accordionData.map((item) => (
+          <AccordionItem key={item.value}>
+            <AccordionItemTrigger value={item.value}>
+              <AccordionItemHeader value={item.value}>
+                <span className="flex-1">{item.title}</span>
+              </AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent value={item.value}>
+              <p className="">{item.content}</p>
+            </AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    </ComponentWrapper>
+  );
+}`,
     }
   ],
   "spinning-text": [
@@ -213,6 +650,19 @@ const SpinningText_ex = () => {
 
 export default SpinningText_ex;
 `,
+      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
+import SpinningText from "@/registry/sonaui/spinningText/SpinningText";`,
+      anatomy: `const SpinningText_ex = () => {
+  return (
+    <ComponentWrapper>
+      <div className="flex min-h-[320px] items-center justify-center">
+        <SpinningText>This is example text!</SpinningText>
+      </div>
+    </ComponentWrapper>
+  );
+};
+
+export default SpinningText_ex;`,
     }
   ],
   "bubble-up-button": [
@@ -230,6 +680,15 @@ export default function BubbleUpButtonExample() {
   );
 }
 `,
+      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
+import BubbleUpButton from "@/registry/sonaui/bubbleUpButton/BubbleUpButton";`,
+      anatomy: `export default function BubbleUpButtonExample() {
+  return (
+    <ComponentWrapper className="!py-8">
+      <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>
+    </ComponentWrapper>
+  );
+}`,
     }
   ],
   "marquee": [
@@ -291,6 +750,59 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   );
 };
 `,
+      imports: `import { type ReactNode } from "react";
+
+import ComponentWrapper from "@/components/Common/component-wrapper";
+import Marquee from "@/registry/sonaui/marquee/Marquee";
+import {
+  NextjsIcon,
+  ReactIcon,
+  TailwindIcon,
+  TypescriptIcon,
+} from "@/assets/svgs";`,
+      anatomy: `const TECH_STACK = [
+  {
+    name: "Next.js",
+    icon: <NextjsIcon />,
+  },
+  {
+    name: "React",
+    icon: <ReactIcon />,
+  },
+  {
+    name: "Typescript",
+    icon: <TypescriptIcon />,
+  },
+  {
+    name: "Tailwind CSS",
+    icon: <TailwindIcon />,
+  },
+];
+
+export default function MarqueeExample() {
+  return (
+    <ComponentWrapper>
+      <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+        <div className="flex items-center gap-x-8 md:gap-x-16">
+          {TECH_STACK.map((tech) => (
+            <Icon key={tech.name} text={tech.name}>
+              {tech.icon}
+            </Icon>
+          ))}
+        </div>
+      </Marquee>
+    </ComponentWrapper>
+  );
+}
+
+const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
+  return (
+    <div className="flex h-16 shrink items-center gap-x-4">
+      <span className="*:xl:h-16 *:xl:w-16">{children}</span>
+      <span className="text-sm font-medium lg:text-lg">{text}</span>
+    </div>
+  );
+};`,
     }
   ],
   "ripple-button": [
@@ -340,6 +852,47 @@ const RippleButton_ex = ({
 
 export default RippleButton_ex;
 `,
+      imports: `import { type ReactNode } from "react";
+
+import ComponentWrapper from "@/components/Common/component-wrapper";
+import RippleButton, {
+  RippleButtonText,
+  RippleButtonTextProps,
+} from "@/registry/sonaui/rippleButton/RippleButton";
+import { cn } from "@/lib/utils";`,
+      anatomy: `interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  scaleAmount?: number;
+  className?: string;
+  duration?: number;
+  rippleStyle?: string;
+}
+
+interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonProps?: LocalRippleButtonProps;
+  textProps?: RippleButtonTextProps;
+  className?: string;
+}
+
+const RippleButton_ex = ({
+  textProps,
+  buttonProps,
+  className,
+  ...props
+}: RippleButtonEx1Props) => {
+  return (
+    <ComponentWrapper
+      className={cn("flex items-center justify-center", className)}
+      {...props}
+    >
+      <RippleButton {...buttonProps}>
+        <RippleButtonText {...textProps} text="Hover me!" />
+      </RippleButton>
+    </ComponentWrapper>
+  );
+};
+
+export default RippleButton_ex;`,
     }
   ],
   "vertical-tab": [
@@ -383,6 +936,41 @@ const VerticalTab_ex = () => {
 
 export default VerticalTab_ex;
 `,
+      imports: `import VerticalTab from "@/registry/sonaui/verticalTab/VerticalTab";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `const VerticalTabs_data = [
+  {
+    title: "Home",
+  },
+  {
+    title: "Profile",
+  },
+  {
+    title: "Settings",
+  },
+  {
+    title: "Help",
+  },
+  {
+    title: "About",
+  },
+  {
+    title: "Contact",
+  },
+  {
+    title: "Feedback",
+  },
+];
+
+const VerticalTab_ex = () => {
+  return (
+    <ComponentWrapper>
+      <VerticalTab tabs={VerticalTabs_data} />
+    </ComponentWrapper>
+  );
+};
+
+export default VerticalTab_ex;`,
     }
   ],
   "expandable-tabs": [
@@ -436,6 +1024,53 @@ const ExpandableTabs_ex = () => {
 
 export default ExpandableTabs_ex;
 `,
+      imports: ``,
+      anatomy: `"use client";
+
+import ComponentWrapper from "@/components/Common/component-wrapper";
+import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
+import ExpandableTabs from "@/registry/sonaui/expandableTabs/ExpandableTabs";
+import { type IconType } from "react-icons";
+
+type TabDataType = {
+  title: string;
+  icon: IconType;
+};
+
+const TabData: TabDataType[] = [
+  {
+    title: "Home",
+    icon: FaHome,
+  },  
+  {
+    title: "Profile",
+    icon: FaUser,
+  },
+  {
+    title: "Settings",
+    icon: FaCog,
+  },
+  {
+    title: "Logout",
+    icon: FaSignOutAlt,
+  },
+];
+
+const ExpandableTabs_ex = () => {
+  return (
+    <ComponentWrapper>
+      <ExpandableTabs
+        tabs={TabData}
+        defaultActiveIndex={0}
+        motionConfig={{
+          transition: { duration: 0.2, ease: "easeInOut" },
+        }}
+      />
+    </ComponentWrapper>
+  );
+};
+
+export default ExpandableTabs_ex;`,
     }
   ],
   "link-preview": [
@@ -469,6 +1104,31 @@ const LinkPreview_ex = () => {
 
 export default LinkPreview_ex;
 `,
+      imports: `import LinkPreview from "@/registry/sonaui/linkPreview/LinkPreview";
+import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      anatomy: `const LinkPreview_ex = () => {
+  return (
+    <div>
+      <ComponentWrapper>
+        <div className="flex w-full flex-col justify-center gap-4">
+          <h3>Projects that I works on!!!</h3>
+          <ul className="list-disc *:ml-2 *:lg:ml-4">
+            <li>
+              Sona UI - Open Source UI Component Library :{" "}
+              <LinkPreview
+                link="https://sona-ui.vercel.app/"
+                text="Sona UI"
+                className="flex h-full w-full items-center justify-center"
+              />
+            </li>
+          </ul>
+        </div>
+      </ComponentWrapper>
+    </div>
+  );
+};
+
+export default LinkPreview_ex;`,
     }
   ],
   "stagger-text": [
@@ -488,6 +1148,17 @@ const StaggerText_ex = () => {
 
 export default StaggerText_ex;
 `,
+      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
+import StaggerText from "@/registry/sonaui/staggerText/StaggerText";`,
+      anatomy: `const StaggerText_ex = () => {
+  return (
+    <ComponentWrapper className="flex items-center justify-center">
+      <StaggerText text="Stagger Text!!" />
+    </ComponentWrapper>
+  );
+};
+
+export default StaggerText_ex;`,
     }
   ]
 };
@@ -788,9 +1459,10 @@ import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
+import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
-type AccordionVariant = "default" | "bordered" | "splitted";
+type AccordionVariant = "default" | "outlined" | "splitted";
 
 interface AccordionProps {
   children: ReactNode;
@@ -799,7 +1471,43 @@ interface AccordionProps {
   variant?: AccordionVariant;
 }
 
-interface AccordionItemProps {
+const accordionWrapperVarinats = cva(
+  "flex flex-col overflow-clip rounded-2xl",
+  {
+    variants: {
+      variant: {
+        default: "overflow-clip rounded-2xl",
+        outlined: "overflow-clip rounded-2xl",
+        splitted: "overflow-clip rounded-2xl",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+const accordionItemVariants = cva(
+  "relative overflow-hidden bg-background text-foreground",
+  {
+    variants: {
+      variant: {
+        default: "border-b border-border",
+        outlined:
+          "border-foreground border first:rounded-t-2xl last:rounded-b-2xl",
+        splitted: "rounded-2xl ",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+interface AccordionItemProps
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof accordionItemVariants> {
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -850,8 +1558,7 @@ const AccordionRoot = ({
       <div
         role="presentation"
         className={cn(
-          "flex flex-col",
-          variant === "default" && "overflow-clip rounded-2xl",
+          accordionWrapperVarinats({ variant }),
           variant === "splitted" && "gap-y-2",
           className,
         )}
@@ -862,7 +1569,12 @@ const AccordionRoot = ({
   );
 };
 
-const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
+const AccordionItem = ({
+  children,
+  className,
+  style,
+  ...props
+}: AccordionItemProps) => {
   const context = useContext(AccordionContext);
   if (!context)
     throw new Error("AccordionItem must be used within AccordionRoot");
@@ -870,16 +1582,9 @@ const AccordionItem = ({ children, className, style }: AccordionItemProps) => {
   return (
     <div
       role="presentation"
-      className={cn(
-        "relative overflow-hidden bg-slate-50 dark:bg-gray-300",
-        variant === "default" &&
-          "border-b border-slate-200 dark:border-slate-700 dark:text-gray-800",
-        variant === "bordered" &&
-          "border border-slate-200 bg-transparent dark:border-slate-700 dark:bg-transparent",
-        variant === "splitted" && "rounded-2xl dark:text-gray-800",
-        className,
-      )}
+      className={cn(accordionItemVariants({ variant }), className)}
       style={style}
+      {...props}
     >
       <div className="relative">{children}</div>
     </div>
@@ -1915,4 +2620,16 @@ const TabItemVariants = {
       target: "components/sonaui/expandableTabs/ExpandableTabs.tsx"
     }
   ]
+};
+
+export const componentMetadata = {
+  "accordion": {
+    "name": "accordion",
+    "title": "Accordion",
+    "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+    "dependencies": [
+      "@radix-ui/react-accordion",
+      "lucide-react"
+    ]
+  }
 };

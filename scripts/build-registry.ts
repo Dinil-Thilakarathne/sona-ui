@@ -53,6 +53,59 @@ async function buildRegistry() {
   const exampleRegistry: Record<string, any[]> = {};
   const imports: string[] = [];
 
+  // Helper to split content into imports and body
+  function splitContent(content: string) {
+    const lines = content.split("\n");
+    let splitIndex = 0;
+    let inImport = false;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+
+      if (inImport) {
+        // Check for end of import statement
+        if (
+          (line.includes("from") || line.endsWith(";")) &&
+          (line.endsWith(";") || line.endsWith('"') || line.endsWith("'"))
+        ) {
+          inImport = false;
+        }
+        continue;
+      }
+
+      // Check for start of import
+      if (line.startsWith("import ")) {
+        // If it's a complete single-line import, it doesn't trigger inImport
+        // Single line: import ... from "..."; or import "...";
+        if (
+          (line.includes("from") &&
+            (line.endsWith(";") || line.endsWith('"') || line.endsWith("'"))) ||
+          line.endsWith(";")
+        ) {
+          inImport = false;
+        } else {
+          inImport = true;
+        }
+        continue;
+      }
+
+      // Skip empty lines between imports
+      if (line === "") continue;
+
+      // If we reach here, it's the first non-import line (and not empty)
+      splitIndex = i;
+      break;
+    }
+
+    const imports = lines.slice(0, splitIndex).join("\n").trim();
+    const anatomy = lines.slice(splitIndex).join("\n").trim();
+
+    return {
+      imports,
+      anatomy,
+    };
+  }
+
   function scanExamples(dir: string) {
     const items = fs.readdirSync(dir);
 
@@ -116,10 +169,14 @@ async function buildRegistry() {
         exampleRegistry[component] = [];
       }
 
+      const { imports: importCode, anatomy } = splitContent(content);
+
       exampleRegistry[component].push({
         name,
         componentCode: importName,
         code: content,
+        imports: importCode,
+        anatomy: anatomy,
       });
     }
   }
@@ -176,6 +233,34 @@ async function buildRegistry() {
     }
   }
 
+  // --- 3. Process Component Metadata from registry.json ---
+  const registryJsonPath = path.join(REGISTRY_PATH, "registry.json");
+  let componentMetadata = {};
+
+  if (fs.existsSync(registryJsonPath)) {
+    try {
+      const registryData = JSON.parse(
+        fs.readFileSync(registryJsonPath, "utf-8"),
+      );
+      // Convert array to object keyed by component name
+      componentMetadata = registryData.reduce((acc: any, item: any) => {
+        // Normalize usage fields if they are arrays
+        if (item.usage) {
+          if (Array.isArray(item.usage.imports)) {
+            item.usage.imports = item.usage.imports.join("\n");
+          }
+          if (Array.isArray(item.usage.code)) {
+            item.usage.code = item.usage.code.join("\n");
+          }
+        }
+        acc[item.name] = item;
+        return acc;
+      }, {});
+    } catch (error) {
+      console.error("Error parsing registry.json:", error);
+    }
+  }
+
   // Generate file content
   const outputContent = `// This file is auto-generated. Do not edit.
 import * as React from "react";
@@ -185,6 +270,8 @@ export type RegistryEntry = {
   name: string;
   component: React.ComponentType;
   code: string;
+  imports: string;
+  anatomy: string;
 };
 
 export const exampleRegistry: Record<string, RegistryEntry[]> = {
@@ -197,6 +284,8 @@ ${entries
       name: "${entry.name}",
       component: ${entry.componentCode},
       code: \`${entry.code.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`,
+      imports: \`${entry.imports.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`,
+      anatomy: \`${entry.anatomy.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`,
     }`,
   )
   .join(",\n")}
@@ -232,6 +321,8 @@ ${files
   )
   .join(",\n")}
 };
+
+export const componentMetadata = ${JSON.stringify(componentMetadata, null, 2)};
 `;
 
   fs.writeFileSync(OUTPUT_FILE, outputContent);
