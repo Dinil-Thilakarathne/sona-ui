@@ -23,7 +23,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   code,
 }) => {
   return (
-    <Tabs defaultValue="preview" className="w-full">
+    <Tabs defaultValue="preview" className="w-full my-3">
       <TabsList data-orientation="horizontal">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>

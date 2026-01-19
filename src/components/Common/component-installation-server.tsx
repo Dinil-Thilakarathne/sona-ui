@@ -1,5 +1,5 @@
 import { ComponentInstallation } from "./component-installation";
-import { registry } from "@/registry/index";
+import { registry, componentMetadata } from "@/registry/index";
 
 interface Props {
   component: string;
@@ -7,6 +7,8 @@ interface Props {
 
 export function ComponentInstallationServer({ component }: Props) {
   const componentFiles = registry[component];
+  const metadata =
+    componentMetadata[component as keyof typeof componentMetadata];
 
   if (!componentFiles) {
     return (
@@ -22,6 +24,7 @@ export function ComponentInstallationServer({ component }: Props) {
     <ComponentInstallation
       component={component}
       componentFiles={componentFiles}
+      metadata={metadata}
     />
   );
 }

@@ -15,34 +15,34 @@ interface PropTableProps {
 
 const PropTable = ({ data }: PropTableProps) => {
   return (
-    <Box className="py-2">
+    <Box className="py-3">
       <Box className="overflow-x-auto">
         <Table.Root
           variant="surface"
-          className="props-table rounded-lg border border-gray-200 text-wrap shadow-sm"
+          className="props-table overflow-clip rounded-lg! border border-border text-wrap shadow-sm"
         >
-          <Table.Header className="bg-gray-100 dark:bg-gray-800">
+          <Table.Header className="bg-secondary">
             <Table.Row>
               <Table.ColumnHeaderCell
-                className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300"
+                className="text-foreground px-4 py-2 text-left font-semibold"
                 style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
               >
                 Property
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell
-                className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300"
+                className="text-foreground px-4 py-2 text-left font-semibold"
                 style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
               >
                 Type
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell
-                className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300"
+                className="text-foreground px-4 py-2 text-left font-semibold"
                 style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
               >
                 Default
               </Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell
-                className="px-4 py-2 text-left font-semibold text-gray-700 dark:text-gray-300"
+                className="text-foreground px-4 py-2 text-left font-semibold"
                 style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
               >
                 Description
@@ -53,22 +53,22 @@ const PropTable = ({ data }: PropTableProps) => {
             {data.map((prop, index) => (
               <Table.Row
                 key={index}
-                className="odd:bg-slate-100 even:bg-gray-50 hover:bg-gray-100 dark:odd:bg-slate-700 dark:even:bg-gray-800 dark:hover:bg-gray-700"
+                className="odd:bg-secondary/80 even:bg-accent/80 hover:odd:bg-secondary/60 hover:even:bg-accent/60"
               >
                 <Table.Cell
-                  className="px-4 py-4 text-gray-800 dark:text-gray-200"
+                  className="text-foreground px-4 py-4"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
                   <CodeCell content={prop.name} />
                 </Table.Cell>
                 <Table.Cell
-                  className="px-4 py-4 text-gray-800 dark:text-gray-200"
+                  className="text-foreground px-4 py-4"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
                   <Text className="w-fit">{prop.type}</Text>
                 </Table.Cell>
                 <Table.Cell
-                  className="px-4 py-4 text-gray-800 dark:text-gray-200"
+                  className="text-foreground px-4 py-4"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
                   <CodeCell
@@ -78,7 +78,7 @@ const PropTable = ({ data }: PropTableProps) => {
                   />
                 </Table.Cell>
                 <Table.Cell
-                  className="px-4 py-4 text-gray-800 dark:text-gray-200"
+                  className="text-foreground px-4 py-4"
                   style={{ paddingInline: "1rem", paddingBlock: "0.5rem" }}
                 >
                   <Text className="w-fit">{prop.description}</Text>
