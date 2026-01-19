@@ -135,7 +135,6 @@ html {
     100svh - var(--spacing-header-height) - 2rem
   );
 
-
   /*Custom Easings */
   --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -163,50 +162,6 @@ html {
   --breakpoint-xs: 24rem;
 }
 
-/* :root {
-  --color-background: oklch(0.985 0 0);
-  --foreground: oklch(0.145 0 0);
-  --popover: oklch(0.985 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.746 0.16 232.661);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.905 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --sidebar: oklch(0.985 0 0);
-  --compWrapper: oklch(0.269 0 0);
-  --codeWrapper: oklch(0.269 0 0);
-  --border: oklch(0.746 0.16 232.661);
-  --input: oklch(14.958% 0.00002 271.152);
-  --ring: oklch(0.746 0.16 232.661);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.5517 0.0138 285.94);
-  --accent: oklch(86.07% 0.0001 271.152);
-  --accent-foreground: oklch(0% 0 0);
-}
-
-[data-theme="dark"] {
-  --color-background: oklch(0.145 0 0);
-  --foreground: oklch(0.5 0 0);
-  --popover: oklch(0.269 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.746 0.16 232.661);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --border: oklch(0.746 0.16 232.661);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-} */
-
-pre > code span {
-  background-color: var(--color-codeWrapper);
-}
-
 @layer utilities {
   .bg-gradient {
     background: linear-gradient(
@@ -230,5 +185,17 @@ pre > code span {
     50% {
       background-position: 100% 60%;
     }
+  }
+}
+
+@layer components {
+  code:not(:has(span)) {
+    background-color: var(--secondary);
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  pre > code span {
+    background-color: var(--color-codeWrapper);
   }
 }
