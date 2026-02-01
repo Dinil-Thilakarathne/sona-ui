@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import NumberFlow from "@number-flow/react";
 import { Copy } from "lucide-react";
 import Link from "next/link";

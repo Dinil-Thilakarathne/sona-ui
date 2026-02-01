@@ -1,10 +1,10 @@
 import { type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
-import ExpandableTabs_ex from "@/registry/example/ExpandableTabs_ex";
-import Magnetic_ex from "@/registry/example/MagneticButton_ex";
-import RippleButton_ex from "@/registry/example/RippleButton_ex";
-import VerticalTab_ex from "@/registry/example/VerticalTab_ex";
+import ExpandableTabs_ex from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import Magnetic_ex from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import RippleButton_ex from "@/registry/examples/ripple-button/ripple-button-demo";
+import VerticalTab_ex from "@/registry/examples/vertical-tab/vertical-tab-demo";
 
 const HERO_GRID_ITEMS = [
   {

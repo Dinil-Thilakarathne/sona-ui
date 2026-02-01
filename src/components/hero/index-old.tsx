@@ -4,9 +4,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { heroContent } from "@/lib/constants";
-import Sidebar from "../ComponentsSidebar";
-import BgGradient from "../Common/bg-gradient";
-import FeatureGrid from "./FeatureGrid";
+import Sidebar from "../component-sidebar";
+import BgGradient from "../common/bg-gradient";
+import FeatureGrid from "./feature-grid";
 import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP);

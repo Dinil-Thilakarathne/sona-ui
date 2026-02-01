@@ -1,7 +1,7 @@
 import Link from "next/link";
-import FadeInComp from "../Common/fade-in";
-import ScrollUpButton from "../Common/scroll-up-button";
-import SplitTextComp from "../Common/splil-text-comp";
+import FadeInComp from "../common/fade-in";
+import ScrollUpButton from "../common/scroll-up-button";
+import SplitTextComp from "../common/splil-text-comp";
 
 export default function Hero() {
   return (

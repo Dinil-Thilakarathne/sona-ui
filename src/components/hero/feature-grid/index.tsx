@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import type { ReactNode } from "react";
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import {
   NextjsIcon,
   ReactIcon,
@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
 import InfoCard from "./InfoCard";
 import Link from "next/link";
-import StaggerText from "@/components/Common/stagger-text";
+import StaggerText from "@/components/common/stagger-text";
 
 gsap.registerPlugin(useGSAP);
 

@@ -2,7 +2,7 @@
 
 import { type ReactNode } from "react";
 
-import Sidebar from "@/components/ComponentsSidebar";
+import Sidebar from "@/components/component-sidebar";
 
 const DocsLayoutShell: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (

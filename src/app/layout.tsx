@@ -4,13 +4,13 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 
 import { PostHogProvider } from "./providers";
-import Header from "@/components/Header";
-import FeaturedBar from "@/components/Common/featured-bar";
+import Header from "@/components/header";
+import FeaturedBar from "@/components/common/featured-bar";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { siteMetaData } from "@/config/metadata";
 import { Geist, Geist_Mono } from "next/font/google";
 import { clashDisplay } from "@/fonts";
-import { ThemeProvider } from "@/components/Common/theme-provider";
+import { ThemeProvider } from "@/components/common/theme-provider";
 
 export const metadata = siteMetaData;
 

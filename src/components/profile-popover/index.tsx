@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { ChevronsUpDown } from "lucide-react";
 import { useOnClickOutside } from "usehooks-ts";
-import AnimatedLink from "../Common/animated-link";
+import AnimatedLink from "../common/animated-link";
 
 export default function ProfilePopover() {
   const ref = useRef<HTMLDivElement>(null);

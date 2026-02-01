@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighterLib } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import Button from "../Button";
+import Button from "../button";
 import { cn } from "@/lib/utils";
 
 interface SyntaxHighlighterProps {

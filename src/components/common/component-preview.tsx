@@ -13,7 +13,7 @@ import {
   CodeBlockPre,
 } from "@/components/code-block/code-block";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
+import ComponentWrapper from "@/components/common/component-wrapper";
 
 interface ComponentPreviewProps {
   component: React.ReactNode;
