@@ -1,5 +1,5 @@
 import ComponentWrapper from "@/components/Common/component-wrapper";
-import StaggerText from "@/registry/sonaui/staggerText/StaggerText";
+import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";
 
 const StaggerText_ex = () => {
   return (

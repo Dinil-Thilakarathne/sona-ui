@@ -1,4 +1,4 @@
-import LinkPreview from "@/registry/sonaui/linkPreview/LinkPreview";
+import LinkPreview from "@/registry/sonaui/link-preview/link-preview";
 import ComponentWrapper from "@/components/Common/component-wrapper";
 
 const LinkPreview_ex = () => {

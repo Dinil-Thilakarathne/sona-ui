@@ -2,7 +2,7 @@
 
 import ComponentWrapper from "@/components/Common/component-wrapper";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandableTabs/ExpandableTabs";
+import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import { type IconType } from "react-icons";
 
 type TabDataType = {

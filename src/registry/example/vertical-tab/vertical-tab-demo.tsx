@@ -1,4 +1,4 @@
-import VerticalTab from "@/registry/sonaui/verticalTab/VerticalTab";
+import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";
 import ComponentWrapper from "@/components/Common/component-wrapper";
 
 const VerticalTabs_data = [

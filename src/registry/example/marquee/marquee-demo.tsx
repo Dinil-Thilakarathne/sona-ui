@@ -1,13 +1,13 @@
 import { type ReactNode } from "react";
 
 import ComponentWrapper from "@/components/Common/component-wrapper";
-import Marquee from "@/registry/sonaui/marquee/Marquee";
 import {
   NextjsIcon,
   ReactIcon,
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
+import Marquee from "@/registry/sonaui/marquee/marquee";
 
 const TECH_STACK = [
   {
