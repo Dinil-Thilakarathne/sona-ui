@@ -1,12 +1,7 @@
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";
 
 const StaggerText_ex = () => {
-  return (
-    <ComponentWrapper className="flex items-center justify-center">
-      <StaggerText text="Stagger Text!!" />
-    </ComponentWrapper>
-  );
+  return <StaggerText text="Stagger Text!!" />;
 };
 
 export default StaggerText_ex;

@@ -5,7 +5,6 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
 export default function Accordion_ex() {
   const accordionData = [
@@ -45,24 +44,19 @@ export default function Accordion_ex() {
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }

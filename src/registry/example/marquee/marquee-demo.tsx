@@ -1,6 +1,5 @@
 import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import {
   NextjsIcon,
   ReactIcon,
@@ -30,17 +29,15 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <ComponentWrapper>
-      <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-        <div className="flex items-center gap-x-8 md:gap-x-16">
-          {TECH_STACK.map((tech) => (
-            <Icon key={tech.name} text={tech.name}>
-              {tech.icon}
-            </Icon>
-          ))}
-        </div>
-      </Marquee>
-    </ComponentWrapper>
+    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+      <div className="flex items-center gap-x-8 md:gap-x-16">
+        {TECH_STACK.map((tech) => (
+          <Icon key={tech.name} text={tech.name}>
+            {tech.icon}
+          </Icon>
+        ))}
+      </div>
+    </Marquee>
   );
 }
 

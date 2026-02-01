@@ -1,6 +1,5 @@
 "use client";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import { type IconType } from "react-icons";
@@ -14,7 +13,7 @@ const TabData: TabDataType[] = [
   {
     title: "Home",
     icon: FaHome,
-  },  
+  },
   {
     title: "Profile",
     icon: FaUser,
@@ -31,15 +30,13 @@ const TabData: TabDataType[] = [
 
 const ExpandableTabs_ex = () => {
   return (
-    <ComponentWrapper>
-      <ExpandableTabs
-        tabs={TabData}
-        defaultActiveIndex={0}
-        motionConfig={{
-          transition: { duration: 0.2, ease: "easeInOut" },
-        }}
-      />
-    </ComponentWrapper>
+    <ExpandableTabs
+      tabs={TabData}
+      defaultActiveIndex={0}
+      motionConfig={{
+        transition: { duration: 0.2, ease: "easeInOut" },
+      }}
+    />
   );
 };
 

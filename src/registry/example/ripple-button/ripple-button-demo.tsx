@@ -1,6 +1,5 @@
 import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
@@ -28,14 +27,9 @@ const RippleButton_ex = ({
   ...props
 }: RippleButtonEx1Props) => {
   return (
-    <ComponentWrapper
-      className={cn("flex items-center justify-center", className)}
-      {...props}
-    >
-      <RippleButton {...buttonProps}>
-        <RippleButtonText {...textProps} text="Hover me!" />
-      </RippleButton>
-    </ComponentWrapper>
+    <RippleButton {...buttonProps}>
+      <RippleButtonText {...textProps} text="Hover me!" />
+    </RippleButton>
   );
 };
 

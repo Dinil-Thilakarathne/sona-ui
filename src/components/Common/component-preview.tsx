@@ -13,6 +13,8 @@ import {
   CodeBlockPre,
 } from "@/components/code-block/code-block";
 
+import ComponentWrapper from "@/components/Common/component-wrapper";
+
 interface ComponentPreviewProps {
   component: React.ReactNode;
   code: string;
@@ -23,7 +25,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   code,
 }) => {
   return (
-    <Tabs defaultValue="preview" className="w-full my-3">
+    <Tabs defaultValue="preview" className="my-3 w-full">
       <TabsList data-orientation="horizontal">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>
@@ -32,7 +34,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
         value="preview"
         className="flex min-h-[350px] items-center justify-center"
       >
-        {component}
+        <ComponentWrapper>{component}</ComponentWrapper>
       </TabsContent>
       <TabsContent value="code" className="">
         <CodeBlock language="tsx" code={code}>

@@ -1,5 +1,4 @@
 import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
 const VerticalTabs_data = [
   {
@@ -26,11 +25,7 @@ const VerticalTabs_data = [
 ];
 
 const VerticalTab_ex = () => {
-  return (
-    <ComponentWrapper>
-      <VerticalTab tabs={VerticalTabs_data} />
-    </ComponentWrapper>
-  );
+  return <VerticalTab tabs={VerticalTabs_data} />;
 };
 
 export default VerticalTab_ex;

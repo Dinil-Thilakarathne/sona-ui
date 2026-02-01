@@ -1,17 +1,14 @@
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import Magnetic from "@/registry/sonaui/magnetic/magnetic-button";
 
 const Magnetic_ex = () => {
   return (
-    <ComponentWrapper>
-      <div className="rounded-full border border-dashed border-slate-400 p-2">
-        <Magnetic interactionArea="parent">
-          <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
-            Magnetic Button
-          </button>
-        </Magnetic>
-      </div>
-    </ComponentWrapper>
+    <div className="rounded-full border border-dashed border-slate-400 p-2">
+      <Magnetic interactionArea="parent">
+        <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
+          Magnetic Button
+        </button>
+      </Magnetic>
+    </div>
   );
 };
 
