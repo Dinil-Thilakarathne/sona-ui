@@ -114,7 +114,6 @@ export function ComponentInstallation({
                     <CodeBlock
                       code={componentFiles[0].content}
                       language="tsx"
-                      floatingCopy
                     >
                       <CodeBlockHeader filename={componentFiles[0].path} />
                       <CodeBlockPre>
@@ -132,7 +131,6 @@ export function ComponentInstallation({
                         <CodeBlock
                           code={activeFile.content}
                           language="tsx"
-                          floatingCopy
                         >
                           <CodeBlockHeader
                             tabs={componentFiles.map((f) => ({

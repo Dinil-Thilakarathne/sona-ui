@@ -1494,7 +1494,7 @@ const accordionItemVariants = cva(
       variant: {
         default: "border-b border-border",
         outlined:
-          "border-foreground border first:rounded-t-2xl last:rounded-b-2xl",
+          "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
         splitted: "rounded-2xl ",
       },
     },
@@ -1811,7 +1811,7 @@ export default function RippleButton({
   const buttonClasses = useMemo(
     () =>
       cn(
-        "relative overflow-hidden rounded-full border border-slate-950 bg-slate-100 dark:bg-slate-50 px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
         className,
       ),
     [className],
@@ -1829,7 +1829,7 @@ export default function RippleButton({
         <motion.span
           key={ripple.key}
           className={cn(
-            "pointer-events-none absolute rounded-full bg-slate-900 dark:bg-gray-300",
+            "pointer-events-none absolute rounded-full bg-foreground",
             rippleStyle,
           )}
           style={{
@@ -1860,7 +1860,7 @@ export interface RippleButtonTextProps
 export function RippleButtonText({ text, className }: RippleButtonTextProps) {
   return (
     <span
-      className={cn("text-white mix-blend-difference", className)}
+      className={cn("text-background dark:text-foreground mix-blend-difference", className)}
       role="presentation"
       aria-label="ripple-button-text"
     >
@@ -2623,13 +2623,149 @@ const TabItemVariants = {
 };
 
 export const componentMetadata = {
+  "magnetic": {
+    "name": "magnetic",
+    "type": "registry:ui",
+    "title": "Magnetic",
+    "description": "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
+    "files": [
+      {
+        "path": "registry/sonaui/magnetic/MagneticButton.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": []
+  },
+  "verticalTab": {
+    "name": "verticalTab",
+    "type": "registry:ui",
+    "title": "VerticalTab",
+    "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
+    "files": [
+      {
+        "path": "registry/sonaui/verticalTab/VerticalTab.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "react-use-measure"
+    ]
+  },
   "accordion": {
     "name": "accordion",
+    "type": "registry:ui",
     "title": "Accordion",
-    "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+    "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
+    "files": [
+      {
+        "path": "registry/sonaui/accordion/Accordion.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/sonaui/accordion/AnimatedPlusMinusButton.tsx",
+        "type": "registry:ui"
+      }
+    ],
     "dependencies": [
-      "@radix-ui/react-accordion",
-      "lucide-react"
+      "class-variance-authority",
+      "framer-motion"
+    ]
+  },
+  "rippleButton": {
+    "name": "rippleButton",
+    "type": "registry:ui",
+    "title": "RippleButton",
+    "description": "An interactive button with a ripple effect for modern UIs.",
+    "files": [
+      {
+        "path": "registry/sonaui/rippleButton/RippleButton.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": []
+  },
+  "marquee": {
+    "name": "marquee",
+    "type": "registry:ui",
+    "title": "Marquee",
+    "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
+    "files": [
+      {
+        "path": "registry/sonaui/marquee/Marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "react-use-measure"
+    ]
+  },
+  "spinningText": {
+    "name": "spinningText",
+    "type": "registry:ui",
+    "title": "SpinningText",
+    "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+    "files": [
+      {
+        "path": "registry/sonaui/spinningText/SpinningText.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": []
+  },
+  "staggerText": {
+    "name": "staggerText",
+    "type": "registry:ui",
+    "title": "StaggerText",
+    "description": "A text component with staggered animation.",
+    "files": [
+      {
+        "path": "registry/sonaui/staggerText/StaggerText.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": []
+  },
+  "linkPreview": {
+    "name": "linkPreview",
+    "type": "registry:ui",
+    "title": "LinkPreview",
+    "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+    "files": [
+      {
+        "path": "registry/sonaui/linkPreview/LinkPreview.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "react-use-measure"
+    ]
+  },
+  "bubbleUpButton": {
+    "name": "bubbleUpButton",
+    "type": "registry:ui",
+    "title": "BubbleUpButton",
+    "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
+    "files": [
+      {
+        "path": "registry/sonaui/bubbleUpButton/BubbleUpButton.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": []
+  },
+  "expandableTabs": {
+    "name": "expandableTabs",
+    "type": "registry:ui",
+    "title": "ExpandableTabs",
+    "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/expandableTabs/ExpandableTabs.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "react-icons"
     ]
   }
 };
