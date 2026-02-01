@@ -6,7 +6,7 @@ import {
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
 
-export default function Accordion_ex() {
+export default function AccordionMultiStepExample() {
   const accordionData = [
     {
       value: "item-1",

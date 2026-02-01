@@ -1,6 +1,6 @@
 import LinkPreview from "@/registry/sonaui/link-preview/link-preview";
 
-const LinkPreview_ex = () => {
+export default function LinkPreviewExample() {
   return (
     <div className="flex w-full flex-col justify-center gap-4">
       <h3>Projects that I works on!!!</h3>
@@ -16,6 +16,4 @@ const LinkPreview_ex = () => {
       </ul>
     </div>
   );
-};
-
-export default LinkPreview_ex;
+}

@@ -28,7 +28,7 @@ const TabData: TabDataType[] = [
   },
 ];
 
-const ExpandableTabs_ex = () => {
+export default function ExpandableTabsExample() {
   return (
     <ExpandableTabs
       tabs={TabData}
@@ -38,6 +38,4 @@ const ExpandableTabs_ex = () => {
       }}
     />
   );
-};
-
-export default ExpandableTabs_ex;
+}

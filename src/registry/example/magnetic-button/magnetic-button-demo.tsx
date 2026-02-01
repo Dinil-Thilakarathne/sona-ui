@@ -1,6 +1,6 @@
 import Magnetic from "@/registry/sonaui/magnetic/magnetic-button";
 
-const Magnetic_ex = () => {
+export default function MagneticButtonExample() {
   return (
     <div className="rounded-full border border-dashed border-slate-400 p-2">
       <Magnetic interactionArea="parent">
@@ -10,6 +10,4 @@ const Magnetic_ex = () => {
       </Magnetic>
     </div>
   );
-};
-
-export default Magnetic_ex;
+}

@@ -24,8 +24,6 @@ const VerticalTabs_data = [
   },
 ];
 
-const VerticalTab_ex = () => {
+export default function VerticalTabExample() {
   return <VerticalTab tabs={VerticalTabs_data} />;
-};
-
-export default VerticalTab_ex;
+}
