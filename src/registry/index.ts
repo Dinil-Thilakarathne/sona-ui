@@ -1,18 +1,18 @@
 // This file is auto-generated. Do not edit.
 import * as React from "react";
-import magnetic_button_magnetic_button_demo from "@/registry/example/magnetic-button/magnetic-button-demo";
-import accordion_accordion_splitted from "@/registry/example/accordion/accordion-splitted";
-import accordion_accordion_demo from "@/registry/example/accordion/accordion-demo";
-import accordion_accordion_multistep from "@/registry/example/accordion/accordion-multistep";
-import accordion_accordion_outlined from "@/registry/example/accordion/accordion-outlined";
-import spinning_text_spinning_text_demo from "@/registry/example/spinning-text/spinning-text-demo";
-import bubble_up_button_bubble_up_button_demo from "@/registry/example/bubble-up-button/bubble-up-button-demo";
-import marquee_marquee_demo from "@/registry/example/marquee/marquee-demo";
-import ripple_button_ripple_button_demo from "@/registry/example/ripple-button/ripple-button-demo";
-import vertical_tab_vertical_tab_demo from "@/registry/example/vertical-tab/vertical-tab-demo";
-import expandable_tabs_expandable_tabs_demo from "@/registry/example/expandable-tabs/expandable-tabs-demo";
-import link_preview_link_preview_demo from "@/registry/example/link-preview/link-preview-demo";
-import stagger_text_stagger_text_demo from "@/registry/example/stagger-text/stagger-text-demo";
+import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
+import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
+import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
+import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
+import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
+import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
+import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
+import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
+import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
+import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
+import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -27,42 +27,32 @@ export const exampleRegistry: Record<string, RegistryEntry[]> = {
     {
       name: "default",
       component: magnetic_button_magnetic_button_demo,
-      code: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import Magnetic from "@/registry/sonaui/magnetic/MagneticButton";
+      code: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 
-const Magnetic_ex = () => {
+export default function MagneticButtonExample() {
   return (
-    <ComponentWrapper>
-      <div className="rounded-full border border-dashed border-slate-400 p-2">
-        <Magnetic interactionArea="parent">
-          <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
-            Magnetic Button
-          </button>
-        </Magnetic>
-      </div>
-    </ComponentWrapper>
+    <div className="border-border rounded-full border border-dashed p-2">
+      <Magnetic interactionArea="parent">
+        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+          Magnetic Button
+        </button>
+      </Magnetic>
+    </div>
   );
-};
-
-export default Magnetic_ex;
+}
 `,
-      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import Magnetic from "@/registry/sonaui/magnetic/MagneticButton";`,
-      anatomy: `const Magnetic_ex = () => {
+      imports: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";`,
+      anatomy: `export default function MagneticButtonExample() {
   return (
-    <ComponentWrapper>
-      <div className="rounded-full border border-dashed border-slate-400 p-2">
-        <Magnetic interactionArea="parent">
-          <button className="cursor-pointer rounded-full bg-slate-400 px-6 py-4 font-semibold text-slate-800 dark:bg-slate-600 dark:text-slate-50">
-            Magnetic Button
-          </button>
-        </Magnetic>
-      </div>
-    </ComponentWrapper>
+    <div className="border-border rounded-full border border-dashed p-2">
+      <Magnetic interactionArea="parent">
+        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+          Magnetic Button
+        </button>
+      </Magnetic>
+    </div>
   );
-};
-
-export default Magnetic_ex;`,
+}`,
     }
   ],
   "accordion": [
@@ -76,9 +66,8 @@ export default Magnetic_ex;`,
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
-export default function Accordion_ex() {
+export default function AccordionSplittedExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -116,26 +105,24 @@ export default function Accordion_ex() {
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-        variant="splitted"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="splitted"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }
 `,
@@ -145,9 +132,8 @@ export default function Accordion_ex() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
-      anatomy: `export default function Accordion_ex() {
+} from "@/registry/sonaui/accordion/Accordion";`,
+      anatomy: `export default function AccordionSplittedExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -185,26 +171,24 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-        variant="splitted"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="splitted"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }`,
     },
@@ -218,9 +202,8 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
-export default function Accordion_ex() {
+export default function AccordionDefaultExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -258,25 +241,20 @@ export default function Accordion_ex() {
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }
 `,
@@ -286,9 +264,8 @@ export default function Accordion_ex() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
-      anatomy: `export default function Accordion_ex() {
+} from "@/registry/sonaui/accordion/Accordion";`,
+      anatomy: `export default function AccordionDefaultExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -326,25 +303,20 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }`,
     },
@@ -358,9 +330,8 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
-export default function Accordion_ex() {
+export default function AccordionMultiStepExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -398,25 +369,20 @@ export default function Accordion_ex() {
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={true}
-        className="mx-auto max-w-4xl"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }
 `,
@@ -426,9 +392,8 @@ export default function Accordion_ex() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
-      anatomy: `export default function Accordion_ex() {
+} from "@/registry/sonaui/accordion/Accordion";`,
+      anatomy: `export default function AccordionMultiStepExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -466,25 +431,20 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={true}
-        className="mx-auto max-w-4xl"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }`,
     },
@@ -498,9 +458,8 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";
 
-export default function Accordion_ex() {
+export default function AccordionOutlinedExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -538,26 +497,24 @@ export default function Accordion_ex() {
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-        variant="outlined"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="outlined"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }
 `,
@@ -567,9 +524,8 @@ export default function Accordion_ex() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
-      anatomy: `export default function Accordion_ex() {
+} from "@/registry/sonaui/accordion/Accordion";`,
+      anatomy: `export default function AccordionOutlinedExample() {
   const accordionData = [
     {
       value: "item-1",
@@ -607,26 +563,24 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
     },
   ];
   return (
-    <ComponentWrapper>
-      <AccordionRoot
-        allowMultiple={false}
-        className="mx-auto max-w-4xl"
-        variant="outlined"
-      >
-        {accordionData.map((item) => (
-          <AccordionItem key={item.value}>
-            <AccordionItemTrigger value={item.value}>
-              <AccordionItemHeader value={item.value}>
-                <span className="flex-1">{item.title}</span>
-              </AccordionItemHeader>
-            </AccordionItemTrigger>
-            <AccordionItemContent value={item.value}>
-              <p className="">{item.content}</p>
-            </AccordionItemContent>
-          </AccordionItem>
-        ))}
-      </AccordionRoot>
-    </ComponentWrapper>
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="outlined"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
   );
 }`,
     }
@@ -635,59 +589,39 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
     {
       name: "default",
       component: spinning_text_spinning_text_demo,
-      code: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import SpinningText from "@/registry/sonaui/spinningText/SpinningText";
+      code: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
 
-const SpinningText_ex = () => {
+export default function SpinningTextExample() {
   return (
-    <ComponentWrapper>
-      <div className="flex min-h-[320px] items-center justify-center">
-        <SpinningText>This is example text!</SpinningText>
-      </div>
-    </ComponentWrapper>
+    <div className="flex min-h-[320px] items-center justify-center">
+      <SpinningText>This is example text!</SpinningText>
+    </div>
   );
 };
-
-export default SpinningText_ex;
 `,
-      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import SpinningText from "@/registry/sonaui/spinningText/SpinningText";`,
-      anatomy: `const SpinningText_ex = () => {
+      imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
+      anatomy: `export default function SpinningTextExample() {
   return (
-    <ComponentWrapper>
-      <div className="flex min-h-[320px] items-center justify-center">
-        <SpinningText>This is example text!</SpinningText>
-      </div>
-    </ComponentWrapper>
+    <div className="flex min-h-[320px] items-center justify-center">
+      <SpinningText>This is example text!</SpinningText>
+    </div>
   );
-};
-
-export default SpinningText_ex;`,
+};`,
     }
   ],
   "bubble-up-button": [
     {
       name: "default",
       component: bubble_up_button_bubble_up_button_demo,
-      code: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import BubbleUpButton from "@/registry/sonaui/bubbleUpButton/BubbleUpButton";
+      code: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";
 
 export default function BubbleUpButtonExample() {
-  return (
-    <ComponentWrapper className="!py-8">
-      <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>
-    </ComponentWrapper>
-  );
+  return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }
 `,
-      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import BubbleUpButton from "@/registry/sonaui/bubbleUpButton/BubbleUpButton";`,
+      imports: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";`,
       anatomy: `export default function BubbleUpButtonExample() {
-  return (
-    <ComponentWrapper className="!py-8">
-      <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>
-    </ComponentWrapper>
-  );
+  return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
     }
   ],
@@ -697,14 +631,13 @@ import BubbleUpButton from "@/registry/sonaui/bubbleUpButton/BubbleUpButton";`,
       component: marquee_marquee_demo,
       code: `import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
-import Marquee from "@/registry/sonaui/marquee/Marquee";
 import {
   NextjsIcon,
   ReactIcon,
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
+import Marquee from "@/registry/sonaui/marquee/marquee";
 
 const TECH_STACK = [
   {
@@ -727,17 +660,15 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <ComponentWrapper>
-      <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-        <div className="flex items-center gap-x-8 md:gap-x-16">
-          {TECH_STACK.map((tech) => (
-            <Icon key={tech.name} text={tech.name}>
-              {tech.icon}
-            </Icon>
-          ))}
-        </div>
-      </Marquee>
-    </ComponentWrapper>
+    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+      <div className="flex items-center gap-x-8 md:gap-x-16">
+        {TECH_STACK.map((tech) => (
+          <Icon key={tech.name} text={tech.name}>
+            {tech.icon}
+          </Icon>
+        ))}
+      </div>
+    </Marquee>
   );
 }
 
@@ -752,14 +683,13 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
 `,
       imports: `import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
-import Marquee from "@/registry/sonaui/marquee/Marquee";
 import {
   NextjsIcon,
   ReactIcon,
   TailwindIcon,
   TypescriptIcon,
-} from "@/assets/svgs";`,
+} from "@/assets/svgs";
+import Marquee from "@/registry/sonaui/marquee/marquee";`,
       anatomy: `const TECH_STACK = [
   {
     name: "Next.js",
@@ -781,17 +711,15 @@ import {
 
 export default function MarqueeExample() {
   return (
-    <ComponentWrapper>
-      <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-        <div className="flex items-center gap-x-8 md:gap-x-16">
-          {TECH_STACK.map((tech) => (
-            <Icon key={tech.name} text={tech.name}>
-              {tech.icon}
-            </Icon>
-          ))}
-        </div>
-      </Marquee>
-    </ComponentWrapper>
+    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+      <div className="flex items-center gap-x-8 md:gap-x-16">
+        {TECH_STACK.map((tech) => (
+          <Icon key={tech.name} text={tech.name}>
+            {tech.icon}
+          </Icon>
+        ))}
+      </div>
+    </Marquee>
   );
 }
 
@@ -811,12 +739,10 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
       component: ripple_button_ripple_button_demo,
       code: `import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
-} from "@/registry/sonaui/rippleButton/RippleButton";
-import { cn } from "@/lib/utils";
+} from "@/registry/sonaui/ripple-button/ripple-button";
 
 interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -830,36 +756,27 @@ interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElem
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-}
+} 
 
-const RippleButton_ex = ({
+export default function RippleButtonExample({
   textProps,
   buttonProps,
   className,
   ...props
-}: RippleButtonEx1Props) => {
+}: RippleButtonEx1Props) {
   return (
-    <ComponentWrapper
-      className={cn("flex items-center justify-center", className)}
-      {...props}
-    >
-      <RippleButton {...buttonProps}>
-        <RippleButtonText {...textProps} text="Hover me!" />
-      </RippleButton>
-    </ComponentWrapper>
+    <RippleButton {...buttonProps}>
+      <RippleButtonText {...textProps} text="Hover me!" />
+    </RippleButton>
   );
 };
-
-export default RippleButton_ex;
 `,
       imports: `import { type ReactNode } from "react";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import RippleButton, {
   RippleButtonText,
   RippleButtonTextProps,
-} from "@/registry/sonaui/rippleButton/RippleButton";
-import { cn } from "@/lib/utils";`,
+} from "@/registry/sonaui/ripple-button/ripple-button";`,
       anatomy: `interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
@@ -872,35 +789,27 @@ interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElem
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-}
+} 
 
-const RippleButton_ex = ({
+export default function RippleButtonExample({
   textProps,
   buttonProps,
   className,
   ...props
-}: RippleButtonEx1Props) => {
+}: RippleButtonEx1Props) {
   return (
-    <ComponentWrapper
-      className={cn("flex items-center justify-center", className)}
-      {...props}
-    >
-      <RippleButton {...buttonProps}>
-        <RippleButtonText {...textProps} text="Hover me!" />
-      </RippleButton>
-    </ComponentWrapper>
+    <RippleButton {...buttonProps}>
+      <RippleButtonText {...textProps} text="Hover me!" />
+    </RippleButton>
   );
-};
-
-export default RippleButton_ex;`,
+};`,
     }
   ],
   "vertical-tab": [
     {
       name: "default",
       component: vertical_tab_vertical_tab_demo,
-      code: `import VerticalTab from "@/registry/sonaui/verticalTab/VerticalTab";
-import ComponentWrapper from "@/components/Common/component-wrapper";
+      code: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";
 
 const VerticalTabs_data = [
   {
@@ -926,18 +835,11 @@ const VerticalTabs_data = [
   },
 ];
 
-const VerticalTab_ex = () => {
-  return (
-    <ComponentWrapper>
-      <VerticalTab tabs={VerticalTabs_data} />
-    </ComponentWrapper>
-  );
-};
-
-export default VerticalTab_ex;
+export default function VerticalTabExample() {
+  return <VerticalTab tabs={VerticalTabs_data} />;
+}
 `,
-      imports: `import VerticalTab from "@/registry/sonaui/verticalTab/VerticalTab";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
+      imports: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";`,
       anatomy: `const VerticalTabs_data = [
   {
     title: "Home",
@@ -962,15 +864,9 @@ import ComponentWrapper from "@/components/Common/component-wrapper";`,
   },
 ];
 
-const VerticalTab_ex = () => {
-  return (
-    <ComponentWrapper>
-      <VerticalTab tabs={VerticalTabs_data} />
-    </ComponentWrapper>
-  );
-};
-
-export default VerticalTab_ex;`,
+export default function VerticalTabExample() {
+  return <VerticalTab tabs={VerticalTabs_data} />;
+}`,
     }
   ],
   "expandable-tabs": [
@@ -979,9 +875,8 @@ export default VerticalTab_ex;`,
       component: expandable_tabs_expandable_tabs_demo,
       code: `"use client";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandableTabs/ExpandableTabs";
+import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import { type IconType } from "react-icons";
 
 type TabDataType = {
@@ -993,7 +888,7 @@ const TabData: TabDataType[] = [
   {
     title: "Home",
     icon: FaHome,
-  },  
+  },
   {
     title: "Profile",
     icon: FaUser,
@@ -1008,28 +903,23 @@ const TabData: TabDataType[] = [
   },
 ];
 
-const ExpandableTabs_ex = () => {
+export default function ExpandableTabsExample() {
   return (
-    <ComponentWrapper>
-      <ExpandableTabs
-        tabs={TabData}
-        defaultActiveIndex={0}
-        motionConfig={{
-          transition: { duration: 0.2, ease: "easeInOut" },
-        }}
-      />
-    </ComponentWrapper>
+    <ExpandableTabs
+      tabs={TabData}
+      defaultActiveIndex={0}
+      motionConfig={{
+        transition: { duration: 0.2, ease: "easeInOut" },
+      }}
+    />
   );
-};
-
-export default ExpandableTabs_ex;
+}
 `,
       imports: ``,
       anatomy: `"use client";
 
-import ComponentWrapper from "@/components/Common/component-wrapper";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandableTabs/ExpandableTabs";
+import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import { type IconType } from "react-icons";
 
 type TabDataType = {
@@ -1041,7 +931,7 @@ const TabData: TabDataType[] = [
   {
     title: "Home",
     icon: FaHome,
-  },  
+  },
   {
     title: "Profile",
     icon: FaUser,
@@ -1056,109 +946,77 @@ const TabData: TabDataType[] = [
   },
 ];
 
-const ExpandableTabs_ex = () => {
+export default function ExpandableTabsExample() {
   return (
-    <ComponentWrapper>
-      <ExpandableTabs
-        tabs={TabData}
-        defaultActiveIndex={0}
-        motionConfig={{
-          transition: { duration: 0.2, ease: "easeInOut" },
-        }}
-      />
-    </ComponentWrapper>
+    <ExpandableTabs
+      tabs={TabData}
+      defaultActiveIndex={0}
+      motionConfig={{
+        transition: { duration: 0.2, ease: "easeInOut" },
+      }}
+    />
   );
-};
-
-export default ExpandableTabs_ex;`,
+}`,
     }
   ],
   "link-preview": [
     {
       name: "default",
       component: link_preview_link_preview_demo,
-      code: `import LinkPreview from "@/registry/sonaui/linkPreview/LinkPreview";
-import ComponentWrapper from "@/components/Common/component-wrapper";
+      code: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";
 
-const LinkPreview_ex = () => {
+export default function LinkPreviewExample() {
   return (
-    <div>
-      <ComponentWrapper>
-        <div className="flex w-full flex-col justify-center gap-4">
-          <h3>Projects that I works on!!!</h3>
-          <ul className="list-disc *:ml-2 *:lg:ml-4">
-            <li>
-              Sona UI - Open Source UI Component Library :{" "}
-              <LinkPreview
-                link="https://sona-ui.vercel.app/"
-                text="Sona UI"
-                className="flex h-full w-full items-center justify-center"
-              />
-            </li>
-          </ul>
-        </div>
-      </ComponentWrapper>
+    <div className="flex w-full flex-col justify-center gap-4">
+      <h3>Projects that I works on!!!</h3>
+      <ul className="list-disc *:ml-2 *:lg:ml-4">
+        <li>
+          Sona UI - Open Source UI Component Library :{" "}
+          <LinkPreview
+            link="https://sona-ui.vercel.app/"
+            text="Sona UI"
+            className="flex h-full w-full items-center justify-center"
+          />
+        </li>
+      </ul>
     </div>
   );
-};
-
-export default LinkPreview_ex;
+}
 `,
-      imports: `import LinkPreview from "@/registry/sonaui/linkPreview/LinkPreview";
-import ComponentWrapper from "@/components/Common/component-wrapper";`,
-      anatomy: `const LinkPreview_ex = () => {
+      imports: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";`,
+      anatomy: `export default function LinkPreviewExample() {
   return (
-    <div>
-      <ComponentWrapper>
-        <div className="flex w-full flex-col justify-center gap-4">
-          <h3>Projects that I works on!!!</h3>
-          <ul className="list-disc *:ml-2 *:lg:ml-4">
-            <li>
-              Sona UI - Open Source UI Component Library :{" "}
-              <LinkPreview
-                link="https://sona-ui.vercel.app/"
-                text="Sona UI"
-                className="flex h-full w-full items-center justify-center"
-              />
-            </li>
-          </ul>
-        </div>
-      </ComponentWrapper>
+    <div className="flex w-full flex-col justify-center gap-4">
+      <h3>Projects that I works on!!!</h3>
+      <ul className="list-disc *:ml-2 *:lg:ml-4">
+        <li>
+          Sona UI - Open Source UI Component Library :{" "}
+          <LinkPreview
+            link="https://sona-ui.vercel.app/"
+            text="Sona UI"
+            className="flex h-full w-full items-center justify-center"
+          />
+        </li>
+      </ul>
     </div>
   );
-};
-
-export default LinkPreview_ex;`,
+}`,
     }
   ],
   "stagger-text": [
     {
       name: "default",
       component: stagger_text_stagger_text_demo,
-      code: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import StaggerText from "@/registry/sonaui/staggerText/StaggerText";
+      code: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";
 
-const StaggerText_ex = () => {
-  return (
-    <ComponentWrapper className="flex items-center justify-center">
-      <StaggerText text="Stagger Text!!" />
-    </ComponentWrapper>
-  );
-};
-
-export default StaggerText_ex;
+export default function StaggerTextExample() {
+  return <StaggerText text="Stagger Text!!" />;
+}
 `,
-      imports: `import ComponentWrapper from "@/components/Common/component-wrapper";
-import StaggerText from "@/registry/sonaui/staggerText/StaggerText";`,
-      anatomy: `const StaggerText_ex = () => {
-  return (
-    <ComponentWrapper className="flex items-center justify-center">
-      <StaggerText text="Stagger Text!!" />
-    </ComponentWrapper>
-  );
-};
-
-export default StaggerText_ex;`,
+      imports: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";`,
+      anatomy: `export default function StaggerTextExample() {
+  return <StaggerText text="Stagger Text!!" />;
+}`,
     }
   ]
 };
@@ -1173,7 +1031,7 @@ export type Registry = {
 }
 
 export const registry: Registry = {
-  "magnetic": [
+  "magnetic-button": [
     {
       type: "registry:ui",
       content: `"use client";
@@ -1303,143 +1161,8 @@ export default function Magnetic({
   );
 }
 `,
-      path: "magnetic/MagneticButton.tsx",
-      target: "components/sonaui/magnetic/MagneticButton.tsx"
-    }
-  ],
-  "verticalTab": [
-    {
-      type: "registry:ui",
-      content: `"use client";
-
-import { useRef, useState } from "react";
-import { motion } from "motion/react";
-import useMeasure from "react-use-measure";
-
-import { cn } from "@/lib/utils";
-
-interface VerticalTabProps {
-  tabs: {
-    title: string;
-  }[];
-  indicatorBgColor?: string;
-  activeTabBgColor?: string;
-  containerClassName?: string;
-}
-
-export default function VerticalTab({
-  tabs,
-  indicatorBgColor = "bg-slate-300",
-  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
-  containerClassName = "",
-}: VerticalTabProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [lastHoveredIndex, setLastHoveredIndex] = useState<number | null>(null);
-
-  const [ref, bounds] = useMeasure();
-  const tabRef = useRef<HTMLDivElement | null>(null);
-
-  const handleMouseEnter = (tabElement: HTMLDivElement, index: number) => {
-    tabRef.current = tabElement;
-    ref(tabElement); // Update the ref dynamically
-    setIsMouseOver(true);
-    setLastHoveredIndex(index); // Store the last hovered index
-  };
-
-  const handleMouseLeave = () => {
-    tabRef.current = null;
-    setIsMouseOver(false);
-    ref(null); // Reset the ref when mouse leaves
-  };
-
-  const handleMouseClick = (i: number) => {
-    setActiveIndex(i);
-  };
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLDivElement>,
-    currentIndex: number,
-  ) => {
-    if (e.key === "ArrowRight") {
-      setActiveIndex((prev) => (prev + 1) % tabs.length);
-    } else if (e.key === "ArrowLeft") {
-      setActiveIndex((prev) => (prev - 1 + tabs.length) % tabs.length);
-    }
-    if (e.key === "Enter" || e.key === " ") {
-      setActiveIndex(currentIndex);
-    }
-  };
-
-  return (
-    <div
-      className={cn(
-        "relative flex w-fit overflow-x-scroll border-b p-2",
-        containerClassName,
-      )}
-      onMouseLeave={() => handleMouseLeave()}
-    >
-      {isMouseOver && tabRef.current && (
-        <motion.div
-          className={cn(
-            "absolute left-0 rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
-            indicatorBgColor,
-          )}
-          initial={{
-            opacity: 0,
-            width: bounds.width,
-            height: bounds.height,
-            translateX:
-              lastHoveredIndex !== null && tabs[lastHoveredIndex]
-                ? tabRef.current.offsetLeft
-                : 0,
-          }}
-          animate={{
-            opacity: 1,
-            translateX: tabRef.current ? tabRef.current.offsetLeft : 0,
-            width: bounds.width,
-            height: bounds.height,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
-      )}
-      <div className="flex space-x-2" role="tablist">
-        {tabs.map((tab, index) => (
-          <TabItem
-            key={index}
-            title={tab.title}
-            data-tab-index={index}
-            className={cn(
-              "relative flex cursor-pointer items-center p-2",
-              "rounded-xl transition-colors duration-300",
-              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
-              index === activeIndex ? \`\${activeTabBgColor}\` : "",
-            )}
-            onMouseEnter={(e) => handleMouseEnter(e.currentTarget, index)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            onClick={() => handleMouseClick(index)}
-            aria-selected={index === activeIndex}
-            aria-label={\`Tab \${index + 1}\`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
-}
-
-const TabItem = ({ title, ...props }: TabItemProps) => {
-  return (
-    <div {...props} role="tab" tabIndex={0}>
-      <span>{title}</span>
-    </div>
-  );
-};
-`,
-      path: "verticalTab/VerticalTab.tsx",
-      target: "components/sonaui/verticalTab/VerticalTab.tsx"
+      path: "magnetic-button/magnetic-button.tsx",
+      target: "components/sonaui/magnetic-button/magnetic-button.tsx"
     }
   ],
   "accordion": [
@@ -1761,116 +1484,213 @@ export default AnimatedPlusMinusButton;
       target: "components/sonaui/accordion/AnimatedPlusMinusButton.tsx"
     }
   ],
-  "rippleButton": [
+  "spinning-text": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { useState, useCallback, useMemo, type ReactNode } from "react";
-import { motion } from "motion/react";
+import { CSSProperties, useMemo } from "react";
+import { motion, type Transition, Variants } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-export interface RippleButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  scaleAmount?: number;
-  className?: string;
+type SpinningTextProps = {
+  children: string | string[];
+  style?: CSSProperties;
   duration?: number;
-  rippleStyle?: string;
-}
-
-interface RippleProps {
-  x: number;
-  y: number;
-  key: number;
-}
-
-export default function RippleButton({
-  children,
-  className,
-  scaleAmount = 25,
-  duration = 0.5,
-  rippleStyle,
-  ...props
-}: RippleButtonProps) {
-  const [ripple, setRipple] = useState<RippleProps | null>(null);
-  const [isHover, setIsHover] = useState(false);
-
-  const handleMouseEnter = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const button = event.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      setRipple({ x, y, key: Date.now() });
-    },
-    [],
-  );
-
-  const buttonClasses = useMemo(
-    () =>
-      cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
-        className,
-      ),
-    [className],
-  );
-
-  return (
-    <button
-      className={buttonClasses}
-      onMouseEnter={handleMouseEnter}
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      {...props}
-    >
-      {ripple && (
-        <motion.span
-          key={ripple.key}
-          className={cn(
-            "pointer-events-none absolute rounded-full bg-foreground",
-            rippleStyle,
-          )}
-          style={{
-            left: ripple.x,
-            top: ripple.y,
-            width: "10px",
-            height: "10px",
-            transform: "translate(-50%, -50%) scale(0)",
-          }}
-          animate={isHover ? { scale: scaleAmount } : { scale: 0 }}
-          transition={{
-            duration: isHover ? duration : 0.4,
-            ease: "easeIn",
-          }}
-        />
-      )}
-      {children}
-    </button>
-  );
-}
-
-export interface RippleButtonTextProps
-  extends React.HTMLAttributes<HTMLSpanElement> {
-  text: string;
   className?: string;
-}
+  reverse?: boolean;
+  radius?: number;
+  transition?: Transition;
+  variants?: {
+    container?: Variants;
+    item?: Variants;
+  };
+};
 
-export function RippleButtonText({ text, className }: RippleButtonTextProps) {
+const BASE_TRANSITION = {
+  repeat: Infinity,
+  ease: "linear" as const,
+};
+
+const BASE_ITEM_VARIANTS = {
+  hidden: {
+    opacity: 1,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
+
+export default function SpinningText({
+  children,
+  duration = 10,
+  style,
+  className,
+  reverse = false,
+  radius = 5,
+  transition,
+  variants,
+}: SpinningTextProps) {
+  if (typeof children !== "string" && !Array.isArray(children)) {
+    throw new Error("children must be a string or an array of strings");
+  }
+
+  const textContent = useMemo(() => {
+    if (Array.isArray(children)) {
+      if (!children.every((child) => typeof child === "string")) {
+        throw new Error("all elements in children array must be strings");
+      }
+      return children.join("");
+    }
+    return children;
+  }, [children]);
+
+  const characters = useMemo(() => {
+    const chars = textContent.split("");
+    chars.push(" ");
+    return chars;
+  }, [textContent]);
+
+  const finalTransition  = useMemo(
+    () => ({
+      ...BASE_TRANSITION,
+      ...transition,
+      duration: (transition as { duration?: number })?.duration ?? duration,
+    }),
+    [transition, duration],
+  );
+
+  const containerVariants = useMemo(
+    () => ({
+      visible: { rotate: reverse ? -360 : 360 },
+      ...variants?.container,
+    }),
+    [reverse, variants],
+  );
+
+  const itemVariants = useMemo(
+    () => ({
+      ...BASE_ITEM_VARIANTS,
+      ...variants?.item,
+    }),
+    [variants],
+  );
+
   return (
-    <span
-      className={cn("text-background dark:text-foreground mix-blend-difference", className)}
-      role="presentation"
-      aria-label="ripple-button-text"
+    <motion.div
+      className={cn("relative", className)}
+      style={style}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      transition={finalTransition}
     >
-      {text}
-    </span>
+      {characters.map((char, index) => (
+        <motion.span
+          aria-hidden="true"
+          key={\`\${index}-\${char}\`}
+          variants={itemVariants}
+          className="absolute top-1/2 left-1/2 inline-block"
+          style={
+            {
+              "--index": index,
+              "--total": characters.length,
+              "--radius": radius,
+              transform: \`
+              translate(-50%, -50%)
+              rotate(calc(360deg / var(--total) * var(--index)))
+              translateY(calc(var(--radius, 5) * -1ch))
+            \`,
+              transformOrigin: "center",
+            } as React.CSSProperties
+          }
+        >
+          {char}
+        </motion.span>
+      ))}
+      <span className="sr-only">{textContent}</span>
+    </motion.div>
   );
 }
 `,
-      path: "rippleButton/RippleButton.tsx",
-      target: "components/sonaui/rippleButton/RippleButton.tsx"
+      path: "spinning-text/spinning-text.tsx",
+      target: "components/sonaui/spinning-text/spinning-text.tsx"
+    }
+  ],
+  "bubble-up-button": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import type { ReactNode } from "react";
+import { motion, MotionConfigProps, useAnimation } from "motion/react";
+import { cn } from "@/lib/utils";
+
+interface BubbleUpButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Content to display inside the button */
+  children?: ReactNode;
+  /** Motion configuration for animations */
+  motionControls?: MotionConfigProps;
+  /** Additional CSS classes */
+  className?: string;
+}
+export default function BubbleUpButton({
+  children = "Hover me!",
+  motionControls = {
+    transition: { type: "spring", stiffness: 200, damping: 40 },
+  },
+  className = "",
+  disabled = false,
+  ...props
+}: BubbleUpButtonProps) {
+  const controls = useAnimation();
+
+  const handleMouseEnter = async () => {
+    await controls.start({
+      clipPath: "ellipse(120% 120% at 50% 100%)",
+    });
+  };
+
+  const handleMouseLeave = async () => {
+    await controls.start({
+      clipPath: "ellipse(120% 120% at 50% -120%)",
+    });
+    controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+  };
+
+  return (
+    <button
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      disabled={disabled}
+      className={cn(
+        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
+        "transition-opacity duration-200",
+        "focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none",
+        disabled && "cursor-not-allowed opacity-50",
+        className,
+      )}
+      aria-label={typeof children === "string" ? children : "Bubble up button"}
+      {...props}
+    >
+      <motion.div
+        animate={controls}
+        initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
+        transition={motionControls.transition}
+        className="absolute top-0 left-0 h-full w-full bg-white"
+        aria-hidden="true"
+      />
+      <span className="relative text-white mix-blend-difference">
+        {children}
+      </span>
+    </button>
+  );
+}
+`,
+      path: "bubble-up-button/bubble-up-button.tsx",
+      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx"
     }
   ],
   "marquee": [
@@ -2047,145 +1867,455 @@ const MarqueeItem = forwardRef<HTMLDivElement, MarqueeItemProps>(
 
 MarqueeItem.displayName = "MarqueeItem";
 `,
-      path: "marquee/Marquee.tsx",
-      target: "components/sonaui/marquee/Marquee.tsx"
+      path: "marquee/marquee.tsx",
+      target: "components/sonaui/marquee/marquee.tsx"
     }
   ],
-  "spinningText": [
+  "ripple-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { CSSProperties, useMemo } from "react";
-import { motion, type Transition, Variants } from "motion/react";
+import { useState, useCallback, useMemo, type ReactNode } from "react";
+import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-type SpinningTextProps = {
-  children: string | string[];
-  style?: CSSProperties;
-  duration?: number;
+export interface RippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  scaleAmount?: number;
   className?: string;
-  reverse?: boolean;
-  radius?: number;
-  transition?: Transition;
-  variants?: {
-    container?: Variants;
-    item?: Variants;
-  };
-};
+  duration?: number;
+  rippleStyle?: string;
+}
 
-const BASE_TRANSITION = {
-  repeat: Infinity,
-  ease: "linear" as const,
-};
+interface RippleProps {
+  x: number;
+  y: number;
+  key: number;
+}
 
-const BASE_ITEM_VARIANTS = {
-  hidden: {
-    opacity: 1,
-  },
-  visible: {
-    opacity: 1,
-  },
-};
-
-export default function SpinningText({
+export default function RippleButton({
   children,
-  duration = 10,
-  style,
   className,
-  reverse = false,
-  radius = 5,
-  transition,
-  variants,
-}: SpinningTextProps) {
-  if (typeof children !== "string" && !Array.isArray(children)) {
-    throw new Error("children must be a string or an array of strings");
-  }
+  scaleAmount = 25,
+  duration = 0.5,
+  rippleStyle,
+  ...props
+}: RippleButtonProps) {
+  const [ripple, setRipple] = useState<RippleProps | null>(null);
+  const [isHover, setIsHover] = useState(false);
 
-  const textContent = useMemo(() => {
-    if (Array.isArray(children)) {
-      if (!children.every((child) => typeof child === "string")) {
-        throw new Error("all elements in children array must be strings");
-      }
-      return children.join("");
-    }
-    return children;
-  }, [children]);
-
-  const characters = useMemo(() => {
-    const chars = textContent.split("");
-    chars.push(" ");
-    return chars;
-  }, [textContent]);
-
-  const finalTransition  = useMemo(
-    () => ({
-      ...BASE_TRANSITION,
-      ...transition,
-      duration: (transition as { duration?: number })?.duration ?? duration,
-    }),
-    [transition, duration],
+  const handleMouseEnter = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      const button = event.currentTarget;
+      const rect = button.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      setRipple({ x, y, key: Date.now() });
+    },
+    [],
   );
 
-  const containerVariants = useMemo(
-    () => ({
-      visible: { rotate: reverse ? -360 : 360 },
-      ...variants?.container,
-    }),
-    [reverse, variants],
-  );
-
-  const itemVariants = useMemo(
-    () => ({
-      ...BASE_ITEM_VARIANTS,
-      ...variants?.item,
-    }),
-    [variants],
+  const buttonClasses = useMemo(
+    () =>
+      cn(
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
+        className,
+      ),
+    [className],
   );
 
   return (
-    <motion.div
-      className={cn("relative", className)}
-      style={style}
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      transition={finalTransition}
+    <button
+      className={buttonClasses}
+      onMouseEnter={handleMouseEnter}
+      onMouseOver={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      {...props}
     >
-      {characters.map((char, index) => (
+      {ripple && (
         <motion.span
-          aria-hidden="true"
-          key={\`\${index}-\${char}\`}
-          variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block"
-          style={
-            {
-              "--index": index,
-              "--total": characters.length,
-              "--radius": radius,
-              transform: \`
-              translate(-50%, -50%)
-              rotate(calc(360deg / var(--total) * var(--index)))
-              translateY(calc(var(--radius, 5) * -1ch))
-            \`,
-              transformOrigin: "center",
-            } as React.CSSProperties
-          }
-        >
-          {char}
-        </motion.span>
-      ))}
-      <span className="sr-only">{textContent}</span>
-    </motion.div>
+          key={ripple.key}
+          className={cn(
+            "pointer-events-none absolute rounded-full bg-foreground",
+            rippleStyle,
+          )}
+          style={{
+            left: ripple.x,
+            top: ripple.y,
+            width: "10px",
+            height: "10px",
+            transform: "translate(-50%, -50%) scale(0)",
+          }}
+          animate={isHover ? { scale: scaleAmount } : { scale: 0 }}
+          transition={{
+            duration: isHover ? duration : 0.4,
+            ease: "easeIn",
+          }}
+        />
+      )}
+      {children}
+    </button>
+  );
+}
+
+export interface RippleButtonTextProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
+  text: string;
+  className?: string;
+}
+
+export function RippleButtonText({ text, className }: RippleButtonTextProps) {
+  return (
+    <span
+      className={cn("text-background dark:text-foreground mix-blend-difference", className)}
+      role="presentation"
+      aria-label="ripple-button-text"
+    >
+      {text}
+    </span>
   );
 }
 `,
-      path: "spinningText/SpinningText.tsx",
-      target: "components/sonaui/spinningText/SpinningText.tsx"
+      path: "ripple-button/ripple-button.tsx",
+      target: "components/sonaui/ripple-button/ripple-button.tsx"
     }
   ],
-  "staggerText": [
+  "vertical-tab": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useRef, useState } from "react";
+import { motion } from "motion/react";
+import useMeasure from "react-use-measure";
+
+import { cn } from "@/lib/utils";
+
+interface VerticalTabProps {
+  tabs: {
+    title: string;
+  }[];
+  indicatorBgColor?: string;
+  activeTabBgColor?: string;
+  containerClassName?: string;
+}
+
+export default function VerticalTab({
+  tabs,
+  indicatorBgColor = "bg-slate-300",
+  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
+  containerClassName = "",
+}: VerticalTabProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMouseOver, setIsMouseOver] = useState(false);
+  const [lastHoveredIndex, setLastHoveredIndex] = useState<number | null>(null);
+
+  const [ref, bounds] = useMeasure();
+  const tabRef = useRef<HTMLDivElement | null>(null);
+
+  const handleMouseEnter = (tabElement: HTMLDivElement, index: number) => {
+    tabRef.current = tabElement;
+    ref(tabElement); // Update the ref dynamically
+    setIsMouseOver(true);
+    setLastHoveredIndex(index); // Store the last hovered index
+  };
+
+  const handleMouseLeave = () => {
+    tabRef.current = null;
+    setIsMouseOver(false);
+    ref(null); // Reset the ref when mouse leaves
+  };
+
+  const handleMouseClick = (i: number) => {
+    setActiveIndex(i);
+  };
+  const handleKeyDown = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    currentIndex: number,
+  ) => {
+    if (e.key === "ArrowRight") {
+      setActiveIndex((prev) => (prev + 1) % tabs.length);
+    } else if (e.key === "ArrowLeft") {
+      setActiveIndex((prev) => (prev - 1 + tabs.length) % tabs.length);
+    }
+    if (e.key === "Enter" || e.key === " ") {
+      setActiveIndex(currentIndex);
+    }
+  };
+
+  return (
+    <div
+      className={cn(
+        "relative flex w-fit overflow-x-scroll border-b p-2",
+        containerClassName,
+      )}
+      onMouseLeave={() => handleMouseLeave()}
+    >
+      {isMouseOver && tabRef.current && (
+        <motion.div
+          className={cn(
+            "absolute left-0 rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
+            indicatorBgColor,
+          )}
+          initial={{
+            opacity: 0,
+            width: bounds.width,
+            height: bounds.height,
+            translateX:
+              lastHoveredIndex !== null && tabs[lastHoveredIndex]
+                ? tabRef.current.offsetLeft
+                : 0,
+          }}
+          animate={{
+            opacity: 1,
+            translateX: tabRef.current ? tabRef.current.offsetLeft : 0,
+            width: bounds.width,
+            height: bounds.height,
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        />
+      )}
+      <div className="flex space-x-2" role="tablist">
+        {tabs.map((tab, index) => (
+          <TabItem
+            key={index}
+            title={tab.title}
+            data-tab-index={index}
+            className={cn(
+              "relative flex cursor-pointer items-center p-2",
+              "rounded-xl transition-colors duration-300",
+              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
+              index === activeIndex ? \`\${activeTabBgColor}\` : "",
+            )}
+            onMouseEnter={(e) => handleMouseEnter(e.currentTarget, index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            onClick={() => handleMouseClick(index)}
+            aria-selected={index === activeIndex}
+            aria-label={\`Tab \${index + 1}\`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  title: string;
+}
+
+const TabItem = ({ title, ...props }: TabItemProps) => {
+  return (
+    <div {...props} role="tab" tabIndex={0}>
+      <span>{title}</span>
+    </div>
+  );
+};
+`,
+      path: "vertical-tab/vertical-tab.tsx",
+      target: "components/sonaui/vertical-tab/vertical-tab.tsx"
+    }
+  ],
+  "expandable-tabs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useState } from "react";
+import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
+import { IconType } from "react-icons";
+
+import { cn } from "@/lib/utils";
+
+export type TabsData = {
+  title: string;
+  icon: IconType;
+};
+
+interface ExpandableTabsProps {
+  tabs: TabsData[];
+  containerClassName?: string;
+  defaultActiveIndex?: number;
+  motionConfig?: MotionConfigProps;
+}
+
+export default function ExpandableTabs({
+  tabs,
+  containerClassName = "",
+  defaultActiveIndex = 0,
+  motionConfig = {
+    transition: { duration: 0.2, ease: "easeInOut" },
+  },
+}: ExpandableTabsProps) {
+  const [isActive, setIsActive] = useState(defaultActiveIndex);
+
+  return (
+    <motion.div
+      className={cn(
+        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
+        containerClassName,
+      )}
+      layout
+    >
+      <MotionConfig {...motionConfig}>
+        {tabs.map((tab, index) => (
+          <motion.div
+            key={index}
+            role="button"
+            className={cn(
+              "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
+              "transition-[width,_background-color] duration-300 ease-in-out",
+              isActive === index && "bg-slate-300 dark:text-slate-800",
+            )}
+            onClick={() => setIsActive(index)}
+            tabIndex={0}
+          >
+            <div className="h-full grow items-center justify-center">
+              <tab.icon className="text-lg" aria-label={\`\${tab.title}-icon\`} />
+            </div>
+            <motion.span
+              className="overflow-hidden text-sm leading-[1]"
+              key={tab.title}
+              initial={isActive === index ? "" : "inactive"}
+              animate={isActive === index ? "active" : "inactive"}
+              variants={TabItemVariants}
+            >
+              {tab.title}
+            </motion.span>
+          </motion.div>
+        ))}
+      </MotionConfig>
+    </motion.div>
+  );
+}
+
+const TabItemVariants = {
+  active: {
+    opacity: 1,
+    width: "auto",
+    y: 0,
+  },
+  inactive: {
+    opacity: 0,
+    width: 0,
+    y: 20,
+  },
+};
+`,
+      path: "expandable-tabs/expandable-tabs.tsx",
+      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
+    }
+  ],
+  "link-preview": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+
+import { AnimatePresence, motion } from "motion/react";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import useMeasure from "react-use-measure";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  link: string;
+  text: string;
+  showIcon?: boolean;
+}
+
+export default function LinkPreview({
+  link,
+  text,
+  showIcon = true,
+  ...linkProps
+}: LinkPreviewProps) {
+  const [previewRef, previewBounds] = useMeasure();
+  const [containerRef, containerBounds] = useMeasure();
+  const desktop = useMediaQuery("(min-width: 768px)");
+
+  const [isHover, setIsHover] = useState(false);
+
+  return (
+    <>
+      <Link
+        href={link}
+        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
+        onMouseEnter={(e) => {
+          if (!desktop) return;
+          e.preventDefault();
+          setIsHover(true);
+        }}
+        onClick={(e) => {
+          if (!desktop) return;
+          e.preventDefault();
+          setIsHover((prev) => !prev);
+        }}
+        onMouseLeave={() => {
+          if (isHover) {
+            setIsHover(false);
+          }
+        }}
+        onFocus={(e) => {
+          e.preventDefault();
+          setIsHover(true);
+        }}
+        onBlur={() => setIsHover(false)}
+        ref={containerRef}
+      >
+        {text}
+        {showIcon && (
+          <span className="ml-1 text-sm">
+            <FaArrowUpRightFromSquare />
+          </span>
+        )}
+      </Link>
+      <AnimatePresence>
+        {isHover && desktop && (
+          <motion.div
+            ref={previewRef}
+            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+            style={{
+              left: containerBounds.left - previewBounds.width / 2,
+              top: containerBounds.top - previewBounds.height,
+            }}
+            initial={{ opacity: 0, width: 0, height: 0 }}
+            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+          >
+            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
+              <div className="flex w-full justify-between text-sm">
+                External Link
+                <Link href={link}>
+                  <FaArrowUpRightFromSquare />
+                </Link>
+              </div>
+              <Link
+                href={link}
+                className="text-nowrap underline"
+                {...linkProps}
+              >
+                {link}
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+`,
+      path: "link-preview/link-preview.tsx",
+      target: "components/sonaui/link-preview/link-preview.tsx"
+    }
+  ],
+  "stagger-text": [
     {
       type: "registry:ui",
       content: `"use client";
@@ -2344,280 +2474,8 @@ const variants: Variants = {
   }),
 };
 `,
-      path: "staggerText/StaggerText.tsx",
-      target: "components/sonaui/staggerText/StaggerText.tsx"
-    }
-  ],
-  "linkPreview": [
-    {
-      type: "registry:ui",
-      content: `"use client";
-
-import { useState } from "react";
-import Link from "next/link";
-
-import { AnimatePresence, motion } from "motion/react";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import useMeasure from "react-use-measure";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-
-interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
-  link: string;
-  text: string;
-  showIcon?: boolean;
-}
-
-export default function LinkPreview({
-  link,
-  text,
-  showIcon = true,
-  ...linkProps
-}: LinkPreviewProps) {
-  const [previewRef, previewBounds] = useMeasure();
-  const [containerRef, containerBounds] = useMeasure();
-  const desktop = useMediaQuery("(min-width: 768px)");
-
-  const [isHover, setIsHover] = useState(false);
-
-  return (
-    <>
-      <Link
-        href={link}
-        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
-        onMouseEnter={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover(true);
-        }}
-        onClick={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (isHover) {
-            setIsHover(false);
-          }
-        }}
-        onFocus={(e) => {
-          e.preventDefault();
-          setIsHover(true);
-        }}
-        onBlur={() => setIsHover(false)}
-        ref={containerRef}
-      >
-        {text}
-        {showIcon && (
-          <span className="ml-1 text-sm">
-            <FaArrowUpRightFromSquare />
-          </span>
-        )}
-      </Link>
-      <AnimatePresence>
-        {isHover && desktop && (
-          <motion.div
-            ref={previewRef}
-            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
-            style={{
-              left: containerBounds.left - previewBounds.width / 2,
-              top: containerBounds.top - previewBounds.height,
-            }}
-            initial={{ opacity: 0, width: 0, height: 0 }}
-            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-          >
-            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
-              <div className="flex w-full justify-between text-sm">
-                External Link
-                <Link href={link}>
-                  <FaArrowUpRightFromSquare />
-                </Link>
-              </div>
-              <Link
-                href={link}
-                className="text-nowrap underline"
-                {...linkProps}
-              >
-                {link}
-              </Link>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-`,
-      path: "linkPreview/LinkPreview.tsx",
-      target: "components/sonaui/linkPreview/LinkPreview.tsx"
-    }
-  ],
-  "bubbleUpButton": [
-    {
-      type: "registry:ui",
-      content: `"use client";
-
-import type { ReactNode } from "react";
-import { motion, MotionConfigProps, useAnimation } from "motion/react";
-import { cn } from "@/lib/utils";
-
-interface BubbleUpButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Content to display inside the button */
-  children?: ReactNode;
-  /** Motion configuration for animations */
-  motionControls?: MotionConfigProps;
-  /** Additional CSS classes */
-  className?: string;
-}
-export default function BubbleUpButton({
-  children = "Hover me!",
-  motionControls = {
-    transition: { type: "spring", stiffness: 200, damping: 40 },
-  },
-  className = "",
-  disabled = false,
-  ...props
-}: BubbleUpButtonProps) {
-  const controls = useAnimation();
-
-  const handleMouseEnter = async () => {
-    await controls.start({
-      clipPath: "ellipse(120% 120% at 50% 100%)",
-    });
-  };
-
-  const handleMouseLeave = async () => {
-    await controls.start({
-      clipPath: "ellipse(120% 120% at 50% -120%)",
-    });
-    controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
-  };
-
-  return (
-    <button
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      disabled={disabled}
-      className={cn(
-        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
-        "transition-opacity duration-200",
-        "focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none",
-        disabled && "cursor-not-allowed opacity-50",
-        className,
-      )}
-      aria-label={typeof children === "string" ? children : "Bubble up button"}
-      {...props}
-    >
-      <motion.div
-        animate={controls}
-        initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
-        transition={motionControls.transition}
-        className="absolute top-0 left-0 h-full w-full bg-white"
-        aria-hidden="true"
-      />
-      <span className="relative text-white mix-blend-difference">
-        {children}
-      </span>
-    </button>
-  );
-}
-`,
-      path: "bubbleUpButton/BubbleUpButton.tsx",
-      target: "components/sonaui/bubbleUpButton/BubbleUpButton.tsx"
-    }
-  ],
-  "expandableTabs": [
-    {
-      type: "registry:ui",
-      content: `"use client";
-
-import { useState } from "react";
-import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
-import { IconType } from "react-icons";
-
-import { cn } from "@/lib/utils";
-
-export type TabsData = {
-  title: string;
-  icon: IconType;
-};
-
-interface ExpandableTabsProps {
-  tabs: TabsData[];
-  containerClassName?: string;
-  defaultActiveIndex?: number;
-  motionConfig?: MotionConfigProps;
-}
-
-export default function ExpandableTabs({
-  tabs,
-  containerClassName = "",
-  defaultActiveIndex = 0,
-  motionConfig = {
-    transition: { duration: 0.2, ease: "easeInOut" },
-  },
-}: ExpandableTabsProps) {
-  const [isActive, setIsActive] = useState(defaultActiveIndex);
-
-  return (
-    <motion.div
-      className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
-        containerClassName,
-      )}
-      layout
-    >
-      <MotionConfig {...motionConfig}>
-        {tabs.map((tab, index) => (
-          <motion.div
-            key={index}
-            role="button"
-            className={cn(
-              "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
-              "transition-[width,_background-color] duration-300 ease-in-out",
-              isActive === index && "bg-slate-300 dark:text-slate-800",
-            )}
-            onClick={() => setIsActive(index)}
-            tabIndex={0}
-          >
-            <div className="h-full grow items-center justify-center">
-              <tab.icon className="text-lg" aria-label={\`\${tab.title}-icon\`} />
-            </div>
-            <motion.span
-              className="overflow-hidden text-sm leading-[1]"
-              key={tab.title}
-              initial={isActive === index ? "" : "inactive"}
-              animate={isActive === index ? "active" : "inactive"}
-              variants={TabItemVariants}
-            >
-              {tab.title}
-            </motion.span>
-          </motion.div>
-        ))}
-      </MotionConfig>
-    </motion.div>
-  );
-}
-
-const TabItemVariants = {
-  active: {
-    opacity: 1,
-    width: "auto",
-    y: 0,
-  },
-  inactive: {
-    opacity: 0,
-    width: 0,
-    y: 20,
-  },
-};
-`,
-      path: "expandableTabs/ExpandableTabs.tsx",
-      target: "components/sonaui/expandableTabs/ExpandableTabs.tsx"
+      path: "stagger-text/stagger-text.tsx",
+      target: "components/sonaui/stagger-text/stagger-text.tsx"
     }
   ]
 };
@@ -2668,7 +2526,7 @@ export const componentMetadata = {
     ],
     "dependencies": [
       "class-variance-authority",
-      "framer-motion"
+      "motion"
     ]
   },
   "rippleButton": {

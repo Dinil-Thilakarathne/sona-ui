@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 const REGISTRY_PATH = path.join(process.cwd(), "src/registry");
-const EXAMPLE_PATH = path.join(REGISTRY_PATH, "example");
+const EXAMPLE_PATH = path.join(REGISTRY_PATH, "examples");
 const COMPONENT_PATH = path.join(REGISTRY_PATH, "sonaui"); // Path to component source code
 const OUTPUT_FILE = path.join(REGISTRY_PATH, "index.ts");
 
@@ -162,7 +162,7 @@ async function buildRegistry() {
       const importName = importPath.replace(/\//g, "_").replace(/-/g, "_");
 
       imports.push(
-        `import ${importName} from "@/registry/example/${importPath}";`,
+        `import ${importName} from "@/registry/examples/${importPath}";`,
       );
 
       if (!exampleRegistry[component]) {

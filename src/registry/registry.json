@@ -44,7 +44,7 @@
     ],
     "dependencies": [
       "class-variance-authority",
-      "framer-motion"
+      "motion"
     ]
   },
   {
