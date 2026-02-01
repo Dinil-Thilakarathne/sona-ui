@@ -1,6 +1,6 @@
 ---
 title: Spinning Text
-slug: spinningText
+slug: spinning-text
 tags: ["UI", "Text", "Component"]
 ---
 
@@ -19,38 +19,15 @@ The `SpinningText` component is a dynamic and visually engaging UI element that 
 
 <Divider />
 
-<Tabs
-  tabs={[
-    {
-      title: "Preview",
-      content: <ComponentPreview componentPath="SpinningText_ex.tsx" />,
-    },
-    {
-      title: "Usage",
-      content: (
-<CodeSyntaxHighlighter
-  language="tsx"
-  code={`import SpinningText from "./SpinningText";
+<ComponentPreview component="spinning-text" name="default" />
 
-<SpinningText duration={10} className="text-4xl" reverse={false} radius={5}>
-  This is example text!
-</SpinningText>
-`} /> ), },
-{
-  title: "CLI",
-  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add SpinningText`}/>
-}
- ]} />
+## Installation
 
-## Source code
+<ComponentInstallation component="spinning-text" />
 
-<CodeSyntaxHighlighter
-  language="tsx"
-  filePath={{
-    directory: "spinningText",
-    fileName: "SpinningText",
-  }}
-/>
+## Usage
+
+<ComponentUsage component="spinning-text" />
 
 ## Props
 

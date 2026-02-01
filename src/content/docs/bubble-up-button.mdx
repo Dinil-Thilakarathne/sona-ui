@@ -1,6 +1,6 @@
 ---
 title: BubbleUpButton
-slug: bubbleUpButton
+slug: bubble-up-button
 tags: ["UI", "Button", "Animation", "Component"]
 ---
 
@@ -18,81 +18,14 @@ The `BubbleUpButton` component provides an interactive button with a fluid "bubb
 
 <Divider />
 
-<Tabs
-  tabs={[
-    {
-      title: "Preview",
-      content: <ComponentPreview componentPath="BubbleUpButton_ex.tsx" />,
-    },
-    {
-      title: "Usage",
-      content: (
-<CodeSyntaxHighlighter
-  language="tsx"
-  code={
-`import BubbleUpButton from "../sonaui/bubbleUpButton/BubbleUpButton";
+<ComponentPreview component="bubble-up-button" name="default" />
 
-// Basic usage
 
-<BubbleUpButton>Hover me!</BubbleUpButton>
+## Installation
+<ComponentInstallation component="bubble-up-button" />
 
-// With custom motion controls
-
-<BubbleUpButton
-  motionControls={{
-    transition: {
-      duration: 1,
-      type: "spring",
-      stiffness: 400,
-      damping: 30,
-    },
-  }}
->
-  Custom Animation
-</BubbleUpButton>
-
-// With additional button props
-
-<BubbleUpButton onClick={() => alert("Button clicked!")} className="my-4">
-  Interactive Button
-</BubbleUpButton>
-` }/> ), },
-
-{
-title: "CLI",
-content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add BubbleUpButton`}/>
-}
-]} />
-
-## Source code
-
-<Tabs
-  tabs={[
-    {
-      title: "BubbleUpButton.tsx",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          filePath={{
-            directory: "bubbleUpButton",
-            fileName: "BubbleUpButton",
-          }}
-        />
-      ),
-    },
-  ]}
-/>
-{/* 
-## How It Works
-
-The BubbleUpButton uses Framer Motion to create a fluid animation effect:
-
-1. The button has a base black background with a white overlay
-2. On hover, the white overlay clips into view from the bottom
-3. The text uses `mix-blend-difference` to maintain visibility during the animation
-4. On mouse leave, the animation reverses and the overlay resets
-
-This creates a smooth, interactive "bubble up" effect that engages users. */}
+## Usage
+<ComponentUsage component="bubble-up-button" />
 
 ## Props
 

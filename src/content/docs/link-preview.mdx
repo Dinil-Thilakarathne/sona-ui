@@ -1,6 +1,6 @@
 ---
 title: Link Preview
-slug: linkPreview
+slug: link-preview
 tags: ["UI", "link", "Component"]
 ---
 
@@ -16,47 +16,14 @@ The `LinkPreview` component is an interactive UI element that displays a preview
 
 <Divider />
 
-<Tabs
-  tabs={[
-    {
-      title: "Preview",
-      content: <ComponentPreview componentPath="LinkPreview_ex.tsx" />,
-    },
-    {
-      title: "Usage",
-      content: (
-        <CodeSyntaxHighlighter
-          language="tsx"
-          code={`
-<LinkPreview
-  link="https://sona-ui.vercel.app/"
-  text="Sona UI"
-  className="flex h-full w-full items-center justify-center"
-/>`}
-        />
-      ),
-    },
-    {
-      title: "CLI",
-      content: (
-        <CodeSyntaxHighlighter
-          language="js"
-          code={`npx @sonacode/sonaui-cli add LinkPreview`}
-        />
-      ),
-    },
-  ]}
-/>
+<ComponentPreview component="link-preview" name="default" />
 
-## Source Code
 
-<CodeSyntaxHighlighter
-  language="tsx"
-  filePath={{
-    directory: "linkPreview",
-    fileName: "LinkPreview",
-  }}
-/>
+## Installation
+<ComponentInstallation component="link-preview" />
+
+## Usage
+<ComponentUsage component="link-preview" />
 
 ## Props
 
@@ -88,11 +55,3 @@ The `LinkPreview` component is an interactive UI element that displays a preview
     },
   ]}
 />
-
-## Dependencies
-
-This component uses the following third-party dependencies:
-
-- [`motion`](https://motion.dev/)
-- [`react-icons`](https://react-icons.github.io/react-icons/)
-- [`react-use-measure`](https://github.com/pmndrs/react-use-measure)

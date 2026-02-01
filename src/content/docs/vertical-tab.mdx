@@ -1,6 +1,6 @@
 ---
 title: Vertical Tabs
-slug: verticalTab
+slug: vertical-tab
 tags: ["UI", "tabs", "Component"]
 ---
 
@@ -18,39 +18,16 @@ The `VerticalTab` component is a versatile and interactive UI element designed f
 
 <Divider />
 
-<Tabs
-  tabs={[
-    {
-      title: "Preview",
-      content:<ComponentPreview componentPath="VerticalTab_ex.tsx" />,
-    },
-    {
-      title: "Usage",
-      content: (
-<CodeSyntaxHighlighter
-language="tsx"
-code={`import VerticalTab from "./VerticalTab";
+<ComponentPreview component="vertical-tab" name="default" />
 
-const VerticalTabs_data = [
-{ title: "Home" }, { title: "Profile" }, { title: "Settings" }, { title: "Help" }, { title: "About" }, { title: "Contact" }, { title: "Feedback" }
-];
+## Installation
 
-<VerticalTab tabs={VerticalTabs_data} />` } /> ), },
-{
-  title: "CLI",
-  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add VerticalTab`}/>
-}
- ]} />
+<ComponentInstallation component="vertical-tab" />
 
-## Source Code
+## Usage
 
-<CodeSyntaxHighlighter
-  language="tsx"
-  filePath={{
-    directory: "verticalTab",
-    fileName: "VerticalTab",
-  }}
-/>
+<ComponentUsage component="vertical-tab" />
+
 
 ## Props
 
@@ -72,9 +49,3 @@ const VerticalTabs_data = [
     },
   ]}
 />
-
-## Dependencies
-
-This component uses the following third-party dependencies:
-
-- [`react-use-measure`](https://github.com/pmndrs/react-use-measure)
