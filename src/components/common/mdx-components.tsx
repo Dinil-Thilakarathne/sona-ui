@@ -21,6 +21,8 @@ import {
 import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
 import { ComponentInstallationServer } from "./component-installation-server";
 import { ComponentUsageServer } from "../usage/component-usage-server";
+
+import { InternalCodeBlock } from "@/components/code-block/internal-code-block";
 import PropTable from "./prop-table";
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -130,7 +132,9 @@ const components = {
   ComponentPreview,
   PropTable,
   ComponentInstallation: ComponentInstallationServer,
+
   ComponentUsage: ComponentUsageServer,
+  CodeBlockWrapper: InternalCodeBlock,
 };
 
 interface MDXProps {
