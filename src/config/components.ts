@@ -2,6 +2,30 @@ import { type ComponentItemsPropsType } from "@/lib/types";
 
 export const componentNavigationLinks: ComponentItemsPropsType[] = [
   {
+    name: "Installation",
+    slug: "installation",
+    href: "/docs/installation",
+    type: "Getting Started",
+  },
+  {
+    name: "Theming",
+    slug: "theming",
+    href: "/docs/theming",
+    type: "Getting Started",
+  },
+  {
+    name: "CLI",
+    slug: "cli",
+    href: "/docs/cli",
+    type: "Getting Started",
+  },
+  {
+    name: "Changelog",
+    slug: "changelog",
+    href: "/docs/changelog",
+    type: "Getting Started",
+  },
+  {
     name: "Accordion",
     slug: "accordion",
     href: "/docs/accordion",
@@ -60,7 +84,7 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "bubble-up-button",
     href: "/docs/bubble-up-button",
     type: "Components",
-  }
+  },
 ];
 
 export const groupedComponents = componentNavigationLinks.reduce<
@@ -72,4 +96,3 @@ export const groupedComponents = componentNavigationLinks.reduce<
   acc[item.type].push(item);
   return acc;
 }, {});
-
