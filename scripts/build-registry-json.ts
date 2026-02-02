@@ -92,7 +92,6 @@ async function buildRegistryJson() {
         dependencies: metadata.dependencies || [],
         registryDependencies: metadata.registryDependencies || [],
         ...metadata, // overwrite with specific metadata if exists
-        files: componentFiles, // ensure files is our actual content
       };
 
       // Write individual component JSON to public/r/[name].json
