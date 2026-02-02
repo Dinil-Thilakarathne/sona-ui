@@ -1,0 +1,68 @@
+---
+title: "Installation"
+slug: installation
+description: "How to install and configure Sona UI in your project."
+searchable: true
+---
+
+# Installation
+
+Sona UI is designed to be easily integrated into your React applications. The recommended way to use Sona UI is via our CLI, which automates the setup and component installation process.
+
+## Installation via CLI
+
+The easiest way to use Sona UI components in your project is via the CLI. It handles adding individual components and their dependencies for you.
+
+### 1. Initialize Sona UI
+
+If you are setting up Sona UI for the first time in your project, run the init command:
+
+<CodeBlockWrapper
+  code={`npx @sonacode/sonaui-cli@latest init`}
+  language="bash"
+/>
+
+This command will:
+
+- Configure your project for Sona UI.
+- Set up necessary dependencies (Tailwind CSS, animations, etc.).
+- Create a `components.json` configuration file.
+
+### 2. Add Components
+
+Once initialized, you can add components to your project as needed. This allows you to keep your bundle size small by only including what you use.
+
+<CodeBlockWrapper code={`# Add Accordion component
+npx @sonacode/sonaui-cli add Accordion
+
+# Add Ripple Button
+
+npx @sonacode/sonaui-cli add RippleButton
+
+# Add Marquee
+
+npx @sonacode/sonaui-cli add Marquee`} language="bash" />
+
+The CLI will automatically download the component source code to your `components` directory and install any required peer dependencies.
+
+## Manual Installation
+
+If you prefer not to use the CLI, you can manually copy the source code of the components from the documentation into your project.
+
+1.  Navigate to the component documentation page (e.g., [Accordion](/docs/accordion)).
+2.  Click on the "Code" tab to view the source.
+3.  Copy the code into a file in your project (e.g., `components/ui/Accordion.tsx`).
+4.  Install the necessary dependencies listed in the documentation.
+
+## Dependencies
+
+Sona UI relies on modern web technologies. Ensure your project meets the following requirements:
+
+- **React 19** or later
+- **TypeScript** (recommended)
+- **Tailwind CSS 4**
+- **Framer Motion (Motion)**
+- **Lucide React** (for icons)
+- **clsx** and **tailwind-merge** (for class utility management)
+
+Most of these will be handled automatically if you use the CLI.

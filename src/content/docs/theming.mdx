@@ -1,0 +1,74 @@
+---
+title: "Theming"
+slug: theming
+description: "How to customize the look and feel of Sona UI components."
+searchable: true
+---
+
+# Theming
+
+Sona UI is built with **Tailwind CSS**, making theming straightforward and flexible. We support dark mode out of the box using `next-themes`.
+
+## Dark Mode
+
+Sona UI components are designed to look great in both light and dark modes. We use CSS variables (custom properties) to handle color schemes, which makes it easy to switch themes without rewriting styles.
+
+### Setting up next-themes
+
+
+If you initialized your project with our CLI, `next-themes` is already configured. If you're setting it up manually, you need to wrap your application in a `ThemeProvider`.
+<CodeBlockWrapper code={`// src/app/providers.tsx
+"use client";
+
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+export function ThemeProvider({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}`} language="tsx" filename="src/app/providers.tsx" />
+
+Then use it in your layout:
+
+
+<CodeBlockWrapper code={`// src/app/layout.tsx
+import { ThemeProvider } from "./providers";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}`} language="tsx" filename="src/app/layout.tsx" />
+
+## Customizing Colors
+
+You can customize the color palette by overriding the Tailwind CSS configuration in your `global.css` file. Sona UI uses standard variable names like `--background`, `--foreground`, `--primary`, etc.
+
+<CodeBlockWrapper code={`@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Add your custom overrides here */
+}
+
+/_ ... styles _/`} language="css" />
+
+## Styling Components
+
+Since Sona UI gives you the source code, you can style individual components directly in the TSX files using standard Tailwind classes.
+
+<CodeBlockWrapper
+  code={`// Example: Changing the background color of an Accordion item
+<AccordionItem className="bg-blue-50 dark:bg-blue-900" ... />`}
+  language="tsx"
+/>
