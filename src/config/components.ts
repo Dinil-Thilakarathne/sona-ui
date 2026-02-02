@@ -14,12 +14,6 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Getting Started",
   },
   {
-    name: "CLI",
-    slug: "cli",
-    href: "/docs/cli",
-    type: "Getting Started",
-  },
-  {
     name: "Changelog",
     slug: "changelog",
     href: "/docs/changelog",

@@ -15,8 +15,8 @@ Sona UI components are designed to look great in both light and dark modes. We u
 
 ### Setting up next-themes
 
-
 If you initialized your project with our CLI, `next-themes` is already configured. If you're setting it up manually, you need to wrap your application in a `ThemeProvider`.
+
 <CodeBlockWrapper code={`// src/app/providers.tsx
 "use client";
 
@@ -30,7 +30,6 @@ export function ThemeProvider({
 }`} language="tsx" filename="src/app/providers.tsx" />
 
 Then use it in your layout:
-
 
 <CodeBlockWrapper code={`// src/app/layout.tsx
 import { ThemeProvider } from "./providers";
@@ -56,12 +55,129 @@ export default function RootLayout({
 You can customize the color palette by overriding the Tailwind CSS configuration in your `global.css` file. Sona UI uses standard variable names like `--background`, `--foreground`, `--primary`, etc.
 
 <CodeBlockWrapper code={`@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  /* Add your custom overrides here */
+
+--color-background: var(--background);
+--color-foreground: var(--foreground);
+
+--color-ring: var(--ring);
+--color-input: var(--input);
+--color-border: var(--border);
+--color-destructive: var(--destructive);
+--color-accent-foreground: var(--accent-foreground);
+--color-accent: var(--accent);
+--color-muted-foreground: var(--muted-foreground);
+--color-muted: var(--muted);
+--color-secondary-foreground: var(--secondary-foreground);
+--color-secondary: var(--secondary);
+--color-primary-foreground: var(--primary-foreground);
+--color-primary: var(--primary);
+--color-neutral-foreground: var(--neutral-foreground);
+--color-neutral: var(--neutral);
+--color-popover-foreground: var(--popover-foreground);
+--color-popover: var(--popover);
+--color-card-foreground: var(--card-foreground);
+--color-card: var(--card);
+--color-scrollbar: var(--scrollbar);
+--color-success-border: var(--success-border);
+--color-success-foreground: var(--success-foreground);
+--color-success: var(--success);
+--color-info-border: var(--info-border);
+--color-info-foreground: var(--info-foreground);
+--color-info: var(--info);
+--color-warning-border: var(--warning-border);
+--color-warning-foreground: var(--warning-foreground);
+--color-warning: var(--warning);
+--color-danger-border: var(--danger-border);
+--color-danger-foreground: var(--danger-foreground);
+--color-danger: var(--danger);
+--color-destructive-foreground: var(--destructive-foreground);
+
+--color-sidebar-ring: var(--sidebar-ring);
+--color-sidebar-border: var(--sidebar-border);
+--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+--color-sidebar-accent: var(--sidebar-accent);
+--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+--color-sidebar-primary: var(--sidebar-primary);
+--color-sidebar-foreground: var(--sidebar-foreground);
+--color-sidebar: var(--sidebar);
+
+--sidebar-width: 16rem;
+--spacing-header-height: 4.5rem;
+--spacing-sidebar-width: var(--sidebar-width);
+--spacing-mobile-sidebar-height: calc(
+100svh - var(--spacing-header-height) - 2rem
+);
+
+--ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+--ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+--ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+--animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+--animate-float: float 4s ease-in-out infinite;
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;   
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  } 
 }
 
-/_ ... styles _/`} language="css" />
+:root {
+--radius: 0.75rem;
+--fd-layout-width: 100vw;
+--fd-page-width: 1232px;
+
+--background: light-dark(oklch(0.98 0 0), oklch(0.19 0 0));
+--foreground: light-dark(oklch(0.18 0 0), oklch(0.94 0 0));
+
+--card: light-dark(oklch(1 0 0), oklch(0.21 0 0));
+--card-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
+--popover: light-dark(oklch(1 0 0), oklch(0.21 0 0));
+--popover-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
+--primary: oklch(0.6 0.2 250);
+--primary-foreground: oklch(1 0 0);
+--neutral: light-dark(oklch(0.22 0 0), oklch(0.95 0 0));
+--neutral-foreground: light-dark(oklch(0.98 0 0), oklch(0.13 0 0));
+--secondary: light-dark(oklch(0.95 0 0), oklch(0.28 0 0));
+--secondary-foreground: light-dark(oklch(0.32 0 0), oklch(0.94 0 0));
+--muted: light-dark(oklch(0.95 0 0), oklch(0.26 0 0));
+--muted-foreground: light-dark(oklch(0.5 0 0), oklch(0.73 0 0));
+--accent: light-dark(oklch(0.91 0 0), oklch(0.31 0 0));
+--accent-foreground: light-dark(oklch(0.22 0 0), oklch(0.95 0 0));
+--destructive: light-dark(oklch(0.53 0.19 25), oklch(0.5 0.22 25));
+--destructive-foreground: light-dark(oklch(0.98 0 0), oklch(1 0 0));
+--border: light-dark(oklch(0 0 0 / 8%), oklch(1 0 0 / 10%));
+--input: light-dark(oklch(0.95 0 0), oklch(1 0 0 / 15%));
+--ring: oklch(0.55 0.2 250);
+--scrollbar: light-dark(oklch(0.87 0 0), oklch(0.7 0 0));
+
+--sidebar: light-dark(oklch(0.98 0 0), oklch(0.19 0 0));
+--sidebar-foreground: light-dark(oklch(0.22 0 0), oklch(0.88 0 0));
+--sidebar-primary: light-dark(oklch(0.28 0 0), oklch(0.95 0 0));
+--sidebar-primary-foreground: light-dark(oklch(0.97 0 0), oklch(0.13 0 0));
+--sidebar-accent: light-dark(oklch(0.92 0 0), oklch(0.19 0 0));
+--sidebar-accent-foreground: light-dark(oklch(0.28 0 0), oklch(0.95 0 0));
+--sidebar-border: light-dark(oklch(0.9 0 0), oklch(0.28 0 0));
+--sidebar-ring: light-dark(oklch(0.65 0 0), oklch(0.83 0 0));
+
+--danger: light-dark(oklch(0.97 0.04 25), oklch(0.26 0.07 25));
+--danger-foreground: light-dark(oklch(0.55 0.18 25), oklch(0.75 0.15 25));
+--danger-border: light-dark(oklch(0.9 0.1 25), oklch(0.36 0.11 25));
+--warning: light-dark(oklch(0.98 0.06 85), oklch(0.28 0.06 85));
+--warning-foreground: light-dark(oklch(0.58 0.14 85), oklch(0.78 0.12 85));
+--warning-border: light-dark(oklch(0.92 0.1 85), oklch(0.38 0.09 85));
+--info: light-dark(oklch(0.97 0.04 250), oklch(0.26 0.07 250));
+--info-foreground: light-dark(oklch(0.45 0.2 250), oklch(0.72 0.16 250));
+--info-border: light-dark(oklch(0.9 0.1 250), oklch(0.36 0.11 250));
+--success: light-dark(oklch(0.97 0.04 145), oklch(0.26 0.07 145));
+--success-foreground: light-dark(oklch(0.48 0.18 145), oklch(0.72 0.15 145));
+--success-border: light-dark(oklch(0.9 0.1 145), oklch(0.36 0.11 145));
+}
+`} language="" filename="global.css" />
 
 ## Styling Components
 

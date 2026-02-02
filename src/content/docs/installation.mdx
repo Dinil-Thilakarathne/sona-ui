@@ -24,42 +24,17 @@ If you haven't already, initialize shadcn-ui in your project:
 You can add Sona UI components using the `add` command by pointing to our registry URL.
 
 <CodeBlockWrapper code={`# Add Magnetic Button
-npx shadcn@latest add https://sona-ui.vercel.app/registry/magnetic-button.json
+npx shadcn@latest add @sona-ui/magnetic-button
 
 # Add Accordion
 
-npx shadcn@latest add https://sona-ui.vercel.app/registry/accordion.json
+npx shadcn@latest add @sona-ui/accordion
 
 # Add Marquee
 
-npx shadcn@latest add https://sona-ui.vercel.app/registry/marquee.json`} language="bash" />
+npx shadcn@latest add @sona-ui/marquee`} language="bash" />
 
 The CLI will automatically download the component source code to your `components` directory and install any required peer dependencies.
-
-### Option 2: Configure for Named Installation
-
-To install components using just their name (e.g. `npx shadcn@latest add magnetic-button`), you can configure your `components.json` to include the Sona UI registry.
-
-> [!NOTE]
-> This replaces the default shadcn registry.
-
-1. Open your `components.json` file.
-2. Add or update the `registry` property:
-
-<CodeBlockWrapper
-  code={`{
-  "registry": "https://sona-ui.vercel.app/registry/index.json"
-  // ... other config
-}`}
-  language="json"
-/>
-
-Now you can simply run:
-
-<CodeBlockWrapper
-  code={`npx shadcn@latest add magnetic-button`}
-  language="bash"
-/>
 
 ## Manual Installation
 
@@ -77,7 +52,7 @@ Sona UI relies on modern web technologies. Ensure your project meets the followi
 - **React 19** or later
 - **TypeScript** (recommended)
 - **Tailwind CSS 4**
-- **Framer Motion (Motion)**
+- **Motion (Framer Motion)**
 - **Lucide React** (for icons)
 - **clsx** and **tailwind-merge** (for class utility management)
 
