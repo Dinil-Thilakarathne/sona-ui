@@ -11,39 +11,55 @@ Sona UI is designed to be easily integrated into your React applications. The re
 
 ## Installation via CLI
 
-The easiest way to use Sona UI components in your project is via the CLI. It handles adding individual components and their dependencies for you.
+The easiest way to use Sona UI components in your project is via the shadcn CLI. You can install components directly from our registry.
 
-### 1. Initialize Sona UI
+### 1. Initialize shadcn-ui
 
-If you are setting up Sona UI for the first time in your project, run the init command:
+If you haven't already, initialize shadcn-ui in your project:
 
-<CodeBlockWrapper
-  code={`npx @sonacode/sonaui-cli@latest init`}
-  language="bash"
-/>
-
-This command will:
-
-- Configure your project for Sona UI.
-- Set up necessary dependencies (Tailwind CSS, animations, etc.).
-- Create a `components.json` configuration file.
+<CodeBlockWrapper code={`npx shadcn@latest init`} language="bash" />
 
 ### 2. Add Components
 
-Once initialized, you can add components to your project as needed. This allows you to keep your bundle size small by only including what you use.
+You can add Sona UI components using the `add` command by pointing to our registry URL.
 
-<CodeBlockWrapper code={`# Add Accordion component
-npx @sonacode/sonaui-cli add Accordion
+<CodeBlockWrapper code={`# Add Magnetic Button
+npx shadcn@latest add https://sona-ui.vercel.app/registry/magnetic-button.json
 
-# Add Ripple Button
+# Add Accordion
 
-npx @sonacode/sonaui-cli add RippleButton
+npx shadcn@latest add https://sona-ui.vercel.app/registry/accordion.json
 
 # Add Marquee
 
-npx @sonacode/sonaui-cli add Marquee`} language="bash" />
+npx shadcn@latest add https://sona-ui.vercel.app/registry/marquee.json`} language="bash" />
 
 The CLI will automatically download the component source code to your `components` directory and install any required peer dependencies.
+
+### Option 2: Configure for Named Installation
+
+To install components using just their name (e.g. `npx shadcn@latest add magnetic-button`), you can configure your `components.json` to include the Sona UI registry.
+
+> [!NOTE]
+> This replaces the default shadcn registry.
+
+1. Open your `components.json` file.
+2. Add or update the `registry` property:
+
+<CodeBlockWrapper
+  code={`{
+  "registry": "https://sona-ui.vercel.app/registry/index.json"
+  // ... other config
+}`}
+  language="json"
+/>
+
+Now you can simply run:
+
+<CodeBlockWrapper
+  code={`npx shadcn@latest add magnetic-button`}
+  language="bash"
+/>
 
 ## Manual Installation
 
