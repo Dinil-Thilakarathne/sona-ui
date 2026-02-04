@@ -1,3 +1,38 @@
+# [2.10.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.1...v2.10.0) (2026-02-04)
+
+
+### Bug Fixes
+
+* add theme provider ([#50](https://github.com/Dinil-Thilakarathne/sona-ui/issues/50)) ([654ac1c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/654ac1c734179f4a605cffb18c99b72549f6c871))
+* duplicate files property ([8c59432](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8c594327405f39bd59eaee5f343fa95e1270be62))
+* file naming issue ([6320a1a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6320a1a823ed9b41309dc364b3e1cc85bea36004))
+* file naming issues ([fb56b6b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fb56b6b87b1301f1c67f00758ee71398c620f7e0))
+* improve sidebar layout ([#46](https://github.com/Dinil-Thilakarathne/sona-ui/issues/46)) ([c99249b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c99249b1b687ba9e966d7de1449f519f2a0b12a4))
+* update core dependencies (fix CVE-2025-55182 issues). ([5a11917](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5a119171ec6ac4ccdd183f4bb6b358dc673860e6))
+* update sidebar ui ([a15250d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a15250d57d19c30f9da5ad61588d9f6f812eca77))
+* update site header ui ([#52](https://github.com/Dinil-Thilakarathne/sona-ui/issues/52)) ([d1fe0b0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d1fe0b0b02e4d77f6fda2752c254a40718d8f9b1))
+
+
+### Features
+
+* add component registry json files ([54af9a5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/54af9a5bcdeaff3b72a0492f08e799cf50fc4cb5))
+* Add shadcn/ui registry integration with a new build script ([02788b0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/02788b06e9ca78141a8744f3b0a1f844cd6d2465))
+* add site get started pages ([6b84ae8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6b84ae866847400328c330835a396e267869333d))
+* add variants to `ScrollUpButton`, introduce a "Get started" button to the Hero section with updated text animations, and remove the "Documentation" navigation link. ([9bd21f8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bd21f8661e4b6af684cd7ef2e3f1a09338d8fc1))
+* Enhance theming with centralized CSS variables, update component installation to use named components, and remove CLI documentation. ([227989e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/227989e72df8e9e4ac34826dcca69595ce1d6670))
+* implement global documentation search with command palette functionality ([6f0e601](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6f0e60164f6da9397438fbedcb9c141428719f25))
+* impllment internal code block component ([b18f5b5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b18f5b5a7ddee000a151761cf8a07aa1561aefbe))
+* migare camel case file names to the kebab case file naming ([b89c17f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b89c17f69958be226f4680b798bc297bbb7090c6))
+* refactor code block styling. ([11fb8fd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/11fb8fde072b7cd61e9d5f20e3f7aca3729d1511))
+* update accordion comp ([e0f33a3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e0f33a3ff39c0542691f43c1885961a4e7e68a7a))
+* update internal layout and style ([a2e31a1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a2e31a131a4aeb1ccd3f7c6ee3a094224584956e))
+* update library registry ([8e7779a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8e7779a04d59d5a85917b0d2a355acd355f71c56))
+* update mdx content ([6912db9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6912db99843ce4ac8a7df0afcb96695d16b04268))
+* update registry prebuild command ([9e642ee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9e642ee89d9dd7a75756f16f75ac69826141f8df))
+* update site core ui components ([8c55932](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8c5593232b77671658022b79943159c4a9bbda88))
+* update site styles ([a3efc0e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a3efc0ef98530f16434804c4a5482cbf3e5ebab3))
+* update system config ([b39038c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b39038cd0a42bbc5b50c3b59cfe5caccd0474909))
+
 ## [2.9.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.0...v2.9.1) (2025-12-03)
 
 
