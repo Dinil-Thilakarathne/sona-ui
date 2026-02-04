@@ -18,47 +18,15 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
 
 <Divider />
 
-<Tabs
-  tabs={[
-    {
-      title: "Preview",
-      content: <ComponentPreview componentPath="Marquee_ex.tsx" />,
-    },
-    {
-      title: "Usage",
-      content: (
-<CodeSyntaxHighlighter 
-  language="tsx"
-  code={`import Marquee from "../sonaui/marquee/Marquee";
+<ComponentPreview component="marquee" name="default" />
 
-<Marquee
-  duration={10}
-  containerClassName="md:space-x-16 lg:space-x-32"
-  activeHover={true}
-  activeScroll={false}
-  reverse={false}
->
-    {...}
-</Marquee>
-`} />
-      ),
-    },
-    {
-  title: "CLI",
-  content: <CodeSyntaxHighlighter language="js" code={`npx @sonacode/sonaui-cli add Marquee`}/>
-}
-  ]}
-/>
+## Installation
 
-## Source Code
+<ComponentInstallation component="marquee" />
 
-<CodeSyntaxHighlighter
-  language="tsx"
-  filePath={{
-    directory: "marquee",
-    fileName: "Marquee",
-  }}
-/>
+## Usage
+
+<ComponentUsage component="marquee" />
 
 ## Props
 
@@ -112,9 +80,3 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
   ]}
 />
 
-## Dependencies
-
-This component uses the following third-party dependencies:
-
-- [`@motion/react`](https://motion.dev/)
-- [`react-use-measure`](https://github.com/pmndrs/react-use-measure)

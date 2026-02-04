@@ -2,6 +2,24 @@ import { type ComponentItemsPropsType } from "@/lib/types";
 
 export const componentNavigationLinks: ComponentItemsPropsType[] = [
   {
+    name: "Installation",
+    slug: "installation",
+    href: "/docs/installation",
+    type: "Getting Started",
+  },
+  {
+    name: "Theming",
+    slug: "theming",
+    href: "/docs/theming",
+    type: "Getting Started",
+  },
+  {
+    name: "Changelog",
+    slug: "changelog",
+    href: "/docs/changelog",
+    type: "Getting Started",
+  },
+  {
     name: "Accordion",
     slug: "accordion",
     href: "/docs/accordion",
@@ -9,44 +27,44 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   },
   {
     name: "Ripple Button",
-    slug: "rippleButton",
-    href: "/docs/rippleButton",
+    slug: "ripple-button",
+    href: "/docs/ripple-button",
     type: "Components",
   },
   {
     name: "Spinning Text",
-    slug: "spinningText",
-    href: "/docs/spinningText",
+    slug: "spinning-text",
+    href: "/docs/spinning-text",
     type: "Text",
   },
   {
     name: "Stagger Text",
-    slug: "staggerText",
-    href: "/docs/staggerText",
+    slug: "stagger-text",
+    href: "/docs/stagger-text",
     type: "Text",
   },
   {
     name: "Vertical Tab",
-    slug: "verticalTab",
-    href: "/docs/verticalTab",
+    slug: "vertical-tab",
+    href: "/docs/vertical-tab",
     type: "Components",
   },
   {
     name: "Expandable Tabs",
-    slug: "expandableTabs",
-    href: "/docs/expandableTabs",
+    slug: "expandable-tabs",
+    href: "/docs/expandable-tabs",
     type: "Components",
   },
   {
     name: "Magnetic Button",
-    slug: "magneticButton",
-    href: "/docs/magneticButton",
+    slug: "magnetic-button",
+    href: "/docs/magnetic-button",
     type: "Effects",
   },
   {
     name: "Link Preview",
-    slug: "linkPreview",
-    href: "/docs/linkPreview",
+    slug: "link-preview",
+    href: "/docs/link-preview",
     type: "Components",
   },
   {
@@ -57,10 +75,10 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   },
   {
     name: "Bubble Up Button",
-    slug: "bubbleUpButton",
-    href: "/docs/bubbleUpButton",
+    slug: "bubble-up-button",
+    href: "/docs/bubble-up-button",
     type: "Components",
-  }
+  },
 ];
 
 export const groupedComponents = componentNavigationLinks.reduce<
@@ -72,4 +90,3 @@ export const groupedComponents = componentNavigationLinks.reduce<
   acc[item.type].push(item);
   return acc;
 }, {});
-

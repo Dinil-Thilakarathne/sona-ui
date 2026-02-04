@@ -1,7 +1,9 @@
 import { type } from "arktype";
 
 const tagVariants = type('"new" | "soon" | "updated" | "featured" | "default"');
-const typeVariants = type('"Components" | "Text" | "Effects"');
+const typeVariants = type(
+  '"Components" | "Text" | "Effects" | "Getting Started"',
+);
 
 export const navLinksProps = type({
   name: "string",

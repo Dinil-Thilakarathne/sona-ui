@@ -1,6 +1,6 @@
 "use client";
 
-import { Mdx } from "@/components/Common/MDXComponents";
+import { Mdx } from "@/components/common/mdx-components";
 
 interface DocClientProps {
   doc: {
@@ -12,7 +12,7 @@ interface DocClientProps {
 export default function DocClient({ doc }: DocClientProps) {
   return (
     <div>
-       <Mdx code={doc.body.code} />
+      <Mdx code={doc.body.code} />
     </div>
   );
 }

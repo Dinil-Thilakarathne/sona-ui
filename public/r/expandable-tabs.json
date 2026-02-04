@@ -1,0 +1,16 @@
+{
+  "name": "expandable-tabs",
+  "type": "registry:ui",
+  "title": "ExpandableTabs",
+  "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
+  "files": [
+    {
+      "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "react-icons"
+  ],
+  "registryDependencies": []
+}

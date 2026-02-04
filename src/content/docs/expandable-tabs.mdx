@@ -1,0 +1,59 @@
+---
+title: Expandable Tabs
+slug: expandable-tabs
+tags: ["UI", "tabs", "Component"]
+---
+
+# Expandable Tabs Component
+
+The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.
+
+## Features
+
+- **Smooth Animations**: Transitions between tabs with fluid animations.
+- **Customizable**: Easily customize styles, colors, and behavior.
+- **Responsive**: Works seamlessly across different screen sizes.
+- **Lightweight**: Minimal dependencies and optimized for performance.
+
+<Divider />
+
+<ComponentPreview component="expandable-tabs" name="default" />
+
+
+## Installation
+<ComponentInstallation component="expandable-tabs" />
+
+## Usage
+<ComponentUsage component="expandable-tabs" />
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "tabs",
+      type: "{ title: string; icon: IconType }[]",
+      default: "required",
+      description:
+        "An array of tab objects, each containing a title and an icon for the tab.",
+    },
+    {
+      name: "containerClassName",
+      type: "string",
+      default: '""',
+      description: "Additional class names for the container element.",
+    },
+    {
+      name: "defaultActiveIndex",
+      type: "number",
+      default: "0",
+      description: "The index of the tab that is active by default.",
+    },
+    {
+      name: "transitionConfig",
+      type: "Transition",
+      default: '{ duration: 0.2, ease: "easeInOut" }',
+      description: "Configuration for the transition animations.",
+    },
+  ]}
+/>

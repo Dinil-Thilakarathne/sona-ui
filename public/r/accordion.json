@@ -1,0 +1,21 @@
+{
+  "name": "accordion",
+  "type": "registry:ui",
+  "title": "Accordion",
+  "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
+  "files": [
+    {
+      "path": "registry/sonaui/accordion/accordion.tsx",
+      "type": "registry:ui"
+    },
+    {
+      "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "motion"
+  ],
+  "registryDependencies": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "stagger-text",
+  "type": "registry:ui",
+  "title": "StaggerText",
+  "description": "A text component with staggered animation.",
+  "files": [
+    {
+      "path": "registry/sonaui/stagger-text/stagger-text.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

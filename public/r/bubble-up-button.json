@@ -1,0 +1,14 @@
+{
+  "name": "bubble-up-button",
+  "type": "registry:ui",
+  "title": "BubbleUpButton",
+  "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
+  "files": [
+    {
+      "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

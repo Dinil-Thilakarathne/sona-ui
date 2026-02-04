@@ -1,0 +1,16 @@
+{
+  "name": "link-preview",
+  "type": "registry:ui",
+  "title": "LinkPreview",
+  "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+  "files": [
+    {
+      "path": "registry/sonaui/link-preview/link-preview.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "react-use-measure"
+  ],
+  "registryDependencies": []
+}

@@ -1,0 +1,16 @@
+{
+  "name": "vertical-tab",
+  "type": "registry:ui",
+  "title": "VerticalTab",
+  "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
+  "files": [
+    {
+      "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "react-use-measure"
+  ],
+  "registryDependencies": []
+}

@@ -1,0 +1,14 @@
+{
+  "name": "spinning-text",
+  "type": "registry:ui",
+  "title": "SpinningText",
+  "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+  "files": [
+    {
+      "path": "registry/sonaui/spinning-text/spinning-text.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

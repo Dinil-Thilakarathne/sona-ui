@@ -1,0 +1,14 @@
+{
+  "name": "ripple-button",
+  "type": "registry:ui",
+  "title": "RippleButton",
+  "description": "An interactive button with a ripple effect for modern UIs.",
+  "files": [
+    {
+      "path": "registry/sonaui/ripple-button/ripple-button.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}
