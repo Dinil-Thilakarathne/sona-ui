@@ -65,7 +65,7 @@ export default function MagneticButtonExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/accordion";
 
 export default function AccordionSplittedExample() {
   const accordionData = [
@@ -75,7 +75,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-
+      
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -132,7 +132,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";`,
+} from "@/registry/sonaui/accordion/accordion";`,
       anatomy: `export default function AccordionSplittedExample() {
   const accordionData = [
     {
@@ -141,7 +141,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-
+      
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -201,7 +201,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/accordion";
 
 export default function AccordionDefaultExample() {
   const accordionData = [
@@ -264,7 +264,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";`,
+} from "@/registry/sonaui/accordion/accordion";`,
       anatomy: `export default function AccordionDefaultExample() {
   const accordionData = [
     {
@@ -329,7 +329,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/accordion";
 
 export default function AccordionMultiStepExample() {
   const accordionData = [
@@ -392,7 +392,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";`,
+} from "@/registry/sonaui/accordion/accordion";`,
       anatomy: `export default function AccordionMultiStepExample() {
   const accordionData = [
     {
@@ -457,7 +457,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/accordion";
 
 export default function AccordionOutlinedExample() {
   const accordionData = [
@@ -524,7 +524,7 @@ export default function AccordionOutlinedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";`,
+} from "@/registry/sonaui/accordion/accordion";`,
       anatomy: `export default function AccordionOutlinedExample() {
   const accordionData = [
     {
@@ -1181,7 +1181,7 @@ import {
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
+import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
@@ -1415,8 +1415,8 @@ export {
   AccordionContext,
 };
 `,
-      path: "accordion/Accordion.tsx",
-      target: "components/sonaui/accordion/Accordion.tsx"
+      path: "accordion/accordion.tsx",
+      target: "components/sonaui/accordion/accordion.tsx"
     },
     {
       type: "registry:ui",
@@ -1480,8 +1480,8 @@ const AnimatedPlusMinusButton = ({
 
 export default AnimatedPlusMinusButton;
 `,
-      path: "accordion/AnimatedPlusMinusButton.tsx",
-      target: "components/sonaui/accordion/AnimatedPlusMinusButton.tsx"
+      path: "accordion/animated-plus-minus-button.tsx",
+      target: "components/sonaui/accordion/animated-plus-minus-button.tsx"
     }
   ],
   "spinning-text": [
@@ -2488,7 +2488,7 @@ export const componentMetadata = {
     "description": "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
     "files": [
       {
-        "path": "registry/sonaui/magnetic/MagneticButton.tsx",
+        "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2501,7 +2501,7 @@ export const componentMetadata = {
     "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
     "files": [
       {
-        "path": "registry/sonaui/verticalTab/VerticalTab.tsx",
+        "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2516,11 +2516,11 @@ export const componentMetadata = {
     "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
     "files": [
       {
-        "path": "registry/sonaui/accordion/Accordion.tsx",
+        "path": "registry/sonaui/accordion/accordion.tsx",
         "type": "registry:ui"
       },
       {
-        "path": "registry/sonaui/accordion/AnimatedPlusMinusButton.tsx",
+        "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2536,7 +2536,7 @@ export const componentMetadata = {
     "description": "An interactive button with a ripple effect for modern UIs.",
     "files": [
       {
-        "path": "registry/sonaui/rippleButton/RippleButton.tsx",
+        "path": "registry/sonaui/ripple-button/ripple-button.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2549,7 +2549,7 @@ export const componentMetadata = {
     "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
     "files": [
       {
-        "path": "registry/sonaui/marquee/Marquee.tsx",
+        "path": "registry/sonaui/marquee/marquee.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2564,7 +2564,7 @@ export const componentMetadata = {
     "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
     "files": [
       {
-        "path": "registry/sonaui/spinningText/SpinningText.tsx",
+        "path": "registry/sonaui/spinning-text/spinning-text.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2577,7 +2577,7 @@ export const componentMetadata = {
     "description": "A text component with staggered animation.",
     "files": [
       {
-        "path": "registry/sonaui/staggerText/StaggerText.tsx",
+        "path": "registry/sonaui/stagger-text/stagger-text.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2590,7 +2590,7 @@ export const componentMetadata = {
     "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
     "files": [
       {
-        "path": "registry/sonaui/linkPreview/LinkPreview.tsx",
+        "path": "registry/sonaui/link-preview/link-preview.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2605,7 +2605,7 @@ export const componentMetadata = {
     "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
     "files": [
       {
-        "path": "registry/sonaui/bubbleUpButton/BubbleUpButton.tsx",
+        "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
         "type": "registry:ui"
       }
     ],
@@ -2618,7 +2618,7 @@ export const componentMetadata = {
     "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
     "files": [
       {
-        "path": "registry/sonaui/expandableTabs/ExpandableTabs.tsx",
+        "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
         "type": "registry:ui"
       }
     ],

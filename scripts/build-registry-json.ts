@@ -132,7 +132,7 @@ async function buildRegistryJson() {
 
   // Public index (e.g., public/r/index.json)
   fs.writeFileSync(
-    path.join(PUBLIC_ROOT_REGISTRY_PATH, "index.json"),
+    path.join(PUBLIC_ROOT_REGISTRY_PATH, "registry.json"),
     registryContent,
   );
 
