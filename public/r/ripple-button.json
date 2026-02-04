@@ -1,14 +1,12 @@
 {
   "name": "ripple-button",
   "type": "registry:ui",
-  "title": "Ripple Button",
-  "description": "Component for ripple-button",
+  "title": "RippleButton",
+  "description": "An interactive button with a ripple effect for modern UIs.",
   "files": [
     {
       "path": "registry/sonaui/ripple-button/ripple-button.tsx",
-      "content": "\"use client\";\n\nimport { useState, useCallback, useMemo, type ReactNode } from \"react\";\nimport { motion } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface RippleButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  children: ReactNode;\n  scaleAmount?: number;\n  className?: string;\n  duration?: number;\n  rippleStyle?: string;\n}\n\ninterface RippleProps {\n  x: number;\n  y: number;\n  key: number;\n}\n\nexport default function RippleButton({\n  children,\n  className,\n  scaleAmount = 25,\n  duration = 0.5,\n  rippleStyle,\n  ...props\n}: RippleButtonProps) {\n  const [ripple, setRipple] = useState<RippleProps | null>(null);\n  const [isHover, setIsHover] = useState(false);\n\n  const handleMouseEnter = useCallback(\n    (event: React.MouseEvent<HTMLButtonElement>) => {\n      const button = event.currentTarget;\n      const rect = button.getBoundingClientRect();\n      const x = event.clientX - rect.left;\n      const y = event.clientY - rect.top;\n      setRipple({ x, y, key: Date.now() });\n    },\n    [],\n  );\n\n  const buttonClasses = useMemo(\n    () =>\n      cn(\n        \"relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer\",\n        className,\n      ),\n    [className],\n  );\n\n  return (\n    <button\n      className={buttonClasses}\n      onMouseEnter={handleMouseEnter}\n      onMouseOver={() => setIsHover(true)}\n      onMouseLeave={() => setIsHover(false)}\n      {...props}\n    >\n      {ripple && (\n        <motion.span\n          key={ripple.key}\n          className={cn(\n            \"pointer-events-none absolute rounded-full bg-foreground\",\n            rippleStyle,\n          )}\n          style={{\n            left: ripple.x,\n            top: ripple.y,\n            width: \"10px\",\n            height: \"10px\",\n            transform: \"translate(-50%, -50%) scale(0)\",\n          }}\n          animate={isHover ? { scale: scaleAmount } : { scale: 0 }}\n          transition={{\n            duration: isHover ? duration : 0.4,\n            ease: \"easeIn\",\n          }}\n        />\n      )}\n      {children}\n    </button>\n  );\n}\n\nexport interface RippleButtonTextProps\n  extends React.HTMLAttributes<HTMLSpanElement> {\n  text: string;\n  className?: string;\n}\n\nexport function RippleButtonText({ text, className }: RippleButtonTextProps) {\n  return (\n    <span\n      className={cn(\"text-background dark:text-foreground mix-blend-difference\", className)}\n      role=\"presentation\"\n      aria-label=\"ripple-button-text\"\n    >\n      {text}\n    </span>\n  );\n}\n",
-      "type": "registry:ui",
-      "target": "components/sona-ui/ripple-button/ripple-button.tsx"
+      "type": "registry:ui"
     }
   ],
   "dependencies": [],

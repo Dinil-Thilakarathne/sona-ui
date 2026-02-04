@@ -2494,8 +2494,8 @@ export const componentMetadata = {
     ],
     "dependencies": []
   },
-  "verticalTab": {
-    "name": "verticalTab",
+  "vertical-tab": {
+    "name": "vertical-tab",
     "type": "registry:ui",
     "title": "VerticalTab",
     "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
@@ -2529,8 +2529,8 @@ export const componentMetadata = {
       "motion"
     ]
   },
-  "rippleButton": {
-    "name": "rippleButton",
+  "ripple-button": {
+    "name": "ripple-button",
     "type": "registry:ui",
     "title": "RippleButton",
     "description": "An interactive button with a ripple effect for modern UIs.",
@@ -2557,8 +2557,8 @@ export const componentMetadata = {
       "react-use-measure"
     ]
   },
-  "spinningText": {
-    "name": "spinningText",
+  "spinning-text": {
+    "name": "spinning-text",
     "type": "registry:ui",
     "title": "SpinningText",
     "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
@@ -2570,8 +2570,8 @@ export const componentMetadata = {
     ],
     "dependencies": []
   },
-  "staggerText": {
-    "name": "staggerText",
+  "stagger-text": {
+    "name": "stagger-text",
     "type": "registry:ui",
     "title": "StaggerText",
     "description": "A text component with staggered animation.",
@@ -2583,8 +2583,8 @@ export const componentMetadata = {
     ],
     "dependencies": []
   },
-  "linkPreview": {
-    "name": "linkPreview",
+  "link-preview": {
+    "name": "link-preview",
     "type": "registry:ui",
     "title": "LinkPreview",
     "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
@@ -2598,8 +2598,8 @@ export const componentMetadata = {
       "react-use-measure"
     ]
   },
-  "bubbleUpButton": {
-    "name": "bubbleUpButton",
+  "bubble-up-button": {
+    "name": "bubble-up-button",
     "type": "registry:ui",
     "title": "BubbleUpButton",
     "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
@@ -2611,8 +2611,8 @@ export const componentMetadata = {
     ],
     "dependencies": []
   },
-  "expandableTabs": {
-    "name": "expandableTabs",
+  "expandable-tabs": {
+    "name": "expandable-tabs",
     "type": "registry:ui",
     "title": "ExpandableTabs",
     "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",

@@ -42,13 +42,12 @@
     {
       "name": "spinning-text",
       "type": "registry:ui",
-      "title": "Spinning Text",
-      "description": "Component for spinning-text",
+      "title": "SpinningText",
+      "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
       "files": [
         {
           "path": "registry/sonaui/spinning-text/spinning-text.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/spinning-text/spinning-text.tsx"
+          "type": "registry:ui"
         }
       ],
       "dependencies": [],
@@ -57,13 +56,12 @@
     {
       "name": "bubble-up-button",
       "type": "registry:ui",
-      "title": "Bubble Up Button",
-      "description": "Component for bubble-up-button",
+      "title": "BubbleUpButton",
+      "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
       "files": [
         {
           "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/bubble-up-button/bubble-up-button.tsx"
+          "type": "registry:ui"
         }
       ],
       "dependencies": [],
@@ -88,13 +86,12 @@
     {
       "name": "ripple-button",
       "type": "registry:ui",
-      "title": "Ripple Button",
-      "description": "Component for ripple-button",
+      "title": "RippleButton",
+      "description": "An interactive button with a ripple effect for modern UIs.",
       "files": [
         {
           "path": "registry/sonaui/ripple-button/ripple-button.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/ripple-button/ripple-button.tsx"
+          "type": "registry:ui"
         }
       ],
       "dependencies": [],
@@ -103,58 +100,60 @@
     {
       "name": "vertical-tab",
       "type": "registry:ui",
-      "title": "Vertical Tab",
-      "description": "Component for vertical-tab",
+      "title": "VerticalTab",
+      "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
       "files": [
         {
           "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/vertical-tab/vertical-tab.tsx"
+          "type": "registry:ui"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "react-use-measure"
+      ],
       "registryDependencies": []
     },
     {
       "name": "expandable-tabs",
       "type": "registry:ui",
-      "title": "Expandable Tabs",
-      "description": "Component for expandable-tabs",
+      "title": "ExpandableTabs",
+      "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
       "files": [
         {
           "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/expandable-tabs/expandable-tabs.tsx"
+          "type": "registry:ui"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "react-icons"
+      ],
       "registryDependencies": []
     },
     {
       "name": "link-preview",
       "type": "registry:ui",
-      "title": "Link Preview",
-      "description": "Component for link-preview",
+      "title": "LinkPreview",
+      "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
       "files": [
         {
           "path": "registry/sonaui/link-preview/link-preview.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/link-preview/link-preview.tsx"
+          "type": "registry:ui"
         }
       ],
-      "dependencies": [],
+      "dependencies": [
+        "react-use-measure"
+      ],
       "registryDependencies": []
     },
     {
       "name": "stagger-text",
       "type": "registry:ui",
-      "title": "Stagger Text",
-      "description": "Component for stagger-text",
+      "title": "StaggerText",
+      "description": "A text component with staggered animation.",
       "files": [
         {
           "path": "registry/sonaui/stagger-text/stagger-text.tsx",
-          "type": "registry:ui",
-          "target": "components/sona-ui/stagger-text/stagger-text.tsx"
+          "type": "registry:ui"
         }
       ],
       "dependencies": [],

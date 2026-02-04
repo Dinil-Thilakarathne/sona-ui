@@ -1,14 +1,12 @@
 {
   "name": "bubble-up-button",
   "type": "registry:ui",
-  "title": "Bubble Up Button",
-  "description": "Component for bubble-up-button",
+  "title": "BubbleUpButton",
+  "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
   "files": [
     {
       "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-      "content": "\"use client\";\n\nimport type { ReactNode } from \"react\";\nimport { motion, MotionConfigProps, useAnimation } from \"motion/react\";\nimport { cn } from \"@/lib/utils\";\n\ninterface BubbleUpButtonProps\n  extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  /** Content to display inside the button */\n  children?: ReactNode;\n  /** Motion configuration for animations */\n  motionControls?: MotionConfigProps;\n  /** Additional CSS classes */\n  className?: string;\n}\nexport default function BubbleUpButton({\n  children = \"Hover me!\",\n  motionControls = {\n    transition: { type: \"spring\", stiffness: 200, damping: 40 },\n  },\n  className = \"\",\n  disabled = false,\n  ...props\n}: BubbleUpButtonProps) {\n  const controls = useAnimation();\n\n  const handleMouseEnter = async () => {\n    await controls.start({\n      clipPath: \"ellipse(120% 120% at 50% 100%)\",\n    });\n  };\n\n  const handleMouseLeave = async () => {\n    await controls.start({\n      clipPath: \"ellipse(120% 120% at 50% -120%)\",\n    });\n    controls.set({ clipPath: \"ellipse(0% 0% at 50% 100%)\" });\n  };\n\n  return (\n    <button\n      onMouseEnter={handleMouseEnter}\n      onMouseLeave={handleMouseLeave}\n      disabled={disabled}\n      className={cn(\n        \"relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2\",\n        \"transition-opacity duration-200\",\n        \"focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none\",\n        disabled && \"cursor-not-allowed opacity-50\",\n        className,\n      )}\n      aria-label={typeof children === \"string\" ? children : \"Bubble up button\"}\n      {...props}\n    >\n      <motion.div\n        animate={controls}\n        initial={{ clipPath: \"ellipse(0% 0% at 50% 100%)\" }}\n        transition={motionControls.transition}\n        className=\"absolute top-0 left-0 h-full w-full bg-white\"\n        aria-hidden=\"true\"\n      />\n      <span className=\"relative text-white mix-blend-difference\">\n        {children}\n      </span>\n    </button>\n  );\n}\n",
-      "type": "registry:ui",
-      "target": "components/sona-ui/bubble-up-button/bubble-up-button.tsx"
+      "type": "registry:ui"
     }
   ],
   "dependencies": [],
