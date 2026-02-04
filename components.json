@@ -1,46 +1,27 @@
 {
-  "Accordion": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/accordion/Accordion.tsx",
-    "dependencies": ["AnimatedPlusMinusButton"]
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/app/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": ""
   },
-  "AnimatedPlusMinusButton": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/accordion/AnimatedPlusMinusButton.tsx",
-    "dependencies": []
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
   },
-  "ExpandableTabs": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/expandableTabs/ExpandableTabs.tsx",
-    "dependencies": []
-  },
-  "LinkPreview": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/linkPreview/LinkPreview.tsx",
-    "dependencies": []
-  },
-  "MagneticButton": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/magnetic/MagneticButton.tsx",
-    "dependencies": []
-  },
-  "RippleButton": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/rippleButton/RippleButton.tsx",
-    "dependencies": []
-  },
-  "SpinningText": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/spinningText/SpinningText.tsx",
-    "dependencies": []
-  },
-  "StaggerText": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/staggerText/StaggerText.tsx",
-    "dependencies": []
-  },
-  "VerticalTab": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/verticalTab/VerticalTab.tsx",
-    "dependencies": []
-  },
-  "Marquee": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/marquee/Marquee.tsx",
-    "dependencies": []
-  },
-  "BubbleUpButton": {
-    "url": "https://raw.githubusercontent.com/Dinil-Thilakarathne/sona-ui/refs/heads/master/src/registry/sonaui/bubbleUpButton/BubbleUpButton.tsx",
-    "dependencies": []
+  "iconLibrary": "lucide",
+  "registries": {
+    "@sona-ui": {
+      "url": "https://sona-ui.vercel.app/r/{name}.json",
+      "description": "Sona UI - Modern React components"
+    }
   }
 }

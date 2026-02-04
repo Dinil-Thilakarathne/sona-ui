@@ -1,0 +1,16 @@
+{
+  "name": "marquee",
+  "type": "registry:ui",
+  "title": "Marquee",
+  "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
+  "files": [
+    {
+      "path": "registry/sonaui/marquee/marquee.tsx",
+      "type": "registry:ui"
+    }
+  ],
+  "dependencies": [
+    "react-use-measure"
+  ],
+  "registryDependencies": []
+}

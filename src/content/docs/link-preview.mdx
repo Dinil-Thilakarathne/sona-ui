@@ -1,0 +1,57 @@
+---
+title: Link Preview
+slug: link-preview
+tags: ["UI", "link", "Component"]
+---
+
+# Link Preview Component
+
+The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.
+
+## Features
+
+- **Hover Preview**: Displays a preview of the link when hovered.
+- **Customizable Icon**: Optionally show an icon next to the link text.
+- **Interactive Design**: Smooth animations and responsive behavior.
+
+<Divider />
+
+<ComponentPreview component="link-preview" name="default" />
+
+
+## Installation
+<ComponentInstallation component="link-preview" />
+
+## Usage
+<ComponentUsage component="link-preview" />
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "link",
+      type: "string",
+      default: "required",
+      description: "The URL of the link to preview.",
+    },
+    {
+      name: "text",
+      type: "string",
+      default: "required",
+      description: "The text to display for the link.",
+    },
+    {
+      name: "showIcon",
+      type: "boolean",
+      default: "true",
+      description: "Whether to show an icon next to the link text.",
+    },
+    {
+      name: "...linkProps",
+      type: "React.HTMLAttributes<HTMLAnchorElement>",
+      default: "undefined",
+      description: "Additional props to pass to the anchor element.",
+    },
+  ]}
+/>

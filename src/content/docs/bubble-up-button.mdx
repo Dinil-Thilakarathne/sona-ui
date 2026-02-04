@@ -1,0 +1,73 @@
+---
+title: BubbleUpButton
+slug: bubble-up-button
+tags: ["UI", "Button", "Animation", "Component"]
+---
+
+# BubbleUpButton Component
+
+The `BubbleUpButton` component provides an interactive button with a fluid "bubble-up" animation effect when hovered. It creates an engaging user experience with minimal effort.
+
+## Features
+
+- Engaging hover animation with bubble-up effect.
+- Customizable animation controls through motion props.
+- Lightweight and reusable.
+- Preserves text legibility during animation using mix-blend-difference.
+- Built with Framer Motion for smooth animations.
+
+<Divider />
+
+<ComponentPreview component="bubble-up-button" name="default" />
+
+
+## Installation
+<ComponentInstallation component="bubble-up-button" />
+
+## Usage
+<ComponentUsage component="bubble-up-button" />
+
+## Props
+
+<PropTable
+  data={[
+    {
+      name: "children",
+      type: "ReactNode",
+      default: "'Hover me!'",
+      description: "The content to be displayed inside the button.",
+    },
+    {
+      name: "motionControls",
+      type: "MotionConfigProps",
+      default:
+        "{ transition: { type: 'spring', stiffness: 200, damping: 40 } }",
+      description:
+        "Custom Framer Motion configuration to control the animation behavior.",
+    },
+    {
+      name: "className",
+      type: "string",
+      default: "undefined",
+      description:
+        "Additional CSS classes for the button element. These will be merged with the component's default classes using the cn utility.",
+    },
+    {
+      name: "...props",
+      type: "ButtonHTMLAttributes<HTMLButtonElement>",
+      default: "undefined",
+      description: "All standard button HTML attributes are supported.",
+    },
+  ]}
+/>
+
+{/* ## Customization
+
+You can customize the BubbleUpButton in several ways:
+
+1. **Animation Behavior**: Adjust the `motionControls` prop to change the speed and feel of the animation
+2. **Styling**: Use the `className` prop to modify the button's appearance
+3. **Content**: Add text, icons, or any other content as children
+4. **Button Behavior**: All standard button props like `onClick`, `disabled`, etc. are supported
+
+For best results, maintain the overflow and positioning properties as they're essential for the animation effect. */}

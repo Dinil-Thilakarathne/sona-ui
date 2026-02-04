@@ -1,0 +1,16 @@
+{
+  "name": "expandable-tabs",
+  "type": "registry:ui",
+  "title": "Expandable Tabs",
+  "description": "Component for expandable-tabs",
+  "files": [
+    {
+      "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { motion, MotionConfig, type MotionConfigProps } from \"motion/react\";\nimport { IconType } from \"react-icons\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport type TabsData = {\n  title: string;\n  icon: IconType;\n};\n\ninterface ExpandableTabsProps {\n  tabs: TabsData[];\n  containerClassName?: string;\n  defaultActiveIndex?: number;\n  motionConfig?: MotionConfigProps;\n}\n\nexport default function ExpandableTabs({\n  tabs,\n  containerClassName = \"\",\n  defaultActiveIndex = 0,\n  motionConfig = {\n    transition: { duration: 0.2, ease: \"easeInOut\" },\n  },\n}: ExpandableTabsProps) {\n  const [isActive, setIsActive] = useState(defaultActiveIndex);\n\n  return (\n    <motion.div\n      className={cn(\n        \"flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]\",\n        containerClassName,\n      )}\n      layout\n    >\n      <MotionConfig {...motionConfig}>\n        {tabs.map((tab, index) => (\n          <motion.div\n            key={index}\n            role=\"button\"\n            className={cn(\n              \"flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2\",\n              \"transition-[width,_background-color] duration-300 ease-in-out\",\n              isActive === index && \"bg-slate-300 dark:text-slate-800\",\n            )}\n            onClick={() => setIsActive(index)}\n            tabIndex={0}\n          >\n            <div className=\"h-full grow items-center justify-center\">\n              <tab.icon className=\"text-lg\" aria-label={`${tab.title}-icon`} />\n            </div>\n            <motion.span\n              className=\"overflow-hidden text-sm leading-[1]\"\n              key={tab.title}\n              initial={isActive === index ? \"\" : \"inactive\"}\n              animate={isActive === index ? \"active\" : \"inactive\"}\n              variants={TabItemVariants}\n            >\n              {tab.title}\n            </motion.span>\n          </motion.div>\n        ))}\n      </MotionConfig>\n    </motion.div>\n  );\n}\n\nconst TabItemVariants = {\n  active: {\n    opacity: 1,\n    width: \"auto\",\n    y: 0,\n  },\n  inactive: {\n    opacity: 0,\n    width: 0,\n    y: 20,\n  },\n};\n",
+      "type": "registry:ui",
+      "target": "components/sona-ui/expandable-tabs/expandable-tabs.tsx"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}
