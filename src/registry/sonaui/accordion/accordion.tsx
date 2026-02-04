@@ -11,7 +11,7 @@ import {
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import AnimatedPlusMinusButton from "./AnimatedPlusMinusButton";
+import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import { cva, type VariantProps } from "class-variance-authority";
 
 // Types

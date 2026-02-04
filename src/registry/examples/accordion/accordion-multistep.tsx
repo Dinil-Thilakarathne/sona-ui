@@ -4,7 +4,7 @@ import {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/Accordion";
+} from "@/registry/sonaui/accordion/accordion";
 
 export default function AccordionMultiStepExample() {
   const accordionData = [
