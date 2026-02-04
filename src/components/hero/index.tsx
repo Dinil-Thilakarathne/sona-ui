@@ -26,32 +26,48 @@ export default function Hero() {
                 faster.
               </p>
             </SplitTextComp>
-            <FadeInComp
-              className="overflow-visible"
-              animationProps={{
-                duration: 0.8,
-                delay: 0.2,
-                rotate: 0,
-                filter: "blur(4px)",
-                yPercent: 40,
-                opacity: 0,
-              }}
-            >
-              <Link href="/docs/accordion" className="block">
-                <ScrollUpButton text="Browse components" />
-              </Link>
-            </FadeInComp>
+            <div className="flex gap-x-2">
+              <FadeInComp
+                className="overflow-visible"
+                animationProps={{
+                  duration: 0.8,
+                  delay: 0.2,
+                  rotate: 0,
+                  filter: "blur(4px)",
+                  yPercent: 40,
+                  opacity: 0,
+                }}
+              >
+                <Link href="/docs/installation" className="block">
+                  <ScrollUpButton text="Get started" variant="secondary" />
+                </Link>
+              </FadeInComp>
+              <FadeInComp
+                className="overflow-visible"
+                animationProps={{
+                  duration: 0.8,
+                  delay: 0.25,
+                  rotate: 0,
+                  filter: "blur(4px)",
+                  yPercent: 40,
+                  opacity: 0,
+                }}
+              >
+                <Link href="/docs/accordion" className="block">
+                  <ScrollUpButton text="Browse components" />
+                </Link>
+              </FadeInComp>
+            </div>
           </div>
           <SplitTextComp
-            variant="words, chars"
-            maskType="chars"
+            variant="lines"
+            maskType="lines"
             animationProps={{
-              duration: 0.4,
-              stagger: 0.1,
-              rotate: 4,
-              filter: "blur(4px)",
+              duration: 0.8,
+              rotate: 5,
+              filter: "blur(6px)",
               opacity: 0,
-              yPercent: 60,
+              yPercent: 80,
               ease: "power2.inOut",
             }}
           >

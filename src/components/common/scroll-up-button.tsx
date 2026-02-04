@@ -1,16 +1,35 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 import { motion } from "framer-motion";
 
 interface ScrollUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
+  variant?: "default" | "outlined" | "secondary";
 }
 
-export default function ScrollUpButton({ text }: ScrollUpButtonProps) {
+const scroollUpButtonVariants = cva(
+  "relative flex cursor-pointer flex-col overflow-hidden rounded-2xl px-6 py-3 select-none",
+  {
+    variants: {
+      variant: {
+        default: "bg-foreground text-background",
+        outlined: "border border-foreground text-foreground",
+        secondary: "bg-secondary text-secondary-foreground",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+)
+
+export default function ScrollUpButton({ text, variant }: ScrollUpButtonProps) {
   return (
     <motion.button
-      className="bg-foreground relative flex cursor-pointer flex-col overflow-hidden rounded-2xl px-6 py-3 text-background select-none"
+      className={cn(scroollUpButtonVariants({ variant }))}
       initial="initial"
       whileHover="hover"
       animate="initial"
