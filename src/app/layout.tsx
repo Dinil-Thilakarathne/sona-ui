@@ -12,6 +12,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { clashDisplay } from "@/fonts";
 import { ThemeProvider } from "@/components/common/theme-provider";
 
+
 export const metadata = siteMetaData;
 
 const geistSans = Geist({

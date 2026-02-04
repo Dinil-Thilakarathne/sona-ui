@@ -1,3 +1,10 @@
+## [2.9.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.0...v2.9.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* improve site ui ([#55](https://github.com/Dinil-Thilakarathne/sona-ui/issues/55)) ([7788b5b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7788b5bcb1fcf829ffba0a1e50e3237727dd62f9)), closes [#46](https://github.com/Dinil-Thilakarathne/sona-ui/issues/46) [#48](https://github.com/Dinil-Thilakarathne/sona-ui/issues/48) [#50](https://github.com/Dinil-Thilakarathne/sona-ui/issues/50) [#52](https://github.com/Dinil-Thilakarathne/sona-ui/issues/52) [#53](https://github.com/Dinil-Thilakarathne/sona-ui/issues/53) [#54](https://github.com/Dinil-Thilakarathne/sona-ui/issues/54)
+
 # [2.9.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.8.0...v2.9.0) (2025-11-30)
 
 
