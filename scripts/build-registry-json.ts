@@ -82,6 +82,7 @@ async function buildRegistryJson() {
 
       // Merge with metadata
       const metadata = metadataMap[componentName] || {};
+      const { files: metadataFiles, ...restMetadata } = metadata;
 
       const entry = {
         name: componentName,
@@ -91,7 +92,7 @@ async function buildRegistryJson() {
         files: componentFiles,
         dependencies: metadata.dependencies || [],
         registryDependencies: metadata.registryDependencies || [],
-        ...metadata, // overwrite with specific metadata if exists
+        ...restMetadata, // overwrite with specific metadata if exists
       };
 
       // Write individual component JSON to public/r/[name].json

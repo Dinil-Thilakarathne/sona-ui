@@ -26,11 +26,13 @@
       "files": [
         {
           "path": "registry/sonaui/accordion/accordion.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/accordion/accordion.tsx"
         },
         {
           "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/accordion/animated-plus-minus-button.tsx"
         }
       ],
       "dependencies": [
@@ -47,7 +49,8 @@
       "files": [
         {
           "path": "registry/sonaui/spinning-text/spinning-text.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/spinning-text/spinning-text.tsx"
         }
       ],
       "dependencies": [],
@@ -61,7 +64,8 @@
       "files": [
         {
           "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/bubble-up-button/bubble-up-button.tsx"
         }
       ],
       "dependencies": [],
@@ -75,7 +79,8 @@
       "files": [
         {
           "path": "registry/sonaui/marquee/marquee.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/marquee/marquee.tsx"
         }
       ],
       "dependencies": [
@@ -91,7 +96,8 @@
       "files": [
         {
           "path": "registry/sonaui/ripple-button/ripple-button.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/ripple-button/ripple-button.tsx"
         }
       ],
       "dependencies": [],
@@ -105,7 +111,8 @@
       "files": [
         {
           "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/vertical-tab/vertical-tab.tsx"
         }
       ],
       "dependencies": [
@@ -121,7 +128,8 @@
       "files": [
         {
           "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/expandable-tabs/expandable-tabs.tsx"
         }
       ],
       "dependencies": [
@@ -137,7 +145,8 @@
       "files": [
         {
           "path": "registry/sonaui/link-preview/link-preview.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/link-preview/link-preview.tsx"
         }
       ],
       "dependencies": [
@@ -153,7 +162,8 @@
       "files": [
         {
           "path": "registry/sonaui/stagger-text/stagger-text.tsx",
-          "type": "registry:ui"
+          "type": "registry:ui",
+          "target": "components/sona-ui/stagger-text/stagger-text.tsx"
         }
       ],
       "dependencies": [],
