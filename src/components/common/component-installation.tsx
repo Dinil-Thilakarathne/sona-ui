@@ -39,7 +39,7 @@ export function ComponentInstallation({
     componentFiles?.[0]?.path || "",
   );
 
-  const cliCommand = `npx sona-ui@latest add ${component}`;
+  const cliCommand = `npx shadcn@latest add @sona-ui/${component}`;
 
   const getInstallCommand = (pm: string) => {
     if (!metadata?.dependencies || metadata.dependencies.length === 0) {
