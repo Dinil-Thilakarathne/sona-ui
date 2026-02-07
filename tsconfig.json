@@ -38,7 +38,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
-    "copy-sources.js",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
