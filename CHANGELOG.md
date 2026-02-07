@@ -1,3 +1,11 @@
+# [2.12.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.11.0...v2.12.0) (2026-02-07)
+
+
+### Features
+
+* Add apple-touch-icon and update Open Graph image. ([228e73a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/228e73a911537fab0ddf91d42efc856e77e74fc8))
+* Implement chat history display and management with feature flag control ([59ea2b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/59ea2b8d28df27c6d86155c852afa105366c1565))
+
 # [2.11.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.10.0...v2.11.0) (2026-02-07)
 
 
