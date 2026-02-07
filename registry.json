@@ -12,7 +12,7 @@
         {
           "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/magnetic-button/magnetic-button.tsx"
+          "target": "components/ui/magnetic-button/magnetic-button.tsx"
         }
       ],
       "dependencies": [],
@@ -27,12 +27,12 @@
         {
           "path": "registry/sonaui/accordion/accordion.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/accordion/accordion.tsx"
+          "target": "components/ui/accordion/accordion.tsx"
         },
         {
           "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/accordion/animated-plus-minus-button.tsx"
+          "target": "components/ui/accordion/animated-plus-minus-button.tsx"
         }
       ],
       "dependencies": [
@@ -50,7 +50,7 @@
         {
           "path": "registry/sonaui/spinning-text/spinning-text.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/spinning-text/spinning-text.tsx"
+          "target": "components/ui/spinning-text/spinning-text.tsx"
         }
       ],
       "dependencies": [],
@@ -65,7 +65,7 @@
         {
           "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/bubble-up-button/bubble-up-button.tsx"
+          "target": "components/ui/bubble-up-button/bubble-up-button.tsx"
         }
       ],
       "dependencies": [],
@@ -80,7 +80,7 @@
         {
           "path": "registry/sonaui/marquee/marquee.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/marquee/marquee.tsx"
+          "target": "components/ui/marquee/marquee.tsx"
         }
       ],
       "dependencies": [
@@ -97,7 +97,7 @@
         {
           "path": "registry/sonaui/ripple-button/ripple-button.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/ripple-button/ripple-button.tsx"
+          "target": "components/ui/ripple-button/ripple-button.tsx"
         }
       ],
       "dependencies": [],
@@ -112,7 +112,7 @@
         {
           "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/vertical-tab/vertical-tab.tsx"
+          "target": "components/ui/vertical-tab/vertical-tab.tsx"
         }
       ],
       "dependencies": [
@@ -129,7 +129,7 @@
         {
           "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/expandable-tabs/expandable-tabs.tsx"
+          "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
         }
       ],
       "dependencies": [
@@ -146,7 +146,7 @@
         {
           "path": "registry/sonaui/link-preview/link-preview.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/link-preview/link-preview.tsx"
+          "target": "components/ui/link-preview/link-preview.tsx"
         }
       ],
       "dependencies": [
@@ -163,7 +163,7 @@
         {
           "path": "registry/sonaui/stagger-text/stagger-text.tsx",
           "type": "registry:ui",
-          "target": "components/sona-ui/stagger-text/stagger-text.tsx"
+          "target": "components/ui/stagger-text/stagger-text.tsx"
         }
       ],
       "dependencies": [],

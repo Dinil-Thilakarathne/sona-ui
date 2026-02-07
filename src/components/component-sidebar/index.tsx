@@ -66,7 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     <>
       {/* Menu Icon for Mobile */}
       <motion.button
-        className=" bg-background/20 backdrop-blur fixed right-4 bottom-4 z-50 block rounded-full p-4 lg:hidden"
+        className="bg-background/20 fixed right-4 bottom-4 z-50 block rounded-full p-4 backdrop-blur lg:hidden"
         onClick={() => setIsOpen(!isOpen)}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Sidebar */}
       <aside
-        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-2 z-40 my-4 flex transform flex-col space-y-2 overflow-y-scroll rounded-lg border p-4 transition-transform duration-300 lg:min-h-[calc(100vh-var(--spacing-header-height)-2rem)] lg:rounded-lg ${
+        className={`bg-sidebar w-sidebar-width top-header-height h-mobile-sidebar-height fixed left-2 z-40 my-4 flex transform flex-col space-y-2 overflow-y-scroll overscroll-none rounded-lg border p-4 transition-transform duration-300 lg:min-h-[calc(100vh-var(--spacing-header-height)-2rem)] lg:rounded-lg ${
           isOpen ? "translate-x-0" : "-translate-x-[110%]"
         }`}
       >

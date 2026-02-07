@@ -76,7 +76,7 @@ async function buildRegistryJson() {
           path: relativePath,
           content: content,
           type: item.endsWith(".css") ? "registry:file" : "registry:ui",
-          target: `components/sona-ui/${componentName}/${item}`,
+          target: `components/ui/${componentName}/${item}`,
         });
       }
 

@@ -5,7 +5,7 @@ import SplitTextComp from "../common/splil-text-comp";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-75px)] flex-col overflow-clip p-2 lg:p-4">
+    <section className="relative flex min-h-[calc(100dvh-75px)] flex-col overflow-clip p-2 lg:p-4">
       <div className="flex h-full grow flex-col justify-end gap-y-12">
         <div className="flex min-h-[50vh] w-full flex-col justify-between md:min-h-[70vh]">
           <div className="flex flex-col items-end gap-y-4">
