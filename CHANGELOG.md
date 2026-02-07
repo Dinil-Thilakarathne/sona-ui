@@ -1,3 +1,10 @@
+# [2.11.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.10.0...v2.11.0) (2026-02-07)
+
+
+### Features
+
+* Add Simili bot configuration and workflow for automated issue triage. ([1bba8f8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1bba8f8f19be791a46314eb35667781bfe454e7e))
+
 # [2.10.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.1...v2.10.0) (2026-02-04)
 
 
