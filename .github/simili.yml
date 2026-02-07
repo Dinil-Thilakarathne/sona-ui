@@ -1,0 +1,12 @@
+qdrant:
+  url: "${QDRANT_URL}"
+  api_key: "${QDRANT_API_KEY}"
+  collection: "simili-issues" # or any name you prefer
+
+embedding:
+  provider: "gemini"
+  api_key: "${GEMINI_API_KEY}"
+
+defaults:
+  similarity_threshold: 0.7
+  max_similar_to_show: 5
