@@ -7,6 +7,11 @@ embedding:
   provider: "gemini"
   api_key: "${GEMINI_API_KEY}"
 
+repositories:
+  - org: "Dinil-Thialarathne"
+    repo: "sona-ui"
+    enabled: true
+
 defaults:
   similarity_threshold: 0.7
   max_similar_to_show: 5
