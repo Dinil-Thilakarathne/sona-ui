@@ -1,3 +1,10 @@
+## [2.12.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.12.0...v2.12.1) (2026-02-09)
+
+
+### Bug Fixes
+
+* update simili bot configurations ([a8c1a01](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a8c1a0171444a4ccfdcac9a99291ccdbd26cb328))
+
 # [2.12.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.11.0...v2.12.0) (2026-02-07)
 
 
