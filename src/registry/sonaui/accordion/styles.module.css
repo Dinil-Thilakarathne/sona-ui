@@ -1,0 +1,68 @@
+.wrapper {
+  border-radius: 1rem;
+  overflow: visible;
+}
+
+.animated {
+  --_margin-gap: 1.5rem;
+  --ease: linear(
+    0 0%,
+    0.2688 9.91%,
+    0.3859 15%,
+    0.4917 20.19%,
+    0.5865 25.5%,
+    0.6705 30.93%,
+    0.7441 36.51%,
+    0.8075 42.26%,
+    0.8593 47.98%,
+    0.9022 53.93%,
+    0.9366 60.13%,
+    0.963 66.67%,
+    0.9812 73.4%,
+    0.9929 80.76%,
+    0.9986 88.89%,
+    1 100%
+  );
+  --bounce-duration: calc((1 / var(--speed, 1)) * 1s);
+  --duration: calc((0.36 / var(--speed, 1)) * 1s);
+
+  outline: 1px solid;
+
+  transition-property: transform, border-radius;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--ease);
+  transform-style: preserve-3d;
+  perspective: 120px;
+}
+
+.animated:has(~ .animated[data-active="true"]) {
+  transform: translate3d(0, calc(var(--_margin-gap) * -1), 0);
+}
+
+.animated[data-active="true"] ~ .animated {
+  transform: translate3d(0, calc(var(--_margin-gap) * 1), 0);
+}
+
+.animated:is(:first-child) {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.animated:is(:last-child) {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.animated[data-active="true"] {
+  border-radius: 1rem;
+}
+
+.animated[data-active="true"] + .animated {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.animated:has(+ .animated[data-active="true"]) {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}

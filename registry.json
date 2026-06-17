@@ -25,6 +25,11 @@
       "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
       "files": [
         {
+          "path": "registry/sonaui/accordion/styles.module.css",
+          "type": "registry:file",
+          "target": "components/ui/accordion/styles.module.css"
+        },
+        {
           "path": "registry/sonaui/accordion/accordion.tsx",
           "type": "registry:ui",
           "target": "components/ui/accordion/accordion.tsx"

@@ -7,15 +7,17 @@ import {
   useState,
   useRef,
   type ReactNode,
+  ViewTransition,
 } from "react";
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
+import styles from "./styles.module.css";
 import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
-type AccordionVariant = "default" | "outlined" | "splitted";
+type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
 interface AccordionProps {
   children: ReactNode;
@@ -32,6 +34,7 @@ const accordionWrapperVarinats = cva(
         default: "overflow-clip rounded-2xl",
         outlined: "overflow-clip rounded-2xl",
         splitted: "overflow-clip rounded-2xl",
+        animated: styles.wrapper,
       },
     },
     defaultVariants: {
@@ -41,7 +44,7 @@ const accordionWrapperVarinats = cva(
 );
 
 const accordionItemVariants = cva(
-  "relative overflow-hidden bg-background text-foreground",
+  "relative overflow-hidden bg-background text-foreground transition-all duration-300",
   {
     variants: {
       variant: {
@@ -49,6 +52,7 @@ const accordionItemVariants = cva(
         outlined:
           "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
         splitted: "rounded-2xl ",
+        animated: styles.animated,
       },
     },
     defaultVariants: {
@@ -64,6 +68,7 @@ interface AccordionItemProps
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  value?: string;
 }
 
 interface AccordionItemHeaderProps {
@@ -84,6 +89,7 @@ const AccordionContext = createContext<{
   openItems: Set<string>;
   toggleItem: (value: string) => void;
   variant: AccordionVariant;
+  value: string;
 } | null>(null);
 
 const AccordionRoot = ({
@@ -93,31 +99,41 @@ const AccordionRoot = ({
   variant = "default",
 }: AccordionProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const toggleItem = (value: string) => {
+  const [value, setValue] = useState<string>("");
+  const toggleItem = (v: string) => {
     setOpenItems((prev) => {
       const newOpenItems = new Set(prev);
-      if (newOpenItems.has(value)) {
-        newOpenItems.delete(value);
+      if (newOpenItems.has(v)) {
+        newOpenItems.delete(v);
       } else {
         if (!allowMultiple) newOpenItems.clear();
-        newOpenItems.add(value);
+        newOpenItems.add(v);
       }
       return newOpenItems;
     });
+    if (value !== v) {
+      setValue(v);
+    } else {
+      setValue("");
+    }
   };
 
   return (
-    <AccordionContext.Provider value={{ openItems, toggleItem, variant }}>
-      <div
-        role="presentation"
-        className={cn(
-          accordionWrapperVarinats({ variant }),
-          variant === "splitted" && "gap-y-2",
-          className,
-        )}
-      >
-        {children}
-      </div>
+    <AccordionContext.Provider
+      value={{ openItems, toggleItem, variant, value }}
+    >
+      <ViewTransition>
+        <div
+          role="presentation"
+          className={cn(
+            accordionWrapperVarinats({ variant }),
+            variant === "splitted" && "gap-y-2",
+            className,
+          )}
+        >
+          {children}
+        </div>
+      </ViewTransition>
     </AccordionContext.Provider>
   );
 };
@@ -126,6 +142,7 @@ const AccordionItem = ({
   children,
   className,
   style,
+  value,
   ...props
 }: AccordionItemProps) => {
   const context = useContext(AccordionContext);
@@ -137,6 +154,7 @@ const AccordionItem = ({
       role="presentation"
       className={cn(accordionItemVariants({ variant }), className)}
       style={style}
+      data-active={value === context.value}
       {...props}
     >
       <div className="relative">{children}</div>
@@ -208,26 +226,32 @@ const AccordionItemContent = ({
     initial: { opacity: 0, y: 50 },
   };
 
+  const motionVariants = {
+    open: { opacity: [0, 1], y: [10, 0] },
+    exit: { opacity: [1, 0.1, 0], y: [0, 10] },
+    initial: { opacity: 0, y: 0 },
+  };
+
   return (
     <motion.div
       role="region"
       aria-hidden={!isOpen}
-      className={`overflow-hidden px-8 py-2 text-sm transition-[height] duration-300`}
+      className={`overflow-hidden px-8 py-2 text-sm transition-[height]`}
       initial={{ height: 0 }}
       animate={{ height: isOpen ? height : 0 }}
-      transition={{ duration: 0.3, ease: "easeIn" }}
+      transition={{ duration: 0.26, ease: "easeIn" }}
     >
       <motion.div
         initial="initial"
         animate={isOpen ? "open" : "exit"}
         transition={{
-          duration: 0.4,
-          ease: "easeIn",
-          delay: 0.3,
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0.2,
           type: "tween",
         }}
         // className="pb-2"
-        variants={variants}
+        variants={motionVariants}
         ref={ref}
       >
         {children}

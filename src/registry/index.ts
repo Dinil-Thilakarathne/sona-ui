@@ -2,6 +2,7 @@
 import * as React from "react";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
 import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
+import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
 import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
 import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
@@ -178,6 +179,142 @@ export default function AccordionSplittedExample() {
     >
       {accordionData.map((item) => (
         <AccordionItem key={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
+  );
+}`,
+    },
+    {
+      name: "animated",
+      component: accordion_accordion_animated,
+      code: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/accordion";
+
+export default function AccordionAnimatedExample() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="animated"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value} value={item.value}>
+          <AccordionItemTrigger value={item.value}>
+            <AccordionItemHeader value={item.value}>
+              <span className="flex-1">{item.title}</span>
+            </AccordionItemHeader>
+          </AccordionItemTrigger>
+          <AccordionItemContent value={item.value}>
+            <p className="">{item.content}</p>
+          </AccordionItemContent>
+        </AccordionItem>
+      ))}
+    </AccordionRoot>
+  );
+}
+`,
+      imports: `import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/accordion";`,
+      anatomy: `export default function AccordionAnimatedExample() {
+  const accordionData = [
+    {
+      value: "item-1",
+      title: "What is Lorem Ipsum?",
+      content:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
+    },
+
+    {
+      value: "item-2",
+      title: "Why do we use it?",
+      content:
+        "It is a long-established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    },
+
+    {
+      value: "item-3",
+      title: "Where can I get some?",
+      content:
+        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
+    },
+
+    {
+      value: "item-4",
+      title: "Is Lorem Ipsum safe to use?",
+      content:
+        "Yes, Lorem Ipsum is safe to use as placeholder text for web and print design purposes.",
+    },
+
+    {
+      value: "item-5",
+      title: "What are the origins of Lorem Ipsum?",
+      content:
+        "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
+    },
+  ];
+  return (
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-4xl"
+      variant="animated"
+    >
+      {accordionData.map((item) => (
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1177,15 +1314,17 @@ import {
   useState,
   useRef,
   type ReactNode,
+  ViewTransition,
 } from "react";
 import { motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
+import styles from "./styles.module.css";
 import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
-type AccordionVariant = "default" | "outlined" | "splitted";
+type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
 interface AccordionProps {
   children: ReactNode;
@@ -1202,6 +1341,7 @@ const accordionWrapperVarinats = cva(
         default: "overflow-clip rounded-2xl",
         outlined: "overflow-clip rounded-2xl",
         splitted: "overflow-clip rounded-2xl",
+        animated: styles.wrapper,
       },
     },
     defaultVariants: {
@@ -1211,7 +1351,7 @@ const accordionWrapperVarinats = cva(
 );
 
 const accordionItemVariants = cva(
-  "relative overflow-hidden bg-background text-foreground",
+  "relative overflow-hidden bg-background text-foreground transition-all duration-300",
   {
     variants: {
       variant: {
@@ -1219,6 +1359,7 @@ const accordionItemVariants = cva(
         outlined:
           "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
         splitted: "rounded-2xl ",
+        animated: styles.animated,
       },
     },
     defaultVariants: {
@@ -1234,6 +1375,7 @@ interface AccordionItemProps
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  value?: string;
 }
 
 interface AccordionItemHeaderProps {
@@ -1254,6 +1396,7 @@ const AccordionContext = createContext<{
   openItems: Set<string>;
   toggleItem: (value: string) => void;
   variant: AccordionVariant;
+  value: string;
 } | null>(null);
 
 const AccordionRoot = ({
@@ -1263,31 +1406,41 @@ const AccordionRoot = ({
   variant = "default",
 }: AccordionProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const toggleItem = (value: string) => {
+  const [value, setValue] = useState<string>("");
+  const toggleItem = (v: string) => {
     setOpenItems((prev) => {
       const newOpenItems = new Set(prev);
-      if (newOpenItems.has(value)) {
-        newOpenItems.delete(value);
+      if (newOpenItems.has(v)) {
+        newOpenItems.delete(v);
       } else {
         if (!allowMultiple) newOpenItems.clear();
-        newOpenItems.add(value);
+        newOpenItems.add(v);
       }
       return newOpenItems;
     });
+    if (value !== v) {
+      setValue(v);
+    } else {
+      setValue("");
+    }
   };
 
   return (
-    <AccordionContext.Provider value={{ openItems, toggleItem, variant }}>
-      <div
-        role="presentation"
-        className={cn(
-          accordionWrapperVarinats({ variant }),
-          variant === "splitted" && "gap-y-2",
-          className,
-        )}
-      >
-        {children}
-      </div>
+    <AccordionContext.Provider
+      value={{ openItems, toggleItem, variant, value }}
+    >
+      <ViewTransition>
+        <div
+          role="presentation"
+          className={cn(
+            accordionWrapperVarinats({ variant }),
+            variant === "splitted" && "gap-y-2",
+            className,
+          )}
+        >
+          {children}
+        </div>
+      </ViewTransition>
     </AccordionContext.Provider>
   );
 };
@@ -1296,6 +1449,7 @@ const AccordionItem = ({
   children,
   className,
   style,
+  value,
   ...props
 }: AccordionItemProps) => {
   const context = useContext(AccordionContext);
@@ -1307,6 +1461,7 @@ const AccordionItem = ({
       role="presentation"
       className={cn(accordionItemVariants({ variant }), className)}
       style={style}
+      data-active={value === context.value}
       {...props}
     >
       <div className="relative">{children}</div>
@@ -1378,26 +1533,32 @@ const AccordionItemContent = ({
     initial: { opacity: 0, y: 50 },
   };
 
+  const motionVariants = {
+    open: { opacity: [0, 1], y: [10, 0] },
+    exit: { opacity: [1, 0.1, 0], y: [0, 10] },
+    initial: { opacity: 0, y: 0 },
+  };
+
   return (
     <motion.div
       role="region"
       aria-hidden={!isOpen}
-      className={\`overflow-hidden px-8 py-2 text-sm transition-[height] duration-300\`}
+      className={\`overflow-hidden px-8 py-2 text-sm transition-[height]\`}
       initial={{ height: 0 }}
       animate={{ height: isOpen ? height : 0 }}
-      transition={{ duration: 0.3, ease: "easeIn" }}
+      transition={{ duration: 0.26, ease: "easeIn" }}
     >
       <motion.div
         initial="initial"
         animate={isOpen ? "open" : "exit"}
         transition={{
-          duration: 0.4,
-          ease: "easeIn",
-          delay: 0.3,
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0.2,
           type: "tween",
         }}
         // className="pb-2"
-        variants={variants}
+        variants={motionVariants}
         ref={ref}
       >
         {children}

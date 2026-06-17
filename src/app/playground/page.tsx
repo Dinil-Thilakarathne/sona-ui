@@ -1,3 +1,4 @@
+import AccordionAnimatedExample from "@/registry/examples/accordion/accordion-animated";
 import { notFound } from "next/navigation";
 import React from "react";
 
@@ -7,7 +8,9 @@ const page = () => {
   }
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-75px)]">page</div>
+    <div className="container mx-auto flex min-h-[calc(100vh-75px)] items-center justify-center">
+      <AccordionAnimatedExample />
+    </div>
   );
 };
 
