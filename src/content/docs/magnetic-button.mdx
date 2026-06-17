@@ -20,6 +20,12 @@ The `MagneticButton` component is an interactive UI element that creates a magne
 
 <ComponentPreview component="magnetic-button" name="default" />
 
+## Playground
+
+Tune the pull strength and range, then move your cursor near the button.
+
+<ComponentPlayground component="magnetic-button" />
+
 ## Installation
 
 <ComponentInstallation component="magnetic-button" />
@@ -29,44 +35,5 @@ The `MagneticButton` component is an interactive UI element that creates a magne
 <ComponentUsage component="magnetic-button" />
 ## Props
 
-<PropTable
-  data={[
-    {
-      name: "children",
-      type: "React.ReactNode",
-      default: "required",
-      description: "The content to be rendered inside the magnetic button.",
-    },
-    {
-      name: "magneticIntensity",
-      type: "number",
-      default: "0.6",
-      description: "The intensity of the magnetic pull effect.",
-    },
-    {
-      name: "magneticRange",
-      type: "number",
-      default: "100",
-      description: "The range within which the magnetic effect is active.",
-    },
-    {
-      name: "interactionArea",
-      type: "'self' | 'parent'",
-      default: "'self'",
-      description: "Defines the area of interaction for the magnetic effect.",
-    },
-    {
-      name: "springConfig",
-      type: "SpringOptions",
-      default: "{ stiffness: 30, damping: 6, mass: 0.6 }",
-      description: "Configuration for the spring animation.",
-    },
-    {
-      name: "customClassName",
-      type: "string",
-      default: "undefined",
-      description: "Additional class names for custom styling.",
-    },
-  ]}
-/>
+<PropTable component="magnetic-button" />
 

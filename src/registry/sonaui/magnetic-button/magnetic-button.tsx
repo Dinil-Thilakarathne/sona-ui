@@ -12,11 +12,26 @@ import { cn } from "@/lib/utils";
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
 interface MagneticProps {
+  /** The content to be rendered inside the magnetic button. */
   children: ReactNode;
+  /**
+   * The intensity of the magnetic pull effect.
+   * @default 0.6
+   */
   magneticIntensity?: number;
+  /**
+   * The range within which the magnetic effect is active.
+   * @default 100
+   */
   magneticRange?: number;
+  /**
+   * Defines the area of interaction for the magnetic effect.
+   * @default "self"
+   */
   interactionArea?: "self" | "parent";
+  /** Configuration for the spring animation. */
   springConfig?: SpringOptions;
+  /** Additional class names for custom styling. */
   customClassName?: string;
 }
 

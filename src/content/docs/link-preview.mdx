@@ -27,31 +27,4 @@ The `LinkPreview` component is an interactive UI element that displays a preview
 
 ## Props
 
-<PropTable
-  data={[
-    {
-      name: "link",
-      type: "string",
-      default: "required",
-      description: "The URL of the link to preview.",
-    },
-    {
-      name: "text",
-      type: "string",
-      default: "required",
-      description: "The text to display for the link.",
-    },
-    {
-      name: "showIcon",
-      type: "boolean",
-      default: "true",
-      description: "Whether to show an icon next to the link text.",
-    },
-    {
-      name: "...linkProps",
-      type: "React.HTMLAttributes<HTMLAnchorElement>",
-      default: "undefined",
-      description: "Additional props to pass to the anchor element.",
-    },
-  ]}
-/>
+<PropTable component="link-preview" />

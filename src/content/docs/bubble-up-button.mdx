@@ -29,37 +29,7 @@ The `BubbleUpButton` component provides an interactive button with a fluid "bubb
 
 ## Props
 
-<PropTable
-  data={[
-    {
-      name: "children",
-      type: "ReactNode",
-      default: "'Hover me!'",
-      description: "The content to be displayed inside the button.",
-    },
-    {
-      name: "motionControls",
-      type: "MotionConfigProps",
-      default:
-        "{ transition: { type: 'spring', stiffness: 200, damping: 40 } }",
-      description:
-        "Custom Framer Motion configuration to control the animation behavior.",
-    },
-    {
-      name: "className",
-      type: "string",
-      default: "undefined",
-      description:
-        "Additional CSS classes for the button element. These will be merged with the component's default classes using the cn utility.",
-    },
-    {
-      name: "...props",
-      type: "ButtonHTMLAttributes<HTMLButtonElement>",
-      default: "undefined",
-      description: "All standard button HTML attributes are supported.",
-    },
-  ]}
-/>
+<PropTable component="bubble-up-button" />
 
 {/* ## Customization
 

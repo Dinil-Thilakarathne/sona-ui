@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "fumadocs-ui/css/shadcn.css";
-@import "fumadocs-ui/css/preset.css";
 
 @custom-variant dark (&:is([data-theme="dark"] *));
 

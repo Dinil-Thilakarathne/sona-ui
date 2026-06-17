@@ -20,6 +20,12 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
 
 <ComponentPreview component="marquee" name="default" />
 
+## Playground
+
+Toggle direction, hover-pause, and scroll reactivity.
+
+<ComponentPlayground component="marquee" />
+
 ## Installation
 
 <ComponentInstallation component="marquee" />
@@ -30,53 +36,5 @@ The `Marquee` component is a versatile UI element that creates a scrolling marqu
 
 ## Props
 
-<PropTable
-  data={[
-    {
-      name: "children",
-      type: "React.ReactNode",
-      default: "required",
-      description: "The content to be rendered inside the marquee.",
-    },
-    {
-      name: "className",
-      type: "string",
-      default: "undefined",
-      description:
-        "Additional class names for custom styling of the marquee items.",
-    },
-    {
-      name: "containerClassName",
-      type: "string",
-      default: "undefined",
-      description:
-        "Additional class names for custom styling of the marquee container.",
-    },
-    {
-      name: "duration",
-      type: "number",
-      default: "1",
-      description: "The duration of the marquee animation in seconds.",
-    },
-    {
-      name: "reverse",
-      type: "boolean",
-      default: "false",
-      description:
-        "Determines whether the marquee scrolls in reverse direction.",
-    },
-    {
-      name: "activeScroll",
-      type: "boolean",
-      default: "false",
-      description: "Enables dynamic speed adjustment based on scroll velocity.",
-    },
-    {
-      name: "activeHover",
-      type: "boolean",
-      default: "false",
-      description: "Pauses the marquee animation when hovered.",
-    },
-  ]}
-/>
+<PropTable component="marquee" />
 

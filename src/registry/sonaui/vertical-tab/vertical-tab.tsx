@@ -7,11 +7,24 @@ import useMeasure from "react-use-measure";
 import { cn } from "@/lib/utils";
 
 interface VerticalTabProps {
+  /** An array of tab objects, each containing a title for the tab. */
   tabs: {
     title: string;
   }[];
+  /**
+   * The background color of the indicator. Accepts Tailwind CSS classes.
+   * @default "bg-slate-300"
+   */
   indicatorBgColor?: string;
+  /**
+   * The background color of the active tab. Accepts Tailwind CSS classes.
+   * @default "bg-slate-400 dark:bg-slate-600"
+   */
   activeTabBgColor?: string;
+  /**
+   * Additional class names for the container element.
+   * @default ""
+   */
   containerClassName?: string;
 }
 

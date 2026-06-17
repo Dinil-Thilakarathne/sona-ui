@@ -1,23 +1,24 @@
-import { type Metadata } from "next";
+import { allDocs, type Doc } from ".content-collections/generated";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-import { allDocs, Doc } from ".content-collections/generated";
 import { SITE_METADATA } from "@/config/site";
 import DocClient from "./DocClient";
 
 async function getDocFromParams({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug?: string[] }>;
 }) {
   const { slug } = await params;
+  // `slug` is an array for the [[...slug]] catch-all (e.g. ["ripple-button"]).
+  const slugPath = slug?.join("/");
 
-  if (!slug) {
+  if (!slugPath) {
     notFound();
   }
 
   // Find the document by slug
-  const doc = allDocs.find((doc: Doc) => doc.slug == slug);
+  const doc = allDocs.find((doc: Doc) => doc.slug === slugPath);
 
   if (!doc) {
     notFound();
@@ -29,7 +30,7 @@ async function getDocFromParams({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
   const doc = await getDocFromParams({ params });
 
@@ -55,7 +56,7 @@ export async function generateMetadata({
 export default async function DocPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug?: string[] }>;
 }) {
   const doc = await getDocFromParams({ params });
 

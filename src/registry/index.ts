@@ -1185,11 +1185,26 @@ import { cn } from "@/lib/utils";
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
 interface MagneticProps {
+  /** The content to be rendered inside the magnetic button. */
   children: ReactNode;
+  /**
+   * The intensity of the magnetic pull effect.
+   * @default 0.6
+   */
   magneticIntensity?: number;
+  /**
+   * The range within which the magnetic effect is active.
+   * @default 100
+   */
   magneticRange?: number;
+  /**
+   * Defines the area of interaction for the magnetic effect.
+   * @default "self"
+   */
   interactionArea?: "self" | "parent";
+  /** Configuration for the spring animation. */
   springConfig?: SpringOptions;
+  /** Additional class names for custom styling. */
   customClassName?: string;
 }
 
@@ -1327,9 +1342,19 @@ import { cva, type VariantProps } from "class-variance-authority";
 type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
 interface AccordionProps {
+  /** The content to be displayed inside the accordion. */
   children: ReactNode;
+  /**
+   * Allows multiple accordion items to be open at the same time.
+   * @default false
+   */
   allowMultiple?: boolean;
+  /** Additional CSS classes for the accordion container. */
   className?: string;
+  /**
+   * The visual style of the accordion.
+   * @default default
+   */
   variant?: AccordionVariant;
 }
 
@@ -1656,13 +1681,30 @@ import { motion, type Transition, Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 
 type SpinningTextProps = {
+  /** The text content to be animated. Can be a single string or an array of strings. */
   children: string | string[];
+  /** Custom styles for the container. */
   style?: CSSProperties;
+  /**
+   * Duration of the spinning animation in seconds.
+   * @default 10
+   */
   duration?: number;
+  /** Additional CSS classes for the container. */
   className?: string;
+  /**
+   * Reverses the spinning direction when set to \`true\`.
+   * @default false
+   */
   reverse?: boolean;
+  /**
+   * Radius of the circular path in \`ch\` units.
+   * @default 5
+   */
   radius?: number;
+  /** Custom transition settings for the animation. Merges with the default transition. */
   transition?: Transition;
+  /** Custom animation variants for the container and individual characters. */
   variants?: {
     container?: Variants;
     item?: Variants;
@@ -1884,12 +1926,31 @@ const calculateItemCount = (
 };
 
 interface MarqueeProps {
+  /** The content to be rendered inside the marquee. */
   children: React.ReactNode;
+  /** Additional class names for custom styling of the marquee items. */
   className?: string;
+  /** Additional class names for custom styling of the marquee container. */
   containerClassName?: string;
+  /**
+   * The duration of the marquee animation in seconds.
+   * @default 10
+   */
   duration?: number;
+  /**
+   * Determines whether the marquee scrolls in reverse direction.
+   * @default false
+   */
   reverse?: boolean;
+  /**
+   * Enables dynamic speed adjustment based on scroll velocity.
+   * @default false
+   */
   activeScroll?: boolean;
+  /**
+   * Pauses the marquee animation when hovered.
+   * @default false
+   */
   activeHover?: boolean;
 }
 
@@ -2044,10 +2105,21 @@ import { cn } from "@/lib/utils";
 
 export interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** The content to be displayed inside the button. */
   children: ReactNode;
+  /**
+   * The scale amount for the ripple effect.
+   * @default 25
+   */
   scaleAmount?: number;
+  /** Additional CSS classes for the button. */
   className?: string;
+  /**
+   * Duration of the ripple animation in seconds.
+   * @default 0.5
+   */
   duration?: number;
+  /** Additional CSS classes for the ripple effect. */
   rippleStyle?: string;
 }
 
@@ -2156,11 +2228,24 @@ import useMeasure from "react-use-measure";
 import { cn } from "@/lib/utils";
 
 interface VerticalTabProps {
+  /** An array of tab objects, each containing a title for the tab. */
   tabs: {
     title: string;
   }[];
+  /**
+   * The background color of the indicator. Accepts Tailwind CSS classes.
+   * @default "bg-slate-300"
+   */
   indicatorBgColor?: string;
+  /**
+   * The background color of the active tab. Accepts Tailwind CSS classes.
+   * @default "bg-slate-400 dark:bg-slate-600"
+   */
   activeTabBgColor?: string;
+  /**
+   * Additional class names for the container element.
+   * @default ""
+   */
   containerClassName?: string;
 }
 
@@ -2296,9 +2381,19 @@ export type TabsData = {
 };
 
 interface ExpandableTabsProps {
+  /** An array of tab objects, each containing a title and an icon. */
   tabs: TabsData[];
+  /**
+   * Additional class names for the container element.
+   * @default ""
+   */
   containerClassName?: string;
+  /**
+   * The index of the tab that is active by default.
+   * @default 0
+   */
   defaultActiveIndex?: number;
+  /** Motion configuration for the transition animations. */
   motionConfig?: MotionConfigProps;
 }
 
@@ -2383,8 +2478,14 @@ import useMeasure from "react-use-measure";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  /** The URL of the link to preview. */
   link: string;
+  /** The text to display for the link. */
   text: string;
+  /**
+   * Whether to show an icon next to the link text.
+   * @default true
+   */
   showIcon?: boolean;
 }
 
@@ -2490,8 +2591,14 @@ type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type StaggerTextProps<T extends StaggerTextEleType> =
   React.ComponentPropsWithoutRef<T> & {
+    /** The text content to be displayed with staggered animation. */
     text: string;
+    /** Additional CSS classes for the container. */
     className?: string;
+    /**
+     * The HTML tag to be used for the text container.
+     * @default "h3"
+     */
     as?: T;
   };
 

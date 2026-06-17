@@ -1,0 +1,224 @@
+import type * as React from "react";
+import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
+import Marquee from "@/registry/sonaui/marquee/marquee";
+import RippleButton, {
+  RippleButtonText,
+} from "@/registry/sonaui/ripple-button/ripple-button";
+import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
+
+/**
+ * Hand-authored playground registry.
+ *
+ * This is intentionally decoupled from the auto-generated `exampleRegistry`
+ * (see `scripts/build-registry.ts`). Static, canonical examples live there and
+ * are rendered with no props; live, interactive playgrounds live here and expose
+ * an explicit per-component control schema that drives a real component instance.
+ *
+ * Adding a playground for a component = one entry below (controls + render).
+ */
+
+export type Control =
+  | {
+      type: "slider";
+      prop: string;
+      label: string;
+      min: number;
+      max: number;
+      step?: number;
+      default: number;
+    }
+  | { type: "text"; prop: string; label: string; default: string }
+  | { type: "toggle"; prop: string; label: string; default: boolean }
+  | {
+      type: "select";
+      prop: string;
+      label: string;
+      options: { label: string; value: string }[];
+      default: string;
+    };
+
+export type PlaygroundEntry = {
+  controls: Control[];
+  /** Renders the real sonaui component with the current control values applied. */
+  render: (values: Record<string, unknown>) => React.ReactNode;
+};
+
+export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "ripple-button": {
+    controls: [
+      {
+        type: "slider",
+        prop: "scaleAmount",
+        label: "Scale amount",
+        min: 5,
+        max: 60,
+        step: 1,
+        default: 25,
+      },
+      {
+        type: "slider",
+        prop: "duration",
+        label: "Duration (s)",
+        min: 0.1,
+        max: 2,
+        step: 0.1,
+        default: 0.5,
+      },
+      {
+        type: "text",
+        prop: "label",
+        label: "Button text",
+        default: "Hover me",
+      },
+    ],
+    render: (v) => (
+      <RippleButton
+        scaleAmount={v.scaleAmount as number}
+        duration={v.duration as number}
+        className="px-6 py-3"
+      >
+        <RippleButtonText text={(v.label as string) || "Hover me"} />
+      </RippleButton>
+    ),
+  },
+
+  "spinning-text": {
+    controls: [
+      {
+        type: "text",
+        prop: "text",
+        label: "Text",
+        default: "This is example text!",
+      },
+      {
+        type: "slider",
+        prop: "duration",
+        label: "Duration (s) — higher is slower",
+        min: 2,
+        max: 30,
+        step: 1,
+        default: 10,
+      },
+      {
+        type: "slider",
+        prop: "radius",
+        label: "Radius",
+        min: 1,
+        max: 15,
+        step: 1,
+        default: 5,
+      },
+      {
+        type: "toggle",
+        prop: "reverse",
+        label: "Reverse direction",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <SpinningText
+        duration={v.duration as number}
+        radius={v.radius as number}
+        reverse={v.reverse as boolean}
+      >
+        {(v.text as string) || "This is example text!"}
+      </SpinningText>
+    ),
+  },
+
+  "magnetic-button": {
+    controls: [
+      {
+        type: "slider",
+        prop: "magneticIntensity",
+        label: "Magnetic intensity",
+        min: 0,
+        max: 2,
+        step: 0.1,
+        default: 0.6,
+      },
+      {
+        type: "slider",
+        prop: "magneticRange",
+        label: "Magnetic range (px)",
+        min: 20,
+        max: 300,
+        step: 10,
+        default: 100,
+      },
+      {
+        type: "select",
+        prop: "interactionArea",
+        label: "Interaction area",
+        options: [
+          { label: "Self", value: "self" },
+          { label: "Parent", value: "parent" },
+        ],
+        default: "self",
+      },
+    ],
+    render: (v) => (
+      <div className="border-border rounded-full border border-dashed p-2">
+        <Magnetic
+          magneticIntensity={v.magneticIntensity as number}
+          magneticRange={v.magneticRange as number}
+          interactionArea={v.interactionArea as "self" | "parent"}
+        >
+          <button
+            type="button"
+            className="bg-foreground text-background cursor-pointer rounded-full px-6 py-4 font-semibold"
+          >
+            Magnetic Button
+          </button>
+        </Magnetic>
+      </div>
+    ),
+  },
+
+  marquee: {
+    controls: [
+      {
+        type: "slider",
+        prop: "duration",
+        label: "Duration (s) — higher is slower",
+        min: 2,
+        max: 30,
+        step: 1,
+        default: 10,
+      },
+      {
+        type: "toggle",
+        prop: "reverse",
+        label: "Reverse direction",
+        default: false,
+      },
+      {
+        type: "toggle",
+        prop: "activeHover",
+        label: "Pause on hover",
+        default: false,
+      },
+      {
+        type: "toggle",
+        prop: "activeScroll",
+        label: "React to scroll",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <Marquee
+        duration={v.duration as number}
+        reverse={v.reverse as boolean}
+        activeHover={v.activeHover as boolean}
+        activeScroll={v.activeScroll as boolean}
+        containerClassName="space-x-12"
+      >
+        <div className="text-foreground flex items-center gap-x-12 text-lg font-medium">
+          {["Next.js", "React", "TypeScript", "Tailwind", "Motion"].map((t) => (
+            <span key={t}>{t}</span>
+          ))}
+        </div>
+      </Marquee>
+    ),
+  },
+};

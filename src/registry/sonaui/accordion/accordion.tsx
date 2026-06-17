@@ -20,9 +20,19 @@ import { cva, type VariantProps } from "class-variance-authority";
 type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
 interface AccordionProps {
+  /** The content to be displayed inside the accordion. */
   children: ReactNode;
+  /**
+   * Allows multiple accordion items to be open at the same time.
+   * @default false
+   */
   allowMultiple?: boolean;
+  /** Additional CSS classes for the accordion container. */
   className?: string;
+  /**
+   * The visual style of the accordion.
+   * @default default
+   */
   variant?: AccordionVariant;
 }
 

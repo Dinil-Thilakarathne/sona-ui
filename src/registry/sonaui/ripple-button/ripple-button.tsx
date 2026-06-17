@@ -7,10 +7,21 @@ import { cn } from "@/lib/utils";
 
 export interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** The content to be displayed inside the button. */
   children: ReactNode;
+  /**
+   * The scale amount for the ripple effect.
+   * @default 25
+   */
   scaleAmount?: number;
+  /** Additional CSS classes for the button. */
   className?: string;
+  /**
+   * Duration of the ripple animation in seconds.
+   * @default 0.5
+   */
   duration?: number;
+  /** Additional CSS classes for the ripple effect. */
   rippleStyle?: string;
 }
 
