@@ -1,8 +1,8 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import RippleButton, {
   RippleButtonText,
-  RippleButtonTextProps,
+  type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";
 
 interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

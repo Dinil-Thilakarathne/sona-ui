@@ -5,6 +5,7 @@ import RippleButton, {
   RippleButtonText,
 } from "@/registry/sonaui/ripple-button/ripple-button";
 import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
+import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
 
 /**
  * Hand-authored playground registry.
@@ -28,6 +29,7 @@ export type Control =
       default: number;
     }
   | { type: "text"; prop: string; label: string; default: string }
+  | { type: "color"; prop: string; label: string; default: string }
   | { type: "toggle"; prop: string; label: string; default: boolean }
   | {
       type: "select";
@@ -172,6 +174,45 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           </button>
         </Magnetic>
       </div>
+    ),
+  },
+
+  "spotlight-card": {
+    controls: [
+      {
+        type: "slider",
+        prop: "spotlightSize",
+        label: "Spotlight size (px)",
+        min: 100,
+        max: 600,
+        step: 10,
+        default: 350,
+      },
+      {
+        type: "color",
+        prop: "spotlightColor",
+        label: "Spotlight color",
+        default: "rgba(56,189,248,0.25)",
+      },
+      {
+        type: "toggle",
+        prop: "disabled",
+        label: "Disable effect",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <SpotlightCard
+        spotlightSize={v.spotlightSize as number}
+        spotlightColor={v.spotlightColor as string}
+        disabled={v.disabled as boolean}
+        className="max-w-sm"
+      >
+        <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
+        <p className="text-muted-foreground mt-2 text-sm">
+          Move your cursor across the card to reveal the spotlight.
+        </p>
+      </SpotlightCard>
     ),
   },
 

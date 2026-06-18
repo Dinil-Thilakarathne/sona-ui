@@ -218,6 +218,38 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional CSS classes for the ripple effect."
     }
   ],
+  "spotlight-card": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content rendered inside the card."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the card."
+    },
+    {
+      "name": "spotlightColor",
+      "type": "string",
+      "default": "\"rgba(255,255,255,0.15)\"",
+      "description": "The color of the spotlight glow. Accepts any CSS color value."
+    },
+    {
+      "name": "spotlightSize",
+      "type": "number",
+      "default": "350",
+      "description": "The radius of the spotlight in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Disables the spotlight effect."
+    }
+  ],
   "vertical-tab": [
     {
       "name": "tabs",

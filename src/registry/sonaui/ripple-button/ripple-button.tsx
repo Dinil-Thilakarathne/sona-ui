@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useCallback, useMemo, type ReactNode } from "react";
 import { motion } from "motion/react";
+import { type ReactNode, useCallback, useMemo, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -105,7 +105,10 @@ export interface RippleButtonTextProps
 export function RippleButtonText({ text, className }: RippleButtonTextProps) {
   return (
     <span
-      className={cn("text-background dark:text-foreground mix-blend-difference", className)}
+      className={cn(
+        "text-background dark:text-foreground mix-blend-difference",
+        className,
+      )}
       role="presentation"
       aria-label="ripple-button-text"
     >

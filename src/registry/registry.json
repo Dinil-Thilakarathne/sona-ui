@@ -132,5 +132,18 @@
       }
     ],
     "dependencies": ["react-icons"]
+  },
+  {
+    "name": "spotlight-card",
+    "type": "registry:ui",
+    "title": "Spotlight Card",
+    "description": "A card with a radial spotlight glow that follows the cursor.",
+    "files": [
+      {
+        "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
   }
 ]

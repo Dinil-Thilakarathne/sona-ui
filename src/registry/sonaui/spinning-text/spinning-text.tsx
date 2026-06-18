@@ -1,7 +1,7 @@
 "use client";
 
-import { CSSProperties, useMemo } from "react";
-import { motion, type Transition, Variants } from "motion/react";
+import { motion, type Transition, type Variants } from "motion/react";
+import { type CSSProperties, useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -80,7 +80,7 @@ export default function SpinningText({
     return chars;
   }, [textContent]);
 
-  const finalTransition  = useMemo(
+  const finalTransition = useMemo(
     () => ({
       ...BASE_TRANSITION,
       ...transition,

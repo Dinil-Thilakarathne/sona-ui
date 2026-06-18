@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useRef, type ReactNode } from "react";
-import { motion, useInView, Variants } from "motion/react";
+import { motion, useInView, type Variants } from "motion/react";
 
 import { cn } from "@/lib/utils";
 

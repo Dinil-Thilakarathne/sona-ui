@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
 

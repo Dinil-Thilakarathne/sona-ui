@@ -25,7 +25,7 @@ async function buildRegistryJson() {
 
   // 1. Read metadata from registry.json
   const registryJsonPath = path.join(REGISTRY_PATH, "registry.json");
-  let metadataMap: Record<string, any> = {};
+  const metadataMap: Record<string, any> = {};
 
   if (fs.existsSync(registryJsonPath)) {
     try {

@@ -81,6 +81,23 @@ interface ControlFieldProps {
   onChange: (value: unknown) => void;
 }
 
+/** Coerces any CSS color (hex, rgb, rgba) to #rrggbb for the native swatch. */
+function toHex(color: string): string {
+  if (/^#[0-9a-fA-F]{6}$/.test(color)) return color;
+  const match = color.match(/rgba?\(([^)]+)\)/);
+  if (match) {
+    const [r, g, b] = match[1]
+      .split(",")
+      .map((n) => Number.parseFloat(n.trim()));
+    const channel = (n: number) =>
+      Math.max(0, Math.min(255, Math.round(n)))
+        .toString(16)
+        .padStart(2, "0");
+    return `#${channel(r)}${channel(g)}${channel(b)}`;
+  }
+  return "#000000";
+}
+
 function ControlField({ control, value, onChange }: ControlFieldProps) {
   return (
     <div className="flex flex-col gap-2">
@@ -115,6 +132,25 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
           onChange={(e) => onChange(e.target.value)}
           className="border-border bg-background text-foreground rounded-md border px-2.5 py-1.5 text-sm outline-none focus:ring-2 focus:ring-ring/40"
         />
+      )}
+
+      {control.type === "color" && (
+        <div className="flex items-center gap-2">
+          <input
+            type="color"
+            aria-label={`${control.label} swatch`}
+            value={toHex((value as string) ?? "#000000")}
+            onChange={(e) => onChange(e.target.value)}
+            className="border-border h-9 w-9 shrink-0 cursor-pointer rounded-md border bg-transparent p-1"
+          />
+          <input
+            type="text"
+            value={value as string}
+            onChange={(e) => onChange(e.target.value)}
+            spellCheck={false}
+            className="border-border bg-background text-foreground w-full rounded-md border px-2.5 py-1.5 font-mono text-xs outline-none focus:ring-2 focus:ring-ring/40"
+          />
+        </div>
       )}
 
       {control.type === "toggle" && (

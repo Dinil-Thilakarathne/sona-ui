@@ -1,5 +1,5 @@
 // This file is auto-generated. Do not edit.
-import * as React from "react";
+import type * as React from "react";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
 import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
 import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
@@ -10,6 +10,7 @@ import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
+import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
 import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
@@ -940,6 +941,38 @@ export default function RippleButtonExample({
     </RippleButton>
   );
 };`,
+    }
+  ],
+  "spotlight-card": [
+    {
+      name: "default",
+      component: spotlight_card_spotlight_card_demo,
+      code: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
+
+export default function SpotlightCardExample() {
+  return (
+    <SpotlightCard className="max-w-sm">
+      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
+      <p className="text-muted-foreground mt-2 text-sm">
+        Move your cursor across the card to reveal the spotlight that follows
+        your pointer.
+      </p>
+    </SpotlightCard>
+  );
+}
+`,
+      imports: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";`,
+      anatomy: `export default function SpotlightCardExample() {
+  return (
+    <SpotlightCard className="max-w-sm">
+      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
+      <p className="text-muted-foreground mt-2 text-sm">
+        Move your cursor across the card to reveal the spotlight that follows
+        your pointer.
+      </p>
+    </SpotlightCard>
+  );
+}`,
     }
   ],
   "vertical-tab": [
@@ -2216,6 +2249,84 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
       target: "components/sonaui/ripple-button/ripple-button.tsx"
     }
   ],
+  "spotlight-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import type { ReactNode } from "react";
+
+import { cn } from "@/lib/utils";
+
+export interface SpotlightCardProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  /** The content rendered inside the card. */
+  children: ReactNode;
+  /** Additional CSS classes for the card. */
+  className?: string;
+  /**
+   * The color of the spotlight glow. Accepts any CSS color value.
+   * @default "rgba(255,255,255,0.15)"
+   */
+  spotlightColor?: string;
+  /**
+   * The radius of the spotlight in pixels.
+   * @default 350
+   */
+  spotlightSize?: number;
+  /**
+   * Disables the spotlight effect.
+   * @default false
+   */
+  disabled?: boolean;
+}
+
+export default function SpotlightCard({
+  children,
+  className,
+  spotlightColor = "rgba(255,255,255,0.15)",
+  spotlightSize = 350,
+  disabled = false,
+  ...props
+}: SpotlightCardProps) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (disabled) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    mouseX.set(event.clientX - rect.left);
+    mouseY.set(event.clientY - rect.top);
+  };
+
+  const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      className={cn(
+        "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
+        className,
+      )}
+      {...props}
+    >
+      {!disabled && (
+        <motion.div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          style={{ background }}
+        />
+      )}
+      <div className="relative z-10">{children}</div>
+    </div>
+  );
+}
+`,
+      path: "spotlight-card/spotlight-card.tsx",
+      target: "components/sonaui/spotlight-card/spotlight-card.tsx"
+    }
+  ],
   "vertical-tab": [
     {
       type: "registry:ui",
@@ -2892,6 +3003,21 @@ export const componentMetadata = {
     ],
     "dependencies": [
       "react-icons"
+    ]
+  },
+  "spotlight-card": {
+    "name": "spotlight-card",
+    "type": "registry:ui",
+    "title": "Spotlight Card",
+    "description": "A card with a radial spotlight glow that follows the cursor.",
+    "files": [
+      {
+        "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
     ]
   }
 };
