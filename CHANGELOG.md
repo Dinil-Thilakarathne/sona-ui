@@ -1,3 +1,13 @@
+# [2.13.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.12.1...v2.13.0) (2026-07-03)
+
+
+### Features
+
+* add animated accordion variant and preview example ([28104ee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/28104ee59a8647cb3b4c3e3abd749fe6eba6a1bb))
+* Add playground registry and auto-generate component prop types ([84da3fb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/84da3fbc1956c16368b75792d895757f2904a0bf))
+* Add Spotlight Card component and skill documentation ([02f1ef9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/02f1ef91bedc42ded26ecf068d8aaacf0981817b))
+* **comp:** Add circular dock menu, fan view, and hold-to-delete ([e70fff8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e70fff83f990f84dc2d806175a4080dafc8af6d0))
+
 ## [2.12.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.12.0...v2.12.1) (2026-02-09)
 
 
