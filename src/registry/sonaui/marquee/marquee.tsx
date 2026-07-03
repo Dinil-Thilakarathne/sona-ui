@@ -25,12 +25,31 @@ const calculateItemCount = (
 };
 
 interface MarqueeProps {
+  /** The content to be rendered inside the marquee. */
   children: React.ReactNode;
+  /** Additional class names for custom styling of the marquee items. */
   className?: string;
+  /** Additional class names for custom styling of the marquee container. */
   containerClassName?: string;
+  /**
+   * The duration of the marquee animation in seconds.
+   * @default 10
+   */
   duration?: number;
+  /**
+   * Determines whether the marquee scrolls in reverse direction.
+   * @default false
+   */
   reverse?: boolean;
+  /**
+   * Enables dynamic speed adjustment based on scroll velocity.
+   * @default false
+   */
   activeScroll?: boolean;
+  /**
+   * Pauses the marquee animation when hovered.
+   * @default false
+   */
   activeHover?: boolean;
 }
 

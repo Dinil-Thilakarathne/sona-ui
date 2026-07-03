@@ -23,7 +23,7 @@ const KNOWN_DEPENDENCIES = [
 ];
 
 async function getComponentDescription(componentName: string): Promise<string> {
-  let docFilename = `${componentName}.mdx`;
+  const docFilename = `${componentName}.mdx`;
   let docPath = path.join(DOCS_DIR, docFilename);
 
   // Fuzzy match strategy

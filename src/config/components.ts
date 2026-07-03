@@ -1,4 +1,4 @@
-import { type ComponentItemsPropsType } from "@/lib/types";
+import type { ComponentItemsPropsType } from "@/lib/types";
 
 export const componentNavigationLinks: ComponentItemsPropsType[] = [
   {
@@ -77,6 +77,30 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     name: "Bubble Up Button",
     slug: "bubble-up-button",
     href: "/docs/bubble-up-button",
+    type: "Components",
+  },
+  {
+    name: "Spotlight Card",
+    slug: "spotlight-card",
+    href: "/docs/spotlight-card",
+    type: "Components",
+  },
+  {
+    name: "Hold To Delete Button",
+    slug: "hold-to-delete-button",
+    href: "/docs/hold-to-delete-button",
+    type: "Components",
+  },
+  {
+    name: "Circular Dock Menu",
+    slug: "circular-dock-menu",
+    href: "/docs/circular-dock-menu",
+    type: "Components",
+  },
+  {
+    name: "Fan View",
+    slug: "fan-view",
+    href: "/docs/fan-view",
     type: "Components",
   },
 ];

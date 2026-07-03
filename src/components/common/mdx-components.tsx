@@ -19,6 +19,7 @@ import {
   CodeBlockPre,
 } from "@/components/code-block/code-block";
 import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
+import ComponentPlayground from "./component-playground";
 import { ComponentInstallationServer } from "./component-installation-server";
 import { ComponentUsageServer } from "../usage/component-usage-server";
 
@@ -130,6 +131,7 @@ const components = {
   CodeBlockLineNumbers,
   CodeBlockPre,
   ComponentPreview,
+  ComponentPlayground,
   PropTable,
   ComponentInstallation: ComponentInstallationServer,
 

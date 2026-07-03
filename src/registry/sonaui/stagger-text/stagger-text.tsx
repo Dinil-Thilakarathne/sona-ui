@@ -9,8 +9,14 @@ type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type StaggerTextProps<T extends StaggerTextEleType> =
   React.ComponentPropsWithoutRef<T> & {
+    /** The text content to be displayed with staggered animation. */
     text: string;
+    /** Additional CSS classes for the container. */
     className?: string;
+    /**
+     * The HTML tag to be used for the text container.
+     * @default "h3"
+     */
     as?: T;
   };
 

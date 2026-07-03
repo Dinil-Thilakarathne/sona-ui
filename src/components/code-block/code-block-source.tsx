@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { CodeBlock } from "./code-block";
 import { readFileContent } from "@/lib/file-utils";
 

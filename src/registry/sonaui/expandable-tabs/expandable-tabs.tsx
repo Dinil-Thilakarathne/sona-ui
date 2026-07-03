@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
 
@@ -12,9 +12,19 @@ export type TabsData = {
 };
 
 interface ExpandableTabsProps {
+  /** An array of tab objects, each containing a title and an icon. */
   tabs: TabsData[];
+  /**
+   * Additional class names for the container element.
+   * @default ""
+   */
   containerClassName?: string;
+  /**
+   * The index of the tab that is active by default.
+   * @default 0
+   */
   defaultActiveIndex?: number;
+  /** Motion configuration for the transition animations. */
   motionConfig?: MotionConfigProps;
 }
 

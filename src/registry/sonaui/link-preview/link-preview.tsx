@@ -9,8 +9,14 @@ import useMeasure from "react-use-measure";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  /** The URL of the link to preview. */
   link: string;
+  /** The text to display for the link. */
   text: string;
+  /**
+   * Whether to show an icon next to the link text.
+   * @default true
+   */
   showIcon?: boolean;
 }
 

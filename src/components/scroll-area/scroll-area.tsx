@@ -1,4 +1,4 @@
-import * as React from "react";
+import type * as React from "react";
 import { ScrollArea as BaseScrollArea } from "@base-ui/react/scroll-area";
 
 import { cn } from "@/lib/utils";

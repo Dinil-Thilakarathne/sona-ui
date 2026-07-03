@@ -1,4 +1,4 @@
-import { type NavLinksPropsType } from "./types";
+import type { NavLinksPropsType } from "./types";
 
 export const navLinks: NavLinksPropsType[] = [
   {

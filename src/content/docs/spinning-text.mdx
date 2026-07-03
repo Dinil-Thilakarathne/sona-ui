@@ -21,6 +21,12 @@ The `SpinningText` component is a dynamic and visually engaging UI element that 
 
 <ComponentPreview component="spinning-text" name="default" />
 
+## Playground
+
+Adjust speed, radius, and direction live.
+
+<ComponentPlayground component="spinning-text" />
+
 ## Installation
 
 <ComponentInstallation component="spinning-text" />
@@ -31,64 +37,4 @@ The `SpinningText` component is a dynamic and visually engaging UI element that 
 
 ## Props
 
-<PropTable
-  data={[
-    {
-      name: "children",
-      type: "string | string[]",
-      default: "required",
-      description:
-        "The text content to be animated. It can be a single string or an array of strings.",
-    },
-    {
-      name: "style",
-      type: "CSSProperties",
-      default: "undefined",
-      description: "Custom styles for the container.",
-    },
-    {
-      name: "duration",
-      type: "number",
-      default: "10",
-      description: "Duration of the spinning animation in seconds.",
-    },
-    {
-      name: "className",
-      type: "string",
-      default: "undefined",
-      description: "Additional CSS classes for the container.",
-    },
-    {
-      name: "reverse",
-      type: "boolean",
-      default: "false",
-      description: "Reverses the spinning direction when set to `true`.",
-    },
-    {
-      name: "fontSize",
-      type: "number",
-      default: "undefined",
-      description: "Font size of the text.",
-    },
-    {
-      name: "radius",
-      type: "number",
-      default: "5",
-      description: "Radius of the circular path in `ch` units.",
-    },
-    {
-      name: "transition",
-      type: "Transition",
-      default: "undefined",
-      description:
-        "Custom transition settings for the animation. Merges with the default transition.",
-    },
-    {
-      name: "variants",
-      type: "{ container?: Variants; item?: Variants }",
-      default: "undefined",
-      description:
-        "Custom animation variants for the container and individual characters.",
-    },
-  ]}
-/>
+<PropTable component="spinning-text" />

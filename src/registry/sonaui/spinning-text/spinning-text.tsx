@@ -1,18 +1,35 @@
 "use client";
 
-import { CSSProperties, useMemo } from "react";
-import { motion, type Transition, Variants } from "motion/react";
+import { motion, type Transition, type Variants } from "motion/react";
+import { type CSSProperties, useMemo } from "react";
 
 import { cn } from "@/lib/utils";
 
 type SpinningTextProps = {
+  /** The text content to be animated. Can be a single string or an array of strings. */
   children: string | string[];
+  /** Custom styles for the container. */
   style?: CSSProperties;
+  /**
+   * Duration of the spinning animation in seconds.
+   * @default 10
+   */
   duration?: number;
+  /** Additional CSS classes for the container. */
   className?: string;
+  /**
+   * Reverses the spinning direction when set to `true`.
+   * @default false
+   */
   reverse?: boolean;
+  /**
+   * Radius of the circular path in `ch` units.
+   * @default 5
+   */
   radius?: number;
+  /** Custom transition settings for the animation. Merges with the default transition. */
   transition?: Transition;
+  /** Custom animation variants for the container and individual characters. */
   variants?: {
     container?: Variants;
     item?: Variants;
@@ -63,7 +80,7 @@ export default function SpinningText({
     return chars;
   }, [textContent]);
 
-  const finalTransition  = useMemo(
+  const finalTransition = useMemo(
     () => ({
       ...BASE_TRANSITION,
       ...transition,

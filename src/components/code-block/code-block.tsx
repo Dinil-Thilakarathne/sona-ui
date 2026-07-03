@@ -4,11 +4,11 @@ import {
   useLayoutEffect,
   useState,
   useMemo,
-  ComponentType,
+  type ComponentType,
   createContext,
   useContext,
 } from "react";
-import * as React from "react";
+import type * as React from "react";
 import { Menu } from "@base-ui/react/menu";
 import { ChevronDown, Check } from "lucide-react";
 import { mergeProps } from "@base-ui/react/merge-props";

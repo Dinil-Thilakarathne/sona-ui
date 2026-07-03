@@ -1,16 +1,27 @@
 "use client";
 
-import { useState, useCallback, useMemo, type ReactNode } from "react";
 import { motion } from "motion/react";
+import { type ReactNode, useCallback, useMemo, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
 export interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** The content to be displayed inside the button. */
   children: ReactNode;
+  /**
+   * The scale amount for the ripple effect.
+   * @default 25
+   */
   scaleAmount?: number;
+  /** Additional CSS classes for the button. */
   className?: string;
+  /**
+   * Duration of the ripple animation in seconds.
+   * @default 0.5
+   */
   duration?: number;
+  /** Additional CSS classes for the ripple effect. */
   rippleStyle?: string;
 }
 
@@ -94,7 +105,10 @@ export interface RippleButtonTextProps
 export function RippleButtonText({ text, className }: RippleButtonTextProps) {
   return (
     <span
-      className={cn("text-background dark:text-foreground mix-blend-difference", className)}
+      className={cn(
+        "text-background dark:text-foreground mix-blend-difference",
+        className,
+      )}
       role="presentation"
       aria-label="ripple-button-text"
     >

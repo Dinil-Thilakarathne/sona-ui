@@ -3,7 +3,7 @@ import StaggerText from "./stagger-text";
 import Tag from "./tag";
 
 import { cn } from "@/lib/utils";
-import { NavLinksPropsType } from "@/lib/types";
+import type { NavLinksPropsType } from "@/lib/types";
 
 interface NavLinkProps extends NavLinksPropsType, LinkProps {
   href: string;

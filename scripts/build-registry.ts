@@ -19,7 +19,7 @@ function parseFileName(fileName: string) {
   // E.g., Accordion_bordered.tsx -> ["Accordion", "bordered"]
   const parts = nameWithoutExt.split("_");
 
-  let componentName = parts[0];
+  const componentName = parts[0];
   let variantName = "default";
 
   if (parts.length > 1) {
