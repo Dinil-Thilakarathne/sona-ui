@@ -145,5 +145,44 @@
       }
     ],
     "dependencies": ["motion"]
+  },
+  {
+    "name": "hold-to-delete-button",
+    "type": "registry:ui",
+    "title": "Hold To Delete Button",
+    "description": "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
+    "files": [
+      {
+        "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
+    "name": "circular-dock-menu",
+    "type": "registry:ui",
+    "title": "Circular Dock Menu",
+    "description": "A circular trigger button that fans items out in a radial arc with spring animations.",
+    "files": [
+      {
+        "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion", "lucide-react"]
+  },
+  {
+    "name": "fan-view",
+    "type": "registry:ui",
+    "title": "Fan View",
+    "description": "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
+    "files": [
+      {
+        "path": "registry/sonaui/fan-view/fan-view.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
   }
 ]

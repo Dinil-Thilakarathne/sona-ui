@@ -8,6 +8,32 @@ export type PropMeta = {
 };
 
 export const componentProps: Record<string, PropMeta[]> = {
+  "circular-dock-menu": [
+    {
+      "name": "items",
+      "type": "DockMenuItem[]",
+      "default": "—",
+      "description": "Items rendered as arc pills when the menu is open."
+    },
+    {
+      "name": "stiffness",
+      "type": "number",
+      "default": "420",
+      "description": "Spring stiffness for the open/close animation."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "default": "32",
+      "description": "Spring damping for the open/close animation."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the root container."
+    }
+  ],
   "magnetic-button": [
     {
       "name": "children",
@@ -140,6 +166,32 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes"
+    }
+  ],
+  "fan-view": [
+    {
+      "name": "items",
+      "type": "FanViewItem[]",
+      "default": "—",
+      "description": "Items displayed as fanned cards when open."
+    },
+    {
+      "name": "stiffness",
+      "type": "number",
+      "default": "540",
+      "description": "Spring stiffness for the fan animation."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "default": "28",
+      "description": "Spring damping for the fan animation."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the root container."
     }
   ],
   "marquee": [
@@ -340,6 +392,38 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "T",
       "default": "\"h3\"",
       "description": "The HTML tag to be used for the text container."
+    }
+  ],
+  "hold-to-delete-button": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "—",
+      "description": "Text displayed inside the button."
+    },
+    {
+      "name": "holdDuration",
+      "type": "number",
+      "default": "2000",
+      "description": "Duration in milliseconds the user must hold before the action triggers."
+    },
+    {
+      "name": "successDuration",
+      "type": "number",
+      "default": "1200",
+      "description": "Duration in milliseconds the success state is visible before auto-resetting."
+    },
+    {
+      "name": "onDelete",
+      "type": "() => void",
+      "default": "—",
+      "description": "Called once when the hold completes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the button."
     }
   ]
 };

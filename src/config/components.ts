@@ -85,6 +85,24 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     href: "/docs/spotlight-card",
     type: "Components",
   },
+  {
+    name: "Hold To Delete Button",
+    slug: "hold-to-delete-button",
+    href: "/docs/hold-to-delete-button",
+    type: "Components",
+  },
+  {
+    name: "Circular Dock Menu",
+    slug: "circular-dock-menu",
+    href: "/docs/circular-dock-menu",
+    type: "Components",
+  },
+  {
+    name: "Fan View",
+    slug: "fan-view",
+    href: "/docs/fan-view",
+    type: "Components",
+  },
 ];
 
 export const groupedComponents = componentNavigationLinks.reduce<

@@ -1,4 +1,8 @@
 import type * as React from "react";
+import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
+import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import FanView from "@/registry/sonaui/fan-view/fan-view";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
 import RippleButton, {
@@ -213,6 +217,106 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           Move your cursor across the card to reveal the spotlight.
         </p>
       </SpotlightCard>
+    ),
+  },
+
+  "hold-to-delete-button": {
+    controls: [
+      {
+        type: "text",
+        prop: "label",
+        label: "Button label",
+        default: "Hold To Delete",
+      },
+      {
+        type: "slider",
+        prop: "holdDuration",
+        label: "Hold duration (ms)",
+        min: 500,
+        max: 5000,
+        step: 100,
+        default: 2000,
+      },
+    ],
+    render: (v) => (
+      <div className="flex items-center justify-center py-12">
+        <HoldToDeleteButton
+          label={(v.label as string) || "Hold To Delete"}
+          holdDuration={v.holdDuration as number}
+        />
+      </div>
+    ),
+  },
+
+  "circular-dock-menu": {
+    controls: [
+      {
+        type: "slider",
+        prop: "stiffness",
+        label: "Spring stiffness",
+        min: 100,
+        max: 800,
+        step: 20,
+        default: 420,
+      },
+      {
+        type: "slider",
+        prop: "damping",
+        label: "Spring damping",
+        min: 10,
+        max: 60,
+        step: 2,
+        default: 32,
+      },
+    ],
+    render: (v) => (
+      <CircularDockMenu
+        stiffness={v.stiffness as number}
+        damping={v.damping as number}
+        items={[
+          { label: "Document", icon: FileText },
+          { label: "Learning", icon: BookOpen },
+          { label: "Music", icon: Music },
+          { label: "Video", icon: Clapperboard },
+          { label: "Image", icon: ImageIcon },
+        ]}
+      />
+    ),
+  },
+
+  "fan-view": {
+    controls: [
+      {
+        type: "slider",
+        prop: "stiffness",
+        label: "Spring stiffness",
+        min: 100,
+        max: 800,
+        step: 20,
+        default: 540,
+      },
+      {
+        type: "slider",
+        prop: "damping",
+        label: "Spring damping",
+        min: 10,
+        max: 60,
+        step: 2,
+        default: 28,
+      },
+    ],
+    render: (v) => (
+      <FanView
+        stiffness={v.stiffness as number}
+        damping={v.damping as number}
+        items={[
+          { label: "Music", width: 164 },
+          { label: "Video", width: 160 },
+          { label: "Image", width: 156 },
+          { label: "Learning", width: 180 },
+          { label: "Document", width: 196 },
+        ]}
+      />
     ),
   },
 
