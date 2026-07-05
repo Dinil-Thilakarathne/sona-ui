@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import { useState, type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -30,9 +30,7 @@ export default function StaggerText({
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <h1 className="sr-only">
-        {text}
-      </h1>
+      <h1 className="sr-only">{text}</h1>
       <Tag
         className={cn("overflow-clip tracking-wide select-text", className)}
         aria-label={text}
@@ -133,11 +131,7 @@ const StaggerItemSegment = ({
   }
 
   return (
-    <motion.span
-      className="h-fit select-none"
-      aria-hidden="true"
-      {...props}
-    >
+    <motion.span className="h-fit select-none" aria-hidden="true" {...props}>
       {content}
     </motion.span>
   );

@@ -1,7 +1,5 @@
 "use client";
 
-import { useClock } from "@/hooks/useClock";
-import { cn } from "@/lib/utils";
 import {
   motion,
   useMotionTemplate,
@@ -12,6 +10,8 @@ import {
 } from "motion/react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
+import { useClock } from "@/hooks/useClock";
+import { cn } from "@/lib/utils";
 
 // Constants
 const DEFAULT_DURATION = 10; // Default duration in seconds

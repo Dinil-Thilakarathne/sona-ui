@@ -1,0 +1,18 @@
+{
+  "name": "mesh-gradient-shader",
+  "type": "registry:ui",
+  "title": "Mesh Gradient Shader",
+  "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+  "files": [
+    {
+      "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+      "content": "\"use client\";\n\nimport { MeshGradient } from \"@paper-design/shaders-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface MeshGradientShaderProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  /**\n   * Up to 10 color spots. Accepts hex, RGB, or HSL strings.\n   * @default [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\", \"#ffeaa7\"]\n   */\n  colors?: string[];\n  /**\n   * Power of organic noise distortion (0–1).\n   * @default 0.3\n   */\n  distortion?: number;\n  /**\n   * Power of vortex distortion (0–1).\n   * @default 0.2\n   */\n  swirl?: number;\n  /**\n   * Grain distortion on color edges (0–1).\n   * @default 0\n   */\n  grainMixer?: number;\n  /**\n   * Post-processing grain overlay (0–1).\n   * @default 0\n   */\n  grainOverlay?: number;\n  /**\n   * Animation speed multiplier. 0 = static.\n   * @default 1\n   */\n  speed?: number;\n}\n\nexport default function MeshGradientShader({\n  className,\n  colors = [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\", \"#ffeaa7\"],\n  distortion = 0.3,\n  swirl = 0.2,\n  grainMixer = 0,\n  grainOverlay = 0,\n  speed = 1,\n  style,\n  ...props\n}: MeshGradientShaderProps) {\n  return (\n    <div\n      className={cn(\"overflow-hidden rounded-xl\", className)}\n      style={style}\n      {...props}\n    >\n      <MeshGradient\n        colors={colors}\n        distortion={distortion}\n        swirl={swirl}\n        grainMixer={grainMixer}\n        grainOverlay={grainOverlay}\n        speed={speed}\n        style={{ width: \"100%\", height: \"100%\" }}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+    }
+  ],
+  "dependencies": [
+    "@paper-design/shaders-react"
+  ],
+  "registryDependencies": []
+}

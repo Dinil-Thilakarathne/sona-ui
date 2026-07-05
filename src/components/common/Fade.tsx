@@ -1,6 +1,6 @@
 "use client";
-import { useMemo, useRef, type ReactNode } from "react";
 import { motion, useInView, type Variants } from "motion/react";
+import { type ReactNode, useMemo, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -66,6 +66,5 @@ const Fade = ({
     </div>
   );
 };
-
 
 export default Fade;

@@ -4,8 +4,8 @@ import type { ReactElement } from "react";
 
 import {
   CodeBlock,
-  CodeBlockPre,
   CodeBlockCode,
+  CodeBlockPre,
 } from "@/components/code-block/code-block";
 
 interface ComponentUsageProps {

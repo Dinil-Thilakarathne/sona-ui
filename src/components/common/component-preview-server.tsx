@@ -1,5 +1,5 @@
-import ComponentPreview from "./component-preview";
 import { exampleRegistry } from "@/registry/index";
+import ComponentPreview from "./component-preview";
 
 interface Props {
   name: string;

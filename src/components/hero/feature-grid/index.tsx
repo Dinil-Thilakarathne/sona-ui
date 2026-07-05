@@ -1,21 +1,20 @@
 "use client";
 
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
+import gsap from "gsap";
+import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
+import Link from "next/link";
 import type { ReactNode } from "react";
-import Button from "@/components/button";
 import {
   NextjsIcon,
   ReactIcon,
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import { cn } from "@/lib/utils";
-import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
-import InfoCard from "./InfoCard";
-import Link from "next/link";
+import Button from "@/components/button";
 import StaggerText from "@/components/common/stagger-text";
+import { cn } from "@/lib/utils";
+import InfoCard from "./InfoCard";
 
 gsap.registerPlugin(useGSAP);
 

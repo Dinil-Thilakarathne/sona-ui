@@ -1,10 +1,10 @@
 "use client";
 
-import React, { type ReactNode, useRef } from "react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import React, { type ReactNode, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);

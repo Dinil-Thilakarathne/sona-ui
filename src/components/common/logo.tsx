@@ -25,5 +25,4 @@ const Logo = ({ className, showVersion, version }: LogoProps) => {
   );
 };
 
-
 export default Logo;

@@ -33,5 +33,5 @@ export const siteMetaData: Metadata = {
     images: [SITE_METADATA.twitterImage],
     creator: SITE_METADATA.authorTwitter,
   },
-//   manifest: "/site.webmanifest",p
+  //   manifest: "/site.webmanifest",p
 };

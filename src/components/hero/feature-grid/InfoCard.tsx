@@ -1,14 +1,14 @@
 "use client";
 
-import Button from "@/components/button";
 import NumberFlow from "@number-flow/react";
 import { Copy } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Button from "@/components/button";
 import {
   componentNavigationLinks,
   groupedComponents,
 } from "@/config/components";
-import { useEffect, useState } from "react";
 
 export default function InfoCard() {
   const [componentCount, setComponentCount] = useState<number>(0);

@@ -1,34 +1,33 @@
 "use client";
 
+import { Menu } from "@base-ui/react/menu";
+import { mergeProps } from "@base-ui/react/merge-props";
+import { useRender } from "@base-ui/react/use-render";
 import {
-  useLayoutEffect,
-  useState,
-  useMemo,
+  SiJavascript,
+  SiPython,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons";
+import { Check, ChevronDown, Terminal } from "lucide-react";
+import type * as React from "react";
+import {
   type ComponentType,
   createContext,
   useContext,
+  useLayoutEffect,
+  useMemo,
+  useState,
 } from "react";
-import type * as React from "react";
-import { Menu } from "@base-ui/react/menu";
-import { ChevronDown, Check } from "lucide-react";
-import { mergeProps } from "@base-ui/react/merge-props";
-import { useRender } from "@base-ui/react/use-render";
-import { cn } from "@/lib/utils";
-import { Terminal } from "lucide-react";
-import {
-  SiTypescript,
-  SiJavascript,
-  SiPython,
-} from "@icons-pack/react-simple-icons";
 import type { BundledLanguage } from "shiki/langs";
-import { Tabs, TabsList, TabsTrigger } from "@/components/tabs/tabs";
 import {
-  ScrollArea,
   type FadeEdges,
+  ScrollArea,
 } from "@/components/scroll-area/scroll-area";
+import { Tabs, TabsList, TabsTrigger } from "@/components/tabs/tabs";
+import { cn } from "@/lib/utils";
+import { CopyButton } from "../copy-button/copy-button";
 import { highlight } from "./lib/shiki-shared";
 import { stripDiffMarker } from "./lib/transformers/utils";
-import { CopyButton } from "../copy-button/copy-button";
 
 // Context for sharing code block state
 interface CodeBlockContextValue {
@@ -83,10 +82,8 @@ function getLanguageIcon(language: string) {
 }
 
 // Root component
-interface CodeBlockProps extends Omit<
-  useRender.ComponentProps<"div">,
-  "children"
-> {
+interface CodeBlockProps
+  extends Omit<useRender.ComponentProps<"div">, "children"> {
   code: string;
   language?: string;
   initial?: React.ReactElement;
@@ -182,7 +179,8 @@ function CodeBlock({
 
 // Header component
 interface CodeBlockHeaderProps
-  extends useRender.ComponentProps<"div">, Partial<BaseTabsProps> {
+  extends useRender.ComponentProps<"div">,
+    Partial<BaseTabsProps> {
   filename?: string;
   tabVariant?: React.ComponentProps<typeof TabsList>["variant"];
   customIcon?: React.ReactNode;
@@ -325,7 +323,8 @@ interface BaseTabsProps {
 }
 
 interface CodeBlockTabsProps
-  extends useRender.ComponentProps<"div">, BaseTabsProps {
+  extends useRender.ComponentProps<"div">,
+    BaseTabsProps {
   variant?: React.ComponentProps<typeof TabsList>["variant"];
 }
 
@@ -627,13 +626,13 @@ function CodeBlockCode({ className, render, ...props }: CodeBlockCodeProps) {
   return element;
 }
 
+export type { FadeEdges };
 export {
   CodeBlock,
-  CodeBlockHeader,
-  CodeBlockFloatingCopy,
-  CodeBlockPre,
-  CodeBlockLineNumbers,
   CodeBlockCode,
+  CodeBlockFloatingCopy,
+  CodeBlockHeader,
+  CodeBlockLineNumbers,
+  CodeBlockPre,
   useCodeBlock,
 };
-export type { FadeEdges };

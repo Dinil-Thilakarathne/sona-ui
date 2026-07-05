@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@base-ui/react/button";
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { useEffect, useState } from "react";
+import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
+import { cn } from "@/lib/utils";
 
 export function useCopyToClipboard(timeout: number = 2000) {
   const [copied, setCopied] = useState(false);
@@ -28,10 +28,11 @@ export function useCopyToClipboard(timeout: number = 2000) {
   return { copied, copy };
 }
 
-interface CopyButtonProps extends Omit<
-  React.ComponentProps<typeof Button>,
-  "onClick" | "children" | "size" | "variant"
-> {
+interface CopyButtonProps
+  extends Omit<
+    React.ComponentProps<typeof Button>,
+    "onClick" | "children" | "size" | "variant"
+  > {
   content: string;
   timeout?: number;
   copyIcon?: React.ReactNode;

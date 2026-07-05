@@ -1,19 +1,18 @@
 "use client";
 
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/tabs/tabs";
-import {
   CodeBlock,
   CodeBlockCode,
   CodeBlockHeader,
   CodeBlockPre,
 } from "@/components/code-block/code-block";
-
 import ComponentWrapper from "@/components/common/component-wrapper";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/tabs/tabs";
 
 interface ComponentPreviewProps {
   component: React.ReactNode;

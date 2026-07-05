@@ -1,20 +1,19 @@
 "use client";
 
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "motion/react";
 import {
   createContext,
+  type ReactNode,
   useContext,
   useEffect,
-  useState,
   useRef,
-  type ReactNode,
+  useState,
   ViewTransition,
 } from "react";
-import { motion } from "motion/react";
-
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import styles from "./styles.module.css";
-import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
 type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
@@ -72,8 +71,7 @@ const accordionItemVariants = cva(
 );
 
 interface AccordionItemProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
+  extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof accordionItemVariants> {
   children: ReactNode;
   className?: string;
@@ -271,10 +269,10 @@ const AccordionItemContent = ({
 };
 
 export {
-  AccordionRoot,
+  AccordionContext,
   AccordionItem,
+  AccordionItemContent,
   AccordionItemHeader,
   AccordionItemTrigger,
-  AccordionItemContent,
-  AccordionContext,
+  AccordionRoot,
 };

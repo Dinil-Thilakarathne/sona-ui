@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import { DialogTitle } from "@radix-ui/react-dialog";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,10 +10,10 @@ import {
   CommandList,
 } from "cmdk";
 import { ArrowRight, SearchIcon } from "lucide-react";
-import { useSearch } from "@/hooks/useSearch";
 import { useRouter } from "next/navigation";
-import { DialogTitle } from "@radix-ui/react-dialog";
+import * as React from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useSearch } from "@/hooks/useSearch";
 
 export function Search() {
   const [open, setOpen] = React.useState(false);

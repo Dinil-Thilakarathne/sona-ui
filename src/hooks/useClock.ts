@@ -1,7 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { type MotionValue, useAnimationFrame, useMotionValue } from "motion/react";
+import {
+  type MotionValue,
+  useAnimationFrame,
+  useMotionValue,
+} from "motion/react";
+import { useEffect, useRef } from "react";
 
 type UseClockProps = {
   defaultValue?: number;
