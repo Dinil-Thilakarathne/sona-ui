@@ -1,6 +1,6 @@
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 interface AnimatedLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;

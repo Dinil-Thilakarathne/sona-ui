@@ -43,7 +43,13 @@ export const exampleRegistry: Record<string, RegistryEntry[]> = {
       component: circular_dock_menu_circular_dock_menu_demo,
       code: `"use client";
 
-import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
+import {
+  BookOpen,
+  Clapperboard,
+  FileText,
+  ImageIcon,
+  Music,
+} from "lucide-react";
 
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 
@@ -62,7 +68,13 @@ export default function CircularDockMenuDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
+import {
+  BookOpen,
+  Clapperboard,
+  FileText,
+  ImageIcon,
+  Music,
+} from "lucide-react";
 
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 
@@ -247,7 +259,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-      
+
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -313,7 +325,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-      
+
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -905,7 +917,7 @@ export default function SpinningTextExample() {
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
-};
+}
 `,
       imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
       anatomy: `export default function SpinningTextExample() {
@@ -914,7 +926,7 @@ export default function SpinningTextExample() {
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
-};`,
+}`,
     }
   ],
   "bubble-up-button": [
@@ -1090,7 +1102,8 @@ import RippleButton, {
   type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";
 
-interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LocalRippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -1098,11 +1111,12 @@ interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-} 
+}
 
 export default function RippleButtonExample({
   textProps,
@@ -1115,7 +1129,7 @@ export default function RippleButtonExample({
       <RippleButtonText {...textProps} text="Hover me!" />
     </RippleButton>
   );
-};
+}
 `,
       imports: `import type { ReactNode } from "react";
 
@@ -1123,7 +1137,8 @@ import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";`,
-      anatomy: `interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+      anatomy: `interface LocalRippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -1131,11 +1146,12 @@ import RippleButton, {
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-} 
+}
 
 export default function RippleButtonExample({
   textProps,
@@ -1148,7 +1164,7 @@ export default function RippleButtonExample({
       <RippleButtonText {...textProps} text="Hover me!" />
     </RippleButton>
   );
-};`,
+}`,
     }
   ],
   "spotlight-card": [
@@ -1253,9 +1269,9 @@ export default function VerticalTabExample() {
       component: expandable_tabs_expandable_tabs_demo,
       code: `"use client";
 
+import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
-import type { IconType } from "react-icons";
 
 type TabDataType = {
   title: string;
@@ -1296,9 +1312,9 @@ export default function ExpandableTabsExample() {
       imports: ``,
       anatomy: `"use client";
 
+import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
-import type { IconType } from "react-icons";
 
 type TabDataType = {
   title: string;
@@ -1535,13 +1551,15 @@ export default function StaggerTextExample() {
       component: hold_to_delete_button_hold_to_delete_button_demo,
       code: `"use client";
 
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import { toast } from "sonner";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
     <div className="flex items-center justify-center py-12">
-      <HoldToDeleteButton onDelete={() => toast.success("Successfully deleted")} />
+      <HoldToDeleteButton
+        onDelete={() => toast.success("Successfully deleted")}
+      />
     </div>
   );
 }
@@ -1549,13 +1567,15 @@ export default function HoldToDeleteButtonDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import { toast } from "sonner";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
     <div className="flex items-center justify-center py-12">
-      <HoldToDeleteButton onDelete={() => toast.success("Successfully deleted")} />
+      <HoldToDeleteButton
+        onDelete={() => toast.success("Successfully deleted")}
+      />
     </div>
   );
 }`,
@@ -1588,7 +1608,11 @@ export interface DockMenuItem {
   /** Display label shown on the item pill. */
   label: string;
   /** Icon component (e.g. from lucide-react). */
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean | "true" | "false" }>;
+  icon: React.ComponentType<{
+    className?: string;
+    strokeWidth?: number;
+    "aria-hidden"?: boolean | "true" | "false";
+  }>;
 }
 
 export interface CircularDockMenuProps {
@@ -1638,7 +1662,11 @@ export default function CircularDockMenu({
   );
 
   const positionedItems = useMemo(
-    () => items.map((item, index) => ({ ...item, ...getArcPosition(index, items.length) })),
+    () =>
+      items.map((item, index) => ({
+        ...item,
+        ...getArcPosition(index, items.length),
+      })),
     [items],
   );
 
@@ -1653,42 +1681,75 @@ export default function CircularDockMenu({
 
   return (
     <MotionConfig transition={springConfig}>
-      <div className={cn("flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10", className)}>
+      <div
+        className={cn(
+          "flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10",
+          className,
+        )}
+      >
         <div ref={rootRef} className="relative h-[440px] w-full max-w-[520px]">
           <AnimatePresence initial={false}>
             {isOpen &&
-              positionedItems.map(({ label, icon: Icon, x, y, rotate }, index) => (
-                <m.div
-                  key={label}
-                  className="absolute bottom-12 left-1/2 z-10"
-                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.56, rotate: 8, filter: "blur(10px)" }}
-                  animate={{
-                    x, y, opacity: 1, scale: 1, rotate,
-                    filter: "blur(0px)",
-                    transition: { ...springConfig, delay: (items.length - index - 1) * 0.045 },
-                  }}
-                  exit={{
-                    x: 0, y: 0, opacity: 0, scale: 0.48, rotate: 10,
-                    filter: "blur(10px)",
-                    transition: { duration: 0.2, ease: "easeInOut", delay: index * 0.025 },
-                  }}
-                >
-                  <m.button
-                    type="button"
-                    className={cn(
-                      "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
-                      "border-border bg-background text-foreground shadow-lg",
-                      "cursor-pointer text-lg font-semibold whitespace-nowrap",
-                      "hover:border-border/80",
-                    )}
-                    whileHover={{ scale: 1.05, zIndex: 20 }}
-                    whileTap={{ scale: 0.96 }}
+              positionedItems.map(
+                ({ label, icon: Icon, x, y, rotate }, index) => (
+                  <m.div
+                    key={label}
+                    className="absolute bottom-12 left-1/2 z-10"
+                    initial={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.56,
+                      rotate: 8,
+                      filter: "blur(10px)",
+                    }}
+                    animate={{
+                      x,
+                      y,
+                      opacity: 1,
+                      scale: 1,
+                      rotate,
+                      filter: "blur(0px)",
+                      transition: {
+                        ...springConfig,
+                        delay: (items.length - index - 1) * 0.045,
+                      },
+                    }}
+                    exit={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.48,
+                      rotate: 10,
+                      filter: "blur(10px)",
+                      transition: {
+                        duration: 0.2,
+                        ease: "easeInOut",
+                        delay: index * 0.025,
+                      },
+                    }}
                   >
-                    <Icon aria-hidden="true" className="text-muted-foreground size-6" strokeWidth={2} />
-                    <span>{label}</span>
-                  </m.button>
-                </m.div>
-              ))}
+                    <m.button
+                      type="button"
+                      className={cn(
+                        "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
+                        "border-border bg-background text-foreground shadow-lg",
+                        "cursor-pointer text-lg font-semibold whitespace-nowrap",
+                        "hover:border-border/80",
+                      )}
+                      whileHover={{ scale: 1.05, zIndex: 20 }}
+                      whileTap={{ scale: 0.96 }}
+                    >
+                      <Icon
+                        aria-hidden="true"
+                        className="text-muted-foreground size-6"
+                        strokeWidth={2}
+                      />
+                      <span>{label}</span>
+                    </m.button>
+                  </m.div>
+                ),
+              )}
           </AnimatePresence>
 
           <m.button
@@ -1704,7 +1765,11 @@ export default function CircularDockMenu({
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.94 }}
           >
-            <m.span className="relative block size-9" animate={isOpen ? "open" : "closed"} initial={false}>
+            <m.span
+              className="relative block size-9"
+              animate={isOpen ? "open" : "closed"}
+              initial={false}
+            >
               <m.span
                 className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
@@ -1730,13 +1795,13 @@ export default function CircularDockMenu({
       type: "registry:ui",
       content: `"use client";
 
-import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   motion,
+  type SpringOptions,
   useMotionValue,
   useSpring,
-  type SpringOptions,
 } from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
@@ -1963,21 +2028,20 @@ export default function DotOrbitShader({
       type: "registry:ui",
       content: `"use client";
 
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "motion/react";
 import {
   createContext,
+  type ReactNode,
   useContext,
   useEffect,
-  useState,
   useRef,
-  type ReactNode,
+  useState,
   ViewTransition,
 } from "react";
-import { motion } from "motion/react";
-
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import styles from "./styles.module.css";
-import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
 type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
@@ -2035,8 +2099,7 @@ const accordionItemVariants = cva(
 );
 
 interface AccordionItemProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
+  extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof accordionItemVariants> {
   children: ReactNode;
   className?: string;
@@ -2234,12 +2297,12 @@ const AccordionItemContent = ({
 };
 
 export {
-  AccordionRoot,
+  AccordionContext,
   AccordionItem,
+  AccordionItemContent,
   AccordionItemHeader,
   AccordionItemTrigger,
-  AccordionItemContent,
-  AccordionContext,
+  AccordionRoot,
 };
 `,
       path: "accordion/accordion.tsx",
@@ -2467,8 +2530,8 @@ export default function SpinningText({
       type: "registry:ui",
       content: `"use client";
 
+import { type MotionConfigProps, motion, useAnimation } from "motion/react";
 import type { ReactNode } from "react";
-import { motion, type MotionConfigProps, useAnimation } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps
@@ -2606,7 +2669,11 @@ export default function FanView({
   );
 
   const positionedItems = useMemo(
-    () => items.map((item, index) => ({ ...item, ...getFanPoint(index, items.length) })),
+    () =>
+      items.map((item, index) => ({
+        ...item,
+        ...getFanPoint(index, items.length),
+      })),
     [items],
   );
 
@@ -2630,52 +2697,61 @@ export default function FanView({
         <div ref={rootRef} className="relative flex items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
-              positionedItems.map(({ label, width = 160, x, y, rotate, zIndex }, index) => (
-                <m.button
-                  key={label}
-                  type="button"
-                  title={label}
-                  aria-label={label}
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
-                  style={{ width, zIndex }}
-                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.55, rotate: 0, filter: "blur(10px)" }}
-                  animate={{
-                    x,
-                    y,
-                    opacity: 1,
-                    scale: 1,
-                    rotate,
-                    filter: "blur(0px)",
-                    transition: { ...springConfig, delay: index * 0.04 },
-                  }}
-                  exit={{
-                    x: 0,
-                    y: 0,
-                    opacity: 0,
-                    scale: 0.45,
-                    rotate: 0,
-                    filter: "blur(10px)",
-                    transition: {
-                      duration: 0.18,
-                      ease: "easeInOut",
-                      delay: (items.length - index - 1) * 0.025,
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, zIndex: 30 }}
-                  whileTap={{ scale: 0.96 }}
-                  onClick={() => setIsOpen((v) => !v)}
-                >
-                  <span
-                    className={cn(
-                      "flex h-12 w-full items-center justify-center rounded-xl border px-5",
-                      "border-border bg-foreground text-background shadow-sm",
-                      "text-[17px] font-medium whitespace-nowrap",
-                    )}
+              positionedItems.map(
+                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                  <m.button
+                    key={label}
+                    type="button"
+                    title={label}
+                    aria-label={label}
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    style={{ width, zIndex }}
+                    initial={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.55,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                    }}
+                    animate={{
+                      x,
+                      y,
+                      opacity: 1,
+                      scale: 1,
+                      rotate,
+                      filter: "blur(0px)",
+                      transition: { ...springConfig, delay: index * 0.04 },
+                    }}
+                    exit={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.45,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                      transition: {
+                        duration: 0.18,
+                        ease: "easeInOut",
+                        delay: (items.length - index - 1) * 0.025,
+                      },
+                    }}
+                    whileHover={{ scale: 1.05, zIndex: 30 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setIsOpen((v) => !v)}
                   >
-                    {label}
-                  </span>
-                </m.button>
-              ))}
+                    <span
+                      className={cn(
+                        "flex h-12 w-full items-center justify-center rounded-xl border px-5",
+                        "border-border bg-foreground text-background shadow-sm",
+                        "text-[17px] font-medium whitespace-nowrap",
+                      )}
+                    >
+                      {label}
+                    </span>
+                  </m.button>
+                ),
+              )}
           </AnimatePresence>
 
           <m.button
@@ -2721,8 +2797,6 @@ export default function FanView({
       type: "registry:ui",
       content: `"use client";
 
-import { useClock } from "@/hooks/useClock";
-import { cn } from "@/lib/utils";
 import {
   motion,
   useMotionTemplate,
@@ -2733,6 +2807,8 @@ import {
 } from "motion/react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
+import { useClock } from "@/hooks/useClock";
+import { cn } from "@/lib/utils";
 
 // Constants
 const DEFAULT_DURATION = 10; // Default duration in seconds
@@ -3270,8 +3346,8 @@ const TabItem = ({ title, ...props }: TabItemProps) => {
       type: "registry:ui",
       content: `"use client";
 
+import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
 import { useState } from "react";
-import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
 import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
@@ -3447,10 +3523,9 @@ export default function MeshGradientShader({
       type: "registry:ui",
       content: `"use client";
 
-import { useState } from "react";
-import Link from "next/link";
-
 import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
+import { useState } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -3561,7 +3636,7 @@ export default function LinkPreview({
       content: `"use client";
 
 import { motion, type Variants } from "motion/react";
-import { useState, type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -3590,9 +3665,7 @@ export default function StaggerText({
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <h1 className="sr-only">
-        {text}
-      </h1>
+      <h1 className="sr-only">{text}</h1>
       <Tag
         className={cn("overflow-clip tracking-wide select-text", className)}
         aria-label={text}
@@ -3693,11 +3766,7 @@ const StaggerItemSegment = ({
   }
 
   return (
-    <motion.span
-      className="h-fit select-none"
-      aria-hidden="true"
-      {...props}
-    >
+    <motion.span className="h-fit select-none" aria-hidden="true" {...props}>
       {content}
     </motion.span>
   );

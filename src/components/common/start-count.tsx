@@ -1,11 +1,9 @@
 "use client";
 
-import { FaGithub } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-
-import { useGitStars } from "@/hooks/useGitStars";
-import { useEffect, useState } from "react";
 import NumberFlow from "@number-flow/react";
+import { useEffect, useState } from "react";
+import { FaGithub, FaStar } from "react-icons/fa";
+import { useGitStars } from "@/hooks/useGitStars";
 
 const StartCount = () => {
   const [starCount, setStarCount] = useState<number>(0o0);

@@ -1,13 +1,12 @@
 "use client";
 
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
-import { heroContent } from "@/lib/constants";
-import Sidebar from "../component-sidebar";
-import BgGradient from "../common/bg-gradient";
-import FeatureGrid from "./feature-grid";
+import gsap from "gsap";
 import { useRef } from "react";
+import { heroContent } from "@/lib/constants";
+import BgGradient from "../common/bg-gradient";
+import Sidebar from "../component-sidebar";
+import FeatureGrid from "./feature-grid";
 
 gsap.registerPlugin(useGSAP);
 

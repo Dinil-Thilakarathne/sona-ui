@@ -5,7 +5,8 @@ import RippleButton, {
   type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";
 
-interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LocalRippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -13,11 +14,12 @@ interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-} 
+}
 
 export default function RippleButtonExample({
   textProps,
@@ -30,4 +32,4 @@ export default function RippleButtonExample({
       <RippleButtonText {...textProps} text="Hover me!" />
     </RippleButton>
   );
-};
+}

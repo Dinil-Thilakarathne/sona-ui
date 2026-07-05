@@ -1,12 +1,18 @@
+import {
+  BookOpen,
+  Clapperboard,
+  FileText,
+  ImageIcon,
+  Music,
+} from "lucide-react";
 import type * as React from "react";
-import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
-import FanView from "@/registry/sonaui/fan-view/fan-view";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
-import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+import FanView from "@/registry/sonaui/fan-view/fan-view";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
+import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
 import RippleButton, {
   RippleButtonText,
 } from "@/registry/sonaui/ripple-button/ripple-button";
@@ -313,7 +319,9 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         disabled={v.disabled as boolean}
         className="max-w-sm"
       >
-        <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
+        <h3 className="text-foreground text-lg font-semibold">
+          Spotlight Card
+        </h3>
         <p className="text-muted-foreground mt-2 text-sm">
           Move your cursor across the card to reveal the spotlight.
         </p>

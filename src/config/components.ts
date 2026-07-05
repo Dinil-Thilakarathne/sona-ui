@@ -91,18 +91,18 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     href: "/docs/hold-to-delete-button",
     type: "Components",
   },
-  {
-    name: "Circular Dock Menu",
-    slug: "circular-dock-menu",
-    href: "/docs/circular-dock-menu",
-    type: "Components",
-  },
-  {
-    name: "Fan View",
-    slug: "fan-view",
-    href: "/docs/fan-view",
-    type: "Components",
-  },
+  // {
+  //   name: "Circular Dock Menu",
+  //   slug: "circular-dock-menu",
+  //   href: "/docs/circular-dock-menu",
+  //   type: "Components",
+  // },
+  // {
+  //   name: "Fan View",
+  //   slug: "fan-view",
+  //   href: "/docs/fan-view",
+  //   type: "Components",
+  // },
   {
     name: "Mesh Gradient",
     slug: "mesh-gradient-shader",

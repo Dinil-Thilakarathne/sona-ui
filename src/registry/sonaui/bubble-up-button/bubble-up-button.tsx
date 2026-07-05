@@ -1,7 +1,7 @@
 "use client";
 
+import { type MotionConfigProps, motion, useAnimation } from "motion/react";
 import type { ReactNode } from "react";
-import { motion, type MotionConfigProps, useAnimation } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps

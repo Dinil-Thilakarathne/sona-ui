@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useId, useState, type ReactNode } from "react";
-import { cn } from "@/lib/utils";
 import { Button } from "@base-ui/react/button";
+import { motion } from "motion/react";
+import { type ReactNode, useId, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface Tab {
   title: string;

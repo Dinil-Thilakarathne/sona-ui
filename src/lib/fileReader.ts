@@ -7,7 +7,10 @@ import path from "path";
  * @param fileName - The name of the file to read.
  * @returns The content of the file as a string, or an error message if the file cannot be read.
  */
-export const readFileContent = (directory: string, fileName: string): string => {
+export const readFileContent = (
+  directory: string,
+  fileName: string,
+): string => {
   const fullPath = path.join(process.cwd(), directory, fileName);
   try {
     return fs.readFileSync(fullPath, "utf-8");

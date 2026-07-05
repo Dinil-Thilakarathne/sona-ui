@@ -1,7 +1,7 @@
 "use client";
 
+import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
 import { useState } from "react";
-import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
 import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";

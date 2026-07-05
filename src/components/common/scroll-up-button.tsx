@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { cva } from "class-variance-authority";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface ScrollUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -23,8 +23,8 @@ const scroollUpButtonVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
-)
+  },
+);
 
 export default function ScrollUpButton({ text, variant }: ScrollUpButtonProps) {
   return (

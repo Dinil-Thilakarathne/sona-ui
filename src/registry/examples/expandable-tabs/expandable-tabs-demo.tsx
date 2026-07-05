@@ -1,8 +1,8 @@
 "use client";
 
+import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
-import type { IconType } from "react-icons";
 
 type TabDataType = {
   title: string;

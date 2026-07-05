@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import type { TagPropsType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 const Tag: React.FC<TagPropsType> = ({ text, type = "default", className }) => {
   const baseClasses =
@@ -19,6 +19,5 @@ const Tag: React.FC<TagPropsType> = ({ text, type = "default", className }) => {
 
   return <span className={cn(baseClasses, typeClass, className)}>{text}</span>;
 };
-
 
 export default Tag;

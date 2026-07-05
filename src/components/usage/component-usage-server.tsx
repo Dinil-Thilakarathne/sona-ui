@@ -1,5 +1,5 @@
-import { ComponentUsage } from "./component-usage";
 import { exampleRegistry } from "@/registry/index";
+import { ComponentUsage } from "./component-usage";
 
 export function ComponentUsageServer({ component }: { component: string }) {
   const examples = exampleRegistry[component];

@@ -6,9 +6,8 @@ import {
   CodeBlockPre,
 } from "./code-block";
 
-interface InternalCodeBlockProps extends React.ComponentProps<
-  typeof CodeBlock
-> {
+interface InternalCodeBlockProps
+  extends React.ComponentProps<typeof CodeBlock> {
   filename?: string;
 }
 

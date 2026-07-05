@@ -14,7 +14,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-      
+
     {
       value: "item-2",
       title: "Why do we use it?",

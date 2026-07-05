@@ -61,7 +61,9 @@
   --spacing-header-height: 4.5rem;
   --spacing-sidebar-width: var(--sidebar-width);
   --spacing-mobile-sidebar-height: calc(
-    100svh - var(--spacing-header-height) - 2rem
+    100svh -
+    var(--spacing-header-height) -
+    2rem
   );
 
   /*Custom Easings */
