@@ -2,6 +2,8 @@ import type * as React from "react";
 import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
+import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
@@ -50,6 +52,105 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "dot-orbit-shader": {
+    controls: [
+      {
+        type: "slider",
+        prop: "size",
+        label: "Dot size",
+        min: 0.05,
+        max: 1,
+        step: 0.05,
+        default: 0.4,
+      },
+      {
+        type: "slider",
+        prop: "sizeRange",
+        label: "Size variation",
+        min: 0,
+        max: 1,
+        step: 0.05,
+        default: 0.3,
+      },
+      {
+        type: "slider",
+        prop: "spreading",
+        label: "Orbit spread",
+        min: 0,
+        max: 1,
+        step: 0.05,
+        default: 0.5,
+      },
+      {
+        type: "slider",
+        prop: "speed",
+        label: "Speed",
+        min: 0,
+        max: 3,
+        step: 0.1,
+        default: 1,
+      },
+    ],
+    render: (v) => (
+      <DotOrbitShader
+        size={v.size as number}
+        sizeRange={v.sizeRange as number}
+        spreading={v.spreading as number}
+        speed={v.speed as number}
+        className="h-64 lg:h-72 w-full rounded-xl"
+      />
+    ),
+  },
+
+  "mesh-gradient-shader": {
+    controls: [
+      {
+        type: "slider",
+        prop: "distortion",
+        label: "Distortion",
+        min: 0,
+        max: 1,
+        step: 0.05,
+        default: 0.3,
+      },
+      {
+        type: "slider",
+        prop: "swirl",
+        label: "Swirl",
+        min: 0,
+        max: 1,
+        step: 0.05,
+        default: 0.2,
+      },
+      {
+        type: "slider",
+        prop: "speed",
+        label: "Speed",
+        min: 0,
+        max: 3,
+        step: 0.1,
+        default: 1,
+      },
+      {
+        type: "slider",
+        prop: "grainOverlay",
+        label: "Grain",
+        min: 0,
+        max: 1,
+        step: 0.05,
+        default: 0,
+      },
+    ],
+    render: (v) => (
+      <MeshGradientShader
+        distortion={v.distortion as number}
+        swirl={v.swirl as number}
+        speed={v.speed as number}
+        grainOverlay={v.grainOverlay as number}
+        className="h-64 lg:h-72 w-full rounded-xl"
+      />
+    ),
+  },
   "ripple-button": {
     controls: [
       {

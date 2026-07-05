@@ -103,6 +103,18 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     href: "/docs/fan-view",
     type: "Components",
   },
+  {
+    name: "Mesh Gradient",
+    slug: "mesh-gradient-shader",
+    href: "/docs/mesh-gradient-shader",
+    type: "Shaders",
+  },
+  {
+    name: "Dot Orbit",
+    slug: "dot-orbit-shader",
+    href: "/docs/dot-orbit-shader",
+    type: "Shaders",
+  },
 ];
 
 export const groupedComponents = componentNavigationLinks.reduce<

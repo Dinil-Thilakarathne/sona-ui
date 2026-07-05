@@ -1,5 +1,31 @@
 [
   {
+    "name": "dot-orbit-shader",
+    "type": "registry:ui",
+    "title": "Dot Orbit Shader",
+    "description": "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
+    "files": [
+      {
+        "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@paper-design/shaders-react"]
+  },
+  {
+    "name": "mesh-gradient-shader",
+    "type": "registry:ui",
+    "title": "Mesh Gradient Shader",
+    "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+    "files": [
+      {
+        "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@paper-design/shaders-react"]
+  },
+  {
     "name": "magnetic",
     "type": "registry:ui",
     "title": "Magnetic",
