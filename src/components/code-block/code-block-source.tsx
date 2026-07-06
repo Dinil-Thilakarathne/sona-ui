@@ -1,6 +1,6 @@
 import type * as React from "react";
-import { CodeBlock } from "./code-block";
 import { readFileContent } from "@/lib/file-utils";
+import { CodeBlock } from "./code-block";
 
 interface CodeBlockSourceProps extends React.ComponentProps<typeof CodeBlock> {
   filePath?: string;

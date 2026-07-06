@@ -1,14 +1,12 @@
 import Link from "next/link";
-
-import Logo from "../common/logo";
-import StartCount from "../common/start-count";
-import SidebarLink from "../common/sidebar-link";
-
-import { navLinks } from "@/lib/data";
 import { GIT_REP_LINK } from "@/lib/constants";
+import { navLinks } from "@/lib/data";
 import FadeInComp from "../common/fade-in";
-import { Search } from "../Search";
+import Logo from "../common/logo";
+import SidebarLink from "../common/sidebar-link";
+import StartCount from "../common/start-count";
 import { ModeToggle } from "../common/theme-toggle";
+import { Search } from "../Search";
 
 const Header = () => {
   return (

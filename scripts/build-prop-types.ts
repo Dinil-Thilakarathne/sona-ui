@@ -68,9 +68,7 @@ function getJsDoc(node: ts.Node): { description: string; default?: string } {
   return { description, default: def };
 }
 
-function extractMembers(
-  members: ts.NodeArray<ts.TypeElement>,
-): PropMeta[] {
+function extractMembers(members: ts.NodeArray<ts.TypeElement>): PropMeta[] {
   const props: PropMeta[] = [];
   for (const member of members) {
     if (!ts.isPropertySignature(member) || !member.name) continue;

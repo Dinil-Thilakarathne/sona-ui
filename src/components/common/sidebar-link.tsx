@@ -1,9 +1,8 @@
 import Link, { type LinkProps } from "next/link";
+import type { NavLinksPropsType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import StaggerText from "./stagger-text";
 import Tag from "./tag";
-
-import { cn } from "@/lib/utils";
-import type { NavLinksPropsType } from "@/lib/types";
 
 interface NavLinkProps extends NavLinksPropsType, LinkProps {
   href: string;

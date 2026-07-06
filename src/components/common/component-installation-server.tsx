@@ -1,5 +1,5 @@
+import { componentMetadata, registry } from "@/registry/index";
 import { ComponentInstallation } from "./component-installation";
-import { registry, componentMetadata } from "@/registry/index";
 
 interface Props {
   component: string;

@@ -8,9 +8,7 @@
  * @param input - Line numbers as array or range string
  * @returns Array of line numbers (1-indexed)
  */
-export function parseLineRange(
-  input: number[] | string | undefined,
-): number[] {
+export function parseLineRange(input: number[] | string | undefined): number[] {
   if (!input) return [];
   if (Array.isArray(input)) return input;
 
@@ -75,12 +73,20 @@ export function stripDiffMarker(line: string): string {
   const trimmed = line.trim();
 
   // Direct prefix markers
-  if (trimmed.startsWith("+") || trimmed.startsWith("-") || trimmed.startsWith("!")) {
+  if (
+    trimmed.startsWith("+") ||
+    trimmed.startsWith("-") ||
+    trimmed.startsWith("!")
+  ) {
     return line.replace(/^(\s*)[-+!](\s?)/, "$1");
   }
 
   // Comment markers
-  if (trimmed.startsWith("// +") || trimmed.startsWith("// -") || trimmed.startsWith("// !")) {
+  if (
+    trimmed.startsWith("// +") ||
+    trimmed.startsWith("// -") ||
+    trimmed.startsWith("// !")
+  ) {
     return line.replace(/^(\s*)\/\/\s*[-+!](\s?)/, "$1");
   }
 

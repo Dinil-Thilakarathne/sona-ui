@@ -6,4 +6,4 @@ export default function SpinningTextExample() {
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
-};
+}

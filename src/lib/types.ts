@@ -2,7 +2,7 @@ import { type } from "arktype";
 
 const tagVariants = type('"new" | "soon" | "updated" | "featured" | "default"');
 const typeVariants = type(
-  '"Components" | "Text" | "Effects" | "Getting Started"',
+  '"Components" | "Text" | "Effects" | "Getting Started" | "Shaders"',
 );
 
 export const navLinksProps = type({

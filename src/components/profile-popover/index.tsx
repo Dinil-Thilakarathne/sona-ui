@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useRef } from "react";
-
-import { motion } from "motion/react";
 import { ChevronsUpDown } from "lucide-react";
+import { motion } from "motion/react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 import AnimatedLink from "../common/animated-link";
 

@@ -64,7 +64,11 @@ export default function FanView({
   );
 
   const positionedItems = useMemo(
-    () => items.map((item, index) => ({ ...item, ...getFanPoint(index, items.length) })),
+    () =>
+      items.map((item, index) => ({
+        ...item,
+        ...getFanPoint(index, items.length),
+      })),
     [items],
   );
 
@@ -88,52 +92,61 @@ export default function FanView({
         <div ref={rootRef} className="relative flex items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
-              positionedItems.map(({ label, width = 160, x, y, rotate, zIndex }, index) => (
-                <m.button
-                  key={label}
-                  type="button"
-                  title={label}
-                  aria-label={label}
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
-                  style={{ width, zIndex }}
-                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.55, rotate: 0, filter: "blur(10px)" }}
-                  animate={{
-                    x,
-                    y,
-                    opacity: 1,
-                    scale: 1,
-                    rotate,
-                    filter: "blur(0px)",
-                    transition: { ...springConfig, delay: index * 0.04 },
-                  }}
-                  exit={{
-                    x: 0,
-                    y: 0,
-                    opacity: 0,
-                    scale: 0.45,
-                    rotate: 0,
-                    filter: "blur(10px)",
-                    transition: {
-                      duration: 0.18,
-                      ease: "easeInOut",
-                      delay: (items.length - index - 1) * 0.025,
-                    },
-                  }}
-                  whileHover={{ scale: 1.05, zIndex: 30 }}
-                  whileTap={{ scale: 0.96 }}
-                  onClick={() => setIsOpen((v) => !v)}
-                >
-                  <span
-                    className={cn(
-                      "flex h-12 w-full items-center justify-center rounded-xl border px-5",
-                      "border-border bg-foreground text-background shadow-sm",
-                      "text-[17px] font-medium whitespace-nowrap",
-                    )}
+              positionedItems.map(
+                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                  <m.button
+                    key={label}
+                    type="button"
+                    title={label}
+                    aria-label={label}
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    style={{ width, zIndex }}
+                    initial={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.55,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                    }}
+                    animate={{
+                      x,
+                      y,
+                      opacity: 1,
+                      scale: 1,
+                      rotate,
+                      filter: "blur(0px)",
+                      transition: { ...springConfig, delay: index * 0.04 },
+                    }}
+                    exit={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.45,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                      transition: {
+                        duration: 0.18,
+                        ease: "easeInOut",
+                        delay: (items.length - index - 1) * 0.025,
+                      },
+                    }}
+                    whileHover={{ scale: 1.05, zIndex: 30 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setIsOpen((v) => !v)}
                   >
-                    {label}
-                  </span>
-                </m.button>
-              ))}
+                    <span
+                      className={cn(
+                        "flex h-12 w-full items-center justify-center rounded-xl border px-5",
+                        "border-border bg-foreground text-background shadow-sm",
+                        "text-[17px] font-medium whitespace-nowrap",
+                      )}
+                    >
+                      {label}
+                    </span>
+                  </m.button>
+                ),
+              )}
           </AnimatePresence>
 
           <m.button

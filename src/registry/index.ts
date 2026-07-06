@@ -2,6 +2,10 @@
 import * as React from "react";
 import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
+import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
+import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
+import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
 import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
 import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
 import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
@@ -15,6 +19,11 @@ import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
 import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
+import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
+import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
+import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
+import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
@@ -34,7 +43,13 @@ export const exampleRegistry: Record<string, RegistryEntry[]> = {
       component: circular_dock_menu_circular_dock_menu_demo,
       code: `"use client";
 
-import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
+import {
+  BookOpen,
+  Clapperboard,
+  FileText,
+  ImageIcon,
+  Music,
+} from "lucide-react";
 
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 
@@ -53,7 +68,13 @@ export default function CircularDockMenuDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import { BookOpen, Clapperboard, FileText, ImageIcon, Music } from "lucide-react";
+import {
+  BookOpen,
+  Clapperboard,
+  FileText,
+  ImageIcon,
+  Music,
+} from "lucide-react";
 
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 
@@ -102,6 +123,122 @@ export default function MagneticButtonExample() {
 }`,
     }
   ],
+  "dot-orbit-shader": [
+    {
+      name: "dense",
+      component: dot_orbit_shader_dot_orbit_shader_dense,
+      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+
+export default function DotOrbitShaderDense() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#0a0a0a"
+      colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
+      size={0.5}
+      sizeRange={0.1}
+      spreading={0.3}
+      stepsPerColor={3}
+    />
+  );
+}
+`,
+      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      anatomy: `export default function DotOrbitShaderDense() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#0a0a0a"
+      colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
+      size={0.5}
+      sizeRange={0.1}
+      spreading={0.3}
+      stepsPerColor={3}
+    />
+  );
+}`,
+    },
+    {
+      name: "slow",
+      component: dot_orbit_shader_dot_orbit_shader_slow,
+      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+
+export default function DotOrbitShaderSlow() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#111827"
+      colors={["#34d399", "#059669", "#065f46"]}
+      size={0.45}
+      sizeRange={0.5}
+      spreading={0.8}
+      speed={0.2}
+    />
+  );
+}
+`,
+      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      anatomy: `export default function DotOrbitShaderSlow() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#111827"
+      colors={["#34d399", "#059669", "#065f46"]}
+      size={0.45}
+      sizeRange={0.5}
+      spreading={0.8}
+      speed={0.2}
+    />
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: dot_orbit_shader_dot_orbit_shader_demo,
+      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+
+export default function DotOrbitShaderExample() {
+  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+}
+`,
+      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      anatomy: `export default function DotOrbitShaderExample() {
+  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+}`,
+    },
+    {
+      name: "pastel",
+      component: dot_orbit_shader_dot_orbit_shader_pastel,
+      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+
+export default function DotOrbitShaderPastel() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#fdf6f0"
+      colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
+      size={0.35}
+      sizeRange={0.4}
+      spreading={0.6}
+    />
+  );
+}
+`,
+      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      anatomy: `export default function DotOrbitShaderPastel() {
+  return (
+    <DotOrbitShader
+      className="h-64 lg:h-72 w-full"
+      colorBack="#fdf6f0"
+      colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
+      size={0.35}
+      sizeRange={0.4}
+      spreading={0.6}
+    />
+  );
+}`,
+    }
+  ],
   "accordion": [
     {
       name: "splitted",
@@ -122,7 +259,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-      
+
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -188,7 +325,7 @@ export default function AccordionSplittedExample() {
       content:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has been the industry's standard dummy text since the 1500s.",
     },
-      
+
     {
       value: "item-2",
       title: "Why do we use it?",
@@ -780,7 +917,7 @@ export default function SpinningTextExample() {
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
-};
+}
 `,
       imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
       anatomy: `export default function SpinningTextExample() {
@@ -789,7 +926,7 @@ export default function SpinningTextExample() {
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
-};`,
+}`,
     }
   ],
   "bubble-up-button": [
@@ -965,7 +1102,8 @@ import RippleButton, {
   type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";
 
-interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface LocalRippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -973,11 +1111,12 @@ interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEl
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-} 
+}
 
 export default function RippleButtonExample({
   textProps,
@@ -990,7 +1129,7 @@ export default function RippleButtonExample({
       <RippleButtonText {...textProps} text="Hover me!" />
     </RippleButton>
   );
-};
+}
 `,
       imports: `import type { ReactNode } from "react";
 
@@ -998,7 +1137,8 @@ import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
 } from "@/registry/sonaui/ripple-button/ripple-button";`,
-      anatomy: `interface LocalRippleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+      anatomy: `interface LocalRippleButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
   scaleAmount?: number;
   className?: string;
@@ -1006,11 +1146,12 @@ import RippleButton, {
   rippleStyle?: string;
 }
 
-interface RippleButtonEx1Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface RippleButtonEx1Props
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonProps?: LocalRippleButtonProps;
   textProps?: RippleButtonTextProps;
   className?: string;
-} 
+}
 
 export default function RippleButtonExample({
   textProps,
@@ -1023,7 +1164,7 @@ export default function RippleButtonExample({
       <RippleButtonText {...textProps} text="Hover me!" />
     </RippleButton>
   );
-};`,
+}`,
     }
   ],
   "spotlight-card": [
@@ -1128,9 +1269,9 @@ export default function VerticalTabExample() {
       component: expandable_tabs_expandable_tabs_demo,
       code: `"use client";
 
+import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
-import type { IconType } from "react-icons";
 
 type TabDataType = {
   title: string;
@@ -1171,9 +1312,9 @@ export default function ExpandableTabsExample() {
       imports: ``,
       anatomy: `"use client";
 
+import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
-import type { IconType } from "react-icons";
 
 type TabDataType = {
   title: string;
@@ -1207,6 +1348,138 @@ export default function ExpandableTabsExample() {
       motionConfig={{
         transition: { duration: 0.2, ease: "easeInOut" },
       }}
+    />
+  );
+}`,
+    }
+  ],
+  "mesh-gradient-shader": [
+    {
+      name: "ocean",
+      component: mesh_gradient_shader_mesh_gradient_shader_ocean,
+      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+
+export default function MeshGradientShaderOcean() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
+      distortion={0.5}
+      swirl={0.1}
+    />
+  );
+}
+`,
+      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      anatomy: `export default function MeshGradientShaderOcean() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
+      distortion={0.5}
+      swirl={0.1}
+    />
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: mesh_gradient_shader_mesh_gradient_shader_demo,
+      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+
+export default function MeshGradientShaderExample() {
+  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+}
+`,
+      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      anatomy: `export default function MeshGradientShaderExample() {
+  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+}`,
+    },
+    {
+      name: "sunset",
+      component: mesh_gradient_shader_mesh_gradient_shader_sunset,
+      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+
+export default function MeshGradientShaderSunset() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
+      distortion={0.4}
+      swirl={0.5}
+    />
+  );
+}
+`,
+      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      anatomy: `export default function MeshGradientShaderSunset() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
+      distortion={0.4}
+      swirl={0.5}
+    />
+  );
+}`,
+    },
+    {
+      name: "static",
+      component: mesh_gradient_shader_mesh_gradient_shader_static,
+      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+
+export default function MeshGradientShaderStatic() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
+      distortion={0.2}
+      swirl={0.05}
+      speed={0}
+    />
+  );
+}
+`,
+      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      anatomy: `export default function MeshGradientShaderStatic() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
+      distortion={0.2}
+      swirl={0.05}
+      speed={0}
+    />
+  );
+}`,
+    },
+    {
+      name: "monochrome",
+      component: mesh_gradient_shader_mesh_gradient_shader_monochrome,
+      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+
+export default function MeshGradientShaderMonochrome() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
+      distortion={0.6}
+      swirl={0.3}
+      grainOverlay={0.15}
+    />
+  );
+}
+`,
+      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      anatomy: `export default function MeshGradientShaderMonochrome() {
+  return (
+    <MeshGradientShader
+      className="h-64 lg:h-72 w-full"
+      colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
+      distortion={0.6}
+      swirl={0.3}
+      grainOverlay={0.15}
     />
   );
 }`,
@@ -1278,13 +1551,15 @@ export default function StaggerTextExample() {
       component: hold_to_delete_button_hold_to_delete_button_demo,
       code: `"use client";
 
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import { toast } from "sonner";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
     <div className="flex items-center justify-center py-12">
-      <HoldToDeleteButton onDelete={() => toast.success("Successfully deleted")} />
+      <HoldToDeleteButton
+        onDelete={() => toast.success("Successfully deleted")}
+      />
     </div>
   );
 }
@@ -1292,13 +1567,15 @@ export default function HoldToDeleteButtonDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import { toast } from "sonner";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
     <div className="flex items-center justify-center py-12">
-      <HoldToDeleteButton onDelete={() => toast.success("Successfully deleted")} />
+      <HoldToDeleteButton
+        onDelete={() => toast.success("Successfully deleted")}
+      />
     </div>
   );
 }`,
@@ -1331,7 +1608,11 @@ export interface DockMenuItem {
   /** Display label shown on the item pill. */
   label: string;
   /** Icon component (e.g. from lucide-react). */
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean | "true" | "false" }>;
+  icon: React.ComponentType<{
+    className?: string;
+    strokeWidth?: number;
+    "aria-hidden"?: boolean | "true" | "false";
+  }>;
 }
 
 export interface CircularDockMenuProps {
@@ -1381,7 +1662,11 @@ export default function CircularDockMenu({
   );
 
   const positionedItems = useMemo(
-    () => items.map((item, index) => ({ ...item, ...getArcPosition(index, items.length) })),
+    () =>
+      items.map((item, index) => ({
+        ...item,
+        ...getArcPosition(index, items.length),
+      })),
     [items],
   );
 
@@ -1396,42 +1681,75 @@ export default function CircularDockMenu({
 
   return (
     <MotionConfig transition={springConfig}>
-      <div className={cn("flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10", className)}>
+      <div
+        className={cn(
+          "flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10",
+          className,
+        )}
+      >
         <div ref={rootRef} className="relative h-[440px] w-full max-w-[520px]">
           <AnimatePresence initial={false}>
             {isOpen &&
-              positionedItems.map(({ label, icon: Icon, x, y, rotate }, index) => (
-                <m.div
-                  key={label}
-                  className="absolute bottom-12 left-1/2 z-10"
-                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.56, rotate: 8, filter: "blur(10px)" }}
-                  animate={{
-                    x, y, opacity: 1, scale: 1, rotate,
-                    filter: "blur(0px)",
-                    transition: { ...springConfig, delay: (items.length - index - 1) * 0.045 },
-                  }}
-                  exit={{
-                    x: 0, y: 0, opacity: 0, scale: 0.48, rotate: 10,
-                    filter: "blur(10px)",
-                    transition: { duration: 0.2, ease: "easeInOut", delay: index * 0.025 },
-                  }}
-                >
-                  <m.button
-                    type="button"
-                    className={cn(
-                      "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
-                      "border-border bg-background text-foreground shadow-lg",
-                      "cursor-pointer text-lg font-semibold whitespace-nowrap",
-                      "hover:border-border/80",
-                    )}
-                    whileHover={{ scale: 1.05, zIndex: 20 }}
-                    whileTap={{ scale: 0.96 }}
+              positionedItems.map(
+                ({ label, icon: Icon, x, y, rotate }, index) => (
+                  <m.div
+                    key={label}
+                    className="absolute bottom-12 left-1/2 z-10"
+                    initial={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.56,
+                      rotate: 8,
+                      filter: "blur(10px)",
+                    }}
+                    animate={{
+                      x,
+                      y,
+                      opacity: 1,
+                      scale: 1,
+                      rotate,
+                      filter: "blur(0px)",
+                      transition: {
+                        ...springConfig,
+                        delay: (items.length - index - 1) * 0.045,
+                      },
+                    }}
+                    exit={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.48,
+                      rotate: 10,
+                      filter: "blur(10px)",
+                      transition: {
+                        duration: 0.2,
+                        ease: "easeInOut",
+                        delay: index * 0.025,
+                      },
+                    }}
                   >
-                    <Icon aria-hidden="true" className="text-muted-foreground size-6" strokeWidth={2} />
-                    <span>{label}</span>
-                  </m.button>
-                </m.div>
-              ))}
+                    <m.button
+                      type="button"
+                      className={cn(
+                        "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
+                        "border-border bg-background text-foreground shadow-lg",
+                        "cursor-pointer text-lg font-semibold whitespace-nowrap",
+                        "hover:border-border/80",
+                      )}
+                      whileHover={{ scale: 1.05, zIndex: 20 }}
+                      whileTap={{ scale: 0.96 }}
+                    >
+                      <Icon
+                        aria-hidden="true"
+                        className="text-muted-foreground size-6"
+                        strokeWidth={2}
+                      />
+                      <span>{label}</span>
+                    </m.button>
+                  </m.div>
+                ),
+              )}
           </AnimatePresence>
 
           <m.button
@@ -1447,7 +1765,11 @@ export default function CircularDockMenu({
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.94 }}
           >
-            <m.span className="relative block size-9" animate={isOpen ? "open" : "closed"} initial={false}>
+            <m.span
+              className="relative block size-9"
+              animate={isOpen ? "open" : "closed"}
+              initial={false}
+            >
               <m.span
                 className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
@@ -1473,13 +1795,13 @@ export default function CircularDockMenu({
       type: "registry:ui",
       content: `"use client";
 
-import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   motion,
+  type SpringOptions,
   useMotionValue,
   useSpring,
-  type SpringOptions,
 } from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
@@ -1617,26 +1939,109 @@ export default function Magnetic({
       target: "components/sonaui/magnetic-button/magnetic-button.tsx"
     }
   ],
+  "dot-orbit-shader": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { DotOrbit } from "@paper-design/shaders-react";
+
+import { cn } from "@/lib/utils";
+
+export interface DotOrbitShaderProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Background color. Accepts hex, RGB, or HSL strings.
+   * @default "#000000"
+   */
+  colorBack?: string;
+  /**
+   * Up to 10 dot colors. Accepts hex, RGB, or HSL strings.
+   * @default ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4"]
+   */
+  colors?: string[];
+  /**
+   * Dot radius relative to cell size (0–1).
+   * @default 0.4
+   */
+  size?: number;
+  /**
+   * Random variation in dot size (0–1). 0 = uniform.
+   * @default 0.3
+   */
+  sizeRange?: number;
+  /**
+   * Maximum orbit distance around each cell center (0–1).
+   * @default 0.5
+   */
+  spreading?: number;
+  /**
+   * Extra color steps between base colors. 1 = N colors, 2 = 2×N, etc. (1–4).
+   * @default 1
+   */
+  stepsPerColor?: number;
+  /**
+   * Animation speed multiplier. 0 = static.
+   * @default 1
+   */
+  speed?: number;
+}
+
+export default function DotOrbitShader({
+  className,
+  colorBack = "#000000",
+  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4"],
+  size = 0.4,
+  sizeRange = 0.3,
+  spreading = 0.5,
+  stepsPerColor = 1,
+  speed = 1,
+  style,
+  ...props
+}: DotOrbitShaderProps) {
+  return (
+    <div
+      className={cn("overflow-hidden rounded-xl", className)}
+      style={style}
+      {...props}
+    >
+      <DotOrbit
+        colorBack={colorBack}
+        colors={colors}
+        size={size}
+        sizeRange={sizeRange}
+        spreading={spreading}
+        stepsPerColor={stepsPerColor}
+        speed={speed}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  );
+}
+`,
+      path: "dot-orbit-shader/dot-orbit-shader.tsx",
+      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx"
+    }
+  ],
   "accordion": [
     {
       type: "registry:ui",
       content: `"use client";
 
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "motion/react";
 import {
   createContext,
+  type ReactNode,
   useContext,
   useEffect,
-  useState,
   useRef,
-  type ReactNode,
+  useState,
   ViewTransition,
 } from "react";
-import { motion } from "motion/react";
-
 import { cn } from "@/lib/utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import styles from "./styles.module.css";
-import { cva, type VariantProps } from "class-variance-authority";
 
 // Types
 type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
@@ -1694,8 +2099,7 @@ const accordionItemVariants = cva(
 );
 
 interface AccordionItemProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
+  extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof accordionItemVariants> {
   children: ReactNode;
   className?: string;
@@ -1893,12 +2297,12 @@ const AccordionItemContent = ({
 };
 
 export {
-  AccordionRoot,
+  AccordionContext,
   AccordionItem,
+  AccordionItemContent,
   AccordionItemHeader,
   AccordionItemTrigger,
-  AccordionItemContent,
-  AccordionContext,
+  AccordionRoot,
 };
 `,
       path: "accordion/accordion.tsx",
@@ -2126,8 +2530,8 @@ export default function SpinningText({
       type: "registry:ui",
       content: `"use client";
 
+import { type MotionConfigProps, motion, useAnimation } from "motion/react";
 import type { ReactNode } from "react";
-import { motion, type MotionConfigProps, useAnimation } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps
@@ -2239,11 +2643,13 @@ export interface FanViewProps {
 const DEFAULT_ITEMS: FanViewItem[] = [];
 
 function getFanPoint(index: number, total: number) {
-  const progress = total <= 1 ? 0 : index / (total / 2);
-  const curve = progress;
+  const progress = total <= 1 ? 0 : index / (total - 1);
+  const angle = (progress - 0.5) * 80 * (Math.PI / 180);
+  const radius = 190;
   return {
-    x: 40 - progress * 18 - curve * 28,
-    y: -340 + progress * 170,
+    x: Math.sin(angle) * radius,
+    y: -(Math.cos(angle) * radius * 0.65 + 110),
+    rotate: (progress - 0.5) * 28,
     zIndex: total - index,
   };
 }
@@ -2263,7 +2669,11 @@ export default function FanView({
   );
 
   const positionedItems = useMemo(
-    () => items.map((item, index) => ({ ...item, ...getFanPoint(index, items.length) })),
+    () =>
+      items.map((item, index) => ({
+        ...item,
+        ...getFanPoint(index, items.length),
+      })),
     [items],
   );
 
@@ -2278,46 +2688,70 @@ export default function FanView({
 
   return (
     <MotionConfig transition={springConfig}>
-      <div className={cn("flex min-h-[560px] w-full items-center justify-center px-4 py-8", className)}>
-        <div ref={rootRef} className="relative h-[700px] w-full max-w-[700px]">
+      <div
+        className={cn(
+          "flex min-h-[420px] w-full items-end justify-center px-4 pb-16 pt-8",
+          className,
+        )}
+      >
+        <div ref={rootRef} className="relative flex items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
-              positionedItems.map(({ label, width = 160, x, y, zIndex }, index) => (
-                <m.button
-                  key={label}
-                  type="button"
-                  title={label}
-                  aria-label={label}
-                  className={cn(
-                    "absolute bottom-4 left-1/2 flex -translate-x-[40%] items-center gap-3",
-                    "cursor-pointer",
-                  )}
-                  style={{ width, zIndex }}
-                  initial={{ x: 0, y: 0, opacity: 0, scale: 0.55, filter: "blur(10px)" }}
-                  animate={{
-                    x, y, opacity: 1, scale: 1,
-                    filter: "blur(0px)",
-                    rotate: 4 * (items.length - index - 1),
-                    transition: { ...springConfig, delay: (items.length - index - 1) * 0.045 },
-                  }}
-                  exit={{
-                    x: 0, y: 0, opacity: 0, scale: 0.45,
-                    filter: "blur(10px)",
-                    transition: { duration: 0.2, ease: "easeInOut", delay: index * 0.025 },
-                  }}
-                  whileHover={{ scale: 1.05, zIndex: 30 }}
-                  whileTap={{ scale: 0.96 }}
-                  onClick={() => setIsOpen((v) => !v)}
-                >
-                  <span className={cn(
-                    "flex h-12 items-center justify-center rounded-xl border px-5",
-                    "border-border bg-foreground text-background shadow-sm",
-                    "text-[17px] font-medium whitespace-nowrap",
-                  )}>
-                    {label}
-                  </span>
-                </m.button>
-              ))}
+              positionedItems.map(
+                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                  <m.button
+                    key={label}
+                    type="button"
+                    title={label}
+                    aria-label={label}
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    style={{ width, zIndex }}
+                    initial={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.55,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                    }}
+                    animate={{
+                      x,
+                      y,
+                      opacity: 1,
+                      scale: 1,
+                      rotate,
+                      filter: "blur(0px)",
+                      transition: { ...springConfig, delay: index * 0.04 },
+                    }}
+                    exit={{
+                      x: 0,
+                      y: 0,
+                      opacity: 0,
+                      scale: 0.45,
+                      rotate: 0,
+                      filter: "blur(10px)",
+                      transition: {
+                        duration: 0.18,
+                        ease: "easeInOut",
+                        delay: (items.length - index - 1) * 0.025,
+                      },
+                    }}
+                    whileHover={{ scale: 1.05, zIndex: 30 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setIsOpen((v) => !v)}
+                  >
+                    <span
+                      className={cn(
+                        "flex h-12 w-full items-center justify-center rounded-xl border px-5",
+                        "border-border bg-foreground text-background shadow-sm",
+                        "text-[17px] font-medium whitespace-nowrap",
+                      )}
+                    >
+                      {label}
+                    </span>
+                  </m.button>
+                ),
+              )}
           </AnimatePresence>
 
           <m.button
@@ -2326,14 +2760,18 @@ export default function FanView({
             aria-label={isOpen ? "Close fan view" : "Open fan view"}
             onClick={() => setIsOpen((v) => !v)}
             className={cn(
-              "absolute bottom-0 left-1/2 z-20 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full border",
+              "relative z-20 flex h-16 w-16 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
               "hover:border-border/80 cursor-pointer",
             )}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.94 }}
           >
-            <m.span className="relative block size-8" animate={isOpen ? "open" : "closed"} initial={false}>
+            <m.span
+              className="relative block size-8"
+              animate={isOpen ? "open" : "closed"}
+              initial={false}
+            >
               <m.span
                 className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
@@ -2359,8 +2797,6 @@ export default function FanView({
       type: "registry:ui",
       content: `"use client";
 
-import { useClock } from "@/hooks/useClock";
-import { cn } from "@/lib/utils";
 import {
   motion,
   useMotionTemplate,
@@ -2371,6 +2807,8 @@ import {
 } from "motion/react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
+import { useClock } from "@/hooks/useClock";
+import { cn } from "@/lib/utils";
 
 // Constants
 const DEFAULT_DURATION = 10; // Default duration in seconds
@@ -2908,8 +3346,8 @@ const TabItem = ({ title, ...props }: TabItemProps) => {
       type: "registry:ui",
       content: `"use client";
 
+import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
 import { useState } from "react";
-import { motion, MotionConfig, type MotionConfigProps } from "motion/react";
 import type { IconType } from "react-icons";
 
 import { cn } from "@/lib/utils";
@@ -3003,15 +3441,91 @@ const TabItemVariants = {
       target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
     }
   ],
+  "mesh-gradient-shader": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { MeshGradient } from "@paper-design/shaders-react";
+
+import { cn } from "@/lib/utils";
+
+export interface MeshGradientShaderProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Up to 10 color spots. Accepts hex, RGB, or HSL strings.
+   * @default ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7"]
+   */
+  colors?: string[];
+  /**
+   * Power of organic noise distortion (0–1).
+   * @default 0.3
+   */
+  distortion?: number;
+  /**
+   * Power of vortex distortion (0–1).
+   * @default 0.2
+   */
+  swirl?: number;
+  /**
+   * Grain distortion on color edges (0–1).
+   * @default 0
+   */
+  grainMixer?: number;
+  /**
+   * Post-processing grain overlay (0–1).
+   * @default 0
+   */
+  grainOverlay?: number;
+  /**
+   * Animation speed multiplier. 0 = static.
+   * @default 1
+   */
+  speed?: number;
+}
+
+export default function MeshGradientShader({
+  className,
+  colors = ["#ff6b6b", "#4ecdc4", "#45b7d1", "#96ceb4", "#ffeaa7"],
+  distortion = 0.3,
+  swirl = 0.2,
+  grainMixer = 0,
+  grainOverlay = 0,
+  speed = 1,
+  style,
+  ...props
+}: MeshGradientShaderProps) {
+  return (
+    <div
+      className={cn("overflow-hidden rounded-xl", className)}
+      style={style}
+      {...props}
+    >
+      <MeshGradient
+        colors={colors}
+        distortion={distortion}
+        swirl={swirl}
+        grainMixer={grainMixer}
+        grainOverlay={grainOverlay}
+        speed={speed}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
+  );
+}
+`,
+      path: "mesh-gradient-shader/mesh-gradient-shader.tsx",
+      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+    }
+  ],
   "link-preview": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { useState } from "react";
-import Link from "next/link";
-
 import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
+import { useState } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -3122,7 +3636,7 @@ export default function LinkPreview({
       content: `"use client";
 
 import { motion, type Variants } from "motion/react";
-import { useState, type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -3151,9 +3665,7 @@ export default function StaggerText({
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <h1 className="sr-only">
-        {text}
-      </h1>
+      <h1 className="sr-only">{text}</h1>
       <Tag
         className={cn("overflow-clip tracking-wide select-text", className)}
         aria-label={text}
@@ -3254,11 +3766,7 @@ const StaggerItemSegment = ({
   }
 
   return (
-    <motion.span
-      className="h-fit select-none"
-      aria-hidden="true"
-      {...props}
-    >
+    <motion.span className="h-fit select-none" aria-hidden="true" {...props}>
       {content}
     </motion.span>
   );
@@ -3406,6 +3914,36 @@ export default function HoldToDeleteButton({
 };
 
 export const componentMetadata = {
+  "dot-orbit-shader": {
+    "name": "dot-orbit-shader",
+    "type": "registry:ui",
+    "title": "Dot Orbit Shader",
+    "description": "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
+    "files": [
+      {
+        "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@paper-design/shaders-react"
+    ]
+  },
+  "mesh-gradient-shader": {
+    "name": "mesh-gradient-shader",
+    "type": "registry:ui",
+    "title": "Mesh Gradient Shader",
+    "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+    "files": [
+      {
+        "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@paper-design/shaders-react"
+    ]
+  },
   "magnetic": {
     "name": "magnetic",
     "type": "registry:ui",

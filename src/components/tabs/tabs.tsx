@@ -232,4 +232,4 @@ function TabsContent({ className, ...props }: BaseTabs.Panel.Props) {
   );
 }
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+export { Tabs, TabsContent, TabsList, TabsTrigger };

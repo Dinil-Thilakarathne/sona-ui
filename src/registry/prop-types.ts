@@ -72,6 +72,50 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional class names for custom styling."
     }
   ],
+  "dot-orbit-shader": [
+    {
+      "name": "colorBack",
+      "type": "string",
+      "default": "\"#000000\"",
+      "description": "Background color. Accepts hex, RGB, or HSL strings."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "default": "[\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"]",
+      "description": "Up to 10 dot colors. Accepts hex, RGB, or HSL strings."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "default": "0.4",
+      "description": "Dot radius relative to cell size (0–1)."
+    },
+    {
+      "name": "sizeRange",
+      "type": "number",
+      "default": "0.3",
+      "description": "Random variation in dot size (0–1). 0 = uniform."
+    },
+    {
+      "name": "spreading",
+      "type": "number",
+      "default": "0.5",
+      "description": "Maximum orbit distance around each cell center (0–1)."
+    },
+    {
+      "name": "stepsPerColor",
+      "type": "number",
+      "default": "1",
+      "description": "Extra color steps between base colors. 1 = N colors, 2 = 2×N, etc. (1–4)."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "1",
+      "description": "Animation speed multiplier. 0 = static."
+    }
+  ],
   "accordion": [
     {
       "name": "children",
@@ -352,6 +396,44 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "MotionConfigProps",
       "default": "—",
       "description": "Motion configuration for the transition animations."
+    }
+  ],
+  "mesh-gradient-shader": [
+    {
+      "name": "colors",
+      "type": "string[]",
+      "default": "[\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\", \"#ffeaa7\"]",
+      "description": "Up to 10 color spots. Accepts hex, RGB, or HSL strings."
+    },
+    {
+      "name": "distortion",
+      "type": "number",
+      "default": "0.3",
+      "description": "Power of organic noise distortion (0–1)."
+    },
+    {
+      "name": "swirl",
+      "type": "number",
+      "default": "0.2",
+      "description": "Power of vortex distortion (0–1)."
+    },
+    {
+      "name": "grainMixer",
+      "type": "number",
+      "default": "0",
+      "description": "Grain distortion on color edges (0–1)."
+    },
+    {
+      "name": "grainOverlay",
+      "type": "number",
+      "default": "0",
+      "description": "Post-processing grain overlay (0–1)."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "1",
+      "description": "Animation speed multiplier. 0 = static."
     }
   ],
   "link-preview": [

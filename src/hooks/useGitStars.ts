@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Custom hook to fetch the star count of a GitHub repository.

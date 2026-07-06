@@ -1,14 +1,14 @@
-import type { JSX } from "react";
-import type { ShikiTransformer } from "shiki/core";
-import type { BundledLanguage } from "shiki/langs";
 import { toJsxRuntime } from "hast-util-to-jsx-runtime";
+import type { JSX } from "react";
 import { Fragment } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
+import type { ShikiTransformer } from "shiki/core";
 import { createHighlighterCore } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
-import { createHighlightLinesTransformer } from "./transformers/highlight-lines";
+import type { BundledLanguage } from "shiki/langs";
 import { createDiffTransformer } from "./transformers/diff";
 import { createFocusTransformer } from "./transformers/focus";
+import { createHighlightLinesTransformer } from "./transformers/highlight-lines";
 
 // Global highlighter promise (per Shiki Next.js docs pattern)
 // Define without await as a global variable to reference from components

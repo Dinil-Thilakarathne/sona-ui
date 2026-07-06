@@ -1,16 +1,6 @@
+import { useMDXComponent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { useMDXComponent } from "@content-collections/mdx/react";
-import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
-import ComponentWrapper from "./component-wrapper";
-import Tabs from "./tabs";
-import {
-  Tabs as NewTabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/tabs/tabs";
 import {
   CodeBlock,
   CodeBlockCode,
@@ -18,13 +8,22 @@ import {
   CodeBlockLineNumbers,
   CodeBlockPre,
 } from "@/components/code-block/code-block";
-import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
-import ComponentPlayground from "./component-playground";
-import { ComponentInstallationServer } from "./component-installation-server";
-import { ComponentUsageServer } from "../usage/component-usage-server";
-
 import { InternalCodeBlock } from "@/components/code-block/internal-code-block";
+import {
+  Tabs as NewTabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/tabs/tabs";
+import { cn } from "@/lib/utils";
+import { ComponentUsageServer } from "../usage/component-usage-server";
+import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
+import { ComponentInstallationServer } from "./component-installation-server";
+import ComponentPlayground from "./component-playground";
+import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
+import ComponentWrapper from "./component-wrapper";
 import PropTable from "./prop-table";
+import Tabs from "./tabs";
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const href = props.href;

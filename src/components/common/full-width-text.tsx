@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, createElement } from "react";
+import { createElement, useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface FullWidthTextProps extends React.HTMLAttributes<HTMLElement> {
@@ -45,7 +45,7 @@ export default function FullWidthText({
 
     if (textLength === 0 || containerWidth === 0) return;
 
-    const newFontSize = containerWidth / textLength * 1.2; // Adjust based on text length
+    const newFontSize = (containerWidth / textLength) * 1.2; // Adjust based on text length
 
     // Apply min/max constraints
     // newFontSize = Math.max(minFontSize, Math.min(maxFontSize, newFontSize));

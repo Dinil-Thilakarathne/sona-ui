@@ -1,6 +1,6 @@
-import AccordionAnimatedExample from "@/registry/examples/accordion/accordion-animated";
 import { notFound } from "next/navigation";
 import React from "react";
+import AccordionAnimatedExample from "@/registry/examples/accordion/accordion-animated";
 
 const page = () => {
   if (process.env.NODE_ENV === "production") {

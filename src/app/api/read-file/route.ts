@@ -1,6 +1,6 @@
+import fs from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
-import fs from "fs";
 
 // API: /api/read-file?folder=accordion&file=accordion
 export async function GET(request: Request) {
@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     if (!folder || !file) {
       return NextResponse.json(
         { error: "Missing 'folder' or 'file' query parameter." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -28,13 +28,13 @@ export async function GET(request: Request) {
       "__registry__",
       "sonaui",
       folder,
-      `${file}.txt`
+      `${file}.txt`,
     );
 
     if (!fs.existsSync(txtFilePath)) {
       return NextResponse.json(
         { error: `File not found: ${txtFilePath}` },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -43,6 +43,9 @@ export async function GET(request: Request) {
     return NextResponse.json({ content });
   } catch (err) {
     console.error("Error reading component source file:", err);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }

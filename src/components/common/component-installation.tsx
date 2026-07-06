@@ -3,17 +3,17 @@
 import type { ReactElement } from "react";
 import { startTransition, useState, ViewTransition } from "react";
 import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/components/tabs/tabs";
-import {
   CodeBlock,
+  CodeBlockCode,
   CodeBlockHeader,
   CodeBlockPre,
-  CodeBlockCode,
 } from "@/components/code-block/code-block";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/components/tabs/tabs";
 
 interface ComponentInstallProps {
   component: string;
@@ -111,10 +111,7 @@ export function ComponentInstallation({
                   </p>
                   {componentFiles.length === 1 ? (
                     // Single file: no tabs needed
-                    <CodeBlock
-                      code={componentFiles[0].content}
-                      language="tsx"
-                    >
+                    <CodeBlock code={componentFiles[0].content} language="tsx">
                       <CodeBlockHeader filename={componentFiles[0].path} />
                       <CodeBlockPre>
                         <CodeBlockCode />
@@ -128,10 +125,7 @@ export function ComponentInstallation({
                         componentFiles[0];
 
                       return (
-                        <CodeBlock
-                          code={activeFile.content}
-                          language="tsx"
-                        >
+                        <CodeBlock code={activeFile.content} language="tsx">
                           <CodeBlockHeader
                             tabs={componentFiles.map((f) => ({
                               value: f.path,

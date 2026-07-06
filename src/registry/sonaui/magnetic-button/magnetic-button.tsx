@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef, type ReactNode } from "react";
 import {
   motion,
+  type SpringOptions,
   useMotionValue,
   useSpring,
-  type SpringOptions,
 } from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
