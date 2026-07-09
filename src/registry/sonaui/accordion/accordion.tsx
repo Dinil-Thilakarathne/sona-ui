@@ -1,12 +1,13 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   createContext,
   type ReactNode,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
   ViewTransition,
@@ -35,7 +36,7 @@ interface AccordionProps {
   variant?: AccordionVariant;
 }
 
-const accordionWrapperVarinats = cva(
+const accordionWrapperVariants = cva(
   "flex flex-col overflow-clip rounded-2xl",
   {
     variants: {
@@ -97,7 +98,8 @@ const AccordionContext = createContext<{
   openItems: Set<string>;
   toggleItem: (value: string) => void;
   variant: AccordionVariant;
-  value: string;
+  /** Prefix used to pair each trigger with its content for aria wiring. */
+  idPrefix: string;
 } | null>(null);
 
 const AccordionRoot = ({
@@ -107,7 +109,7 @@ const AccordionRoot = ({
   variant = "default",
 }: AccordionProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const [value, setValue] = useState<string>("");
+  const idPrefix = useId();
   const toggleItem = (v: string) => {
     setOpenItems((prev) => {
       const newOpenItems = new Set(prev);
@@ -119,22 +121,17 @@ const AccordionRoot = ({
       }
       return newOpenItems;
     });
-    if (value !== v) {
-      setValue(v);
-    } else {
-      setValue("");
-    }
   };
 
   return (
     <AccordionContext.Provider
-      value={{ openItems, toggleItem, variant, value }}
+      value={{ openItems, toggleItem, variant, idPrefix }}
     >
       <ViewTransition>
         <div
           role="presentation"
           className={cn(
-            accordionWrapperVarinats({ variant }),
+            accordionWrapperVariants({ variant }),
             variant === "splitted" && "gap-y-2",
             className,
           )}
@@ -156,13 +153,13 @@ const AccordionItem = ({
   const context = useContext(AccordionContext);
   if (!context)
     throw new Error("AccordionItem must be used within AccordionRoot");
-  const { variant } = context;
+  const { variant, openItems } = context;
   return (
     <div
       role="presentation"
       className={cn(accordionItemVariants({ variant }), className)}
       style={style}
-      data-active={value === context.value}
+      data-active={value !== undefined && openItems.has(value)}
       {...props}
     >
       <div className="relative">{children}</div>
@@ -173,7 +170,7 @@ const AccordionItem = ({
 const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
+    throw new Error("AccordionItemHeader must be used within AccordionRoot");
   const { openItems } = context;
 
   const isOpen = openItems.has(value);
@@ -192,19 +189,22 @@ const AccordionItemTrigger = ({
 }: AccordionItemTriggerProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
+    throw new Error("AccordionItemTrigger must be used within AccordionRoot");
 
-  const { openItems, toggleItem } = context;
+  const { openItems, toggleItem, idPrefix } = context;
   const isOpen = openItems.has(value);
 
   return (
-    <div
+    <button
+      type="button"
+      id={`${idPrefix}-${value}-trigger`}
       aria-expanded={isOpen}
+      aria-controls={`${idPrefix}-${value}-content`}
       onClick={() => toggleItem(value)}
-      className="cursor-pointer"
+      className="block w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
     >
       {children}
-    </div>
+    </button>
   );
 };
 
@@ -214,53 +214,63 @@ const AccordionItemContent = ({
 }: AccordionItemContentProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionContent must be used within AccordionRoot");
+    throw new Error("AccordionItemContent must be used within AccordionRoot");
 
-  const { openItems } = context;
+  const { openItems, idPrefix } = context;
   const isOpen = openItems.has(value);
+  const shouldReduceMotion = useReducedMotion();
 
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
+  // Keep the measured height in sync with content reflow (resize, wrapping).
   useEffect(() => {
-    if (ref.current) {
-      setHeight(ref.current.offsetHeight + 16);
-    }
-  }, [isOpen]);
-
-  const variants = {
-    open: { opacity: [0, 0.5, 1], y: 0 },
-    exit: { opacity: 0, y: 50 },
-    initial: { opacity: 0, y: 50 },
-  };
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setHeight(el.offsetHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const motionVariants = {
     open: { opacity: [0, 1], y: [10, 0] },
     exit: { opacity: [1, 0.1, 0], y: [0, 10] },
-    initial: { opacity: 0, y: 0 },
   };
 
   return (
     <motion.div
       role="region"
+      id={`${idPrefix}-${value}-content`}
+      aria-labelledby={`${idPrefix}-${value}-trigger`}
       aria-hidden={!isOpen}
-      className={`overflow-hidden px-8 py-2 text-sm transition-[height]`}
-      initial={{ height: 0 }}
+      inert={!isOpen}
+      className="overflow-hidden text-sm"
+      initial={false}
       animate={{ height: isOpen ? height : 0 }}
-      transition={{ duration: 0.26, ease: "easeIn" }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { duration: 0.26, ease: [0.23, 1, 0.32, 1] }
+      }
     >
       <motion.div
-        initial="initial"
+        initial={false}
         animate={isOpen ? "open" : "exit"}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-          delay: 0.2,
-          type: "tween",
-        }}
-        // className="pb-2"
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : {
+                duration: 0.3,
+                ease: "easeOut",
+                delay: isOpen ? 0.1 : 0,
+                type: "tween",
+              }
+        }
         variants={motionVariants}
         ref={ref}
+        className="px-8 py-2"
       >
         {children}
       </motion.div>

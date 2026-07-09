@@ -29,7 +29,7 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+    <Marquee speed={80} gap="4rem" direction="left" pauseOnHover>
       <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>

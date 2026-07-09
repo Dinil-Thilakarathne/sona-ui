@@ -45,7 +45,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   const reset = () => setValues(defaultsFor(entry.controls));
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[1fr_280px] my-3 w-full">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[80%_1fr] my-3 max-w-screen w-full">
       <ComponentWrapper className="min-h-[300px]">{rendered}</ComponentWrapper>
 
       <div className="flex flex-col gap-5 p-4 bg-secondary border rounded-xl shadow-sm">

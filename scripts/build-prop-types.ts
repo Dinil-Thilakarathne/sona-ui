@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
-import * as ts from "typescript/unstable/ast";
-import { createNodeArray } from "typescript/unstable/ast/factory";
-import { API } from "typescript/unstable/sync";
+import ts from "typescript";
 
 /**
  * Extracts prop metadata from the source `*Props` interfaces/types of every
@@ -50,30 +48,34 @@ function normalizeType(text: string): string {
 }
 
 function getJsDoc(node: ts.Node): { description: string; default?: string } {
-  const tags = ts.getJSDocTags(node);
+  // @ts-ignore - jsDoc is internal on Node in TypeScript AST
+  const jsDocNodes = (node as unknown as { jsDoc?: ts.JSDoc[] }).jsDoc ?? [];
   let def: string | undefined;
-  for (const tag of tags) {
-    if (tag.tagName.text === "default") {
-      def =
-        typeof tag.comment === "string"
-          ? tag.comment.trim()
-          : ts.getTextOfJSDocComment(tag.comment)?.trim();
+  let description = "";
+
+  for (const doc of jsDocNodes) {
+    if (doc.comment) {
+      description += (typeof doc.comment === "string" ? doc.comment : ts.getTextOfJSDocComment(doc.comment) ?? "") + " ";
+    }
+    if (doc.tags) {
+      for (const tag of doc.tags) {
+        if (tag.tagName.text === "default") {
+          def = typeof tag.comment === "string" ? tag.comment.trim() : ts.getTextOfJSDocComment(tag.comment)?.trim();
+        }
+      }
     }
   }
-  // The description is the JSDoc comment text attached to the node.
-  const jsDocNodes = (node as unknown as { jsDoc?: ts.Node[] }).jsDoc ?? [];
-  const description = jsDocNodes
-    .map((d) => ts.getTextOfJSDocComment(d.comment) ?? "")
-    .join(" ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return { description, default: def };
+
+  return {
+    description: description.replace(/\s+/g, " ").trim(),
+    default: def
+  };
 }
 
 function extractMembers(members: ts.NodeArray<ts.TypeElement>): PropMeta[] {
   const props: PropMeta[] = [];
   for (const member of members) {
-    if (!ts.isPropertySignatureDeclaration(member) || !member.name) continue;
+    if (!ts.isPropertySignature(member) || !member.name) continue;
     const name = member.name.getText();
     const optional = !!member.questionToken;
     const type = member.type ? normalizeType(member.type.getText()) : "unknown";
@@ -94,80 +96,64 @@ function buildPropTypes() {
     process.exit(1);
   }
 
-  const api = new API();
-  try {
-    const tsconfigPath = path.join(process.cwd(), "tsconfig.json");
-    const snapshot = api.updateSnapshot({
-      openProjects: [tsconfigPath],
-    });
+  const componentProps: Record<string, PropMeta[]> = {};
 
-    const projects = snapshot.getProjects();
-    if (projects.length === 0) {
-      console.error("No projects found in compiler snapshot.");
-      process.exit(1);
-    }
-    const project = projects[0];
+  for (const startDir of fs.readdirSync(COMPONENT_PATH)) {
+    const dirPath = path.join(COMPONENT_PATH, startDir);
+    if (!fs.statSync(dirPath).isDirectory()) continue;
+    const component = toKebabCase(startDir);
 
-    const componentProps: Record<string, PropMeta[]> = {};
+    const files = collectTsxFiles(dirPath);
+    let chosen: PropMeta[] | null = null;
+    let fallback: PropMeta[] | null = null;
 
-    for (const startDir of fs.readdirSync(COMPONENT_PATH)) {
-      const dirPath = path.join(COMPONENT_PATH, startDir);
-      if (!fs.statSync(dirPath).isDirectory()) continue;
-      const component = toKebabCase(startDir);
+    for (const file of files) {
+      const source = ts.createSourceFile(
+        file,
+        fs.readFileSync(file, "utf-8"),
+        ts.ScriptTarget.Latest,
+        true,
+        ts.ScriptKind.TSX
+      );
 
-      const files = collectTsxFiles(dirPath);
-      let chosen: PropMeta[] | null = null;
-      let fallback: PropMeta[] | null = null;
+      ts.forEachChild(source, (node) => {
+        let name: string | undefined;
+        let members: ts.NodeArray<ts.TypeElement> | undefined;
 
-      for (const file of files) {
-        const source = project.program.getSourceFile(file);
-        if (!source) {
-          console.warn(`Source file not found in project: ${file}`);
-          continue;
-        }
-
-        source.forEachChild((node) => {
-          let name: string | undefined;
-          let members: ts.NodeArray<ts.TypeElement> | undefined;
-
-          if (ts.isInterfaceDeclaration(node)) {
-            name = node.name.text;
-            members = node.members;
-          } else if (ts.isTypeAliasDeclaration(node)) {
-            name = node.name.text;
-            if (ts.isTypeLiteralNode(node.type)) {
-              members = node.type.members;
-            } else if (ts.isIntersectionTypeNode(node.type)) {
-              // e.g. `ComponentPropsWithoutRef<T> & { text: string; ... }` —
-              // gather the explicitly-declared members from the literal part(s).
-              const literalMembers = node.type.types
-                .filter(ts.isTypeLiteralNode)
-                .flatMap((lit) => Array.from(lit.members));
-              if (literalMembers.length) {
-                members = createNodeArray(literalMembers);
-              }
+        if (ts.isInterfaceDeclaration(node)) {
+          name = node.name.text;
+          members = node.members;
+        } else if (ts.isTypeAliasDeclaration(node)) {
+          name = node.name.text;
+          if (ts.isTypeLiteralNode(node.type)) {
+            members = node.type.members;
+          } else if (ts.isIntersectionTypeNode(node.type)) {
+            const literalMembers = node.type.types
+              .filter(ts.isTypeLiteralNode)
+              .flatMap((lit) => Array.from(lit.members));
+            if (literalMembers.length) {
+              members = ts.factory.createNodeArray(literalMembers);
             }
           }
+        }
 
-          if (!name || !members || !name.endsWith("Props")) return;
+        if (!name || !members || !name.endsWith("Props")) return;
 
-          const meta = extractMembers(members);
-          if (meta.length === 0) return;
+        const meta = extractMembers(members);
+        if (meta.length === 0) return;
 
-          const kebab = toKebabCase(name.replace(/Props$/, ""));
-          // Skip sub-component prop types (e.g. *ItemProps, *SegmentProps) when
-          // falling back, so we never emit a child part's props as the component's.
-          const isSubPart = /(Item|Segment|Cell|Indicator)Props$/.test(name);
-          if (kebab === component) chosen = meta;
-          else if (!fallback && !isSubPart) fallback = meta;
-        });
-      }
-
-      const result = chosen ?? fallback;
-      if (result) componentProps[component] = result;
+        const kebab = toKebabCase(name.replace(/Props$/, ""));
+        const isSubPart = /(Item|Segment|Cell|Indicator)Props$/.test(name);
+        if (kebab === component) chosen = meta;
+        else if (!fallback && !isSubPart) fallback = meta;
+      });
     }
 
-    const output = `// This file is auto-generated by scripts/build-prop-types.ts. Do not edit.
+    const result = chosen ?? fallback;
+    if (result) componentProps[component] = result;
+  }
+
+  const output = `// This file is auto-generated by scripts/build-prop-types.ts. Do not edit.
 
 export type PropMeta = {
   name: string;
@@ -177,21 +163,15 @@ export type PropMeta = {
 };
 
 export const componentProps: Record<string, PropMeta[]> = ${JSON.stringify(
-      componentProps,
-      null,
-      2,
-    )};
+    componentProps,
+    null,
+    2
+  )};
 `;
 
-    fs.writeFileSync(OUTPUT_FILE, output);
-    const count = Object.keys(componentProps).length;
-    console.log(`Prop types generated at ${OUTPUT_FILE} (${count} components)`);
-  } catch (err) {
-    console.error("Error building prop types:", err);
-    process.exit(1);
-  } finally {
-    api.close();
-  }
+  fs.writeFileSync(OUTPUT_FILE, output);
+  const count = Object.keys(componentProps).length;
+  console.log(`Prop types generated at ${OUTPUT_FILE} (${count} components)`);
 }
 
 buildPropTypes();

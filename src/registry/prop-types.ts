@@ -24,7 +24,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the accordion container."
     },
     {
@@ -34,23 +34,127 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "The visual style of the accordion."
     }
   ],
-  "bubble-up-button": [
+  "animated-button": [
+    {
+      "name": "children",
+      "type": "React.ReactNode",
+      "default": "required",
+      "description": ""
+    },
+    {
+      "name": "contentKey",
+      "type": "string | number",
+      "default": "—",
+      "description": "Key identifying the current label/content state. Change it to trigger the transition. If omitted, it will fall back to deriving from children when they are simple strings."
+    },
+    {
+      "name": "swap",
+      "type": "\"slide-up\" | \"slide-down\" | \"fade\" | \"blur\"",
+      "default": "\"slide-up\"",
+      "description": "Swap animation transition style."
+    },
+    {
+      "name": "hoverSwap",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether to animate a text-swap effect vertically on hover. Replaces the dedicated ScrollUpButton with a unified hover interaction."
+    }
+  ],
+  "animated-dialog": [
     {
       "name": "children",
       "type": "ReactNode",
       "default": "required",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": ""
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": ""
+    }
+  ],
+  "animated-dropdown": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Callback when open state changes."
+    }
+  ],
+  "animated-switch": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled checked state."
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "default": "—",
+      "description": "Default checked state."
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "(checked: boolean) => void",
+      "default": "—",
+      "description": "Callback fired when the state changes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "—",
+      "description": "Whether the switch is disabled."
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "default": "\"md\"",
+      "description": "The size of the switch."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": ""
+    }
+  ],
+  "bubble-up-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "—",
       "description": "Content to display inside the button"
     },
     {
       "name": "motionControls",
       "type": "MotionConfigProps",
-      "default": "required",
+      "default": "—",
       "description": "Motion configuration for animations"
     },
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes"
     }
   ],
@@ -58,7 +162,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "items",
       "type": "DockMenuItem[]",
-      "default": "required",
+      "default": "—",
       "description": "Items rendered as arc pills when the menu is open."
     },
     {
@@ -76,7 +180,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the root container."
     }
   ],
@@ -146,7 +250,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "motionConfig",
       "type": "MotionConfigProps",
-      "default": "required",
+      "default": "—",
       "description": "Motion configuration for the transition animations."
     }
   ],
@@ -154,7 +258,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "items",
       "type": "FanViewItem[]",
-      "default": "required",
+      "default": "—",
       "description": "Items displayed as fanned cards when open."
     },
     {
@@ -172,7 +276,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the root container."
     }
   ],
@@ -180,7 +284,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "label",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Text displayed inside the button."
     },
     {
@@ -198,13 +302,13 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "onDelete",
       "type": "() => void",
-      "default": "required",
+      "default": "—",
       "description": "Called once when the hold completes."
     },
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the button."
     }
   ],
@@ -256,13 +360,13 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "springConfig",
       "type": "SpringOptions",
-      "default": "required",
+      "default": "—",
       "description": "Configuration for the spring animation."
     },
     {
       "name": "customClassName",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional class names for custom styling."
     }
   ],
@@ -271,43 +375,61 @@ export const componentProps: Record<string, PropMeta[]> = {
       "name": "children",
       "type": "React.ReactNode",
       "default": "required",
-      "description": "The content to be rendered inside the marquee."
+      "description": "Content of one marquee segment. Can be a single small element or a long strip."
     },
     {
       "name": "className",
       "type": "string",
-      "default": "required",
-      "description": "Additional class names for custom styling of the marquee items."
+      "default": "—",
+      "description": ""
     },
     {
       "name": "containerClassName",
       "type": "string",
-      "default": "required",
-      "description": "Additional class names for custom styling of the marquee container."
+      "default": "—",
+      "description": "Class for the outer clipping container."
     },
     {
-      "name": "duration",
+      "name": "speed",
       "type": "number",
-      "default": "10",
-      "description": "The duration of the marquee animation in seconds."
+      "default": "80",
+      "description": "Scroll speed in pixels per second. Higher = faster."
     },
     {
-      "name": "reverse",
-      "type": "boolean",
-      "default": "false",
-      "description": "Determines whether the marquee scrolls in reverse direction."
+      "name": "gap",
+      "type": "string",
+      "default": "\"4rem\"",
+      "description": "Gap between repeated segments, any CSS length string."
     },
     {
-      "name": "activeScroll",
-      "type": "boolean",
-      "default": "false",
-      "description": "Enables dynamic speed adjustment based on scroll velocity."
+      "name": "direction",
+      "type": "\"left\" | \"right\" | \"up\" | \"down\"",
+      "default": "\"left\"",
+      "description": "Scroll direction."
     },
     {
-      "name": "activeHover",
+      "name": "scrollVelocity",
       "type": "boolean",
       "default": "false",
-      "description": "Pauses the marquee animation when hovered."
+      "description": "Multiply speed by scroll velocity (and flip direction on scroll-up)."
+    },
+    {
+      "name": "maxVelocity",
+      "type": "number",
+      "default": "5",
+      "description": "Max speed multiplier when scrollVelocity is enabled."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "default": "false",
+      "description": "Pause (with easing, not a snap) on hover."
+    },
+    {
+      "name": "repeat",
+      "type": "number | \"auto\"",
+      "default": "\"auto\"",
+      "description": "How many segment copies to render. \"auto\" measures the container and fills 2× it."
     }
   ],
   "mesh-gradient-shader": [
@@ -364,7 +486,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the button."
     },
     {
@@ -376,7 +498,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "rippleStyle",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the ripple effect."
     }
   ],
@@ -390,7 +512,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "style",
       "type": "CSSProperties",
-      "default": "required",
+      "default": "—",
       "description": "Custom styles for the container."
     },
     {
@@ -402,7 +524,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the container."
     },
     {
@@ -420,13 +542,13 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "transition",
       "type": "Transition",
-      "default": "required",
+      "default": "—",
       "description": "Custom transition settings for the animation. Merges with the default transition."
     },
     {
       "name": "variants",
       "type": "{ container?: Variants; item?: Variants; }",
-      "default": "required",
+      "default": "—",
       "description": "Custom animation variants for the container and individual characters."
     }
   ],
@@ -440,7 +562,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the card."
     },
     {
@@ -472,7 +594,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "required",
+      "default": "—",
       "description": "Additional CSS classes for the container."
     },
     {

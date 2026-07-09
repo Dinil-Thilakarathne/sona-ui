@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface AnimatedPlusMinusButtonProps {
   size?: number;
@@ -10,11 +10,7 @@ const AnimatedPlusMinusButton = ({
   isOpen = false,
 }: AnimatedPlusMinusButtonProps) => {
   return (
-    <span
-      role="button"
-      aria-pressed="true"
-      className="flex items-center justify-center"
-    >
+    <span aria-hidden="true" className="flex items-center justify-center">
       <motion.svg
         width={size}
         height={size}

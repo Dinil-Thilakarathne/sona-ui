@@ -1,189 +1,275 @@
 "use client";
 
 import {
-  motion,
-  useMotionTemplate,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
   useScroll,
   useSpring,
-  useTransform,
   useVelocity,
 } from "motion/react";
-import { forwardRef, useEffect, useRef, useState } from "react";
-import useMeasure from "react-use-measure";
-import { useClock } from "@/hooks/useClock";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-// Constants
-const DEFAULT_DURATION = 10; // Default duration in seconds
-
-// Helper function to calculate the number of marquee items
-const calculateItemCount = (
-  containerWidth: number,
-  itemWidth: number,
-): number => {
-  return Math.ceil(containerWidth / itemWidth);
-};
-
-interface MarqueeProps {
-  /** The content to be rendered inside the marquee. */
+export interface MarqueeProps {
+  /** Content of one marquee segment. Can be a single small element or a long strip. */
   children: React.ReactNode;
-  /** Additional class names for custom styling of the marquee items. */
   className?: string;
-  /** Additional class names for custom styling of the marquee container. */
+  /** Class for the outer clipping container. */
   containerClassName?: string;
   /**
-   * The duration of the marquee animation in seconds.
-   * @default 10
+   * Scroll speed in pixels per second. Higher = faster.
+   * @default 80
    */
-  duration?: number;
+  speed?: number;
   /**
-   * Determines whether the marquee scrolls in reverse direction.
+   * Gap between repeated segments, any CSS length string.
+   * @default "4rem"
+   */
+  gap?: string;
+  /**
+   * Scroll direction.
+   * @default "left"
+   */
+  direction?: "left" | "right" | "up" | "down";
+  /**
+   * Multiply speed by scroll velocity (and flip direction on scroll-up).
    * @default false
    */
-  reverse?: boolean;
+  scrollVelocity?: boolean;
   /**
-   * Enables dynamic speed adjustment based on scroll velocity.
+   * Max speed multiplier when scrollVelocity is enabled.
+   * @default 5
+   */
+  maxVelocity?: number;
+  /**
+   * Pause (with easing, not a snap) on hover.
    * @default false
    */
-  activeScroll?: boolean;
+  pauseOnHover?: boolean;
   /**
-   * Pauses the marquee animation when hovered.
-   * @default false
+   * How many segment copies to render.
+   * "auto" measures the container and fills 2× it.
+   * @default "auto"
    */
-  activeHover?: boolean;
+  repeat?: number | "auto";
 }
 
 export default function Marquee({
   children,
   className,
   containerClassName,
-  duration = DEFAULT_DURATION,
-  reverse = false,
-  activeScroll = false,
-  activeHover = false,
+  speed = 80,
+  gap = "4rem",
+  direction = "left",
+  scrollVelocity = false,
+  maxVelocity = 5,
+  pauseOnHover = false,
+  repeat = "auto",
 }: MarqueeProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [parentBounds, setParentBounds] = useState({ width: 0, height: 0 });
-  const [marqueeItemRef, marqueeItemBounds] = useMeasure();
-  const [count, setCount] = useState(0);
-  const [activeDirection, setActiveDirection] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  const [isClient, setIsClient] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const segmentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // How many copies are rendered (updated by ResizeObserver)
+  const countRef = useRef<number>(typeof repeat === "number" ? repeat : 4);
 
+  // Motion value for translation — never stored in React state
+  const baseX = useMotionValue(0);
+  const isHovered = useRef(false);
+  // 0 = fully paused, 1 = full speed — lerped in rAF
+  const speedMultiplier = useRef(1);
+
+  // Scroll velocity pipeline (motion values only — no setState)
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
+  const scrollVelocityMV = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocityMV, {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
 
+  const isVertical = direction === "up" || direction === "down";
+  const directionSign =
+    direction === "left" || direction === "up" ? 1 : -1;
+
+  // ResizeObserver — recompute copy count when container or segment resize
   useEffect(() => {
-    if (ref.current && isClient) {
-      if (ref.current.parentElement) {
-        const { width, height } =
-          ref.current.parentElement.getBoundingClientRect();
-        setParentBounds({ width, height });
+    if (repeat !== "auto" || shouldReduceMotion) return;
+
+    const container = containerRef.current;
+    const segment = segmentRef.current;
+    if (!container || !segment) return;
+
+    function recompute() {
+      if (!container || !segment) return;
+      const containerSize = isVertical
+        ? container.offsetHeight
+        : container.offsetWidth;
+      const segmentSize = isVertical
+        ? segment.offsetHeight
+        : segment.offsetWidth;
+      if (segmentSize > 0) {
+        countRef.current = Math.max(2, Math.ceil((containerSize * 2) / segmentSize) + 1);
       }
     }
-  }, [ref, isClient]);
 
-  // Update item count when dimensions change
-  useEffect(() => {
-    if (marqueeItemBounds.width > 0 && parentBounds.width > 0) {
-      setCount(calculateItemCount(parentBounds.width, marqueeItemBounds.width));
+    recompute();
+    const ro = new ResizeObserver(recompute);
+    ro.observe(container);
+    ro.observe(segment);
+    return () => ro.disconnect();
+  }, [repeat, isVertical, shouldReduceMotion]);
+
+  // Hover handlers
+  const onMouseEnter = () => {
+    if (pauseOnHover) isHovered.current = true;
+  };
+  const onMouseLeave = () => {
+    if (pauseOnHover) isHovered.current = false;
+  };
+
+  // Main animation loop — all in motion values, zero React state
+  useAnimationFrame((_, delta) => {
+    if (shouldReduceMotion) return;
+
+    const segment = segmentRef.current;
+    if (!segment) return;
+
+    const segmentSize = isVertical
+      ? segment.offsetHeight
+      : segment.offsetWidth;
+    if (segmentSize === 0) return;
+
+    // Lerp speedMultiplier toward target (eased pause on hover)
+    const targetMultiplier = isHovered.current ? 0 : 1;
+    speedMultiplier.current += (targetMultiplier - speedMultiplier.current) * 0.1;
+
+    // Velocity boost from scroll
+    let velocityBoost = 1;
+    let velocityFlip = 1;
+    if (scrollVelocity) {
+      const v = smoothVelocity.get();
+      velocityBoost = Math.min(Math.abs(v) / 200, maxVelocity);
+      velocityBoost = Math.max(velocityBoost, 1);
+      if (v < -50) velocityFlip = -1;
     }
-  }, [marqueeItemBounds, parentBounds, children]);
 
-  // Update active direction based on velocity
-  useEffect(() => {
-    return velocityFactor.on("change", (value) => {
-      setActiveDirection(value < 0);
-    });
-  }, [velocityFactor]);
+    const pxPerMs = speed / 1000;
+    const delta_px =
+      pxPerMs * delta * directionSign * velocityFlip * speedMultiplier.current * velocityBoost;
 
-  // Update speed dynamically based on velocity factor
-  useEffect(() => {
-    const unsubscribe = velocityFactor.on("change", (value) => {
-      setSpeed(activeScroll && value > 0 ? value : 1);
-    });
+    let next = baseX.get() - delta_px;
 
-    return () => unsubscribe();
-  }, [velocityFactor, activeScroll]);
-
-  // Update speed when hovered
-  useEffect(() => {
-    if (!activeHover) return;
-    if (isHovered) {
-      setSpeed(0);
+    // Wrap: keep translation within [-segmentSize, 0)
+    if (directionSign > 0) {
+      // moving left/up — translate goes negative
+      if (next <= -segmentSize) next += segmentSize;
     } else {
-      setSpeed(activeScroll ? velocityFactor.get() : 1);
+      // moving right/down — translate goes positive
+      if (next >= 0) next -= segmentSize;
+      if (next < -segmentSize) next += segmentSize;
     }
-  }, [isHovered, activeScroll, velocityFactor, activeHover]);
 
-  const clock = useClock({
-    defaultValue: Date.now(),
-    reverse: activeScroll ? activeDirection : reverse,
-    speed,
-  }).value;
+    baseX.set(next);
+  });
 
-  const progress = useTransform(clock, (time) => (time % duration) / duration);
-  const percentage = useTransform(progress, (t) => t * 100);
-  const translateX = useMotionTemplate`-${percentage}%`;
+  const copies = repeat !== "auto" ? repeat : countRef.current;
+  const items = Array.from({ length: copies });
+
+  if (shouldReduceMotion) {
+    // Static strip — no animation
+    return (
+      <div
+        ref={containerRef}
+        className={cn("overflow-hidden", containerClassName)}
+      >
+        <div
+          className={cn(
+            isVertical ? "flex flex-col" : "flex flex-row",
+            "w-max",
+            className,
+          )}
+          style={{ gap }}
+        >
+          <div ref={segmentRef}>{children}</div>
+          {items.map((_, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: static decorative copies
+            <div key={i} aria-hidden="true">
+              {children}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    isClient && (
-      <motion.div
-        style={{ translateX }}
-        className={cn("flex w-fit space-x-16", containerClassName)}
-        ref={ref}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+    <div
+      ref={containerRef}
+      className={cn("overflow-hidden", containerClassName)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {/* The track: a flex row/col of copies, translated as a unit */}
+      <MotionTrack
+        baseX={baseX}
+        isVertical={isVertical}
+        gap={gap}
+        className={className}
+        segmentRef={segmentRef}
+        items={items}
       >
-        <MarqueeItem className={className} ref={marqueeItemRef}>
-          {children}
-        </MarqueeItem>
-        {Array.from({ length: count }).map((_, i) => (
-          <MarqueeItem
-            key={i}
-            isCopy
-            style={{ left: `calc(${(i + 1) * 100}%)` }}
-          >
-            {children}
-          </MarqueeItem>
-        ))}
-      </motion.div>
-    )
+        {children}
+      </MotionTrack>
+    </div>
   );
 }
 
-interface MarqueeItemProps {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-  isCopy?: boolean;
-}
+// Split into a separate component to isolate motion subscription
+import { motion, type MotionValue } from "motion/react";
 
-const MarqueeItem = forwardRef<HTMLDivElement, MarqueeItemProps>(
-  ({ children, className, isCopy, style }, ref) => {
-    return (
-      <div
-        className={cn("w-full text-nowrap", isCopy && "absolute", className)}
-        style={style}
-        ref={ref}
-      >
+function MotionTrack({
+  baseX,
+  isVertical,
+  gap,
+  className,
+  segmentRef,
+  items,
+  children,
+}: {
+  baseX: MotionValue<number>;
+  isVertical: boolean;
+  gap: string;
+  className?: string;
+  segmentRef: React.RefObject<HTMLDivElement | null>;
+  items: unknown[];
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      style={isVertical ? { y: baseX } : { x: baseX }}
+      className={cn(
+        isVertical ? "flex flex-col" : "flex flex-row",
+        "w-max will-change-transform",
+        className,
+      )}
+    >
+      {/* First segment — measured for loop math */}
+      <div ref={segmentRef} style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}>
         {children}
       </div>
-    );
-  },
-);
-
-MarqueeItem.displayName = "MarqueeItem";
+      {/* Copies — decorative, aria-hidden */}
+      {items.map((_, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: decorative animation copies
+        <div
+          key={i}
+          aria-hidden="true"
+          style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}
+        >
+          {children}
+        </div>
+      ))}
+    </motion.div>
+  );
+}

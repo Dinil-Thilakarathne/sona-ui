@@ -1,5 +1,57 @@
 [
   {
+    "name": "animated-dropdown",
+    "type": "registry:ui",
+    "title": "Animated Dropdown",
+    "description": "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"]
+  },
+  {
+    "name": "animated-switch",
+    "type": "registry:ui",
+    "title": "Animated Switch",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"]
+  },
+  {
+    "name": "animated-dialog",
+    "type": "registry:ui",
+    "title": "Animated Dialog",
+    "description": "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"]
+  },
+  {
+    "name": "animated-button",
+    "type": "registry:ui",
+    "title": "Animated Button",
+    "description": "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["class-variance-authority", "motion"]
+  },
+  {
     "name": "dot-orbit-shader",
     "type": "registry:ui",
     "title": "Dot Orbit Shader",
@@ -85,14 +137,14 @@
     "name": "marquee",
     "type": "registry:ui",
     "title": "Marquee",
-    "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
+    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/marquee/marquee.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["react-use-measure"]
+    "dependencies": ["motion"]
   },
   {
     "name": "spinning-text",

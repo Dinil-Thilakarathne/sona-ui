@@ -34,7 +34,7 @@ const SidebarContent: React.FC<{
             <h3 className="mb-1 font-semibold text-foreground/90 text-xs tracking-wider uppercase">
               {type}
             </h3>
-            <div className="flex flex-col gap-y-1">
+            <div className="flex flex-col gap-y-2">
               {components.map((item) => (
                 <SidebarLink
                   key={item.name}

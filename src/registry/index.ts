@@ -1,5 +1,8 @@
 // This file is auto-generated. Do not edit.
 import * as React from "react";
+import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
+import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
+import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
 import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
 import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
@@ -17,7 +20,11 @@ import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
+import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
+import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
 import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
+import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
 import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
 import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
@@ -37,6 +44,226 @@ export type RegistryEntry = {
 };
 
 export const exampleRegistry: Record<string, RegistryEntry[]> = {
+  "animated-dropdown": [
+    {
+      name: "danger",
+      component: animated_dropdown_animated_dropdown_danger,
+      code: `"use client";
+
+import { Copy, Edit, Share2, Trash2 } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDanger() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent align="start">
+        <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Share2 />}>Share</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<Trash2 />} variant="danger">
+          Delete
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Copy, Edit, Share2, Trash2 } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDanger() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent align="start">
+        <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Share2 />}>Share</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<Trash2 />} variant="danger">
+          Delete
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}`,
+    },
+    {
+      name: "controlled",
+      component: animated_dropdown_animated_dropdown_controlled,
+      code: `"use client";
+
+import { Bell, LogOut, Settings, User } from "lucide-react";
+import { useState } from "react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownControlled() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-4 items-center">
+      <p className="text-muted-foreground text-sm">
+        Dropdown is: <span className="font-semibold text-foreground">{open ? "open" : "closed"}</span>
+      </p>
+      <AnimatedDropdown open={open} onOpenChange={setOpen}>
+        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownContent>
+          <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownSeparator />
+          <AnimatedDropdownItem
+            icon={<LogOut />}
+            variant="danger"
+            onClick={() => setOpen(false)}
+          >
+            Log out
+          </AnimatedDropdownItem>
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Bell, LogOut, Settings, User } from "lucide-react";
+import { useState } from "react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownControlled() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-4 items-center">
+      <p className="text-muted-foreground text-sm">
+        Dropdown is: <span className="font-semibold text-foreground">{open ? "open" : "closed"}</span>
+      </p>
+      <AnimatedDropdown open={open} onOpenChange={setOpen}>
+        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownContent>
+          <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownSeparator />
+          <AnimatedDropdownItem
+            icon={<LogOut />}
+            variant="danger"
+            onClick={() => setOpen(false)}
+          >
+            Log out
+          </AnimatedDropdownItem>
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: animated_dropdown_animated_dropdown_demo,
+      code: `"use client";
+
+import {
+  Bell,
+  CreditCard,
+  LogOut,
+  Settings,
+  User,
+} from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDemo() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent>
+        <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+          Log out
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import {
+  Bell,
+  CreditCard,
+  LogOut,
+  Settings,
+  User,
+} from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDemo() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent>
+        <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+          Log out
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}`,
+    }
+  ],
   "circular-dock-menu": [
     {
       name: "default",
@@ -51,7 +278,7 @@ import {
   Music,
 } from "lucide-react";
 
-import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import CircularDockMenu from "@/components/ui/circular-dock-menu/circular-dock-menu";
 
 const ITEMS = [
   { label: "Document", icon: FileText },
@@ -76,7 +303,7 @@ import {
   Music,
 } from "lucide-react";
 
-import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import CircularDockMenu from "@/components/ui/circular-dock-menu/circular-dock-menu";
 
 const ITEMS = [
   { label: "Document", icon: FileText },
@@ -95,7 +322,7 @@ export default function CircularDockMenuDemo() {
     {
       name: "default",
       component: magnetic_button_magnetic_button_demo,
-      code: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
+      code: `import Magnetic from "@/components/ui/magnetic-button/magnetic-button";
 
 export default function MagneticButtonExample() {
   return (
@@ -109,7 +336,7 @@ export default function MagneticButtonExample() {
   );
 }
 `,
-      imports: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";`,
+      imports: `import Magnetic from "@/components/ui/magnetic-button/magnetic-button";`,
       anatomy: `export default function MagneticButtonExample() {
   return (
     <div className="p-2 border border-border border-dashed rounded-full">
@@ -127,7 +354,7 @@ export default function MagneticButtonExample() {
     {
       name: "dense",
       component: dot_orbit_shader_dot_orbit_shader_dense,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderDense() {
   return (
@@ -143,7 +370,7 @@ export default function DotOrbitShaderDense() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderDense() {
   return (
     <DotOrbitShader
@@ -161,7 +388,7 @@ export default function DotOrbitShaderDense() {
     {
       name: "slow",
       component: dot_orbit_shader_dot_orbit_shader_slow,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderSlow() {
   return (
@@ -177,7 +404,7 @@ export default function DotOrbitShaderSlow() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderSlow() {
   return (
     <DotOrbitShader
@@ -195,13 +422,13 @@ export default function DotOrbitShaderSlow() {
     {
       name: "default",
       component: dot_orbit_shader_dot_orbit_shader_demo,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderExample() {
   return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderExample() {
   return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }`,
@@ -209,7 +436,7 @@ export default function DotOrbitShaderExample() {
     {
       name: "pastel",
       component: dot_orbit_shader_dot_orbit_shader_pastel,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderPastel() {
   return (
@@ -224,7 +451,7 @@ export default function DotOrbitShaderPastel() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderPastel() {
   return (
     <DotOrbitShader
@@ -249,7 +476,7 @@ export default function DotOrbitShaderPastel() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionSplittedExample() {
   const accordionData = [
@@ -316,7 +543,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionSplittedExample() {
   const accordionData = [
     {
@@ -385,7 +612,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionAnimatedExample() {
   const accordionData = [
@@ -452,7 +679,7 @@ export default function AccordionAnimatedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionAnimatedExample() {
   const accordionData = [
     {
@@ -521,7 +748,7 @@ export default function AccordionAnimatedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionDefaultExample() {
   const accordionData = [
@@ -584,7 +811,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionDefaultExample() {
   const accordionData = [
     {
@@ -649,7 +876,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionMultiStepExample() {
   const accordionData = [
@@ -712,7 +939,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionMultiStepExample() {
   const accordionData = [
     {
@@ -777,7 +1004,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionOutlinedExample() {
   const accordionData = [
@@ -844,7 +1071,7 @@ export default function AccordionOutlinedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionOutlinedExample() {
   const accordionData = [
     {
@@ -909,7 +1136,7 @@ export default function AccordionOutlinedExample() {
     {
       name: "default",
       component: spinning_text_spinning_text_demo,
-      code: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
+      code: `import SpinningText from "@/components/ui/spinning-text/spinning-text";
 
 export default function SpinningTextExample() {
   return (
@@ -919,7 +1146,7 @@ export default function SpinningTextExample() {
   );
 }
 `,
-      imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
+      imports: `import SpinningText from "@/components/ui/spinning-text/spinning-text";`,
       anatomy: `export default function SpinningTextExample() {
   return (
     <div className="flex items-center justify-center min-h-[320px]">
@@ -933,13 +1160,13 @@ export default function SpinningTextExample() {
     {
       name: "default",
       component: bubble_up_button_bubble_up_button_demo,
-      code: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";
+      code: `import BubbleUpButton from "@/components/ui/bubble-up-button/bubble-up-button";
 
 export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }
 `,
-      imports: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";`,
+      imports: `import BubbleUpButton from "@/components/ui/bubble-up-button/bubble-up-button";`,
       anatomy: `export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
@@ -951,7 +1178,7 @@ export default function BubbleUpButtonExample() {
       component: fan_view_fan_view_demo,
       code: `"use client";
 
-import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FanView from "@/components/ui/fan-view/fan-view";
 
 const ITEMS = [
   { label: "Music", width: 164 },
@@ -968,7 +1195,7 @@ export default function FanViewDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FanView from "@/components/ui/fan-view/fan-view";
 
 const ITEMS = [
   { label: "Music", width: 164 },
@@ -995,7 +1222,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import Marquee from "@/registry/sonaui/marquee/marquee";
+import Marquee from "@/components/ui/marquee/marquee";
 
 const TECH_STACK = [
   {
@@ -1018,7 +1245,7 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+    <Marquee speed={80} gap="4rem" direction="left" pauseOnHover>
       <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
@@ -1047,7 +1274,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import Marquee from "@/registry/sonaui/marquee/marquee";`,
+import Marquee from "@/components/ui/marquee/marquee";`,
       anatomy: `const TECH_STACK = [
   {
     name: "Next.js",
@@ -1069,7 +1296,7 @@ import Marquee from "@/registry/sonaui/marquee/marquee";`,
 
 export default function MarqueeExample() {
   return (
-    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
+    <Marquee speed={80} gap="4rem" direction="left" pauseOnHover>
       <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
@@ -1100,7 +1327,7 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
 import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
-} from "@/registry/sonaui/ripple-button/ripple-button";
+} from "@/components/ui/ripple-button/ripple-button";
 
 interface LocalRippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -1136,7 +1363,7 @@ export default function RippleButtonExample({
 import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
-} from "@/registry/sonaui/ripple-button/ripple-button";`,
+} from "@/components/ui/ripple-button/ripple-button";`,
       anatomy: `interface LocalRippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -1171,7 +1398,7 @@ export default function RippleButtonExample({
     {
       name: "default",
       component: spotlight_card_spotlight_card_demo,
-      code: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
+      code: `import SpotlightCard from "@/components/ui/spotlight-card/spotlight-card";
 
 export default function SpotlightCardExample() {
   return (
@@ -1185,7 +1412,7 @@ export default function SpotlightCardExample() {
   );
 }
 `,
-      imports: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";`,
+      imports: `import SpotlightCard from "@/components/ui/spotlight-card/spotlight-card";`,
       anatomy: `export default function SpotlightCardExample() {
   return (
     <SpotlightCard className="max-w-sm">
@@ -1199,11 +1426,433 @@ export default function SpotlightCardExample() {
 }`,
     }
   ],
+  "animated-dialog": [
+    {
+      name: "default",
+      component: animated_dialog_animated_dialog_demo,
+      code: `"use client";
+
+import { useState } from "react";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogDemo() {
+  const [direction, setDirection] = useState<"top" | "bottom" | "left" | "right" | "center">("bottom");
+
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
+        {(["top", "bottom", "left", "right", "center"] as const).map((d) => (
+          <button
+            key={d}
+            type="button"
+            onClick={() => setDirection(d)}
+            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
+              direction === d
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }\`}
+          >
+            {d}
+          </button>
+        ))}
+      </div>
+
+      <AnimatedDialog>
+        <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
+        <AnimatedDialogContent from={direction}>
+          <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
+          <AnimatedDialogDescription>
+            This modal is configured to animate from the <span className="font-semibold text-foreground capitalize">{direction}</span>. You can test all entry vectors using the switcher above.
+          </AnimatedDialogDescription>
+          <div className="mt-6 flex justify-end gap-3">
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+                >
+                  Cancel
+                </button>
+              }
+            />
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Confirm
+                </button>
+              }
+            />
+          </div>
+        </AnimatedDialogContent>
+      </AnimatedDialog>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogDemo() {
+  const [direction, setDirection] = useState<"top" | "bottom" | "left" | "right" | "center">("bottom");
+
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
+        {(["top", "bottom", "left", "right", "center"] as const).map((d) => (
+          <button
+            key={d}
+            type="button"
+            onClick={() => setDirection(d)}
+            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
+              direction === d
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }\`}
+          >
+            {d}
+          </button>
+        ))}
+      </div>
+
+      <AnimatedDialog>
+        <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
+        <AnimatedDialogContent from={direction}>
+          <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
+          <AnimatedDialogDescription>
+            This modal is configured to animate from the <span className="font-semibold text-foreground capitalize">{direction}</span>. You can test all entry vectors using the switcher above.
+          </AnimatedDialogDescription>
+          <div className="mt-6 flex justify-end gap-3">
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+                >
+                  Cancel
+                </button>
+              }
+            />
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Confirm
+                </button>
+              }
+            />
+          </div>
+        </AnimatedDialogContent>
+      </AnimatedDialog>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "toast",
+      component: animated_dialog_animated_dialog_toast,
+      code: `"use client";
+
+import { toast } from "sonner";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogToast() {
+  return (
+    <AnimatedDialog>
+      <AnimatedDialogTrigger>Trigger Action</AnimatedDialogTrigger>
+      <AnimatedDialogContent from="bottom">
+        <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
+        <AnimatedDialogDescription>
+          This action will permanently delete the repository. This change is irreversible.
+        </AnimatedDialogDescription>
+        <div className="mt-6 flex justify-end gap-3">
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.error("Project deletion aborted")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+              >
+                Cancel
+              </button>
+            }
+          />
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.success("Project deleted successfully!")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
+              >
+                Delete
+              </button>
+            }
+          />
+        </div>
+      </AnimatedDialogContent>
+    </AnimatedDialog>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { toast } from "sonner";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogToast() {
+  return (
+    <AnimatedDialog>
+      <AnimatedDialogTrigger>Trigger Action</AnimatedDialogTrigger>
+      <AnimatedDialogContent from="bottom">
+        <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
+        <AnimatedDialogDescription>
+          This action will permanently delete the repository. This change is irreversible.
+        </AnimatedDialogDescription>
+        <div className="mt-6 flex justify-end gap-3">
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.error("Project deletion aborted")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+              >
+                Cancel
+              </button>
+            }
+          />
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.success("Project deleted successfully!")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
+              >
+                Delete
+              </button>
+            }
+          />
+        </div>
+      </AnimatedDialogContent>
+    </AnimatedDialog>
+  );
+}`,
+    }
+  ],
+  "animated-button": [
+    {
+      name: "default",
+      component: animated_button_animated_button_demo,
+      code: `"use client";
+
+import { useState } from "react";
+import { Check, ArrowRight, Loader2, Sparkles } from "lucide-react";
+import AnimatedButton from "@/components/ui/animated-button/animated-button";
+
+export default function AnimatedButtonDemo() {
+  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
+  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">("slide-up");
+
+  const handleClick = () => {
+    if (state !== "idle") return;
+    setState("loading");
+    setTimeout(() => {
+      setState("success");
+      setTimeout(() => setState("idle"), 2000);
+    }, 1500);
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-8 w-full max-w-md">
+      {/* Swap Animation Selector */}
+      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
+        {(["slide-up", "slide-down", "fade", "blur"] as const).map((style) => (
+          <button
+            key={style}
+            type="button"
+            onClick={() => setSwap(style)}
+            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
+              swap === style
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }\`}
+          >
+            {style.replace("-", " ")}
+          </button>
+        ))}
+      </div>
+
+      {/* Main state swap button */}
+      <div className="flex flex-col items-center gap-2">
+        <AnimatedButton
+          onClick={handleClick}
+          swap={swap}
+          contentKey={state}
+          variant="default"
+          size="md"
+          className="w-36"
+        >
+          {state === "idle" && (
+            <>
+              Submit <ArrowRight className="size-4" />
+            </>
+          )}
+          {state === "loading" && (
+            <>
+              <Loader2 className="size-4 animate-spin" /> Saving...
+            </>
+          )}
+          {state === "success" && (
+            <>
+              <Check className="size-4 text-emerald-400" /> Success
+            </>
+          )}
+        </AnimatedButton>
+        <span className="text-xs text-muted-foreground">Click to trigger state change</span>
+      </div>
+
+      {/* Hover Swap Mode (ScrollUpButton merge) */}
+      <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
+        <span className="text-sm font-semibold text-foreground">Hover Text Swap</span>
+        <div className="flex gap-4">
+          <AnimatedButton hoverSwap variant="outlined" size="md">
+            Hover Me
+          </AnimatedButton>
+          <AnimatedButton hoverSwap variant="secondary" size="md">
+            <Sparkles className="size-4 mr-2" /> Playful Effect
+          </AnimatedButton>
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import { Check, ArrowRight, Loader2, Sparkles } from "lucide-react";
+import AnimatedButton from "@/components/ui/animated-button/animated-button";
+
+export default function AnimatedButtonDemo() {
+  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
+  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">("slide-up");
+
+  const handleClick = () => {
+    if (state !== "idle") return;
+    setState("loading");
+    setTimeout(() => {
+      setState("success");
+      setTimeout(() => setState("idle"), 2000);
+    }, 1500);
+  };
+
+  return (
+    <div className="flex flex-col items-center gap-8 w-full max-w-md">
+      {/* Swap Animation Selector */}
+      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
+        {(["slide-up", "slide-down", "fade", "blur"] as const).map((style) => (
+          <button
+            key={style}
+            type="button"
+            onClick={() => setSwap(style)}
+            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
+              swap === style
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }\`}
+          >
+            {style.replace("-", " ")}
+          </button>
+        ))}
+      </div>
+
+      {/* Main state swap button */}
+      <div className="flex flex-col items-center gap-2">
+        <AnimatedButton
+          onClick={handleClick}
+          swap={swap}
+          contentKey={state}
+          variant="default"
+          size="md"
+          className="w-36"
+        >
+          {state === "idle" && (
+            <>
+              Submit <ArrowRight className="size-4" />
+            </>
+          )}
+          {state === "loading" && (
+            <>
+              <Loader2 className="size-4 animate-spin" /> Saving...
+            </>
+          )}
+          {state === "success" && (
+            <>
+              <Check className="size-4 text-emerald-400" /> Success
+            </>
+          )}
+        </AnimatedButton>
+        <span className="text-xs text-muted-foreground">Click to trigger state change</span>
+      </div>
+
+      {/* Hover Swap Mode (ScrollUpButton merge) */}
+      <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
+        <span className="text-sm font-semibold text-foreground">Hover Text Swap</span>
+        <div className="flex gap-4">
+          <AnimatedButton hoverSwap variant="outlined" size="md">
+            Hover Me
+          </AnimatedButton>
+          <AnimatedButton hoverSwap variant="secondary" size="md">
+            <Sparkles className="size-4 mr-2" /> Playful Effect
+          </AnimatedButton>
+        </div>
+      </div>
+    </div>
+  );
+}`,
+    }
+  ],
   "vertical-tab": [
     {
       name: "default",
       component: vertical_tab_vertical_tab_demo,
-      code: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";
+      code: `import VerticalTab from "@/components/ui/vertical-tab/vertical-tab";
 
 const VerticalTabs_data = [
   {
@@ -1233,7 +1882,7 @@ export default function VerticalTabExample() {
   return <VerticalTab tabs={VerticalTabs_data} />;
 }
 `,
-      imports: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";`,
+      imports: `import VerticalTab from "@/components/ui/vertical-tab/vertical-tab";`,
       anatomy: `const VerticalTabs_data = [
   {
     title: "Home",
@@ -1263,6 +1912,110 @@ export default function VerticalTabExample() {
 }`,
     }
   ],
+  "animated-switch": [
+    {
+      name: "default",
+      component: animated_switch_animated_switch_demo,
+      code: `"use client";
+
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-6 items-start">
+      {/* Sizes */}
+      <div className="flex gap-6 items-center">
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="sm" />
+          <span className="text-muted-foreground text-xs">sm</span>
+        </div>
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="md" defaultChecked />
+          <span className="text-muted-foreground text-xs">md</span>
+        </div>
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="lg" />
+          <span className="text-muted-foreground text-xs">lg</span>
+        </div>
+      </div>
+
+      {/* Controlled & Disabled */}
+      <div className="flex gap-8 items-center pt-4 w-full border-t">
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch
+            checked={checked}
+            onCheckedChange={setChecked}
+          />
+          <span className="font-medium text-sm">
+            Controlled: {checked ? "On" : "Off"}
+          </span>
+        </div>
+
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch defaultChecked disabled />
+          <span className="font-medium text-muted-foreground text-sm">
+            Disabled
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-6 items-start">
+      {/* Sizes */}
+      <div className="flex gap-6 items-center">
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="sm" />
+          <span className="text-muted-foreground text-xs">sm</span>
+        </div>
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="md" defaultChecked />
+          <span className="text-muted-foreground text-xs">md</span>
+        </div>
+        <div className="flex flex-col gap-1.5 items-center">
+          <AnimatedSwitch size="lg" />
+          <span className="text-muted-foreground text-xs">lg</span>
+        </div>
+      </div>
+
+      {/* Controlled & Disabled */}
+      <div className="flex gap-8 items-center pt-4 w-full border-t">
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch
+            checked={checked}
+            onCheckedChange={setChecked}
+          />
+          <span className="font-medium text-sm">
+            Controlled: {checked ? "On" : "Off"}
+          </span>
+        </div>
+
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch defaultChecked disabled />
+          <span className="font-medium text-muted-foreground text-sm">
+            Disabled
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}`,
+    }
+  ],
   "expandable-tabs": [
     {
       name: "default",
@@ -1271,7 +2024,7 @@ export default function VerticalTabExample() {
 
 import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
+import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
 type TabDataType = {
   title: string;
@@ -1314,7 +2067,7 @@ export default function ExpandableTabsExample() {
 
 import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
+import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
 type TabDataType = {
   title: string;
@@ -1357,7 +2110,7 @@ export default function ExpandableTabsExample() {
     {
       name: "ocean",
       component: mesh_gradient_shader_mesh_gradient_shader_ocean,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderOcean() {
   return (
@@ -1370,7 +2123,7 @@ export default function MeshGradientShaderOcean() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderOcean() {
   return (
     <MeshGradientShader
@@ -1385,13 +2138,13 @@ export default function MeshGradientShaderOcean() {
     {
       name: "default",
       component: mesh_gradient_shader_mesh_gradient_shader_demo,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderExample() {
   return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderExample() {
   return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }`,
@@ -1399,7 +2152,7 @@ export default function MeshGradientShaderExample() {
     {
       name: "sunset",
       component: mesh_gradient_shader_mesh_gradient_shader_sunset,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderSunset() {
   return (
@@ -1412,7 +2165,7 @@ export default function MeshGradientShaderSunset() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderSunset() {
   return (
     <MeshGradientShader
@@ -1427,7 +2180,7 @@ export default function MeshGradientShaderSunset() {
     {
       name: "static",
       component: mesh_gradient_shader_mesh_gradient_shader_static,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderStatic() {
   return (
@@ -1441,7 +2194,7 @@ export default function MeshGradientShaderStatic() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderStatic() {
   return (
     <MeshGradientShader
@@ -1457,7 +2210,7 @@ export default function MeshGradientShaderStatic() {
     {
       name: "monochrome",
       component: mesh_gradient_shader_mesh_gradient_shader_monochrome,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderMonochrome() {
   return (
@@ -1471,7 +2224,7 @@ export default function MeshGradientShaderMonochrome() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
@@ -1489,7 +2242,7 @@ export default function MeshGradientShaderMonochrome() {
     {
       name: "default",
       component: link_preview_link_preview_demo,
-      code: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";
+      code: `import LinkPreview from "@/components/ui/link-preview/link-preview";
 
 export default function LinkPreviewExample() {
   return (
@@ -1509,7 +2262,7 @@ export default function LinkPreviewExample() {
   );
 }
 `,
-      imports: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";`,
+      imports: `import LinkPreview from "@/components/ui/link-preview/link-preview";`,
       anatomy: `export default function LinkPreviewExample() {
   return (
     <div className="flex flex-col gap-4 justify-center w-full">
@@ -1533,13 +2286,13 @@ export default function LinkPreviewExample() {
     {
       name: "default",
       component: stagger_text_stagger_text_demo,
-      code: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";
+      code: `import StaggerText from "@/components/ui/stagger-text/stagger-text";
 
 export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }
 `,
-      imports: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";`,
+      imports: `import StaggerText from "@/components/ui/stagger-text/stagger-text";`,
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }`,
@@ -1552,7 +2305,7 @@ export default function StaggerTextExample() {
       code: `"use client";
 
 import { toast } from "sonner";
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
+import HoldToDeleteButton from "@/components/ui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
@@ -1568,7 +2321,7 @@ export default function HoldToDeleteButtonDemo() {
       anatomy: `"use client";
 
 import { toast } from "sonner";
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
+import HoldToDeleteButton from "@/components/ui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
@@ -1593,6 +2346,286 @@ export type Registry = {
 }
 
 export const registry: Registry = {
+  "animated-dropdown": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Menu } from "@base-ui/react/menu";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import {
+  createContext,
+  useContext,
+  useId,
+  useState,
+  type ReactNode,
+} from "react";
+import { cn } from "@/lib/utils";
+
+// ─── Context ─────────────────────────────────────────────────────────────────
+
+interface DropdownContextValue {
+  /** Unique layoutId prefix for the hover highlight — scoped per Root instance. */
+  layoutId: string;
+  /** Currently highlighted item id (for keyboard + mouse parity). */
+  activeId: string | null;
+  setActiveId: (id: string | null) => void;
+}
+
+const DropdownContext = createContext<DropdownContextValue | null>(null);
+
+function useDropdownContext() {
+  const ctx = useContext(DropdownContext);
+  if (!ctx)
+    throw new Error(
+      "AnimatedDropdown subcomponents must be used within <AnimatedDropdown>",
+    );
+  return ctx;
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface AnimatedDropdownProps {
+  children: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Callback when open state changes. */
+  onOpenChange?: (open: boolean) => void;
+}
+
+export interface AnimatedDropdownContentProps {
+  children: ReactNode;
+  className?: string;
+  /**
+   * Side the menu opens on.
+   * @default "bottom"
+   */
+  side?: "bottom" | "top" | "left" | "right";
+  /**
+   * Alignment along the side.
+   * @default "center"
+   */
+  align?: "start" | "center" | "end";
+  /**
+   * Gap between trigger and popup in px.
+   * @default 6
+   */
+  sideOffset?: number;
+}
+
+export interface AnimatedDropdownItemProps {
+  children: ReactNode;
+  /** Icon to display before the label (any ReactNode — no HugeIcons dependency). */
+  icon?: ReactNode;
+  /**
+   * Visual variant.
+   * @default "default"
+   */
+  variant?: "default" | "danger";
+  disabled?: boolean;
+  onClick?: () => void;
+  className?: string;
+}
+
+export interface AnimatedDropdownTriggerProps {
+  children: ReactNode;
+  className?: string;
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+
+/**
+ * Root dropdown — owns open state and the hover-highlight layout group.
+ * Wrap all other AnimatedDropdown subcomponents inside this.
+ */
+export function AnimatedDropdown({
+  children,
+  open,
+  onOpenChange,
+}: AnimatedDropdownProps) {
+  const layoutId = useId();
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  return (
+    <DropdownContext.Provider value={{ layoutId, activeId, setActiveId }}>
+      <LayoutGroup id={layoutId}>
+        <Menu.Root open={open} onOpenChange={onOpenChange}>
+          {children}
+        </Menu.Root>
+      </LayoutGroup>
+    </DropdownContext.Provider>
+  );
+}
+
+// ─── Trigger ──────────────────────────────────────────────────────────────────
+
+/**
+ * The element that opens the dropdown when clicked.
+ * Renders as a \`<button>\` by default via Base UI.
+ */
+export function AnimatedDropdownTrigger({
+  children,
+  className,
+}: AnimatedDropdownTriggerProps) {
+  return (
+    <Menu.Trigger
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
+        "bg-secondary text-secondary-foreground text-sm font-medium",
+        "hover:bg-muted transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        "data-[popup-open]:bg-muted",
+        className,
+      )}
+    >
+      {children}
+    </Menu.Trigger>
+  );
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+/**
+ * The animated popup panel containing menu items.
+ * Scales in from its trigger origin using Base UI's \`--transform-origin\` variable.
+ */
+export function AnimatedDropdownContent({
+  children,
+  className,
+  side = "bottom",
+  align = "center",
+  sideOffset = 6,
+}: AnimatedDropdownContentProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <Menu.Portal>
+      <Menu.Positioner side={side} align={align} sideOffset={sideOffset}>
+        <Menu.Popup
+          className={cn(
+            // Layout
+            "z-50 min-w-[160px] rounded-xl p-1",
+            // Surface
+            "bg-popover text-popover-foreground shadow-lg",
+            "border border-border/60",
+            // Origin-aware transform — Base UI injects --transform-origin
+            "origin-[var(--transform-origin)]",
+            // Enter animation (CSS @starting-style + transition)
+            "transition-[opacity,transform]",
+            "data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "data-[ending-style]:scale-95 data-[ending-style]:opacity-0",
+            shouldReduceMotion
+              ? "duration-0"
+              : "duration-150 data-[ending-style]:duration-100",
+            className,
+          )}
+        >
+          {children}
+        </Menu.Popup>
+      </Menu.Positioner>
+    </Menu.Portal>
+  );
+}
+
+// ─── Item ─────────────────────────────────────────────────────────────────────
+
+/**
+ * A single menu item with an animated hover-highlight background.
+ * The highlight uses a shared \`layoutId\` so it glides between items on mouse-over.
+ */
+export function AnimatedDropdownItem({
+  children,
+  icon,
+  variant = "default",
+  disabled,
+  onClick,
+  className,
+}: AnimatedDropdownItemProps) {
+  const { layoutId, activeId, setActiveId } = useDropdownContext();
+  const itemId = useId();
+  const shouldReduceMotion = useReducedMotion();
+
+  const isActive = activeId === itemId;
+
+  return (
+    <Menu.Item
+      disabled={disabled}
+      onClick={onClick}
+      className={cn(
+        "relative flex cursor-pointer select-none items-center gap-2.5",
+        "rounded-lg px-2.5 py-2 text-sm outline-none",
+        "transition-colors duration-75",
+        variant === "danger"
+          ? "text-danger-foreground focus:text-danger-foreground"
+          : "text-popover-foreground",
+        disabled && "cursor-not-allowed opacity-50",
+        className,
+      )}
+      onMouseEnter={() => setActiveId(itemId)}
+      onFocus={() => setActiveId(itemId)}
+      onMouseLeave={() => setActiveId(null)}
+      onBlur={() => setActiveId(null)}
+    >
+      {/* Animated highlight — shared across all items in this dropdown instance */}
+      <AnimatePresence>
+        {isActive && (
+          <motion.span
+            layoutId={\`\${layoutId}-highlight\`}
+            className={cn(
+              "absolute inset-0 rounded-lg",
+              variant === "danger" ? "bg-danger" : "bg-accent",
+            )}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    type: "spring",
+                    stiffness: 380,
+                    damping: 30,
+                    // layout transition for the sliding effect
+                    layout: { type: "spring", stiffness: 380, damping: 30 },
+                  }
+            }
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Icon */}
+      {icon && (
+        <span className="relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground">
+          {icon}
+        </span>
+      )}
+
+      {/* Label */}
+      <span className="relative z-10 flex-1">{children}</span>
+    </Menu.Item>
+  );
+}
+
+// ─── Separator ────────────────────────────────────────────────────────────────
+
+/** A thin visual divider between groups of items. */
+export function AnimatedDropdownSeparator({ className }: { className?: string }) {
+  return (
+    <Menu.Separator
+      className={cn("my-1 h-px bg-border/60 mx-1", className)}
+    />
+  );
+}
+`,
+      path: "animated-dropdown/animated-dropdown.tsx",
+      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
+    }
+  ],
   "circular-dock-menu": [
     {
       type: "registry:ui",
@@ -2798,192 +3831,278 @@ export default function FanView({
       content: `"use client";
 
 import {
-  motion,
-  useMotionTemplate,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
   useScroll,
   useSpring,
-  useTransform,
   useVelocity,
 } from "motion/react";
-import { forwardRef, useEffect, useRef, useState } from "react";
-import useMeasure from "react-use-measure";
-import { useClock } from "@/hooks/useClock";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-// Constants
-const DEFAULT_DURATION = 10; // Default duration in seconds
-
-// Helper function to calculate the number of marquee items
-const calculateItemCount = (
-  containerWidth: number,
-  itemWidth: number,
-): number => {
-  return Math.ceil(containerWidth / itemWidth);
-};
-
-interface MarqueeProps {
-  /** The content to be rendered inside the marquee. */
+export interface MarqueeProps {
+  /** Content of one marquee segment. Can be a single small element or a long strip. */
   children: React.ReactNode;
-  /** Additional class names for custom styling of the marquee items. */
   className?: string;
-  /** Additional class names for custom styling of the marquee container. */
+  /** Class for the outer clipping container. */
   containerClassName?: string;
   /**
-   * The duration of the marquee animation in seconds.
-   * @default 10
+   * Scroll speed in pixels per second. Higher = faster.
+   * @default 80
    */
-  duration?: number;
+  speed?: number;
   /**
-   * Determines whether the marquee scrolls in reverse direction.
+   * Gap between repeated segments, any CSS length string.
+   * @default "4rem"
+   */
+  gap?: string;
+  /**
+   * Scroll direction.
+   * @default "left"
+   */
+  direction?: "left" | "right" | "up" | "down";
+  /**
+   * Multiply speed by scroll velocity (and flip direction on scroll-up).
    * @default false
    */
-  reverse?: boolean;
+  scrollVelocity?: boolean;
   /**
-   * Enables dynamic speed adjustment based on scroll velocity.
+   * Max speed multiplier when scrollVelocity is enabled.
+   * @default 5
+   */
+  maxVelocity?: number;
+  /**
+   * Pause (with easing, not a snap) on hover.
    * @default false
    */
-  activeScroll?: boolean;
+  pauseOnHover?: boolean;
   /**
-   * Pauses the marquee animation when hovered.
-   * @default false
+   * How many segment copies to render.
+   * "auto" measures the container and fills 2× it.
+   * @default "auto"
    */
-  activeHover?: boolean;
+  repeat?: number | "auto";
 }
 
 export default function Marquee({
   children,
   className,
   containerClassName,
-  duration = DEFAULT_DURATION,
-  reverse = false,
-  activeScroll = false,
-  activeHover = false,
+  speed = 80,
+  gap = "4rem",
+  direction = "left",
+  scrollVelocity = false,
+  maxVelocity = 5,
+  pauseOnHover = false,
+  repeat = "auto",
 }: MarqueeProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [parentBounds, setParentBounds] = useState({ width: 0, height: 0 });
-  const [marqueeItemRef, marqueeItemBounds] = useMeasure();
-  const [count, setCount] = useState(0);
-  const [activeDirection, setActiveDirection] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  const [isClient, setIsClient] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const segmentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // How many copies are rendered (updated by ResizeObserver)
+  const countRef = useRef<number>(typeof repeat === "number" ? repeat : 4);
 
+  // Motion value for translation — never stored in React state
+  const baseX = useMotionValue(0);
+  const isHovered = useRef(false);
+  // 0 = fully paused, 1 = full speed — lerped in rAF
+  const speedMultiplier = useRef(1);
+
+  // Scroll velocity pipeline (motion values only — no setState)
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
+  const scrollVelocityMV = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocityMV, {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
 
+  const isVertical = direction === "up" || direction === "down";
+  const directionSign =
+    direction === "left" || direction === "up" ? 1 : -1;
+
+  // ResizeObserver — recompute copy count when container or segment resize
   useEffect(() => {
-    if (ref.current && isClient) {
-      if (ref.current.parentElement) {
-        const { width, height } =
-          ref.current.parentElement.getBoundingClientRect();
-        setParentBounds({ width, height });
+    if (repeat !== "auto" || shouldReduceMotion) return;
+
+    const container = containerRef.current;
+    const segment = segmentRef.current;
+    if (!container || !segment) return;
+
+    function recompute() {
+      if (!container || !segment) return;
+      const containerSize = isVertical
+        ? container.offsetHeight
+        : container.offsetWidth;
+      const segmentSize = isVertical
+        ? segment.offsetHeight
+        : segment.offsetWidth;
+      if (segmentSize > 0) {
+        countRef.current = Math.max(2, Math.ceil((containerSize * 2) / segmentSize) + 1);
       }
     }
-  }, [ref, isClient]);
 
-  // Update item count when dimensions change
-  useEffect(() => {
-    if (marqueeItemBounds.width > 0 && parentBounds.width > 0) {
-      setCount(calculateItemCount(parentBounds.width, marqueeItemBounds.width));
+    recompute();
+    const ro = new ResizeObserver(recompute);
+    ro.observe(container);
+    ro.observe(segment);
+    return () => ro.disconnect();
+  }, [repeat, isVertical, shouldReduceMotion]);
+
+  // Hover handlers
+  const onMouseEnter = () => {
+    if (pauseOnHover) isHovered.current = true;
+  };
+  const onMouseLeave = () => {
+    if (pauseOnHover) isHovered.current = false;
+  };
+
+  // Main animation loop — all in motion values, zero React state
+  useAnimationFrame((_, delta) => {
+    if (shouldReduceMotion) return;
+
+    const segment = segmentRef.current;
+    if (!segment) return;
+
+    const segmentSize = isVertical
+      ? segment.offsetHeight
+      : segment.offsetWidth;
+    if (segmentSize === 0) return;
+
+    // Lerp speedMultiplier toward target (eased pause on hover)
+    const targetMultiplier = isHovered.current ? 0 : 1;
+    speedMultiplier.current += (targetMultiplier - speedMultiplier.current) * 0.1;
+
+    // Velocity boost from scroll
+    let velocityBoost = 1;
+    let velocityFlip = 1;
+    if (scrollVelocity) {
+      const v = smoothVelocity.get();
+      velocityBoost = Math.min(Math.abs(v) / 200, maxVelocity);
+      velocityBoost = Math.max(velocityBoost, 1);
+      if (v < -50) velocityFlip = -1;
     }
-  }, [marqueeItemBounds, parentBounds, children]);
 
-  // Update active direction based on velocity
-  useEffect(() => {
-    return velocityFactor.on("change", (value) => {
-      setActiveDirection(value < 0);
-    });
-  }, [velocityFactor]);
+    const pxPerMs = speed / 1000;
+    const delta_px =
+      pxPerMs * delta * directionSign * velocityFlip * speedMultiplier.current * velocityBoost;
 
-  // Update speed dynamically based on velocity factor
-  useEffect(() => {
-    const unsubscribe = velocityFactor.on("change", (value) => {
-      setSpeed(activeScroll && value > 0 ? value : 1);
-    });
+    let next = baseX.get() - delta_px;
 
-    return () => unsubscribe();
-  }, [velocityFactor, activeScroll]);
-
-  // Update speed when hovered
-  useEffect(() => {
-    if (!activeHover) return;
-    if (isHovered) {
-      setSpeed(0);
+    // Wrap: keep translation within [-segmentSize, 0)
+    if (directionSign > 0) {
+      // moving left/up — translate goes negative
+      if (next <= -segmentSize) next += segmentSize;
     } else {
-      setSpeed(activeScroll ? velocityFactor.get() : 1);
+      // moving right/down — translate goes positive
+      if (next >= 0) next -= segmentSize;
+      if (next < -segmentSize) next += segmentSize;
     }
-  }, [isHovered, activeScroll, velocityFactor, activeHover]);
 
-  const clock = useClock({
-    defaultValue: Date.now(),
-    reverse: activeScroll ? activeDirection : reverse,
-    speed,
-  }).value;
+    baseX.set(next);
+  });
 
-  const progress = useTransform(clock, (time) => (time % duration) / duration);
-  const percentage = useTransform(progress, (t) => t * 100);
-  const translateX = useMotionTemplate\`-\${percentage}%\`;
+  const copies = repeat !== "auto" ? repeat : countRef.current;
+  const items = Array.from({ length: copies });
+
+  if (shouldReduceMotion) {
+    // Static strip — no animation
+    return (
+      <div
+        ref={containerRef}
+        className={cn("overflow-hidden", containerClassName)}
+      >
+        <div
+          className={cn(
+            isVertical ? "flex flex-col" : "flex flex-row",
+            "w-max",
+            className,
+          )}
+          style={{ gap }}
+        >
+          <div ref={segmentRef}>{children}</div>
+          {items.map((_, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: static decorative copies
+            <div key={i} aria-hidden="true">
+              {children}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    isClient && (
-      <motion.div
-        style={{ translateX }}
-        className={cn("flex w-fit space-x-16", containerClassName)}
-        ref={ref}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+    <div
+      ref={containerRef}
+      className={cn("overflow-hidden", containerClassName)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {/* The track: a flex row/col of copies, translated as a unit */}
+      <MotionTrack
+        baseX={baseX}
+        isVertical={isVertical}
+        gap={gap}
+        className={className}
+        segmentRef={segmentRef}
+        items={items}
       >
-        <MarqueeItem className={className} ref={marqueeItemRef}>
-          {children}
-        </MarqueeItem>
-        {Array.from({ length: count }).map((_, i) => (
-          <MarqueeItem
-            key={i}
-            isCopy
-            style={{ left: \`calc(\${(i + 1) * 100}%)\` }}
-          >
-            {children}
-          </MarqueeItem>
-        ))}
-      </motion.div>
-    )
+        {children}
+      </MotionTrack>
+    </div>
   );
 }
 
-interface MarqueeItemProps {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-  isCopy?: boolean;
-}
+// Split into a separate component to isolate motion subscription
+import { motion, type MotionValue } from "motion/react";
 
-const MarqueeItem = forwardRef<HTMLDivElement, MarqueeItemProps>(
-  ({ children, className, isCopy, style }, ref) => {
-    return (
-      <div
-        className={cn("w-full text-nowrap", isCopy && "absolute", className)}
-        style={style}
-        ref={ref}
-      >
+function MotionTrack({
+  baseX,
+  isVertical,
+  gap,
+  className,
+  segmentRef,
+  items,
+  children,
+}: {
+  baseX: MotionValue<number>;
+  isVertical: boolean;
+  gap: string;
+  className?: string;
+  segmentRef: React.RefObject<HTMLDivElement | null>;
+  items: unknown[];
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      style={isVertical ? { y: baseX } : { x: baseX }}
+      className={cn(
+        isVertical ? "flex flex-col" : "flex flex-row",
+        "w-max will-change-transform",
+        className,
+      )}
+    >
+      {/* First segment — measured for loop math */}
+      <div ref={segmentRef} style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}>
         {children}
       </div>
-    );
-  },
-);
-
-MarqueeItem.displayName = "MarqueeItem";
+      {/* Copies — decorative, aria-hidden */}
+      {items.map((_, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: decorative animation copies
+        <div
+          key={i}
+          aria-hidden="true"
+          style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}
+        >
+          {children}
+        </div>
+      ))}
+    </motion.div>
+  );
+}
 `,
       path: "marquee/marquee.tsx",
       target: "components/sonaui/marquee/marquee.tsx"
@@ -3193,6 +4312,499 @@ export default function SpotlightCard({
       target: "components/sonaui/spotlight-card/spotlight-card.tsx"
     }
   ],
+  "animated-dialog": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Dialog } from "@base-ui/react/dialog";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+} from "react";
+import { cn } from "@/lib/utils";
+
+// ─── Context ─────────────────────────────────────────────────────────────────
+
+interface DialogContextValue {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+const DialogContext = createContext<DialogContextValue | null>(null);
+
+function useDialogContext() {
+  const ctx = useContext(DialogContext);
+  if (!ctx) {
+    throw new Error(
+      "AnimatedDialog subcomponents must be used within <AnimatedDialog>"
+    );
+  }
+  return ctx;
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface AnimatedDialogProps {
+  children: ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+export interface AnimatedDialogContentProps {
+  children: ReactNode;
+  /**
+   * Direction the dialog slides in from.
+   * @default "bottom"
+   */
+  from?: "top" | "bottom" | "left" | "right" | "center";
+  /**
+   * Direction the dialog slides out to. Defaults to reversing the entrance.
+   */
+  exitTo?: "top" | "bottom" | "left" | "right" | "center";
+  className?: string;
+  /**
+   * Class name for the backdrop overlay.
+   */
+  backdropClassName?: string;
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialog({
+  children,
+  open: controlledOpen,
+  onOpenChange,
+}: AnimatedDialogProps) {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) {
+      setInternalOpen(nextOpen);
+    }
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <DialogContext.Provider value={{ open, setOpen }}>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
+        {children}
+      </Dialog.Root>
+    </DialogContext.Provider>
+  );
+}
+
+// ─── Trigger ──────────────────────────────────────────────────────────────────
+
+export function AnimatedDialogTrigger({
+  children,
+  className,
+  ...props
+}: Dialog.Trigger.Props) {
+  return (
+    <Dialog.Trigger
+      className={cn(
+        "inline-flex items-center justify-center rounded-lg px-4 py-2",
+        "bg-primary text-primary-foreground text-sm font-medium",
+        "hover:bg-primary/90 transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Dialog.Trigger>
+  );
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+const motionVariants = {
+  initial: (from: string) => {
+    switch (from) {
+      case "top":
+        return { y: -24, opacity: 0, scale: 0.97 };
+      case "bottom":
+        return { y: 24, opacity: 0, scale: 0.97 };
+      case "left":
+        return { x: -24, opacity: 0, scale: 0.97 };
+      case "right":
+        return { x: 24, opacity: 0, scale: 0.97 };
+      case "center":
+      default:
+        return { scale: 0.95, opacity: 0 };
+    }
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    scale: 1,
+    opacity: 1,
+  },
+  exit: (exitTo: string) => {
+    switch (exitTo) {
+      case "top":
+        return { y: -20, opacity: 0, scale: 0.97 };
+      case "bottom":
+        return { y: 20, opacity: 0, scale: 0.97 };
+      case "left":
+        return { x: -20, opacity: 0, scale: 0.97 };
+      case "right":
+        return { x: 20, opacity: 0, scale: 0.97 };
+      case "center":
+      default:
+        return { scale: 0.95, opacity: 0 };
+    }
+  },
+};
+
+export function AnimatedDialogContent({
+  children,
+  from = "bottom",
+  exitTo,
+  className,
+  backdropClassName,
+}: AnimatedDialogContentProps) {
+  const { open } = useDialogContext();
+  const shouldReduceMotion = useReducedMotion();
+  const resolvedExitTo = exitTo ?? from;
+
+  return (
+    <AnimatePresence custom={resolvedExitTo}>
+      {open && (
+        <Dialog.Portal keepMounted>
+          {/* Backdrop Overlay */}
+          <Dialog.Backdrop
+            render={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.2, ease: "easeOut" }
+                }
+                className={cn(
+                  "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+                  backdropClassName
+                )}
+              />
+            }
+          />
+
+          {/* Positioner centering the popup */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+            <Dialog.Popup
+              className="pointer-events-auto"
+              render={
+                <motion.div
+                  custom={from}
+                  variants={shouldReduceMotion ? {} : motionVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : {
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 32,
+                        }
+                  }
+                  className={cn(
+                    "w-full max-w-md overflow-hidden rounded-2xl p-6",
+                    "bg-popover text-popover-foreground shadow-2xl",
+                    "border border-border/80",
+                    className
+                  )}
+                >
+                  {children}
+                </motion.div>
+              }
+            />
+          </div>
+        </Dialog.Portal>
+      )}
+    </AnimatePresence>
+  );
+}
+
+// ─── Title ────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialogTitle({
+  className,
+  ...props
+}: Dialog.Title.Props) {
+  return (
+    <Dialog.Title
+      className={cn(
+        "text-lg font-semibold tracking-tight text-foreground",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+// ─── Description ──────────────────────────────────────────────────────────────
+
+export function AnimatedDialogDescription({
+  className,
+  ...props
+}: Dialog.Description.Props) {
+  return (
+    <Dialog.Description
+      className={cn("mt-1.5 text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  );
+}
+
+// ─── Close ────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialogClose({
+  className,
+  ...props
+}: Dialog.Close.Props) {
+  return (
+    <Dialog.Close
+      className={cn(
+        "inline-flex items-center justify-center rounded-lg px-4 py-2",
+        "bg-secondary text-secondary-foreground text-sm font-medium",
+        "hover:bg-muted transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+`,
+      path: "animated-dialog/animated-dialog.tsx",
+      target: "components/sonaui/animated-dialog/animated-dialog.tsx"
+    }
+  ],
+  "animated-button": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { cva, type VariantProps } from "class-variance-authority";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { forwardRef } from "react";
+import { cn } from "@/lib/utils";
+
+// ─── Button Variants (CVA) ───────────────────────────────────────────────────
+
+export const animatedButtonVariants = cva(
+  "relative inline-flex items-center justify-center font-medium rounded-xl select-none outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 transition-colors",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      },
+      size: {
+        sm: "h-9 px-4 text-xs",
+        md: "h-10 px-5 text-sm",
+        lg: "h-11 px-6 text-base",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  }
+);
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface AnimatedButtonProps
+  extends Omit<React.ComponentPropsWithoutRef<typeof motion.button>, "children">,
+    VariantProps<typeof animatedButtonVariants> {
+  children: React.ReactNode;
+  /**
+   * Key identifying the current label/content state. Change it to trigger the transition.
+   * If omitted, it will fall back to deriving from children when they are simple strings.
+   */
+  contentKey?: string | number;
+  /**
+   * Swap animation transition style.
+   * @default "slide-up"
+   */
+  swap?: "slide-up" | "slide-down" | "fade" | "blur";
+  /**
+   * Whether to animate a text-swap effect vertically on hover.
+   * Replaces the dedicated ScrollUpButton with a unified hover interaction.
+   * @default false
+   */
+  hoverSwap?: boolean;
+}
+
+// ─── Motion Variants ──────────────────────────────────────────────────────────
+
+const swapVariants = {
+  "slide-up": {
+    initial: { y: "60%", opacity: 0 },
+    animate: { y: "0%", opacity: 1 },
+    exit: { y: "-60%", opacity: 0 },
+  },
+  "slide-down": {
+    initial: { y: "-60%", opacity: 0 },
+    animate: { y: "0%", opacity: 1 },
+    exit: { y: "60%", opacity: 0 },
+  },
+  fade: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  blur: {
+    initial: { filter: "blur(4px)", opacity: 0 },
+    animate: { filter: "blur(0px)", opacity: 1 },
+    exit: { filter: "blur(4px)", opacity: 0 },
+  },
+};
+
+export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>(
+  (
+    {
+      children,
+      contentKey,
+      swap = "slide-up",
+      variant = "default",
+      size = "md",
+      hoverSwap = false,
+      className,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const shouldReduceMotion = useReducedMotion();
+
+    // Fallback key: string representation of children, if applicable
+    const resolvedKey =
+      contentKey ?? (typeof children === "string" ? children : undefined);
+
+    const isHoverSwap = hoverSwap && !shouldReduceMotion;
+
+    // Hover swap variants (two layers y-shifting)
+    const containerHoverVariants = {
+      initial: {},
+      hover: {},
+    };
+
+    const firstLayerVariants = {
+      initial: { y: "0%" },
+      hover: { y: "-150%" },
+    };
+
+    const secondLayerVariants = {
+      initial: { y: "150%" },
+      hover: { y: "0%" },
+    };
+
+    // If using hoverSwap, render a dual-layer sliding structure
+    if (isHoverSwap) {
+      return (
+        <motion.button
+          ref={ref}
+          disabled={disabled}
+          initial="initial"
+          whileHover="hover"
+          whileTap={{ scale: 0.97 }}
+          variants={containerHoverVariants}
+          className={cn(
+            animatedButtonVariants({ variant, size }),
+            "overflow-hidden flex flex-col items-center justify-center",
+            className
+          )}
+          {...props}
+        >
+          {/* Main Label Layer */}
+          <motion.span
+            variants={firstLayerVariants}
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            className="flex items-center justify-center w-full"
+          >
+            {children}
+          </motion.span>
+
+          {/* Incoming Hover Label Layer */}
+          <motion.span
+            variants={secondLayerVariants}
+            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            className="absolute flex items-center justify-center w-full"
+          >
+            {children}
+          </motion.span>
+        </motion.button>
+      );
+    }
+
+    // Default button with layout animations on state changes
+    return (
+      <motion.button
+        ref={ref}
+        disabled={disabled}
+        layout={shouldReduceMotion ? false : "size"}
+        whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : { type: "spring", stiffness: 500, damping: 35 }
+        }
+        className={cn(
+          animatedButtonVariants({ variant, size }),
+          "overflow-hidden flex items-center justify-center",
+          className
+        )}
+        {...props}
+      >
+        <div className="relative w-full h-full flex items-center justify-center overflow-hidden py-0.5">
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.span
+              key={resolvedKey}
+              variants={shouldReduceMotion ? swapVariants.fade : swapVariants[swap]}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 450, damping: 30 }
+              }
+              className="flex items-center justify-center gap-2 whitespace-nowrap min-w-max"
+            >
+              {children}
+            </motion.span>
+          </AnimatePresence>
+        </div>
+      </motion.button>
+    );
+  }
+);
+
+AnimatedButton.displayName = "AnimatedButton";
+export default AnimatedButton;
+`,
+      path: "animated-button/animated-button.tsx",
+      target: "components/sonaui/animated-button/animated-button.tsx"
+    }
+  ],
   "vertical-tab": [
     {
       type: "registry:ui",
@@ -3339,6 +4951,145 @@ const TabItem = ({ title, ...props }: TabItemProps) => {
 `,
       path: "vertical-tab/vertical-tab.tsx",
       target: "components/sonaui/vertical-tab/vertical-tab.tsx"
+    }
+  ],
+  "animated-switch": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Switch } from "@base-ui/react/switch";
+import { motion, useReducedMotion } from "motion/react";
+import { useState, useRef } from "react";
+import { cn } from "@/lib/utils";
+
+export interface AnimatedSwitchProps {
+  /** Controlled checked state. */
+  checked?: boolean;
+  /** Default checked state. */
+  defaultChecked?: boolean;
+  /** Callback fired when the state changes. */
+  onCheckedChange?: (checked: boolean) => void;
+  /** Whether the switch is disabled. */
+  disabled?: boolean;
+  /**
+   * The size of the switch.
+   * @default "md"
+   */
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}
+
+const sizeClasses = {
+  sm: {
+    track: "w-9 h-5 p-0.5",
+    thumb: "w-4 h-4",
+    xTranslate: 16, // px offset to slide right
+    squishScale: 1.15,
+  },
+  md: {
+    track: "w-11 h-6 p-0.5",
+    thumb: "w-5 h-5",
+    xTranslate: 20,
+    squishScale: 1.2,
+  },
+  lg: {
+    track: "w-14 h-8 p-0.5",
+    thumb: "w-7 h-7",
+    xTranslate: 24,
+    squishScale: 1.2,
+  },
+};
+
+export default function AnimatedSwitch({
+  checked: controlledChecked,
+  defaultChecked,
+  onCheckedChange,
+  disabled = false,
+  size = "md",
+  className,
+}: AnimatedSwitchProps) {
+  const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+  const isControlled = controlledChecked !== undefined;
+  const checked = isControlled ? controlledChecked : internalChecked;
+
+  const shouldReduceMotion = useReducedMotion();
+
+  // Track if we are dragging or actively pressing (via pointer events)
+  const [isPressing, setIsPressing] = useState(false);
+  const trackRef = useRef<HTMLButtonElement>(null);
+
+  const handleCheckedChange = (nextChecked: boolean) => {
+    if (!isControlled) {
+      setInternalChecked(nextChecked);
+    }
+    onCheckedChange?.(nextChecked);
+  };
+
+  const sizes = sizeClasses[size];
+
+  // We determine the horizontal origin of the stretch based on target state:
+  // If checked, pressing down should stretch from left to right.
+  // If not checked, pressing down should stretch from right to left.
+  const transformOrigin = checked ? "right center" : "left center";
+
+  return (
+    <Switch.Root
+      ref={trackRef}
+      checked={checked}
+      onCheckedChange={handleCheckedChange}
+      disabled={disabled}
+      onPointerDown={(e) => {
+        if (e.button === 0 && !disabled) {
+          setIsPressing(true);
+          const handleRelease = () => {
+            setIsPressing(false);
+            window.removeEventListener("pointerup", handleRelease);
+          };
+          window.addEventListener("pointerup", handleRelease);
+        }
+      }}
+      className={cn(
+        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        sizes.track,
+        checked ? "bg-primary" : "bg-muted",
+        disabled && "cursor-not-allowed opacity-50",
+        className,
+      )}
+    >
+      <Switch.Thumb
+        className={cn(
+          "block rounded-full bg-background shadow-lg ring-0",
+          sizes.thumb
+        )}
+        render={
+          <motion.span
+            style={{
+              transformOrigin,
+            }}
+            animate={{
+              x: checked ? sizes.xTranslate : 0,
+              scaleX: isPressing && !disabled ? sizes.squishScale : 1,
+              scaleY: isPressing && !disabled ? 0.9 : 1,
+            }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : {
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 32,
+                  }
+            }
+          />
+        }
+      />
+    </Switch.Root>
+  );
+}
+`,
+      path: "animated-switch/animated-switch.tsx",
+      target: "components/sonaui/animated-switch/animated-switch.tsx"
     }
   ],
   "expandable-tabs": [
@@ -3914,6 +5665,70 @@ export default function HoldToDeleteButton({
 };
 
 export const componentMetadata = {
+  "animated-dropdown": {
+    "name": "animated-dropdown",
+    "type": "registry:ui",
+    "title": "Animated Dropdown",
+    "description": "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "animated-switch": {
+    "name": "animated-switch",
+    "type": "registry:ui",
+    "title": "Animated Switch",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "animated-dialog": {
+    "name": "animated-dialog",
+    "type": "registry:ui",
+    "title": "Animated Dialog",
+    "description": "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "animated-button": {
+    "name": "animated-button",
+    "type": "registry:ui",
+    "title": "Animated Button",
+    "description": "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
+  },
   "dot-orbit-shader": {
     "name": "dot-orbit-shader",
     "type": "registry:ui",
@@ -4009,7 +5824,7 @@ export const componentMetadata = {
     "name": "marquee",
     "type": "registry:ui",
     "title": "Marquee",
-    "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
+    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/marquee/marquee.tsx",
@@ -4017,7 +5832,7 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
-      "react-use-measure"
+      "motion"
     ]
   },
   "spinning-text": {

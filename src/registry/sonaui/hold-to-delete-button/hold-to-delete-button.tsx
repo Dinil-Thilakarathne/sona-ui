@@ -1,6 +1,6 @@
 "use client";
 
-import * as m from "motion/react-m";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -78,23 +78,30 @@ export default function HoldToDeleteButton({
   );
 
   return (
-    <m.button
-      layout
-      layoutId="hold-to-delete-button"
+    <motion.button
       type="button"
       className={cn(
         "relative cursor-pointer overflow-clip rounded-full border-2 px-6 py-3 font-medium",
         className,
       )}
       whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
       onPointerDown={handlePointerDown}
       onPointerUp={cancelHold}
       onPointerLeave={cancelHold}
+      onPointerCancel={cancelHold}
+      onKeyDown={(e) => {
+        if ((e.key === " " || e.key === "Enter") && !e.repeat) {
+          e.preventDefault();
+          handlePointerDown();
+        }
+      }}
+      onKeyUp={(e) => {
+        if (e.key === " " || e.key === "Enter") cancelHold();
+      }}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-red-400"
+        className="absolute inset-0 h-full w-full bg-danger"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
           transition: isHolding
@@ -102,9 +109,9 @@ export default function HoldToDeleteButton({
             : "clip-path 200ms ease-out",
         }}
       />
-      <span className="relative text-xl">
+      <span aria-live="polite" className="relative text-xl">
         {isCompleted ? "Deleted!" : label}
       </span>
-    </m.button>
+    </motion.button>
   );
 }

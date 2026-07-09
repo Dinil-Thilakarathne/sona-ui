@@ -11,6 +11,13 @@ function toKebabCase(str: string) {
   return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
+// Displayed code must import from where users install components
+// (each registry item's target: components/ui/<name>/<file>), not from
+// this repo's internal src/registry layout.
+function rewriteImportsForDisplay(source: string): string {
+  return source.replace(/@\/registry\/sonaui\//g, "@/components/ui/");
+}
+
 function parseFileName(fileName: string) {
   const nameWithoutExt = path.basename(fileName, path.extname(fileName));
 
@@ -118,7 +125,9 @@ async function buildRegistry() {
 
       if (!item.endsWith(".tsx") && !item.endsWith(".ts")) continue;
 
-      const content = fs.readFileSync(itemPath, "utf-8");
+      const content = rewriteImportsForDisplay(
+        fs.readFileSync(itemPath, "utf-8"),
+      );
       // path relative to example folder: e.g. "accordion/accordion-demo.tsx"
       const relativePath = path.relative(EXAMPLE_PATH, itemPath);
       // Normalized import path: "accordion/accordion-demo"
@@ -211,7 +220,9 @@ async function buildRegistry() {
           } else {
             if (!item.endsWith(".tsx") && !item.endsWith(".ts")) continue;
 
-            const content = fs.readFileSync(itemPath, "utf-8");
+            const content = rewriteImportsForDisplay(
+              fs.readFileSync(itemPath, "utf-8"),
+            );
             const relativePath = path.relative(COMPONENT_PATH, itemPath);
             // e.g. accordion/Accordion.tsx
 
@@ -251,6 +262,12 @@ async function buildRegistry() {
           }
           if (Array.isArray(item.usage.code)) {
             item.usage.code = item.usage.code.join("\n");
+          }
+          if (typeof item.usage.imports === "string") {
+            item.usage.imports = rewriteImportsForDisplay(item.usage.imports);
+          }
+          if (typeof item.usage.code === "string") {
+            item.usage.code = rewriteImportsForDisplay(item.usage.code);
           }
         }
         acc[item.name] = item;

@@ -1,0 +1,82 @@
+---
+title: Animated Button
+slug: animated-button
+tags: ["UI", "Button", "Layout", "Animation", "Component"]
+---
+
+# Animated Button
+
+A layout-animated button component designed to make state transitions feel seamless. When content changes (e.g., "Submit" ➔ "Saving..." ➔ "Success"), the button's dimensions scale smoothly via layout animations while labels transition into place.
+
+It also supports a built-in vertical **hover text-swap** effect, unifying and upgrading the original `ScrollUpButton` into a single button API.
+
+## Features
+
+- **Size-Animate (FLIP)** — Uses Framer Motion's layout engine to animate width adjustments smoothly when contents expand or contract.
+- **Label Swap Animations** — Four transition modes out-of-the-box: `slide-up`, `slide-down`, `fade`, and `blur`.
+- **Integrated Hover Swap** — Set `hoverSwap` to enable a vertical sliding roll effect on hover.
+- **Press Scaling** — Scales down slightly on click (`whileTap={{ scale: 0.97 }}`) for physical press response.
+- **Accessibility & Motion reduction** — Fades labels and jumps dimensions instantly when reduced motion is preferred.
+
+<Divider />
+
+<ComponentPreview component="animated-button" name="default" />
+
+## Playground
+
+Fine-tune size, styling, and status settings live.
+
+<ComponentPlayground component="animated-button" />
+
+## Installation
+
+<ComponentInstallation component="animated-button" />
+
+## Usage
+
+<ComponentUsage component="animated-button" />
+
+## Code Examples
+
+### State Change Transitions
+
+Bind `contentKey` to state identifiers to trigger smooth dimension changes and transition effects.
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="loading-button.tsx"
+  code={`import { useState } from "react";
+import AnimatedButton from "@/components/ui/animated-button";
+
+export function SubmitButton() {
+  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+
+  return (
+    <AnimatedButton 
+      contentKey={status} 
+      swap="slide-up"
+      onClick={() => setStatus("loading")}
+    >
+      {status === "idle" && "Submit"}
+      {status === "loading" && "Processing..."}
+      {status === "done" && "Done ✓"}
+    </AnimatedButton>
+  );
+}`}
+/>
+
+### Hover Swap Effect
+
+Enable vertical roll transitions on hover by configuring `hoverSwap`.
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="hover-roll.tsx"
+  code={`<AnimatedButton hoverSwap variant="outlined">
+  Get Started
+</AnimatedButton>`}
+/>
+
+## Props
+
+<PropTable component="animated-button" />

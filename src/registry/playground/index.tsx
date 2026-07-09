@@ -18,6 +18,24 @@ import RippleButton, {
 } from "@/registry/sonaui/ripple-button/ripple-button";
 import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
 import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/registry/sonaui/animated-dropdown/animated-dropdown";
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
+import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/registry/sonaui/animated-dialog/animated-dialog";
+import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
 
 /**
  * Hand-authored playground registry.
@@ -58,6 +76,191 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "animated-dropdown": {
+    controls: [
+      {
+        type: "select",
+        prop: "side",
+        label: "Side",
+        options: [
+          { label: "Bottom", value: "bottom" },
+          { label: "Top", value: "top" },
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+        ],
+        default: "bottom",
+      },
+      {
+        type: "select",
+        prop: "align",
+        label: "Align",
+        options: [
+          { label: "Start", value: "start" },
+          { label: "Center", value: "center" },
+          { label: "End", value: "end" },
+        ],
+        default: "center",
+      },
+    ],
+    render: (v) => (
+      <AnimatedDropdown>
+        <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownContent
+          side={v.side as "bottom" | "top" | "left" | "right"}
+          align={v.align as "start" | "center" | "end"}
+        >
+          <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownSeparator />
+          <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+            Log out
+          </AnimatedDropdownItem>
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
+    ),
+  },
+  "animated-switch": {
+    controls: [
+      {
+        type: "select",
+        prop: "size",
+        label: "Size",
+        options: [
+          { label: "Small", value: "sm" },
+          { label: "Medium", value: "md" },
+          { label: "Large", value: "lg" },
+        ],
+        default: "md",
+      },
+      {
+        type: "toggle",
+        prop: "disabled",
+        label: "Disabled",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <AnimatedSwitch
+        size={v.size as "sm" | "md" | "lg"}
+        disabled={v.disabled as boolean}
+      />
+    ),
+  },
+  "animated-dialog": {
+    controls: [
+      {
+        type: "select",
+        prop: "from",
+        label: "Slide From",
+        options: [
+          { label: "Top", value: "top" },
+          { label: "Bottom", value: "bottom" },
+          { label: "Left", value: "left" },
+          { label: "Right", value: "right" },
+          { label: "Center (Scale)", value: "center" },
+        ],
+        default: "bottom",
+      },
+    ],
+    render: (v) => (
+      <AnimatedDialog>
+        <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
+        <AnimatedDialogContent from={v.from as "top" | "bottom" | "left" | "right" | "center"}>
+          <AnimatedDialogTitle>Playground Dialog</AnimatedDialogTitle>
+          <AnimatedDialogDescription>
+            This dialog modal is animated from the configured direction. Try changing it in the controls on the right!
+          </AnimatedDialogDescription>
+          <div className="mt-6 flex justify-end gap-3">
+            <AnimatedDialogClose>Cancel</AnimatedDialogClose>
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Action
+                </button>
+              }
+            />
+          </div>
+        </AnimatedDialogContent>
+      </AnimatedDialog>
+    ),
+  },
+  "animated-button": {
+    controls: [
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Default", value: "default" },
+          { label: "Outlined", value: "outlined" },
+          { label: "Secondary", value: "secondary" },
+        ],
+        default: "default",
+      },
+      {
+        type: "select",
+        prop: "size",
+        label: "Size",
+        options: [
+          { label: "Small", value: "sm" },
+          { label: "Medium", value: "md" },
+          { label: "Large", value: "lg" },
+        ],
+        default: "md",
+      },
+      {
+        type: "select",
+        prop: "swap",
+        label: "Transition",
+        options: [
+          { label: "Slide Up", value: "slide-up" },
+          { label: "Slide Down", value: "slide-down" },
+          { label: "Fade", value: "fade" },
+          { label: "Blur", value: "blur" },
+        ],
+        default: "slide-up",
+      },
+      {
+        type: "toggle",
+        prop: "hoverSwap",
+        label: "Hover Text-Swap",
+        default: false,
+      },
+      {
+        type: "select",
+        prop: "state",
+        label: "State (Simulated)",
+        options: [
+          { label: "Idle / Submit", value: "idle" },
+          { label: "Processing / Loading", value: "loading" },
+          { label: "Success / Completed", value: "success" },
+        ],
+        default: "idle",
+      },
+    ],
+    render: (v) => {
+      const state = v.state as string;
+      return (
+        <AnimatedButton
+          variant={v.variant as "default" | "outlined" | "secondary"}
+          size={v.size as "sm" | "md" | "lg"}
+          swap={v.swap as "slide-up" | "slide-down" | "fade" | "blur"}
+          hoverSwap={v.hoverSwap as boolean}
+          contentKey={state}
+          className="w-36"
+        >
+          {state === "idle" && "Submit"}
+          {state === "loading" && "Loading..."}
+          {state === "success" && "Success ✓"}
+        </AnimatedButton>
+      );
+    },
+  },
   "dot-orbit-shader": {
     controls: [
       {
@@ -433,39 +636,32 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     controls: [
       {
         type: "slider",
-        prop: "duration",
-        label: "Duration (s) — higher is slower",
-        min: 2,
-        max: 30,
-        step: 1,
-        default: 10,
+        prop: "speed",
+        label: "Speed (px/s) — higher is faster",
+        min: 20,
+        max: 400,
+        step: 10,
+        default: 80,
       },
       {
         type: "toggle",
-        prop: "reverse",
-        label: "Reverse direction",
-        default: false,
-      },
-      {
-        type: "toggle",
-        prop: "activeHover",
+        prop: "pauseOnHover",
         label: "Pause on hover",
         default: false,
       },
       {
         type: "toggle",
-        prop: "activeScroll",
-        label: "React to scroll",
+        prop: "scrollVelocity",
+        label: "React to scroll velocity",
         default: false,
       },
     ],
     render: (v) => (
       <Marquee
-        duration={v.duration as number}
-        reverse={v.reverse as boolean}
-        activeHover={v.activeHover as boolean}
-        activeScroll={v.activeScroll as boolean}
-        containerClassName="space-x-12"
+        speed={v.speed as number}
+        pauseOnHover={v.pauseOnHover as boolean}
+        scrollVelocity={v.scrollVelocity as boolean}
+        gap="3rem"
       >
         <div className="flex gap-x-12 items-center font-medium text-foreground text-lg">
           {["Next.js", "React", "TypeScript", "Tailwind", "Motion"].map((t) => (

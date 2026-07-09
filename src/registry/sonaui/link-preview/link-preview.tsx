@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -25,9 +25,10 @@ export default function LinkPreview({
   showIcon = true,
   ...linkProps
 }: LinkPreviewProps) {
-  const [previewRef, previewBounds] = useMeasure();
-  const [containerRef, containerBounds] = useMeasure();
+  // scroll: true keeps viewport coordinates fresh while the page scrolls
+  const [containerRef, containerBounds] = useMeasure({ scroll: true });
   const desktop = useMediaQuery("(min-width: 768px)");
+  const shouldReduceMotion = useReducedMotion();
 
   const [isHover, setIsHover] = useState(false);
 
@@ -36,27 +37,16 @@ export default function LinkPreview({
       <Link
         href={link}
         className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
-        onMouseEnter={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover(true);
+        onMouseEnter={() => {
+          if (desktop) setIsHover(true);
         }}
-        onClick={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (isHover) {
-            setIsHover(false);
-          }
-        }}
-        onFocus={(e) => {
-          e.preventDefault();
-          setIsHover(true);
+        onMouseLeave={() => setIsHover(false)}
+        onFocus={() => {
+          if (desktop) setIsHover(true);
         }}
         onBlur={() => setIsHover(false)}
         ref={containerRef}
+        {...linkProps}
       >
         {text}
         {showIcon && (
@@ -67,36 +57,43 @@ export default function LinkPreview({
       </Link>
       <AnimatePresence>
         {isHover && desktop && (
-          <motion.div
-            ref={previewRef}
-            className="overflow-clip absolute z-50 w-fit bg-slate-100 dark:bg-slate-600 border border-slate-400 rounded-xl shadow-xl origin-center"
+          <div
+            className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
-              left: containerBounds.left - previewBounds.width / 2,
-              top: containerBounds.top - previewBounds.height,
+              left: containerBounds.left + containerBounds.width / 2,
+              top: containerBounds.top - 8,
             }}
-            initial={{ opacity: 0, width: 0, height: 0 }}
-            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
-              <div className="flex justify-between w-full text-sm">
-                External Link
-                <Link href={link}>
-                  <FaArrowUpRightFromSquare />
+            <motion.div
+              className="overflow-clip w-fit bg-popover text-popover-foreground border border-border rounded-xl shadow-xl origin-bottom"
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: 4 }
+              }
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.97 }
+              }
+              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+                <div className="flex justify-between gap-x-4 w-full text-sm">
+                  External Link
+                  <Link href={link} aria-label={`Open ${link}`}>
+                    <FaArrowUpRightFromSquare />
+                  </Link>
+                </div>
+                <Link href={link} className="text-nowrap underline">
+                  {link}
                 </Link>
               </div>
-              <Link
-                href={link}
-                className="text-nowrap underline"
-                {...linkProps}
-              >
-                {link}
-              </Link>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>

@@ -20,6 +20,34 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Getting Started",
   },
   {
+    name: "Animated Dropdown",
+    slug: "animated-dropdown",
+    href: "/docs/animated-dropdown",
+    type: "Components",
+    tag: "new",
+  },
+  {
+    name: "Animated Switch",
+    slug: "animated-switch",
+    href: "/docs/animated-switch",
+    type: "Components",
+    tag: "new",
+  },
+  {
+    name: "Animated Dialog",
+    slug: "animated-dialog",
+    href: "/docs/animated-dialog",
+    type: "Components",
+    tag: "new",
+  },
+  {
+    name: "Animated Button",
+    slug: "animated-button",
+    href: "/docs/animated-button",
+    type: "Components",
+    tag: "new",
+  },
+  {
     name: "Accordion",
     slug: "accordion",
     href: "/docs/accordion",
@@ -72,6 +100,7 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "marquee",
     href: "/docs/marquee",
     type: "Effects",
+    tag: "updated"
   },
   {
     name: "Bubble Up Button",

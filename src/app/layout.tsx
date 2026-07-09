@@ -24,6 +24,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { Toaster } from "sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -39,6 +41,7 @@ export default function RootLayout({
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
             {children}
+            <Toaster position="bottom-right" richColors />
           </ThemeProvider>
         </PostHogProvider>
       </body>

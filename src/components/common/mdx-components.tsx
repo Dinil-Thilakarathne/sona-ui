@@ -57,7 +57,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "font-heading mt-12 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
+        "font-heading mt-12 scroll-m-20 border-b pb-2 mb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
         className,
       )}
       {...props}
@@ -147,7 +147,10 @@ export function Mdx({ code, className }: MDXProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <article className={cn("mx-auto max-w-[120ch]", className)}>
+    <article
+      className={cn("mx-auto max-w-[120ch]", className)}
+      data-context="component-article"
+    >
       <Component components={components} />
     </article>
   );
