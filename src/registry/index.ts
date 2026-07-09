@@ -99,9 +99,9 @@ export default function CircularDockMenuDemo() {
 
 export default function MagneticButtonExample() {
   return (
-    <div className="border-border rounded-full border border-dashed p-2">
+    <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+        <button className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer">
           Magnetic Button
         </button>
       </Magnetic>
@@ -112,9 +112,9 @@ export default function MagneticButtonExample() {
       imports: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";`,
       anatomy: `export default function MagneticButtonExample() {
   return (
-    <div className="border-border rounded-full border border-dashed p-2">
+    <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+        <button className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer">
           Magnetic Button
         </button>
       </Magnetic>
@@ -132,7 +132,7 @@ export default function MagneticButtonExample() {
 export default function DotOrbitShaderDense() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#0a0a0a"
       colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
       size={0.5}
@@ -147,7 +147,7 @@ export default function DotOrbitShaderDense() {
       anatomy: `export default function DotOrbitShaderDense() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#0a0a0a"
       colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
       size={0.5}
@@ -166,7 +166,7 @@ export default function DotOrbitShaderDense() {
 export default function DotOrbitShaderSlow() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#111827"
       colors={["#34d399", "#059669", "#065f46"]}
       size={0.45}
@@ -181,7 +181,7 @@ export default function DotOrbitShaderSlow() {
       anatomy: `export default function DotOrbitShaderSlow() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#111827"
       colors={["#34d399", "#059669", "#065f46"]}
       size={0.45}
@@ -198,12 +198,12 @@ export default function DotOrbitShaderSlow() {
       code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderExample() {
-  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+  return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }
 `,
       imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderExample() {
-  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+  return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }`,
     },
     {
@@ -214,7 +214,7 @@ export default function DotOrbitShaderExample() {
 export default function DotOrbitShaderPastel() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#fdf6f0"
       colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
       size={0.35}
@@ -228,7 +228,7 @@ export default function DotOrbitShaderPastel() {
       anatomy: `export default function DotOrbitShaderPastel() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#fdf6f0"
       colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
       size={0.35}
@@ -913,7 +913,7 @@ export default function AccordionOutlinedExample() {
 
 export default function SpinningTextExample() {
   return (
-    <div className="flex min-h-[320px] items-center justify-center">
+    <div className="flex items-center justify-center min-h-[320px]">
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
@@ -922,7 +922,7 @@ export default function SpinningTextExample() {
       imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
       anatomy: `export default function SpinningTextExample() {
   return (
-    <div className="flex min-h-[320px] items-center justify-center">
+    <div className="flex items-center justify-center min-h-[320px]">
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
@@ -1019,7 +1019,7 @@ const TECH_STACK = [
 export default function MarqueeExample() {
   return (
     <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-      <div className="flex items-center gap-x-8 md:gap-x-16">
+      <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
             {tech.icon}
@@ -1032,9 +1032,9 @@ export default function MarqueeExample() {
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex h-16 shrink items-center gap-x-4">
+    <div className="flex gap-x-4 items-center shrink h-16">
       <span className="*:xl:h-16 *:xl:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
+      <span className="font-medium text-sm lg:text-lg">{text}</span>
     </div>
   );
 };
@@ -1070,7 +1070,7 @@ import Marquee from "@/registry/sonaui/marquee/marquee";`,
 export default function MarqueeExample() {
   return (
     <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-      <div className="flex items-center gap-x-8 md:gap-x-16">
+      <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
             {tech.icon}
@@ -1083,9 +1083,9 @@ export default function MarqueeExample() {
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex h-16 shrink items-center gap-x-4">
+    <div className="flex gap-x-4 items-center shrink h-16">
       <span className="*:xl:h-16 *:xl:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
+      <span className="font-medium text-sm lg:text-lg">{text}</span>
     </div>
   );
 };`,
@@ -1176,8 +1176,8 @@ export default function RippleButtonExample({
 export default function SpotlightCardExample() {
   return (
     <SpotlightCard className="max-w-sm">
-      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <h3 className="font-semibold text-foreground text-lg">Spotlight Card</h3>
+      <p className="mt-2 text-muted-foreground text-sm">
         Move your cursor across the card to reveal the spotlight that follows
         your pointer.
       </p>
@@ -1189,8 +1189,8 @@ export default function SpotlightCardExample() {
       anatomy: `export default function SpotlightCardExample() {
   return (
     <SpotlightCard className="max-w-sm">
-      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <h3 className="font-semibold text-foreground text-lg">Spotlight Card</h3>
+      <p className="mt-2 text-muted-foreground text-sm">
         Move your cursor across the card to reveal the spotlight that follows
         your pointer.
       </p>
@@ -1362,7 +1362,7 @@ export default function ExpandableTabsExample() {
 export default function MeshGradientShaderOcean() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
       distortion={0.5}
       swirl={0.1}
@@ -1374,7 +1374,7 @@ export default function MeshGradientShaderOcean() {
       anatomy: `export default function MeshGradientShaderOcean() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
       distortion={0.5}
       swirl={0.1}
@@ -1388,12 +1388,12 @@ export default function MeshGradientShaderOcean() {
       code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderExample() {
-  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+  return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }
 `,
       imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderExample() {
-  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+  return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }`,
     },
     {
@@ -1404,7 +1404,7 @@ export default function MeshGradientShaderExample() {
 export default function MeshGradientShaderSunset() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
       distortion={0.4}
       swirl={0.5}
@@ -1416,7 +1416,7 @@ export default function MeshGradientShaderSunset() {
       anatomy: `export default function MeshGradientShaderSunset() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
       distortion={0.4}
       swirl={0.5}
@@ -1432,7 +1432,7 @@ export default function MeshGradientShaderSunset() {
 export default function MeshGradientShaderStatic() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
       distortion={0.2}
       swirl={0.05}
@@ -1445,7 +1445,7 @@ export default function MeshGradientShaderStatic() {
       anatomy: `export default function MeshGradientShaderStatic() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
       distortion={0.2}
       swirl={0.05}
@@ -1462,7 +1462,7 @@ export default function MeshGradientShaderStatic() {
 export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
       distortion={0.6}
       swirl={0.3}
@@ -1475,7 +1475,7 @@ export default function MeshGradientShaderMonochrome() {
       anatomy: `export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
       distortion={0.6}
       swirl={0.3}
@@ -1493,7 +1493,7 @@ export default function MeshGradientShaderMonochrome() {
 
 export default function LinkPreviewExample() {
   return (
-    <div className="flex w-full flex-col justify-center gap-4">
+    <div className="flex flex-col gap-4 justify-center w-full">
       <h3>Projects that I works on!!!</h3>
       <ul className="list-disc *:ml-2 *:lg:ml-4">
         <li>
@@ -1501,7 +1501,7 @@ export default function LinkPreviewExample() {
           <LinkPreview
             link="https://sona-ui.vercel.app/"
             text="Sona UI"
-            className="flex h-full w-full items-center justify-center"
+            className="flex items-center justify-center h-full w-full"
           />
         </li>
       </ul>
@@ -1512,7 +1512,7 @@ export default function LinkPreviewExample() {
       imports: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";`,
       anatomy: `export default function LinkPreviewExample() {
   return (
-    <div className="flex w-full flex-col justify-center gap-4">
+    <div className="flex flex-col gap-4 justify-center w-full">
       <h3>Projects that I works on!!!</h3>
       <ul className="list-disc *:ml-2 *:lg:ml-4">
         <li>
@@ -1520,7 +1520,7 @@ export default function LinkPreviewExample() {
           <LinkPreview
             link="https://sona-ui.vercel.app/"
             text="Sona UI"
-            className="flex h-full w-full items-center justify-center"
+            className="flex items-center justify-center h-full w-full"
           />
         </li>
       </ul>
@@ -1687,7 +1687,7 @@ export default function CircularDockMenu({
           className,
         )}
       >
-        <div ref={rootRef} className="relative h-[440px] w-full max-w-[520px]">
+        <div ref={rootRef} className="relative h-[440px] max-w-[520px] w-full">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
@@ -1742,7 +1742,7 @@ export default function CircularDockMenu({
                     >
                       <Icon
                         aria-hidden="true"
-                        className="text-muted-foreground size-6"
+                        className="size-6 text-muted-foreground"
                         strokeWidth={2}
                       />
                       <span>{label}</span>
@@ -1766,16 +1766,16 @@ export default function CircularDockMenu({
             whileTap={{ scale: 0.94 }}
           >
             <m.span
-              className="relative block size-9"
+              className="block relative size-9"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>
@@ -2207,7 +2207,7 @@ const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between rounded-xl px-8 pt-4 font-medium text-balance">
+    <div className="flex items-center justify-between pt-4 px-8 font-medium text-balance rounded-xl">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} />
     </div>
@@ -2498,7 +2498,7 @@ export default function SpinningText({
           aria-hidden="true"
           key={\`\${index}-\${char}\`}
           variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block"
+          className="inline-block absolute left-1/2 top-1/2"
           style={
             {
               "--index": index,
@@ -2586,7 +2586,7 @@ export default function BubbleUpButton({
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute top-0 left-0 h-full w-full bg-white"
+        className="absolute left-0 top-0 h-full w-full bg-white"
         aria-hidden="true"
       />
       <span className="relative text-white mix-blend-difference">
@@ -2694,7 +2694,7 @@ export default function FanView({
           className,
         )}
       >
-        <div ref={rootRef} className="relative flex items-end justify-center">
+        <div ref={rootRef} className="flex relative items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
@@ -2704,7 +2704,7 @@ export default function FanView({
                     type="button"
                     title={label}
                     aria-label={label}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2"
                     style={{ width, zIndex }}
                     initial={{
                       x: 0,
@@ -2768,16 +2768,16 @@ export default function FanView({
             whileTap={{ scale: 0.94 }}
           >
             <m.span
-              className="relative block size-8"
+              className="block relative size-8"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>
@@ -3180,7 +3180,7 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300 transition-opacity pointer-events-none"
           style={{ background }}
         />
       )}
@@ -3405,11 +3405,11 @@ export default function ExpandableTabs({
             onClick={() => setIsActive(index)}
             tabIndex={0}
           >
-            <div className="h-full grow items-center justify-center">
+            <div className="grow items-center justify-center h-full">
               <tab.icon className="text-lg" aria-label={\`\${tab.title}-icon\`} />
             </div>
             <motion.span
-              className="overflow-hidden text-sm leading-[1]"
+              className="overflow-hidden leading-[1] text-sm"
               key={tab.title}
               initial={isActive === index ? "" : "inactive"}
               animate={isActive === index ? "active" : "inactive"}
@@ -3558,7 +3558,7 @@ export default function LinkPreview({
     <>
       <Link
         href={link}
-        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
+        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
         onMouseEnter={(e) => {
           if (!desktop) return;
           e.preventDefault();
@@ -3592,7 +3592,7 @@ export default function LinkPreview({
         {isHover && desktop && (
           <motion.div
             ref={previewRef}
-            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+            className="overflow-clip absolute z-50 w-fit bg-slate-100 dark:bg-slate-600 border border-slate-400 rounded-xl shadow-xl origin-center"
             style={{
               left: containerBounds.left - previewBounds.width / 2,
               top: containerBounds.top - previewBounds.height,
@@ -3604,8 +3604,8 @@ export default function LinkPreview({
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
-              <div className="flex w-full justify-between text-sm">
+            <motion.div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+              <div className="flex justify-between w-full text-sm">
                 External Link
                 <Link href={link}>
                   <FaArrowUpRightFromSquare />
@@ -3714,7 +3714,7 @@ const StaggerTextItem = ({
   return (
     <motion.span
       {...props}
-      className="relative inline-flex flex-col"
+      className="inline-flex relative flex-col"
       role="presentation"
     >
       <StaggerItemSegment
@@ -3756,7 +3756,7 @@ const StaggerItemSegment = ({
   if (isCopy) {
     return (
       <motion.span
-        className="absolute top-[0] left-0 h-fit w-full select-text"
+        className="absolute left-0 top-[0] h-fit w-full select-text"
         style={{ translate: "0 100%" }}
         {...props}
       >

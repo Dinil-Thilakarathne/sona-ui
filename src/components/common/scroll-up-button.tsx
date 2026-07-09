@@ -45,7 +45,7 @@ export default function ScrollUpButton({ text, variant }: ScrollUpButtonProps) {
         {text}
       </motion.span>
       <motion.span
-        className="absolute top-0 left-0 w-full translate-y-full"
+        className="absolute left-0 top-0 w-full translate-y-full"
         variants={{
           initial: { y: "100%", scale: 0.8 },
           hover: { y: "-50%", scale: 1 },

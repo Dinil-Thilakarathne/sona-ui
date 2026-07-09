@@ -119,7 +119,7 @@ export default function SpinningText({
           aria-hidden="true"
           key={`${index}-${char}`}
           variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block"
+          className="inline-block absolute left-1/2 top-1/2"
           style={
             {
               "--index": index,

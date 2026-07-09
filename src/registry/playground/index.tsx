@@ -103,7 +103,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         sizeRange={v.sizeRange as number}
         spreading={v.spreading as number}
         speed={v.speed as number}
-        className="h-64 lg:h-72 w-full rounded-xl"
+        className="h-64 w-full lg:h-72 rounded-xl"
       />
     ),
   },
@@ -153,7 +153,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         swirl={v.swirl as number}
         speed={v.speed as number}
         grainOverlay={v.grainOverlay as number}
-        className="h-64 lg:h-72 w-full rounded-xl"
+        className="h-64 w-full lg:h-72 rounded-xl"
       />
     ),
   },
@@ -271,7 +271,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
       },
     ],
     render: (v) => (
-      <div className="border-border rounded-full border border-dashed p-2">
+      <div className="p-2 border border-border border-dashed rounded-full">
         <Magnetic
           magneticIntensity={v.magneticIntensity as number}
           magneticRange={v.magneticRange as number}
@@ -279,7 +279,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         >
           <button
             type="button"
-            className="bg-foreground text-background cursor-pointer rounded-full px-6 py-4 font-semibold"
+            className="px-6 py-4 font-semibold text-background bg-foreground rounded-full cursor-pointer"
           >
             Magnetic Button
           </button>
@@ -319,10 +319,10 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         disabled={v.disabled as boolean}
         className="max-w-sm"
       >
-        <h3 className="text-foreground text-lg font-semibold">
+        <h3 className="font-semibold text-foreground text-lg">
           Spotlight Card
         </h3>
-        <p className="text-muted-foreground mt-2 text-sm">
+        <p className="mt-2 text-muted-foreground text-sm">
           Move your cursor across the card to reveal the spotlight.
         </p>
       </SpotlightCard>
@@ -467,7 +467,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         activeScroll={v.activeScroll as boolean}
         containerClassName="space-x-12"
       >
-        <div className="text-foreground flex items-center gap-x-12 text-lg font-medium">
+        <div className="flex gap-x-12 items-center font-medium text-foreground text-lg">
           {["Next.js", "React", "TypeScript", "Tailwind", "Motion"].map((t) => (
             <span key={t}>{t}</span>
           ))}

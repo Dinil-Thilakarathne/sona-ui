@@ -89,7 +89,7 @@ export default function CircularDockMenu({
           className,
         )}
       >
-        <div ref={rootRef} className="relative h-[440px] w-full max-w-[520px]">
+        <div ref={rootRef} className="relative h-[440px] max-w-[520px] w-full">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
@@ -144,7 +144,7 @@ export default function CircularDockMenu({
                     >
                       <Icon
                         aria-hidden="true"
-                        className="text-muted-foreground size-6"
+                        className="size-6 text-muted-foreground"
                         strokeWidth={2}
                       />
                       <span>{label}</span>
@@ -168,16 +168,16 @@ export default function CircularDockMenu({
             whileTap={{ scale: 0.94 }}
           >
             <m.span
-              className="relative block size-9"
+              className="block relative size-9"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>

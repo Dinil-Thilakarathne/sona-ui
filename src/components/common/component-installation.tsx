@@ -61,7 +61,7 @@ export function ComponentInstallation({
   };
 
   return (
-    <div className="not-prose my-3 w-full max-w-full min-w-0">
+    <div className="my-3 max-w-full min-w-0 w-full not-prose">
       <Tabs defaultValue="cli" className="gap-6">
         <TabsList variant="underline">
           <TabsTrigger value="cli">CLI</TabsTrigger>
@@ -79,7 +79,7 @@ export function ComponentInstallation({
           <TabsContent value="manual">
             <div className="space-y-4">
               <div>
-                <p className="mb-2 text-sm font-medium">
+                <p className="mb-2 font-medium text-sm">
                   Install dependencies:
                 </p>
                 <CodeBlock
@@ -106,7 +106,7 @@ export function ComponentInstallation({
 
               {componentFiles && componentFiles.length > 0 && (
                 <div>
-                  <p className="mb-2 text-sm font-medium">
+                  <p className="mb-2 font-medium text-sm">
                     Copy and paste the component files:
                   </p>
                   {componentFiles.length === 1 ? (

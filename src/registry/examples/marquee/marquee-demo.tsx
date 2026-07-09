@@ -30,7 +30,7 @@ const TECH_STACK = [
 export default function MarqueeExample() {
   return (
     <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-      <div className="flex items-center gap-x-8 md:gap-x-16">
+      <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
             {tech.icon}
@@ -43,9 +43,9 @@ export default function MarqueeExample() {
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex h-16 shrink items-center gap-x-4">
+    <div className="flex gap-x-4 items-center shrink h-16">
       <span className="*:xl:h-16 *:xl:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
+      <span className="font-medium text-sm lg:text-lg">{text}</span>
     </div>
   );
 };

@@ -73,7 +73,7 @@ const StaggerTextItem = ({
   return (
     <motion.span
       {...props}
-      className="relative inline-flex flex-col"
+      className="inline-flex relative flex-col"
       role="presentation"
     >
       <StaggerItemSegment
@@ -115,7 +115,7 @@ const StaggerItemSegment = ({
   if (isCopy) {
     return (
       <motion.span
-        className="absolute top-[0] left-0 h-fit w-full select-text"
+        className="absolute left-0 top-[0] h-fit w-full select-text"
         style={{ translate: "0 100%" }}
         {...props}
       >

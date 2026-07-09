@@ -1,6 +1,5 @@
 "use client";
 
-import { DialogTitle } from "@radix-ui/react-dialog";
 import {
   CommandDialog,
   CommandEmpty,
@@ -43,45 +42,39 @@ export function Search() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="border-input hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring text-muted-foreground hidden items-center gap-2 rounded-md border bg-transparent px-3 py-1.5 text-sm font-medium whitespace-nowrap shadow-sm transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 lg:inline-flex"
+        className="hidden lg:inline-flex gap-2 items-center px-3 py-1.5 font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent border border-input rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm disabled:opacity-50 transition-colors disabled:pointer-events-none"
       >
         <SearchIcon className="h-4 w-4" />
         <span className="hidden lg:inline-flex">Search documentation...</span>
-        <kbd className="bg-muted text-muted-foreground pointer-events-none hidden h-5 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none lg:flex">
+        <kbd className="hidden lg:flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted border rounded opacity-100 pointer-events-none select-none">
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
       <CommandDialog
         open={open}
         onOpenChange={setOpen}
-        label="Global Command Menu"
-        title="Search documentation"
+        label="Search documentation"
       >
-        <span className="sr-only">
-          <DialogTitle aria-label="Search documentation" aria-hidden="true">
-            Search documentation
-          </DialogTitle>
-        </span>
-        <div className="bg-background/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 backdrop-blur-sm" />
-        <div className="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] fixed top-[50%] left-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-white/80 p-0 shadow-lg duration-200 sm:rounded-lg md:w-full">
+        <div className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <div className="grid fixed left-[50%] top-[50%] z-50 gap-4 p-0 max-w-lg w-full md:w-full bg-white/80 border sm:rounded-lg shadow-lg duration-200 data-[state=closed]:animate-out data-[state=open]:animate-in translate-x-[-50%] translate-y-[-50%] data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=closed]:zoom-out-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] data-[state=open]:zoom-in-95">
           <div
-            className="flex items-center border-b px-3"
+            className="flex items-center px-3 border-b"
             cmdk-input-wrapper=""
           >
             <CommandInput
               placeholder="Search documentation..."
               value={query}
               onValueChange={setQuery}
-              className="placeholder:text-muted-foreground flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none disabled:cursor-not-allowed"
+              className="flex py-3 h-11 w-full text-sm placeholder:text-muted-foreground bg-transparent outline-none rounded-md disabled:cursor-not-allowed"
             />
           </div>
-          <CommandList className="max-h-[300px] overflow-x-hidden overflow-y-auto px-3">
+          <CommandList className="overflow-x-hidden overflow-y-auto px-3 max-h-[300px]">
             <CommandEmpty className="py-6 text-center text-sm">
               No results found.
             </CommandEmpty>
             <CommandGroup
               heading="Pages"
-              className="text-foreground **:[[cmdk-group-heading]]:text-muted-foreground overflow-hidden pb-4 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:pb-2 **:[[cmdk-group-heading]]:text-xs **:[[cmdk-group-heading]]:font-medium"
+              className="overflow-hidden pb-4 **:[[cmdk-group-heading]]:pb-2 **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 text-foreground **:[[cmdk-group-heading]]:font-medium **:[[cmdk-group-heading]]:text-muted-foreground **:[[cmdk-group-heading]]:text-xs"
             >
               {results.map((doc) => (
                 <CommandItem
@@ -90,9 +83,9 @@ export function Search() {
                   onSelect={() => {
                     runCommand(() => router.push(`/docs/${doc.slug}`));
                   }}
-                  className="aria-selected:bg-accent aria-selected:text-accent-foreground relative flex cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-85"
+                  className="flex relative items-center px-2 py-1.5 text-sm aria-selected:text-accent-foreground aria-selected:bg-accent outline-none rounded-sm data-disabled:opacity-85 cursor-default select-none data-disabled:pointer-events-none"
                 >
-                  <div className="mr-2 flex h-4 w-4 items-center justify-center">
+                  <div className="flex items-center justify-center mr-2 h-4 w-4">
                     <ArrowRight className="h-3 w-3" />
                   </div>
                   {doc.title}

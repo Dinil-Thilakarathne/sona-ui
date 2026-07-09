@@ -8,7 +8,7 @@ const page = () => {
   }
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-75px)] items-center justify-center">
+    <div className="container flex items-center justify-center mx-auto min-h-[calc(100vh-75px)]">
       <AccordionAnimatedExample />
     </div>
   );

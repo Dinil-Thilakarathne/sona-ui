@@ -89,7 +89,7 @@ export default function FanView({
           className,
         )}
       >
-        <div ref={rootRef} className="relative flex items-end justify-center">
+        <div ref={rootRef} className="flex relative items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
@@ -99,7 +99,7 @@ export default function FanView({
                     type="button"
                     title={label}
                     aria-label={label}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2"
                     style={{ width, zIndex }}
                     initial={{
                       x: 0,
@@ -163,16 +163,16 @@ export default function FanView({
             whileTap={{ scale: 0.94 }}
           >
             <m.span
-              className="relative block size-8"
+              className="block relative size-8"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>

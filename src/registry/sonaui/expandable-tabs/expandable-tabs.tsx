@@ -59,11 +59,11 @@ export default function ExpandableTabs({
             onClick={() => setIsActive(index)}
             tabIndex={0}
           >
-            <div className="h-full grow items-center justify-center">
+            <div className="grow items-center justify-center h-full">
               <tab.icon className="text-lg" aria-label={`${tab.title}-icon`} />
             </div>
             <motion.span
-              className="overflow-hidden text-sm leading-[1]"
+              className="overflow-hidden leading-[1] text-sm"
               key={tab.title}
               initial={isActive === index ? "" : "inactive"}
               animate={isActive === index ? "active" : "inactive"}

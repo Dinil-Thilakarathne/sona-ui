@@ -25,7 +25,7 @@ const HERO_GRID_ITEMS = [
 
 export default function HeroGrid() {
   return (
-    <div className="hidden max-h-[calc(100vh-75px)] grid-cols-2 grid-rows-2 gap-2 py-8 lg:grid">
+    <div className="grid-cols-2 grid-rows-2 hidden lg:grid gap-2 py-8 max-h-[calc(100vh-75px)]">
       {HERO_GRID_ITEMS.map((item, index) => (
         <GridItem key={index} className={cn(item.className)}>
           {item.component}

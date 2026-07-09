@@ -16,18 +16,7 @@
     "useEditorconfig": true
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "preset": "recommended",
-      "nursery": {
-        "useSortedClasses": {
-          "level": "warn",
-          "options": {
-            "functions": ["clsx", "cva", "twMerge"]
-          }
-        }
-      }
-    }
+    "enabled": true
   },
   "javascript": {
     "formatter": {

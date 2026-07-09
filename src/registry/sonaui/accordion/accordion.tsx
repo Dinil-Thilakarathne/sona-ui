@@ -179,7 +179,7 @@ const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between rounded-xl px-8 pt-4 font-medium text-balance">
+    <div className="flex items-center justify-between pt-4 px-8 font-medium text-balance rounded-xl">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} />
     </div>

@@ -9,7 +9,7 @@ interface LogoProps {
 
 const Logo = ({ className, showVersion, version }: LogoProps) => {
   return (
-    <div role="presentation" className="flex items-center gap-2">
+    <div role="presentation" className="flex gap-2 items-center">
       <h1
         className={cn(
           "font-clash-display text-lg font-bold md:text-2xl",

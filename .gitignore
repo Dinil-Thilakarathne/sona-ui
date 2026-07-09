@@ -52,3 +52,8 @@ next-env.d.ts
 
 #testing files
 /test
+
+# design docs
+/design
+
+/local

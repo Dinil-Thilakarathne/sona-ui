@@ -8,11 +8,57 @@ export type PropMeta = {
 };
 
 export const componentProps: Record<string, PropMeta[]> = {
+  "accordion": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content to be displayed inside the accordion."
+    },
+    {
+      "name": "allowMultiple",
+      "type": "boolean",
+      "default": "false",
+      "description": "Allows multiple accordion items to be open at the same time."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the accordion container."
+    },
+    {
+      "name": "variant",
+      "type": "AccordionVariant",
+      "default": "default",
+      "description": "The visual style of the accordion."
+    }
+  ],
+  "bubble-up-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Content to display inside the button"
+    },
+    {
+      "name": "motionControls",
+      "type": "MotionConfigProps",
+      "default": "required",
+      "description": "Motion configuration for animations"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes"
+    }
+  ],
   "circular-dock-menu": [
     {
       "name": "items",
       "type": "DockMenuItem[]",
-      "default": "—",
+      "default": "required",
       "description": "Items rendered as arc pills when the menu is open."
     },
     {
@@ -30,46 +76,8 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the root container."
-    }
-  ],
-  "magnetic-button": [
-    {
-      "name": "children",
-      "type": "ReactNode",
       "default": "required",
-      "description": "The content to be rendered inside the magnetic button."
-    },
-    {
-      "name": "magneticIntensity",
-      "type": "number",
-      "default": "0.6",
-      "description": "The intensity of the magnetic pull effect."
-    },
-    {
-      "name": "magneticRange",
-      "type": "number",
-      "default": "100",
-      "description": "The range within which the magnetic effect is active."
-    },
-    {
-      "name": "interactionArea",
-      "type": "\"self\" | \"parent\"",
-      "default": "\"self\"",
-      "description": "Defines the area of interaction for the magnetic effect."
-    },
-    {
-      "name": "springConfig",
-      "type": "SpringOptions",
-      "default": "—",
-      "description": "Configuration for the spring animation."
-    },
-    {
-      "name": "customClassName",
-      "type": "string",
-      "default": "—",
-      "description": "Additional class names for custom styling."
+      "description": "Additional CSS classes for the root container."
     }
   ],
   "dot-orbit-shader": [
@@ -116,107 +124,37 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Animation speed multiplier. 0 = static."
     }
   ],
-  "accordion": [
+  "expandable-tabs": [
     {
-      "name": "children",
-      "type": "ReactNode",
+      "name": "tabs",
+      "type": "TabsData[]",
       "default": "required",
-      "description": "The content to be displayed inside the accordion."
+      "description": "An array of tab objects, each containing a title and an icon."
     },
     {
-      "name": "allowMultiple",
-      "type": "boolean",
-      "default": "false",
-      "description": "Allows multiple accordion items to be open at the same time."
-    },
-    {
-      "name": "className",
+      "name": "containerClassName",
       "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the accordion container."
+      "default": "\"\"",
+      "description": "Additional class names for the container element."
     },
     {
-      "name": "variant",
-      "type": "AccordionVariant",
-      "default": "default",
-      "description": "The visual style of the accordion."
-    }
-  ],
-  "spinning-text": [
-    {
-      "name": "children",
-      "type": "string | string[]",
-      "default": "required",
-      "description": "The text content to be animated. Can be a single string or an array of strings."
-    },
-    {
-      "name": "style",
-      "type": "CSSProperties",
-      "default": "—",
-      "description": "Custom styles for the container."
-    },
-    {
-      "name": "duration",
+      "name": "defaultActiveIndex",
       "type": "number",
-      "default": "10",
-      "description": "Duration of the spinning animation in seconds."
+      "default": "0",
+      "description": "The index of the tab that is active by default."
     },
     {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the container."
-    },
-    {
-      "name": "reverse",
-      "type": "boolean",
-      "default": "false",
-      "description": "Reverses the spinning direction when set to `true`."
-    },
-    {
-      "name": "radius",
-      "type": "number",
-      "default": "5",
-      "description": "Radius of the circular path in `ch` units."
-    },
-    {
-      "name": "transition",
-      "type": "Transition",
-      "default": "—",
-      "description": "Custom transition settings for the animation. Merges with the default transition."
-    },
-    {
-      "name": "variants",
-      "type": "{ container?: Variants; item?: Variants; }",
-      "default": "—",
-      "description": "Custom animation variants for the container and individual characters."
-    }
-  ],
-  "bubble-up-button": [
-    {
-      "name": "children",
-      "type": "ReactNode",
-      "default": "—",
-      "description": "Content to display inside the button"
-    },
-    {
-      "name": "motionControls",
+      "name": "motionConfig",
       "type": "MotionConfigProps",
-      "default": "—",
-      "description": "Motion configuration for animations"
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes"
+      "default": "required",
+      "description": "Motion configuration for the transition animations."
     }
   ],
   "fan-view": [
     {
       "name": "items",
       "type": "FanViewItem[]",
-      "default": "—",
+      "default": "required",
       "description": "Items displayed as fanned cards when open."
     },
     {
@@ -234,8 +172,98 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "—",
+      "default": "required",
       "description": "Additional CSS classes for the root container."
+    }
+  ],
+  "hold-to-delete-button": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "required",
+      "description": "Text displayed inside the button."
+    },
+    {
+      "name": "holdDuration",
+      "type": "number",
+      "default": "2000",
+      "description": "Duration in milliseconds the user must hold before the action triggers."
+    },
+    {
+      "name": "successDuration",
+      "type": "number",
+      "default": "1200",
+      "description": "Duration in milliseconds the success state is visible before auto-resetting."
+    },
+    {
+      "name": "onDelete",
+      "type": "() => void",
+      "default": "required",
+      "description": "Called once when the hold completes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the button."
+    }
+  ],
+  "link-preview": [
+    {
+      "name": "link",
+      "type": "string",
+      "default": "required",
+      "description": "The URL of the link to preview."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "default": "required",
+      "description": "The text to display for the link."
+    },
+    {
+      "name": "showIcon",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether to show an icon next to the link text."
+    }
+  ],
+  "magnetic-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content to be rendered inside the magnetic button."
+    },
+    {
+      "name": "magneticIntensity",
+      "type": "number",
+      "default": "0.6",
+      "description": "The intensity of the magnetic pull effect."
+    },
+    {
+      "name": "magneticRange",
+      "type": "number",
+      "default": "100",
+      "description": "The range within which the magnetic effect is active."
+    },
+    {
+      "name": "interactionArea",
+      "type": "\"self\" | \"parent\"",
+      "default": "\"self\"",
+      "description": "Defines the area of interaction for the magnetic effect."
+    },
+    {
+      "name": "springConfig",
+      "type": "SpringOptions",
+      "default": "required",
+      "description": "Configuration for the spring animation."
+    },
+    {
+      "name": "customClassName",
+      "type": "string",
+      "default": "required",
+      "description": "Additional class names for custom styling."
     }
   ],
   "marquee": [
@@ -248,13 +276,13 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "—",
+      "default": "required",
       "description": "Additional class names for custom styling of the marquee items."
     },
     {
       "name": "containerClassName",
       "type": "string",
-      "default": "—",
+      "default": "required",
       "description": "Additional class names for custom styling of the marquee container."
     },
     {
@@ -280,122 +308,6 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "boolean",
       "default": "false",
       "description": "Pauses the marquee animation when hovered."
-    }
-  ],
-  "ripple-button": [
-    {
-      "name": "children",
-      "type": "ReactNode",
-      "default": "required",
-      "description": "The content to be displayed inside the button."
-    },
-    {
-      "name": "scaleAmount",
-      "type": "number",
-      "default": "25",
-      "description": "The scale amount for the ripple effect."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the button."
-    },
-    {
-      "name": "duration",
-      "type": "number",
-      "default": "0.5",
-      "description": "Duration of the ripple animation in seconds."
-    },
-    {
-      "name": "rippleStyle",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the ripple effect."
-    }
-  ],
-  "spotlight-card": [
-    {
-      "name": "children",
-      "type": "ReactNode",
-      "default": "required",
-      "description": "The content rendered inside the card."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the card."
-    },
-    {
-      "name": "spotlightColor",
-      "type": "string",
-      "default": "\"rgba(255,255,255,0.15)\"",
-      "description": "The color of the spotlight glow. Accepts any CSS color value."
-    },
-    {
-      "name": "spotlightSize",
-      "type": "number",
-      "default": "350",
-      "description": "The radius of the spotlight in pixels."
-    },
-    {
-      "name": "disabled",
-      "type": "boolean",
-      "default": "false",
-      "description": "Disables the spotlight effect."
-    }
-  ],
-  "vertical-tab": [
-    {
-      "name": "tabs",
-      "type": "{ title: string; }[]",
-      "default": "required",
-      "description": "An array of tab objects, each containing a title for the tab."
-    },
-    {
-      "name": "indicatorBgColor",
-      "type": "string",
-      "default": "\"bg-slate-300\"",
-      "description": "The background color of the indicator. Accepts Tailwind CSS classes."
-    },
-    {
-      "name": "activeTabBgColor",
-      "type": "string",
-      "default": "\"bg-slate-400 dark:bg-slate-600\"",
-      "description": "The background color of the active tab. Accepts Tailwind CSS classes."
-    },
-    {
-      "name": "containerClassName",
-      "type": "string",
-      "default": "\"\"",
-      "description": "Additional class names for the container element."
-    }
-  ],
-  "expandable-tabs": [
-    {
-      "name": "tabs",
-      "type": "TabsData[]",
-      "default": "required",
-      "description": "An array of tab objects, each containing a title and an icon."
-    },
-    {
-      "name": "containerClassName",
-      "type": "string",
-      "default": "\"\"",
-      "description": "Additional class names for the container element."
-    },
-    {
-      "name": "defaultActiveIndex",
-      "type": "number",
-      "default": "0",
-      "description": "The index of the tab that is active by default."
-    },
-    {
-      "name": "motionConfig",
-      "type": "MotionConfigProps",
-      "default": "—",
-      "description": "Motion configuration for the transition animations."
     }
   ],
   "mesh-gradient-shader": [
@@ -436,24 +348,118 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Animation speed multiplier. 0 = static."
     }
   ],
-  "link-preview": [
+  "ripple-button": [
     {
-      "name": "link",
-      "type": "string",
+      "name": "children",
+      "type": "ReactNode",
       "default": "required",
-      "description": "The URL of the link to preview."
+      "description": "The content to be displayed inside the button."
     },
     {
-      "name": "text",
-      "type": "string",
-      "default": "required",
-      "description": "The text to display for the link."
+      "name": "scaleAmount",
+      "type": "number",
+      "default": "25",
+      "description": "The scale amount for the ripple effect."
     },
     {
-      "name": "showIcon",
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the button."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "0.5",
+      "description": "Duration of the ripple animation in seconds."
+    },
+    {
+      "name": "rippleStyle",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the ripple effect."
+    }
+  ],
+  "spinning-text": [
+    {
+      "name": "children",
+      "type": "string | string[]",
+      "default": "required",
+      "description": "The text content to be animated. Can be a single string or an array of strings."
+    },
+    {
+      "name": "style",
+      "type": "CSSProperties",
+      "default": "required",
+      "description": "Custom styles for the container."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "10",
+      "description": "Duration of the spinning animation in seconds."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the container."
+    },
+    {
+      "name": "reverse",
       "type": "boolean",
-      "default": "true",
-      "description": "Whether to show an icon next to the link text."
+      "default": "false",
+      "description": "Reverses the spinning direction when set to `true`."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "5",
+      "description": "Radius of the circular path in `ch` units."
+    },
+    {
+      "name": "transition",
+      "type": "Transition",
+      "default": "required",
+      "description": "Custom transition settings for the animation. Merges with the default transition."
+    },
+    {
+      "name": "variants",
+      "type": "{ container?: Variants; item?: Variants; }",
+      "default": "required",
+      "description": "Custom animation variants for the container and individual characters."
+    }
+  ],
+  "spotlight-card": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content rendered inside the card."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "required",
+      "description": "Additional CSS classes for the card."
+    },
+    {
+      "name": "spotlightColor",
+      "type": "string",
+      "default": "\"rgba(255,255,255,0.15)\"",
+      "description": "The color of the spotlight glow. Accepts any CSS color value."
+    },
+    {
+      "name": "spotlightSize",
+      "type": "number",
+      "default": "350",
+      "description": "The radius of the spotlight in pixels."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Disables the spotlight effect."
     }
   ],
   "stagger-text": [
@@ -466,7 +472,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "className",
       "type": "string",
-      "default": "—",
+      "default": "required",
       "description": "Additional CSS classes for the container."
     },
     {
@@ -476,36 +482,30 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "The HTML tag to be used for the text container."
     }
   ],
-  "hold-to-delete-button": [
+  "vertical-tab": [
     {
-      "name": "label",
+      "name": "tabs",
+      "type": "{ title: string; }[]",
+      "default": "required",
+      "description": "An array of tab objects, each containing a title for the tab."
+    },
+    {
+      "name": "indicatorBgColor",
       "type": "string",
-      "default": "—",
-      "description": "Text displayed inside the button."
+      "default": "\"bg-slate-300\"",
+      "description": "The background color of the indicator. Accepts Tailwind CSS classes."
     },
     {
-      "name": "holdDuration",
-      "type": "number",
-      "default": "2000",
-      "description": "Duration in milliseconds the user must hold before the action triggers."
-    },
-    {
-      "name": "successDuration",
-      "type": "number",
-      "default": "1200",
-      "description": "Duration in milliseconds the success state is visible before auto-resetting."
-    },
-    {
-      "name": "onDelete",
-      "type": "() => void",
-      "default": "—",
-      "description": "Called once when the hold completes."
-    },
-    {
-      "name": "className",
+      "name": "activeTabBgColor",
       "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the button."
+      "default": "\"bg-slate-400 dark:bg-slate-600\"",
+      "description": "The background color of the active tab. Accepts Tailwind CSS classes."
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "default": "\"\"",
+      "description": "Additional class names for the container element."
     }
   ]
 };

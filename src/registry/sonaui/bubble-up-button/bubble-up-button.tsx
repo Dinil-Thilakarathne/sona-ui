@@ -56,7 +56,7 @@ export default function BubbleUpButton({
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute top-0 left-0 h-full w-full bg-white"
+        className="absolute left-0 top-0 h-full w-full bg-white"
         aria-hidden="true"
       />
       <span className="relative text-white mix-blend-difference">

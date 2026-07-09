@@ -35,7 +35,7 @@ export default function LinkPreview({
     <>
       <Link
         href={link}
-        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
+        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
         onMouseEnter={(e) => {
           if (!desktop) return;
           e.preventDefault();
@@ -69,7 +69,7 @@ export default function LinkPreview({
         {isHover && desktop && (
           <motion.div
             ref={previewRef}
-            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+            className="overflow-clip absolute z-50 w-fit bg-slate-100 dark:bg-slate-600 border border-slate-400 rounded-xl shadow-xl origin-center"
             style={{
               left: containerBounds.left - previewBounds.width / 2,
               top: containerBounds.top - previewBounds.height,
@@ -81,8 +81,8 @@ export default function LinkPreview({
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
-              <div className="flex w-full justify-between text-sm">
+            <motion.div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+              <div className="flex justify-between w-full text-sm">
                 External Link
                 <Link href={link}>
                   <FaArrowUpRightFromSquare />

@@ -10,13 +10,13 @@ import { Search } from "../Search";
 
 const Header = () => {
   return (
-    <header className="min-h-header-height fixed top-0 left-0 z-99 w-full p-2 lg:px-2">
-      <div className="bg-background/40 flex w-full items-center justify-between rounded-lg border px-2 py-4 backdrop-blur-md">
-        <div className="flex items-center gap-x-6">
+    <header className="fixed left-0 top-0 z-99 px-2 lg:px-2 min-h-header-height w-full">
+      <div className="flex items-center justify-between px-2 py-4 w-full bg-background/40 rounded-lg backdrop-blur-md _border">
+        <div className="flex gap-x-6 items-center">
           <Link href="/" className="flex items-center">
             <Logo />
           </Link>
-          <nav className="hidden items-center space-x-6 lg:flex">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link, i) => (
               <FadeInComp
                 key={link.name}
@@ -39,7 +39,7 @@ const Header = () => {
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-2 lg:space-x-6">
+        <div className="flex gap-2 items-center lg:space-x-6">
           <Search />
           <FadeInComp
             animationProps={{

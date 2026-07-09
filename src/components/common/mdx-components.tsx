@@ -116,7 +116,7 @@ const components = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn("text-sm md:text-base", className)} {...props} />
   ),
-  Divider: () => <div className="w-full py-8" />,
+  Divider: () => <div className="py-8 w-full" />,
   CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,

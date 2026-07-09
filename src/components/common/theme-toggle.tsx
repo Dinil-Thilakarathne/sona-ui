@@ -24,8 +24,8 @@ export function ModeToggle() {
 
   return (
     mounted && (
-      <div className="overflow-clip rounded-full border border-slate-800 dark:border-slate-50">
-        <div className="relative flex items-center justify-center space-x-0.5 rounded-full p-0.5 *:text-slate-800 dark:*:text-slate-50">
+      <div className="overflow-clip border border-slate-800 rounded-full dark:border-slate-50">
+        <div className="flex relative items-center justify-center p-0.5 space-x-0.5 *:text-slate-800 dark:*:text-slate-50 rounded-full">
           <Button
             className={className}
             onClick={() => {
@@ -51,7 +51,7 @@ export function ModeToggle() {
             type="button"
             data-active={theme === "light" || theme === undefined}
           >
-            <Sun className="h-[1.4rem] w-[1.4rem] scale-100 rounded-full p-0.5 opacity-75 hover:opacity-100" />
+            <Sun className="p-0.5 h-[1.4rem] w-[1.4rem] rounded-full opacity-75 hover:opacity-100 scale-100" />
           </Button>
         </div>
       </div>

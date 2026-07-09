@@ -16,13 +16,13 @@ const PropTable = ({ component, data }: PropTableProps) => {
 
   if (!rows || rows.length === 0) {
     return (
-      <div className="text-muted-foreground py-3 text-sm">
+      <div className="py-3 text-muted-foreground text-sm">
         No props found
         {component ? (
           <>
             {" "}
             for{" "}
-            <code className="bg-muted rounded px-1 py-0.5">{component}</code>
+            <code className="px-1 py-0.5 bg-muted rounded">{component}</code>
           </>
         ) : null}
         .
@@ -32,14 +32,14 @@ const PropTable = ({ component, data }: PropTableProps) => {
 
   return (
     <div className="py-3">
-      <div className="border-border overflow-x-auto rounded-lg border shadow-sm">
-        <table className="w-full border-collapse text-left text-sm">
+      <div className="overflow-x-auto border border-border rounded-lg shadow-sm">
+        <table className="w-full text-left text-sm border-collapse">
           <thead className="bg-secondary">
             <tr>
               {["Property", "Type", "Default", "Description"].map((h) => (
                 <th
                   key={h}
-                  className="text-foreground px-4 py-2 font-semibold whitespace-nowrap"
+                  className="px-4 py-2 font-semibold text-foreground whitespace-nowrap"
                 >
                   {h}
                 </th>
@@ -50,22 +50,22 @@ const PropTable = ({ component, data }: PropTableProps) => {
             {rows.map((prop) => (
               <tr
                 key={prop.name}
-                className="border-border odd:bg-secondary/80 even:bg-accent/80 border-t"
+                className="hover:bg-secondary/50 border-border border-t"
               >
                 <td className="px-4 py-2 align-top">
-                  <code className="bg-muted text-foreground rounded px-1.5 py-0.5 font-mono text-xs">
+                  <code className="px-1.5 py-0.5 font-mono text-foreground text-xs bg-muted rounded">
                     {prop.name}
                   </code>
                 </td>
-                <td className="text-muted-foreground px-4 py-2 align-top">
+                <td className="px-4 py-2 align-top text-muted-foreground">
                   <code className="font-mono text-xs">{prop.type}</code>
                 </td>
                 <td className="px-4 py-2 align-top">
-                  <code className="text-foreground font-mono text-xs">
+                  <code className="font-mono text-foreground text-xs">
                     {prop.default?.length ? prop.default : "—"}
                   </code>
                 </td>
-                <td className="text-foreground px-4 py-2 align-top">
+                <td className="px-4 py-2 align-top text-foreground">
                   {prop.description}
                 </td>
               </tr>

@@ -22,7 +22,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs, className }) => {
 
   return (
     <div className={cn("flex flex-col gap-y-4 py-2", className)}>
-      <div className="bg-secondary max-w-[calc(100vw-16px) relative flex w-fit overflow-auto rounded-xl p-1 md:max-w-[auto] md:space-x-2">
+      <div className="flex overflow-auto relative p-1 md:space-x-2 max-w-[calc(100vw-16px) w-fit md:max-w-[auto] bg-secondary rounded-xl">
         {tabs.map((tab, index) => (
           <Button
             key={index}
@@ -33,11 +33,11 @@ const Tabs: React.FC<TabsProps> = ({ tabs, className }) => {
             {activeTab === index && (
               <motion.div
                 layoutId={`active-tab-${tabId}`}
-                className="bg-background/90 absolute inset-0 h-full w-full rounded-lg border-2"
+                className="absolute inset-0 h-full w-full bg-background/90 border-2 rounded-lg"
                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
             )}
-            <span className="relative z-10 block px-4 py-2">{tab.title}</span>
+            <span className="block relative z-10 px-4 py-2">{tab.title}</span>
           </Button>
         ))}
       </div>

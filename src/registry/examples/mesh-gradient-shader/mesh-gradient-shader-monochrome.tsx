@@ -3,7 +3,7 @@ import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-grad
 export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
       distortion={0.6}
       swirl={0.3}

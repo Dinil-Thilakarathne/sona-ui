@@ -34,7 +34,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
     return (
       <div className="text-muted-foreground text-sm">
         No playground registered for component{" "}
-        <code className="bg-muted rounded px-1 py-0.5">{component}</code>.
+        <code className="px-1 py-0.5 bg-muted rounded">{component}</code>.
       </div>
     );
   }
@@ -45,18 +45,18 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   const reset = () => setValues(defaultsFor(entry.controls));
 
   return (
-    <div className="my-3 grid w-full gap-4 lg:grid-cols-[1fr_280px]">
+    <div className="grid gap-4 lg:grid-cols-[1fr_280px] my-3 w-full">
       <ComponentWrapper className="min-h-[300px]">{rendered}</ComponentWrapper>
 
-      <div className="bg-secondary flex flex-col gap-5 rounded-xl border p-4 shadow-sm">
+      <div className="flex flex-col gap-5 p-4 bg-secondary border rounded-xl shadow-sm">
         <div className="flex items-center justify-between">
-          <span className="text-foreground text-sm font-semibold">
+          <span className="font-semibold text-foreground text-sm">
             Controls
           </span>
           <button
             type="button"
             onClick={reset}
-            className="text-muted-foreground hover:text-foreground text-xs underline underline-offset-2"
+            className="text-muted-foreground text-xs underline underline-offset-2 hover:text-foreground"
           >
             Reset
           </button>
@@ -101,7 +101,7 @@ function toHex(color: string): string {
 function ControlField({ control, value, onChange }: ControlFieldProps) {
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-muted-foreground flex items-center justify-between text-xs font-medium">
+      <span className="flex items-center justify-between font-medium text-muted-foreground text-xs">
         {control.label}
         {control.type === "slider" && (
           <span className="text-foreground tabular-nums">{String(value)}</span>
@@ -116,10 +116,10 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
           max={control.max}
           step={control.step ?? 1}
         >
-          <Slider.Control className="flex h-5 w-full items-center">
-            <Slider.Track className="bg-accent relative h-1.5 w-full rounded-full">
+          <Slider.Control className="flex items-center h-5 w-full">
+            <Slider.Track className="relative h-1.5 w-full bg-accent rounded-full">
               <Slider.Indicator className="bg-foreground rounded-full" />
-              <Slider.Thumb className="bg-background border-foreground size-4 rounded-full border-2 shadow-sm outline-none" />
+              <Slider.Thumb className="size-4 bg-background border-2 border-foreground outline-none rounded-full shadow-sm" />
             </Slider.Track>
           </Slider.Control>
         </Slider.Root>
@@ -130,25 +130,25 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
           type="text"
           value={value as string}
           onChange={(e) => onChange(e.target.value)}
-          className="border-border bg-background text-foreground rounded-md border px-2.5 py-1.5 text-sm outline-none focus:ring-2 focus:ring-ring/40"
+          className="px-2.5 py-1.5 text-foreground text-sm bg-background border border-border outline-none rounded-md focus:ring-2 focus:ring-ring/40"
         />
       )}
 
       {control.type === "color" && (
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2 items-center">
           <input
             type="color"
             aria-label={`${control.label} swatch`}
             value={toHex((value as string) ?? "#000000")}
             onChange={(e) => onChange(e.target.value)}
-            className="border-border h-9 w-9 shrink-0 cursor-pointer rounded-md border bg-transparent p-1"
+            className="shrink-0 p-1 h-9 w-9 bg-transparent border border-border rounded-md cursor-pointer"
           />
           <input
             type="text"
             value={value as string}
             onChange={(e) => onChange(e.target.value)}
             spellCheck={false}
-            className="border-border bg-background text-foreground w-full rounded-md border px-2.5 py-1.5 font-mono text-xs outline-none focus:ring-2 focus:ring-ring/40"
+            className="px-2.5 py-1.5 w-full font-mono text-foreground text-xs bg-background border border-border outline-none rounded-md focus:ring-2 focus:ring-ring/40"
           />
         </div>
       )}
@@ -158,11 +158,11 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
           checked={value as boolean}
           onCheckedChange={(checked) => onChange(checked)}
           className={cn(
-            "relative flex h-6 w-10 rounded-full p-0.5 transition-colors",
+            "relative flex h-6 w-10 cursor-pointer rounded-full p-0.5 transition-[background-color,scale] duration-200 ease-out active:scale-95 motion-reduce:transition-none",
             value ? "bg-foreground" : "bg-accent",
           )}
         >
-          <Switch.Thumb className="bg-background size-5 rounded-full shadow-sm transition-transform data-[checked]:translate-x-4" />
+          <Switch.Thumb className="size-5 bg-background rounded-full shadow-sm duration-200 ease-out transition-transform motion-reduce:transition-none data-[checked]:translate-x-4" />
         </Switch.Root>
       )}
 
@@ -170,7 +170,7 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
         <select
           value={value as string}
           onChange={(e) => onChange(e.target.value)}
-          className="border-border bg-background text-foreground rounded-md border px-2.5 py-1.5 text-sm outline-none focus:ring-2 focus:ring-ring/40"
+          className="px-2.5 py-1.5 text-foreground text-sm bg-background border border-border outline-none rounded-md focus:ring-2 focus:ring-ring/40"
         >
           {control.options.map((opt) => (
             <option key={opt.value} value={opt.value}>

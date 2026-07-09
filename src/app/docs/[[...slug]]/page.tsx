@@ -1,4 +1,4 @@
-import { allDocs, type Doc } from ".content-collections/generated";
+import { allDocs, type Doc } from "content-collections";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE_METADATA } from "@/config/site";

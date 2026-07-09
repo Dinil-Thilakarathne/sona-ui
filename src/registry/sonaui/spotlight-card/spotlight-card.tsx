@@ -60,7 +60,7 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300 transition-opacity pointer-events-none"
           style={{ background }}
         />
       )}

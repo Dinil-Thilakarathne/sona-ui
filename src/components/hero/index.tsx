@@ -5,10 +5,10 @@ import SplitTextComp from "../common/splil-text-comp";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100dvh-75px)] flex-col overflow-clip p-2 lg:p-4">
-      <div className="flex h-full grow flex-col justify-end gap-y-12">
-        <div className="flex min-h-[50vh] w-full flex-col justify-between md:min-h-[70vh]">
-          <div className="flex flex-col items-end gap-y-4">
+    <section className="flex overflow-clip relative flex-col p-2 lg:p-4 min-h-[calc(100dvh-75px)]">
+      <div className="flex flex-col gap-y-12 grow justify-end h-full">
+        <div className="flex flex-col justify-between min-h-[50vh] w-full md:min-h-[70vh]">
+          <div className="flex flex-col gap-y-4 items-end">
             <SplitTextComp
               variant="lines"
               maskType="lines"
@@ -20,7 +20,7 @@ export default function Hero() {
                 yPercent: 40,
               }}
             >
-              <p className="text-right md:max-w-[35vw] lg:text-xl">
+              <p className="md:max-w-[35vw] text-right lg:text-xl">
                 A modern UI component library built with React and TailwindCSS
                 to help you build beautiful and accessible web applications
                 faster.
@@ -71,7 +71,7 @@ export default function Hero() {
               ease: "power2.inOut",
             }}
           >
-            <h1 className="font-clash-display text-[20vw] leading-[0.8] font-medium uppercase">
+            <h1 className="font-clash-display font-medium leading-[0.8] text-[20vw] uppercase">
               Sona ui
             </h1>
           </SplitTextComp>

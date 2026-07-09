@@ -15,15 +15,15 @@ type TabsSide = "left" | "right";
 
 const tabsListVariants = cva(
   [
-    "group/tabs-list text-muted-foreground relative z-0 inline-flex w-fit items-center justify-center gap-1",
+    "group/tabs-list relative z-0 inline-flex w-fit items-center justify-center gap-1 text-muted-foreground",
     "data-[orientation=vertical]:flex-col data-[orientation=vertical]:self-start",
   ],
   {
     variants: {
       variant: {
-        capsule: "bg-muted rounded-xl",
+        capsule: "rounded-xl bg-muted",
         underline:
-          "data-[orientation=horizontal]:px-0 data-[orientation=horizontal]:pt-0 data-[orientation=vertical]:py-0",
+          "data-[orientation=horizontal]:px-0 data-[orientation=vertical]:py-0 data-[orientation=horizontal]:pt-0",
       },
       size: {
         small: "p-0.5 data-[orientation=horizontal]:gap-x-0.5",
@@ -58,7 +58,7 @@ const tabsListVariants = cva(
 
 const tabIndicatorVariants = cva(
   [
-    "ease-out-cubic absolute z-[-1] transition-all duration-200",
+    "absolute z-[-1] transition-[translate,width,height] duration-200 ease-out-cubic motion-reduce:transition-none",
     // Vertical orientation
     "data-[orientation=vertical]:top-0 data-[orientation=vertical]:h-(--active-tab-height) data-[orientation=vertical]:translate-y-(--active-tab-top)",
     // Horizontal orientation
@@ -68,12 +68,12 @@ const tabIndicatorVariants = cva(
     variants: {
       variant: {
         underline: [
-          "bg-neutral rounded-full",
+          "rounded-full bg-neutral",
           "data-[orientation=vertical]:w-0.75",
-          "data-[orientation=horizontal]:bottom-0 data-[orientation=horizontal]:top-auto data-[orientation=horizontal]:h-0.75 data-[orientation=horizontal]:translate-y-0",
+          "data-[orientation=horizontal]:top-auto data-[orientation=horizontal]:bottom-0 data-[orientation=horizontal]:h-0.75 data-[orientation=horizontal]:translate-y-0",
         ],
         capsule: [
-          "bg-card dark:bg-accent  border bg-clip-padding shadow-[0_1px_2px_0_oklch(0.18_0_0/0.06)]",
+          "border bg-card bg-clip-padding shadow-[0_1px_2px_0_oklch(0.18_0_0/0.06)] dark:bg-accent",
           "data-[orientation=vertical]:w-auto",
           "data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:h-(--active-tab-height)",
         ],
@@ -157,7 +157,7 @@ function TabsList({
       <div
         data-slot="tabs-divider"
         className={cn(
-          "bg-accent absolute z-[-2] rounded-full",
+          "absolute z-[-2] rounded-full bg-accent",
           variant === "underline" ? "block" : "hidden",
           // Vertical orientation
           "group-data-[orientation=vertical]/tabs-list:top-0 group-data-[orientation=vertical]/tabs-list:bottom-0 group-data-[orientation=vertical]/tabs-list:w-[2px]",
@@ -181,14 +181,14 @@ function TabsTrigger({ className, ...props }: BaseTabs.Tab.Props) {
       data-slot="tabs-trigger"
       className={cn(
         // Base styles
-        "text-muted-foreground data-active:text-foreground flex cursor-pointer items-center gap-1.5 font-medium text-nowrap whitespace-nowrap",
+        "flex cursor-pointer items-center gap-1.5 whitespace-nowrap text-nowrap font-medium text-muted-foreground data-active:text-foreground",
         "transition-[outline-offset,color] duration-200 ease-out",
-        "focus-visible:outline-ring/50 focus-visible:outline-2 focus-visible:outline-offset-2",
-        "hover:text-muted-foreground/75",
+        "focus-visible:outline-2 focus-visible:outline-ring/50 focus-visible:outline-offset-2",
+        "hover:text-foreground/80",
         "data-disabled:pointer-events-none data-disabled:opacity-60",
-        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "[&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         // Orientation
-        "data-[orientation=horizontal]:flex-1 data-[orientation=vertical]:w-full",
+        "data-[orientation=vertical]:w-full data-[orientation=horizontal]:flex-1",
         "justify-center",
         "group-data-[variant=underline]/tabs-list:focus-visible:outline-offset-0",
         // Default size (small) - overridden by group data attribute for medium

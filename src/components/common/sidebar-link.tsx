@@ -1,7 +1,6 @@
 import Link, { type LinkProps } from "next/link";
 import type { NavLinksPropsType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import StaggerText from "./stagger-text";
 import Tag from "./tag";
 
 interface NavLinkProps extends NavLinksPropsType, LinkProps {
@@ -18,12 +17,12 @@ const SidebarLink = ({
 }: NavLinkProps) => {
   const isDisabled = tag === "soon";
   return isDisabled ? (
-    <div className="group relative flex cursor-not-allowed items-start space-x-0.5">
+    <div className="flex relative items-start space-x-0.5 cursor-not-allowed group">
       <h3 className={cn("text-muted-foreground text-sm", textClassName)}>
         {name}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
-      <div className="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-0 transition-[width] duration-300 group-hover:w-full group-data-[active=true]:w-full"></div>
+      <div className="absolute left-0 h-0.5 w-full bg-foreground duration-150 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5"></div>
     </div>
   ) : (
     <Link
@@ -33,14 +32,14 @@ const SidebarLink = ({
     >
       <h3
         className={cn(
-          "text-muted-foreground group-hover:text-foreground text-sm",
+          "text-muted-foreground text-sm group-hover:text-foreground",
           textClassName,
         )}
       >
         {name}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
-      <div className="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-0 transition-[width] duration-300 group-hover:w-full group-data-[active=true]:w-full"></div>
+      <div className="absolute left-0 h-0.5 w-full bg-foreground duration-150 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5"></div>
     </Link>
   );
 };

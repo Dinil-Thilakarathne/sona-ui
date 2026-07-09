@@ -14,7 +14,7 @@ export function ComponentInstallationServer({ component }: Props) {
     return (
       <div className="text-muted-foreground text-sm">
         Component{" "}
-        <code className="bg-muted rounded px-1 py-0.5">{component}</code> not
+        <code className="px-1 py-0.5 bg-muted rounded">{component}</code> not
         found in registry.
       </div>
     );

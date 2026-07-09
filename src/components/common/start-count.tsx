@@ -16,12 +16,12 @@ const StartCount = () => {
   }, [stars]);
 
   return (
-    <span className="group hover:outline-b relative flex items-center justify-center space-x-1.5">
+    <span className="flex relative items-center justify-center space-x-1.5 hover:outline-b group">
       <FaGithub />
-      <span className="hidden leading-3.5 lg:block">Star on GitHub</span>
-      <FaStar className="mb-0.5 text-[14px] transition-colors duration-300 group-hover:text-yellow-400" />
+      <span className="hidden lg:block leading-3.5">Star on GitHub</span>
+      <FaStar className="mb-0.5 text-[14px] group-hover:text-yellow-400 duration-300 transition-colors" />
       <NumberFlow value={starCount} />
-      <div className="bg-foreground absolute -bottom-0.5 left-0 h-0.5 w-0 transition-[width] duration-300 group-hover:w-full"></div>
+      <div className="absolute left-0 h-0.5 w-0 group-hover:w-full bg-foreground duration-300 transition-[width] -bottom-0.5"></div>
     </span>
   );
 };

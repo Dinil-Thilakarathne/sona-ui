@@ -31,7 +31,7 @@ const SidebarContent: React.FC<{
       <nav className="flex flex-col gap-y-4">
         {Object.entries(groupedComponents).map(([type, components]) => (
           <div key={type} className="flex flex-col gap-y-1 py-2">
-            <h3 className="text-foreground/90 font-semibold text-xs tracking-wider uppercase mb-1">
+            <h3 className="mb-1 font-semibold text-foreground/90 text-xs tracking-wider uppercase">
               {type}
             </h3>
             <div className="flex flex-col gap-y-1">
@@ -52,9 +52,9 @@ const SidebarContent: React.FC<{
           </div>
         ))}
       </nav>
-      <div className="w-full grow" />
-      <nav className="flex flex-col space-y-2 lg:hidden mt-6 pt-6 border-t border-sidebar-border">
-        <h3 className="text-foreground/90 font-semibold text-xs tracking-wider uppercase px-2 mb-1">
+      <div className="grow w-full" />
+      <nav className="flex lg:hidden flex-col mt-6 pt-6 space-y-2 border-sidebar-border border-t">
+        <h3 className="mb-1 px-2 font-semibold text-foreground/90 text-xs tracking-wider uppercase">
           Navigation
         </h3>
         {navLinks.map((link) => (
@@ -102,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Desktop Sidebar (Persistent layout sidebar) */}
-      <aside className="bg-sidebar w-sidebar-width top-header-height fixed left-2 z-40 my-4 hidden lg:flex flex-col space-y-2 overflow-y-auto overscroll-none rounded-lg border p-4 h-[calc(100svh-var(--spacing-header-height)-2rem)]">
+      <aside className="hidden lg:flex overflow-y-auto overscroll-none fixed left-2 top-header-height z-40 flex-col my-4 p-4 space-y-2 h-[calc(100svh-var(--spacing-header-height)-2rem)] w-sidebar-width bg-sidebar rounded-lg">
         <SidebarContent pathname={pathname} onLinkClick={() => {}} />
       </aside>
 
@@ -111,9 +111,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SheetTrigger
           render={
             <motion.button
-              className="bg-background/20 fixed right-4 bottom-4 z-50 block  rounded-full p-4 backdrop-blur lg:hidden border border-border shadow-lg"
+              className="block lg:hidden fixed bottom-4 right-4 z-50 p-4 bg-background/20 border border-border rounded-full shadow-lg backdrop-blur"
               whileTap={{ scale: 0.95 }}
-              initial={{ scale: 0, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               aria-label="Toggle menu"
             >
@@ -123,7 +123,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         />
         <SheetContent
           side="left"
-          className="w-sidebar-width max-w-sidebar-width bg-sidebar border p-4 h-full max-h-[calc(100dvh-var(--spacing-header-height)-2rem)] flex flex-col rounded-lg top-[calc(var(--spacing-header-height)+1rem)]! left-2!"
+          className="flex left-2! top-[calc(var(--spacing-header-height)+1rem)]! flex-col p-4 h-full max-h-[calc(100dvh-var(--spacing-header-height)-2rem)] max-w-sidebar-width w-sidebar-width bg-sidebar border rounded-lg"
           showCloseButton={false}
         >
           <div className="sr-only">
@@ -132,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               Browse categories and components
             </SheetDescription>
           </div>
-          <div className="flex flex-col h-full overflow-y-auto overscroll-none pr-1">
+          <div className="flex overflow-y-auto overscroll-none flex-col pr-1 h-full">
             <SidebarContent
               pathname={pathname}
               onLinkClick={closeSidebarOnMobile}
