@@ -57,3 +57,8 @@ next-env.d.ts
 /design
 
 /local
+
+/docs
+
+# personal social / marketing drafts — never commit
+/social

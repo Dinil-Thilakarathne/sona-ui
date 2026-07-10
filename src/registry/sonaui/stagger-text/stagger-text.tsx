@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -24,42 +24,52 @@ export default function StaggerText({
   text = "text",
   className,
   as = "h3",
+  ...props
 }: StaggerTextProps<StaggerTextEleType>) {
   const Tag = as; // Explicitly type as a React component
-  const [activeIndex, setActiveIndex] = useState(5);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  return (
-    <>
-      <h1 className="sr-only">{text}</h1>
-      <Tag
-        className={cn("overflow-clip tracking-wide select-text", className)}
-        aria-label={text}
-        onCopy={(e) => {
-          e.preventDefault();
-          e.clipboardData.setData("text/plain", text);
-        }}
-      >
-        {text.split("").map((char, i) => {
-          const delay = Math.abs(activeIndex - i);
-          return (
-            <StaggerTextItem
-              char={char}
-              key={i}
-              onMouseEnter={() => {
-                setActiveIndex(i);
-                setIsActive(true);
-              }}
-              onMouseLeave={() => {
-                setActiveIndex(-1);
-                setIsActive(false);
-              }}
-              delay={delay}
-              isHovered={isActive}
-            />
-          );
-        })}
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <Tag className={cn("tracking-wide", className)} {...props}>
+        {text}
       </Tag>
-    </>
+    );
+  }
+
+  return (
+    <Tag
+      className={cn("overflow-clip tracking-wide select-text", className)}
+      aria-label={text}
+      onCopy={(e) => {
+        e.preventDefault();
+        e.clipboardData.setData("text/plain", text);
+      }}
+      {...props}
+    >
+      {text.split("").map((char, i) => {
+        const delay = Math.abs(activeIndex - i);
+        return (
+          <StaggerTextItem
+            char={char}
+            // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
+            key={i}
+            onMouseEnter={() => {
+              setActiveIndex(i);
+              setIsActive(true);
+            }}
+            onMouseLeave={() => {
+              setActiveIndex(-1);
+              setIsActive(false);
+            }}
+            delay={delay}
+            isHovered={isActive}
+          />
+        );
+      })}
+    </Tag>
   );
 }
 

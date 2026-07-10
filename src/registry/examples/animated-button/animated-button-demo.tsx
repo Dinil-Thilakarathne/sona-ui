@@ -1,12 +1,14 @@
 "use client";
 
+import { ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { Check, ArrowRight, Loader2, Sparkles } from "lucide-react";
 import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
 
 export default function AnimatedButtonDemo() {
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
-  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">("slide-up");
+  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">(
+    "slide-up",
+  );
 
   const handleClick = () => {
     if (state !== "idle") return;
@@ -54,21 +56,25 @@ export default function AnimatedButtonDemo() {
           )}
           {state === "loading" && (
             <>
-              <Loader2 className="size-4 animate-spin" /> Saving...
+              <Loader2 className="size-4 animate-spin" /> Saving text 2...
             </>
           )}
           {state === "success" && (
             <>
-              <Check className="size-4 text-emerald-400" /> Success
+              <Check className="size-4 text-emerald-400" /> Success lorem lorem
             </>
           )}
         </AnimatedButton>
-        <span className="text-xs text-muted-foreground">Click to trigger state change</span>
+        <span className="text-xs text-muted-foreground">
+          Click to trigger state change
+        </span>
       </div>
 
       {/* Hover Swap Mode (ScrollUpButton merge) */}
       <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
-        <span className="text-sm font-semibold text-foreground">Hover Text Swap</span>
+        <span className="text-sm font-semibold text-foreground">
+          Hover Text Swap
+        </span>
         <div className="flex gap-4">
           <AnimatedButton hoverSwap variant="outlined" size="md">
             Hover Me

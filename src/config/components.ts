@@ -72,6 +72,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Text",
   },
   {
+    name: "Split Text",
+    slug: "split-text",
+    href: "/docs/split-text",
+    type: "Text",
+    tag: "new",
+  },
+  {
     name: "Vertical Tab",
     slug: "vertical-tab",
     href: "/docs/vertical-tab",
@@ -100,7 +107,7 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "marquee",
     href: "/docs/marquee",
     type: "Effects",
-    tag: "updated"
+    tag: "updated",
   },
   {
     name: "Bubble Up Button",
@@ -113,6 +120,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "spotlight-card",
     href: "/docs/spotlight-card",
     type: "Components",
+  },
+  {
+    name: "Image Trail",
+    slug: "image-trail",
+    href: "/docs/image-trail",
+    type: "Effects",
+    tag: "new",
   },
   {
     name: "Hold To Delete Button",

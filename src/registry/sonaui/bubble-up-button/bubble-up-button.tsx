@@ -1,7 +1,12 @@
 "use client";
 
-import { type MotionConfigProps, motion, useAnimation } from "motion/react";
-import type { ReactNode } from "react";
+import {
+  type MotionConfigProps,
+  motion,
+  useAnimation,
+  useReducedMotion,
+} from "motion/react";
+import { type ReactNode, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps
@@ -16,50 +21,61 @@ interface BubbleUpButtonProps
 export default function BubbleUpButton({
   children = "Hover me!",
   motionControls = {
-    transition: { type: "spring", stiffness: 200, damping: 40 },
+    transition: { type: "spring", stiffness: 300, damping: 32 },
   },
   className = "",
   disabled = false,
   ...props
 }: BubbleUpButtonProps) {
   const controls = useAnimation();
+  const shouldReduceMotion = useReducedMotion();
+  // Tracks the latest intent so a re-enter during the exit animation
+  // doesn't get clobbered by the post-exit reset.
+  const hoverIntent = useRef(false);
 
-  const handleMouseEnter = async () => {
+  const fill = async () => {
+    hoverIntent.current = true;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% 100%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
   };
 
-  const handleMouseLeave = async () => {
+  const drain = async () => {
+    hoverIntent.current = false;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% -120%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
-    controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    if (!hoverIntent.current) {
+      controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    }
   };
 
   return (
     <button
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={fill}
+      onMouseLeave={drain}
+      onFocus={fill}
+      onBlur={drain}
       disabled={disabled}
       className={cn(
-        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
+        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-foreground px-16 py-2",
         "transition-opacity duration-200",
-        "focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
-      aria-label={typeof children === "string" ? children : "Bubble up button"}
       {...props}
     >
       <motion.div
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute left-0 top-0 h-full w-full bg-white"
+        className="absolute left-0 top-0 h-full w-full bg-background"
         aria-hidden="true"
       />
-      <span className="relative text-white mix-blend-difference">
+      <span className="relative text-background mix-blend-difference">
         {children}
       </span>
     </button>

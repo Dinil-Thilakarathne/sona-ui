@@ -58,6 +58,7 @@ export default function LinkPreview({
       <AnimatePresence>
         {isHover && desktop && (
           <div
+            role="presentation"
             className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
               left: containerBounds.left + containerBounds.width / 2,

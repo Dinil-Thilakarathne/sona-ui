@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Bell,
-  CreditCard,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
 import {
   AnimatedDropdown,
   AnimatedDropdownContent,
@@ -21,9 +15,15 @@ export default function AnimatedDropdownDemo() {
       <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>
+          Billing
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>
+          Notifications
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>
+          Settings
+        </AnimatedDropdownItem>
         <AnimatedDropdownSeparator />
         <AnimatedDropdownItem icon={<LogOut />} variant="danger">
           Log out

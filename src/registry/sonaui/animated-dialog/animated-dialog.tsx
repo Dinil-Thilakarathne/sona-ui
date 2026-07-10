@@ -1,17 +1,8 @@
 "use client";
 
 import { Dialog } from "@base-ui/react/dialog";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "motion/react";
-import {
-  createContext,
-  useContext,
-  useState,
-  type ReactNode,
-} from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { createContext, type ReactNode, useContext, useState } from "react";
 import { cn } from "@/lib/utils";
 
 // ─── Context ─────────────────────────────────────────────────────────────────
@@ -27,7 +18,7 @@ function useDialogContext() {
   const ctx = useContext(DialogContext);
   if (!ctx) {
     throw new Error(
-      "AnimatedDialog subcomponents must be used within <AnimatedDialog>"
+      "AnimatedDialog subcomponents must be used within <AnimatedDialog>",
     );
   }
   return ctx;
@@ -100,7 +91,7 @@ export function AnimatedDialogTrigger({
         "bg-primary text-primary-foreground text-sm font-medium",
         "hover:bg-primary/90 transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        className
+        className,
       )}
       {...props}
     >
@@ -179,7 +170,7 @@ export function AnimatedDialogContent({
                 }
                 className={cn(
                   "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
-                  backdropClassName
+                  backdropClassName,
                 )}
               />
             }
@@ -209,7 +200,7 @@ export function AnimatedDialogContent({
                     "w-full max-w-md overflow-hidden rounded-2xl p-6",
                     "bg-popover text-popover-foreground shadow-2xl",
                     "border border-border/80",
-                    className
+                    className,
                   )}
                 >
                   {children}
@@ -233,7 +224,7 @@ export function AnimatedDialogTitle({
     <Dialog.Title
       className={cn(
         "text-lg font-semibold tracking-tight text-foreground",
-        className
+        className,
       )}
       {...props}
     />
@@ -267,7 +258,7 @@ export function AnimatedDialogClose({
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:bg-muted transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        className
+        className,
       )}
       {...props}
     />

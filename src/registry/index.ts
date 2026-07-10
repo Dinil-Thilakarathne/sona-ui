@@ -1,39 +1,48 @@
 // This file is auto-generated. Do not edit.
-import * as React from "react";
-import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
-import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
-import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
-import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
-import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
-import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
-import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
-import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
-import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
-import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
+import type * as React from "react";
 import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
 import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
 import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
-import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
-import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
-import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
-import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
-import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
-import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
+import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
 import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
 import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
-import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
-import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
+import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
+import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
+import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
+import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
 import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
+import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
+import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
+import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
+import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
+import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
+import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
+import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
+import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
+import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
-import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
-import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
-import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
-import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
-import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
-import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
-import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
+import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
+import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
+import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
+import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
+import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
+import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
+import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
+import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
+import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
+import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
+import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
+import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
+import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
+import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
+import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
+import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -262,7 +271,7 @@ export default function AnimatedDropdownDemo() {
     </AnimatedDropdown>
   );
 }`,
-    }
+    },
   ],
   "circular-dock-menu": [
     {
@@ -316,7 +325,245 @@ const ITEMS = [
 export default function CircularDockMenuDemo() {
   return <CircularDockMenu items={ITEMS} />;
 }`,
-    }
+    },
+  ],
+  "image-trail": [
+    {
+      name: "interactive",
+      component: image_trail_image_trail_interactive,
+      code: `"use client";
+
+import { useState } from "react";
+import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailInteractiveExample() {
+  const [clicks, setClicks] = useState(0);
+
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+        <p className="pointer-events-none text-center text-muted-foreground text-sm">
+          Sweep the cursor to spawn the trail, then click the button or the
+          link — the images never block them.
+        </p>
+        <button
+          type="button"
+          onClick={() => setClicks((c) => c + 1)}
+          className="rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground text-sm shadow-sm transition-colors hover:bg-primary/90"
+        >
+          Clicked {clicks} {clicks === 1 ? "time" : "times"}
+        </button>
+        <a
+          href="https://sonaui.dev"
+          target="_blank"
+          rel="noreferrer"
+          className="text-foreground text-sm underline underline-offset-4 hover:text-primary"
+        >
+          A link that stays hoverable
+        </a>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailInteractiveExample() {
+  const [clicks, setClicks] = useState(0);
+
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+        <p className="pointer-events-none text-center text-muted-foreground text-sm">
+          Sweep the cursor to spawn the trail, then click the button or the
+          link — the images never block them.
+        </p>
+        <button
+          type="button"
+          onClick={() => setClicks((c) => c + 1)}
+          className="rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground text-sm shadow-sm transition-colors hover:bg-primary/90"
+        >
+          Clicked {clicks} {clicks === 1 ? "time" : "times"}
+        </button>
+        <a
+          href="https://sonaui.dev"
+          target="_blank"
+          rel="noreferrer"
+          className="text-foreground text-sm underline underline-offset-4 hover:text-primary"
+        >
+          A link that stays hoverable
+        </a>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "blur",
+      component: image_trail_image_trail_blur,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailBlurExample() {
+  return (
+    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Blur trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailBlurExample() {
+  return (
+    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Blur trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: image_trail_image_trail_demo,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailExample() {
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Move your cursor here
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailExample() {
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Move your cursor here
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "tilt",
+      component: image_trail_image_trail_tilt,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailTiltExample() {
+  return (
+    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Tilt trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailTiltExample() {
+  return (
+    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Tilt trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
   ],
   "magnetic-button": [
     {
@@ -348,7 +595,7 @@ export default function MagneticButtonExample() {
     </div>
   );
 }`,
-    }
+    },
   ],
   "dot-orbit-shader": [
     {
@@ -464,9 +711,9 @@ export default function DotOrbitShaderPastel() {
     />
   );
 }`,
-    }
+    },
   ],
-  "accordion": [
+  accordion: [
     {
       name: "splitted",
       component: accordion_accordion_splitted,
@@ -1130,7 +1377,7 @@ export default function AccordionOutlinedExample() {
     </AccordionRoot>
   );
 }`,
-    }
+    },
   ],
   "spinning-text": [
     {
@@ -1154,7 +1401,7 @@ export default function SpinningTextExample() {
     </div>
   );
 }`,
-    }
+    },
   ],
   "bubble-up-button": [
     {
@@ -1170,7 +1417,7 @@ export default function BubbleUpButtonExample() {
       anatomy: `export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
-    }
+    },
   ],
   "fan-view": [
     {
@@ -1208,9 +1455,9 @@ const ITEMS = [
 export default function FanViewDemo() {
   return <FanView items={ITEMS} />;
 }`,
-    }
+    },
   ],
-  "marquee": [
+  marquee: [
     {
       name: "default",
       component: marquee_marquee_demo,
@@ -1316,7 +1563,7 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
     </div>
   );
 };`,
-    }
+    },
   ],
   "ripple-button": [
     {
@@ -1392,7 +1639,7 @@ export default function RippleButtonExample({
     </RippleButton>
   );
 }`,
-    }
+    },
   ],
   "spotlight-card": [
     {
@@ -1424,7 +1671,7 @@ export default function SpotlightCardExample() {
     </SpotlightCard>
   );
 }`,
-    }
+    },
   ],
   "animated-dialog": [
     {
@@ -1672,7 +1919,35 @@ export default function AnimatedDialogToast() {
     </AnimatedDialog>
   );
 }`,
-    }
+    },
+  ],
+  "split-text": [
+    {
+      name: "default",
+      component: split_text_split_text_demo,
+      code: `import SplitText from "@/components/ui/split-text/split-text";
+
+export default function SplitTextExample() {
+  return (
+    <SplitText variant="words" className="max-w-md text-center">
+      <h2 className="font-semibold text-3xl text-foreground">
+        Text that reveals itself, one word at a time.
+      </h2>
+    </SplitText>
+  );
+}
+`,
+      imports: `import SplitText from "@/components/ui/split-text/split-text";`,
+      anatomy: `export default function SplitTextExample() {
+  return (
+    <SplitText variant="words" className="max-w-md text-center">
+      <h2 className="font-semibold text-3xl text-foreground">
+        Text that reveals itself, one word at a time.
+      </h2>
+    </SplitText>
+  );
+}`,
+    },
   ],
   "animated-button": [
     {
@@ -1846,7 +2121,7 @@ export default function AnimatedButtonDemo() {
     </div>
   );
 }`,
-    }
+    },
   ],
   "vertical-tab": [
     {
@@ -1910,7 +2185,7 @@ export default function VerticalTabExample() {
 export default function VerticalTabExample() {
   return <VerticalTab tabs={VerticalTabs_data} />;
 }`,
-    }
+    },
   ],
   "animated-switch": [
     {
@@ -1918,42 +2193,166 @@ export default function VerticalTabExample() {
       component: animated_switch_animated_switch_demo,
       code: `"use client";
 
-import { useState } from "react";
 import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 
 export default function AnimatedSwitchDemo() {
+  return <AnimatedSwitch defaultChecked />;
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  return <AnimatedSwitch defaultChecked />;
+}`,
+    },
+    {
+      name: "disabled",
+      component: animated_switch_animated_switch_disabled,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDisabled() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch disabled />
+        <span className="text-sm text-muted-foreground">Disabled Off</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch defaultChecked disabled />
+        <span className="text-sm text-muted-foreground">Disabled On</span>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDisabled() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch disabled />
+        <span className="text-sm text-muted-foreground">Disabled Off</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch defaultChecked disabled />
+        <span className="text-sm text-muted-foreground">Disabled On</span>
+      </div>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "controlled",
+      component: animated_switch_animated_switch_controlled,
+      code: `"use client";
+
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchControlled() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="flex flex-col gap-6 items-start">
-      {/* Sizes */}
-      <div className="flex gap-6 items-center">
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="sm" />
-          <span className="text-muted-foreground text-xs">sm</span>
-        </div>
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="md" defaultChecked />
-          <span className="text-muted-foreground text-xs">md</span>
-        </div>
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="lg" />
-          <span className="text-muted-foreground text-xs">lg</span>
-        </div>
-      </div>
+    <div className="flex items-center gap-3">
+      <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
+      <span className="text-sm font-medium">
+        Controlled State: <span className="text-primary font-semibold">{checked ? "ON" : "OFF"}</span>
+      </span>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
 
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchControlled() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex items-center gap-3">
+      <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
+      <span className="text-sm font-medium">
+        Controlled State: <span className="text-primary font-semibold">{checked ? "ON" : "OFF"}</span>
+      </span>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "sizes",
+      component: animated_switch_animated_switch_sizes,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchSizes() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="sm" />
+        <span className="text-xs text-muted-foreground">sm</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="md" defaultChecked />
+        <span className="text-xs text-muted-foreground">md</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="lg" />
+        <span className="text-xs text-muted-foreground">lg</span>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchSizes() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="sm" />
+        <span className="text-xs text-muted-foreground">sm</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="md" defaultChecked />
+        <span className="text-xs text-muted-foreground">md</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="lg" />
+        <span className="text-xs text-muted-foreground">lg</span>
+      </div>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "disable",
+      component: animated_switch_animated_switch_disable,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+
+  return (
+    <div className="flex flex-col gap-6 items-start">
       {/* Controlled & Disabled */}
       <div className="flex gap-8 items-center pt-4 w-full border-t">
-        <div className="flex gap-3 items-center">
-          <AnimatedSwitch
-            checked={checked}
-            onCheckedChange={setChecked}
-          />
-          <span className="font-medium text-sm">
-            Controlled: {checked ? "On" : "Off"}
-          </span>
-        </div>
-
         <div className="flex gap-3 items-center">
           <AnimatedSwitch defaultChecked disabled />
           <span className="font-medium text-muted-foreground text-sm">
@@ -1968,42 +2367,14 @@ export default function AnimatedSwitchDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import { useState } from "react";
 import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 
 export default function AnimatedSwitchDemo() {
-  const [checked, setChecked] = useState(false);
 
   return (
     <div className="flex flex-col gap-6 items-start">
-      {/* Sizes */}
-      <div className="flex gap-6 items-center">
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="sm" />
-          <span className="text-muted-foreground text-xs">sm</span>
-        </div>
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="md" defaultChecked />
-          <span className="text-muted-foreground text-xs">md</span>
-        </div>
-        <div className="flex flex-col gap-1.5 items-center">
-          <AnimatedSwitch size="lg" />
-          <span className="text-muted-foreground text-xs">lg</span>
-        </div>
-      </div>
-
       {/* Controlled & Disabled */}
       <div className="flex gap-8 items-center pt-4 w-full border-t">
-        <div className="flex gap-3 items-center">
-          <AnimatedSwitch
-            checked={checked}
-            onCheckedChange={setChecked}
-          />
-          <span className="font-medium text-sm">
-            Controlled: {checked ? "On" : "Off"}
-          </span>
-        </div>
-
         <div className="flex gap-3 items-center">
           <AnimatedSwitch defaultChecked disabled />
           <span className="font-medium text-muted-foreground text-sm">
@@ -2014,7 +2385,7 @@ export default function AnimatedSwitchDemo() {
     </div>
   );
 }`,
-    }
+    },
   ],
   "expandable-tabs": [
     {
@@ -2104,7 +2475,7 @@ export default function ExpandableTabsExample() {
     />
   );
 }`,
-    }
+    },
   ],
   "mesh-gradient-shader": [
     {
@@ -2236,7 +2607,7 @@ export default function MeshGradientShaderMonochrome() {
     />
   );
 }`,
-    }
+    },
   ],
   "link-preview": [
     {
@@ -2280,7 +2651,7 @@ export default function LinkPreviewExample() {
     </div>
   );
 }`,
-    }
+    },
   ],
   "stagger-text": [
     {
@@ -2296,7 +2667,7 @@ export default function StaggerTextExample() {
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }`,
-    }
+    },
   ],
   "hold-to-delete-button": [
     {
@@ -2332,18 +2703,18 @@ export default function HoldToDeleteButtonDemo() {
     </div>
   );
 }`,
-    }
-  ]
+    },
+  ],
 };
 
 export type Registry = {
-    [key: string]: Array<{
-        type: string;
-        content: string;
-        path: string;
-        target: string;
-    }>
-}
+  [key: string]: Array<{
+    type: string;
+    content: string;
+    path: string;
+    target: string;
+  }>;
+};
 
 export const registry: Registry = {
   "animated-dropdown": [
@@ -2623,8 +2994,8 @@ export function AnimatedDropdownSeparator({ className }: { className?: string })
 }
 `,
       path: "animated-dropdown/animated-dropdown.tsx",
-      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
-    }
+      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx",
+    },
   ],
   "circular-dock-menu": [
     {
@@ -2820,8 +3191,224 @@ export default function CircularDockMenu({
 }
 `,
       path: "circular-dock-menu/circular-dock-menu.tsx",
-      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx"
+      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+    },
+  ],
+  "image-trail": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  type TargetAndTransition,
+} from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/utils";
+
+type ImageTrailVariant = "scale" | "fade" | "blur" | "rise" | "tilt";
+
+export interface ImageTrailProps {
+  /** Image sources spawned in order as the pointer moves. */
+  images: string[];
+  /** The content the effect is scoped to; the trail only spawns over this area. */
+  children: ReactNode;
+  /** Additional CSS classes for the container. */
+  className?: string;
+  /** Extra classes for each trail image (use for sizing, e.g. \`"w-48"\`). @default "w-40" */
+  itemClassName?: string;
+  /**
+   * Pointer distance in pixels travelled before the next image spawns.
+   * @default 80
+   */
+  threshold?: number;
+  /**
+   * Maximum number of images alive at once.
+   * @default 8
+   */
+  maxImages?: number;
+  /**
+   * How long an image stays before it animates out, in milliseconds.
+   * @default 600
+   */
+  lifetime?: number;
+  /**
+   * Entrance and exit animation style.
+   * @default "scale"
+   */
+  variant?: "scale" | "fade" | "blur" | "rise" | "tilt";
+  /**
+   * CSS selector for elements that suppress the effect when hovered, keeping
+   * interactive UI unobstructed.
+   * @default "a, button, input, [data-image-trail-ignore]"
+   */
+  ignoreSelector?: string;
+  /**
+   * z-index of the trail layer.
+   * @default 10
+   */
+  zIndex?: number;
+}
+
+interface TrailItem {
+  id: number;
+  src: string;
+  x: number;
+  y: number;
+  rotate: number;
+}
+
+const VARIANTS: Record<
+  ImageTrailVariant,
+  {
+    initial: TargetAndTransition;
+    animate: TargetAndTransition;
+    exit: TargetAndTransition;
+  }
+> = {
+  scale: {
+    initial: { opacity: 0, scale: 0.4 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 },
+  },
+  fade: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  blur: {
+    initial: { opacity: 0, filter: "blur(12px)" },
+    animate: { opacity: 1, filter: "blur(0px)" },
+    exit: { opacity: 0, filter: "blur(8px)" },
+  },
+  rise: {
+    initial: { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -24 },
+  },
+  tilt: {
+    initial: { opacity: 0, scale: 0.6 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 },
+  },
+};
+
+export default function ImageTrail({
+  images,
+  children,
+  className,
+  itemClassName = "w-40",
+  threshold = 80,
+  maxImages = 8,
+  lifetime = 600,
+  variant = "scale",
+  ignoreSelector = "a, button, input, [data-image-trail-ignore]",
+  zIndex = 10,
+}: ImageTrailProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const [trail, setTrail] = useState<TrailItem[]>([]);
+
+  const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const imageIndex = useRef(0);
+  const idCounter = useRef(0);
+  const timers = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  // Clear any pending removals when the component unmounts.
+  useEffect(() => {
+    const pending = timers.current;
+    return () => {
+      pending.forEach(clearTimeout);
+      pending.clear();
+    };
+  }, []);
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion || event.pointerType !== "mouse") return;
+
+    // Over interactive UI: stop spawning and fast-clear live images so they
+    // don't obstruct it. Their exit animation still plays via AnimatePresence.
+    if ((event.target as Element).closest(ignoreSelector)) {
+      timers.current.forEach(clearTimeout);
+      timers.current.clear();
+      lastPos.current = null;
+      setTrail((prev) => (prev.length ? [] : prev));
+      return;
     }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const last = lastPos.current;
+    if (last && Math.hypot(x - last.x, y - last.y) < threshold) return;
+    lastPos.current = { x, y };
+
+    const src = images[imageIndex.current % images.length];
+    imageIndex.current += 1;
+    const id = idCounter.current++;
+    const rotate = (Math.random() - 0.5) * (variant === "tilt" ? 24 : 8);
+
+    setTrail((prev) => {
+      const next = [...prev, { id, src, x, y, rotate }];
+      return next.length > maxImages
+        ? next.slice(next.length - maxImages)
+        : next;
+    });
+
+    const timer = setTimeout(() => {
+      setTrail((prev) => prev.filter((item) => item.id !== id));
+      timers.current.delete(timer);
+    }, lifetime);
+    timers.current.add(timer);
+  };
+
+  const active = VARIANTS[variant];
+
+  return (
+    <div
+      onPointerMove={handlePointerMove}
+      onPointerLeave={() => {
+        lastPos.current = null;
+      }}
+      className={cn("relative overflow-hidden", className)}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ zIndex }}
+      >
+        <AnimatePresence>
+          {trail.map((item) => (
+            // biome-ignore lint/performance/noImgElement: registry components stay framework-agnostic — no next/image dependency
+            <motion.img
+              key={item.id}
+              src={item.src}
+              alt=""
+              draggable={false}
+              className={cn(
+                "absolute -translate-x-1/2 -translate-y-1/2 rounded-lg object-cover shadow-lg",
+                itemClassName,
+              )}
+              style={{ left: item.x, top: item.y, rotate: item.rotate }}
+              initial={active.initial}
+              animate={active.animate}
+              exit={active.exit}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
+      {children}
+    </div>
+  );
+}
+`,
+      path: "image-trail/image-trail.tsx",
+      target: "components/sonaui/image-trail/image-trail.tsx",
+    },
   ],
   "magnetic-button": [
     {
@@ -2832,6 +3419,7 @@ import {
   motion,
   type SpringOptions,
   useMotionValue,
+  useReducedMotion,
   useSpring,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
@@ -2868,13 +3456,12 @@ export default function Magnetic({
   magneticIntensity = 0.6,
   magneticRange = 100,
   interactionArea = "self",
-  springConfig,
+  springConfig = SPRING_CONFIG,
   customClassName,
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
-
-  springConfig = springConfig || SPRING_CONFIG;
+  const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
   const motionY = useMotionValue(0);
@@ -2882,7 +3469,10 @@ export default function Magnetic({
   const springMotionX = useSpring(motionX, springConfig);
   const springMotionY = useSpring(motionY, springConfig);
 
+  // Only listen while hovered — no idle document-wide mousemove work.
   useEffect(() => {
+    if (!isMouseHovered || shouldReduceMotion) return;
+
     const calculateMouseDistance = (event: MouseEvent) => {
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
@@ -2893,7 +3483,7 @@ export default function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-        if (isMouseHovered && absoluteDistance <= magneticRange) {
+        if (absoluteDistance <= magneticRange) {
           const scale = 1 - absoluteDistance / magneticRange;
 
           motionX.set(distanceX * magneticIntensity * scale);
@@ -2911,13 +3501,12 @@ export default function Magnetic({
       document.removeEventListener("mousemove", calculateMouseDistance);
     };
   }, [
-    magneticRef,
     isMouseHovered,
+    shouldReduceMotion,
     magneticIntensity,
     magneticRange,
     motionX,
     motionY,
-    interactionArea,
   ]);
 
   useEffect(() => {
@@ -2925,7 +3514,11 @@ export default function Magnetic({
       const parentElement = magneticRef.current.parentElement;
 
       const handleParentMouseEnter = () => setMouseHovered(true);
-      const handleParentMouseLeave = () => setMouseHovered(false);
+      const handleParentMouseLeave = () => {
+        setMouseHovered(false);
+        motionX.set(0);
+        motionY.set(0);
+      };
 
       parentElement.addEventListener("mouseenter", handleParentMouseEnter);
       parentElement.addEventListener("mouseleave", handleParentMouseLeave);
@@ -2935,7 +3528,7 @@ export default function Magnetic({
         parentElement.removeEventListener("mouseleave", handleParentMouseLeave);
       };
     }
-  }, [interactionArea]);
+  }, [interactionArea, motionX, motionY]);
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {
@@ -2969,8 +3562,8 @@ export default function Magnetic({
 }
 `,
       path: "magnetic-button/magnetic-button.tsx",
-      target: "components/sonaui/magnetic-button/magnetic-button.tsx"
-    }
+      target: "components/sonaui/magnetic-button/magnetic-button.tsx",
+    },
   ],
   "dot-orbit-shader": [
     {
@@ -2978,6 +3571,7 @@ export default function Magnetic({
       content: `"use client";
 
 import { DotOrbit } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -3032,10 +3626,13 @@ export default function DotOrbitShader({
   style,
   ...props
 }: DotOrbitShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // Background color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colorBack, ...style }}
       {...props}
     >
       <DotOrbit
@@ -3045,7 +3642,7 @@ export default function DotOrbitShader({
         sizeRange={sizeRange}
         spreading={spreading}
         stepsPerColor={stepsPerColor}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>
@@ -3053,21 +3650,22 @@ export default function DotOrbitShader({
 }
 `,
       path: "dot-orbit-shader/dot-orbit-shader.tsx",
-      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx"
-    }
+      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+    },
   ],
-  "accordion": [
+  accordion: [
     {
       type: "registry:ui",
       content: `"use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import {
   createContext,
   type ReactNode,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState,
   ViewTransition,
@@ -3096,7 +3694,7 @@ interface AccordionProps {
   variant?: AccordionVariant;
 }
 
-const accordionWrapperVarinats = cva(
+const accordionWrapperVariants = cva(
   "flex flex-col overflow-clip rounded-2xl",
   {
     variants: {
@@ -3158,7 +3756,8 @@ const AccordionContext = createContext<{
   openItems: Set<string>;
   toggleItem: (value: string) => void;
   variant: AccordionVariant;
-  value: string;
+  /** Prefix used to pair each trigger with its content for aria wiring. */
+  idPrefix: string;
 } | null>(null);
 
 const AccordionRoot = ({
@@ -3168,7 +3767,7 @@ const AccordionRoot = ({
   variant = "default",
 }: AccordionProps) => {
   const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const [value, setValue] = useState<string>("");
+  const idPrefix = useId();
   const toggleItem = (v: string) => {
     setOpenItems((prev) => {
       const newOpenItems = new Set(prev);
@@ -3180,22 +3779,17 @@ const AccordionRoot = ({
       }
       return newOpenItems;
     });
-    if (value !== v) {
-      setValue(v);
-    } else {
-      setValue("");
-    }
   };
 
   return (
     <AccordionContext.Provider
-      value={{ openItems, toggleItem, variant, value }}
+      value={{ openItems, toggleItem, variant, idPrefix }}
     >
       <ViewTransition>
         <div
           role="presentation"
           className={cn(
-            accordionWrapperVarinats({ variant }),
+            accordionWrapperVariants({ variant }),
             variant === "splitted" && "gap-y-2",
             className,
           )}
@@ -3217,13 +3811,13 @@ const AccordionItem = ({
   const context = useContext(AccordionContext);
   if (!context)
     throw new Error("AccordionItem must be used within AccordionRoot");
-  const { variant } = context;
+  const { variant, openItems } = context;
   return (
     <div
       role="presentation"
       className={cn(accordionItemVariants({ variant }), className)}
       style={style}
-      data-active={value === context.value}
+      data-active={value !== undefined && openItems.has(value)}
       {...props}
     >
       <div className="relative">{children}</div>
@@ -3234,13 +3828,13 @@ const AccordionItem = ({
 const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
+    throw new Error("AccordionItemHeader must be used within AccordionRoot");
   const { openItems } = context;
 
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between pt-4 px-8 font-medium text-balance rounded-xl">
+    <div className="flex items-center justify-between py-4 px-8 font-medium text-balance rounded-xl">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} />
     </div>
@@ -3253,19 +3847,22 @@ const AccordionItemTrigger = ({
 }: AccordionItemTriggerProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
+    throw new Error("AccordionItemTrigger must be used within AccordionRoot");
 
-  const { openItems, toggleItem } = context;
+  const { openItems, toggleItem, idPrefix } = context;
   const isOpen = openItems.has(value);
 
   return (
-    <div
+    <button
+      type="button"
+      id={\`\${idPrefix}-\${value}-trigger\`}
       aria-expanded={isOpen}
+      aria-controls={\`\${idPrefix}-\${value}-content\`}
       onClick={() => toggleItem(value)}
-      className="cursor-pointer"
+      className="block w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
     >
       {children}
-    </div>
+    </button>
   );
 };
 
@@ -3275,53 +3872,63 @@ const AccordionItemContent = ({
 }: AccordionItemContentProps) => {
   const context = useContext(AccordionContext);
   if (!context)
-    throw new Error("AccordionContent must be used within AccordionRoot");
+    throw new Error("AccordionItemContent must be used within AccordionRoot");
 
-  const { openItems } = context;
+  const { openItems, idPrefix } = context;
   const isOpen = openItems.has(value);
+  const shouldReduceMotion = useReducedMotion();
 
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
+  // Keep the measured height in sync with content reflow (resize, wrapping).
   useEffect(() => {
-    if (ref.current) {
-      setHeight(ref.current.offsetHeight + 16);
-    }
-  }, [isOpen]);
-
-  const variants = {
-    open: { opacity: [0, 0.5, 1], y: 0 },
-    exit: { opacity: 0, y: 50 },
-    initial: { opacity: 0, y: 50 },
-  };
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setHeight(el.offsetHeight);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const motionVariants = {
     open: { opacity: [0, 1], y: [10, 0] },
     exit: { opacity: [1, 0.1, 0], y: [0, 10] },
-    initial: { opacity: 0, y: 0 },
   };
 
   return (
     <motion.div
       role="region"
+      id={\`\${idPrefix}-\${value}-content\`}
+      aria-labelledby={\`\${idPrefix}-\${value}-trigger\`}
       aria-hidden={!isOpen}
-      className={\`overflow-hidden px-8 py-2 text-sm transition-[height]\`}
-      initial={{ height: 0 }}
+      inert={!isOpen}
+      className="overflow-hidden text-sm"
+      initial={false}
       animate={{ height: isOpen ? height : 0 }}
-      transition={{ duration: 0.26, ease: "easeIn" }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { duration: 0.26, ease: [0.23, 1, 0.32, 1] }
+      }
     >
       <motion.div
-        initial="initial"
+        initial={false}
         animate={isOpen ? "open" : "exit"}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-          delay: 0.2,
-          type: "tween",
-        }}
-        // className="pb-2"
+        transition={
+          shouldReduceMotion
+            ? { duration: 0 }
+            : {
+                duration: 0.3,
+                ease: "easeOut",
+                delay: isOpen ? 0.1 : 0,
+                type: "tween",
+              }
+        }
         variants={motionVariants}
         ref={ref}
+        className="px-8 pb-2"
       >
         {children}
       </motion.div>
@@ -3339,12 +3946,12 @@ export {
 };
 `,
       path: "accordion/accordion.tsx",
-      target: "components/sonaui/accordion/accordion.tsx"
+      target: "components/sonaui/accordion/accordion.tsx",
     },
     {
       type: "registry:ui",
       content: `"use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface AnimatedPlusMinusButtonProps {
   size?: number;
@@ -3355,11 +3962,7 @@ const AnimatedPlusMinusButton = ({
   isOpen = false,
 }: AnimatedPlusMinusButtonProps) => {
   return (
-    <span
-      role="button"
-      aria-pressed="true"
-      className="flex items-center justify-center"
-    >
+    <span aria-hidden="true" className="flex items-center justify-center">
       <motion.svg
         width={size}
         height={size}
@@ -3404,15 +4007,20 @@ const AnimatedPlusMinusButton = ({
 export default AnimatedPlusMinusButton;
 `,
       path: "accordion/animated-plus-minus-button.tsx",
-      target: "components/sonaui/accordion/animated-plus-minus-button.tsx"
-    }
+      target: "components/sonaui/accordion/animated-plus-minus-button.tsx",
+    },
   ],
   "spinning-text": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion, type Transition, type Variants } from "motion/react";
+import {
+  motion,
+  type Transition,
+  type Variants,
+  useReducedMotion,
+} from "motion/react";
 import { type CSSProperties, useMemo } from "react";
 
 import { cn } from "@/lib/utils";
@@ -3472,19 +4080,12 @@ export default function SpinningText({
   transition,
   variants,
 }: SpinningTextProps) {
-  if (typeof children !== "string" && !Array.isArray(children)) {
-    throw new Error("children must be a string or an array of strings");
-  }
+  const shouldReduceMotion = useReducedMotion();
 
-  const textContent = useMemo(() => {
-    if (Array.isArray(children)) {
-      if (!children.every((child) => typeof child === "string")) {
-        throw new Error("all elements in children array must be strings");
-      }
-      return children.join("");
-    }
-    return children;
-  }, [children]);
+  const textContent = useMemo(
+    () => (Array.isArray(children) ? children.join("") : children),
+    [children],
+  );
 
   const characters = useMemo(() => {
     const chars = textContent.split("");
@@ -3503,10 +4104,11 @@ export default function SpinningText({
 
   const containerVariants = useMemo(
     () => ({
-      visible: { rotate: reverse ? -360 : 360 },
+      // Reduced motion: hold the ring static instead of spinning forever.
+      visible: { rotate: shouldReduceMotion ? 0 : reverse ? -360 : 360 },
       ...variants?.container,
     }),
-    [reverse, variants],
+    [reverse, variants, shouldReduceMotion],
   );
 
   const itemVariants = useMemo(
@@ -3520,7 +4122,12 @@ export default function SpinningText({
   return (
     <motion.div
       className={cn("relative", className)}
-      style={style}
+      // Give the ring an intrinsic footprint so it doesn't collapse to 0x0.
+      style={{
+        width: \`\${radius * 2 + 1}ch\`,
+        height: \`\${radius * 2 + 1}ch\`,
+        ...style,
+      }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -3529,6 +4136,7 @@ export default function SpinningText({
       {characters.map((char, index) => (
         <motion.span
           aria-hidden="true"
+          // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
           key={\`\${index}-\${char}\`}
           variants={itemVariants}
           className="inline-block absolute left-1/2 top-1/2"
@@ -3555,16 +4163,21 @@ export default function SpinningText({
 }
 `,
       path: "spinning-text/spinning-text.tsx",
-      target: "components/sonaui/spinning-text/spinning-text.tsx"
-    }
+      target: "components/sonaui/spinning-text/spinning-text.tsx",
+    },
   ],
   "bubble-up-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { type MotionConfigProps, motion, useAnimation } from "motion/react";
-import type { ReactNode } from "react";
+import {
+  type MotionConfigProps,
+  motion,
+  useAnimation,
+  useReducedMotion,
+} from "motion/react";
+import { type ReactNode, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface BubbleUpButtonProps
@@ -3579,50 +4192,61 @@ interface BubbleUpButtonProps
 export default function BubbleUpButton({
   children = "Hover me!",
   motionControls = {
-    transition: { type: "spring", stiffness: 200, damping: 40 },
+    transition: { type: "spring", stiffness: 300, damping: 32 },
   },
   className = "",
   disabled = false,
   ...props
 }: BubbleUpButtonProps) {
   const controls = useAnimation();
+  const shouldReduceMotion = useReducedMotion();
+  // Tracks the latest intent so a re-enter during the exit animation
+  // doesn't get clobbered by the post-exit reset.
+  const hoverIntent = useRef(false);
 
-  const handleMouseEnter = async () => {
+  const fill = async () => {
+    hoverIntent.current = true;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% 100%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
   };
 
-  const handleMouseLeave = async () => {
+  const drain = async () => {
+    hoverIntent.current = false;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% -120%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
-    controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    if (!hoverIntent.current) {
+      controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    }
   };
 
   return (
     <button
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={fill}
+      onMouseLeave={drain}
+      onFocus={fill}
+      onBlur={drain}
       disabled={disabled}
       className={cn(
-        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
+        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-foreground px-16 py-2",
         "transition-opacity duration-200",
-        "focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
-      aria-label={typeof children === "string" ? children : "Bubble up button"}
       {...props}
     >
       <motion.div
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute left-0 top-0 h-full w-full bg-white"
+        className="absolute left-0 top-0 h-full w-full bg-background"
         aria-hidden="true"
       />
-      <span className="relative text-white mix-blend-difference">
+      <span className="relative text-background mix-blend-difference">
         {children}
       </span>
     </button>
@@ -3630,8 +4254,8 @@ export default function BubbleUpButton({
 }
 `,
       path: "bubble-up-button/bubble-up-button.tsx",
-      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx"
-    }
+      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx",
+    },
   ],
   "fan-view": [
     {
@@ -3822,10 +4446,10 @@ export default function FanView({
 }
 `,
       path: "fan-view/fan-view.tsx",
-      target: "components/sonaui/fan-view/fan-view.tsx"
-    }
+      target: "components/sonaui/fan-view/fan-view.tsx",
+    },
   ],
-  "marquee": [
+  marquee: [
     {
       type: "registry:ui",
       content: `"use client";
@@ -4105,16 +4729,16 @@ function MotionTrack({
 }
 `,
       path: "marquee/marquee.tsx",
-      target: "components/sonaui/marquee/marquee.tsx"
-    }
+      target: "components/sonaui/marquee/marquee.tsx",
+    },
   ],
   "ripple-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion } from "motion/react";
-import { type ReactNode, useCallback, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useCallback, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -4144,6 +4768,8 @@ interface RippleProps {
   key: number;
 }
 
+const RIPPLE_SIZE = 10;
+
 export default function RippleButton({
   children,
   className,
@@ -4154,33 +4780,39 @@ export default function RippleButton({
 }: RippleButtonProps) {
   const [ripple, setRipple] = useState<RippleProps | null>(null);
   const [isHover, setIsHover] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  const handleMouseEnter = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const button = event.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      setRipple({ x, y, key: Date.now() });
+  const showRipple = useCallback(
+    (event: React.PointerEvent<HTMLButtonElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      setRipple({
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+        key: Date.now(),
+      });
+      setIsHover(true);
     },
     [],
   );
 
-  const buttonClasses = useMemo(
-    () =>
-      cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
-        className,
-      ),
-    [className],
-  );
-
   return (
     <button
-      className={buttonClasses}
-      onMouseEnter={handleMouseEnter}
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
+      className={cn(
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97]",
+        className,
+      )}
+      onPointerEnter={(e) => {
+        // Touch pointers fire enter on tap — let pointerdown handle those.
+        if (e.pointerType === "mouse") showRipple(e);
+      }}
+      onPointerDown={(e) => {
+        if (e.pointerType !== "mouse") showRipple(e);
+      }}
+      onPointerUp={(e) => {
+        if (e.pointerType !== "mouse") setIsHover(false);
+      }}
+      onPointerLeave={() => setIsHover(false)}
+      onPointerCancel={() => setIsHover(false)}
       {...props}
     >
       {ripple && (
@@ -4191,17 +4823,21 @@ export default function RippleButton({
             rippleStyle,
           )}
           style={{
-            left: ripple.x,
-            top: ripple.y,
-            width: "10px",
-            height: "10px",
-            transform: "translate(-50%, -50%) scale(0)",
+            left: ripple.x - RIPPLE_SIZE / 2,
+            top: ripple.y - RIPPLE_SIZE / 2,
+            width: RIPPLE_SIZE,
+            height: RIPPLE_SIZE,
           }}
+          initial={{ scale: 0 }}
           animate={isHover ? { scale: scaleAmount } : { scale: 0 }}
-          transition={{
-            duration: isHover ? duration : 0.4,
-            ease: "easeIn",
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: isHover ? duration : 0.4,
+                  ease: [0.23, 1, 0.32, 1],
+                }
+          }
         />
       )}
       {children}
@@ -4222,8 +4858,6 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
         "text-background dark:text-foreground mix-blend-difference",
         className,
       )}
-      role="presentation"
-      aria-label="ripple-button-text"
     >
       {text}
     </span>
@@ -4231,8 +4865,8 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
 }
 `,
       path: "ripple-button/ripple-button.tsx",
-      target: "components/sonaui/ripple-button/ripple-button.tsx"
-    }
+      target: "components/sonaui/ripple-button/ripple-button.tsx",
+    },
   ],
   "spotlight-card": [
     {
@@ -4275,8 +4909,9 @@ export default function SpotlightCard({
   disabled = false,
   ...props
 }: SpotlightCardProps) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  // Start off-canvas so the first hover doesn't flash the glow at (0,0).
+  const mouseX = useMotionValue(-spotlightSize);
+  const mouseY = useMotionValue(-spotlightSize);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) return;
@@ -4289,6 +4924,7 @@ export default function SpotlightCard({
 
   return (
     <div
+      role="presentation"
       onMouseMove={handleMouseMove}
       className={cn(
         "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
@@ -4299,7 +4935,7 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300 transition-opacity pointer-events-none"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
           style={{ background }}
         />
       )}
@@ -4309,8 +4945,8 @@ export default function SpotlightCard({
 }
 `,
       path: "spotlight-card/spotlight-card.tsx",
-      target: "components/sonaui/spotlight-card/spotlight-card.tsx"
-    }
+      target: "components/sonaui/spotlight-card/spotlight-card.tsx",
+    },
   ],
   "animated-dialog": [
     {
@@ -4592,8 +5228,172 @@ export function AnimatedDialogClose({
 }
 `,
       path: "animated-dialog/animated-dialog.tsx",
-      target: "components/sonaui/animated-dialog/animated-dialog.tsx"
-    }
+      target: "components/sonaui/animated-dialog/animated-dialog.tsx",
+    },
+  ],
+  "split-text": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText as GSAPSplitText } from "gsap/SplitText";
+import { type ReactNode, useRef } from "react";
+
+import { cn } from "@/lib/utils";
+
+gsap.registerPlugin(useGSAP, GSAPSplitText, ScrollTrigger);
+
+type SplitUnit = "chars" | "words" | "lines";
+
+export interface SplitTextProps {
+  /** A single text element (e.g. a heading or paragraph) to split and animate. */
+  children: ReactNode;
+  /** Additional CSS classes for the wrapper. */
+  className?: string;
+  /**
+   * Which unit the text is split into and animated.
+   * @default "words"
+   */
+  variant?: SplitUnit;
+  /**
+   * Mask each split piece (clip it) so it reveals from behind an edge instead
+   * of animating in fully visible. Masks by the same unit set in \`variant\`.
+   * @default true
+   */
+  mask?: boolean;
+  /**
+   * GSAP tween vars merged over the defaults, e.g. \`{ duration: 1.2 }\`.
+   * @default { yPercent: 120, rotate: 5, stagger: 0.2, duration: 0.4 }
+   */
+  animationProps?: gsap.TweenVars;
+  /**
+   * Play the animation when the element scrolls into view instead of on mount.
+   * @default false
+   */
+  scrollTrigger?: boolean;
+  /**
+   * ScrollTrigger start position (only used when \`scrollTrigger\` is true).
+   * @default "top 85%"
+   */
+  start?: string;
+  /**
+   * Re-split on resize so line breaks stay correct. Note: this replays the
+   * animation on every resize, so it suits looping reveals more than one-shot
+   * entrances. Font-load correctness is handled automatically either way.
+   * @default false
+   */
+  autoSplit?: boolean;
+  /**
+   * Show ScrollTrigger debug markers.
+   * @default false
+   */
+  markers?: boolean;
+}
+
+export default function SplitText({
+  children,
+  className,
+  variant = "words",
+  mask = true,
+  animationProps = {},
+  scrollTrigger = false,
+  start = "top 85%",
+  autoSplit = false,
+  markers = false,
+}: SplitTextProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const defaultAnimationProps: gsap.TweenVars = {
+    yPercent: 120,
+    rotate: 5,
+    stagger: 0.2,
+    duration: 0.4,
+  };
+
+  const mergedAnimationProps = { ...defaultAnimationProps, ...animationProps };
+
+  useGSAP(
+    () => {
+      const containerEl = containerRef.current;
+      if (!containerEl) return;
+
+      // Reveal the wrapper (it starts hidden to avoid a flash of unsplit text).
+      gsap.set(containerEl, { opacity: 1 });
+
+      // Reduced motion: show the final text, skip the animation entirely.
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (prefersReducedMotion) return;
+
+      const targetEl = containerEl.firstElementChild as HTMLElement | null;
+      if (process.env.NODE_ENV !== "production" && !targetEl) {
+        console.warn(
+          "[SplitText] Expected a single wrapping element as children (e.g. an <h2>), but found none. Nothing will animate.",
+        );
+      }
+      if (!targetEl) return;
+
+      let split: GSAPSplitText | undefined;
+
+      // Build the split + animation. Kept in a closure so it can run after fonts
+      // load, and re-run per re-split when \`autoSplit\` is on.
+      const build = () => {
+        split = GSAPSplitText.create(targetEl, {
+          type: variant,
+          mask: mask ? variant : undefined,
+          autoSplit,
+          // Create the tween inside onSplit and return it so GSAP re-runs it on
+          // every re-split (font swap / resize when autoSplit is enabled).
+          onSplit: (self) => {
+            const tl = gsap.timeline(
+              scrollTrigger
+                ? { scrollTrigger: { trigger: containerEl, start, markers } }
+                : {},
+            );
+            tl.from(self[variant], mergedAnimationProps);
+            return tl;
+          },
+        });
+      };
+
+      // Wait for web fonts before splitting so \`lines\` and masks measure against
+      // the real font metrics, not the fallback. Resolves immediately if loaded.
+      let cancelled = false;
+      const fonts = typeof document !== "undefined" ? document.fonts : null;
+      if (fonts && fonts.status !== "loaded") {
+        fonts.ready.then(() => {
+          if (!cancelled) build();
+        });
+      } else {
+        build();
+      }
+
+      return () => {
+        cancelled = true;
+        split?.revert();
+      };
+    },
+    {
+      dependencies: [{ ...mergedAnimationProps }, variant, mask, scrollTrigger],
+      scope: containerRef,
+      revertOnUpdate: true,
+    },
+  );
+
+  return (
+    <div ref={containerRef} className={cn("opacity-0", className)}>
+      {children}
+    </div>
+  );
+}
+`,
+      path: "split-text/split-text.tsx",
+      target: "components/sonaui/split-text/split-text.tsx",
+    },
   ],
   "animated-button": [
     {
@@ -4802,17 +5602,16 @@ AnimatedButton.displayName = "AnimatedButton";
 export default AnimatedButton;
 `,
       path: "animated-button/animated-button.tsx",
-      target: "components/sonaui/animated-button/animated-button.tsx"
-    }
+      target: "components/sonaui/animated-button/animated-button.tsx",
+    },
   ],
   "vertical-tab": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion } from "motion/react";
-import { useRef, useState } from "react";
-import useMeasure from "react-use-measure";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useId, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -4822,13 +5621,13 @@ interface VerticalTabProps {
     title: string;
   }[];
   /**
-   * The background color of the indicator. Accepts Tailwind CSS classes.
-   * @default "bg-slate-300"
+   * The background color of the hover indicator. Accepts Tailwind CSS classes.
+   * @default "bg-accent"
    */
   indicatorBgColor?: string;
   /**
    * The background color of the active tab. Accepts Tailwind CSS classes.
-   * @default "bg-slate-400 dark:bg-slate-600"
+   * @default "bg-muted"
    */
   activeTabBgColor?: string;
   /**
@@ -4840,118 +5639,108 @@ interface VerticalTabProps {
 
 export default function VerticalTab({
   tabs,
-  indicatorBgColor = "bg-slate-300",
-  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
+  indicatorBgColor = "bg-accent",
+  activeTabBgColor = "bg-muted",
   containerClassName = "",
 }: VerticalTabProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [lastHoveredIndex, setLastHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const layoutId = useId();
+  const shouldReduceMotion = useReducedMotion();
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const [ref, bounds] = useMeasure();
-  const tabRef = useRef<HTMLDivElement | null>(null);
-
-  const handleMouseEnter = (tabElement: HTMLDivElement, index: number) => {
-    tabRef.current = tabElement;
-    ref(tabElement); // Update the ref dynamically
-    setIsMouseOver(true);
-    setLastHoveredIndex(index); // Store the last hovered index
+  const focusTab = (index: number) => {
+    setActiveIndex(index);
+    tabRefs.current[index]?.focus();
   };
 
-  const handleMouseLeave = () => {
-    tabRef.current = null;
-    setIsMouseOver(false);
-    ref(null); // Reset the ref when mouse leaves
-  };
-
-  const handleMouseClick = (i: number) => {
-    setActiveIndex(i);
-  };
   const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLDivElement>,
+    e: React.KeyboardEvent<HTMLButtonElement>,
     currentIndex: number,
   ) => {
-    if (e.key === "ArrowRight") {
-      setActiveIndex((prev) => (prev + 1) % tabs.length);
-    } else if (e.key === "ArrowLeft") {
-      setActiveIndex((prev) => (prev - 1 + tabs.length) % tabs.length);
-    }
-    if (e.key === "Enter" || e.key === " ") {
-      setActiveIndex(currentIndex);
+    switch (e.key) {
+      case "ArrowRight":
+        e.preventDefault();
+        focusTab((currentIndex + 1) % tabs.length);
+        break;
+      case "ArrowLeft":
+        e.preventDefault();
+        focusTab((currentIndex - 1 + tabs.length) % tabs.length);
+        break;
+      case "Home":
+        e.preventDefault();
+        focusTab(0);
+        break;
+      case "End":
+        e.preventDefault();
+        focusTab(tabs.length - 1);
+        break;
     }
   };
 
   return (
     <div
+      role="presentation"
       className={cn(
-        "relative flex w-fit overflow-x-scroll border-b p-2",
+        "relative flex w-fit overflow-x-auto border-b p-2",
         containerClassName,
       )}
-      onMouseLeave={() => handleMouseLeave()}
+      onMouseLeave={() => setHoveredIndex(null)}
     >
-      {isMouseOver && tabRef.current && (
-        <motion.div
-          className={cn(
-            "absolute left-0 rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
-            indicatorBgColor,
-          )}
-          initial={{
-            opacity: 0,
-            width: bounds.width,
-            height: bounds.height,
-            translateX:
-              lastHoveredIndex !== null && tabs[lastHoveredIndex]
-                ? tabRef.current.offsetLeft
-                : 0,
-          }}
-          animate={{
-            opacity: 1,
-            translateX: tabRef.current ? tabRef.current.offsetLeft : 0,
-            width: bounds.width,
-            height: bounds.height,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
-      )}
       <div className="flex space-x-2" role="tablist">
         {tabs.map((tab, index) => (
-          <TabItem
-            key={index}
-            title={tab.title}
-            data-tab-index={index}
+          <button
+            type="button"
+            role="tab"
+            key={tab.title}
+            ref={(el) => {
+              tabRefs.current[index] = el;
+            }}
+            tabIndex={index === activeIndex ? 0 : -1}
+            aria-selected={index === activeIndex}
             className={cn(
               "relative flex cursor-pointer items-center p-2",
               "rounded-xl transition-colors duration-300",
-              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
-              index === activeIndex ? \`\${activeTabBgColor}\` : "",
+              "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+              index === activeIndex && activeTabBgColor,
             )}
-            onMouseEnter={(e) => handleMouseEnter(e.currentTarget, index)}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onFocus={() => setHoveredIndex(index)}
+            onBlur={() => setHoveredIndex(null)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            onClick={() => handleMouseClick(index)}
-            aria-selected={index === activeIndex}
-            aria-label={\`Tab \${index + 1}\`}
-          />
+            onClick={() => setActiveIndex(index)}
+          >
+            {/* Hover indicator — glides between tabs via shared layoutId */}
+            <AnimatePresence>
+              {hoveredIndex === index && (
+                <motion.span
+                  layoutId={\`\${layoutId}-hover\`}
+                  className={cn(
+                    "absolute inset-0 rounded-xl",
+                    indicatorBgColor,
+                  )}
+                  initial={shouldReduceMotion ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", stiffness: 300, damping: 30 }
+                  }
+                />
+              )}
+            </AnimatePresence>
+            <span className="relative">{tab.title}</span>
+          </button>
         ))}
       </div>
     </div>
   );
 }
-
-interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
-}
-
-const TabItem = ({ title, ...props }: TabItemProps) => {
-  return (
-    <div {...props} role="tab" tabIndex={0}>
-      <span>{title}</span>
-    </div>
-  );
-};
 `,
       path: "vertical-tab/vertical-tab.tsx",
-      target: "components/sonaui/vertical-tab/vertical-tab.tsx"
-    }
+      target: "components/sonaui/vertical-tab/vertical-tab.tsx",
+    },
   ],
   "animated-switch": [
     {
@@ -5089,15 +5878,21 @@ export default function AnimatedSwitch({
 }
 `,
       path: "animated-switch/animated-switch.tsx",
-      target: "components/sonaui/animated-switch/animated-switch.tsx"
-    }
+      target: "components/sonaui/animated-switch/animated-switch.tsx",
+    },
   ],
   "expandable-tabs": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type MotionConfigProps,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
@@ -5130,67 +5925,66 @@ export default function ExpandableTabs({
   containerClassName = "",
   defaultActiveIndex = 0,
   motionConfig = {
-    transition: { duration: 0.2, ease: "easeInOut" },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 }: ExpandableTabsProps) {
   const [isActive, setIsActive] = useState(defaultActiveIndex);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <motion.div
+    <div
+      role="tablist"
       className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
+        "flex space-x-2 rounded-full border bg-transparent p-2",
         containerClassName,
       )}
-      layout
     >
-      <MotionConfig {...motionConfig}>
+      <MotionConfig
+        {...(shouldReduceMotion
+          ? { transition: { duration: 0 } }
+          : motionConfig)}
+      >
         {tabs.map((tab, index) => (
-          <motion.div
-            key={index}
-            role="button"
+          <motion.button
+            type="button"
+            role="tab"
+            aria-selected={isActive === index}
+            key={tab.title}
+            layout
             className={cn(
-              "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
-              "transition-[width,_background-color] duration-300 ease-in-out",
-              isActive === index && "bg-slate-300 dark:text-slate-800",
+              "flex cursor-pointer items-center gap-x-2 overflow-clip rounded-full p-2",
+              "transition-colors duration-200",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              isActive === index && "bg-accent text-accent-foreground",
             )}
             onClick={() => setIsActive(index)}
-            tabIndex={0}
           >
-            <div className="grow items-center justify-center h-full">
-              <tab.icon className="text-lg" aria-label={\`\${tab.title}-icon\`} />
-            </div>
-            <motion.span
-              className="overflow-hidden leading-[1] text-sm"
-              key={tab.title}
-              initial={isActive === index ? "" : "inactive"}
-              animate={isActive === index ? "active" : "inactive"}
-              variants={TabItemVariants}
-            >
-              {tab.title}
+            <motion.span layout className="grow items-center justify-center h-full">
+              <tab.icon className="text-lg" aria-hidden="true" />
             </motion.span>
-          </motion.div>
+            <AnimatePresence initial={false}>
+              {isActive === index && (
+                <motion.span
+                  layout
+                  className="overflow-hidden leading-[1] text-sm whitespace-nowrap"
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "auto" }}
+                  exit={{ opacity: 0, width: 0 }}
+                >
+                  {tab.title}
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         ))}
       </MotionConfig>
-    </motion.div>
+    </div>
   );
 }
-
-const TabItemVariants = {
-  active: {
-    opacity: 1,
-    width: "auto",
-    y: 0,
-  },
-  inactive: {
-    opacity: 0,
-    width: 0,
-    y: 20,
-  },
-};
 `,
       path: "expandable-tabs/expandable-tabs.tsx",
-      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
-    }
+      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx",
+    },
   ],
   "mesh-gradient-shader": [
     {
@@ -5198,6 +5992,7 @@ const TabItemVariants = {
       content: `"use client";
 
 import { MeshGradient } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -5246,10 +6041,13 @@ export default function MeshGradientShader({
   style,
   ...props
 }: MeshGradientShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // First color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colors[0], ...style }}
       {...props}
     >
       <MeshGradient
@@ -5258,7 +6056,7 @@ export default function MeshGradientShader({
         swirl={swirl}
         grainMixer={grainMixer}
         grainOverlay={grainOverlay}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>
@@ -5266,15 +6064,15 @@ export default function MeshGradientShader({
 }
 `,
       path: "mesh-gradient-shader/mesh-gradient-shader.tsx",
-      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx"
-    }
+      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+    },
   ],
   "link-preview": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -5299,9 +6097,10 @@ export default function LinkPreview({
   showIcon = true,
   ...linkProps
 }: LinkPreviewProps) {
-  const [previewRef, previewBounds] = useMeasure();
-  const [containerRef, containerBounds] = useMeasure();
+  // scroll: true keeps viewport coordinates fresh while the page scrolls
+  const [containerRef, containerBounds] = useMeasure({ scroll: true });
   const desktop = useMediaQuery("(min-width: 768px)");
+  const shouldReduceMotion = useReducedMotion();
 
   const [isHover, setIsHover] = useState(false);
 
@@ -5310,27 +6109,16 @@ export default function LinkPreview({
       <Link
         href={link}
         className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
-        onMouseEnter={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover(true);
+        onMouseEnter={() => {
+          if (desktop) setIsHover(true);
         }}
-        onClick={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (isHover) {
-            setIsHover(false);
-          }
-        }}
-        onFocus={(e) => {
-          e.preventDefault();
-          setIsHover(true);
+        onMouseLeave={() => setIsHover(false)}
+        onFocus={() => {
+          if (desktop) setIsHover(true);
         }}
         onBlur={() => setIsHover(false)}
         ref={containerRef}
+        {...linkProps}
       >
         {text}
         {showIcon && (
@@ -5341,36 +6129,44 @@ export default function LinkPreview({
       </Link>
       <AnimatePresence>
         {isHover && desktop && (
-          <motion.div
-            ref={previewRef}
-            className="overflow-clip absolute z-50 w-fit bg-slate-100 dark:bg-slate-600 border border-slate-400 rounded-xl shadow-xl origin-center"
+          <div
+            role="presentation"
+            className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
-              left: containerBounds.left - previewBounds.width / 2,
-              top: containerBounds.top - previewBounds.height,
+              left: containerBounds.left + containerBounds.width / 2,
+              top: containerBounds.top - 8,
             }}
-            initial={{ opacity: 0, width: 0, height: 0 }}
-            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
-              <div className="flex justify-between w-full text-sm">
-                External Link
-                <Link href={link}>
-                  <FaArrowUpRightFromSquare />
+            <motion.div
+              className="overflow-clip w-fit bg-popover text-popover-foreground border border-border rounded-xl shadow-xl origin-bottom"
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: 4 }
+              }
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.97 }
+              }
+              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+                <div className="flex justify-between gap-x-4 w-full text-sm">
+                  External Link
+                  <Link href={link} aria-label={\`Open \${link}\`}>
+                    <FaArrowUpRightFromSquare />
+                  </Link>
+                </div>
+                <Link href={link} className="text-nowrap underline">
+                  {link}
                 </Link>
               </div>
-              <Link
-                href={link}
-                className="text-nowrap underline"
-                {...linkProps}
-              >
-                {link}
-              </Link>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </>
@@ -5378,15 +6174,15 @@ export default function LinkPreview({
 }
 `,
       path: "link-preview/link-preview.tsx",
-      target: "components/sonaui/link-preview/link-preview.tsx"
-    }
+      target: "components/sonaui/link-preview/link-preview.tsx",
+    },
   ],
   "stagger-text": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion, type Variants, useReducedMotion } from "motion/react";
 import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -5410,42 +6206,52 @@ export default function StaggerText({
   text = "text",
   className,
   as = "h3",
+  ...props
 }: StaggerTextProps<StaggerTextEleType>) {
   const Tag = as; // Explicitly type as a React component
-  const [activeIndex, setActiveIndex] = useState(5);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  return (
-    <>
-      <h1 className="sr-only">{text}</h1>
-      <Tag
-        className={cn("overflow-clip tracking-wide select-text", className)}
-        aria-label={text}
-        onCopy={(e) => {
-          e.preventDefault();
-          e.clipboardData.setData("text/plain", text);
-        }}
-      >
-        {text.split("").map((char, i) => {
-          const delay = Math.abs(activeIndex - i);
-          return (
-            <StaggerTextItem
-              char={char}
-              key={i}
-              onMouseEnter={() => {
-                setActiveIndex(i);
-                setIsActive(true);
-              }}
-              onMouseLeave={() => {
-                setActiveIndex(-1);
-                setIsActive(false);
-              }}
-              delay={delay}
-              isHovered={isActive}
-            />
-          );
-        })}
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <Tag className={cn("tracking-wide", className)} {...props}>
+        {text}
       </Tag>
-    </>
+    );
+  }
+
+  return (
+    <Tag
+      className={cn("overflow-clip tracking-wide select-text", className)}
+      aria-label={text}
+      onCopy={(e) => {
+        e.preventDefault();
+        e.clipboardData.setData("text/plain", text);
+      }}
+      {...props}
+    >
+      {text.split("").map((char, i) => {
+        const delay = Math.abs(activeIndex - i);
+        return (
+          <StaggerTextItem
+            char={char}
+            // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
+            key={i}
+            onMouseEnter={() => {
+              setActiveIndex(i);
+              setIsActive(true);
+            }}
+            onMouseLeave={() => {
+              setActiveIndex(-1);
+              setIsActive(false);
+            }}
+            delay={delay}
+            isHovered={isActive}
+          />
+        );
+      })}
+    </Tag>
   );
 }
 
@@ -5541,15 +6347,15 @@ const variants: Variants = {
 };
 `,
       path: "stagger-text/stagger-text.tsx",
-      target: "components/sonaui/stagger-text/stagger-text.tsx"
-    }
+      target: "components/sonaui/stagger-text/stagger-text.tsx",
+    },
   ],
   "hold-to-delete-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import * as m from "motion/react-m";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
@@ -5618,6 +6424,7 @@ export default function HoldToDeleteButton({
     };
   }, [isCompleted]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: unmount-only cleanup
   useEffect(
     () => () => {
       cancelHold();
@@ -5627,23 +6434,30 @@ export default function HoldToDeleteButton({
   );
 
   return (
-    <m.button
-      layout
-      layoutId="hold-to-delete-button"
+    <motion.button
       type="button"
       className={cn(
         "relative cursor-pointer overflow-clip rounded-full border-2 px-6 py-3 font-medium",
         className,
       )}
       whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
       onPointerDown={handlePointerDown}
       onPointerUp={cancelHold}
       onPointerLeave={cancelHold}
+      onPointerCancel={cancelHold}
+      onKeyDown={(e) => {
+        if ((e.key === " " || e.key === "Enter") && !e.repeat) {
+          e.preventDefault();
+          handlePointerDown();
+        }
+      }}
+      onKeyUp={(e) => {
+        if (e.key === " " || e.key === "Enter") cancelHold();
+      }}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-red-400"
+        className="absolute inset-0 h-full w-full bg-danger"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
           transition: isHolding
@@ -5651,318 +6465,328 @@ export default function HoldToDeleteButton({
             : "clip-path 200ms ease-out",
         }}
       />
-      <span className="relative text-xl">
+      <span aria-live="polite" className="relative text-xl">
         {isCompleted ? "Deleted!" : label}
       </span>
-    </m.button>
+    </motion.button>
   );
 }
 `,
       path: "hold-to-delete-button/hold-to-delete-button.tsx",
-      target: "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx"
-    }
-  ]
+      target:
+        "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
+    },
+  ],
 };
 
 export const componentMetadata = {
   "animated-dropdown": {
-    "name": "animated-dropdown",
-    "type": "registry:ui",
-    "title": "Animated Dropdown",
-    "description": "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
-    "files": [
+    name: "animated-dropdown",
+    type: "registry:ui",
+    title: "Animated Dropdown",
+    description:
+      "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
+    files: [
       {
-        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ]
+    dependencies: ["@base-ui/react", "motion"],
   },
   "animated-switch": {
-    "name": "animated-switch",
-    "type": "registry:ui",
-    "title": "Animated Switch",
-    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
-    "files": [
+    name: "animated-switch",
+    type: "registry:ui",
+    title: "Animated Switch",
+    description:
+      "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
+    files: [
       {
-        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/animated-switch/animated-switch.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ]
+    dependencies: ["@base-ui/react", "motion"],
   },
   "animated-dialog": {
-    "name": "animated-dialog",
-    "type": "registry:ui",
-    "title": "Animated Dialog",
-    "description": "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
-    "files": [
+    name: "animated-dialog",
+    type: "registry:ui",
+    title: "Animated Dialog",
+    description:
+      "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
+    files: [
       {
-        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ]
+    dependencies: ["@base-ui/react", "motion"],
   },
   "animated-button": {
-    "name": "animated-button",
-    "type": "registry:ui",
-    "title": "Animated Button",
-    "description": "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
-    "files": [
+    name: "animated-button",
+    type: "registry:ui",
+    title: "Animated Button",
+    description:
+      "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
+    files: [
       {
-        "path": "registry/sonaui/animated-button/animated-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/animated-button/animated-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "class-variance-authority",
-      "motion"
-    ]
+    dependencies: ["class-variance-authority", "motion"],
   },
   "dot-orbit-shader": {
-    "name": "dot-orbit-shader",
-    "type": "registry:ui",
-    "title": "Dot Orbit Shader",
-    "description": "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
-    "files": [
+    name: "dot-orbit-shader",
+    type: "registry:ui",
+    title: "Dot Orbit Shader",
+    description:
+      "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
+    files: [
       {
-        "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "@paper-design/shaders-react"
-    ]
+    dependencies: ["@paper-design/shaders-react"],
   },
   "mesh-gradient-shader": {
-    "name": "mesh-gradient-shader",
-    "type": "registry:ui",
-    "title": "Mesh Gradient Shader",
-    "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
-    "files": [
+    name: "mesh-gradient-shader",
+    type: "registry:ui",
+    title: "Mesh Gradient Shader",
+    description:
+      "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+    files: [
       {
-        "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "@paper-design/shaders-react"
-    ]
+    dependencies: ["@paper-design/shaders-react"],
   },
-  "magnetic": {
-    "name": "magnetic",
-    "type": "registry:ui",
-    "title": "Magnetic",
-    "description": "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
-    "files": [
+  magnetic: {
+    name: "magnetic",
+    type: "registry:ui",
+    title: "Magnetic",
+    description:
+      "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
+    files: [
       {
-        "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/magnetic-button/magnetic-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": []
+    dependencies: [],
   },
   "vertical-tab": {
-    "name": "vertical-tab",
-    "type": "registry:ui",
-    "title": "VerticalTab",
-    "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
-    "files": [
+    name: "vertical-tab",
+    type: "registry:ui",
+    title: "VerticalTab",
+    description:
+      "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
+    files: [
       {
-        "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/vertical-tab/vertical-tab.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "react-use-measure"
-    ]
+    dependencies: ["react-use-measure"],
   },
-  "accordion": {
-    "name": "accordion",
-    "type": "registry:ui",
-    "title": "Accordion",
-    "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
-    "files": [
+  accordion: {
+    name: "accordion",
+    type: "registry:ui",
+    title: "Accordion",
+    description:
+      "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
+    files: [
       {
-        "path": "registry/sonaui/accordion/accordion.tsx",
-        "type": "registry:ui"
+        path: "registry/sonaui/accordion/accordion.tsx",
+        type: "registry:ui",
       },
       {
-        "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/accordion/animated-plus-minus-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "class-variance-authority",
-      "motion"
-    ]
+    dependencies: ["class-variance-authority", "motion"],
   },
   "ripple-button": {
-    "name": "ripple-button",
-    "type": "registry:ui",
-    "title": "RippleButton",
-    "description": "An interactive button with a ripple effect for modern UIs.",
-    "files": [
+    name: "ripple-button",
+    type: "registry:ui",
+    title: "RippleButton",
+    description: "An interactive button with a ripple effect for modern UIs.",
+    files: [
       {
-        "path": "registry/sonaui/ripple-button/ripple-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/ripple-button/ripple-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": []
+    dependencies: [],
   },
-  "marquee": {
-    "name": "marquee",
-    "type": "registry:ui",
-    "title": "Marquee",
-    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
-    "files": [
+  marquee: {
+    name: "marquee",
+    type: "registry:ui",
+    title: "Marquee",
+    description:
+      "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
+    files: [
       {
-        "path": "registry/sonaui/marquee/marquee.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/marquee/marquee.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "motion"
-    ]
+    dependencies: ["motion"],
   },
   "spinning-text": {
-    "name": "spinning-text",
-    "type": "registry:ui",
-    "title": "SpinningText",
-    "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
-    "files": [
+    name: "spinning-text",
+    type: "registry:ui",
+    title: "SpinningText",
+    description:
+      "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+    files: [
       {
-        "path": "registry/sonaui/spinning-text/spinning-text.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/spinning-text/spinning-text.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": []
+    dependencies: [],
   },
   "stagger-text": {
-    "name": "stagger-text",
-    "type": "registry:ui",
-    "title": "StaggerText",
-    "description": "A text component with staggered animation.",
-    "files": [
+    name: "stagger-text",
+    type: "registry:ui",
+    title: "StaggerText",
+    description: "A text component with staggered animation.",
+    files: [
       {
-        "path": "registry/sonaui/stagger-text/stagger-text.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/stagger-text/stagger-text.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": []
+    dependencies: [],
   },
   "link-preview": {
-    "name": "link-preview",
-    "type": "registry:ui",
-    "title": "LinkPreview",
-    "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
-    "files": [
+    name: "link-preview",
+    type: "registry:ui",
+    title: "LinkPreview",
+    description:
+      "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+    files: [
       {
-        "path": "registry/sonaui/link-preview/link-preview.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/link-preview/link-preview.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "react-use-measure"
-    ]
+    dependencies: ["react-use-measure"],
   },
   "bubble-up-button": {
-    "name": "bubble-up-button",
-    "type": "registry:ui",
-    "title": "BubbleUpButton",
-    "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
-    "files": [
+    name: "bubble-up-button",
+    type: "registry:ui",
+    title: "BubbleUpButton",
+    description:
+      'The `BubbleUpButton` component provides an interactive button with a fluid "bubble-up" animation effect when hovered. It creates an engaging user experience with minimal effort.',
+    files: [
       {
-        "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": []
+    dependencies: [],
   },
   "expandable-tabs": {
-    "name": "expandable-tabs",
-    "type": "registry:ui",
-    "title": "ExpandableTabs",
-    "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
-    "files": [
+    name: "expandable-tabs",
+    type: "registry:ui",
+    title: "ExpandableTabs",
+    description:
+      "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
+    files: [
       {
-        "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "react-icons"
-    ]
+    dependencies: ["react-icons"],
+  },
+  "split-text": {
+    name: "split-text",
+    type: "registry:ui",
+    title: "Split Text",
+    description:
+      "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+    files: [
+      {
+        path: "registry/sonaui/split-text/split-text.tsx",
+        type: "registry:ui",
+      },
+    ],
+    dependencies: ["gsap", "@gsap/react"],
+  },
+  "image-trail": {
+    name: "image-trail",
+    type: "registry:ui",
+    title: "Image Trail",
+    description:
+      "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+    files: [
+      {
+        path: "registry/sonaui/image-trail/image-trail.tsx",
+        type: "registry:ui",
+      },
+    ],
+    dependencies: ["motion"],
   },
   "spotlight-card": {
-    "name": "spotlight-card",
-    "type": "registry:ui",
-    "title": "Spotlight Card",
-    "description": "A card with a radial spotlight glow that follows the cursor.",
-    "files": [
+    name: "spotlight-card",
+    type: "registry:ui",
+    title: "Spotlight Card",
+    description: "A card with a radial spotlight glow that follows the cursor.",
+    files: [
       {
-        "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/spotlight-card/spotlight-card.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "motion"
-    ]
+    dependencies: ["motion"],
   },
   "hold-to-delete-button": {
-    "name": "hold-to-delete-button",
-    "type": "registry:ui",
-    "title": "Hold To Delete Button",
-    "description": "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
-    "files": [
+    name: "hold-to-delete-button",
+    type: "registry:ui",
+    title: "Hold To Delete Button",
+    description:
+      "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
+    files: [
       {
-        "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "motion"
-    ]
+    dependencies: ["motion"],
   },
   "circular-dock-menu": {
-    "name": "circular-dock-menu",
-    "type": "registry:ui",
-    "title": "Circular Dock Menu",
-    "description": "A circular trigger button that fans items out in a radial arc with spring animations.",
-    "files": [
+    name: "circular-dock-menu",
+    type: "registry:ui",
+    title: "Circular Dock Menu",
+    description:
+      "A circular trigger button that fans items out in a radial arc with spring animations.",
+    files: [
       {
-        "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "motion",
-      "lucide-react"
-    ]
+    dependencies: ["motion", "lucide-react"],
   },
   "fan-view": {
-    "name": "fan-view",
-    "type": "registry:ui",
-    "title": "Fan View",
-    "description": "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
-    "files": [
+    name: "fan-view",
+    type: "registry:ui",
+    title: "Fan View",
+    description:
+      "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
+    files: [
       {
-        "path": "registry/sonaui/fan-view/fan-view.tsx",
-        "type": "registry:ui"
-      }
+        path: "registry/sonaui/fan-view/fan-view.tsx",
+        type: "registry:ui",
+      },
     ],
-    "dependencies": [
-      "motion"
-    ]
-  }
+    dependencies: ["motion"],
+  },
 };

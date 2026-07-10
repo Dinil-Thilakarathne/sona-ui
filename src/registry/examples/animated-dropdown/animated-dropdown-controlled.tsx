@@ -16,14 +16,21 @@ export default function AnimatedDropdownControlled() {
   return (
     <div className="flex flex-col gap-4 items-center">
       <p className="text-muted-foreground text-sm">
-        Dropdown is: <span className="font-semibold text-foreground">{open ? "open" : "closed"}</span>
+        Dropdown is:{" "}
+        <span className="font-semibold text-foreground">
+          {open ? "open" : "closed"}
+        </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
         <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
           <AnimatedDropdownSeparator />
           <AnimatedDropdownItem
             icon={<LogOut />}

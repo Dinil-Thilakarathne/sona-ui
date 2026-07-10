@@ -4,8 +4,8 @@
     "formatter": {
       "external": {
         "command": "./local/format-chain.sh",
-        "arguments": ["{buffer_path}"],
-      },
-    },
-  },
+        "arguments": ["{buffer_path}"]
+      }
+    }
+  }
 }

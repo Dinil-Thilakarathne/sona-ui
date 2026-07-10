@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-import { type ReactNode, useCallback, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useCallback, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -31,6 +31,8 @@ interface RippleProps {
   key: number;
 }
 
+const RIPPLE_SIZE = 10;
+
 export default function RippleButton({
   children,
   className,
@@ -41,33 +43,39 @@ export default function RippleButton({
 }: RippleButtonProps) {
   const [ripple, setRipple] = useState<RippleProps | null>(null);
   const [isHover, setIsHover] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  const handleMouseEnter = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const button = event.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      setRipple({ x, y, key: Date.now() });
+  const showRipple = useCallback(
+    (event: React.PointerEvent<HTMLButtonElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      setRipple({
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+        key: Date.now(),
+      });
+      setIsHover(true);
     },
     [],
   );
 
-  const buttonClasses = useMemo(
-    () =>
-      cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
-        className,
-      ),
-    [className],
-  );
-
   return (
     <button
-      className={buttonClasses}
-      onMouseEnter={handleMouseEnter}
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
+      className={cn(
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97]",
+        className,
+      )}
+      onPointerEnter={(e) => {
+        // Touch pointers fire enter on tap — let pointerdown handle those.
+        if (e.pointerType === "mouse") showRipple(e);
+      }}
+      onPointerDown={(e) => {
+        if (e.pointerType !== "mouse") showRipple(e);
+      }}
+      onPointerUp={(e) => {
+        if (e.pointerType !== "mouse") setIsHover(false);
+      }}
+      onPointerLeave={() => setIsHover(false)}
+      onPointerCancel={() => setIsHover(false)}
       {...props}
     >
       {ripple && (
@@ -78,17 +86,21 @@ export default function RippleButton({
             rippleStyle,
           )}
           style={{
-            left: ripple.x,
-            top: ripple.y,
-            width: "10px",
-            height: "10px",
-            transform: "translate(-50%, -50%) scale(0)",
+            left: ripple.x - RIPPLE_SIZE / 2,
+            top: ripple.y - RIPPLE_SIZE / 2,
+            width: RIPPLE_SIZE,
+            height: RIPPLE_SIZE,
           }}
+          initial={{ scale: 0 }}
           animate={isHover ? { scale: scaleAmount } : { scale: 0 }}
-          transition={{
-            duration: isHover ? duration : 0.4,
-            ease: "easeIn",
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: isHover ? duration : 0.4,
+                  ease: [0.23, 1, 0.32, 1],
+                }
+          }
         />
       )}
       {children}
@@ -109,8 +121,6 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
         "text-background dark:text-foreground mix-blend-difference",
         className,
       )}
-      role="presentation"
-      aria-label="ripple-button-text"
     >
       {text}
     </span>

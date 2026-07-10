@@ -5,6 +5,7 @@ import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useState } from "react";
 import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
+import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function useCopyToClipboard(timeout: number = 2000) {
@@ -37,6 +38,8 @@ interface CopyButtonProps
   timeout?: number;
   copyIcon?: React.ReactNode;
   checkIcon?: React.ReactNode;
+  componentName?: string;
+  language?: string;
 }
 
 function CopyButton({
@@ -45,6 +48,8 @@ function CopyButton({
   className,
   copyIcon,
   checkIcon,
+  componentName,
+  language,
   ...props
 }: CopyButtonProps) {
   const { copied, copy } = useCopyToClipboard(timeout);
@@ -63,7 +68,13 @@ function CopyButton({
   return (
     <Button
       data-slot="copy-button"
-      onClick={() => copy(content)}
+      onClick={() => {
+        copy(content);
+        analytics.codeCopied({
+          component: componentName ?? "unknown",
+          language,
+        });
+      }}
       className={cn(
         "size-auto rounded-md p-1.5 text-muted-foreground [grid-template-areas:'stack'] [&>span]:grid [&>span]:place-content-center [&>span]:p-0",
         "relative",

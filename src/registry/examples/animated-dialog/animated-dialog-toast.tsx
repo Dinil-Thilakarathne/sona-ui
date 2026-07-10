@@ -17,7 +17,8 @@ export default function AnimatedDialogToast() {
       <AnimatedDialogContent from="bottom">
         <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
         <AnimatedDialogDescription>
-          This action will permanently delete the repository. This change is irreversible.
+          This action will permanently delete the repository. This change is
+          irreversible.
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose

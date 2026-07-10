@@ -176,7 +176,7 @@ const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
   const isOpen = openItems.has(value);
 
   return (
-    <div className="flex items-center justify-between pt-4 px-8 font-medium text-balance rounded-xl">
+    <div className="flex items-center justify-between py-4 px-8 font-medium text-balance rounded-xl">
       <div className="">{children}</div>
       <AnimatedPlusMinusButton isOpen={isOpen} />
     </div>
@@ -270,7 +270,7 @@ const AccordionItemContent = ({
         }
         variants={motionVariants}
         ref={ref}
-        className="px-8 py-2"
+        className="px-8 pb-4"
       >
         {children}
       </motion.div>

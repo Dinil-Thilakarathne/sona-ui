@@ -36,8 +36,9 @@ export default function SpotlightCard({
   disabled = false,
   ...props
 }: SpotlightCardProps) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  // Start off-canvas so the first hover doesn't flash the glow at (0,0).
+  const mouseX = useMotionValue(-spotlightSize);
+  const mouseY = useMotionValue(-spotlightSize);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) return;
@@ -50,6 +51,7 @@ export default function SpotlightCard({
 
   return (
     <div
+      role="presentation"
       onMouseMove={handleMouseMove}
       className={cn(
         "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
@@ -60,7 +62,7 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300 transition-opacity pointer-events-none"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
           style={{ background }}
         />
       )}

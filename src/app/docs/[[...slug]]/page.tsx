@@ -63,5 +63,13 @@ export default async function DocPage({
   if (!doc) {
     notFound();
   }
-  return <DocClient doc={doc} />;
+  return (
+    <DocClient
+      doc={{
+        title: doc.title,
+        slug: doc.slug,
+        body: { code: doc.body.code, raw: doc.body.raw },
+      }}
+    />
+  );
 }

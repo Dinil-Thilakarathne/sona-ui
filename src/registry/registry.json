@@ -212,6 +212,32 @@
     "dependencies": ["react-icons"]
   },
   {
+    "name": "split-text",
+    "type": "registry:ui",
+    "title": "Split Text",
+    "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+    "files": [
+      {
+        "path": "registry/sonaui/split-text/split-text.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["gsap", "@gsap/react"]
+  },
+  {
+    "name": "image-trail",
+    "type": "registry:ui",
+    "title": "Image Trail",
+    "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+    "files": [
+      {
+        "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
     "name": "spotlight-card",
     "type": "registry:ui",
     "title": "Spotlight Card",

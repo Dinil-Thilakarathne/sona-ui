@@ -15,10 +15,7 @@
           "target": "components/ui/animated-dropdown/animated-dropdown.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": []
     },
     {
@@ -33,10 +30,22 @@
           "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
         }
       ],
-      "dependencies": [
-        "motion",
-        "lucide-react"
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": []
+    },
+    {
+      "name": "image-trail",
+      "type": "registry:ui",
+      "title": "Image Trail",
+      "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+      "files": [
+        {
+          "path": "registry/sonaui/image-trail/image-trail.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/image-trail/image-trail.tsx"
+        }
       ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     },
     {
@@ -66,9 +75,7 @@
           "target": "components/ui/dot-orbit-shader/dot-orbit-shader.tsx"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ],
+      "dependencies": ["@paper-design/shaders-react"],
       "registryDependencies": []
     },
     {
@@ -93,10 +100,7 @@
           "target": "components/ui/accordion/animated-plus-minus-button.tsx"
         }
       ],
-      "dependencies": [
-        "class-variance-authority",
-        "motion"
-      ],
+      "dependencies": ["class-variance-authority", "motion"],
       "registryDependencies": []
     },
     {
@@ -141,9 +145,7 @@
           "target": "components/ui/fan-view/fan-view.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     },
     {
@@ -158,9 +160,7 @@
           "target": "components/ui/marquee/marquee.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     },
     {
@@ -190,9 +190,7 @@
           "target": "components/ui/spotlight-card/spotlight-card.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     },
     {
@@ -207,10 +205,22 @@
           "target": "components/ui/animated-dialog/animated-dialog.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
+      "dependencies": ["@base-ui/react", "motion"],
+      "registryDependencies": []
+    },
+    {
+      "name": "split-text",
+      "type": "registry:ui",
+      "title": "Split Text",
+      "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+      "files": [
+        {
+          "path": "registry/sonaui/split-text/split-text.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/split-text/split-text.tsx"
+        }
       ],
+      "dependencies": ["gsap", "@gsap/react"],
       "registryDependencies": []
     },
     {
@@ -225,10 +235,7 @@
           "target": "components/ui/animated-button/animated-button.tsx"
         }
       ],
-      "dependencies": [
-        "class-variance-authority",
-        "motion"
-      ],
+      "dependencies": ["class-variance-authority", "motion"],
       "registryDependencies": []
     },
     {
@@ -243,9 +250,7 @@
           "target": "components/ui/vertical-tab/vertical-tab.tsx"
         }
       ],
-      "dependencies": [
-        "react-use-measure"
-      ],
+      "dependencies": ["react-use-measure"],
       "registryDependencies": []
     },
     {
@@ -260,10 +265,7 @@
           "target": "components/ui/animated-switch/animated-switch.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": []
     },
     {
@@ -278,9 +280,7 @@
           "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
         }
       ],
-      "dependencies": [
-        "react-icons"
-      ],
+      "dependencies": ["react-icons"],
       "registryDependencies": []
     },
     {
@@ -295,9 +295,7 @@
           "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react"
-      ],
+      "dependencies": ["@paper-design/shaders-react"],
       "registryDependencies": []
     },
     {
@@ -312,9 +310,7 @@
           "target": "components/ui/link-preview/link-preview.tsx"
         }
       ],
-      "dependencies": [
-        "react-use-measure"
-      ],
+      "dependencies": ["react-use-measure"],
       "registryDependencies": []
     },
     {
@@ -344,9 +340,7 @@
           "target": "components/ui/hold-to-delete-button/hold-to-delete-button.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     }
   ]

@@ -9,10 +9,10 @@ import {
 } from "motion/react";
 import {
   createContext,
+  type ReactNode,
   useContext,
   useId,
   useState,
-  type ReactNode,
 } from "react";
 import { cn } from "@/lib/utils";
 
@@ -263,10 +263,12 @@ export function AnimatedDropdownItem({
 // ─── Separator ────────────────────────────────────────────────────────────────
 
 /** A thin visual divider between groups of items. */
-export function AnimatedDropdownSeparator({ className }: { className?: string }) {
+export function AnimatedDropdownSeparator({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <Menu.Separator
-      className={cn("my-1 h-px bg-border/60 mx-1", className)}
-    />
+    <Menu.Separator className={cn("my-1 h-px bg-border/60 mx-1", className)} />
   );
 }

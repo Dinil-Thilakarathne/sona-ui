@@ -2,7 +2,7 @@
 
 import { Switch } from "@base-ui/react/switch";
 import { motion, useReducedMotion } from "motion/react";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export interface AnimatedSwitchProps {
@@ -51,7 +51,9 @@ export default function AnimatedSwitch({
   size = "md",
   className,
 }: AnimatedSwitchProps) {
-  const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+  const [internalChecked, setInternalChecked] = useState(
+    defaultChecked ?? false,
+  );
   const isControlled = controlledChecked !== undefined;
   const checked = isControlled ? controlledChecked : internalChecked;
 
@@ -94,7 +96,7 @@ export default function AnimatedSwitch({
       className={cn(
         "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         sizes.track,
-        checked ? "bg-primary" : "bg-muted",
+        checked ? "bg-foreground" : "bg-foreground/20",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
@@ -102,7 +104,7 @@ export default function AnimatedSwitch({
       <Switch.Thumb
         className={cn(
           "block rounded-full bg-background shadow-lg ring-0",
-          sizes.thumb
+          sizes.thumb,
         )}
         render={
           <motion.span

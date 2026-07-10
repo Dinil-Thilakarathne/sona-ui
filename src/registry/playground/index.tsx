@@ -1,32 +1,17 @@
 import {
+  Bell,
   BookOpen,
   Clapperboard,
+  CreditCard,
   FileText,
   ImageIcon,
+  LogOut,
   Music,
+  Settings,
+  User,
 } from "lucide-react";
 import type * as React from "react";
-import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
-import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
-import FanView from "@/registry/sonaui/fan-view/fan-view";
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
-import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
-import Marquee from "@/registry/sonaui/marquee/marquee";
-import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
-import RippleButton, {
-  RippleButtonText,
-} from "@/registry/sonaui/ripple-button/ripple-button";
-import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
-import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
-import {
-  AnimatedDropdown,
-  AnimatedDropdownContent,
-  AnimatedDropdownItem,
-  AnimatedDropdownSeparator,
-  AnimatedDropdownTrigger,
-} from "@/registry/sonaui/animated-dropdown/animated-dropdown";
-import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
-import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
+import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -35,7 +20,28 @@ import {
   AnimatedDialogTitle,
   AnimatedDialogTrigger,
 } from "@/registry/sonaui/animated-dialog/animated-dialog";
-import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/registry/sonaui/animated-dropdown/animated-dropdown";
+import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
+import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+import FanView from "@/registry/sonaui/fan-view/fan-view";
+import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
+import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
+import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
+import Marquee from "@/registry/sonaui/marquee/marquee";
+import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+import RippleButton, {
+  RippleButtonText,
+} from "@/registry/sonaui/ripple-button/ripple-button";
+import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
+import SplitText from "@/registry/sonaui/split-text/split-text";
+import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
 
 /**
  * Hand-authored playground registry.
@@ -110,9 +116,15 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           align={v.align as "start" | "center" | "end"}
         >
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<CreditCard />}>
+            Billing
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
           <AnimatedDropdownSeparator />
           <AnimatedDropdownItem icon={<LogOut />} variant="danger">
             Log out
@@ -167,10 +179,13 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     render: (v) => (
       <AnimatedDialog>
         <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
-        <AnimatedDialogContent from={v.from as "top" | "bottom" | "left" | "right" | "center"}>
+        <AnimatedDialogContent
+          from={v.from as "top" | "bottom" | "left" | "right" | "center"}
+        >
           <AnimatedDialogTitle>Playground Dialog</AnimatedDialogTitle>
           <AnimatedDialogDescription>
-            This dialog modal is animated from the configured direction. Try changing it in the controls on the right!
+            This dialog modal is animated from the configured direction. Try
+            changing it in the controls on the right!
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
             <AnimatedDialogClose>Cancel</AnimatedDialogClose>
@@ -632,6 +647,129 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     ),
   },
 
+  "split-text": {
+    controls: [
+      {
+        type: "select",
+        prop: "variant",
+        label: "Split by",
+        options: [
+          { label: "Words", value: "words" },
+          { label: "Characters", value: "chars" },
+          { label: "Lines", value: "lines" },
+        ],
+        default: "words",
+      },
+      {
+        type: "slider",
+        prop: "stagger",
+        label: "Stagger (s)",
+        min: 0,
+        max: 0.5,
+        step: 0.05,
+        default: 0.2,
+      },
+      {
+        type: "slider",
+        prop: "duration",
+        label: "Duration (s)",
+        min: 0.2,
+        max: 2,
+        step: 0.1,
+        default: 0.4,
+      },
+      {
+        type: "toggle",
+        prop: "mask",
+        label: "Mask (reveal from behind an edge)",
+        default: true,
+      },
+    ],
+    render: (v) => (
+      <SplitText
+        // Remount on control change so the reveal replays.
+        key={`${v.variant}-${v.stagger}-${v.duration}-${v.mask}`}
+        variant={v.variant as "chars" | "words" | "lines"}
+        mask={v.mask as boolean}
+        animationProps={{
+          stagger: v.stagger as number,
+          duration: v.duration as number,
+        }}
+        className="max-w-md text-center"
+      >
+        <h2 className="font-semibold text-3xl text-foreground">
+          Split and reveal your text with GSAP.
+        </h2>
+      </SplitText>
+    ),
+  },
+  "image-trail": {
+    controls: [
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Scale", value: "scale" },
+          { label: "Fade", value: "fade" },
+          { label: "Blur", value: "blur" },
+          { label: "Rise", value: "rise" },
+          { label: "Tilt", value: "tilt" },
+        ],
+        default: "scale",
+      },
+      {
+        type: "slider",
+        prop: "threshold",
+        label: "Spawn distance (px)",
+        min: 20,
+        max: 200,
+        step: 10,
+        default: 80,
+      },
+      {
+        type: "slider",
+        prop: "maxImages",
+        label: "Max images",
+        min: 3,
+        max: 16,
+        step: 1,
+        default: 8,
+      },
+      {
+        type: "slider",
+        prop: "lifetime",
+        label: "Lifetime (ms)",
+        min: 300,
+        max: 2000,
+        step: 100,
+        default: 600,
+      },
+    ],
+    render: (v) => (
+      <ImageTrail
+        images={[
+          "https://picsum.photos/id/1015/300/200",
+          "https://picsum.photos/id/1025/300/200",
+          "https://picsum.photos/id/1035/300/200",
+          "https://picsum.photos/id/1043/300/200",
+          "https://picsum.photos/id/1050/300/200",
+          "https://picsum.photos/id/1062/300/200",
+        ]}
+        variant={v.variant as "scale" | "fade" | "blur" | "rise" | "tilt"}
+        threshold={v.threshold as number}
+        maxImages={v.maxImages as number}
+        lifetime={v.lifetime as number}
+        className="h-72 w-full"
+      >
+        <div className="flex h-full w-full items-center justify-center">
+          <span className="pointer-events-none font-medium text-lg text-muted-foreground">
+            Move your cursor here
+          </span>
+        </div>
+      </ImageTrail>
+    ),
+  },
   marquee: {
     controls: [
       {

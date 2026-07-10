@@ -48,19 +48,25 @@ function normalizeType(text: string): string {
 }
 
 function getJsDoc(node: ts.Node): { description: string; default?: string } {
-  // @ts-ignore - jsDoc is internal on Node in TypeScript AST
+  // @ts-expect-error - jsDoc is internal on Node in TypeScript AST
   const jsDocNodes = (node as unknown as { jsDoc?: ts.JSDoc[] }).jsDoc ?? [];
   let def: string | undefined;
   let description = "";
 
   for (const doc of jsDocNodes) {
     if (doc.comment) {
-      description += (typeof doc.comment === "string" ? doc.comment : ts.getTextOfJSDocComment(doc.comment) ?? "") + " ";
+      description +=
+        (typeof doc.comment === "string"
+          ? doc.comment
+          : (ts.getTextOfJSDocComment(doc.comment) ?? "")) + " ";
     }
     if (doc.tags) {
       for (const tag of doc.tags) {
         if (tag.tagName.text === "default") {
-          def = typeof tag.comment === "string" ? tag.comment.trim() : ts.getTextOfJSDocComment(tag.comment)?.trim();
+          def =
+            typeof tag.comment === "string"
+              ? tag.comment.trim()
+              : ts.getTextOfJSDocComment(tag.comment)?.trim();
         }
       }
     }
@@ -68,7 +74,7 @@ function getJsDoc(node: ts.Node): { description: string; default?: string } {
 
   return {
     description: description.replace(/\s+/g, " ").trim(),
-    default: def
+    default: def,
   };
 }
 
@@ -113,7 +119,7 @@ function buildPropTypes() {
         fs.readFileSync(file, "utf-8"),
         ts.ScriptTarget.Latest,
         true,
-        ts.ScriptKind.TSX
+        ts.ScriptKind.TSX,
       );
 
       ts.forEachChild(source, (node) => {
@@ -165,7 +171,7 @@ export type PropMeta = {
 export const componentProps: Record<string, PropMeta[]> = ${JSON.stringify(
     componentProps,
     null,
-    2
+    2,
   )};
 `;
 

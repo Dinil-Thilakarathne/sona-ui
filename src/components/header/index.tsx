@@ -10,8 +10,8 @@ import { Search } from "../Search";
 
 const Header = () => {
   return (
-    <header className="fixed left-0 top-0 z-99 px-2 lg:px-2 min-h-header-height w-full">
-      <div className="flex items-center justify-between px-2 py-4 w-full bg-background/40 rounded-lg backdrop-blur-md _border">
+    <header className="fixed left-0 top-0 z-49 px-2 lg:px-2 min-h-header-height w-full">
+      <div className="flex items-center justify-between px-2 py-4 w-full  backdrop-blur-md">
         <div className="flex gap-x-6 items-center">
           <Link href="/" className="flex items-center">
             <Logo />

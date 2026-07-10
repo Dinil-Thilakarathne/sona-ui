@@ -1,6 +1,7 @@
 "use client";
 
 import { MeshGradient } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -49,10 +50,13 @@ export default function MeshGradientShader({
   style,
   ...props
 }: MeshGradientShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // First color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colors[0], ...style }}
       {...props}
     >
       <MeshGradient
@@ -61,7 +65,7 @@ export default function MeshGradientShader({
         swirl={swirl}
         grainMixer={grainMixer}
         grainOverlay={grainOverlay}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>

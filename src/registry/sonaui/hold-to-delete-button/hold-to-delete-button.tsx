@@ -69,6 +69,7 @@ export default function HoldToDeleteButton({
     };
   }, [isCompleted]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: unmount-only cleanup
   useEffect(
     () => () => {
       cancelHold();
@@ -101,7 +102,7 @@ export default function HoldToDeleteButton({
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-danger"
+        className="absolute inset-0 h-full w-full bg-danger-foreground"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
           transition: isHolding

@@ -35,49 +35,25 @@ Test sizes and interactions live.
 
 <ComponentUsage component="animated-switch" />
 
-## Code Examples
-
-### Basic Usage
-
-<CodeBlockWrapper
-  language="tsx"
-  filename="basic-switch.tsx"
-  code={`import AnimatedSwitch from "@/components/ui/animated-switch";
-
-export function Toggle() {
-  return <AnimatedSwitch defaultChecked />;
-}`}
-/>
+## Examples
 
 ### Sizes
 
-<CodeBlockWrapper
-  language="tsx"
-  filename="switch-sizes.tsx"
-  code={`<AnimatedSwitch size="sm" />
-<AnimatedSwitch size="md" />
-<AnimatedSwitch size="lg" />`}
-/>
+Animated Switch supports three pre-configured sizes: `sm`, `md`, and `lg`.
+
+<ComponentPreview component="animated-switch" name="sizes" />
 
 ### Controlled State
 
-<CodeBlockWrapper
-  language="tsx"
-  filename="controlled-switch.tsx"
-  code={`import { useState } from "react";
-import AnimatedSwitch from "@/components/ui/animated-switch";
+Wire up the switch using the `checked` and `onCheckedChange` props to control it via external react state.
 
-export function Controlled() {
-  const [checked, setChecked] = useState(false);
+<ComponentPreview component="animated-switch" name="controlled" />
 
-return (
-<div className="flex items-center gap-2">
-<AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
-<span>{checked ? "Enabled" : "Disabled"}</span>
-</div>
-);
-}`}
-/>
+### Disabled
+
+Toggle the `disabled` prop to deactivate interaction while preserving styles.
+
+<ComponentPreview component="animated-switch" name="disabled" />
 
 ## Props
 

@@ -90,8 +90,7 @@ export default function Marquee({
   });
 
   const isVertical = direction === "up" || direction === "down";
-  const directionSign =
-    direction === "left" || direction === "up" ? 1 : -1;
+  const directionSign = direction === "left" || direction === "up" ? 1 : -1;
 
   // ResizeObserver — recompute copy count when container or segment resize
   useEffect(() => {
@@ -110,7 +109,10 @@ export default function Marquee({
         ? segment.offsetHeight
         : segment.offsetWidth;
       if (segmentSize > 0) {
-        countRef.current = Math.max(2, Math.ceil((containerSize * 2) / segmentSize) + 1);
+        countRef.current = Math.max(
+          2,
+          Math.ceil((containerSize * 2) / segmentSize) + 1,
+        );
       }
     }
 
@@ -136,14 +138,13 @@ export default function Marquee({
     const segment = segmentRef.current;
     if (!segment) return;
 
-    const segmentSize = isVertical
-      ? segment.offsetHeight
-      : segment.offsetWidth;
+    const segmentSize = isVertical ? segment.offsetHeight : segment.offsetWidth;
     if (segmentSize === 0) return;
 
     // Lerp speedMultiplier toward target (eased pause on hover)
     const targetMultiplier = isHovered.current ? 0 : 1;
-    speedMultiplier.current += (targetMultiplier - speedMultiplier.current) * 0.1;
+    speedMultiplier.current +=
+      (targetMultiplier - speedMultiplier.current) * 0.1;
 
     // Velocity boost from scroll
     let velocityBoost = 1;
@@ -157,7 +158,12 @@ export default function Marquee({
 
     const pxPerMs = speed / 1000;
     const delta_px =
-      pxPerMs * delta * directionSign * velocityFlip * speedMultiplier.current * velocityBoost;
+      pxPerMs *
+      delta *
+      directionSign *
+      velocityFlip *
+      speedMultiplier.current *
+      velocityBoost;
 
     let next = baseX.get() - delta_px;
 
@@ -227,7 +233,7 @@ export default function Marquee({
 }
 
 // Split into a separate component to isolate motion subscription
-import { motion, type MotionValue } from "motion/react";
+import { type MotionValue, motion } from "motion/react";
 
 function MotionTrack({
   baseX,
@@ -256,7 +262,13 @@ function MotionTrack({
       )}
     >
       {/* First segment — measured for loop math */}
-      <div ref={segmentRef} style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}>
+      <div
+        ref={segmentRef}
+        style={{
+          paddingRight: isVertical ? 0 : gap,
+          paddingBottom: isVertical ? gap : 0,
+        }}
+      >
         {children}
       </div>
       {/* Copies — decorative, aria-hidden */}
@@ -265,7 +277,10 @@ function MotionTrack({
         <div
           key={i}
           aria-hidden="true"
-          style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}
+          style={{
+            paddingRight: isVertical ? 0 : gap,
+            paddingBottom: isVertical ? gap : 0,
+          }}
         >
           {children}
         </div>

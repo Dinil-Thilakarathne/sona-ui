@@ -4,6 +4,7 @@ import {
   motion,
   type SpringOptions,
   useMotionValue,
+  useReducedMotion,
   useSpring,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
@@ -40,13 +41,12 @@ export default function Magnetic({
   magneticIntensity = 0.6,
   magneticRange = 100,
   interactionArea = "self",
-  springConfig,
+  springConfig = SPRING_CONFIG,
   customClassName,
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
-
-  springConfig = springConfig || SPRING_CONFIG;
+  const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
   const motionY = useMotionValue(0);
@@ -54,7 +54,10 @@ export default function Magnetic({
   const springMotionX = useSpring(motionX, springConfig);
   const springMotionY = useSpring(motionY, springConfig);
 
+  // Only listen while hovered — no idle document-wide mousemove work.
   useEffect(() => {
+    if (!isMouseHovered || shouldReduceMotion) return;
+
     const calculateMouseDistance = (event: MouseEvent) => {
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
@@ -65,7 +68,7 @@ export default function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-        if (isMouseHovered && absoluteDistance <= magneticRange) {
+        if (absoluteDistance <= magneticRange) {
           const scale = 1 - absoluteDistance / magneticRange;
 
           motionX.set(distanceX * magneticIntensity * scale);
@@ -83,13 +86,12 @@ export default function Magnetic({
       document.removeEventListener("mousemove", calculateMouseDistance);
     };
   }, [
-    magneticRef,
     isMouseHovered,
+    shouldReduceMotion,
     magneticIntensity,
     magneticRange,
     motionX,
     motionY,
-    interactionArea,
   ]);
 
   useEffect(() => {
@@ -97,7 +99,11 @@ export default function Magnetic({
       const parentElement = magneticRef.current.parentElement;
 
       const handleParentMouseEnter = () => setMouseHovered(true);
-      const handleParentMouseLeave = () => setMouseHovered(false);
+      const handleParentMouseLeave = () => {
+        setMouseHovered(false);
+        motionX.set(0);
+        motionY.set(0);
+      };
 
       parentElement.addEventListener("mouseenter", handleParentMouseEnter);
       parentElement.addEventListener("mouseleave", handleParentMouseLeave);
@@ -107,7 +113,7 @@ export default function Magnetic({
         parentElement.removeEventListener("mouseleave", handleParentMouseLeave);
       };
     }
-  }, [interactionArea]);
+  }, [interactionArea, motionX, motionY]);
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {

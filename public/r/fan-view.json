@@ -11,8 +11,6 @@
       "target": "components/ui/fan-view/fan-view.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "registryDependencies": []
 }

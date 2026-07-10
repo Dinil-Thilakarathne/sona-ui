@@ -1,6 +1,12 @@
 "use client";
 
-import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type MotionConfigProps,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
@@ -33,60 +39,62 @@ export default function ExpandableTabs({
   containerClassName = "",
   defaultActiveIndex = 0,
   motionConfig = {
-    transition: { duration: 0.2, ease: "easeInOut" },
+    transition: { duration: 0.2, ease: "easeOut" },
   },
 }: ExpandableTabsProps) {
   const [isActive, setIsActive] = useState(defaultActiveIndex);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
-    <motion.div
+    <div
+      role="tablist"
       className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
+        "flex space-x-2 rounded-full border bg-transparent p-2",
         containerClassName,
       )}
-      layout
     >
-      <MotionConfig {...motionConfig}>
+      <MotionConfig
+        {...(shouldReduceMotion
+          ? { transition: { duration: 0 } }
+          : motionConfig)}
+      >
         {tabs.map((tab, index) => (
-          <motion.div
-            key={index}
-            role="button"
+          <motion.button
+            type="button"
+            role="tab"
+            aria-selected={isActive === index}
+            key={tab.title}
+            layout
             className={cn(
-              "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
-              "transition-[width,_background-color] duration-300 ease-in-out",
-              isActive === index && "bg-slate-300 dark:text-slate-800",
+              "flex cursor-pointer items-center gap-x-2 overflow-clip rounded-full p-2",
+              "transition-colors duration-200",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              isActive === index && "bg-accent text-accent-foreground",
             )}
             onClick={() => setIsActive(index)}
-            tabIndex={0}
           >
-            <div className="grow items-center justify-center h-full">
-              <tab.icon className="text-lg" aria-label={`${tab.title}-icon`} />
-            </div>
             <motion.span
-              className="overflow-hidden leading-[1] text-sm"
-              key={tab.title}
-              initial={isActive === index ? "" : "inactive"}
-              animate={isActive === index ? "active" : "inactive"}
-              variants={TabItemVariants}
+              layout
+              className="grow items-center justify-center h-full"
             >
-              {tab.title}
+              <tab.icon className="text-lg" aria-hidden="true" />
             </motion.span>
-          </motion.div>
+            <AnimatePresence initial={false}>
+              {isActive === index && (
+                <motion.span
+                  layout
+                  className="overflow-hidden leading-[1] text-sm whitespace-nowrap"
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "auto" }}
+                  exit={{ opacity: 0, width: 0 }}
+                >
+                  {tab.title}
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         ))}
       </MotionConfig>
-    </motion.div>
+    </div>
   );
 }
-
-const TabItemVariants = {
-  active: {
-    opacity: 1,
-    width: "auto",
-    y: 0,
-  },
-  inactive: {
-    opacity: 0,
-    width: 0,
-    y: 20,
-  },
-};

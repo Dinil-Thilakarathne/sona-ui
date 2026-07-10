@@ -13,8 +13,10 @@ export const animatedButtonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        outlined:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
       },
       size: {
         sm: "h-9 px-4 text-xs",
@@ -26,13 +28,16 @@ export const animatedButtonVariants = cva(
       variant: "default",
       size: "md",
     },
-  }
+  },
 );
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface AnimatedButtonProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof motion.button>, "children">,
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof motion.button>,
+      "children"
+    >,
     VariantProps<typeof animatedButtonVariants> {
   children: React.ReactNode;
   /**
@@ -78,7 +83,10 @@ const swapVariants = {
   },
 };
 
-export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>(
+export const AnimatedButton = forwardRef<
+  HTMLButtonElement,
+  AnimatedButtonProps
+>(
   (
     {
       children,
@@ -91,7 +99,7 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     const shouldReduceMotion = useReducedMotion();
 
@@ -129,8 +137,8 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
           variants={containerHoverVariants}
           className={cn(
             animatedButtonVariants({ variant, size }),
-            "overflow-hidden flex flex-col items-center justify-center",
-            className
+            "overflow-hidden flex flex-col items-center justify-center w-fit",
+            className,
           )}
           {...props}
         >
@@ -169,8 +177,8 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
         }
         className={cn(
           animatedButtonVariants({ variant, size }),
-          "overflow-hidden flex items-center justify-center",
-          className
+          "overflow-hidden flex items-center justify-center w-fit",
+          className,
         )}
         {...props}
       >
@@ -178,7 +186,9 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={resolvedKey}
-              variants={shouldReduceMotion ? swapVariants.fade : swapVariants[swap]}
+              variants={
+                shouldReduceMotion ? swapVariants.fade : swapVariants[swap]
+              }
               initial="initial"
               animate="animate"
               exit="exit"
@@ -195,7 +205,7 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
         </div>
       </motion.button>
     );
-  }
+  },
 );
 
 AnimatedButton.displayName = "AnimatedButton";

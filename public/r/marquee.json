@@ -11,8 +11,6 @@
       "target": "components/ui/marquee/marquee.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
+  "dependencies": ["motion"],
   "registryDependencies": []
 }

@@ -11,9 +11,6 @@
       "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
     }
   ],
-  "dependencies": [
-    "motion",
-    "lucide-react"
-  ],
+  "dependencies": ["motion", "lucide-react"],
   "registryDependencies": []
 }
