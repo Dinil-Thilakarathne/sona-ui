@@ -17,6 +17,10 @@ const nodeModules = path.join(projectRoot, "node_modules");
 
 function resolveTarget(sourceRoot: string, target: string) {
   const aliases = [
+    ["components/ui/", "components/ui/"],
+    ["components/", "components/"],
+    ["lib/", "lib/"],
+    ["hooks/", "hooks/"],
     ["@ui/", "components/ui/"],
     ["@components/", "components/"],
     ["@lib/", "lib/"],

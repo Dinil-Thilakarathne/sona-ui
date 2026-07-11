@@ -6643,7 +6643,7 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/sona-utils/sona-utils.ts",
         "type": "registry:lib",
-        "target": "@lib/sona-utils.ts"
+        "target": "lib/sona-utils.ts"
       }
     ],
     "dependencies": [
@@ -6660,7 +6660,7 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/sona-motion/sona-motion.ts",
         "type": "registry:lib",
-        "target": "@lib/sona-motion.ts"
+        "target": "lib/sona-motion.ts"
       }
     ],
     "dependencies": [
@@ -6838,7 +6838,7 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/accordion/styles.module.css",
         "type": "registry:file",
-        "target": "@ui/accordion/styles.module.css"
+        "target": "components/ui/accordion/styles.module.css"
       }
     ],
     "dependencies": [

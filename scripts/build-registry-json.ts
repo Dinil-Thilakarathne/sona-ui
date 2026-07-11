@@ -26,7 +26,9 @@ type BuiltRegistryFile = RegistryFileDefinition & {
 const registryPath = path.join(process.cwd(), "src/registry");
 const metadataPath = path.join(registryPath, "registry.json");
 const publicRegistryPath = path.join(process.cwd(), "public/r");
-const registryBaseUrl = "https://sona-ui.vercel.app/r";
+const registryBaseUrl = (
+  process.env.REGISTRY_BASE_URL ?? "https://sona-ui.vercel.app/r"
+).replace(/\/$/, "");
 
 const foundationImports = {
   "@/lib/sona-utils": "sona-utils",
@@ -51,13 +53,13 @@ function defaultTarget(
   const fileName = path.basename(file.path);
   switch (file.type) {
     case "registry:lib":
-      return `@lib/${fileName}`;
+      return `lib/${fileName}`;
     case "registry:hook":
-      return `@hooks/${fileName}`;
+      return `hooks/${fileName}`;
     case "registry:component":
-      return `@components/${item.name}/${fileName}`;
+      return `components/${item.name}/${fileName}`;
     default:
-      return `@ui/${item.name}/${fileName}`;
+      return `components/ui/${item.name}/${fileName}`;
   }
 }
 
@@ -90,6 +92,12 @@ function inferFoundationDependencies(files: BuiltRegistryFile[]) {
   return dependencies;
 }
 
+function resolveRegistryDependency(dependency: string) {
+  if (registryBaseUrl === "https://sona-ui.vercel.app/r") return dependency;
+  const match = dependency.match(/\/r\/([^/]+\.json)$/);
+  return match ? `${registryBaseUrl}/${match[1]}` : dependency;
+}
+
 function buildRegistryJson() {
   ensureDir(publicRegistryPath);
   const metadata = JSON.parse(
@@ -111,7 +119,9 @@ function buildRegistryJson() {
   for (const definition of metadata) {
     console.log(`Processing ${definition.name}...`);
     const files = buildFiles(definition);
-    const registryDependencies = new Set(definition.registryDependencies ?? []);
+    const registryDependencies = new Set(
+      (definition.registryDependencies ?? []).map(resolveRegistryDependency),
+    );
     for (const dependency of inferFoundationDependencies(files)) {
       registryDependencies.add(dependency);
     }

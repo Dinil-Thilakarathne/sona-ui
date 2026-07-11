@@ -13,7 +13,7 @@
         {
           "path": "registry/sonaui/sona-utils/sona-utils.ts",
           "type": "registry:lib",
-          "target": "@lib/sona-utils.ts"
+          "target": "lib/sona-utils.ts"
         }
       ],
       "dependencies": [
@@ -32,7 +32,7 @@
         {
           "path": "registry/sonaui/sona-motion/sona-motion.ts",
           "type": "registry:lib",
-          "target": "@lib/sona-motion.ts"
+          "target": "lib/sona-motion.ts"
         }
       ],
       "dependencies": [
@@ -75,7 +75,7 @@
         {
           "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
           "type": "registry:ui",
-          "target": "@ui/animated-dropdown/animated-dropdown.tsx"
+          "target": "components/ui/animated-dropdown/animated-dropdown.tsx"
         }
       ],
       "dependencies": [
@@ -98,7 +98,7 @@
         {
           "path": "registry/sonaui/animated-switch/animated-switch.tsx",
           "type": "registry:ui",
-          "target": "@ui/animated-switch/animated-switch.tsx"
+          "target": "components/ui/animated-switch/animated-switch.tsx"
         }
       ],
       "dependencies": [
@@ -120,7 +120,7 @@
         {
           "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
           "type": "registry:ui",
-          "target": "@ui/animated-dialog/animated-dialog.tsx"
+          "target": "components/ui/animated-dialog/animated-dialog.tsx"
         }
       ],
       "dependencies": [
@@ -142,7 +142,7 @@
         {
           "path": "registry/sonaui/animated-button/animated-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/animated-button/animated-button.tsx"
+          "target": "components/ui/animated-button/animated-button.tsx"
         }
       ],
       "dependencies": [
@@ -164,7 +164,7 @@
         {
           "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
           "type": "registry:ui",
-          "target": "@ui/dot-orbit-shader/dot-orbit-shader.tsx"
+          "target": "components/ui/dot-orbit-shader/dot-orbit-shader.tsx"
         }
       ],
       "dependencies": [
@@ -185,7 +185,7 @@
         {
           "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
           "type": "registry:ui",
-          "target": "@ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+          "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
         }
       ],
       "dependencies": [
@@ -206,7 +206,7 @@
         {
           "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/magnetic-button/magnetic-button.tsx"
+          "target": "components/ui/magnetic-button/magnetic-button.tsx"
         }
       ],
       "dependencies": [
@@ -226,7 +226,7 @@
         {
           "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
           "type": "registry:ui",
-          "target": "@ui/animated-tabs/animated-tabs.tsx"
+          "target": "components/ui/animated-tabs/animated-tabs.tsx"
         }
       ],
       "dependencies": [
@@ -248,17 +248,17 @@
         {
           "path": "registry/sonaui/accordion/accordion.tsx",
           "type": "registry:ui",
-          "target": "@ui/accordion/accordion.tsx"
+          "target": "components/ui/accordion/accordion.tsx"
         },
         {
           "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/accordion/animated-plus-minus-button.tsx"
+          "target": "components/ui/accordion/animated-plus-minus-button.tsx"
         },
         {
           "path": "registry/sonaui/accordion/styles.module.css",
           "type": "registry:file",
-          "target": "@ui/accordion/styles.module.css"
+          "target": "components/ui/accordion/styles.module.css"
         }
       ],
       "dependencies": [
@@ -279,7 +279,7 @@
         {
           "path": "registry/sonaui/ripple-button/ripple-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/ripple-button/ripple-button.tsx"
+          "target": "components/ui/ripple-button/ripple-button.tsx"
         }
       ],
       "dependencies": [
@@ -299,7 +299,7 @@
         {
           "path": "registry/sonaui/marquee/marquee.tsx",
           "type": "registry:ui",
-          "target": "@ui/marquee/marquee.tsx"
+          "target": "components/ui/marquee/marquee.tsx"
         }
       ],
       "dependencies": [
@@ -319,7 +319,7 @@
         {
           "path": "registry/sonaui/spinning-text/spinning-text.tsx",
           "type": "registry:ui",
-          "target": "@ui/spinning-text/spinning-text.tsx"
+          "target": "components/ui/spinning-text/spinning-text.tsx"
         }
       ],
       "dependencies": [
@@ -339,7 +339,7 @@
         {
           "path": "registry/sonaui/stagger-text/stagger-text.tsx",
           "type": "registry:ui",
-          "target": "@ui/stagger-text/stagger-text.tsx"
+          "target": "components/ui/stagger-text/stagger-text.tsx"
         }
       ],
       "dependencies": [
@@ -359,7 +359,7 @@
         {
           "path": "registry/sonaui/link-preview/link-preview.tsx",
           "type": "registry:ui",
-          "target": "@ui/link-preview/link-preview.tsx"
+          "target": "components/ui/link-preview/link-preview.tsx"
         }
       ],
       "dependencies": [
@@ -381,7 +381,7 @@
         {
           "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/bubble-up-button/bubble-up-button.tsx"
+          "target": "components/ui/bubble-up-button/bubble-up-button.tsx"
         }
       ],
       "dependencies": [
@@ -401,7 +401,7 @@
         {
           "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
           "type": "registry:ui",
-          "target": "@ui/expandable-tabs/expandable-tabs.tsx"
+          "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
         }
       ],
       "dependencies": [
@@ -424,7 +424,7 @@
         {
           "path": "registry/sonaui/split-text/split-text.tsx",
           "type": "registry:ui",
-          "target": "@ui/split-text/split-text.tsx"
+          "target": "components/ui/split-text/split-text.tsx"
         }
       ],
       "dependencies": [
@@ -445,7 +445,7 @@
         {
           "path": "registry/sonaui/image-trail/image-trail.tsx",
           "type": "registry:ui",
-          "target": "@ui/image-trail/image-trail.tsx"
+          "target": "components/ui/image-trail/image-trail.tsx"
         }
       ],
       "dependencies": [
@@ -466,7 +466,7 @@
         {
           "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
           "type": "registry:ui",
-          "target": "@ui/spotlight-card/spotlight-card.tsx"
+          "target": "components/ui/spotlight-card/spotlight-card.tsx"
         }
       ],
       "dependencies": [
@@ -486,7 +486,7 @@
         {
           "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
           "type": "registry:ui",
-          "target": "@ui/hold-to-delete-button/hold-to-delete-button.tsx"
+          "target": "components/ui/hold-to-delete-button/hold-to-delete-button.tsx"
         }
       ],
       "dependencies": [
@@ -506,7 +506,7 @@
         {
           "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
           "type": "registry:ui",
-          "target": "@ui/circular-dock-menu/circular-dock-menu.tsx"
+          "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
         }
       ],
       "dependencies": [
@@ -527,7 +527,7 @@
         {
           "path": "registry/sonaui/fan-view/fan-view.tsx",
           "type": "registry:ui",
-          "target": "@ui/fan-view/fan-view.tsx"
+          "target": "components/ui/fan-view/fan-view.tsx"
         }
       ],
       "dependencies": [
