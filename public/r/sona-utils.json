@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sona-utils",
+  "type": "registry:lib",
+  "title": "Sona Utilities",
+  "description": "Shared class-name utilities used by Sona UI registry components.",
+  "files": [
+    {
+      "path": "registry/sonaui/sona-utils/sona-utils.ts",
+      "type": "registry:lib",
+      "target": "@lib/sona-utils.ts",
+      "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/** Merge conditional class names while resolving Tailwind conflicts. */\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n"
+    }
+  ],
+  "dependencies": [
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": []
+}

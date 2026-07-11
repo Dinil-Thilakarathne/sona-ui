@@ -7,7 +7,15 @@ searchable: true
 
 # Theming
 
-Sona UI is built with **Tailwind CSS**, making theming straightforward and flexible. We support dark mode out of the box using `next-themes`.
+Sona UI is built with **Tailwind CSS**, making theming straightforward and flexible. Components use semantic CSS variables and work with any light/dark mode strategy. This documentation site uses `next-themes`, while Vite projects can use the same tokens with their preferred theme provider.
+
+## Sona theme foundation
+
+Most components use the standard semantic tokens created by shadcn, including `background`, `foreground`, `primary`, `muted`, `accent`, `popover`, `border`, and `ring`.
+
+Components that need Sona-specific tokens declare `sona-theme` as a registry dependency. The shadcn CLI merges those CSS variables into the consumer's Tailwind CSS v4 theme automatically. The foundation is intentionally small and currently adds the Sona radius and danger-state colors; it does not copy the documentation site's full stylesheet into consumer projects.
+
+You can override these values after installation. Components continue to reference semantic names, so custom themes do not require editing component internals.
 
 ## Dark Mode
 
@@ -15,7 +23,7 @@ Sona UI components are designed to look great in both light and dark modes. We u
 
 ### Setting up next-themes
 
-If you initialized your project with our CLI, `next-themes` is already configured. If you're setting it up manually, you need to wrap your application in a `ThemeProvider`.
+For a Next.js application using `next-themes`, wrap your application in a `ThemeProvider`. This step is not required for Vite projects using a different theme strategy.
 
 <CodeBlockWrapper code={`// src/app/providers.tsx
 "use client";

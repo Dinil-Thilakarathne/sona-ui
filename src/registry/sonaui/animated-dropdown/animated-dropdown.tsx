@@ -14,7 +14,8 @@ import {
   useId,
   useState,
 } from "react";
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -43,8 +44,14 @@ export interface AnimatedDropdownProps {
   children: ReactNode;
   /** Controlled open state. */
   open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
   /** Callback when open state changes. */
   onOpenChange?: (open: boolean) => void;
+  /** Whether the menu ignores user interaction. @default false */
+  disabled?: boolean;
+  /** Whether the open menu limits interaction to the menu. @default true */
+  modal?: boolean;
 }
 
 export interface AnimatedDropdownContentProps {
@@ -95,15 +102,29 @@ export interface AnimatedDropdownTriggerProps {
 export function AnimatedDropdown({
   children,
   open,
+  defaultOpen = false,
   onOpenChange,
+  disabled = false,
+  modal = true,
 }: AnimatedDropdownProps) {
   const layoutId = useId();
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) setActiveId(null);
+    onOpenChange?.(nextOpen);
+  };
+
   return (
     <DropdownContext.Provider value={{ layoutId, activeId, setActiveId }}>
       <LayoutGroup id={layoutId}>
-        <Menu.Root open={open} onOpenChange={onOpenChange}>
+        <Menu.Root
+          open={open}
+          defaultOpen={defaultOpen}
+          disabled={disabled}
+          modal={modal}
+          onOpenChange={handleOpenChange}
+        >
           {children}
         </Menu.Root>
       </LayoutGroup>
@@ -166,11 +187,8 @@ export function AnimatedDropdownContent({
             "origin-[var(--transform-origin)]",
             // Enter animation (CSS @starting-style + transition)
             "transition-[opacity,transform]",
-            "data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-            "data-[ending-style]:scale-95 data-[ending-style]:opacity-0",
-            shouldReduceMotion
-              ? "duration-0"
-              : "duration-150 data-[ending-style]:duration-100",
+            "starting:scale-95 starting:opacity-0",
+            shouldReduceMotion ? "duration-0" : "duration-150",
             className,
           )}
         >
@@ -224,7 +242,7 @@ export function AnimatedDropdownItem({
       <AnimatePresence>
         {isActive && (
           <motion.span
-            layoutId={`${layoutId}-highlight`}
+            layoutId={shouldReduceMotion ? undefined : `${layoutId}-highlight`}
             className={cn(
               "absolute inset-0 rounded-lg",
               variant === "danger" ? "bg-danger" : "bg-accent",
@@ -234,14 +252,8 @@ export function AnimatedDropdownItem({
             exit={{ opacity: 0 }}
             transition={
               shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 30,
-                    // layout transition for the sliding effect
-                    layout: { type: "spring", stiffness: 380, damping: 30 },
-                  }
+                ? motionTransition.reduced
+                : motionTransition.spatial
             }
           />
         )}

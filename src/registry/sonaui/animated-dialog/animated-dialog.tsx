@@ -3,7 +3,8 @@
 import { Dialog } from "@base-ui/react/dialog";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { createContext, type ReactNode, useContext, useState } from "react";
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -29,7 +30,11 @@ function useDialogContext() {
 export interface AnimatedDialogProps {
   children: ReactNode;
   open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** Whether the dialog traps interaction inside the modal. @default true */
+  modal?: boolean;
 }
 
 export interface AnimatedDialogContentProps {
@@ -55,9 +60,11 @@ export interface AnimatedDialogContentProps {
 export function AnimatedDialog({
   children,
   open: controlledOpen,
+  defaultOpen = false,
   onOpenChange,
+  modal = true,
 }: AnimatedDialogProps) {
-  const [internalOpen, setInternalOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
   const isControlled = controlledOpen !== undefined;
   const open = isControlled ? controlledOpen : internalOpen;
 
@@ -70,7 +77,12 @@ export function AnimatedDialog({
 
   return (
     <DialogContext.Provider value={{ open, setOpen }}>
-      <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Root
+        open={open}
+        defaultOpen={defaultOpen}
+        modal={modal}
+        onOpenChange={setOpen}
+      >
         {children}
       </Dialog.Root>
     </DialogContext.Provider>
@@ -88,8 +100,8 @@ export function AnimatedDialogTrigger({
     <Dialog.Trigger
       className={cn(
         "inline-flex items-center justify-center rounded-lg px-4 py-2",
-        "bg-primary text-primary-foreground text-sm font-medium",
-        "hover:bg-primary/90 transition-colors duration-150",
+        "bg-foreground text-background text-sm font-medium",
+        "hover:bg-foreground/90 transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
         className,
       )}
@@ -113,7 +125,6 @@ const motionVariants = {
         return { x: -24, opacity: 0, scale: 0.97 };
       case "right":
         return { x: 24, opacity: 0, scale: 0.97 };
-      case "center":
       default:
         return { scale: 0.95, opacity: 0 };
     }
@@ -134,7 +145,6 @@ const motionVariants = {
         return { x: -20, opacity: 0, scale: 0.97 };
       case "right":
         return { x: 20, opacity: 0, scale: 0.97 };
-      case "center":
       default:
         return { scale: 0.95, opacity: 0 };
     }
@@ -153,64 +163,62 @@ export function AnimatedDialogContent({
   const resolvedExitTo = exitTo ?? from;
 
   return (
-    <AnimatePresence custom={resolvedExitTo}>
-      {open && (
-        <Dialog.Portal keepMounted>
-          {/* Backdrop Overlay */}
-          <Dialog.Backdrop
-            render={
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : { duration: 0.2, ease: "easeOut" }
-                }
-                className={cn(
-                  "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
-                  backdropClassName,
-                )}
-              />
-            }
-          />
-
-          {/* Positioner centering the popup */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-            <Dialog.Popup
-              className="pointer-events-auto"
+    <Dialog.Portal>
+      <AnimatePresence custom={resolvedExitTo}>
+        {open && (
+          <>
+            {/* Backdrop Overlay */}
+            <Dialog.Backdrop
               render={
                 <motion.div
-                  custom={from}
-                  variants={shouldReduceMotion ? {} : motionVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={
                     shouldReduceMotion
-                      ? { duration: 0 }
-                      : {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 32,
-                        }
+                      ? motionTransition.reduced
+                      : motionTransition.enter
                   }
                   className={cn(
-                    "w-full max-w-md overflow-hidden rounded-2xl p-6",
-                    "bg-popover text-popover-foreground shadow-2xl",
-                    "border border-border/80",
-                    className,
+                    "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+                    backdropClassName,
                   )}
-                >
-                  {children}
-                </motion.div>
+                />
               }
             />
-          </div>
-        </Dialog.Portal>
-      )}
-    </AnimatePresence>
+
+            {/* Positioner centering the popup */}
+            <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
+              <Dialog.Popup
+                className="pointer-events-auto"
+                render={
+                  <motion.div
+                    custom={from}
+                    variants={shouldReduceMotion ? {} : motionVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={
+                      shouldReduceMotion
+                        ? motionTransition.reduced
+                        : motionTransition.enter
+                    }
+                    className={cn(
+                      "w-full max-w-md overflow-hidden rounded-2xl p-6",
+                      "bg-popover text-popover-foreground shadow-2xl",
+                      "border border-border/80",
+                      className,
+                    )}
+                  >
+                    {children}
+                  </motion.div>
+                }
+              />
+            </div>
+          </>
+        )}
+      </AnimatePresence>
+    </Dialog.Portal>
   );
 }
 

@@ -4,66 +4,158 @@
   "homepage": "https://sona-ui.vercel.app",
   "items": [
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sona-utils",
+      "type": "registry:lib",
+      "title": "Sona Utilities",
+      "description": "Shared class-name utilities used by Sona UI registry components.",
+      "files": [
+        {
+          "path": "registry/sonaui/sona-utils/sona-utils.ts",
+          "type": "registry:lib",
+          "target": "@lib/sona-utils.ts"
+        }
+      ],
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sona-motion",
+      "type": "registry:lib",
+      "title": "Sona Motion",
+      "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+      "files": [
+        {
+          "path": "registry/sonaui/sona-motion/sona-motion.ts",
+          "type": "registry:lib",
+          "target": "@lib/sona-motion.ts"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "sona-theme",
+      "type": "registry:theme",
+      "title": "Sona Theme",
+      "description": "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
+      "files": [],
+      "dependencies": [],
+      "registryDependencies": [],
+      "cssVars": {
+        "theme": {
+          "radius-sona": "0.75rem"
+        },
+        "light": {
+          "danger": "oklch(0.97 0.04 25)",
+          "danger-foreground": "oklch(0.55 0.18 25)",
+          "danger-border": "oklch(0.9 0.1 25)"
+        },
+        "dark": {
+          "danger": "oklch(0.34 0.1 20)",
+          "danger-foreground": "oklch(0.75 0.15 25)",
+          "danger-border": "oklch(0.36 0.11 25)"
+        }
+      }
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "animated-dropdown",
       "type": "registry:ui",
       "title": "Animated Dropdown",
-      "description": "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
+      "description": "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
       "files": [
         {
           "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
           "type": "registry:ui",
-          "target": "components/ui/animated-dropdown/animated-dropdown.tsx"
+          "target": "@ui/animated-dropdown/animated-dropdown.tsx"
         }
       ],
-      "dependencies": ["@base-ui/react", "motion"],
-      "registryDependencies": []
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-theme.json",
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
     },
     {
-      "name": "circular-dock-menu",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-switch",
       "type": "registry:ui",
-      "title": "Circular Dock Menu",
-      "description": "A circular trigger button that fans items out in a radial arc with spring animations.",
+      "title": "Animated Switch",
+      "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
       "files": [
         {
-          "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+          "path": "registry/sonaui/animated-switch/animated-switch.tsx",
           "type": "registry:ui",
-          "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
+          "target": "@ui/animated-switch/animated-switch.tsx"
         }
       ],
-      "dependencies": ["motion", "lucide-react"],
-      "registryDependencies": []
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
     },
     {
-      "name": "image-trail",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-dialog",
       "type": "registry:ui",
-      "title": "Image Trail",
-      "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+      "title": "Animated Dialog",
+      "description": "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
       "files": [
         {
-          "path": "registry/sonaui/image-trail/image-trail.tsx",
+          "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
           "type": "registry:ui",
-          "target": "components/ui/image-trail/image-trail.tsx"
+          "target": "@ui/animated-dialog/animated-dialog.tsx"
         }
       ],
-      "dependencies": ["motion"],
-      "registryDependencies": []
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
     },
     {
-      "name": "magnetic-button",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-button",
       "type": "registry:ui",
-      "title": "Magnetic Button",
-      "description": "Component for magnetic-button",
+      "title": "Animated Button",
+      "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
       "files": [
         {
-          "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
+          "path": "registry/sonaui/animated-button/animated-button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/magnetic-button/magnetic-button.tsx"
+          "target": "@ui/animated-button/animated-button.tsx"
         }
       ],
-      "dependencies": [],
-      "registryDependencies": []
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "dot-orbit-shader",
       "type": "registry:ui",
       "title": "Dot Orbit Shader",
@@ -72,218 +164,19 @@
         {
           "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
           "type": "registry:ui",
-          "target": "components/ui/dot-orbit-shader/dot-orbit-shader.tsx"
+          "target": "@ui/dot-orbit-shader/dot-orbit-shader.tsx"
         }
       ],
-      "dependencies": ["@paper-design/shaders-react"],
-      "registryDependencies": []
-    },
-    {
-      "name": "accordion",
-      "type": "registry:ui",
-      "title": "Accordion",
-      "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
-      "files": [
-        {
-          "path": "registry/sonaui/accordion/styles.module.css",
-          "type": "registry:file",
-          "target": "components/ui/accordion/styles.module.css"
-        },
-        {
-          "path": "registry/sonaui/accordion/accordion.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/accordion/accordion.tsx"
-        },
-        {
-          "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/accordion/animated-plus-minus-button.tsx"
-        }
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "motion"
       ],
-      "dependencies": ["class-variance-authority", "motion"],
-      "registryDependencies": []
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     },
     {
-      "name": "spinning-text",
-      "type": "registry:ui",
-      "title": "SpinningText",
-      "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
-      "files": [
-        {
-          "path": "registry/sonaui/spinning-text/spinning-text.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/spinning-text/spinning-text.tsx"
-        }
-      ],
-      "dependencies": [],
-      "registryDependencies": []
-    },
-    {
-      "name": "bubble-up-button",
-      "type": "registry:ui",
-      "title": "BubbleUpButton",
-      "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
-      "files": [
-        {
-          "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/bubble-up-button/bubble-up-button.tsx"
-        }
-      ],
-      "dependencies": [],
-      "registryDependencies": []
-    },
-    {
-      "name": "fan-view",
-      "type": "registry:ui",
-      "title": "Fan View",
-      "description": "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
-      "files": [
-        {
-          "path": "registry/sonaui/fan-view/fan-view.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/fan-view/fan-view.tsx"
-        }
-      ],
-      "dependencies": ["motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "marquee",
-      "type": "registry:ui",
-      "title": "Marquee",
-      "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
-      "files": [
-        {
-          "path": "registry/sonaui/marquee/marquee.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/marquee/marquee.tsx"
-        }
-      ],
-      "dependencies": ["motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "ripple-button",
-      "type": "registry:ui",
-      "title": "RippleButton",
-      "description": "An interactive button with a ripple effect for modern UIs.",
-      "files": [
-        {
-          "path": "registry/sonaui/ripple-button/ripple-button.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/ripple-button/ripple-button.tsx"
-        }
-      ],
-      "dependencies": [],
-      "registryDependencies": []
-    },
-    {
-      "name": "spotlight-card",
-      "type": "registry:ui",
-      "title": "Spotlight Card",
-      "description": "A card with a radial spotlight glow that follows the cursor.",
-      "files": [
-        {
-          "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/spotlight-card/spotlight-card.tsx"
-        }
-      ],
-      "dependencies": ["motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "animated-dialog",
-      "type": "registry:ui",
-      "title": "Animated Dialog",
-      "description": "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
-      "files": [
-        {
-          "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/animated-dialog/animated-dialog.tsx"
-        }
-      ],
-      "dependencies": ["@base-ui/react", "motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "split-text",
-      "type": "registry:ui",
-      "title": "Split Text",
-      "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
-      "files": [
-        {
-          "path": "registry/sonaui/split-text/split-text.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/split-text/split-text.tsx"
-        }
-      ],
-      "dependencies": ["gsap", "@gsap/react"],
-      "registryDependencies": []
-    },
-    {
-      "name": "animated-button",
-      "type": "registry:ui",
-      "title": "Animated Button",
-      "description": "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
-      "files": [
-        {
-          "path": "registry/sonaui/animated-button/animated-button.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/animated-button/animated-button.tsx"
-        }
-      ],
-      "dependencies": ["class-variance-authority", "motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "vertical-tab",
-      "type": "registry:ui",
-      "title": "VerticalTab",
-      "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
-      "files": [
-        {
-          "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/vertical-tab/vertical-tab.tsx"
-        }
-      ],
-      "dependencies": ["react-use-measure"],
-      "registryDependencies": []
-    },
-    {
-      "name": "animated-switch",
-      "type": "registry:ui",
-      "title": "Animated Switch",
-      "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
-      "files": [
-        {
-          "path": "registry/sonaui/animated-switch/animated-switch.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/animated-switch/animated-switch.tsx"
-        }
-      ],
-      "dependencies": ["@base-ui/react", "motion"],
-      "registryDependencies": []
-    },
-    {
-      "name": "expandable-tabs",
-      "type": "registry:ui",
-      "title": "ExpandableTabs",
-      "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
-      "files": [
-        {
-          "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-          "type": "registry:ui",
-          "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
-        }
-      ],
-      "dependencies": ["react-icons"],
-      "registryDependencies": []
-    },
-    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "mesh-gradient-shader",
       "type": "registry:ui",
       "title": "Mesh Gradient Shader",
@@ -292,28 +185,152 @@
         {
           "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
           "type": "registry:ui",
-          "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+          "target": "@ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
         }
       ],
-      "dependencies": ["@paper-design/shaders-react"],
-      "registryDependencies": []
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     },
     {
-      "name": "link-preview",
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "magnetic-button",
       "type": "registry:ui",
-      "title": "LinkPreview",
-      "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+      "title": "Magnetic",
+      "description": "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
       "files": [
         {
-          "path": "registry/sonaui/link-preview/link-preview.tsx",
+          "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/link-preview/link-preview.tsx"
+          "target": "@ui/magnetic-button/magnetic-button.tsx"
         }
       ],
-      "dependencies": ["react-use-measure"],
-      "registryDependencies": []
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-tabs",
+      "type": "registry:ui",
+      "title": "Animated Tabs",
+      "description": "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
+      "files": [
+        {
+          "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
+          "type": "registry:ui",
+          "target": "@ui/animated-tabs/animated-tabs.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/accordion/accordion.tsx",
+          "type": "registry:ui",
+          "target": "@ui/accordion/accordion.tsx"
+        },
+        {
+          "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/accordion/animated-plus-minus-button.tsx"
+        },
+        {
+          "path": "registry/sonaui/accordion/styles.module.css",
+          "type": "registry:file",
+          "target": "@ui/accordion/styles.module.css"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "ripple-button",
+      "type": "registry:ui",
+      "title": "RippleButton",
+      "description": "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/ripple-button/ripple-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/ripple-button/ripple-button.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/marquee/marquee.tsx",
+          "type": "registry:ui",
+          "target": "@ui/marquee/marquee.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "spinning-text",
+      "type": "registry:ui",
+      "title": "SpinningText",
+      "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+      "files": [
+        {
+          "path": "registry/sonaui/spinning-text/spinning-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/spinning-text/spinning-text.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "stagger-text",
       "type": "registry:ui",
       "title": "StaggerText",
@@ -322,26 +339,203 @@
         {
           "path": "registry/sonaui/stagger-text/stagger-text.tsx",
           "type": "registry:ui",
-          "target": "components/ui/stagger-text/stagger-text.tsx"
+          "target": "@ui/stagger-text/stagger-text.tsx"
         }
       ],
-      "dependencies": [],
-      "registryDependencies": []
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     },
     {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "link-preview",
+      "type": "registry:ui",
+      "title": "LinkPreview",
+      "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+      "files": [
+        {
+          "path": "registry/sonaui/link-preview/link-preview.tsx",
+          "type": "registry:ui",
+          "target": "@ui/link-preview/link-preview.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "react-icons",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "bubble-up-button",
+      "type": "registry:ui",
+      "title": "BubbleUpButton",
+      "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
+      "files": [
+        {
+          "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
+          "type": "registry:ui",
+          "target": "@ui/bubble-up-button/bubble-up-button.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "expandable-tabs",
+      "type": "registry:ui",
+      "title": "Expandable Tabs",
+      "description": "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
+      "files": [
+        {
+          "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+          "type": "registry:ui",
+          "target": "@ui/expandable-tabs/expandable-tabs.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion",
+        "react-icons"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "split-text",
+      "type": "registry:ui",
+      "title": "Split Text",
+      "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+      "files": [
+        {
+          "path": "registry/sonaui/split-text/split-text.tsx",
+          "type": "registry:ui",
+          "target": "@ui/split-text/split-text.tsx"
+        }
+      ],
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "image-trail",
+      "type": "registry:ui",
+      "title": "Image Trail",
+      "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+      "files": [
+        {
+          "path": "registry/sonaui/image-trail/image-trail.tsx",
+          "type": "registry:ui",
+          "target": "@ui/image-trail/image-trail.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json",
+        "https://sona-ui.vercel.app/r/sona-motion.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "spotlight-card",
+      "type": "registry:ui",
+      "title": "Spotlight Card",
+      "description": "A card with a radial spotlight glow that follows the cursor.",
+      "files": [
+        {
+          "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
+          "type": "registry:ui",
+          "target": "@ui/spotlight-card/spotlight-card.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "hold-to-delete-button",
       "type": "registry:ui",
       "title": "Hold To Delete Button",
-      "description": "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
+      "description": "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
       "files": [
         {
           "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/hold-to-delete-button/hold-to-delete-button.tsx"
+          "target": "@ui/hold-to-delete-button/hold-to-delete-button.tsx"
         }
       ],
-      "dependencies": ["motion"],
-      "registryDependencies": []
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "circular-dock-menu",
+      "type": "registry:ui",
+      "title": "Circular Dock Menu",
+      "description": "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+          "type": "registry:ui",
+          "target": "@ui/circular-dock-menu/circular-dock-menu.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "fan-view",
+      "type": "registry:ui",
+      "title": "Fan View",
+      "description": "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/fan-view/fan-view.tsx",
+          "type": "registry:ui",
+          "target": "@ui/fan-view/fan-view.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     }
   ]
 }

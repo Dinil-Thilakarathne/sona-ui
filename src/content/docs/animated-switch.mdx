@@ -6,16 +6,16 @@ tags: ["UI", "Switch", "Toggle", "Animation", "Component"]
 
 # Animated Switch
 
-An interactive, iOS-style "squish" switch built on **Base UI** Switch primitives. When pressed, the thumb stretches (squishes) horizontally towards the direction it travels, releasing into a smooth spring-driven transition.
+An interactive, iOS-style "squish" switch built on **Base UI** Switch primitives. Press feedback stretches the thumb toward its travel direction, then releases into a short spring transition.
 
 ## Features
 
-- **Blob Morphing** — Thumb dynamically scales (`scaleX ≈ 1.3`, `scaleY ≈ 0.9`) on press, shifting origin based on state.
-- **Snappy Spring Physics** — Snaps into place with a custom spring configuration (`stiffness: 500, damping: 32`).
+- **Purposeful Press Feedback** — The thumb subtly stretches on pointer-down and resets on release, cancellation, or lost capture.
+- **Responsive Motion** — Uses Sona's shared feedback spring, so its timing stays consistent with other interactive components.
 - **Standard Sizes** — Out-of-the-box support for `sm`, `md`, and `lg` sizes.
 - **Base UI Integration** — Fully keyboard-navigable and accessible with standard button attributes.
 - **RSC Safe** — Renders cleanly as a static element on the server and hydrates client-side animations.
-- **Reduced Motion** — Seamlessly degrades to a simple instant state change without motion.
+- **Reduced Motion** — Uses an immediate state change when the user requests less motion.
 
 <Divider />
 

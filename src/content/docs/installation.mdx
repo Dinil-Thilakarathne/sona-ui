@@ -36,6 +36,16 @@ npx shadcn@latest add @sona-ui/marquee`} language="bash" />
 
 The CLI will automatically download the component source code to your `components` directory and install any required peer dependencies.
 
+### Shared foundations
+
+Registry components declare only the Sona foundations they use. The shadcn CLI resolves these automatically:
+
+- **sona-utils** installs the shared `cn` helper into your configured `lib` alias.
+- **sona-motion** installs the semantic motion vocabulary used by stateful components.
+- **sona-theme** merges the optional Sona-specific tokens required by components that use them.
+
+Simple effects may install only `sona-utils`. Components with shared physical motion also install `sona-motion`, while components using custom Sona tokens additionally install `sona-theme`. You do not need to install the entire foundation set manually.
+
 ## Manual Installation
 
 If you prefer not to use the CLI, you can manually copy the source code of the components from the documentation into your project.
@@ -52,8 +62,8 @@ Sona UI relies on modern web technologies. Ensure your project meets the followi
 - **React 19** or later
 - **TypeScript** (recommended)
 - **Tailwind CSS 4**
-- **Motion (Framer Motion)**
-- **Lucide React** (for icons)
-- **clsx** and **tailwind-merge** (for class utility management)
+- **Motion** (installed only for components that use it)
+- An icon package only when required by the selected component
+- **clsx** and **tailwind-merge** through the `sona-utils` foundation
 
 Most of these will be handled automatically if you use the CLI.

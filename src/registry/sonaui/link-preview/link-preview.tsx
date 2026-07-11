@@ -1,11 +1,27 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { motionTransition } from "@/lib/sona-motion";
+
+function useMediaQuery(query: string) {
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query],
+  );
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    [query],
+  );
+
+  return useSyncExternalStore(subscribe, getSnapshot, () => false);
+}
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
   /** The URL of the link to preview. */
@@ -34,7 +50,7 @@ export default function LinkPreview({
 
   return (
     <>
-      <Link
+      <a
         href={link}
         className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
         onMouseEnter={() => {
@@ -54,11 +70,11 @@ export default function LinkPreview({
             <FaArrowUpRightFromSquare />
           </span>
         )}
-      </Link>
+      </a>
       <AnimatePresence>
         {isHover && desktop && (
-          <div
-            role="presentation"
+          <aside
+            aria-label={`Link preview for ${link}`}
             className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
               left: containerBounds.left + containerBounds.width / 2,
@@ -80,21 +96,25 @@ export default function LinkPreview({
                   ? { opacity: 0 }
                   : { opacity: 0, scale: 0.97 }
               }
-              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+              transition={
+                shouldReduceMotion
+                  ? motionTransition.reduced
+                  : motionTransition.enter
+              }
             >
               <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
                 <div className="flex justify-between gap-x-4 w-full text-sm">
                   External Link
-                  <Link href={link} aria-label={`Open ${link}`}>
+                  <a href={link} aria-label={`Open ${link}`}>
                     <FaArrowUpRightFromSquare />
-                  </Link>
+                  </a>
                 </div>
-                <Link href={link} className="text-nowrap underline">
+                <a href={link} className="text-nowrap underline">
                   {link}
-                </Link>
+                </a>
               </div>
             </motion.div>
-          </div>
+          </aside>
         )}
       </AnimatePresence>
     </>

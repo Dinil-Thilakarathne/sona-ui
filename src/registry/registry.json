@@ -1,22 +1,75 @@
 [
   {
+    "name": "sona-utils",
+    "type": "registry:lib",
+    "title": "Sona Utilities",
+    "description": "Shared class-name utilities used by Sona UI registry components.",
+    "files": [
+      {
+        "path": "registry/sonaui/sona-utils/sona-utils.ts",
+        "type": "registry:lib",
+        "target": "@lib/sona-utils.ts"
+      }
+    ],
+    "dependencies": ["clsx", "tailwind-merge"]
+  },
+  {
+    "name": "sona-motion",
+    "type": "registry:lib",
+    "title": "Sona Motion",
+    "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/sona-motion/sona-motion.ts",
+        "type": "registry:lib",
+        "target": "@lib/sona-motion.ts"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
+    "name": "sona-theme",
+    "type": "registry:theme",
+    "title": "Sona Theme",
+    "description": "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
+    "files": [],
+    "dependencies": [],
+    "registryDependencies": [],
+    "cssVars": {
+      "theme": {
+        "radius-sona": "0.75rem"
+      },
+      "light": {
+        "danger": "oklch(0.97 0.04 25)",
+        "danger-foreground": "oklch(0.55 0.18 25)",
+        "danger-border": "oklch(0.9 0.1 25)"
+      },
+      "dark": {
+        "danger": "oklch(0.34 0.1 20)",
+        "danger-foreground": "oklch(0.75 0.15 25)",
+        "danger-border": "oklch(0.36 0.11 25)"
+      }
+    }
+  },
+  {
     "name": "animated-dropdown",
     "type": "registry:ui",
     "title": "Animated Dropdown",
-    "description": "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
+    "description": "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
     "files": [
       {
         "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": ["@base-ui/react", "motion"],
+    "registryDependencies": ["https://sona-ui.vercel.app/r/sona-theme.json"]
   },
   {
     "name": "animated-switch",
     "type": "registry:ui",
     "title": "Animated Switch",
-    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
     "files": [
       {
         "path": "registry/sonaui/animated-switch/animated-switch.tsx",
@@ -29,7 +82,7 @@
     "name": "animated-dialog",
     "type": "registry:ui",
     "title": "Animated Dialog",
-    "description": "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
+    "description": "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
@@ -42,7 +95,7 @@
     "name": "animated-button",
     "type": "registry:ui",
     "title": "Animated Button",
-    "description": "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
+    "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
     "files": [
       {
         "path": "registry/sonaui/animated-button/animated-button.tsx",
@@ -62,7 +115,7 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react"]
+    "dependencies": ["@paper-design/shaders-react", "motion"]
   },
   {
     "name": "mesh-gradient-shader",
@@ -75,39 +128,39 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react"]
+    "dependencies": ["@paper-design/shaders-react", "motion"]
   },
   {
-    "name": "magnetic",
+    "name": "magnetic-button",
     "type": "registry:ui",
     "title": "Magnetic",
-    "description": "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
+    "description": "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": ["motion"]
   },
   {
-    "name": "vertical-tab",
+    "name": "animated-tabs",
     "type": "registry:ui",
-    "title": "VerticalTab",
-    "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
+    "title": "Animated Tabs",
+    "description": "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
     "files": [
       {
-        "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
+        "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["react-use-measure"]
+    "dependencies": ["@base-ui/react", "motion"]
   },
   {
     "name": "accordion",
     "type": "registry:ui",
     "title": "Accordion",
-    "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
+    "description": "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/accordion/accordion.tsx",
@@ -116,22 +169,27 @@
       {
         "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
         "type": "registry:ui"
+      },
+      {
+        "path": "registry/sonaui/accordion/styles.module.css",
+        "type": "registry:file",
+        "target": "@ui/accordion/styles.module.css"
       }
     ],
-    "dependencies": ["class-variance-authority", "motion"]
+    "dependencies": ["@base-ui/react", "class-variance-authority"]
   },
   {
     "name": "ripple-button",
     "type": "registry:ui",
     "title": "RippleButton",
-    "description": "An interactive button with a ripple effect for modern UIs.",
+    "description": "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/ripple-button/ripple-button.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": ["motion"]
   },
   {
     "name": "marquee",
@@ -157,7 +215,7 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": ["motion"]
   },
   {
     "name": "stagger-text",
@@ -170,7 +228,7 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": ["motion"]
   },
   {
     "name": "link-preview",
@@ -183,7 +241,7 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["react-use-measure"]
+    "dependencies": ["motion", "react-icons", "react-use-measure"]
   },
   {
     "name": "bubble-up-button",
@@ -196,20 +254,20 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": ["motion"]
   },
   {
     "name": "expandable-tabs",
     "type": "registry:ui",
-    "title": "ExpandableTabs",
-    "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
+    "title": "Expandable Tabs",
+    "description": "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
     "files": [
       {
         "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["react-icons"]
+    "dependencies": ["@base-ui/react", "motion", "react-icons"]
   },
   {
     "name": "split-text",
@@ -254,7 +312,7 @@
     "name": "hold-to-delete-button",
     "type": "registry:ui",
     "title": "Hold To Delete Button",
-    "description": "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
+    "description": "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
@@ -267,7 +325,7 @@
     "name": "circular-dock-menu",
     "type": "registry:ui",
     "title": "Circular Dock Menu",
-    "description": "A circular trigger button that fans items out in a radial arc with spring animations.",
+    "description": "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
@@ -280,7 +338,7 @@
     "name": "fan-view",
     "type": "registry:ui",
     "title": "Fan View",
-    "description": "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
+    "description": "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/fan-view/fan-view.tsx",

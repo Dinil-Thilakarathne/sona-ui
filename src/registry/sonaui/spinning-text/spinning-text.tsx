@@ -8,7 +8,7 @@ import {
 } from "motion/react";
 import { type CSSProperties, useMemo } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type SpinningTextProps = {
   /** The text content to be animated. Can be a single string or an array of strings. */

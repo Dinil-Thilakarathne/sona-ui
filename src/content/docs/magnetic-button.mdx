@@ -12,9 +12,11 @@ The `MagneticButton` component is an interactive UI element that creates a magne
 
 - **Magnetic Effect**: Attracts the cursor when it is within a defined range.
 - **Customizable Intensity**: Adjust the magnetic pull strength.
-- **Flexible Interaction Area**: Choose between self, parent, or global interaction areas.
+- **Flexible Interaction Area**: Choose between the component itself or its parent.
+- **Consistent wrapper API**: Use `className` for styling (`customClassName` remains supported).
 - **Smooth Animations**: Uses spring-based animations for smooth transitions.
-- **Lightweight**: Minimal dependencies and optimized for performance.
+- **Lightweight**: Pointer tracking is scoped to the active interaction and cleaned up automatically.
+- **Reduced-motion safe**: Returns to its resting position when motion is reduced.
 
 <Divider />
 
@@ -36,4 +38,3 @@ Tune the pull strength and range, then move your cursor near the button.
 ## Props
 
 <PropTable component="magnetic-button" />
-

@@ -11,6 +11,13 @@ import {
   User,
 } from "lucide-react";
 import type * as React from "react";
+import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/registry/sonaui/accordion/accordion";
 import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
 import {
   AnimatedDialog,
@@ -28,8 +35,10 @@ import {
   AnimatedDropdownTrigger,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
+import AnimatedTabs from "@/registry/sonaui/animated-tabs/animated-tabs";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
@@ -82,6 +91,105 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  accordion: {
+    controls: [
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Default", value: "default" },
+          { label: "Outlined", value: "outlined" },
+          { label: "Splitted", value: "splitted" },
+          { label: "Animated", value: "animated" },
+        ],
+        default: "default",
+      },
+      {
+        type: "toggle",
+        prop: "allowMultiple",
+        label: "Allow multiple",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <AccordionRoot
+        variant={v.variant as "default" | "outlined" | "splitted" | "animated"}
+        allowMultiple={v.allowMultiple as boolean}
+        className="w-full max-w-xl"
+      >
+        {[
+          [
+            "details",
+            "What is Sona UI?",
+            "An open-source registry of polished React components.",
+          ],
+          [
+            "install",
+            "How is it installed?",
+            "Use the shadcn CLI to copy components into your project.",
+          ],
+        ].map(([value, title, content]) => (
+          <AccordionItem key={value} value={value}>
+            <AccordionItemTrigger>
+              <AccordionItemHeader>{title}</AccordionItemHeader>
+            </AccordionItemTrigger>
+            <AccordionItemContent>{content}</AccordionItemContent>
+          </AccordionItem>
+        ))}
+      </AccordionRoot>
+    ),
+  },
+  "expandable-tabs": {
+    controls: [
+      {
+        type: "select",
+        prop: "value",
+        label: "Active tab",
+        options: [
+          { label: "Library", value: "library" },
+          { label: "Profile", value: "profile" },
+          { label: "Settings", value: "settings" },
+        ],
+        default: "library",
+      },
+    ],
+    render: (v) => (
+      <ExpandableTabs
+        value={v.value as string}
+        tabs={[
+          { value: "library", title: "Library", icon: BookOpen },
+          { value: "profile", title: "Profile", icon: User },
+          { value: "settings", title: "Settings", icon: Settings },
+        ]}
+      />
+    ),
+  },
+  "animated-tabs": {
+    controls: [
+      {
+        type: "select",
+        prop: "value",
+        label: "Active tab",
+        options: [
+          { label: "Home", value: "home" },
+          { label: "Profile", value: "profile" },
+          { label: "Settings", value: "settings" },
+        ],
+        default: "home",
+      },
+    ],
+    render: (v) => (
+      <AnimatedTabs
+        value={v.value as string}
+        tabs={[
+          { value: "home", title: "Home" },
+          { value: "profile", title: "Profile" },
+          { value: "settings", title: "Settings" },
+        ]}
+      />
+    ),
+  },
   "animated-dropdown": {
     controls: [
       {

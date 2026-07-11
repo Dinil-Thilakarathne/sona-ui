@@ -79,9 +79,9 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     tag: "new",
   },
   {
-    name: "Vertical Tab",
-    slug: "vertical-tab",
-    href: "/docs/vertical-tab",
+    name: "Animated Tabs",
+    slug: "animated-tabs",
+    href: "/docs/animated-tabs",
     type: "Components",
   },
   {

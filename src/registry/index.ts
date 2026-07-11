@@ -1,48 +1,48 @@
 // This file is auto-generated. Do not edit.
-import type * as React from "react";
+import * as React from "react";
+import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
+import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
+import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
+import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
+import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
+import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
+import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
+import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
+import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
+import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
+import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
+import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
 import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
 import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
 import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
-import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
-import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
+import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
+import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
+import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
+import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
+import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
+import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
 import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
 import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
-import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
-import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
-import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
-import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
-import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
-import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
-import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
-import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
-import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
-import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
-import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
-import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
-import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
-import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
-import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
-import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
-import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
-import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
-import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
-import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
-import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
-import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
-import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
-import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
-import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
-import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
-import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
-import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
-import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
-import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
-import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
-import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
+import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
+import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
+import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
+import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
+import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
+import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
+import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
+import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
+import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
+import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
+import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
+import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
-import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
+import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -135,14 +135,21 @@ export default function AnimatedDropdownControlled() {
   return (
     <div className="flex flex-col gap-4 items-center">
       <p className="text-muted-foreground text-sm">
-        Dropdown is: <span className="font-semibold text-foreground">{open ? "open" : "closed"}</span>
+        Dropdown is:{" "}
+        <span className="font-semibold text-foreground">
+          {open ? "open" : "closed"}
+        </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
         <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
           <AnimatedDropdownSeparator />
           <AnimatedDropdownItem
             icon={<LogOut />}
@@ -176,14 +183,21 @@ export default function AnimatedDropdownControlled() {
   return (
     <div className="flex flex-col gap-4 items-center">
       <p className="text-muted-foreground text-sm">
-        Dropdown is: <span className="font-semibold text-foreground">{open ? "open" : "closed"}</span>
+        Dropdown is:{" "}
+        <span className="font-semibold text-foreground">
+          {open ? "open" : "closed"}
+        </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
         <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-          <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
           <AnimatedDropdownSeparator />
           <AnimatedDropdownItem
             icon={<LogOut />}
@@ -203,13 +217,7 @@ export default function AnimatedDropdownControlled() {
       component: animated_dropdown_animated_dropdown_demo,
       code: `"use client";
 
-import {
-  Bell,
-  CreditCard,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
 import {
   AnimatedDropdown,
   AnimatedDropdownContent,
@@ -224,9 +232,15 @@ export default function AnimatedDropdownDemo() {
       <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>
+          Billing
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>
+          Notifications
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>
+          Settings
+        </AnimatedDropdownItem>
         <AnimatedDropdownSeparator />
         <AnimatedDropdownItem icon={<LogOut />} variant="danger">
           Log out
@@ -239,13 +253,7 @@ export default function AnimatedDropdownDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import {
-  Bell,
-  CreditCard,
-  LogOut,
-  Settings,
-  User,
-} from "lucide-react";
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
 import {
   AnimatedDropdown,
   AnimatedDropdownContent,
@@ -260,9 +268,15 @@ export default function AnimatedDropdownDemo() {
       <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<CreditCard />}>Billing</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Bell />}>Notifications</AnimatedDropdownItem>
-        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>
+          Billing
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>
+          Notifications
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>
+          Settings
+        </AnimatedDropdownItem>
         <AnimatedDropdownSeparator />
         <AnimatedDropdownItem icon={<LogOut />} variant="danger">
           Log out
@@ -271,7 +285,7 @@ export default function AnimatedDropdownDemo() {
     </AnimatedDropdown>
   );
 }`,
-    },
+    }
   ],
   "circular-dock-menu": [
     {
@@ -325,7 +339,7 @@ const ITEMS = [
 export default function CircularDockMenuDemo() {
   return <CircularDockMenu items={ITEMS} />;
 }`,
-    },
+    }
   ],
   "image-trail": [
     {
@@ -352,8 +366,8 @@ export default function ImageTrailInteractiveExample() {
     <ImageTrail images={images} className="h-80 w-full">
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
-          Sweep the cursor to spawn the trail, then click the button or the
-          link — the images never block them.
+          Sweep the cursor to spawn the trail, then click the button or the link
+          — the images never block them.
         </p>
         <button
           type="button"
@@ -397,8 +411,8 @@ export default function ImageTrailInteractiveExample() {
     <ImageTrail images={images} className="h-80 w-full">
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
-          Sweep the cursor to spawn the trail, then click the button or the
-          link — the images never block them.
+          Sweep the cursor to spawn the trail, then click the button or the link
+          — the images never block them.
         </p>
         <button
           type="button"
@@ -563,7 +577,7 @@ export default function ImageTrailTiltExample() {
     </ImageTrail>
   );
 }`,
-    },
+    }
   ],
   "magnetic-button": [
     {
@@ -575,7 +589,10 @@ export default function MagneticButtonExample() {
   return (
     <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer">
+        <button
+          type="button"
+          className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer"
+        >
           Magnetic Button
         </button>
       </Magnetic>
@@ -588,14 +605,17 @@ export default function MagneticButtonExample() {
   return (
     <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer">
+        <button
+          type="button"
+          className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer"
+        >
           Magnetic Button
         </button>
       </Magnetic>
     </div>
   );
 }`,
-    },
+    }
   ],
   "dot-orbit-shader": [
     {
@@ -711,9 +731,9 @@ export default function DotOrbitShaderPastel() {
     />
   );
 }`,
-    },
+    }
   ],
-  accordion: [
+  "accordion": [
     {
       name: "splitted",
       component: accordion_accordion_splitted,
@@ -769,7 +789,7 @@ export default function AccordionSplittedExample() {
       variant="splitted"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -835,7 +855,7 @@ export default function AccordionSplittedExample() {
       variant="splitted"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1037,7 +1057,7 @@ export default function AccordionDefaultExample() {
   return (
     <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1099,7 +1119,7 @@ export default function AccordionDefaultExample() {
   return (
     <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1165,7 +1185,7 @@ export default function AccordionMultiStepExample() {
   return (
     <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1227,7 +1247,7 @@ export default function AccordionMultiStepExample() {
   return (
     <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1297,7 +1317,7 @@ export default function AccordionOutlinedExample() {
       variant="outlined"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1363,7 +1383,7 @@ export default function AccordionOutlinedExample() {
       variant="outlined"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -1377,7 +1397,7 @@ export default function AccordionOutlinedExample() {
     </AccordionRoot>
   );
 }`,
-    },
+    }
   ],
   "spinning-text": [
     {
@@ -1401,7 +1421,7 @@ export default function SpinningTextExample() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "bubble-up-button": [
     {
@@ -1417,7 +1437,7 @@ export default function BubbleUpButtonExample() {
       anatomy: `export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
-    },
+    }
   ],
   "fan-view": [
     {
@@ -1455,9 +1475,9 @@ const ITEMS = [
 export default function FanViewDemo() {
   return <FanView items={ITEMS} />;
 }`,
-    },
+    }
   ],
-  marquee: [
+  "marquee": [
     {
       name: "default",
       component: marquee_marquee_demo,
@@ -1563,7 +1583,7 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
     </div>
   );
 };`,
-    },
+    }
   ],
   "ripple-button": [
     {
@@ -1639,7 +1659,7 @@ export default function RippleButtonExample({
     </RippleButton>
   );
 }`,
-    },
+    }
   ],
   "spotlight-card": [
     {
@@ -1671,7 +1691,7 @@ export default function SpotlightCardExample() {
     </SpotlightCard>
   );
 }`,
-    },
+    }
   ],
   "animated-dialog": [
     {
@@ -1690,33 +1710,18 @@ import {
 } from "@/components/ui/animated-dialog/animated-dialog";
 
 export default function AnimatedDialogDemo() {
-  const [direction, setDirection] = useState<"top" | "bottom" | "left" | "right" | "center">("bottom");
-
   return (
     <div className="flex flex-col items-center gap-6">
-      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
-        {(["top", "bottom", "left", "right", "center"] as const).map((d) => (
-          <button
-            key={d}
-            type="button"
-            onClick={() => setDirection(d)}
-            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
-              direction === d
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }\`}
-          >
-            {d}
-          </button>
-        ))}
-      </div>
-
       <AnimatedDialog>
         <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
-        <AnimatedDialogContent from={direction}>
+        <AnimatedDialogContent from={"bottom"}>
           <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
           <AnimatedDialogDescription>
-            This modal is configured to animate from the <span className="font-semibold text-foreground capitalize">{direction}</span>. You can test all entry vectors using the switcher above.
+            This modal is configured to animate from the{" "}
+            <span className="font-semibold text-foreground capitalize">
+              "Bottom"
+            </span>
+            . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
             <AnimatedDialogClose
@@ -1760,33 +1765,18 @@ import {
 } from "@/components/ui/animated-dialog/animated-dialog";
 
 export default function AnimatedDialogDemo() {
-  const [direction, setDirection] = useState<"top" | "bottom" | "left" | "right" | "center">("bottom");
-
   return (
     <div className="flex flex-col items-center gap-6">
-      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
-        {(["top", "bottom", "left", "right", "center"] as const).map((d) => (
-          <button
-            key={d}
-            type="button"
-            onClick={() => setDirection(d)}
-            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
-              direction === d
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }\`}
-          >
-            {d}
-          </button>
-        ))}
-      </div>
-
       <AnimatedDialog>
         <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
-        <AnimatedDialogContent from={direction}>
+        <AnimatedDialogContent from={"bottom"}>
           <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
           <AnimatedDialogDescription>
-            This modal is configured to animate from the <span className="font-semibold text-foreground capitalize">{direction}</span>. You can test all entry vectors using the switcher above.
+            This modal is configured to animate from the{" "}
+            <span className="font-semibold text-foreground capitalize">
+              "Bottom"
+            </span>
+            . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
             <AnimatedDialogClose
@@ -1838,7 +1828,8 @@ export default function AnimatedDialogToast() {
       <AnimatedDialogContent from="bottom">
         <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
         <AnimatedDialogDescription>
-          This action will permanently delete the repository. This change is irreversible.
+          This action will permanently delete the repository. This change is
+          irreversible.
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose
@@ -1889,7 +1880,8 @@ export default function AnimatedDialogToast() {
       <AnimatedDialogContent from="bottom">
         <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
         <AnimatedDialogDescription>
-          This action will permanently delete the repository. This change is irreversible.
+          This action will permanently delete the repository. This change is
+          irreversible.
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose
@@ -1919,7 +1911,7 @@ export default function AnimatedDialogToast() {
     </AnimatedDialog>
   );
 }`,
-    },
+    }
   ],
   "split-text": [
     {
@@ -1947,7 +1939,39 @@ export default function SplitTextExample() {
     </SplitText>
   );
 }`,
-    },
+    }
+  ],
+  "animated-tabs": [
+    {
+      name: "default",
+      component: animated_tabs_animated_tabs_demo,
+      code: `import AnimatedTabs from "@/components/ui/animated-tabs/animated-tabs";
+
+const tabs = [
+  { value: "home", title: "Home" },
+  { value: "profile", title: "Profile" },
+  { value: "settings", title: "Settings" },
+  { value: "help", title: "Help" },
+  { value: "about", title: "About" },
+];
+
+export default function AnimatedTabsExample() {
+  return <AnimatedTabs tabs={tabs} />;
+}
+`,
+      imports: `import AnimatedTabs from "@/components/ui/animated-tabs/animated-tabs";`,
+      anatomy: `const tabs = [
+  { value: "home", title: "Home" },
+  { value: "profile", title: "Profile" },
+  { value: "settings", title: "Settings" },
+  { value: "help", title: "Help" },
+  { value: "about", title: "About" },
+];
+
+export default function AnimatedTabsExample() {
+  return <AnimatedTabs tabs={tabs} />;
+}`,
+    }
   ],
   "animated-button": [
     {
@@ -1955,13 +1979,15 @@ export default function SplitTextExample() {
       component: animated_button_animated_button_demo,
       code: `"use client";
 
+import { ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { Check, ArrowRight, Loader2, Sparkles } from "lucide-react";
 import AnimatedButton from "@/components/ui/animated-button/animated-button";
 
 export default function AnimatedButtonDemo() {
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
-  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">("slide-up");
+  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">(
+    "slide-up",
+  );
 
   const handleClick = () => {
     if (state !== "idle") return;
@@ -2009,21 +2035,25 @@ export default function AnimatedButtonDemo() {
           )}
           {state === "loading" && (
             <>
-              <Loader2 className="size-4 animate-spin" /> Saving...
+              <Loader2 className="size-4 animate-spin" /> Saving text 2...
             </>
           )}
           {state === "success" && (
             <>
-              <Check className="size-4 text-emerald-400" /> Success
+              <Check className="size-4 text-emerald-400" /> Success lorem lorem
             </>
           )}
         </AnimatedButton>
-        <span className="text-xs text-muted-foreground">Click to trigger state change</span>
+        <span className="text-xs text-muted-foreground">
+          Click to trigger state change
+        </span>
       </div>
 
       {/* Hover Swap Mode (ScrollUpButton merge) */}
       <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
-        <span className="text-sm font-semibold text-foreground">Hover Text Swap</span>
+        <span className="text-sm font-semibold text-foreground">
+          Hover Text Swap
+        </span>
         <div className="flex gap-4">
           <AnimatedButton hoverSwap variant="outlined" size="md">
             Hover Me
@@ -2040,13 +2070,15 @@ export default function AnimatedButtonDemo() {
       imports: ``,
       anatomy: `"use client";
 
+import { ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { Check, ArrowRight, Loader2, Sparkles } from "lucide-react";
 import AnimatedButton from "@/components/ui/animated-button/animated-button";
 
 export default function AnimatedButtonDemo() {
   const [state, setState] = useState<"idle" | "loading" | "success">("idle");
-  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">("slide-up");
+  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">(
+    "slide-up",
+  );
 
   const handleClick = () => {
     if (state !== "idle") return;
@@ -2094,21 +2126,25 @@ export default function AnimatedButtonDemo() {
           )}
           {state === "loading" && (
             <>
-              <Loader2 className="size-4 animate-spin" /> Saving...
+              <Loader2 className="size-4 animate-spin" /> Saving text 2...
             </>
           )}
           {state === "success" && (
             <>
-              <Check className="size-4 text-emerald-400" /> Success
+              <Check className="size-4 text-emerald-400" /> Success lorem lorem
             </>
           )}
         </AnimatedButton>
-        <span className="text-xs text-muted-foreground">Click to trigger state change</span>
+        <span className="text-xs text-muted-foreground">
+          Click to trigger state change
+        </span>
       </div>
 
       {/* Hover Swap Mode (ScrollUpButton merge) */}
       <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
-        <span className="text-sm font-semibold text-foreground">Hover Text Swap</span>
+        <span className="text-sm font-semibold text-foreground">
+          Hover Text Swap
+        </span>
         <div className="flex gap-4">
           <AnimatedButton hoverSwap variant="outlined" size="md">
             Hover Me
@@ -2121,71 +2157,7 @@ export default function AnimatedButtonDemo() {
     </div>
   );
 }`,
-    },
-  ],
-  "vertical-tab": [
-    {
-      name: "default",
-      component: vertical_tab_vertical_tab_demo,
-      code: `import VerticalTab from "@/components/ui/vertical-tab/vertical-tab";
-
-const VerticalTabs_data = [
-  {
-    title: "Home",
-  },
-  {
-    title: "Profile",
-  },
-  {
-    title: "Settings",
-  },
-  {
-    title: "Help",
-  },
-  {
-    title: "About",
-  },
-  {
-    title: "Contact",
-  },
-  {
-    title: "Feedback",
-  },
-];
-
-export default function VerticalTabExample() {
-  return <VerticalTab tabs={VerticalTabs_data} />;
-}
-`,
-      imports: `import VerticalTab from "@/components/ui/vertical-tab/vertical-tab";`,
-      anatomy: `const VerticalTabs_data = [
-  {
-    title: "Home",
-  },
-  {
-    title: "Profile",
-  },
-  {
-    title: "Settings",
-  },
-  {
-    title: "Help",
-  },
-  {
-    title: "About",
-  },
-  {
-    title: "Contact",
-  },
-  {
-    title: "Feedback",
-  },
-];
-
-export default function VerticalTabExample() {
-  return <VerticalTab tabs={VerticalTabs_data} />;
-}`,
-    },
+    }
   ],
   "animated-switch": [
     {
@@ -2264,8 +2236,11 @@ export default function AnimatedSwitchControlled() {
   return (
     <div className="flex items-center gap-3">
       <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
-      <span className="text-sm font-medium">
-        Controlled State: <span className="text-primary font-semibold">{checked ? "ON" : "OFF"}</span>
+      <span className="text-foreground text-sm font-medium">
+        Controlled State:{" "}
+        <span className="text-foreground font-semibold">
+          {checked ? "ON" : "OFF"}
+        </span>
       </span>
     </div>
   );
@@ -2283,8 +2258,11 @@ export default function AnimatedSwitchControlled() {
   return (
     <div className="flex items-center gap-3">
       <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
-      <span className="text-sm font-medium">
-        Controlled State: <span className="text-primary font-semibold">{checked ? "ON" : "OFF"}</span>
+      <span className="text-foreground text-sm font-medium">
+        Controlled State:{" "}
+        <span className="text-foreground font-semibold">
+          {checked ? "ON" : "OFF"}
+        </span>
       </span>
     </div>
   );
@@ -2348,7 +2326,6 @@ export default function AnimatedSwitchSizes() {
 import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 
 export default function AnimatedSwitchDemo() {
-
   return (
     <div className="flex flex-col gap-6 items-start">
       {/* Controlled & Disabled */}
@@ -2370,7 +2347,6 @@ export default function AnimatedSwitchDemo() {
 import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 
 export default function AnimatedSwitchDemo() {
-
   return (
     <div className="flex flex-col gap-6 items-start">
       {/* Controlled & Disabled */}
@@ -2385,7 +2361,7 @@ export default function AnimatedSwitchDemo() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "expandable-tabs": [
     {
@@ -2393,89 +2369,69 @@ export default function AnimatedSwitchDemo() {
       component: expandable_tabs_expandable_tabs_demo,
       code: `"use client";
 
-import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
-type TabDataType = {
-  title: string;
-  icon: IconType;
-};
-
-const TabData: TabDataType[] = [
+const tabs = [
   {
+    value: "home",
     title: "Home",
     icon: FaHome,
   },
   {
+    value: "profile",
     title: "Profile",
     icon: FaUser,
   },
   {
+    value: "settings",
     title: "Settings",
     icon: FaCog,
   },
   {
+    value: "logout",
     title: "Logout",
     icon: FaSignOutAlt,
   },
 ];
 
 export default function ExpandableTabsExample() {
-  return (
-    <ExpandableTabs
-      tabs={TabData}
-      defaultActiveIndex={0}
-      motionConfig={{
-        transition: { duration: 0.2, ease: "easeInOut" },
-      }}
-    />
-  );
+  return <ExpandableTabs tabs={tabs} defaultValue="home" />;
 }
 `,
       imports: ``,
       anatomy: `"use client";
 
-import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
-type TabDataType = {
-  title: string;
-  icon: IconType;
-};
-
-const TabData: TabDataType[] = [
+const tabs = [
   {
+    value: "home",
     title: "Home",
     icon: FaHome,
   },
   {
+    value: "profile",
     title: "Profile",
     icon: FaUser,
   },
   {
+    value: "settings",
     title: "Settings",
     icon: FaCog,
   },
   {
+    value: "logout",
     title: "Logout",
     icon: FaSignOutAlt,
   },
 ];
 
 export default function ExpandableTabsExample() {
-  return (
-    <ExpandableTabs
-      tabs={TabData}
-      defaultActiveIndex={0}
-      motionConfig={{
-        transition: { duration: 0.2, ease: "easeInOut" },
-      }}
-    />
-  );
+  return <ExpandableTabs tabs={tabs} defaultValue="home" />;
 }`,
-    },
+    }
   ],
   "mesh-gradient-shader": [
     {
@@ -2607,7 +2563,7 @@ export default function MeshGradientShaderMonochrome() {
     />
   );
 }`,
-    },
+    }
   ],
   "link-preview": [
     {
@@ -2651,7 +2607,7 @@ export default function LinkPreviewExample() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "stagger-text": [
     {
@@ -2667,7 +2623,7 @@ export default function StaggerTextExample() {
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }`,
-    },
+    }
   ],
   "hold-to-delete-button": [
     {
@@ -2703,18 +2659,18 @@ export default function HoldToDeleteButtonDemo() {
     </div>
   );
 }`,
-    },
-  ],
+    }
+  ]
 };
 
 export type Registry = {
-  [key: string]: Array<{
-    type: string;
-    content: string;
-    path: string;
-    target: string;
-  }>;
-};
+    [key: string]: Array<{
+        type: string;
+        content: string;
+        path: string;
+        target: string;
+    }>
+}
 
 export const registry: Registry = {
   "animated-dropdown": [
@@ -2731,12 +2687,13 @@ import {
 } from "motion/react";
 import {
   createContext,
+  type ReactNode,
   useContext,
   useId,
   useState,
-  type ReactNode,
 } from "react";
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -2765,8 +2722,14 @@ export interface AnimatedDropdownProps {
   children: ReactNode;
   /** Controlled open state. */
   open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
   /** Callback when open state changes. */
   onOpenChange?: (open: boolean) => void;
+  /** Whether the menu ignores user interaction. @default false */
+  disabled?: boolean;
+  /** Whether the open menu limits interaction to the menu. @default true */
+  modal?: boolean;
 }
 
 export interface AnimatedDropdownContentProps {
@@ -2817,15 +2780,29 @@ export interface AnimatedDropdownTriggerProps {
 export function AnimatedDropdown({
   children,
   open,
+  defaultOpen = false,
   onOpenChange,
+  disabled = false,
+  modal = true,
 }: AnimatedDropdownProps) {
   const layoutId = useId();
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) setActiveId(null);
+    onOpenChange?.(nextOpen);
+  };
+
   return (
     <DropdownContext.Provider value={{ layoutId, activeId, setActiveId }}>
       <LayoutGroup id={layoutId}>
-        <Menu.Root open={open} onOpenChange={onOpenChange}>
+        <Menu.Root
+          open={open}
+          defaultOpen={defaultOpen}
+          disabled={disabled}
+          modal={modal}
+          onOpenChange={handleOpenChange}
+        >
           {children}
         </Menu.Root>
       </LayoutGroup>
@@ -2888,11 +2865,8 @@ export function AnimatedDropdownContent({
             "origin-[var(--transform-origin)]",
             // Enter animation (CSS @starting-style + transition)
             "transition-[opacity,transform]",
-            "data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
-            "data-[ending-style]:scale-95 data-[ending-style]:opacity-0",
-            shouldReduceMotion
-              ? "duration-0"
-              : "duration-150 data-[ending-style]:duration-100",
+            "starting:scale-95 starting:opacity-0",
+            shouldReduceMotion ? "duration-0" : "duration-150",
             className,
           )}
         >
@@ -2946,7 +2920,7 @@ export function AnimatedDropdownItem({
       <AnimatePresence>
         {isActive && (
           <motion.span
-            layoutId={\`\${layoutId}-highlight\`}
+            layoutId={shouldReduceMotion ? undefined : \`\${layoutId}-highlight\`}
             className={cn(
               "absolute inset-0 rounded-lg",
               variant === "danger" ? "bg-danger" : "bg-accent",
@@ -2956,14 +2930,8 @@ export function AnimatedDropdownItem({
             exit={{ opacity: 0 }}
             transition={
               shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: "spring",
-                    stiffness: 380,
-                    damping: 30,
-                    // layout transition for the sliding effect
-                    layout: { type: "spring", stiffness: 380, damping: 30 },
-                  }
+                ? motionTransition.reduced
+                : motionTransition.spatial
             }
           />
         )}
@@ -2985,28 +2953,35 @@ export function AnimatedDropdownItem({
 // ─── Separator ────────────────────────────────────────────────────────────────
 
 /** A thin visual divider between groups of items. */
-export function AnimatedDropdownSeparator({ className }: { className?: string }) {
+export function AnimatedDropdownSeparator({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <Menu.Separator
-      className={cn("my-1 h-px bg-border/60 mx-1", className)}
-    />
+    <Menu.Separator className={cn("my-1 h-px bg-border/60 mx-1", className)} />
   );
 }
 `,
       path: "animated-dropdown/animated-dropdown.tsx",
-      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx",
-    },
+      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
+    }
   ],
   "circular-dock-menu": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DockMenuItem {
   /** Display label shown on the item pill. */
@@ -3017,6 +2992,8 @@ export interface DockMenuItem {
     strokeWidth?: number;
     "aria-hidden"?: boolean | "true" | "false";
   }>;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface CircularDockMenuProps {
@@ -3024,6 +3001,12 @@ export interface CircularDockMenuProps {
    * Items rendered as arc pills when the menu is open.
    */
   items?: DockMenuItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the menu opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the open/close animation.
    * @default 420
@@ -3053,16 +3036,34 @@ function getArcPosition(index: number, total: number) {
 
 export default function CircularDockMenu({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 420,
   damping = 32,
   className,
 }: CircularDockMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.8 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -3077,14 +3078,14 @@ export default function CircularDockMenu({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10",
@@ -3095,7 +3096,7 @@ export default function CircularDockMenu({
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, icon: Icon, x, y, rotate }, index) => (
+                ({ label, icon: Icon, onSelect, x, y, rotate }, index) => (
                   <m.div
                     key={label}
                     className="absolute bottom-12 left-1/2 z-10"
@@ -3115,8 +3116,12 @@ export default function CircularDockMenu({
                       rotate,
                       filter: "blur(0px)",
                       transition: {
-                        ...springConfig,
-                        delay: (items.length - index - 1) * 0.045,
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion
+                          ? 0
+                          : (items.length - index - 1) * 0.045,
                       },
                     }}
                     exit={{
@@ -3126,11 +3131,13 @@ export default function CircularDockMenu({
                       scale: 0.48,
                       rotate: 10,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: index * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.2,
+                            ease: "easeInOut",
+                            delay: index * 0.025,
+                          },
                     }}
                   >
                     <m.button
@@ -3139,10 +3146,23 @@ export default function CircularDockMenu({
                         "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
                         "border-border bg-background text-foreground shadow-lg",
                         "cursor-pointer text-lg font-semibold whitespace-nowrap",
-                        "hover:border-border/80",
+                        "hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                       )}
-                      whileHover={{ scale: 1.05, zIndex: 20 }}
-                      whileTap={{ scale: 0.96 }}
+                      onClick={() => {
+                        onSelect?.();
+                        setOpen(false);
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === "Escape") {
+                          event.preventDefault();
+                          setOpen(false);
+                          triggerRef.current?.focus();
+                        }
+                      }}
+                      whileHover={
+                        shouldReduceMotion ? {} : { scale: 1.05, zIndex: 20 }
+                      }
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                     >
                       <Icon
                         aria-hidden="true"
@@ -3157,17 +3177,18 @@ export default function CircularDockMenu({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "absolute bottom-12 left-1/2 z-20 flex size-24 -translate-x-1/2 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
               className="block relative size-9"
@@ -3191,8 +3212,8 @@ export default function CircularDockMenu({
 }
 `,
       path: "circular-dock-menu/circular-dock-menu.tsx",
-      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx",
-    },
+      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx"
+    }
   ],
   "image-trail": [
     {
@@ -3202,12 +3223,13 @@ export default function CircularDockMenu({
 import {
   AnimatePresence,
   motion,
-  useReducedMotion,
   type TargetAndTransition,
+  useReducedMotion,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 type ImageTrailVariant = "scale" | "fade" | "blur" | "rise" | "tilt";
 
@@ -3396,7 +3418,7 @@ export default function ImageTrail({
               initial={active.initial}
               animate={active.animate}
               exit={active.exit}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              transition={motionTransition.expressive}
             />
           ))}
         </AnimatePresence>
@@ -3407,8 +3429,23 @@ export default function ImageTrail({
 }
 `,
       path: "image-trail/image-trail.tsx",
-      target: "components/sonaui/image-trail/image-trail.tsx",
-    },
+      target: "components/sonaui/image-trail/image-trail.tsx"
+    }
+  ],
+  "sona-utils": [
+    {
+      type: "registry:ui",
+      content: `import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+/** Merge conditional class names while resolving Tailwind conflicts. */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`,
+      path: "sona-utils/sona-utils.ts",
+      target: "components/sonaui/sona-utils/sona-utils.ts"
+    }
   ],
   "magnetic-button": [
     {
@@ -3423,11 +3460,11 @@ import {
   useSpring,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
-interface MagneticProps {
+export interface MagneticProps {
   /** The content to be rendered inside the magnetic button. */
   children: ReactNode;
   /**
@@ -3449,6 +3486,8 @@ interface MagneticProps {
   springConfig?: SpringOptions;
   /** Additional class names for custom styling. */
   customClassName?: string;
+  /** Additional classes for the wrapper. Prefer this for new usage. */
+  className?: string;
 }
 
 export default function Magnetic({
@@ -3458,6 +3497,7 @@ export default function Magnetic({
   interactionArea = "self",
   springConfig = SPRING_CONFIG,
   customClassName,
+  className,
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
@@ -3468,6 +3508,7 @@ export default function Magnetic({
 
   const springMotionX = useSpring(motionX, springConfig);
   const springMotionY = useSpring(motionY, springConfig);
+  const resolvedRange = Math.max(1, magneticRange);
 
   // Only listen while hovered — no idle document-wide mousemove work.
   useEffect(() => {
@@ -3483,8 +3524,8 @@ export default function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-        if (absoluteDistance <= magneticRange) {
-          const scale = 1 - absoluteDistance / magneticRange;
+        if (absoluteDistance <= resolvedRange) {
+          const scale = 1 - absoluteDistance / resolvedRange;
 
           motionX.set(distanceX * magneticIntensity * scale);
           motionY.set(distanceY * magneticIntensity * scale);
@@ -3504,10 +3545,18 @@ export default function Magnetic({
     isMouseHovered,
     shouldReduceMotion,
     magneticIntensity,
-    magneticRange,
+    resolvedRange,
     motionX,
     motionY,
   ]);
+
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setMouseHovered(false);
+      motionX.set(0);
+      motionY.set(0);
+    }
+  }, [motionX, motionY, shouldReduceMotion]);
 
   useEffect(() => {
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
@@ -3554,7 +3603,7 @@ export default function Magnetic({
         y: springMotionY,
       }}
       role="presentation"
-      className={cn("", customClassName)}
+      className={cn(customClassName, className)}
     >
       {children}
     </motion.div>
@@ -3562,8 +3611,8 @@ export default function Magnetic({
 }
 `,
       path: "magnetic-button/magnetic-button.tsx",
-      target: "components/sonaui/magnetic-button/magnetic-button.tsx",
-    },
+      target: "components/sonaui/magnetic-button/magnetic-button.tsx"
+    }
   ],
   "dot-orbit-shader": [
     {
@@ -3573,7 +3622,7 @@ export default function Magnetic({
 import { DotOrbit } from "@paper-design/shaders-react";
 import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DotOrbitShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -3650,52 +3699,50 @@ export default function DotOrbitShader({
 }
 `,
       path: "dot-orbit-shader/dot-orbit-shader.tsx",
-      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-    },
+      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx"
+    }
   ],
-  accordion: [
+  "accordion": [
     {
       type: "registry:ui",
       content: `"use client";
 
+import { Accordion } from "@base-ui/react/accordion";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion, useReducedMotion } from "motion/react";
-import {
-  createContext,
-  type ReactNode,
-  useContext,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-  ViewTransition,
-} from "react";
-import { cn } from "@/lib/utils";
+import { createContext, type ReactNode, useContext } from "react";
+
+import { cn } from "@/lib/sona-utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import styles from "./styles.module.css";
 
-// Types
-type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
+export type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
-interface AccordionProps {
-  /** The content to be displayed inside the accordion. */
+export interface AccordionProps
+  extends Omit<Accordion.Root.Props<string>, "className" | "multiple"> {
+  /** The accordion items. */
   children: ReactNode;
-  /**
-   * Allows multiple accordion items to be open at the same time.
-   * @default false
-   */
+  /** Allows multiple accordion items to be open simultaneously. @default false */
   allowMultiple?: boolean;
-  /** Additional CSS classes for the accordion container. */
+  /** Controlled values of the currently open items. */
+  value?: string[];
+  /** Values of the initially open items for uncontrolled usage. */
+  defaultValue?: string[];
+  /** Called when the set of open item values changes. */
+  onValueChange?: Accordion.Root.Props<string>["onValueChange"];
+  /** Whether the entire accordion ignores interaction. @default false */
+  disabled?: boolean;
+  /** Keeps closed panels mounted in the DOM. @default false */
+  keepMounted?: boolean;
+  /** Allows browser find-in-page to reveal matching panel content. @default false */
+  hiddenUntilFound?: boolean;
+  /** Additional classes for the accordion root. */
   className?: string;
-  /**
-   * The visual style of the accordion.
-   * @default default
-   */
+  /** Visual style of the accordion. @default "default" */
   variant?: AccordionVariant;
 }
 
 const accordionWrapperVariants = cva(
-  "flex flex-col overflow-clip rounded-2xl",
+  "flex w-full flex-col items-stretch overflow-clip rounded-2xl",
   {
     variants: {
       variant: {
@@ -3705,310 +3752,232 @@ const accordionWrapperVariants = cva(
         animated: styles.wrapper,
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 );
 
 const accordionItemVariants = cva(
-  "relative overflow-hidden bg-background text-foreground transition-all duration-300",
+  "relative w-full min-w-0 overflow-hidden bg-background text-foreground transition-[transform,border-radius] duration-300",
   {
     variants: {
       variant: {
         default: "border-b border-border",
         outlined:
           "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
-        splitted: "rounded-2xl ",
+        splitted: "rounded-2xl",
         animated: styles.animated,
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 );
 
-interface AccordionItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof accordionItemVariants> {
-  children: ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  value?: string;
+const AccordionContext = createContext<{ variant: AccordionVariant } | null>(
+  null,
+);
+
+function useAccordionContext(component: string) {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used within AccordionRoot\`);
+  }
+  return context;
 }
 
-interface AccordionItemHeaderProps {
-  value: string;
-  children: ReactNode;
-}
-interface AccordionItemTriggerProps {
-  value: string;
-  children: ReactNode;
-}
-
-interface AccordionItemContentProps {
-  children: ReactNode;
-  value: string;
-}
-
-const AccordionContext = createContext<{
-  openItems: Set<string>;
-  toggleItem: (value: string) => void;
-  variant: AccordionVariant;
-  /** Prefix used to pair each trigger with its content for aria wiring. */
-  idPrefix: string;
-} | null>(null);
-
-const AccordionRoot = ({
+export function AccordionRoot({
   children,
   allowMultiple = false,
   className,
   variant = "default",
-}: AccordionProps) => {
-  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const idPrefix = useId();
-  const toggleItem = (v: string) => {
-    setOpenItems((prev) => {
-      const newOpenItems = new Set(prev);
-      if (newOpenItems.has(v)) {
-        newOpenItems.delete(v);
-      } else {
-        if (!allowMultiple) newOpenItems.clear();
-        newOpenItems.add(v);
-      }
-      return newOpenItems;
-    });
-  };
-
-  return (
-    <AccordionContext.Provider
-      value={{ openItems, toggleItem, variant, idPrefix }}
-    >
-      <ViewTransition>
-        <div
-          role="presentation"
-          className={cn(
-            accordionWrapperVariants({ variant }),
-            variant === "splitted" && "gap-y-2",
-            className,
-          )}
-        >
-          {children}
-        </div>
-      </ViewTransition>
-    </AccordionContext.Provider>
-  );
-};
-
-const AccordionItem = ({
-  children,
-  className,
-  style,
-  value,
   ...props
-}: AccordionItemProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionItem must be used within AccordionRoot");
-  const { variant, openItems } = context;
+}: AccordionProps) {
   return (
-    <div
-      role="presentation"
-      className={cn(accordionItemVariants({ variant }), className)}
-      style={style}
-      data-active={value !== undefined && openItems.has(value)}
-      {...props}
-    >
-      <div className="relative">{children}</div>
-    </div>
-  );
-};
-
-const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionItemHeader must be used within AccordionRoot");
-  const { openItems } = context;
-
-  const isOpen = openItems.has(value);
-
-  return (
-    <div className="flex items-center justify-between py-4 px-8 font-medium text-balance rounded-xl">
-      <div className="">{children}</div>
-      <AnimatedPlusMinusButton isOpen={isOpen} />
-    </div>
-  );
-};
-
-const AccordionItemTrigger = ({
-  value,
-  children,
-}: AccordionItemTriggerProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionItemTrigger must be used within AccordionRoot");
-
-  const { openItems, toggleItem, idPrefix } = context;
-  const isOpen = openItems.has(value);
-
-  return (
-    <button
-      type="button"
-      id={\`\${idPrefix}-\${value}-trigger\`}
-      aria-expanded={isOpen}
-      aria-controls={\`\${idPrefix}-\${value}-content\`}
-      onClick={() => toggleItem(value)}
-      className="block w-full cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
-    >
-      {children}
-    </button>
-  );
-};
-
-const AccordionItemContent = ({
-  children,
-  value,
-}: AccordionItemContentProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionItemContent must be used within AccordionRoot");
-
-  const { openItems, idPrefix } = context;
-  const isOpen = openItems.has(value);
-  const shouldReduceMotion = useReducedMotion();
-
-  const ref = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  // Keep the measured height in sync with content reflow (resize, wrapping).
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const measure = () => setHeight(el.offsetHeight);
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  const motionVariants = {
-    open: { opacity: [0, 1], y: [10, 0] },
-    exit: { opacity: [1, 0.1, 0], y: [0, 10] },
-  };
-
-  return (
-    <motion.div
-      role="region"
-      id={\`\${idPrefix}-\${value}-content\`}
-      aria-labelledby={\`\${idPrefix}-\${value}-trigger\`}
-      aria-hidden={!isOpen}
-      inert={!isOpen}
-      className="overflow-hidden text-sm"
-      initial={false}
-      animate={{ height: isOpen ? height : 0 }}
-      transition={
-        shouldReduceMotion
-          ? { duration: 0 }
-          : { duration: 0.26, ease: [0.23, 1, 0.32, 1] }
-      }
-    >
-      <motion.div
-        initial={false}
-        animate={isOpen ? "open" : "exit"}
-        transition={
-          shouldReduceMotion
-            ? { duration: 0 }
-            : {
-                duration: 0.3,
-                ease: "easeOut",
-                delay: isOpen ? 0.1 : 0,
-                type: "tween",
-              }
-        }
-        variants={motionVariants}
-        ref={ref}
-        className="px-8 pb-2"
+    <AccordionContext.Provider value={{ variant }}>
+      <Accordion.Root
+        multiple={allowMultiple}
+        className={cn(
+          accordionWrapperVariants({ variant }),
+          variant === "splitted" && "gap-y-2",
+          className,
+        )}
+        {...props}
       >
         {children}
-      </motion.div>
-    </motion.div>
+      </Accordion.Root>
+    </AccordionContext.Provider>
   );
-};
+}
 
-export {
-  AccordionContext,
-  AccordionItem,
-  AccordionItemContent,
-  AccordionItemHeader,
-  AccordionItemTrigger,
-  AccordionRoot,
-};
+export interface AccordionItemProps
+  extends Omit<Accordion.Item.Props, "className">,
+    VariantProps<typeof accordionItemVariants> {
+  /** Stable value used to identify the item. */
+  value?: string;
+  /** Additional classes for the accordion item. */
+  className?: string;
+}
+
+export function AccordionItem({
+  children,
+  className,
+  value,
+  ...props
+}: AccordionItemProps) {
+  const { variant } = useAccordionContext("AccordionItem");
+
+  return (
+    <Accordion.Item
+      value={value}
+      className={cn(accordionItemVariants({ variant }), className)}
+      {...props}
+    >
+      <div className="relative w-full min-w-0">{children}</div>
+    </Accordion.Item>
+  );
+}
+
+export interface AccordionItemHeaderProps {
+  /** Header content displayed before the open-state icon. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the header layout. */
+  className?: string;
+}
+
+export function AccordionItemHeader({
+  children,
+  className,
+}: AccordionItemHeaderProps) {
+  useAccordionContext("AccordionItemHeader");
+  return (
+    <div
+      className={cn(
+        "flex w-full min-w-0 items-center justify-between rounded-xl px-8 py-4 font-medium text-balance",
+        className,
+      )}
+    >
+      <div className="min-w-0 flex-1">{children}</div>
+      <AnimatedPlusMinusButton />
+    </div>
+  );
+}
+
+export interface AccordionItemTriggerProps
+  extends Omit<Accordion.Trigger.Props, "className"> {
+  /** Trigger contents. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the trigger. */
+  className?: string;
+}
+
+export function AccordionItemTrigger({
+  children,
+  className,
+  value: _value,
+  ...props
+}: AccordionItemTriggerProps) {
+  useAccordionContext("AccordionItemTrigger");
+  return (
+    <Accordion.Header className="w-full">
+      <Accordion.Trigger
+        className={cn(
+          "group block w-full min-w-0 cursor-pointer text-left",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </Accordion.Trigger>
+    </Accordion.Header>
+  );
+}
+
+export interface AccordionItemContentProps
+  extends Omit<Accordion.Panel.Props, "className"> {
+  /** Panel contents. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the panel content. */
+  className?: string;
+}
+
+export function AccordionItemContent({
+  children,
+  className,
+  value: _value,
+  ...props
+}: AccordionItemContentProps) {
+  useAccordionContext("AccordionItemContent");
+  return (
+    <Accordion.Panel
+      className={cn(
+        "h-[var(--accordion-panel-height)] w-full min-w-0 overflow-hidden text-sm opacity-100",
+        "transition-[height,opacity] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]",
+        "data-starting-style:h-0 data-ending-style:h-0",
+        "data-starting-style:opacity-0 data-ending-style:opacity-0",
+        "motion-reduce:transition-none",
+      )}
+      {...props}
+    >
+      <div className={cn("w-full min-w-0 px-8 pb-4", className)}>
+        {children}
+      </div>
+    </Accordion.Panel>
+  );
+}
+
+export { AccordionContext };
 `,
       path: "accordion/accordion.tsx",
-      target: "components/sonaui/accordion/accordion.tsx",
+      target: "components/sonaui/accordion/accordion.tsx"
     },
     {
       type: "registry:ui",
       content: `"use client";
-import { motion } from "motion/react";
 
-interface AnimatedPlusMinusButtonProps {
+export interface AnimatedPlusMinusButtonProps {
+  /** Icon size in pixels. @default 24 */
   size?: number;
-  isOpen?: boolean;
 }
-const AnimatedPlusMinusButton = ({
+
+export default function AnimatedPlusMinusButton({
   size = 24,
-  isOpen = false,
-}: AnimatedPlusMinusButtonProps) => {
+}: AnimatedPlusMinusButtonProps) {
   return (
     <span aria-hidden="true" className="flex items-center justify-center">
-      <motion.svg
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-      >
-        {/* Horizontal line */}
-        <motion.line
+      <svg width={size} height={size} viewBox="0 0 24 24">
+        <title>Expand or collapse</title>
+        <line
           x1="1"
           y1="12"
           x2="23"
           y2="12"
           stroke="currentColor"
           strokeWidth="1"
-          variants={{
-            closed: { opacity: 1 },
-            open: { opacity: 0 },
-          }}
-          transition={{ duration: 0.3 }}
+          className="origin-center transition-opacity duration-200 group-data-panel-open:opacity-0 motion-reduce:transition-none"
         />
-
-        {/* Vertical line */}
-        <motion.line
+        <line
           x1="12"
           y1="1"
           x2="12"
           y2="23"
           stroke="currentColor"
           strokeWidth="1"
-          variants={{
-            closed: { rotate: 0, opacity: 1 },
-            open: { rotate: 90, opacity: 1 },
-          }}
-          transition={{ duration: 0.3 }}
+          className="origin-center transition-transform duration-200 group-data-panel-open:rotate-90 motion-reduce:transition-none"
         />
-      </motion.svg>
+      </svg>
     </span>
   );
-};
-
-export default AnimatedPlusMinusButton;
+}
 `,
       path: "accordion/animated-plus-minus-button.tsx",
-      target: "components/sonaui/accordion/animated-plus-minus-button.tsx",
-    },
+      target: "components/sonaui/accordion/animated-plus-minus-button.tsx"
+    }
   ],
   "spinning-text": [
     {
@@ -4018,12 +3987,12 @@ export default AnimatedPlusMinusButton;
 import {
   motion,
   type Transition,
-  type Variants,
   useReducedMotion,
+  type Variants,
 } from "motion/react";
 import { type CSSProperties, useMemo } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type SpinningTextProps = {
   /** The text content to be animated. Can be a single string or an array of strings. */
@@ -4163,8 +4132,35 @@ export default function SpinningText({
 }
 `,
       path: "spinning-text/spinning-text.tsx",
-      target: "components/sonaui/spinning-text/spinning-text.tsx",
-    },
+      target: "components/sonaui/spinning-text/spinning-text.tsx"
+    }
+  ],
+  "sona-motion": [
+    {
+      type: "registry:ui",
+      content: `import type { Transition } from "motion/react";
+
+/** Shared easing curves for stateful Sona UI motion. */
+export const motionEasing = {
+  enter: [0.23, 1, 0.32, 1],
+  exit: [0.4, 0, 1, 1],
+  move: [0.65, 0, 0.35, 1],
+} as const;
+
+/** Semantic motion transitions. Choose by interaction purpose, not component. */
+export const motionTransition = {
+  instant: { duration: 0 },
+  reduced: { duration: 0.12, ease: motionEasing.enter },
+  feedback: { type: "spring", bounce: 0, duration: 0.22 },
+  enter: { duration: 0.18, ease: motionEasing.enter },
+  exit: { duration: 0.12, ease: motionEasing.exit },
+  spatial: { type: "spring", bounce: 0, duration: 0.35 },
+  expressive: { type: "spring", bounce: 0.18, duration: 0.4 },
+} satisfies Record<string, Transition>;
+`,
+      path: "sona-motion/sona-motion.ts",
+      target: "components/sonaui/sona-motion/sona-motion.ts"
+    }
   ],
   "bubble-up-button": [
     {
@@ -4178,7 +4174,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { type ReactNode, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 interface BubbleUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -4254,19 +4250,24 @@ export default function BubbleUpButton({
 }
 `,
       path: "bubble-up-button/bubble-up-button.tsx",
-      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx",
-    },
+      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx"
+    }
   ],
   "fan-view": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface FanViewItem {
   /** Display label shown on the card. */
@@ -4276,6 +4277,8 @@ export interface FanViewItem {
    * @default 160
    */
   width?: number;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface FanViewProps {
@@ -4283,6 +4286,12 @@ export interface FanViewProps {
    * Items displayed as fanned cards when open.
    */
   items?: FanViewItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the view opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the fan animation.
    * @default 540
@@ -4313,16 +4322,33 @@ function getFanPoint(index: number, total: number) {
 
 export default function FanView({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 540,
   damping = 28,
   className,
 }: FanViewProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.95 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -4337,31 +4363,34 @@ export default function FanView({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[420px] w-full items-end justify-center px-4 pb-16 pt-8",
           className,
         )}
       >
-        <div ref={rootRef} className="flex relative items-end justify-center">
+        <div ref={rootRef} className="relative flex items-end justify-center">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                (
+                  { label, onSelect, width = 160, x, y, rotate, zIndex },
+                  index,
+                ) => (
                   <m.button
                     key={label}
                     type="button"
                     title={label}
                     aria-label={label}
-                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2"
+                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     style={{ width, zIndex }}
                     initial={{
                       x: 0,
@@ -4378,7 +4407,12 @@ export default function FanView({
                       scale: 1,
                       rotate,
                       filter: "blur(0px)",
-                      transition: { ...springConfig, delay: index * 0.04 },
+                      transition: {
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion ? 0 : index * 0.04,
+                      },
                     }}
                     exit={{
                       x: 0,
@@ -4387,15 +4421,29 @@ export default function FanView({
                       scale: 0.45,
                       rotate: 0,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.18,
-                        ease: "easeInOut",
-                        delay: (items.length - index - 1) * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.18,
+                            ease: "easeInOut",
+                            delay: (items.length - index - 1) * 0.025,
+                          },
                     }}
-                    whileHover={{ scale: 1.05, zIndex: 30 }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={() => setIsOpen((v) => !v)}
+                    whileHover={
+                      shouldReduceMotion ? {} : { scale: 1.05, zIndex: 30 }
+                    }
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
+                    onClick={() => {
+                      onSelect?.();
+                      setOpen(false);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Escape") {
+                        event.preventDefault();
+                        setOpen(false);
+                        triggerRef.current?.focus();
+                      }
+                    }}
                   >
                     <span
                       className={cn(
@@ -4412,17 +4460,18 @@ export default function FanView({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close fan view" : "Open fan view"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "relative z-20 flex h-16 w-16 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
               className="block relative size-8"
@@ -4446,10 +4495,10 @@ export default function FanView({
 }
 `,
       path: "fan-view/fan-view.tsx",
-      target: "components/sonaui/fan-view/fan-view.tsx",
-    },
+      target: "components/sonaui/fan-view/fan-view.tsx"
+    }
   ],
-  marquee: [
+  "marquee": [
     {
       type: "registry:ui",
       content: `"use client";
@@ -4463,7 +4512,7 @@ import {
   useVelocity,
 } from "motion/react";
 import { useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface MarqueeProps {
   /** Content of one marquee segment. Can be a single small element or a long strip. */
@@ -4544,8 +4593,7 @@ export default function Marquee({
   });
 
   const isVertical = direction === "up" || direction === "down";
-  const directionSign =
-    direction === "left" || direction === "up" ? 1 : -1;
+  const directionSign = direction === "left" || direction === "up" ? 1 : -1;
 
   // ResizeObserver — recompute copy count when container or segment resize
   useEffect(() => {
@@ -4564,7 +4612,10 @@ export default function Marquee({
         ? segment.offsetHeight
         : segment.offsetWidth;
       if (segmentSize > 0) {
-        countRef.current = Math.max(2, Math.ceil((containerSize * 2) / segmentSize) + 1);
+        countRef.current = Math.max(
+          2,
+          Math.ceil((containerSize * 2) / segmentSize) + 1,
+        );
       }
     }
 
@@ -4590,14 +4641,13 @@ export default function Marquee({
     const segment = segmentRef.current;
     if (!segment) return;
 
-    const segmentSize = isVertical
-      ? segment.offsetHeight
-      : segment.offsetWidth;
+    const segmentSize = isVertical ? segment.offsetHeight : segment.offsetWidth;
     if (segmentSize === 0) return;
 
     // Lerp speedMultiplier toward target (eased pause on hover)
     const targetMultiplier = isHovered.current ? 0 : 1;
-    speedMultiplier.current += (targetMultiplier - speedMultiplier.current) * 0.1;
+    speedMultiplier.current +=
+      (targetMultiplier - speedMultiplier.current) * 0.1;
 
     // Velocity boost from scroll
     let velocityBoost = 1;
@@ -4611,7 +4661,12 @@ export default function Marquee({
 
     const pxPerMs = speed / 1000;
     const delta_px =
-      pxPerMs * delta * directionSign * velocityFlip * speedMultiplier.current * velocityBoost;
+      pxPerMs *
+      delta *
+      directionSign *
+      velocityFlip *
+      speedMultiplier.current *
+      velocityBoost;
 
     let next = baseX.get() - delta_px;
 
@@ -4634,8 +4689,9 @@ export default function Marquee({
   if (shouldReduceMotion) {
     // Static strip — no animation
     return (
-      <div
+      <section
         ref={containerRef}
+        aria-label="Scrolling content"
         className={cn("overflow-hidden", containerClassName)}
       >
         <div
@@ -4654,13 +4710,14 @@ export default function Marquee({
             </div>
           ))}
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div
+    <section
       ref={containerRef}
+      aria-label="Scrolling content"
       className={cn("overflow-hidden", containerClassName)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -4676,12 +4733,12 @@ export default function Marquee({
       >
         {children}
       </MotionTrack>
-    </div>
+    </section>
   );
 }
 
 // Split into a separate component to isolate motion subscription
-import { motion, type MotionValue } from "motion/react";
+import { type MotionValue, motion } from "motion/react";
 
 function MotionTrack({
   baseX,
@@ -4710,16 +4767,24 @@ function MotionTrack({
       )}
     >
       {/* First segment — measured for loop math */}
-      <div ref={segmentRef} style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}>
+      <div
+        ref={segmentRef}
+        style={{
+          paddingRight: isVertical ? 0 : gap,
+          paddingBottom: isVertical ? gap : 0,
+        }}
+      >
         {children}
       </div>
       {/* Copies — decorative, aria-hidden */}
       {items.map((_, i) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: decorative animation copies
         <div
-          key={i}
+          key={String(i)}
           aria-hidden="true"
-          style={{ paddingRight: isVertical ? 0 : gap, paddingBottom: isVertical ? gap : 0 }}
+          style={{
+            paddingRight: isVertical ? 0 : gap,
+            paddingBottom: isVertical ? gap : 0,
+          }}
         >
           {children}
         </div>
@@ -4729,8 +4794,8 @@ function MotionTrack({
 }
 `,
       path: "marquee/marquee.tsx",
-      target: "components/sonaui/marquee/marquee.tsx",
-    },
+      target: "components/sonaui/marquee/marquee.tsx"
+    }
   ],
   "ripple-button": [
     {
@@ -4738,9 +4803,9 @@ function MotionTrack({
       content: `"use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useCallback, useState } from "react";
+import { type ReactNode, useCallback, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -4776,19 +4841,27 @@ export default function RippleButton({
   scaleAmount = 25,
   duration = 0.5,
   rippleStyle,
+  disabled,
+  onPointerEnter,
+  onPointerDown,
+  onPointerUp,
+  onPointerLeave,
+  onPointerCancel,
   ...props
 }: RippleButtonProps) {
   const [ripple, setRipple] = useState<RippleProps | null>(null);
   const [isHover, setIsHover] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const rippleKey = useRef(0);
 
   const showRipple = useCallback(
     (event: React.PointerEvent<HTMLButtonElement>) => {
       const rect = event.currentTarget.getBoundingClientRect();
+      rippleKey.current += 1;
       setRipple({
         x: event.clientX - rect.left,
         y: event.clientY - rect.top,
-        key: Date.now(),
+        key: rippleKey.current,
       });
       setIsHover(true);
     },
@@ -4798,21 +4871,33 @@ export default function RippleButton({
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97]",
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
         className,
       )}
+      disabled={disabled}
       onPointerEnter={(e) => {
+        onPointerEnter?.(e);
+        if (disabled) return;
         // Touch pointers fire enter on tap — let pointerdown handle those.
         if (e.pointerType === "mouse") showRipple(e);
       }}
       onPointerDown={(e) => {
+        onPointerDown?.(e);
+        if (disabled) return;
         if (e.pointerType !== "mouse") showRipple(e);
       }}
       onPointerUp={(e) => {
+        onPointerUp?.(e);
         if (e.pointerType !== "mouse") setIsHover(false);
       }}
-      onPointerLeave={() => setIsHover(false)}
-      onPointerCancel={() => setIsHover(false)}
+      onPointerLeave={(e) => {
+        onPointerLeave?.(e);
+        setIsHover(false);
+      }}
+      onPointerCancel={(e) => {
+        onPointerCancel?.(e);
+        setIsHover(false);
+      }}
       {...props}
     >
       {ripple && (
@@ -4865,8 +4950,8 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
 }
 `,
       path: "ripple-button/ripple-button.tsx",
-      target: "components/sonaui/ripple-button/ripple-button.tsx",
-    },
+      target: "components/sonaui/ripple-button/ripple-button.tsx"
+    }
   ],
   "spotlight-card": [
     {
@@ -4876,7 +4961,7 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface SpotlightCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -4907,13 +4992,14 @@ export default function SpotlightCard({
   spotlightColor = "rgba(255,255,255,0.15)",
   spotlightSize = 350,
   disabled = false,
+  onMouseMove,
   ...props
 }: SpotlightCardProps) {
   // Start off-canvas so the first hover doesn't flash the glow at (0,0).
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
@@ -4923,9 +5009,11 @@ export default function SpotlightCard({
   const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
 
   return (
-    <div
-      role="presentation"
-      onMouseMove={handleMouseMove}
+    <article
+      onMouseMove={(event) => {
+        handleMouseMove(event);
+        onMouseMove?.(event as React.MouseEvent<HTMLDivElement>);
+      }}
       className={cn(
         "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
         className,
@@ -4940,13 +5028,13 @@ export default function SpotlightCard({
         />
       )}
       <div className="relative z-10">{children}</div>
-    </div>
+    </article>
   );
 }
 `,
       path: "spotlight-card/spotlight-card.tsx",
-      target: "components/sonaui/spotlight-card/spotlight-card.tsx",
-    },
+      target: "components/sonaui/spotlight-card/spotlight-card.tsx"
+    }
   ],
   "animated-dialog": [
     {
@@ -4954,18 +5042,10 @@ export default function SpotlightCard({
       content: `"use client";
 
 import { Dialog } from "@base-ui/react/dialog";
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-} from "motion/react";
-import {
-  createContext,
-  useContext,
-  useState,
-  type ReactNode,
-} from "react";
-import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { createContext, type ReactNode, useContext, useState } from "react";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -4980,7 +5060,7 @@ function useDialogContext() {
   const ctx = useContext(DialogContext);
   if (!ctx) {
     throw new Error(
-      "AnimatedDialog subcomponents must be used within <AnimatedDialog>"
+      "AnimatedDialog subcomponents must be used within <AnimatedDialog>",
     );
   }
   return ctx;
@@ -4991,7 +5071,11 @@ function useDialogContext() {
 export interface AnimatedDialogProps {
   children: ReactNode;
   open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** Whether the dialog traps interaction inside the modal. @default true */
+  modal?: boolean;
 }
 
 export interface AnimatedDialogContentProps {
@@ -5017,9 +5101,11 @@ export interface AnimatedDialogContentProps {
 export function AnimatedDialog({
   children,
   open: controlledOpen,
+  defaultOpen = false,
   onOpenChange,
+  modal = true,
 }: AnimatedDialogProps) {
-  const [internalOpen, setInternalOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
   const isControlled = controlledOpen !== undefined;
   const open = isControlled ? controlledOpen : internalOpen;
 
@@ -5032,7 +5118,12 @@ export function AnimatedDialog({
 
   return (
     <DialogContext.Provider value={{ open, setOpen }}>
-      <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Root
+        open={open}
+        defaultOpen={defaultOpen}
+        modal={modal}
+        onOpenChange={setOpen}
+      >
         {children}
       </Dialog.Root>
     </DialogContext.Provider>
@@ -5050,10 +5141,10 @@ export function AnimatedDialogTrigger({
     <Dialog.Trigger
       className={cn(
         "inline-flex items-center justify-center rounded-lg px-4 py-2",
-        "bg-primary text-primary-foreground text-sm font-medium",
-        "hover:bg-primary/90 transition-colors duration-150",
+        "bg-foreground text-background text-sm font-medium",
+        "hover:bg-foreground/90 transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        className
+        className,
       )}
       {...props}
     >
@@ -5075,7 +5166,6 @@ const motionVariants = {
         return { x: -24, opacity: 0, scale: 0.97 };
       case "right":
         return { x: 24, opacity: 0, scale: 0.97 };
-      case "center":
       default:
         return { scale: 0.95, opacity: 0 };
     }
@@ -5096,7 +5186,6 @@ const motionVariants = {
         return { x: -20, opacity: 0, scale: 0.97 };
       case "right":
         return { x: 20, opacity: 0, scale: 0.97 };
-      case "center":
       default:
         return { scale: 0.95, opacity: 0 };
     }
@@ -5115,64 +5204,62 @@ export function AnimatedDialogContent({
   const resolvedExitTo = exitTo ?? from;
 
   return (
-    <AnimatePresence custom={resolvedExitTo}>
-      {open && (
-        <Dialog.Portal keepMounted>
-          {/* Backdrop Overlay */}
-          <Dialog.Backdrop
-            render={
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : { duration: 0.2, ease: "easeOut" }
-                }
-                className={cn(
-                  "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
-                  backdropClassName
-                )}
-              />
-            }
-          />
-
-          {/* Positioner centering the popup */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-            <Dialog.Popup
-              className="pointer-events-auto"
+    <Dialog.Portal>
+      <AnimatePresence custom={resolvedExitTo}>
+        {open && (
+          <>
+            {/* Backdrop Overlay */}
+            <Dialog.Backdrop
               render={
                 <motion.div
-                  custom={from}
-                  variants={shouldReduceMotion ? {} : motionVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={
                     shouldReduceMotion
-                      ? { duration: 0 }
-                      : {
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 32,
-                        }
+                      ? motionTransition.reduced
+                      : motionTransition.enter
                   }
                   className={cn(
-                    "w-full max-w-md overflow-hidden rounded-2xl p-6",
-                    "bg-popover text-popover-foreground shadow-2xl",
-                    "border border-border/80",
-                    className
+                    "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+                    backdropClassName,
                   )}
-                >
-                  {children}
-                </motion.div>
+                />
               }
             />
-          </div>
-        </Dialog.Portal>
-      )}
-    </AnimatePresence>
+
+            {/* Positioner centering the popup */}
+            <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
+              <Dialog.Popup
+                className="pointer-events-auto"
+                render={
+                  <motion.div
+                    custom={from}
+                    variants={shouldReduceMotion ? {} : motionVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={
+                      shouldReduceMotion
+                        ? motionTransition.reduced
+                        : motionTransition.enter
+                    }
+                    className={cn(
+                      "w-full max-w-md overflow-hidden rounded-2xl p-6",
+                      "bg-popover text-popover-foreground shadow-2xl",
+                      "border border-border/80",
+                      className,
+                    )}
+                  >
+                    {children}
+                  </motion.div>
+                }
+              />
+            </div>
+          </>
+        )}
+      </AnimatePresence>
+    </Dialog.Portal>
   );
 }
 
@@ -5186,7 +5273,7 @@ export function AnimatedDialogTitle({
     <Dialog.Title
       className={cn(
         "text-lg font-semibold tracking-tight text-foreground",
-        className
+        className,
       )}
       {...props}
     />
@@ -5220,7 +5307,7 @@ export function AnimatedDialogClose({
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:bg-muted transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        className
+        className,
       )}
       {...props}
     />
@@ -5228,8 +5315,8 @@ export function AnimatedDialogClose({
 }
 `,
       path: "animated-dialog/animated-dialog.tsx",
-      target: "components/sonaui/animated-dialog/animated-dialog.tsx",
-    },
+      target: "components/sonaui/animated-dialog/animated-dialog.tsx"
+    }
   ],
   "split-text": [
     {
@@ -5242,7 +5329,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
 import { type ReactNode, useRef } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 gsap.registerPlugin(useGSAP, GSAPSplitText, ScrollTrigger);
 
@@ -5330,7 +5417,7 @@ export default function SplitText({
       if (prefersReducedMotion) return;
 
       const targetEl = containerEl.firstElementChild as HTMLElement | null;
-      if (process.env.NODE_ENV !== "production" && !targetEl) {
+      if (!targetEl) {
         console.warn(
           "[SplitText] Expected a single wrapping element as children (e.g. an <h2>), but found none. Nothing will animate.",
         );
@@ -5392,8 +5479,134 @@ export default function SplitText({
 }
 `,
       path: "split-text/split-text.tsx",
-      target: "components/sonaui/split-text/split-text.tsx",
-    },
+      target: "components/sonaui/split-text/split-text.tsx"
+    }
+  ],
+  "animated-tabs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Tabs } from "@base-ui/react/tabs";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useId, useState } from "react";
+
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Content displayed inside the tab trigger. */
+  title: ReactNode;
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
+
+export interface AnimatedTabsProps {
+  /** Tabs displayed in the horizontal tab list. */
+  tabs: AnimatedTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Accessible label for the tab list. @default "Tabs" */
+  ariaLabel?: string;
+  /** Background class for the pointer hover indicator. @default "bg-accent" */
+  indicatorClassName?: string;
+  /** Background class for the active tab. @default "bg-muted" */
+  activeTabClassName?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+}
+
+export default function AnimatedTabs({
+  tabs,
+  value,
+  defaultValue,
+  onValueChange,
+  ariaLabel = "Tabs",
+  indicatorClassName = "bg-accent",
+  activeTabClassName = "bg-muted",
+  className,
+  listClassName,
+}: AnimatedTabsProps) {
+  const [hoveredValue, setHoveredValue] = useState<string | null>(null);
+  const layoutId = useId();
+  const shouldReduceMotion = useReducedMotion();
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+
+  return (
+    <Tabs.Root
+      value={value}
+      defaultValue={defaultValue ?? fallbackValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue === "string") onValueChange?.(nextValue);
+      }}
+      className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
+    >
+      <Tabs.List
+        aria-label={ariaLabel}
+        className={cn("flex gap-2", listClassName)}
+        onPointerLeave={() => setHoveredValue(null)}
+      >
+        {tabs.map((tab) => (
+          <Tabs.Tab
+            key={tab.value}
+            value={tab.value}
+            disabled={tab.disabled}
+            aria-controls={tab.ariaControls}
+            onPointerEnter={() => {
+              if (!tab.disabled) setHoveredValue(tab.value);
+            }}
+            className={(state) =>
+              cn(
+                "relative flex cursor-pointer items-center rounded-xl p-2",
+                "transition-colors duration-200",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "disabled:pointer-events-none disabled:opacity-50",
+                state.active && activeTabClassName,
+              )
+            }
+          >
+            <AnimatePresence>
+              {hoveredValue === tab.value && (
+                <motion.span
+                  aria-hidden="true"
+                  layoutId={\`\${layoutId}-hover\`}
+                  className={cn(
+                    "pointer-events-none absolute inset-0 rounded-xl",
+                    indicatorClassName,
+                  )}
+                  initial={shouldReduceMotion ? false : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? motionTransition.reduced
+                      : motionTransition.spatial
+                  }
+                />
+              )}
+            </AnimatePresence>
+            <span className="relative">{tab.title}</span>
+          </Tabs.Tab>
+        ))}
+      </Tabs.List>
+    </Tabs.Root>
+  );
+}
+`,
+      path: "animated-tabs/animated-tabs.tsx",
+      target: "components/sonaui/animated-tabs/animated-tabs.tsx"
+    }
   ],
   "animated-button": [
     {
@@ -5403,7 +5616,8 @@ export default function SplitText({
 import { cva, type VariantProps } from "class-variance-authority";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Button Variants (CVA) ───────────────────────────────────────────────────
 
@@ -5412,9 +5626,11 @@ export const animatedButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default: "bg-foreground text-background hover:bg-foreground/90",
+        outlined:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
       },
       size: {
         sm: "h-9 px-4 text-xs",
@@ -5426,13 +5642,16 @@ export const animatedButtonVariants = cva(
       variant: "default",
       size: "md",
     },
-  }
+  },
 );
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface AnimatedButtonProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof motion.button>, "children">,
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof motion.button>,
+      "children"
+    >,
     VariantProps<typeof animatedButtonVariants> {
   children: React.ReactNode;
   /**
@@ -5478,7 +5697,10 @@ const swapVariants = {
   },
 };
 
-export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>(
+export const AnimatedButton = forwardRef<
+  HTMLButtonElement,
+  AnimatedButtonProps
+>(
   (
     {
       children,
@@ -5491,7 +5713,7 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     const shouldReduceMotion = useReducedMotion();
 
@@ -5525,19 +5747,20 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
           disabled={disabled}
           initial="initial"
           whileHover="hover"
-          whileTap={{ scale: 0.97 }}
+          whileFocus="hover"
+          whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
           variants={containerHoverVariants}
           className={cn(
             animatedButtonVariants({ variant, size }),
-            "overflow-hidden flex flex-col items-center justify-center",
-            className
+            "overflow-hidden flex flex-col items-center justify-center w-fit",
+            className,
           )}
           {...props}
         >
           {/* Main Label Layer */}
           <motion.span
             variants={firstLayerVariants}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            transition={motionTransition.spatial}
             className="flex items-center justify-center w-full"
           >
             {children}
@@ -5546,7 +5769,7 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
           {/* Incoming Hover Label Layer */}
           <motion.span
             variants={secondLayerVariants}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            transition={motionTransition.spatial}
             className="absolute flex items-center justify-center w-full"
           >
             {children}
@@ -5564,13 +5787,13 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
         whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
         transition={
           shouldReduceMotion
-            ? { duration: 0 }
-            : { type: "spring", stiffness: 500, damping: 35 }
+            ? motionTransition.reduced
+            : motionTransition.spatial
         }
         className={cn(
           animatedButtonVariants({ variant, size }),
-          "overflow-hidden flex items-center justify-center",
-          className
+          "overflow-hidden flex items-center justify-center w-fit",
+          className,
         )}
         {...props}
       >
@@ -5578,14 +5801,16 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span
               key={resolvedKey}
-              variants={shouldReduceMotion ? swapVariants.fade : swapVariants[swap]}
+              variants={
+                shouldReduceMotion ? swapVariants.fade : swapVariants[swap]
+              }
               initial="initial"
               animate="animate"
               exit="exit"
               transition={
                 shouldReduceMotion
-                  ? { duration: 0 }
-                  : { type: "spring", stiffness: 450, damping: 30 }
+                  ? motionTransition.reduced
+                  : motionTransition.spatial
               }
               className="flex items-center justify-center gap-2 whitespace-nowrap min-w-max"
             >
@@ -5595,152 +5820,15 @@ export const AnimatedButton = forwardRef<HTMLButtonElement, AnimatedButtonProps>
         </div>
       </motion.button>
     );
-  }
+  },
 );
 
 AnimatedButton.displayName = "AnimatedButton";
 export default AnimatedButton;
 `,
       path: "animated-button/animated-button.tsx",
-      target: "components/sonaui/animated-button/animated-button.tsx",
-    },
-  ],
-  "vertical-tab": [
-    {
-      type: "registry:ui",
-      content: `"use client";
-
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useId, useRef, useState } from "react";
-
-import { cn } from "@/lib/utils";
-
-interface VerticalTabProps {
-  /** An array of tab objects, each containing a title for the tab. */
-  tabs: {
-    title: string;
-  }[];
-  /**
-   * The background color of the hover indicator. Accepts Tailwind CSS classes.
-   * @default "bg-accent"
-   */
-  indicatorBgColor?: string;
-  /**
-   * The background color of the active tab. Accepts Tailwind CSS classes.
-   * @default "bg-muted"
-   */
-  activeTabBgColor?: string;
-  /**
-   * Additional class names for the container element.
-   * @default ""
-   */
-  containerClassName?: string;
-}
-
-export default function VerticalTab({
-  tabs,
-  indicatorBgColor = "bg-accent",
-  activeTabBgColor = "bg-muted",
-  containerClassName = "",
-}: VerticalTabProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const layoutId = useId();
-  const shouldReduceMotion = useReducedMotion();
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const focusTab = (index: number) => {
-    setActiveIndex(index);
-    tabRefs.current[index]?.focus();
-  };
-
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLButtonElement>,
-    currentIndex: number,
-  ) => {
-    switch (e.key) {
-      case "ArrowRight":
-        e.preventDefault();
-        focusTab((currentIndex + 1) % tabs.length);
-        break;
-      case "ArrowLeft":
-        e.preventDefault();
-        focusTab((currentIndex - 1 + tabs.length) % tabs.length);
-        break;
-      case "Home":
-        e.preventDefault();
-        focusTab(0);
-        break;
-      case "End":
-        e.preventDefault();
-        focusTab(tabs.length - 1);
-        break;
+      target: "components/sonaui/animated-button/animated-button.tsx"
     }
-  };
-
-  return (
-    <div
-      role="presentation"
-      className={cn(
-        "relative flex w-fit overflow-x-auto border-b p-2",
-        containerClassName,
-      )}
-      onMouseLeave={() => setHoveredIndex(null)}
-    >
-      <div className="flex space-x-2" role="tablist">
-        {tabs.map((tab, index) => (
-          <button
-            type="button"
-            role="tab"
-            key={tab.title}
-            ref={(el) => {
-              tabRefs.current[index] = el;
-            }}
-            tabIndex={index === activeIndex ? 0 : -1}
-            aria-selected={index === activeIndex}
-            className={cn(
-              "relative flex cursor-pointer items-center p-2",
-              "rounded-xl transition-colors duration-300",
-              "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-              index === activeIndex && activeTabBgColor,
-            )}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onFocus={() => setHoveredIndex(index)}
-            onBlur={() => setHoveredIndex(null)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            onClick={() => setActiveIndex(index)}
-          >
-            {/* Hover indicator — glides between tabs via shared layoutId */}
-            <AnimatePresence>
-              {hoveredIndex === index && (
-                <motion.span
-                  layoutId={\`\${layoutId}-hover\`}
-                  className={cn(
-                    "absolute inset-0 rounded-xl",
-                    indicatorBgColor,
-                  )}
-                  initial={shouldReduceMotion ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={
-                    shouldReduceMotion
-                      ? { duration: 0 }
-                      : { type: "spring", stiffness: 300, damping: 30 }
-                  }
-                />
-              )}
-            </AnimatePresence>
-            <span className="relative">{tab.title}</span>
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-`,
-      path: "vertical-tab/vertical-tab.tsx",
-      target: "components/sonaui/vertical-tab/vertical-tab.tsx",
-    },
   ],
   "animated-switch": [
     {
@@ -5749,126 +5837,115 @@ export default function VerticalTab({
 
 import { Switch } from "@base-ui/react/switch";
 import { motion, useReducedMotion } from "motion/react";
-import { useState, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 
-export interface AnimatedSwitchProps {
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedSwitchProps
+  extends Omit<
+    Switch.Root.Props,
+    "checked" | "defaultChecked" | "onCheckedChange" | "className"
+  > {
   /** Controlled checked state. */
   checked?: boolean;
-  /** Default checked state. */
+  /** Initial checked state for uncontrolled usage. @default false */
   defaultChecked?: boolean;
-  /** Callback fired when the state changes. */
+  /** Callback fired when the checked state changes. */
   onCheckedChange?: (checked: boolean) => void;
-  /** Whether the switch is disabled. */
+  /** Whether the switch is disabled. @default false */
   disabled?: boolean;
-  /**
-   * The size of the switch.
-   * @default "md"
-   */
+  /** The size of the switch. @default "md" */
   size?: "sm" | "md" | "lg";
+  /** Additional classes for the switch track. */
   className?: string;
 }
 
 const sizeClasses = {
-  sm: {
-    track: "w-9 h-5 p-0.5",
-    thumb: "w-4 h-4",
-    xTranslate: 16, // px offset to slide right
-    squishScale: 1.15,
-  },
-  md: {
-    track: "w-11 h-6 p-0.5",
-    thumb: "w-5 h-5",
-    xTranslate: 20,
-    squishScale: 1.2,
-  },
-  lg: {
-    track: "w-14 h-8 p-0.5",
-    thumb: "w-7 h-7",
-    xTranslate: 24,
-    squishScale: 1.2,
-  },
+  sm: { track: "h-5 w-9 p-0.5", thumb: "h-4 w-4", xTranslate: 16 },
+  md: { track: "h-6 w-11 p-0.5", thumb: "h-5 w-5", xTranslate: 20 },
+  lg: { track: "h-8 w-14 p-0.5", thumb: "h-7 w-7", xTranslate: 24 },
 };
 
 export default function AnimatedSwitch({
-  checked: controlledChecked,
-  defaultChecked,
+  checked,
+  defaultChecked = false,
   onCheckedChange,
   disabled = false,
   size = "md",
   className,
+  onPointerDownCapture,
+  onPointerUpCapture,
+  onPointerCancelCapture,
+  onLostPointerCapture,
+  ...props
 }: AnimatedSwitchProps) {
-  const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
-  const isControlled = controlledChecked !== undefined;
-  const checked = isControlled ? controlledChecked : internalChecked;
-
   const shouldReduceMotion = useReducedMotion();
-
-  // Track if we are dragging or actively pressing (via pointer events)
   const [isPressing, setIsPressing] = useState(false);
-  const trackRef = useRef<HTMLButtonElement>(null);
-
-  const handleCheckedChange = (nextChecked: boolean) => {
-    if (!isControlled) {
-      setInternalChecked(nextChecked);
-    }
-    onCheckedChange?.(nextChecked);
-  };
-
+  const [visualChecked, setVisualChecked] = useState(defaultChecked);
   const sizes = sizeClasses[size];
-
-  // We determine the horizontal origin of the stretch based on target state:
-  // If checked, pressing down should stretch from left to right.
-  // If not checked, pressing down should stretch from right to left.
-  const transformOrigin = checked ? "right center" : "left center";
+  const resolvedChecked = checked ?? visualChecked;
+  const accessibleLabel =
+    props["aria-label"] ?? (props["aria-labelledby"] ? undefined : "Toggle");
 
   return (
     <Switch.Root
-      ref={trackRef}
+      {...props}
       checked={checked}
-      onCheckedChange={handleCheckedChange}
+      defaultChecked={defaultChecked}
       disabled={disabled}
-      onPointerDown={(e) => {
-        if (e.button === 0 && !disabled) {
-          setIsPressing(true);
-          const handleRelease = () => {
-            setIsPressing(false);
-            window.removeEventListener("pointerup", handleRelease);
-          };
-          window.addEventListener("pointerup", handleRelease);
-        }
+      aria-label={accessibleLabel}
+      onCheckedChange={(nextChecked) => {
+        setVisualChecked(nextChecked);
+        onCheckedChange?.(nextChecked);
+      }}
+      onPointerDownCapture={(event) => {
+        onPointerDownCapture?.(event);
+        if (event.button !== 0 || disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setIsPressing(true);
+      }}
+      onPointerUpCapture={(event) => {
+        onPointerUpCapture?.(event);
+        setIsPressing(false);
+      }}
+      onPointerCancelCapture={(event) => {
+        onPointerCancelCapture?.(event);
+        setIsPressing(false);
+      }}
+      onLostPointerCapture={(event) => {
+        onLostPointerCapture?.(event);
+        setIsPressing(false);
       }}
       className={cn(
-        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent",
+        "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
+        "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         sizes.track,
-        checked ? "bg-primary" : "bg-muted",
-        disabled && "cursor-not-allowed opacity-50",
+        "data-[checked]:bg-foreground data-[unchecked]:bg-foreground/20",
+        "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
     >
       <Switch.Thumb
         className={cn(
           "block rounded-full bg-background shadow-lg ring-0",
-          sizes.thumb
+          sizes.thumb,
         )}
         render={
           <motion.span
             style={{
-              transformOrigin,
+              transformOrigin: resolvedChecked ? "right center" : "left center",
             }}
             animate={{
-              x: checked ? sizes.xTranslate : 0,
-              scaleX: isPressing && !disabled ? sizes.squishScale : 1,
-              scaleY: isPressing && !disabled ? 0.9 : 1,
+              x: resolvedChecked ? sizes.xTranslate : 0,
+              scaleX: isPressing && !shouldReduceMotion ? 1.18 : 1,
+              scaleY: isPressing && !shouldReduceMotion ? 0.92 : 1,
             }}
             transition={
               shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 32,
-                  }
+                ? motionTransition.instant
+                : motionTransition.feedback
             }
           />
         }
@@ -5878,14 +5955,15 @@ export default function AnimatedSwitch({
 }
 `,
       path: "animated-switch/animated-switch.tsx",
-      target: "components/sonaui/animated-switch/animated-switch.tsx",
-    },
+      target: "components/sonaui/animated-switch/animated-switch.tsx"
+    }
   ],
   "expandable-tabs": [
     {
       type: "registry:ui",
       content: `"use client";
 
+import { Tabs } from "@base-ui/react/tabs";
 import {
   AnimatePresence,
   MotionConfig,
@@ -5896,95 +5974,138 @@ import {
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
-export type TabsData = {
+export interface ExpandableTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Text revealed when the tab is active. */
   title: string;
+  /** Icon displayed for the tab. */
   icon: IconType;
-};
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
 
-interface ExpandableTabsProps {
-  /** An array of tab objects, each containing a title and an icon. */
-  tabs: TabsData[];
-  /**
-   * Additional class names for the container element.
-   * @default ""
-   */
-  containerClassName?: string;
-  /**
-   * The index of the tab that is active by default.
-   * @default 0
-   */
-  defaultActiveIndex?: number;
-  /** Motion configuration for the transition animations. */
+export interface ExpandableTabsProps {
+  /** Tabs displayed in the expandable horizontal tab list. */
+  tabs: ExpandableTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Accessible label for the tab list. @default "Expandable tabs" */
+  ariaLabel?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+  /** Additional classes for the active tab. */
+  activeTabClassName?: string;
+  /** Motion configuration applied to the layout and label transitions. */
   motionConfig?: MotionConfigProps;
 }
 
 export default function ExpandableTabs({
   tabs,
-  containerClassName = "",
-  defaultActiveIndex = 0,
-  motionConfig = {
-    transition: { duration: 0.2, ease: "easeOut" },
-  },
+  value,
+  defaultValue,
+  onValueChange,
+  ariaLabel = "Expandable tabs",
+  className,
+  listClassName,
+  activeTabClassName = "bg-accent text-accent-foreground",
+  motionConfig,
 }: ExpandableTabsProps) {
-  const [isActive, setIsActive] = useState(defaultActiveIndex);
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
+  );
+  const [inputModality, setInputModality] = useState<"keyboard" | "pointer">(
+    "pointer",
+  );
   const shouldReduceMotion = useReducedMotion();
+  const activeValue = value ?? internalValue;
+  const transition =
+    shouldReduceMotion || inputModality === "keyboard"
+      ? motionTransition.instant
+      : (motionConfig?.transition ?? motionTransition.spatial);
 
   return (
-    <div
-      role="tablist"
-      className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2",
-        containerClassName,
-      )}
+    <Tabs.Root
+      value={activeValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue);
+      }}
+      className={className}
     >
-      <MotionConfig
-        {...(shouldReduceMotion
-          ? { transition: { duration: 0 } }
-          : motionConfig)}
-      >
-        {tabs.map((tab, index) => (
-          <motion.button
-            type="button"
-            role="tab"
-            aria-selected={isActive === index}
-            key={tab.title}
-            layout
-            className={cn(
-              "flex cursor-pointer items-center gap-x-2 overflow-clip rounded-full p-2",
-              "transition-colors duration-200",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-              isActive === index && "bg-accent text-accent-foreground",
-            )}
-            onClick={() => setIsActive(index)}
-          >
-            <motion.span layout className="grow items-center justify-center h-full">
-              <tab.icon className="text-lg" aria-hidden="true" />
-            </motion.span>
-            <AnimatePresence initial={false}>
-              {isActive === index && (
+      <MotionConfig transition={transition}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn(
+            "flex gap-2 rounded-full border bg-transparent p-2",
+            listClassName,
+          )}
+          onKeyDownCapture={() => setInputModality("keyboard")}
+          onPointerDownCapture={() => setInputModality("pointer")}
+        >
+          {tabs.map((tab) => {
+            const isActive = activeValue === tab.value;
+            return (
+              <Tabs.Tab
+                key={tab.value}
+                value={tab.value}
+                disabled={tab.disabled}
+                aria-label={tab.title}
+                aria-controls={tab.ariaControls}
+                render={<motion.button layout />}
+                className={cn(
+                  "flex cursor-pointer items-center gap-2 overflow-clip rounded-full p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  isActive && activeTabClassName,
+                )}
+              >
                 <motion.span
                   layout
-                  className="overflow-hidden leading-[1] text-sm whitespace-nowrap"
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: "auto" }}
-                  exit={{ opacity: 0, width: 0 }}
+                  className="flex h-full grow items-center justify-center"
                 >
-                  {tab.title}
+                  <tab.icon className="text-lg" aria-hidden="true" />
                 </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        ))}
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.span
+                      layout
+                      className="overflow-hidden whitespace-nowrap text-sm leading-none"
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: "auto" }}
+                      exit={{ opacity: 0, width: 0 }}
+                    >
+                      {tab.title}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </Tabs.Tab>
+            );
+          })}
+        </Tabs.List>
       </MotionConfig>
-    </div>
+    </Tabs.Root>
   );
 }
 `,
       path: "expandable-tabs/expandable-tabs.tsx",
-      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx",
-    },
+      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
+    }
   ],
   "mesh-gradient-shader": [
     {
@@ -5994,7 +6115,7 @@ export default function ExpandableTabs({
 import { MeshGradient } from "@paper-design/shaders-react";
 import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface MeshGradientShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -6064,8 +6185,8 @@ export default function MeshGradientShader({
 }
 `,
       path: "mesh-gradient-shader/mesh-gradient-shader.tsx",
-      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
-    },
+      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+    }
   ],
   "link-preview": [
     {
@@ -6073,11 +6194,27 @@ export default function MeshGradientShader({
       content: `"use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { motionTransition } from "@/lib/sona-motion";
+
+function useMediaQuery(query: string) {
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query],
+  );
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    [query],
+  );
+
+  return useSyncExternalStore(subscribe, getSnapshot, () => false);
+}
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
   /** The URL of the link to preview. */
@@ -6106,7 +6243,7 @@ export default function LinkPreview({
 
   return (
     <>
-      <Link
+      <a
         href={link}
         className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
         onMouseEnter={() => {
@@ -6126,11 +6263,11 @@ export default function LinkPreview({
             <FaArrowUpRightFromSquare />
           </span>
         )}
-      </Link>
+      </a>
       <AnimatePresence>
         {isHover && desktop && (
-          <div
-            role="presentation"
+          <aside
+            aria-label={\`Link preview for \${link}\`}
             className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
               left: containerBounds.left + containerBounds.width / 2,
@@ -6152,21 +6289,25 @@ export default function LinkPreview({
                   ? { opacity: 0 }
                   : { opacity: 0, scale: 0.97 }
               }
-              transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
+              transition={
+                shouldReduceMotion
+                  ? motionTransition.reduced
+                  : motionTransition.enter
+              }
             >
               <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
                 <div className="flex justify-between gap-x-4 w-full text-sm">
                   External Link
-                  <Link href={link} aria-label={\`Open \${link}\`}>
+                  <a href={link} aria-label={\`Open \${link}\`}>
                     <FaArrowUpRightFromSquare />
-                  </Link>
+                  </a>
                 </div>
-                <Link href={link} className="text-nowrap underline">
+                <a href={link} className="text-nowrap underline">
                   {link}
-                </Link>
+                </a>
               </div>
             </motion.div>
-          </div>
+          </aside>
         )}
       </AnimatePresence>
     </>
@@ -6174,18 +6315,18 @@ export default function LinkPreview({
 }
 `,
       path: "link-preview/link-preview.tsx",
-      target: "components/sonaui/link-preview/link-preview.tsx",
-    },
+      target: "components/sonaui/link-preview/link-preview.tsx"
+    }
   ],
   "stagger-text": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion, type Variants, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { type ReactNode, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -6347,18 +6488,18 @@ const variants: Variants = {
 };
 `,
       path: "stagger-text/stagger-text.tsx",
-      target: "components/sonaui/stagger-text/stagger-text.tsx",
-    },
+      target: "components/sonaui/stagger-text/stagger-text.tsx"
+    }
   ],
   "hold-to-delete-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface HoldToDeleteButtonProps {
   /** Text displayed inside the button. */
@@ -6375,6 +6516,8 @@ export interface HoldToDeleteButtonProps {
   successDuration?: number;
   /** Called once when the hold completes. */
   onDelete?: () => void;
+  /** Whether the button ignores interaction. @default false */
+  disabled?: boolean;
   /** Additional CSS classes for the button. */
   className?: string;
 }
@@ -6384,12 +6527,16 @@ export default function HoldToDeleteButton({
   holdDuration = 2000,
   successDuration = 1200,
   onDelete,
+  disabled = false,
   className,
 }: HoldToDeleteButtonProps) {
   const [isHolding, setIsHolding] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const resolvedHoldDuration = Math.max(0, holdDuration);
+  const resolvedSuccessDuration = Math.max(0, successDuration);
 
   const cancelHold = () => {
     if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
@@ -6405,24 +6552,24 @@ export default function HoldToDeleteButton({
   };
 
   const handlePointerDown = () => {
-    if (isCompleted) return;
+    if (isCompleted || disabled) return;
     cancelHold();
     setIsHolding(true);
     holdTimerRef.current = setTimeout(() => {
       setIsHolding(false);
       setIsCompleted(true);
       onDelete?.();
-    }, holdDuration);
+    }, resolvedHoldDuration);
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: successDuration is stable per render
   useEffect(() => {
     if (!isCompleted) return;
-    successTimerRef.current = setTimeout(resetState, successDuration);
+    successTimerRef.current = setTimeout(resetState, resolvedSuccessDuration);
     return () => {
       if (successTimerRef.current) clearTimeout(successTimerRef.current);
     };
-  }, [isCompleted]);
+  }, [isCompleted, resolvedSuccessDuration]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: unmount-only cleanup
   useEffect(
@@ -6440,8 +6587,14 @@ export default function HoldToDeleteButton({
         "relative cursor-pointer overflow-clip rounded-full border-2 px-6 py-3 font-medium",
         className,
       )}
-      whileTap={{ scale: 0.95 }}
-      onPointerDown={handlePointerDown}
+      disabled={disabled}
+      aria-busy={isHolding}
+      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+      onPointerDown={(event) => {
+        if (disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        handlePointerDown();
+      }}
       onPointerUp={cancelHold}
       onPointerLeave={cancelHold}
       onPointerCancel={cancelHold}
@@ -6457,12 +6610,14 @@ export default function HoldToDeleteButton({
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-danger"
+        className="absolute inset-0 h-full w-full bg-danger-foreground"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
-          transition: isHolding
-            ? \`clip-path \${holdDuration}ms linear\`
-            : "clip-path 200ms ease-out",
+          transition: shouldReduceMotion
+            ? "none"
+            : isHolding
+              ? \`clip-path \${resolvedHoldDuration}ms linear\`
+              : "clip-path 200ms ease-out",
         }}
       />
       <span aria-live="polite" className="relative text-xl">
@@ -6473,320 +6628,423 @@ export default function HoldToDeleteButton({
 }
 `,
       path: "hold-to-delete-button/hold-to-delete-button.tsx",
-      target:
-        "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
-    },
-  ],
+      target: "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx"
+    }
+  ]
 };
 
 export const componentMetadata = {
-  "animated-dropdown": {
-    name: "animated-dropdown",
-    type: "registry:ui",
-    title: "Animated Dropdown",
-    description:
-      "A composable, accessible dropdown menu built on Base UI with a spring-driven shared hover highlight and origin-aware scale/fade enter-exit animation.",
-    files: [
+  "sona-utils": {
+    "name": "sona-utils",
+    "type": "registry:lib",
+    "title": "Sona Utilities",
+    "description": "Shared class-name utilities used by Sona UI registry components.",
+    "files": [
       {
-        path: "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/sona-utils/sona-utils.ts",
+        "type": "registry:lib",
+        "target": "@lib/sona-utils.ts"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  "sona-motion": {
+    "name": "sona-motion",
+    "type": "registry:lib",
+    "title": "Sona Motion",
+    "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/sona-motion/sona-motion.ts",
+        "type": "registry:lib",
+        "target": "@lib/sona-motion.ts"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "sona-theme": {
+    "name": "sona-theme",
+    "type": "registry:theme",
+    "title": "Sona Theme",
+    "description": "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
+    "files": [],
+    "dependencies": [],
+    "registryDependencies": [],
+    "cssVars": {
+      "theme": {
+        "radius-sona": "0.75rem"
+      },
+      "light": {
+        "danger": "oklch(0.97 0.04 25)",
+        "danger-foreground": "oklch(0.55 0.18 25)",
+        "danger-border": "oklch(0.9 0.1 25)"
+      },
+      "dark": {
+        "danger": "oklch(0.34 0.1 20)",
+        "danger-foreground": "oklch(0.75 0.15 25)",
+        "danger-border": "oklch(0.36 0.11 25)"
+      }
+    }
+  },
+  "animated-dropdown": {
+    "name": "animated-dropdown",
+    "type": "registry:ui",
+    "title": "Animated Dropdown",
+    "description": "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-theme.json"
+    ]
   },
   "animated-switch": {
-    name: "animated-switch",
-    type: "registry:ui",
-    title: "Animated Switch",
-    description:
-      "An interactive iOS-style squish switch built on Base UI Switch primitives, morphing the thumb on press and translating it with a snappy physics-based spring.",
-    files: [
+    "name": "animated-switch",
+    "type": "registry:ui",
+    "title": "Animated Switch",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
+    "files": [
       {
-        path: "registry/sonaui/animated-switch/animated-switch.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   "animated-dialog": {
-    name: "animated-dialog",
-    type: "registry:ui",
-    title: "Animated Dialog",
-    description:
-      "A composable, accessible dialog modal built on Base UI Dialog with custom direction-aware slide and fade animations powered by Framer Motion.",
-    files: [
+    "name": "animated-dialog",
+    "type": "registry:ui",
+    "title": "Animated Dialog",
+    "description": "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/animated-dialog/animated-dialog.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   "animated-button": {
-    name: "animated-button",
-    type: "registry:ui",
-    title: "Animated Button",
-    description:
-      "A button layout component that animates width shifts during content changes, transitions label swaps, and supports an iOS-style hover text-swap effect.",
-    files: [
+    "name": "animated-button",
+    "type": "registry:ui",
+    "title": "Animated Button",
+    "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
+    "files": [
       {
-        path: "registry/sonaui/animated-button/animated-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["class-variance-authority", "motion"],
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
   },
   "dot-orbit-shader": {
-    name: "dot-orbit-shader",
-    type: "registry:ui",
-    title: "Dot Orbit Shader",
-    description:
-      "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
-    files: [
+    "name": "dot-orbit-shader",
+    "type": "registry:ui",
+    "title": "Dot Orbit Shader",
+    "description": "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
+    "files": [
       {
-        path: "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@paper-design/shaders-react"],
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   "mesh-gradient-shader": {
-    name: "mesh-gradient-shader",
-    type: "registry:ui",
-    title: "Mesh Gradient Shader",
-    description:
-      "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
-    files: [
+    "name": "mesh-gradient-shader",
+    "type": "registry:ui",
+    "title": "Mesh Gradient Shader",
+    "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+    "files": [
       {
-        path: "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@paper-design/shaders-react"],
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
-  magnetic: {
-    name: "magnetic",
-    type: "registry:ui",
-    title: "Magnetic",
-    description:
-      "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
-    files: [
+  "magnetic-button": {
+    "name": "magnetic-button",
+    "type": "registry:ui",
+    "title": "Magnetic",
+    "description": "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/magnetic-button/magnetic-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: [],
+    "dependencies": [
+      "motion"
+    ]
   },
-  "vertical-tab": {
-    name: "vertical-tab",
-    type: "registry:ui",
-    title: "VerticalTab",
-    description:
-      "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
-    files: [
+  "animated-tabs": {
+    "name": "animated-tabs",
+    "type": "registry:ui",
+    "title": "Animated Tabs",
+    "description": "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
+    "files": [
       {
-        path: "registry/sonaui/vertical-tab/vertical-tab.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["react-use-measure"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
-  accordion: {
-    name: "accordion",
-    type: "registry:ui",
-    title: "Accordion",
-    description:
-      "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
-    files: [
+  "accordion": {
+    "name": "accordion",
+    "type": "registry:ui",
+    "title": "Accordion",
+    "description": "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/accordion/accordion.tsx",
-        type: "registry:ui",
+        "path": "registry/sonaui/accordion/accordion.tsx",
+        "type": "registry:ui"
       },
       {
-        path: "registry/sonaui/accordion/animated-plus-minus-button.tsx",
-        type: "registry:ui",
+        "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
+        "type": "registry:ui"
       },
+      {
+        "path": "registry/sonaui/accordion/styles.module.css",
+        "type": "registry:file",
+        "target": "@ui/accordion/styles.module.css"
+      }
     ],
-    dependencies: ["class-variance-authority", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ]
   },
   "ripple-button": {
-    name: "ripple-button",
-    type: "registry:ui",
-    title: "RippleButton",
-    description: "An interactive button with a ripple effect for modern UIs.",
-    files: [
+    "name": "ripple-button",
+    "type": "registry:ui",
+    "title": "RippleButton",
+    "description": "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/ripple-button/ripple-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/ripple-button/ripple-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: [],
+    "dependencies": [
+      "motion"
+    ]
   },
-  marquee: {
-    name: "marquee",
-    type: "registry:ui",
-    title: "Marquee",
-    description:
-      "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
-    files: [
+  "marquee": {
+    "name": "marquee",
+    "type": "registry:ui",
+    "title": "Marquee",
+    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/marquee/marquee.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/marquee/marquee.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "spinning-text": {
-    name: "spinning-text",
-    type: "registry:ui",
-    title: "SpinningText",
-    description:
-      "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
-    files: [
+    "name": "spinning-text",
+    "type": "registry:ui",
+    "title": "SpinningText",
+    "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+    "files": [
       {
-        path: "registry/sonaui/spinning-text/spinning-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/spinning-text/spinning-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: [],
+    "dependencies": [
+      "motion"
+    ]
   },
   "stagger-text": {
-    name: "stagger-text",
-    type: "registry:ui",
-    title: "StaggerText",
-    description: "A text component with staggered animation.",
-    files: [
+    "name": "stagger-text",
+    "type": "registry:ui",
+    "title": "StaggerText",
+    "description": "A text component with staggered animation.",
+    "files": [
       {
-        path: "registry/sonaui/stagger-text/stagger-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/stagger-text/stagger-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: [],
+    "dependencies": [
+      "motion"
+    ]
   },
   "link-preview": {
-    name: "link-preview",
-    type: "registry:ui",
-    title: "LinkPreview",
-    description:
-      "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
-    files: [
+    "name": "link-preview",
+    "type": "registry:ui",
+    "title": "LinkPreview",
+    "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+    "files": [
       {
-        path: "registry/sonaui/link-preview/link-preview.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/link-preview/link-preview.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["react-use-measure"],
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "react-use-measure"
+    ]
   },
   "bubble-up-button": {
-    name: "bubble-up-button",
-    type: "registry:ui",
-    title: "BubbleUpButton",
-    description:
-      'The `BubbleUpButton` component provides an interactive button with a fluid "bubble-up" animation effect when hovered. It creates an engaging user experience with minimal effort.',
-    files: [
+    "name": "bubble-up-button",
+    "type": "registry:ui",
+    "title": "BubbleUpButton",
+    "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
+    "files": [
       {
-        path: "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: [],
+    "dependencies": [
+      "motion"
+    ]
   },
   "expandable-tabs": {
-    name: "expandable-tabs",
-    type: "registry:ui",
-    title: "ExpandableTabs",
-    description:
-      "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
-    files: [
+    "name": "expandable-tabs",
+    "type": "registry:ui",
+    "title": "Expandable Tabs",
+    "description": "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
+    "files": [
       {
-        path: "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["react-icons"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion",
+      "react-icons"
+    ]
   },
   "split-text": {
-    name: "split-text",
-    type: "registry:ui",
-    title: "Split Text",
-    description:
-      "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
-    files: [
+    "name": "split-text",
+    "type": "registry:ui",
+    "title": "Split Text",
+    "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+    "files": [
       {
-        path: "registry/sonaui/split-text/split-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/split-text/split-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["gsap", "@gsap/react"],
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ]
   },
   "image-trail": {
-    name: "image-trail",
-    type: "registry:ui",
-    title: "Image Trail",
-    description:
-      "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
-    files: [
+    "name": "image-trail",
+    "type": "registry:ui",
+    "title": "Image Trail",
+    "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+    "files": [
       {
-        path: "registry/sonaui/image-trail/image-trail.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "spotlight-card": {
-    name: "spotlight-card",
-    type: "registry:ui",
-    title: "Spotlight Card",
-    description: "A card with a radial spotlight glow that follows the cursor.",
-    files: [
+    "name": "spotlight-card",
+    "type": "registry:ui",
+    "title": "Spotlight Card",
+    "description": "A card with a radial spotlight glow that follows the cursor.",
+    "files": [
       {
-        path: "registry/sonaui/spotlight-card/spotlight-card.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "hold-to-delete-button": {
-    name: "hold-to-delete-button",
-    type: "registry:ui",
-    title: "Hold To Delete Button",
-    description:
-      "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
-    files: [
+    "name": "hold-to-delete-button",
+    "type": "registry:ui",
+    "title": "Hold To Delete Button",
+    "description": "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "circular-dock-menu": {
-    name: "circular-dock-menu",
-    type: "registry:ui",
-    title: "Circular Dock Menu",
-    description:
-      "A circular trigger button that fans items out in a radial arc with spring animations.",
-    files: [
+    "name": "circular-dock-menu",
+    "type": "registry:ui",
+    "title": "Circular Dock Menu",
+    "description": "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion", "lucide-react"],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ]
   },
   "fan-view": {
-    name: "fan-view",
-    type: "registry:ui",
-    title: "Fan View",
-    description:
-      "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
-    files: [
+    "name": "fan-view",
+    "type": "registry:ui",
+    "title": "Fan View",
+    "description": "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/fan-view/fan-view.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/fan-view/fan-view.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
-  },
+    "dependencies": [
+      "motion"
+    ]
+  }
 };

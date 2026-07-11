@@ -1,10 +1,15 @@
 "use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DockMenuItem {
   /** Display label shown on the item pill. */
@@ -15,6 +20,8 @@ export interface DockMenuItem {
     strokeWidth?: number;
     "aria-hidden"?: boolean | "true" | "false";
   }>;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface CircularDockMenuProps {
@@ -22,6 +29,12 @@ export interface CircularDockMenuProps {
    * Items rendered as arc pills when the menu is open.
    */
   items?: DockMenuItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the menu opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the open/close animation.
    * @default 420
@@ -51,16 +64,34 @@ function getArcPosition(index: number, total: number) {
 
 export default function CircularDockMenu({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 420,
   damping = 32,
   className,
 }: CircularDockMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.8 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -75,14 +106,14 @@ export default function CircularDockMenu({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10",
@@ -93,7 +124,7 @@ export default function CircularDockMenu({
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, icon: Icon, x, y, rotate }, index) => (
+                ({ label, icon: Icon, onSelect, x, y, rotate }, index) => (
                   <m.div
                     key={label}
                     className="absolute bottom-12 left-1/2 z-10"
@@ -113,8 +144,12 @@ export default function CircularDockMenu({
                       rotate,
                       filter: "blur(0px)",
                       transition: {
-                        ...springConfig,
-                        delay: (items.length - index - 1) * 0.045,
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion
+                          ? 0
+                          : (items.length - index - 1) * 0.045,
                       },
                     }}
                     exit={{
@@ -124,11 +159,13 @@ export default function CircularDockMenu({
                       scale: 0.48,
                       rotate: 10,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: index * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.2,
+                            ease: "easeInOut",
+                            delay: index * 0.025,
+                          },
                     }}
                   >
                     <m.button
@@ -137,10 +174,23 @@ export default function CircularDockMenu({
                         "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
                         "border-border bg-background text-foreground shadow-lg",
                         "cursor-pointer text-lg font-semibold whitespace-nowrap",
-                        "hover:border-border/80",
+                        "hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                       )}
-                      whileHover={{ scale: 1.05, zIndex: 20 }}
-                      whileTap={{ scale: 0.96 }}
+                      onClick={() => {
+                        onSelect?.();
+                        setOpen(false);
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === "Escape") {
+                          event.preventDefault();
+                          setOpen(false);
+                          triggerRef.current?.focus();
+                        }
+                      }}
+                      whileHover={
+                        shouldReduceMotion ? {} : { scale: 1.05, zIndex: 20 }
+                      }
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                     >
                       <Icon
                         aria-hidden="true"
@@ -155,17 +205,18 @@ export default function CircularDockMenu({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "absolute bottom-12 left-1/2 z-20 flex size-24 -translate-x-1/2 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
               className="block relative size-9"

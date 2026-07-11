@@ -1,5 +1,5 @@
-import { writeFileSync } from "fs";
-import { join } from "path";
+import { writeFileSync } from "node:fs";
+import { join } from "node:path";
 
 const GITHUB_REPO = "Dinil-Thilakarathne/sona-ui";
 const OUTPUT_FILE = join(process.cwd(), "src/content/docs/changelog.mdx");
@@ -34,10 +34,6 @@ async function fetchReleases() {
     console.warn("Error fetching releases, skipping changelog update:", error);
     return [];
   }
-}
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toISOString().split("T")[0];
 }
 
 function generateMarkdown(releases: Release[]) {

@@ -1,10 +1,9 @@
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 const REGISTRY_DIR = path.join(process.cwd(), "src/registry/sonaui");
 const DOCS_DIR = path.join(process.cwd(), "src/content/docs");
 const OUTPUT_FILE = path.join(process.cwd(), "src/registry/registry.json");
-const EXAMPLE_DIR = path.join(process.cwd(), "src/registry/example");
 
 const KNOWN_DEPENDENCIES = [
   "framer-motion",
@@ -51,7 +50,7 @@ async function getComponentDescription(componentName: string): Promise<string> {
   if (frontmatterMatch) {
     const frontmatter = frontmatterMatch[1];
     const descMatch = frontmatter.match(/description:\s*(.*)/i);
-    if (descMatch && descMatch[1]) {
+    if (descMatch?.[1]) {
       return descMatch[1].trim().replace(/^["']|["']$/g, "");
     }
   }
@@ -102,8 +101,10 @@ async function getComponentDependencies(
 
     // Extract imports
     const importRegex = /from\s+['"]([^'"]+)['"]/g;
-    let match;
-    while ((match = importRegex.exec(content)) !== null) {
+    let match: RegExpExecArray | null;
+    while (true) {
+      match = importRegex.exec(content);
+      if (!match) break;
       const library = match[1];
 
       // specific libraries or anything starting with @radix-ui

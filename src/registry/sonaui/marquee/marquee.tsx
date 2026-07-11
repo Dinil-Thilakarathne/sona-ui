@@ -9,7 +9,7 @@ import {
   useVelocity,
 } from "motion/react";
 import { useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface MarqueeProps {
   /** Content of one marquee segment. Can be a single small element or a long strip. */
@@ -186,8 +186,9 @@ export default function Marquee({
   if (shouldReduceMotion) {
     // Static strip — no animation
     return (
-      <div
+      <section
         ref={containerRef}
+        aria-label="Scrolling content"
         className={cn("overflow-hidden", containerClassName)}
       >
         <div
@@ -206,13 +207,14 @@ export default function Marquee({
             </div>
           ))}
         </div>
-      </div>
+      </section>
     );
   }
 
   return (
-    <div
+    <section
       ref={containerRef}
+      aria-label="Scrolling content"
       className={cn("overflow-hidden", containerClassName)}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -228,7 +230,7 @@ export default function Marquee({
       >
         {children}
       </MotionTrack>
-    </div>
+    </section>
   );
 }
 
@@ -273,9 +275,8 @@ function MotionTrack({
       </div>
       {/* Copies — decorative, aria-hidden */}
       {items.map((_, i) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: decorative animation copies
         <div
-          key={i}
+          key={String(i)}
           aria-hidden="true"
           style={{
             paddingRight: isVertical ? 0 : gap,

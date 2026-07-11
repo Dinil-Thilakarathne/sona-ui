@@ -3,7 +3,7 @@
 import { DotOrbit } from "@paper-design/shaders-react";
 import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DotOrbitShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {

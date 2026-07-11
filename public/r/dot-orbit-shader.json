@@ -1,4 +1,5 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dot-orbit-shader",
   "type": "registry:ui",
   "title": "Dot Orbit Shader",
@@ -6,11 +7,16 @@
   "files": [
     {
       "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-      "content": "\"use client\";\n\nimport { DotOrbit } from \"@paper-design/shaders-react\";\nimport { useReducedMotion } from \"motion/react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface DotOrbitShaderProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  /**\n   * Background color. Accepts hex, RGB, or HSL strings.\n   * @default \"#000000\"\n   */\n  colorBack?: string;\n  /**\n   * Up to 10 dot colors. Accepts hex, RGB, or HSL strings.\n   * @default [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"]\n   */\n  colors?: string[];\n  /**\n   * Dot radius relative to cell size (0–1).\n   * @default 0.4\n   */\n  size?: number;\n  /**\n   * Random variation in dot size (0–1). 0 = uniform.\n   * @default 0.3\n   */\n  sizeRange?: number;\n  /**\n   * Maximum orbit distance around each cell center (0–1).\n   * @default 0.5\n   */\n  spreading?: number;\n  /**\n   * Extra color steps between base colors. 1 = N colors, 2 = 2×N, etc. (1–4).\n   * @default 1\n   */\n  stepsPerColor?: number;\n  /**\n   * Animation speed multiplier. 0 = static.\n   * @default 1\n   */\n  speed?: number;\n}\n\nexport default function DotOrbitShader({\n  className,\n  colorBack = \"#000000\",\n  colors = [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"],\n  size = 0.4,\n  sizeRange = 0.3,\n  spreading = 0.5,\n  stepsPerColor = 1,\n  speed = 1,\n  style,\n  ...props\n}: DotOrbitShaderProps) {\n  const shouldReduceMotion = useReducedMotion();\n\n  return (\n    <div\n      className={cn(\"overflow-hidden rounded-xl\", className)}\n      // Background color doubles as a fallback while WebGL boots (or is unavailable).\n      style={{ backgroundColor: colorBack, ...style }}\n      {...props}\n    >\n      <DotOrbit\n        colorBack={colorBack}\n        colors={colors}\n        size={size}\n        sizeRange={sizeRange}\n        spreading={spreading}\n        stepsPerColor={stepsPerColor}\n        speed={shouldReduceMotion ? 0 : speed}\n        style={{ width: \"100%\", height: \"100%\" }}\n      />\n    </div>\n  );\n}\n",
       "type": "registry:ui",
-      "target": "components/ui/dot-orbit-shader/dot-orbit-shader.tsx"
+      "content": "\"use client\";\n\nimport { DotOrbit } from \"@paper-design/shaders-react\";\nimport { useReducedMotion } from \"motion/react\";\n\nimport { cn } from \"@/lib/sona-utils\";\n\nexport interface DotOrbitShaderProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  /**\n   * Background color. Accepts hex, RGB, or HSL strings.\n   * @default \"#000000\"\n   */\n  colorBack?: string;\n  /**\n   * Up to 10 dot colors. Accepts hex, RGB, or HSL strings.\n   * @default [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"]\n   */\n  colors?: string[];\n  /**\n   * Dot radius relative to cell size (0–1).\n   * @default 0.4\n   */\n  size?: number;\n  /**\n   * Random variation in dot size (0–1). 0 = uniform.\n   * @default 0.3\n   */\n  sizeRange?: number;\n  /**\n   * Maximum orbit distance around each cell center (0–1).\n   * @default 0.5\n   */\n  spreading?: number;\n  /**\n   * Extra color steps between base colors. 1 = N colors, 2 = 2×N, etc. (1–4).\n   * @default 1\n   */\n  stepsPerColor?: number;\n  /**\n   * Animation speed multiplier. 0 = static.\n   * @default 1\n   */\n  speed?: number;\n}\n\nexport default function DotOrbitShader({\n  className,\n  colorBack = \"#000000\",\n  colors = [\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\"],\n  size = 0.4,\n  sizeRange = 0.3,\n  spreading = 0.5,\n  stepsPerColor = 1,\n  speed = 1,\n  style,\n  ...props\n}: DotOrbitShaderProps) {\n  const shouldReduceMotion = useReducedMotion();\n\n  return (\n    <div\n      className={cn(\"overflow-hidden rounded-xl\", className)}\n      // Background color doubles as a fallback while WebGL boots (or is unavailable).\n      style={{ backgroundColor: colorBack, ...style }}\n      {...props}\n    >\n      <DotOrbit\n        colorBack={colorBack}\n        colors={colors}\n        size={size}\n        sizeRange={sizeRange}\n        spreading={spreading}\n        stepsPerColor={stepsPerColor}\n        speed={shouldReduceMotion ? 0 : speed}\n        style={{ width: \"100%\", height: \"100%\" }}\n      />\n    </div>\n  );\n}\n",
+      "target": "@ui/dot-orbit-shader/dot-orbit-shader.tsx"
     }
   ],
-  "dependencies": ["@paper-design/shaders-react"],
-  "registryDependencies": []
+  "dependencies": [
+    "@paper-design/shaders-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json"
+  ]
 }

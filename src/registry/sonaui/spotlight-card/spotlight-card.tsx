@@ -3,7 +3,7 @@
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface SpotlightCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -34,13 +34,14 @@ export default function SpotlightCard({
   spotlightColor = "rgba(255,255,255,0.15)",
   spotlightSize = 350,
   disabled = false,
+  onMouseMove,
   ...props
 }: SpotlightCardProps) {
   // Start off-canvas so the first hover doesn't flash the glow at (0,0).
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
@@ -50,9 +51,11 @@ export default function SpotlightCard({
   const background = useMotionTemplate`radial-gradient(${spotlightSize}px circle at ${mouseX}px ${mouseY}px, ${spotlightColor}, transparent 80%)`;
 
   return (
-    <div
-      role="presentation"
-      onMouseMove={handleMouseMove}
+    <article
+      onMouseMove={(event) => {
+        handleMouseMove(event);
+        onMouseMove?.(event as React.MouseEvent<HTMLDivElement>);
+      }}
       className={cn(
         "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
         className,
@@ -67,6 +70,6 @@ export default function SpotlightCard({
         />
       )}
       <div className="relative z-10">{children}</div>
-    </div>
+    </article>
   );
 }

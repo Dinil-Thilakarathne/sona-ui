@@ -2,102 +2,93 @@
 
 import { Switch } from "@base-ui/react/switch";
 import { motion, useReducedMotion } from "motion/react";
-import { useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 
-export interface AnimatedSwitchProps {
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedSwitchProps
+  extends Omit<
+    Switch.Root.Props,
+    "checked" | "defaultChecked" | "onCheckedChange" | "className"
+  > {
   /** Controlled checked state. */
   checked?: boolean;
-  /** Default checked state. */
+  /** Initial checked state for uncontrolled usage. @default false */
   defaultChecked?: boolean;
-  /** Callback fired when the state changes. */
+  /** Callback fired when the checked state changes. */
   onCheckedChange?: (checked: boolean) => void;
-  /** Whether the switch is disabled. */
+  /** Whether the switch is disabled. @default false */
   disabled?: boolean;
-  /**
-   * The size of the switch.
-   * @default "md"
-   */
+  /** The size of the switch. @default "md" */
   size?: "sm" | "md" | "lg";
+  /** Additional classes for the switch track. */
   className?: string;
 }
 
 const sizeClasses = {
-  sm: {
-    track: "w-9 h-5 p-0.5",
-    thumb: "w-4 h-4",
-    xTranslate: 16, // px offset to slide right
-    squishScale: 1.15,
-  },
-  md: {
-    track: "w-11 h-6 p-0.5",
-    thumb: "w-5 h-5",
-    xTranslate: 20,
-    squishScale: 1.2,
-  },
-  lg: {
-    track: "w-14 h-8 p-0.5",
-    thumb: "w-7 h-7",
-    xTranslate: 24,
-    squishScale: 1.2,
-  },
+  sm: { track: "h-5 w-9 p-0.5", thumb: "h-4 w-4", xTranslate: 16 },
+  md: { track: "h-6 w-11 p-0.5", thumb: "h-5 w-5", xTranslate: 20 },
+  lg: { track: "h-8 w-14 p-0.5", thumb: "h-7 w-7", xTranslate: 24 },
 };
 
 export default function AnimatedSwitch({
-  checked: controlledChecked,
-  defaultChecked,
+  checked,
+  defaultChecked = false,
   onCheckedChange,
   disabled = false,
   size = "md",
   className,
+  onPointerDownCapture,
+  onPointerUpCapture,
+  onPointerCancelCapture,
+  onLostPointerCapture,
+  ...props
 }: AnimatedSwitchProps) {
-  const [internalChecked, setInternalChecked] = useState(
-    defaultChecked ?? false,
-  );
-  const isControlled = controlledChecked !== undefined;
-  const checked = isControlled ? controlledChecked : internalChecked;
-
   const shouldReduceMotion = useReducedMotion();
-
-  // Track if we are dragging or actively pressing (via pointer events)
   const [isPressing, setIsPressing] = useState(false);
-  const trackRef = useRef<HTMLButtonElement>(null);
-
-  const handleCheckedChange = (nextChecked: boolean) => {
-    if (!isControlled) {
-      setInternalChecked(nextChecked);
-    }
-    onCheckedChange?.(nextChecked);
-  };
-
+  const [visualChecked, setVisualChecked] = useState(defaultChecked);
   const sizes = sizeClasses[size];
-
-  // We determine the horizontal origin of the stretch based on target state:
-  // If checked, pressing down should stretch from left to right.
-  // If not checked, pressing down should stretch from right to left.
-  const transformOrigin = checked ? "right center" : "left center";
+  const resolvedChecked = checked ?? visualChecked;
+  const accessibleLabel =
+    props["aria-label"] ?? (props["aria-labelledby"] ? undefined : "Toggle");
 
   return (
     <Switch.Root
-      ref={trackRef}
+      {...props}
       checked={checked}
-      onCheckedChange={handleCheckedChange}
+      defaultChecked={defaultChecked}
       disabled={disabled}
-      onPointerDown={(e) => {
-        if (e.button === 0 && !disabled) {
-          setIsPressing(true);
-          const handleRelease = () => {
-            setIsPressing(false);
-            window.removeEventListener("pointerup", handleRelease);
-          };
-          window.addEventListener("pointerup", handleRelease);
-        }
+      aria-label={accessibleLabel}
+      onCheckedChange={(nextChecked) => {
+        setVisualChecked(nextChecked);
+        onCheckedChange?.(nextChecked);
+      }}
+      onPointerDownCapture={(event) => {
+        onPointerDownCapture?.(event);
+        if (event.button !== 0 || disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setIsPressing(true);
+      }}
+      onPointerUpCapture={(event) => {
+        onPointerUpCapture?.(event);
+        setIsPressing(false);
+      }}
+      onPointerCancelCapture={(event) => {
+        onPointerCancelCapture?.(event);
+        setIsPressing(false);
+      }}
+      onLostPointerCapture={(event) => {
+        onLostPointerCapture?.(event);
+        setIsPressing(false);
       }}
       className={cn(
-        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent",
+        "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
+        "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         sizes.track,
-        checked ? "bg-foreground" : "bg-foreground/20",
-        disabled && "cursor-not-allowed opacity-50",
+        "data-[checked]:bg-foreground data-[unchecked]:bg-foreground/20",
+        "disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
     >
@@ -109,21 +100,17 @@ export default function AnimatedSwitch({
         render={
           <motion.span
             style={{
-              transformOrigin,
+              transformOrigin: resolvedChecked ? "right center" : "left center",
             }}
             animate={{
-              x: checked ? sizes.xTranslate : 0,
-              scaleX: isPressing && !disabled ? sizes.squishScale : 1,
-              scaleY: isPressing && !disabled ? 0.9 : 1,
+              x: resolvedChecked ? sizes.xTranslate : 0,
+              scaleX: isPressing && !shouldReduceMotion ? 1.18 : 1,
+              scaleY: isPressing && !shouldReduceMotion ? 0.92 : 1,
             }}
             transition={
               shouldReduceMotion
-                ? { duration: 0 }
-                : {
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 32,
-                  }
+                ? motionTransition.instant
+                : motionTransition.feedback
             }
           />
         }

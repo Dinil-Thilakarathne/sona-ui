@@ -7,7 +7,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 import { type ReactNode, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 interface BubbleUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,5 +1,6 @@
 "use client";
 
+import { Tabs } from "@base-ui/react/tabs";
 import {
   AnimatePresence,
   MotionConfig,
@@ -10,91 +11,131 @@ import {
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
-export type TabsData = {
+export interface ExpandableTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Text revealed when the tab is active. */
   title: string;
+  /** Icon displayed for the tab. */
   icon: IconType;
-};
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
 
-interface ExpandableTabsProps {
-  /** An array of tab objects, each containing a title and an icon. */
-  tabs: TabsData[];
-  /**
-   * Additional class names for the container element.
-   * @default ""
-   */
-  containerClassName?: string;
-  /**
-   * The index of the tab that is active by default.
-   * @default 0
-   */
-  defaultActiveIndex?: number;
-  /** Motion configuration for the transition animations. */
+export interface ExpandableTabsProps {
+  /** Tabs displayed in the expandable horizontal tab list. */
+  tabs: ExpandableTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Accessible label for the tab list. @default "Expandable tabs" */
+  ariaLabel?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+  /** Additional classes for the active tab. */
+  activeTabClassName?: string;
+  /** Motion configuration applied to the layout and label transitions. */
   motionConfig?: MotionConfigProps;
 }
 
 export default function ExpandableTabs({
   tabs,
-  containerClassName = "",
-  defaultActiveIndex = 0,
-  motionConfig = {
-    transition: { duration: 0.2, ease: "easeOut" },
-  },
+  value,
+  defaultValue,
+  onValueChange,
+  ariaLabel = "Expandable tabs",
+  className,
+  listClassName,
+  activeTabClassName = "bg-accent text-accent-foreground",
+  motionConfig,
 }: ExpandableTabsProps) {
-  const [isActive, setIsActive] = useState(defaultActiveIndex);
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
+  );
+  const [inputModality, setInputModality] = useState<"keyboard" | "pointer">(
+    "pointer",
+  );
   const shouldReduceMotion = useReducedMotion();
+  const activeValue = value ?? internalValue;
+  const transition =
+    shouldReduceMotion || inputModality === "keyboard"
+      ? motionTransition.instant
+      : (motionConfig?.transition ?? motionTransition.spatial);
 
   return (
-    <div
-      role="tablist"
-      className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2",
-        containerClassName,
-      )}
+    <Tabs.Root
+      value={activeValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue);
+      }}
+      className={className}
     >
-      <MotionConfig
-        {...(shouldReduceMotion
-          ? { transition: { duration: 0 } }
-          : motionConfig)}
-      >
-        {tabs.map((tab, index) => (
-          <motion.button
-            type="button"
-            role="tab"
-            aria-selected={isActive === index}
-            key={tab.title}
-            layout
-            className={cn(
-              "flex cursor-pointer items-center gap-x-2 overflow-clip rounded-full p-2",
-              "transition-colors duration-200",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-              isActive === index && "bg-accent text-accent-foreground",
-            )}
-            onClick={() => setIsActive(index)}
-          >
-            <motion.span
-              layout
-              className="grow items-center justify-center h-full"
-            >
-              <tab.icon className="text-lg" aria-hidden="true" />
-            </motion.span>
-            <AnimatePresence initial={false}>
-              {isActive === index && (
+      <MotionConfig transition={transition}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn(
+            "flex gap-2 rounded-full border bg-transparent p-2",
+            listClassName,
+          )}
+          onKeyDownCapture={() => setInputModality("keyboard")}
+          onPointerDownCapture={() => setInputModality("pointer")}
+        >
+          {tabs.map((tab) => {
+            const isActive = activeValue === tab.value;
+            return (
+              <Tabs.Tab
+                key={tab.value}
+                value={tab.value}
+                disabled={tab.disabled}
+                aria-label={tab.title}
+                aria-controls={tab.ariaControls}
+                render={<motion.button layout />}
+                className={cn(
+                  "flex cursor-pointer items-center gap-2 overflow-clip rounded-full p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  isActive && activeTabClassName,
+                )}
+              >
                 <motion.span
                   layout
-                  className="overflow-hidden leading-[1] text-sm whitespace-nowrap"
-                  initial={{ opacity: 0, width: 0 }}
-                  animate={{ opacity: 1, width: "auto" }}
-                  exit={{ opacity: 0, width: 0 }}
+                  className="flex h-full grow items-center justify-center"
                 >
-                  {tab.title}
+                  <tab.icon className="text-lg" aria-hidden="true" />
                 </motion.span>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        ))}
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.span
+                      layout
+                      className="overflow-hidden whitespace-nowrap text-sm leading-none"
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: "auto" }}
+                      exit={{ opacity: 0, width: 0 }}
+                    >
+                      {tab.title}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </Tabs.Tab>
+            );
+          })}
+        </Tabs.List>
       </MotionConfig>
-    </div>
+    </Tabs.Root>
   );
 }

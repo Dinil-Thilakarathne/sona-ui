@@ -6,19 +6,23 @@ tags: ["UI", "tabs", "Component"]
 
 # Expandable Tabs Component
 
-The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.
+`ExpandableTabs` is an accessible horizontal tab selector that expands the active icon into a labeled pill. It uses Base UI for state and keyboard behavior, with input-aware Motion layout transitions.
 
 ## Features
 
-- **Smooth Animations**: Transitions between tabs with fluid animations.
-- **Customizable**: Easily customize styles, colors, and behavior.
-- **Responsive**: Works seamlessly across different screen sizes.
-- **Lightweight**: Minimal dependencies and optimized for performance.
+- **Accessible foundation**: Base UI provides roving focus, disabled states, and arrow-key navigation.
+- **Input-aware motion**: Pointer changes use spatial motion while keyboard changes remain immediate.
+- **Controlled or uncontrolled**: Supports `value`, `defaultValue`, and `onValueChange`.
+- **Customizable**: Override root, list, active-tab, and Motion configuration.
+- **Reduced motion**: Removes spatial expansion while preserving clear active-state feedback.
 
 <Divider />
 
 <ComponentPreview component="expandable-tabs" name="default" />
 
+## Playground
+
+<ComponentPlayground component="expandable-tabs" />
 
 ## Installation
 <ComponentInstallation component="expandable-tabs" />

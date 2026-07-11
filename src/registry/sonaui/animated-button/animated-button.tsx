@@ -3,7 +3,8 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { forwardRef } from "react";
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 // ─── Button Variants (CVA) ───────────────────────────────────────────────────
 
@@ -12,7 +13,7 @@ export const animatedButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-foreground text-background hover:bg-foreground/90",
         outlined:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
@@ -133,7 +134,8 @@ export const AnimatedButton = forwardRef<
           disabled={disabled}
           initial="initial"
           whileHover="hover"
-          whileTap={{ scale: 0.97 }}
+          whileFocus="hover"
+          whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
           variants={containerHoverVariants}
           className={cn(
             animatedButtonVariants({ variant, size }),
@@ -145,7 +147,7 @@ export const AnimatedButton = forwardRef<
           {/* Main Label Layer */}
           <motion.span
             variants={firstLayerVariants}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            transition={motionTransition.spatial}
             className="flex items-center justify-center w-full"
           >
             {children}
@@ -154,7 +156,7 @@ export const AnimatedButton = forwardRef<
           {/* Incoming Hover Label Layer */}
           <motion.span
             variants={secondLayerVariants}
-            transition={{ type: "spring", stiffness: 350, damping: 25 }}
+            transition={motionTransition.spatial}
             className="absolute flex items-center justify-center w-full"
           >
             {children}
@@ -172,8 +174,8 @@ export const AnimatedButton = forwardRef<
         whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
         transition={
           shouldReduceMotion
-            ? { duration: 0 }
-            : { type: "spring", stiffness: 500, damping: 35 }
+            ? motionTransition.reduced
+            : motionTransition.spatial
         }
         className={cn(
           animatedButtonVariants({ variant, size }),
@@ -194,8 +196,8 @@ export const AnimatedButton = forwardRef<
               exit="exit"
               transition={
                 shouldReduceMotion
-                  ? { duration: 0 }
-                  : { type: "spring", stiffness: 450, damping: 30 }
+                  ? motionTransition.reduced
+                  : motionTransition.spatial
               }
               className="flex items-center justify-center gap-2 whitespace-nowrap min-w-max"
             >

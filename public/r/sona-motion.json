@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sona-motion",
+  "type": "registry:lib",
+  "title": "Sona Motion",
+  "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+  "files": [
+    {
+      "path": "registry/sonaui/sona-motion/sona-motion.ts",
+      "type": "registry:lib",
+      "target": "@lib/sona-motion.ts",
+      "content": "import type { Transition } from \"motion/react\";\n\n/** Shared easing curves for stateful Sona UI motion. */\nexport const motionEasing = {\n  enter: [0.23, 1, 0.32, 1],\n  exit: [0.4, 0, 1, 1],\n  move: [0.65, 0, 0.35, 1],\n} as const;\n\n/** Semantic motion transitions. Choose by interaction purpose, not component. */\nexport const motionTransition = {\n  instant: { duration: 0 },\n  reduced: { duration: 0.12, ease: motionEasing.enter },\n  feedback: { type: \"spring\", bounce: 0, duration: 0.22 },\n  enter: { duration: 0.18, ease: motionEasing.enter },\n  exit: { duration: 0.12, ease: motionEasing.exit },\n  spatial: { type: \"spring\", bounce: 0, duration: 0.35 },\n  expressive: { type: \"spring\", bounce: 0.18, duration: 0.4 },\n} satisfies Record<string, Transition>;\n"
+    }
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": []
+}

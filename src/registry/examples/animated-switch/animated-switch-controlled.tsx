@@ -9,9 +9,9 @@ export default function AnimatedSwitchControlled() {
   return (
     <div className="flex items-center gap-3">
       <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
-      <span className="text-sm font-medium">
+      <span className="text-foreground text-sm font-medium">
         Controlled State:{" "}
-        <span className="text-primary font-semibold">
+        <span className="text-foreground font-semibold">
           {checked ? "ON" : "OFF"}
         </span>
       </span>

@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
 import { type ReactNode, useRef } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 gsap.registerPlugin(useGSAP, GSAPSplitText, ScrollTrigger);
 
@@ -94,7 +94,7 @@ export default function SplitText({
       if (prefersReducedMotion) return;
 
       const targetEl = containerEl.firstElementChild as HTMLElement | null;
-      if (process.env.NODE_ENV !== "production" && !targetEl) {
+      if (!targetEl) {
         console.warn(
           "[SplitText] Expected a single wrapping element as children (e.g. an <h2>), but found none. Nothing will animate.",
         );

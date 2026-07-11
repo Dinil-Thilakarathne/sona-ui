@@ -8,11 +8,11 @@ import {
   useSpring,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
-interface MagneticProps {
+export interface MagneticProps {
   /** The content to be rendered inside the magnetic button. */
   children: ReactNode;
   /**
@@ -34,6 +34,8 @@ interface MagneticProps {
   springConfig?: SpringOptions;
   /** Additional class names for custom styling. */
   customClassName?: string;
+  /** Additional classes for the wrapper. Prefer this for new usage. */
+  className?: string;
 }
 
 export default function Magnetic({
@@ -43,6 +45,7 @@ export default function Magnetic({
   interactionArea = "self",
   springConfig = SPRING_CONFIG,
   customClassName,
+  className,
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
@@ -53,6 +56,7 @@ export default function Magnetic({
 
   const springMotionX = useSpring(motionX, springConfig);
   const springMotionY = useSpring(motionY, springConfig);
+  const resolvedRange = Math.max(1, magneticRange);
 
   // Only listen while hovered — no idle document-wide mousemove work.
   useEffect(() => {
@@ -68,8 +72,8 @@ export default function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-        if (absoluteDistance <= magneticRange) {
-          const scale = 1 - absoluteDistance / magneticRange;
+        if (absoluteDistance <= resolvedRange) {
+          const scale = 1 - absoluteDistance / resolvedRange;
 
           motionX.set(distanceX * magneticIntensity * scale);
           motionY.set(distanceY * magneticIntensity * scale);
@@ -89,10 +93,18 @@ export default function Magnetic({
     isMouseHovered,
     shouldReduceMotion,
     magneticIntensity,
-    magneticRange,
+    resolvedRange,
     motionX,
     motionY,
   ]);
+
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setMouseHovered(false);
+      motionX.set(0);
+      motionY.set(0);
+    }
+  }, [motionX, motionY, shouldReduceMotion]);
 
   useEffect(() => {
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
@@ -139,7 +151,7 @@ export default function Magnetic({
         y: springMotionY,
       }}
       role="presentation"
-      className={cn("", customClassName)}
+      className={cn(customClassName, className)}
     >
       {children}
     </motion.div>

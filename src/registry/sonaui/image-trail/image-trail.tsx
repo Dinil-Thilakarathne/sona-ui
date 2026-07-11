@@ -8,7 +8,8 @@ import {
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 type ImageTrailVariant = "scale" | "fade" | "blur" | "rise" | "tilt";
 
@@ -197,7 +198,7 @@ export default function ImageTrail({
               initial={active.initial}
               animate={active.animate}
               exit={active.exit}
-              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              transition={motionTransition.expressive}
             />
           ))}
         </AnimatePresence>

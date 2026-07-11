@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import ts from "typescript";
 
 /**
@@ -55,10 +55,7 @@ function getJsDoc(node: ts.Node): { description: string; default?: string } {
 
   for (const doc of jsDocNodes) {
     if (doc.comment) {
-      description +=
-        (typeof doc.comment === "string"
-          ? doc.comment
-          : (ts.getTextOfJSDocComment(doc.comment) ?? "")) + " ";
+      description += `${typeof doc.comment === "string" ? doc.comment : (ts.getTextOfJSDocComment(doc.comment) ?? "")} `;
     }
     if (doc.tags) {
       for (const tag of doc.tags) {

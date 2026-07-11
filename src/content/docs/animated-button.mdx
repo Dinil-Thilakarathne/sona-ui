@@ -6,17 +6,17 @@ tags: ["UI", "Button", "Layout", "Animation", "Component"]
 
 # Animated Button
 
-A layout-animated button component designed to make state transitions feel seamless. When content changes (e.g., "Submit" ➔ "Saving..." ➔ "Success"), the button's dimensions scale smoothly via layout animations while labels transition into place.
+A layout-animated button component designed to make state transitions feel seamless. When content changes (e.g., "Submit" ➔ "Saving..." ➔ "Success"), the button's dimensions scale smoothly via Motion layout animations while labels transition into place.
 
 It also supports a built-in vertical **hover text-swap** effect, unifying and upgrading the original `ScrollUpButton` into a single button API.
 
 ## Features
 
-- **Size-Animate (FLIP)** — Uses Framer Motion's layout engine to animate width adjustments smoothly when contents expand or contract.
+- **Size-Animate (FLIP)** — Uses Motion's layout engine to animate width adjustments smoothly when contents expand or contract.
 - **Label Swap Animations** — Four transition modes out-of-the-box: `slide-up`, `slide-down`, `fade`, and `blur`.
 - **Integrated Hover Swap** — Set `hoverSwap` to enable a vertical sliding roll effect on hover.
 - **Press Scaling** — Scales down slightly on click (`whileTap={{ scale: 0.97 }}`) for physical press response.
-- **Accessibility & Motion reduction** — Fades labels and jumps dimensions instantly when reduced motion is preferred.
+- **Accessibility & Motion reduction** — Supports keyboard focus for hover swaps and removes press/layout motion when reduced motion is preferred.
 
 <Divider />
 

@@ -17,7 +17,7 @@ export default function DocClient({ doc }: DocClientProps) {
   const mdUrl = `/api/md?slug=${encodeURIComponent(doc.slug)}`;
 
   return (
-    <div className=" w-full max-w-5xl mx-auto ">
+    <div className=" w-full max-w-4xl mx-auto ">
       <div className=" flex justify-end  relative">
         <div className=" absolute right-0 -top-full">
           <DocsCopyPage page={doc.body.raw} url={url} mdUrl={mdUrl} />
