@@ -128,7 +128,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         />
         <SheetContent
           side="left"
-          className="flex left-2! top-[calc(var(--spacing-header-height)+1rem)]! flex-col p-4 h-full max-h-[calc(100dvh-var(--spacing-header-height)-2rem)] max-w-sidebar-width w-sidebar-width bg-sidebar border rounded-lg"
+          className="flex  flex-col p-4 h-full min-h-dvh  max-w-sidebar-width w-sidebar-width bg-sidebar  rounded-r-lg"
           showCloseButton={false}
         >
           <div className="sr-only">

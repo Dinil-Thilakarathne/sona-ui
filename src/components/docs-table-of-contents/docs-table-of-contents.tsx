@@ -9,13 +9,13 @@ import {
 } from "motion/react";
 import { useEffect, useId, useState } from "react";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/common/sheet";
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/common/drawer";
 import { cn } from "@/lib/utils";
 
 type Heading = {
@@ -205,8 +205,13 @@ export function DocsTableOfContents() {
         </nav>
       </aside>
 
-      <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger
+      <Drawer
+        open={open}
+        onOpenChange={setOpen}
+        showSwipeHandle
+        swipeDirection="down"
+      >
+        <DrawerTrigger
           render={
             <button
               type="button"
@@ -220,21 +225,13 @@ export function DocsTableOfContents() {
             </button>
           }
         />
-        <SheetContent
-          side="bottom"
-          showCloseButton={false}
-          className="max-h-[min(32rem,75dvh)] rounded-t-2xl px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-3"
-        >
-          <div
-            aria-hidden="true"
-            className="mx-auto h-1 w-10 rounded-full bg-muted"
-          />
-          <SheetHeader className="px-0 pb-2 pt-1">
-            <SheetTitle>On this page</SheetTitle>
-            <SheetDescription>
+        <DrawerContent className="max-h-[min(32rem,75dvh)] rounded-t-2xl px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-3">
+          <DrawerHeader className="px-0 pb-2 pt-1">
+            <DrawerTitle>On this page</DrawerTitle>
+            <DrawerDescription>
               Jump to a section in this documentation page.
-            </SheetDescription>
-          </SheetHeader>
+            </DrawerDescription>
+          </DrawerHeader>
           <nav aria-label="Table of contents" className="overflow-y-auto pb-2">
             <ContentsList
               activeId={activeId}
@@ -242,8 +239,8 @@ export function DocsTableOfContents() {
               onNavigate={() => setOpen(false)}
             />
           </nav>
-        </SheetContent>
-      </Sheet>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 }
