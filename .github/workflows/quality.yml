@@ -38,7 +38,7 @@ jobs:
         run: bun run check:registry-consumers
 
       - name: Typecheck
-        run: bunx tsc --noEmit
+        run: bun run typecheck
 
       - name: Install Playwright browser
         run: bunx playwright install --with-deps chromium
