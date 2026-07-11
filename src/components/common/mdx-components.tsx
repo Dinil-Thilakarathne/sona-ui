@@ -47,6 +47,7 @@ const components = {
   Image,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
+      data-doc-heading
       className={cn(
         "font-heading mt-2 scroll-m-20 text-2xl font-bold lg:text-4xl",
         className,
@@ -56,6 +57,7 @@ const components = {
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
+      data-doc-heading
       className={cn(
         "font-heading mt-12 scroll-m-20 border-b pb-2 mb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
         className,
@@ -65,8 +67,19 @@ const components = {
   ),
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
+      data-doc-heading
       className={cn(
         "font-heading mt-8 scroll-m-20 pb-2 text-lg font-semibold tracking-tight lg:text-xl",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h4
+      data-doc-heading
+      className={cn(
+        "font-heading mt-6 scroll-m-20 text-base font-semibold tracking-tight lg:text-lg",
         className,
       )}
       {...props}
@@ -93,10 +106,10 @@ const components = {
     className,
     ...props
   }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className={cn("bg-gray-100", className)} {...props} />
+    <thead className={cn("bg-muted", className)} {...props} />
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn("border-b border-gray-300", className)} {...props} />
+    <tr className={cn("border-b border-border", className)} {...props} />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th
@@ -114,7 +127,19 @@ const components = {
     />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("text-sm md:text-base", className)} {...props} />
+    <p className={cn("text-sm leading-7 md:text-base", className)} {...props} />
+  ),
+  blockquote: ({
+    className,
+    ...props
+  }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
+    <blockquote
+      className={cn(
+        "border-border mt-6 border-l-2 pl-6 text-muted-foreground italic",
+        className,
+      )}
+      {...props}
+    />
   ),
   Divider: () => <div className="py-8 w-full" />,
   CodeSyntaxHighlighter,
@@ -141,17 +166,55 @@ const components = {
 interface MDXProps {
   code: string;
   className?: string;
+  headerActions?: React.ReactNode;
+  mobileHeaderContent?: React.ReactNode;
 }
 
-export function Mdx({ code, className }: MDXProps) {
+export function Mdx({
+  code,
+  className,
+  headerActions,
+  mobileHeaderContent,
+}: MDXProps) {
   const Component = useMDXComponent(code);
+  const mdxComponents =
+    headerActions || mobileHeaderContent
+      ? {
+          ...components,
+          h1: ({
+            className: headingClassName,
+            ...props
+          }: React.HTMLAttributes<HTMLHeadingElement>) => (
+            <>
+              <h1
+                data-doc-heading
+                className={cn(
+                  "font-heading mt-2 scroll-m-20 text-2xl font-bold lg:text-4xl",
+                  headingClassName,
+                )}
+                {...props}
+              />
+              <div className="flex flex-col gap-4 md:pt-4 mobile:mb-2 lg:absolute lg:top-0 lg:right-0 lg:block lg:pt-0">
+                {headerActions}
+                {mobileHeaderContent && (
+                  <div className="lg:hidden">{mobileHeaderContent}</div>
+                )}
+              </div>
+            </>
+          ),
+        }
+      : components;
 
   return (
     <article
-      className={cn("mx-auto max-w-[120ch]", className)}
+      className={cn(
+        "docs-prose relative mx-auto max-w-[75ch]",
+        headerActions && "lg:[&>h1]:pr-28",
+        className,
+      )}
       data-context="component-article"
     >
-      <Component components={components} />
+      <Component components={mdxComponents} />
     </article>
   );
 }

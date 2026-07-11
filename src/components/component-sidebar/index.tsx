@@ -111,11 +111,16 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SheetTrigger
           render={
             <motion.button
-              className="block lg:hidden fixed bottom-4 right-4 z-50 p-4 bg-background/20 border border-border rounded-full shadow-lg backdrop-blur"
+              className="block lg:hidden fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] z-50 p-4 bg-background/90 border border-border rounded-full shadow-lg backdrop-blur"
               whileTap={{ scale: 0.95 }}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              aria-label="Toggle menu"
+              aria-label={
+                isOpen
+                  ? "Close documentation navigation"
+                  : "Open documentation navigation"
+              }
+              aria-expanded={isOpen}
             >
               {isOpen ? <MdClose size={24} /> : <FiMenu size={24} />}
             </motion.button>
