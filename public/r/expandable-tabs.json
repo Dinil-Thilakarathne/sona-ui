@@ -12,11 +12,7 @@
       "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
     }
   ],
-  "dependencies": [
-    "@base-ui/react",
-    "motion",
-    "react-icons"
-  ],
+  "dependencies": ["@base-ui/react", "motion", "react-icons"],
   "registryDependencies": [
     "https://sona-ui.vercel.app/r/sona-utils.json",
     "https://sona-ui.vercel.app/r/sona-motion.json"

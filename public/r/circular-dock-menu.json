@@ -12,11 +12,6 @@
       "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
     }
   ],
-  "dependencies": [
-    "motion",
-    "lucide-react"
-  ],
-  "registryDependencies": [
-    "https://sona-ui.vercel.app/r/sona-utils.json"
-  ]
+  "dependencies": ["motion", "lucide-react"],
+  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
 }

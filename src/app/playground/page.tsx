@@ -1,17 +1,9 @@
 import { notFound } from "next/navigation";
-import React from "react";
-import AccordionAnimatedExample from "@/registry/examples/accordion/accordion-animated";
+import PlaygroundIndex from "@/components/playground/playground-index";
+import { playgroundRegistry } from "@/registry/playground";
 
-const page = () => {
-  if (process.env.NODE_ENV === "production") {
-    notFound(); // or redirect
-  }
+export default function PlaygroundPage() {
+  if (process.env.NODE_ENV === "production") notFound();
 
-  return (
-    <div className="container flex items-center justify-center mx-auto min-h-[calc(100vh-75px)]">
-      <AccordionAnimatedExample />
-    </div>
-  );
-};
-
-export default page;
+  return <PlaygroundIndex components={Object.keys(playgroundRegistry)} />;
+}

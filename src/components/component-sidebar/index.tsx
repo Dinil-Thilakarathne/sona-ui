@@ -102,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Desktop Sidebar (Persistent layout sidebar) */}
-      <aside className="hidden lg:flex overflow-y-auto overscroll-none fixed left-2 top-header-height z-40 flex-col my-4 p-4 space-y-2 h-[calc(100svh-var(--spacing-header-height)-2rem)] w-sidebar-width bg-sidebar rounded-lg">
+      <aside className="hidden lg:flex overflow-y-auto overscroll-none fixed left-2 top-header-height z-40 flex-col my-4 p-4 space-y-2 h-[calc(100svh-var(--spacing-header-height)-2rem)] w-[min(var(--sidebar-width),100%)] bg-sidebar rounded-lg">
         <SidebarContent pathname={pathname} onLinkClick={() => {}} />
       </aside>
 

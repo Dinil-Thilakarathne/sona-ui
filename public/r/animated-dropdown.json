@@ -12,10 +12,7 @@
       "target": "components/ui/animated-dropdown/animated-dropdown.tsx"
     }
   ],
-  "dependencies": [
-    "@base-ui/react",
-    "motion"
-  ],
+  "dependencies": ["@base-ui/react", "motion"],
   "registryDependencies": [
     "https://sona-ui.vercel.app/r/sona-theme.json",
     "https://sona-ui.vercel.app/r/sona-utils.json",

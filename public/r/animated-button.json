@@ -12,10 +12,7 @@
       "target": "components/ui/animated-button/animated-button.tsx"
     }
   ],
-  "dependencies": [
-    "class-variance-authority",
-    "motion"
-  ],
+  "dependencies": ["class-variance-authority", "motion"],
   "registryDependencies": [
     "https://sona-ui.vercel.app/r/sona-utils.json",
     "https://sona-ui.vercel.app/r/sona-motion.json"

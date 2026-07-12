@@ -24,11 +24,6 @@
       "content": ".wrapper {\n  border-radius: 1rem;\n  overflow: visible;\n}\n\n.animated {\n  --_margin-gap: 1.5rem;\n  --ease: linear(\n    0 0%,\n    0.2688 9.91%,\n    0.3859 15%,\n    0.4917 20.19%,\n    0.5865 25.5%,\n    0.6705 30.93%,\n    0.7441 36.51%,\n    0.8075 42.26%,\n    0.8593 47.98%,\n    0.9022 53.93%,\n    0.9366 60.13%,\n    0.963 66.67%,\n    0.9812 73.4%,\n    0.9929 80.76%,\n    0.9986 88.89%,\n    1 100%\n  );\n  --bounce-duration: calc((1 / var(--speed, 1)) * 1s);\n  --duration: calc((0.36 / var(--speed, 1)) * 1s);\n\n  outline: 1px solid;\n\n  transition-property: transform, border-radius;\n  transition-duration: var(--duration);\n  transition-timing-function: var(--ease);\n  transform-style: preserve-3d;\n  perspective: 120px;\n}\n\n.animated:has(~ .animated[data-open]) {\n  transform: translate3d(0, calc(var(--_margin-gap) * -1), 0);\n}\n\n.animated[data-open] ~ .animated {\n  transform: translate3d(0, calc(var(--_margin-gap) * 1), 0);\n}\n\n.animated:is(:first-child) {\n  border-top-left-radius: 1rem;\n  border-top-right-radius: 1rem;\n}\n\n.animated:is(:last-child) {\n  border-bottom-left-radius: 1rem;\n  border-bottom-right-radius: 1rem;\n}\n\n.animated[data-open] {\n  border-radius: 1rem;\n}\n\n.animated[data-open] + .animated {\n  border-top-left-radius: 1rem;\n  border-top-right-radius: 1rem;\n}\n\n.animated.animated:has(+ .animated[data-open]) {\n  border-bottom-left-radius: 1rem;\n  border-bottom-right-radius: 1rem;\n}\n"
     }
   ],
-  "dependencies": [
-    "@base-ui/react",
-    "class-variance-authority"
-  ],
-  "registryDependencies": [
-    "https://sona-ui.vercel.app/r/sona-utils.json"
-  ]
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
+  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
 }

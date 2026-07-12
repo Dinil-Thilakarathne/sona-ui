@@ -16,10 +16,7 @@
           "target": "lib/sona-utils.ts"
         }
       ],
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "registryDependencies": []
     },
     {
@@ -35,9 +32,7 @@
           "target": "lib/sona-motion.ts"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": []
     },
     {
@@ -78,10 +73,7 @@
           "target": "components/ui/animated-dropdown/animated-dropdown.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-theme.json",
         "https://sona-ui.vercel.app/r/sona-utils.json",
@@ -101,10 +93,7 @@
           "target": "components/ui/animated-switch/animated-switch.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -123,10 +112,7 @@
           "target": "components/ui/animated-dialog/animated-dialog.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -145,10 +131,7 @@
           "target": "components/ui/animated-button/animated-button.tsx"
         }
       ],
-      "dependencies": [
-        "class-variance-authority",
-        "motion"
-      ],
+      "dependencies": ["class-variance-authority", "motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -167,13 +150,8 @@
           "target": "components/ui/dot-orbit-shader/dot-orbit-shader.tsx"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react",
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["@paper-design/shaders-react", "motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -188,13 +166,8 @@
           "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
         }
       ],
-      "dependencies": [
-        "@paper-design/shaders-react",
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["@paper-design/shaders-react", "motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -209,12 +182,8 @@
           "target": "components/ui/magnetic-button/magnetic-button.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -229,10 +198,7 @@
           "target": "components/ui/animated-tabs/animated-tabs.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ],
+      "dependencies": ["@base-ui/react", "motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -261,13 +227,8 @@
           "target": "components/ui/accordion/styles.module.css"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "class-variance-authority"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -282,12 +243,8 @@
           "target": "components/ui/ripple-button/ripple-button.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -302,12 +259,8 @@
           "target": "components/ui/marquee/marquee.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -322,12 +275,8 @@
           "target": "components/ui/spinning-text/spinning-text.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -342,12 +291,8 @@
           "target": "components/ui/stagger-text/stagger-text.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -362,14 +307,8 @@
           "target": "components/ui/link-preview/link-preview.tsx"
         }
       ],
-      "dependencies": [
-        "motion",
-        "react-icons",
-        "react-use-measure"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-motion.json"
-      ]
+      "dependencies": ["motion", "react-icons", "react-use-measure"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-motion.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -384,12 +323,8 @@
           "target": "components/ui/bubble-up-button/bubble-up-button.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -404,11 +339,7 @@
           "target": "components/ui/expandable-tabs/expandable-tabs.tsx"
         }
       ],
-      "dependencies": [
-        "@base-ui/react",
-        "motion",
-        "react-icons"
-      ],
+      "dependencies": ["@base-ui/react", "motion", "react-icons"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -427,13 +358,8 @@
           "target": "components/ui/split-text/split-text.tsx"
         }
       ],
-      "dependencies": [
-        "gsap",
-        "@gsap/react"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["gsap", "@gsap/react"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -448,9 +374,7 @@
           "target": "components/ui/image-trail/image-trail.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
+      "dependencies": ["motion"],
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json",
         "https://sona-ui.vercel.app/r/sona-motion.json"
@@ -469,12 +393,8 @@
           "target": "components/ui/spotlight-card/spotlight-card.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -489,12 +409,8 @@
           "target": "components/ui/hold-to-delete-button/hold-to-delete-button.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -509,13 +425,8 @@
           "target": "components/ui/circular-dock-menu/circular-dock-menu.tsx"
         }
       ],
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion", "lucide-react"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -530,12 +441,8 @@
           "target": "components/ui/fan-view/fan-view.tsx"
         }
       ],
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
-      ]
+      "dependencies": ["motion"],
+      "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
     }
   ]
 }

@@ -12,10 +12,7 @@
       "target": "components/ui/animated-tabs/animated-tabs.tsx"
     }
   ],
-  "dependencies": [
-    "@base-ui/react",
-    "motion"
-  ],
+  "dependencies": ["@base-ui/react", "motion"],
   "registryDependencies": [
     "https://sona-ui.vercel.app/r/sona-utils.json",
     "https://sona-ui.vercel.app/r/sona-motion.json"

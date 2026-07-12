@@ -12,10 +12,6 @@
       "target": "components/ui/hold-to-delete-button/hold-to-delete-button.tsx"
     }
   ],
-  "dependencies": [
-    "motion"
-  ],
-  "registryDependencies": [
-    "https://sona-ui.vercel.app/r/sona-utils.json"
-  ]
+  "dependencies": ["motion"],
+  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
 }

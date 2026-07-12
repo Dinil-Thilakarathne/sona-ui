@@ -60,5 +60,10 @@ next-env.d.ts
 
 /docs
 
+# Versioned component-ideation briefs
+!/docs/
+!/docs/component-ideation/
+!/docs/component-ideation/**
+
 # personal social / marketing drafts — never commit
 /social

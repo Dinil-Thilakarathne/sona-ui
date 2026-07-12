@@ -17,6 +17,7 @@ import { type Control, playgroundRegistry } from "@/registry/playground";
 
 interface ComponentPlaygroundProps {
   component: string;
+  controlsOpen?: boolean;
 }
 
 function defaultsFor(controls: Control[]): Record<string, unknown> {
@@ -64,6 +65,7 @@ class PlaygroundErrorBoundary extends Component<
 
 const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   component,
+  controlsOpen = true,
 }) => {
   const entry = playgroundRegistry[component];
 
@@ -95,38 +97,45 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   const reset = () => setValues(defaults);
 
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-[75%_1fr] my-3 max-w-screen w-full">
+    <div
+      className={cn(
+        "grid grid-cols-1 gap-4 my-3 max-w-screen w-full",
+        controlsOpen ? "lg:grid-cols-[75%_1fr]" : "grid-cols-1",
+      )}
+    >
       <ComponentWrapper className="min-h-[300px]">
         <PlaygroundErrorBoundary onReset={reset}>
           {rendered}
         </PlaygroundErrorBoundary>
       </ComponentWrapper>
 
-      <fieldset className="flex flex-col gap-5 rounded-xl border bg-secondary p-4 shadow-sm">
-        <legend className="sr-only">Controls</legend>
-        <div className="flex items-center justify-between">
-          <span className="font-semibold text-foreground text-sm">
-            Controls
-          </span>
-          <button
-            type="button"
-            onClick={reset}
-            disabled={!isDirty}
-            className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          >
-            Reset
-          </button>
-        </div>
+      {controlsOpen && (
+        <fieldset className="flex flex-col gap-5 rounded-xl border bg-secondary p-4 shadow-sm">
+          <legend className="sr-only">Controls</legend>
+          <div className="flex items-center justify-between">
+            <span className="font-semibold text-foreground text-sm">
+              Controls
+            </span>
+            <button
+              type="button"
+              onClick={reset}
+              disabled={!isDirty}
+              className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Reset
+            </button>
+          </div>
 
-        {entry.controls.map((control) => (
-          <ControlField
-            key={control.prop}
-            control={control}
-            value={values[control.prop]}
-            onChange={(v) => set(control.prop, v)}
-          />
-        ))}
-      </fieldset>
+          {entry.controls.map((control) => (
+            <ControlField
+              key={control.prop}
+              control={control}
+              value={values[control.prop]}
+              onChange={(v) => set(control.prop, v)}
+            />
+          ))}
+        </fieldset>
+      )}
     </div>
   );
 };

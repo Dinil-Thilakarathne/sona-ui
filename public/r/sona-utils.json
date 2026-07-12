@@ -12,9 +12,6 @@
       "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\n/** Merge conditional class names while resolving Tailwind conflicts. */\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n"
     }
   ],
-  "dependencies": [
-    "clsx",
-    "tailwind-merge"
-  ],
+  "dependencies": ["clsx", "tailwind-merge"],
   "registryDependencies": []
 }
