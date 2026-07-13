@@ -12,6 +12,11 @@
       "target": "components/ui/mesh-gradient-shader/mesh-gradient-shader.tsx"
     }
   ],
-  "dependencies": ["@paper-design/shaders-react", "motion"],
-  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
+  "dependencies": [
+    "@paper-design/shaders-react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json"
+  ]
 }

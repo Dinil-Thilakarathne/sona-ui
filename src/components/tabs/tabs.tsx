@@ -21,7 +21,7 @@ const tabsListVariants = cva(
   {
     variants: {
       variant: {
-        capsule: "rounded-xl bg-muted",
+        capsule: "rounded-xl bg-(--tabs-surface)",
         underline:
           "data-[orientation=horizontal]:px-0 data-[orientation=vertical]:py-0 data-[orientation=horizontal]:pt-0",
       },
@@ -73,7 +73,7 @@ const tabIndicatorVariants = cva(
           "data-[orientation=horizontal]:top-auto data-[orientation=horizontal]:bottom-0 data-[orientation=horizontal]:h-0.75 data-[orientation=horizontal]:translate-y-0",
         ],
         capsule: [
-          "border bg-card bg-clip-padding shadow-[0_1px_2px_0_oklch(0.18_0_0/0.06)] dark:bg-accent",
+          "border border-(--tabs-indicator-border) bg-(--tabs-indicator) bg-clip-padding shadow-[0_1px_2px_0_oklch(0.18_0_0/0.06)]",
           "data-[orientation=vertical]:w-auto",
           "data-[orientation=horizontal]:top-1/2 data-[orientation=horizontal]:h-(--active-tab-height)",
         ],

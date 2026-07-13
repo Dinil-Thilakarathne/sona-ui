@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "registry": "https://sona-ui.vercel.app/r/{name}.json",
+  "items": [
+    {
+      "name": "fluid-tabs",
+      "title": "Fluid Tabs",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.",
+      "keywords": [
+        "tabs",
+        "navigation",
+        "segmented content",
+        "settings"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/fluid-tabs",
+      "registryItem": "https://sona-ui.vercel.app/r/fluid-tabs.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/fluid-tabs.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-dialog",
+      "title": "Animated Dialog",
+      "category": "components",
+      "status": "stable",
+      "summary": "A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.",
+      "keywords": [
+        "dialog",
+        "modal",
+        "confirmation",
+        "focused task",
+        "overlay"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/animated-dialog",
+      "registryItem": "https://sona-ui.vercel.app/r/animated-dialog.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/animated-dialog.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "mesh-gradient-shader",
+      "title": "Mesh Gradient Shader",
+      "category": "shaders",
+      "status": "stable",
+      "summary": "A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.",
+      "keywords": [
+        "shader",
+        "background",
+        "gradient",
+        "hero",
+        "decorative motion"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/mesh-gradient-shader",
+      "registryItem": "https://sona-ui.vercel.app/r/mesh-gradient-shader.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/mesh-gradient-shader.json",
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "motion"
+      ]
+    }
+  ]
+}

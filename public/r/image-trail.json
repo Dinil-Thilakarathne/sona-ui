@@ -12,7 +12,9 @@
       "target": "components/ui/image-trail/image-trail.tsx"
     }
   ],
-  "dependencies": ["motion"],
+  "dependencies": [
+    "motion"
+  ],
   "registryDependencies": [
     "https://sona-ui.vercel.app/r/sona-utils.json",
     "https://sona-ui.vercel.app/r/sona-motion.json"

@@ -16,6 +16,7 @@ import {
   TabsTrigger,
 } from "@/components/tabs/tabs";
 import { cn } from "@/lib/utils";
+import { DesignTokenReference } from "../design-token/design-token-reference";
 import { ComponentUsageServer } from "../usage/component-usage-server";
 import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
 import { ComponentInstallationServer } from "./component-installation-server";
@@ -161,6 +162,7 @@ const components = {
 
   ComponentUsage: ComponentUsageServer,
   CodeBlockWrapper: InternalCodeBlock,
+  DesignTokenReference,
 };
 
 interface MDXProps {

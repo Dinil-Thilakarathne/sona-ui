@@ -1,48 +1,50 @@
 // This file is auto-generated. Do not edit.
-import type * as React from "react";
+import * as React from "react";
+import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
+import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
+import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
+import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
+import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
+import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
+import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
+import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import fluid_tabs_fluid_tabs_demo from "@/registry/examples/fluid-tabs/fluid-tabs-demo";
+import fluid_tabs_fluid_tabs_underline from "@/registry/examples/fluid-tabs/fluid-tabs-underline";
+import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
+import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
+import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
+import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
+import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
 import accordion_accordion_animated from "@/registry/examples/accordion/accordion-animated";
 import accordion_accordion_demo from "@/registry/examples/accordion/accordion-demo";
 import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
-import accordion_accordion_splitted from "@/registry/examples/accordion/accordion-splitted";
-import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
+import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
+import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
+import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
+import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
+import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
+import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
 import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
 import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
-import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
-import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
-import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
-import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
-import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
-import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
-import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
-import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
-import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
-import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
-import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
-import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
-import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
-import dot_orbit_shader_dot_orbit_shader_pastel from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-pastel";
-import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
-import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
-import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
-import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
-import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
-import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
-import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
-import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
-import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
-import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
-import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
-import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
-import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
-import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
-import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
-import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
-import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
-import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
-import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
+import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
+import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
+import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
+import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
+import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
+import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
+import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
+import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
+import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
+import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
+import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
+import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
+import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -285,7 +287,7 @@ export default function AnimatedDropdownDemo() {
     </AnimatedDropdown>
   );
 }`,
-    },
+    }
   ],
   "circular-dock-menu": [
     {
@@ -339,7 +341,7 @@ const ITEMS = [
 export default function CircularDockMenuDemo() {
   return <CircularDockMenu items={ITEMS} />;
 }`,
-    },
+    }
   ],
   "image-trail": [
     {
@@ -577,7 +579,7 @@ export default function ImageTrailTiltExample() {
     </ImageTrail>
   );
 }`,
-    },
+    }
   ],
   "magnetic-button": [
     {
@@ -615,7 +617,67 @@ export default function MagneticButtonExample() {
     </div>
   );
 }`,
+    }
+  ],
+  "fluid-tabs": [
+    {
+      name: "default",
+      component: fluid_tabs_fluid_tabs_demo,
+      code: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+const tabs = [
+  { value: "overview", title: "Overview" },
+  { value: "activity", title: "Activity" },
+  { value: "settings", title: "Settings" },
+];
+
+export default function FluidTabsDemo() {
+  return <FluidTabs tabs={tabs} />;
+}
+`,
+      imports: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";`,
+      anatomy: `const tabs = [
+  { value: "overview", title: "Overview" },
+  { value: "activity", title: "Activity" },
+  { value: "settings", title: "Settings" },
+];
+
+export default function FluidTabsDemo() {
+  return <FluidTabs tabs={tabs} />;
+}`,
     },
+    {
+      name: "underline",
+      component: fluid_tabs_fluid_tabs_underline,
+      code: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+export default function FluidTabsUnderlineDemo() {
+  return (
+    <FluidTabs
+      tabs={[
+        { value: "all", title: "All" },
+        { value: "design", title: "Design" },
+        { value: "engineering", title: "Engineering" },
+      ]}
+      variant="underline"
+    />
+  );
+}
+`,
+      imports: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";`,
+      anatomy: `export default function FluidTabsUnderlineDemo() {
+  return (
+    <FluidTabs
+      tabs={[
+        { value: "all", title: "All" },
+        { value: "design", title: "Design" },
+        { value: "engineering", title: "Engineering" },
+      ]}
+      variant="underline"
+    />
+  );
+}`,
+    }
   ],
   "dot-orbit-shader": [
     {
@@ -731,9 +793,9 @@ export default function DotOrbitShaderPastel() {
     />
   );
 }`,
-    },
+    }
   ],
-  accordion: [
+  "accordion": [
     {
       name: "splitted",
       component: accordion_accordion_splitted,
@@ -1397,7 +1459,7 @@ export default function AccordionOutlinedExample() {
     </AccordionRoot>
   );
 }`,
-    },
+    }
   ],
   "spinning-text": [
     {
@@ -1421,7 +1483,7 @@ export default function SpinningTextExample() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "bubble-up-button": [
     {
@@ -1437,7 +1499,7 @@ export default function BubbleUpButtonExample() {
       anatomy: `export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
-    },
+    }
   ],
   "fan-view": [
     {
@@ -1475,9 +1537,9 @@ const ITEMS = [
 export default function FanViewDemo() {
   return <FanView items={ITEMS} />;
 }`,
-    },
+    }
   ],
-  marquee: [
+  "marquee": [
     {
       name: "default",
       component: marquee_marquee_demo,
@@ -1583,7 +1645,7 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
     </div>
   );
 };`,
-    },
+    }
   ],
   "ripple-button": [
     {
@@ -1659,7 +1721,7 @@ export default function RippleButtonExample({
     </RippleButton>
   );
 }`,
-    },
+    }
   ],
   "spotlight-card": [
     {
@@ -1691,7 +1753,7 @@ export default function SpotlightCardExample() {
     </SpotlightCard>
   );
 }`,
-    },
+    }
   ],
   "animated-dialog": [
     {
@@ -1911,7 +1973,7 @@ export default function AnimatedDialogToast() {
     </AnimatedDialog>
   );
 }`,
-    },
+    }
   ],
   "split-text": [
     {
@@ -1939,7 +2001,7 @@ export default function SplitTextExample() {
     </SplitText>
   );
 }`,
-    },
+    }
   ],
   "animated-tabs": [
     {
@@ -1971,7 +2033,7 @@ export default function AnimatedTabsExample() {
 export default function AnimatedTabsExample() {
   return <AnimatedTabs tabs={tabs} />;
 }`,
-    },
+    }
   ],
   "animated-button": [
     {
@@ -2157,7 +2219,7 @@ export default function AnimatedButtonDemo() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "animated-switch": [
     {
@@ -2361,7 +2423,7 @@ export default function AnimatedSwitchDemo() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "expandable-tabs": [
     {
@@ -2431,7 +2493,7 @@ const tabs = [
 export default function ExpandableTabsExample() {
   return <ExpandableTabs tabs={tabs} defaultValue="home" />;
 }`,
-    },
+    }
   ],
   "mesh-gradient-shader": [
     {
@@ -2563,7 +2625,7 @@ export default function MeshGradientShaderMonochrome() {
     />
   );
 }`,
-    },
+    }
   ],
   "link-preview": [
     {
@@ -2607,7 +2669,7 @@ export default function LinkPreviewExample() {
     </div>
   );
 }`,
-    },
+    }
   ],
   "stagger-text": [
     {
@@ -2623,7 +2685,7 @@ export default function StaggerTextExample() {
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }`,
-    },
+    }
   ],
   "hold-to-delete-button": [
     {
@@ -2659,18 +2721,18 @@ export default function HoldToDeleteButtonDemo() {
     </div>
   );
 }`,
-    },
-  ],
+    }
+  ]
 };
 
 export type Registry = {
-  [key: string]: Array<{
-    type: string;
-    content: string;
-    path: string;
-    target: string;
-  }>;
-};
+    [key: string]: Array<{
+        type: string;
+        content: string;
+        path: string;
+        target: string;
+    }>
+}
 
 export const registry: Registry = {
   "animated-dropdown": [
@@ -2964,8 +3026,8 @@ export function AnimatedDropdownSeparator({
 }
 `,
       path: "animated-dropdown/animated-dropdown.tsx",
-      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx",
-    },
+      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
+    }
   ],
   "circular-dock-menu": [
     {
@@ -3212,8 +3274,8 @@ export default function CircularDockMenu({
 }
 `,
       path: "circular-dock-menu/circular-dock-menu.tsx",
-      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx",
-    },
+      target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx"
+    }
   ],
   "image-trail": [
     {
@@ -3429,8 +3491,8 @@ export default function ImageTrail({
 }
 `,
       path: "image-trail/image-trail.tsx",
-      target: "components/sonaui/image-trail/image-trail.tsx",
-    },
+      target: "components/sonaui/image-trail/image-trail.tsx"
+    }
   ],
   "sona-utils": [
     {
@@ -3444,8 +3506,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 `,
       path: "sona-utils/sona-utils.ts",
-      target: "components/sonaui/sona-utils/sona-utils.ts",
-    },
+      target: "components/sonaui/sona-utils/sona-utils.ts"
+    }
   ],
   "magnetic-button": [
     {
@@ -3611,8 +3673,194 @@ export default function Magnetic({
 }
 `,
       path: "magnetic-button/magnetic-button.tsx",
-      target: "components/sonaui/magnetic-button/magnetic-button.tsx",
-    },
+      target: "components/sonaui/magnetic-button/magnetic-button.tsx"
+    }
+  ],
+  "fluid-tabs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Tabs } from "@base-ui/react/tabs";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import {
+  type CSSProperties,
+  type ReactNode,
+  useId,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface FluidTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Content displayed inside the tab trigger. */
+  title: ReactNode;
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
+
+export interface FluidTabsProps {
+  /** Tabs displayed in the horizontal tab list. */
+  tabs: FluidTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Visual treatment for the active surface. @default "capsule" */
+  variant?: "capsule" | "underline";
+  /** Size of the tab triggers. @default "md" */
+  size?: "sm" | "md" | "lg";
+  /** Accessible label for the tab list. @default "Tabs" */
+  ariaLabel?: string;
+  /** Styling hook for the active surface. @default "bg-[var(--fluid-tabs-surface-active)]" */
+  activeIndicatorClassName?: string;
+  /** Optional styling hook for the supporting hover cue. @default "bg-[var(--fluid-tabs-hover)]" */
+  hoverClassName?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+}
+
+const sizeClasses = {
+  sm: "min-h-8 px-2.5 text-xs",
+  md: "min-h-9 px-3 text-sm",
+  lg: "min-h-11 px-4 text-base",
+} as const;
+
+const tokenStyle = {
+  "--fluid-tabs-surface": "var(--tabs-surface)",
+  "--fluid-tabs-surface-active": "var(--tabs-indicator)",
+  "--fluid-tabs-label": "var(--muted-foreground)",
+  "--fluid-tabs-label-active": "var(--foreground)",
+  "--fluid-tabs-hover": "color-mix(in oklab, var(--accent) 35%, transparent)",
+  "--fluid-tabs-focus-ring": "var(--ring)",
+  "--fluid-tabs-border": "var(--border)",
+  "--fluid-tabs-capsule-border-radius": "var(--radius-lg)",
+} as CSSProperties;
+
+export default function FluidTabs({
+  tabs,
+  value,
+  defaultValue,
+  onValueChange,
+  variant = "capsule",
+  size = "md",
+  ariaLabel = "Tabs",
+  activeIndicatorClassName = "bg-[var(--fluid-tabs-surface-active)]",
+  hoverClassName = "bg-[var(--fluid-tabs-hover)]",
+  className,
+  listClassName,
+}: FluidTabsProps) {
+  const layoutId = useId();
+  const keyboardSelectionRef = useRef(false);
+  const shouldReduceMotion = useReducedMotion();
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
+  );
+  const activeValue = value ?? internalValue;
+
+  return (
+    <Tabs.Root
+      value={value}
+      defaultValue={defaultValue ?? fallbackValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue);
+        keyboardSelectionRef.current = false;
+      }}
+      className={cn(
+        "relative w-fit max-w-full overflow-x-auto border-b border-[var(--fluid-tabs-border)]",
+        className,
+      )}
+      style={tokenStyle}
+    >
+      <LayoutGroup id={layoutId}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn(
+            "flex w-max gap-1 p-1",
+            variant === "capsule" && "rounded-xl bg-(--fluid-tabs-surface)",
+            listClassName,
+          )}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              aria-controls={tab.ariaControls}
+              onKeyDown={() => {
+                keyboardSelectionRef.current = true;
+              }}
+              className={(state) =>
+                cn(
+                  "group relative flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg font-medium text-(--fluid-tabs-label) transition-colors duration-150",
+                  sizeClasses[size],
+                  "hover:text-(--fluid-tabs-label-active) focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--fluid-tabs-focus-ring)",
+                  "disabled:pointer-events-none disabled:opacity-45",
+                  variant === "underline" && "rounded-none",
+                  state.active && "text-(--fluid-tabs-label-active)",
+                )
+              }
+            >
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100",
+                  hoverClassName,
+                  variant === "underline" &&
+                    "inset-x-1 top-auto h-0.5 rounded-full",
+                  variant === "capsule" &&
+                    "rounded-(--fluid-tabs-capsule-border-radius)",
+                )}
+              />
+              {activeValue === tab.value && (
+                <motion.span
+                  aria-hidden="true"
+                  layoutId={\`\${layoutId}-active\`}
+                  className={cn(
+                    "pointer-events-none absolute",
+                    variant === "capsule" &&
+                      "inset-0 rounded-lg border border-(--tabs-indicator-border)",
+                    variant === "underline" &&
+                      "inset-x-1 bottom-0 h-0.5 rounded-full bg-(--fluid-tabs-surface-active)",
+                    activeIndicatorClassName,
+                  )}
+                  transition={
+                    shouldReduceMotion || keyboardSelectionRef.current
+                      ? { duration: 0 }
+                      : {
+                          type: "spring",
+                          stiffness: 320,
+                          damping: 40,
+                          mass: 0.9,
+                        }
+                  }
+                />
+              )}
+              <span className="relative z-1">{tab.title}</span>
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </LayoutGroup>
+    </Tabs.Root>
+  );
+}
+`,
+      path: "fluid-tabs/fluid-tabs.tsx",
+      target: "components/sonaui/fluid-tabs/fluid-tabs.tsx"
+    }
   ],
   "dot-orbit-shader": [
     {
@@ -3699,10 +3947,10 @@ export default function DotOrbitShader({
 }
 `,
       path: "dot-orbit-shader/dot-orbit-shader.tsx",
-      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-    },
+      target: "components/sonaui/dot-orbit-shader/dot-orbit-shader.tsx"
+    }
   ],
-  accordion: [
+  "accordion": [
     {
       type: "registry:ui",
       content: `"use client";
@@ -3934,7 +4182,7 @@ export function AccordionItemContent({
 export { AccordionContext };
 `,
       path: "accordion/accordion.tsx",
-      target: "components/sonaui/accordion/accordion.tsx",
+      target: "components/sonaui/accordion/accordion.tsx"
     },
     {
       type: "registry:ui",
@@ -3976,8 +4224,8 @@ export default function AnimatedPlusMinusButton({
 }
 `,
       path: "accordion/animated-plus-minus-button.tsx",
-      target: "components/sonaui/accordion/animated-plus-minus-button.tsx",
-    },
+      target: "components/sonaui/accordion/animated-plus-minus-button.tsx"
+    }
   ],
   "spinning-text": [
     {
@@ -4132,8 +4380,8 @@ export default function SpinningText({
 }
 `,
       path: "spinning-text/spinning-text.tsx",
-      target: "components/sonaui/spinning-text/spinning-text.tsx",
-    },
+      target: "components/sonaui/spinning-text/spinning-text.tsx"
+    }
   ],
   "sona-motion": [
     {
@@ -4159,8 +4407,8 @@ export const motionTransition = {
 } satisfies Record<string, Transition>;
 `,
       path: "sona-motion/sona-motion.ts",
-      target: "components/sonaui/sona-motion/sona-motion.ts",
-    },
+      target: "components/sonaui/sona-motion/sona-motion.ts"
+    }
   ],
   "bubble-up-button": [
     {
@@ -4250,8 +4498,8 @@ export default function BubbleUpButton({
 }
 `,
       path: "bubble-up-button/bubble-up-button.tsx",
-      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx",
-    },
+      target: "components/sonaui/bubble-up-button/bubble-up-button.tsx"
+    }
   ],
   "fan-view": [
     {
@@ -4495,10 +4743,10 @@ export default function FanView({
 }
 `,
       path: "fan-view/fan-view.tsx",
-      target: "components/sonaui/fan-view/fan-view.tsx",
-    },
+      target: "components/sonaui/fan-view/fan-view.tsx"
+    }
   ],
-  marquee: [
+  "marquee": [
     {
       type: "registry:ui",
       content: `"use client";
@@ -4794,8 +5042,8 @@ function MotionTrack({
 }
 `,
       path: "marquee/marquee.tsx",
-      target: "components/sonaui/marquee/marquee.tsx",
-    },
+      target: "components/sonaui/marquee/marquee.tsx"
+    }
   ],
   "ripple-button": [
     {
@@ -4950,8 +5198,8 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
 }
 `,
       path: "ripple-button/ripple-button.tsx",
-      target: "components/sonaui/ripple-button/ripple-button.tsx",
-    },
+      target: "components/sonaui/ripple-button/ripple-button.tsx"
+    }
   ],
   "spotlight-card": [
     {
@@ -5033,8 +5281,8 @@ export default function SpotlightCard({
 }
 `,
       path: "spotlight-card/spotlight-card.tsx",
-      target: "components/sonaui/spotlight-card/spotlight-card.tsx",
-    },
+      target: "components/sonaui/spotlight-card/spotlight-card.tsx"
+    }
   ],
   "animated-dialog": [
     {
@@ -5315,8 +5563,8 @@ export function AnimatedDialogClose({
 }
 `,
       path: "animated-dialog/animated-dialog.tsx",
-      target: "components/sonaui/animated-dialog/animated-dialog.tsx",
-    },
+      target: "components/sonaui/animated-dialog/animated-dialog.tsx"
+    }
   ],
   "split-text": [
     {
@@ -5479,8 +5727,8 @@ export default function SplitText({
 }
 `,
       path: "split-text/split-text.tsx",
-      target: "components/sonaui/split-text/split-text.tsx",
-    },
+      target: "components/sonaui/split-text/split-text.tsx"
+    }
   ],
   "animated-tabs": [
     {
@@ -5488,8 +5736,8 @@ export default function SplitText({
       content: `"use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useId, useState } from "react";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useEffect, useId, useState } from "react";
 
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
@@ -5516,7 +5764,7 @@ export interface AnimatedTabsProps {
   onValueChange?: (value: string) => void;
   /** Accessible label for the tab list. @default "Tabs" */
   ariaLabel?: string;
-  /** Background class for the pointer hover indicator. @default "bg-accent" */
+  /** Background class for the shared active indicator. @default "bg-accent" */
   indicatorClassName?: string;
   /** Background class for the active tab. @default "bg-muted" */
   activeTabClassName?: string;
@@ -5537,10 +5785,16 @@ export default function AnimatedTabs({
   className,
   listClassName,
 }: AnimatedTabsProps) {
-  const [hoveredValue, setHoveredValue] = useState<string | null>(null);
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [activeValue, setActiveValue] = useState(
+    value ?? defaultValue ?? fallbackValue,
+  );
   const layoutId = useId();
   const shouldReduceMotion = useReducedMotion();
-  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+
+  useEffect(() => {
+    if (value !== undefined) setActiveValue(value);
+  }, [value]);
 
   return (
     <Tabs.Root
@@ -5548,46 +5802,41 @@ export default function AnimatedTabs({
       defaultValue={defaultValue ?? fallbackValue}
       orientation="horizontal"
       onValueChange={(nextValue) => {
-        if (typeof nextValue === "string") onValueChange?.(nextValue);
+        if (typeof nextValue !== "string") return;
+        setActiveValue(nextValue);
+        onValueChange?.(nextValue);
       }}
       className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
     >
-      <Tabs.List
-        aria-label={ariaLabel}
-        className={cn("flex gap-2", listClassName)}
-        onPointerLeave={() => setHoveredValue(null)}
-      >
-        {tabs.map((tab) => (
-          <Tabs.Tab
-            key={tab.value}
-            value={tab.value}
-            disabled={tab.disabled}
-            aria-controls={tab.ariaControls}
-            onPointerEnter={() => {
-              if (!tab.disabled) setHoveredValue(tab.value);
-            }}
-            className={(state) =>
-              cn(
-                "relative flex cursor-pointer items-center rounded-xl p-2",
-                "transition-colors duration-200",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                "disabled:pointer-events-none disabled:opacity-50",
-                state.active && activeTabClassName,
-              )
-            }
-          >
-            <AnimatePresence>
-              {hoveredValue === tab.value && (
+      <LayoutGroup id={layoutId}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn("flex gap-2", listClassName)}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              aria-controls={tab.ariaControls}
+              className={(state) =>
+                cn(
+                  "relative flex cursor-pointer items-center rounded-xl p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  state.active && activeTabClassName,
+                )
+              }
+            >
+              {activeValue === tab.value && (
                 <motion.span
                   aria-hidden="true"
-                  layoutId={\`\${layoutId}-hover\`}
+                  layoutId={\`\${layoutId}-active\`}
                   className={cn(
                     "pointer-events-none absolute inset-0 rounded-xl",
                     indicatorClassName,
                   )}
-                  initial={shouldReduceMotion ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   transition={
                     shouldReduceMotion
                       ? motionTransition.reduced
@@ -5595,18 +5844,18 @@ export default function AnimatedTabs({
                   }
                 />
               )}
-            </AnimatePresence>
-            <span className="relative">{tab.title}</span>
-          </Tabs.Tab>
-        ))}
-      </Tabs.List>
+              <span className="relative">{tab.title}</span>
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </LayoutGroup>
     </Tabs.Root>
   );
 }
 `,
       path: "animated-tabs/animated-tabs.tsx",
-      target: "components/sonaui/animated-tabs/animated-tabs.tsx",
-    },
+      target: "components/sonaui/animated-tabs/animated-tabs.tsx"
+    }
   ],
   "animated-button": [
     {
@@ -5827,8 +6076,8 @@ AnimatedButton.displayName = "AnimatedButton";
 export default AnimatedButton;
 `,
       path: "animated-button/animated-button.tsx",
-      target: "components/sonaui/animated-button/animated-button.tsx",
-    },
+      target: "components/sonaui/animated-button/animated-button.tsx"
+    }
   ],
   "animated-switch": [
     {
@@ -5955,8 +6204,8 @@ export default function AnimatedSwitch({
 }
 `,
       path: "animated-switch/animated-switch.tsx",
-      target: "components/sonaui/animated-switch/animated-switch.tsx",
-    },
+      target: "components/sonaui/animated-switch/animated-switch.tsx"
+    }
   ],
   "expandable-tabs": [
     {
@@ -6104,8 +6353,8 @@ export default function ExpandableTabs({
 }
 `,
       path: "expandable-tabs/expandable-tabs.tsx",
-      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx",
-    },
+      target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
+    }
   ],
   "mesh-gradient-shader": [
     {
@@ -6185,8 +6434,8 @@ export default function MeshGradientShader({
 }
 `,
       path: "mesh-gradient-shader/mesh-gradient-shader.tsx",
-      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
-    },
+      target: "components/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx"
+    }
   ],
   "link-preview": [
     {
@@ -6315,8 +6564,8 @@ export default function LinkPreview({
 }
 `,
       path: "link-preview/link-preview.tsx",
-      target: "components/sonaui/link-preview/link-preview.tsx",
-    },
+      target: "components/sonaui/link-preview/link-preview.tsx"
+    }
   ],
   "stagger-text": [
     {
@@ -6488,8 +6737,8 @@ const variants: Variants = {
 };
 `,
       path: "stagger-text/stagger-text.tsx",
-      target: "components/sonaui/stagger-text/stagger-text.tsx",
-    },
+      target: "components/sonaui/stagger-text/stagger-text.tsx"
+    }
   ],
   "hold-to-delete-button": [
     {
@@ -6628,382 +6877,439 @@ export default function HoldToDeleteButton({
 }
 `,
       path: "hold-to-delete-button/hold-to-delete-button.tsx",
-      target:
-        "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
-    },
-  ],
+      target: "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx"
+    }
+  ]
 };
 
 export const componentMetadata = {
   "sona-utils": {
-    name: "sona-utils",
-    type: "registry:lib",
-    title: "Sona Utilities",
-    description:
-      "Shared class-name utilities used by Sona UI registry components.",
-    files: [
+    "name": "sona-utils",
+    "type": "registry:lib",
+    "title": "Sona Utilities",
+    "description": "Shared class-name utilities used by Sona UI registry components.",
+    "files": [
       {
-        path: "registry/sonaui/sona-utils/sona-utils.ts",
-        type: "registry:lib",
-        target: "lib/sona-utils.ts",
-      },
+        "path": "registry/sonaui/sona-utils/sona-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/sona-utils.ts"
+      }
     ],
-    dependencies: ["clsx", "tailwind-merge"],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
   },
   "sona-motion": {
-    name: "sona-motion",
-    type: "registry:lib",
-    title: "Sona Motion",
-    description:
-      "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
-    files: [
+    "name": "sona-motion",
+    "type": "registry:lib",
+    "title": "Sona Motion",
+    "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+    "files": [
       {
-        path: "registry/sonaui/sona-motion/sona-motion.ts",
-        type: "registry:lib",
-        target: "lib/sona-motion.ts",
-      },
+        "path": "registry/sonaui/sona-motion/sona-motion.ts",
+        "type": "registry:lib",
+        "target": "lib/sona-motion.ts"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "sona-theme": {
-    name: "sona-theme",
-    type: "registry:theme",
-    title: "Sona Theme",
-    description:
-      "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
-    files: [],
-    dependencies: [],
-    registryDependencies: [],
-    cssVars: {
-      theme: {
-        "radius-sona": "0.75rem",
+    "name": "sona-theme",
+    "type": "registry:theme",
+    "title": "Sona Theme",
+    "description": "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
+    "files": [],
+    "dependencies": [],
+    "registryDependencies": [],
+    "cssVars": {
+      "theme": {
+        "radius-sona": "0.75rem"
       },
-      light: {
-        danger: "oklch(0.97 0.04 25)",
+      "light": {
+        "danger": "oklch(0.97 0.04 25)",
         "danger-foreground": "oklch(0.55 0.18 25)",
-        "danger-border": "oklch(0.9 0.1 25)",
+        "danger-border": "oklch(0.9 0.1 25)"
       },
-      dark: {
-        danger: "oklch(0.34 0.1 20)",
+      "dark": {
+        "danger": "oklch(0.34 0.1 20)",
         "danger-foreground": "oklch(0.75 0.15 25)",
-        "danger-border": "oklch(0.36 0.11 25)",
-      },
-    },
+        "danger-border": "oklch(0.36 0.11 25)"
+      }
+    }
   },
   "animated-dropdown": {
-    name: "animated-dropdown",
-    type: "registry:ui",
-    title: "Animated Dropdown",
-    description:
-      "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
-    files: [
+    "name": "animated-dropdown",
+    "type": "registry:ui",
+    "title": "Animated Dropdown",
+    "description": "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
+    "files": [
       {
-        path: "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
-    registryDependencies: ["https://sona-ui.vercel.app/r/sona-theme.json"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-theme.json"
+    ]
   },
   "animated-switch": {
-    name: "animated-switch",
-    type: "registry:ui",
-    title: "Animated Switch",
-    description:
-      "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
-    files: [
+    "name": "animated-switch",
+    "type": "registry:ui",
+    "title": "Animated Switch",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
+    "files": [
       {
-        path: "registry/sonaui/animated-switch/animated-switch.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   "animated-dialog": {
-    name: "animated-dialog",
-    type: "registry:ui",
-    title: "Animated Dialog",
-    description:
-      "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
-    files: [
+    "name": "animated-dialog",
+    "type": "registry:ui",
+    "title": "Animated Dialog",
+    "description": "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/animated-dialog/animated-dialog.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   "animated-button": {
-    name: "animated-button",
-    type: "registry:ui",
-    title: "Animated Button",
-    description:
-      "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
-    files: [
+    "name": "animated-button",
+    "type": "registry:ui",
+    "title": "Animated Button",
+    "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
+    "files": [
       {
-        path: "registry/sonaui/animated-button/animated-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["class-variance-authority", "motion"],
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
   },
   "dot-orbit-shader": {
-    name: "dot-orbit-shader",
-    type: "registry:ui",
-    title: "Dot Orbit Shader",
-    description:
-      "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
-    files: [
+    "name": "dot-orbit-shader",
+    "type": "registry:ui",
+    "title": "Dot Orbit Shader",
+    "description": "Animated multi-color dots orbiting their cell centers. Supports up to 10 colors with controls for size, spread, and motion. Powered by Paper Design Shaders.",
+    "files": [
       {
-        path: "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/dot-orbit-shader/dot-orbit-shader.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@paper-design/shaders-react", "motion"],
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   "mesh-gradient-shader": {
-    name: "mesh-gradient-shader",
-    type: "registry:ui",
-    title: "Mesh Gradient Shader",
-    description:
-      "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
-    files: [
+    "name": "mesh-gradient-shader",
+    "type": "registry:ui",
+    "title": "Mesh Gradient Shader",
+    "description": "A flowing composition of animated color spots shaped by organic distortion and vortex effects. Powered by Paper Design Shaders.",
+    "files": [
       {
-        path: "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/mesh-gradient-shader/mesh-gradient-shader.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@paper-design/shaders-react", "motion"],
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   "magnetic-button": {
-    name: "magnetic-button",
-    type: "registry:ui",
-    title: "Magnetic",
-    description:
-      "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
-    files: [
+    "name": "magnetic-button",
+    "type": "registry:ui",
+    "title": "Magnetic",
+    "description": "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/magnetic-button/magnetic-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "fluid-tabs": {
+    "name": "fluid-tabs",
+    "type": "registry:ui",
+    "title": "Fluid Tabs",
+    "description": "An accessible Base UI tab selector with a shared active surface that travels fluidly between selections, with capsule and underline variants.",
+    "files": [
+      {
+        "path": "registry/sonaui/fluid-tabs/fluid-tabs.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   "animated-tabs": {
-    name: "animated-tabs",
-    type: "registry:ui",
-    title: "Animated Tabs",
-    description:
-      "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
-    files: [
+    "name": "animated-tabs",
+    "type": "registry:ui",
+    "title": "Animated Tabs",
+    "description": "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
+    "files": [
       {
-        path: "registry/sonaui/animated-tabs/animated-tabs.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
-  accordion: {
-    name: "accordion",
-    type: "registry:ui",
-    title: "Accordion",
-    description:
-      "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
-    files: [
+  "accordion": {
+    "name": "accordion",
+    "type": "registry:ui",
+    "title": "Accordion",
+    "description": "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/accordion/accordion.tsx",
-        type: "registry:ui",
+        "path": "registry/sonaui/accordion/accordion.tsx",
+        "type": "registry:ui"
       },
       {
-        path: "registry/sonaui/accordion/animated-plus-minus-button.tsx",
-        type: "registry:ui",
+        "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
+        "type": "registry:ui"
       },
       {
-        path: "registry/sonaui/accordion/styles.module.css",
-        type: "registry:file",
-        target: "components/ui/accordion/styles.module.css",
-      },
+        "path": "registry/sonaui/accordion/styles.module.css",
+        "type": "registry:file",
+        "target": "components/ui/accordion/styles.module.css"
+      }
     ],
-    dependencies: ["@base-ui/react", "class-variance-authority"],
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ]
   },
   "ripple-button": {
-    name: "ripple-button",
-    type: "registry:ui",
-    title: "RippleButton",
-    description:
-      "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
-    files: [
+    "name": "ripple-button",
+    "type": "registry:ui",
+    "title": "RippleButton",
+    "description": "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/ripple-button/ripple-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/ripple-button/ripple-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
-  marquee: {
-    name: "marquee",
-    type: "registry:ui",
-    title: "Marquee",
-    description:
-      "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
-    files: [
+  "marquee": {
+    "name": "marquee",
+    "type": "registry:ui",
+    "title": "Marquee",
+    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/marquee/marquee.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/marquee/marquee.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "spinning-text": {
-    name: "spinning-text",
-    type: "registry:ui",
-    title: "SpinningText",
-    description:
-      "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
-    files: [
+    "name": "spinning-text",
+    "type": "registry:ui",
+    "title": "SpinningText",
+    "description": "The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.",
+    "files": [
       {
-        path: "registry/sonaui/spinning-text/spinning-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/spinning-text/spinning-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "stagger-text": {
-    name: "stagger-text",
-    type: "registry:ui",
-    title: "StaggerText",
-    description: "A text component with staggered animation.",
-    files: [
+    "name": "stagger-text",
+    "type": "registry:ui",
+    "title": "StaggerText",
+    "description": "A text component with staggered animation.",
+    "files": [
       {
-        path: "registry/sonaui/stagger-text/stagger-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/stagger-text/stagger-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "link-preview": {
-    name: "link-preview",
-    type: "registry:ui",
-    title: "LinkPreview",
-    description:
-      "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
-    files: [
+    "name": "link-preview",
+    "type": "registry:ui",
+    "title": "LinkPreview",
+    "description": "The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.",
+    "files": [
       {
-        path: "registry/sonaui/link-preview/link-preview.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/link-preview/link-preview.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion", "react-icons", "react-use-measure"],
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "react-use-measure"
+    ]
   },
   "bubble-up-button": {
-    name: "bubble-up-button",
-    type: "registry:ui",
-    title: "BubbleUpButton",
-    description:
-      'The `BubbleUpButton` component provides an interactive button with a fluid "bubble-up" animation effect when hovered. It creates an engaging user experience with minimal effort.',
-    files: [
+    "name": "bubble-up-button",
+    "type": "registry:ui",
+    "title": "BubbleUpButton",
+    "description": "The `BubbleUpButton` component provides an interactive button with a fluid \"bubble-up\" animation effect when hovered. It creates an engaging user experience with minimal effort.",
+    "files": [
       {
-        path: "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/bubble-up-button/bubble-up-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "expandable-tabs": {
-    name: "expandable-tabs",
-    type: "registry:ui",
-    title: "Expandable Tabs",
-    description:
-      "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
-    files: [
+    "name": "expandable-tabs",
+    "type": "registry:ui",
+    "title": "Expandable Tabs",
+    "description": "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
+    "files": [
       {
-        path: "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["@base-ui/react", "motion", "react-icons"],
+    "dependencies": [
+      "@base-ui/react",
+      "motion",
+      "react-icons"
+    ]
   },
   "split-text": {
-    name: "split-text",
-    type: "registry:ui",
-    title: "Split Text",
-    description:
-      "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
-    files: [
+    "name": "split-text",
+    "type": "registry:ui",
+    "title": "Split Text",
+    "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+    "files": [
       {
-        path: "registry/sonaui/split-text/split-text.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/split-text/split-text.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["gsap", "@gsap/react"],
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ]
   },
   "image-trail": {
-    name: "image-trail",
-    type: "registry:ui",
-    title: "Image Trail",
-    description:
-      "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
-    files: [
+    "name": "image-trail",
+    "type": "registry:ui",
+    "title": "Image Trail",
+    "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+    "files": [
       {
-        path: "registry/sonaui/image-trail/image-trail.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "spotlight-card": {
-    name: "spotlight-card",
-    type: "registry:ui",
-    title: "Spotlight Card",
-    description: "A card with a radial spotlight glow that follows the cursor.",
-    files: [
+    "name": "spotlight-card",
+    "type": "registry:ui",
+    "title": "Spotlight Card",
+    "description": "A card with a radial spotlight glow that follows the cursor.",
+    "files": [
       {
-        path: "registry/sonaui/spotlight-card/spotlight-card.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "hold-to-delete-button": {
-    name: "hold-to-delete-button",
-    type: "registry:ui",
-    title: "Hold To Delete Button",
-    description:
-      "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
-    files: [
+    "name": "hold-to-delete-button",
+    "type": "registry:ui",
+    "title": "Hold To Delete Button",
+    "description": "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
+    "dependencies": [
+      "motion"
+    ]
   },
   "circular-dock-menu": {
-    name: "circular-dock-menu",
-    type: "registry:ui",
-    title: "Circular Dock Menu",
-    description:
-      "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
-    files: [
+    "name": "circular-dock-menu",
+    "type": "registry:ui",
+    "title": "Circular Dock Menu",
+    "description": "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion", "lucide-react"],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ]
   },
   "fan-view": {
-    name: "fan-view",
-    type: "registry:ui",
-    title: "Fan View",
-    description:
-      "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
-    files: [
+    "name": "fan-view",
+    "type": "registry:ui",
+    "title": "Fan View",
+    "description": "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
+    "files": [
       {
-        path: "registry/sonaui/fan-view/fan-view.tsx",
-        type: "registry:ui",
-      },
+        "path": "registry/sonaui/fan-view/fan-view.tsx",
+        "type": "registry:ui"
+      }
     ],
-    dependencies: ["motion"],
-  },
+    "dependencies": [
+      "motion"
+    ]
+  }
 };

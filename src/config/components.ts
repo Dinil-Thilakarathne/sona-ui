@@ -79,6 +79,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     tag: "new",
   },
   {
+    name: "Fluid Tabs",
+    slug: "fluid-tabs",
+    href: "/docs/fluid-tabs",
+    type: "Components",
+    tag: "new",
+  },
+  {
     name: "Animated Tabs",
     slug: "animated-tabs",
     href: "/docs/animated-tabs",

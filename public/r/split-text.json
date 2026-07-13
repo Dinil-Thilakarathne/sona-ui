@@ -12,6 +12,11 @@
       "target": "components/ui/split-text/split-text.tsx"
     }
   ],
-  "dependencies": ["gsap", "@gsap/react"],
-  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
+  "dependencies": [
+    "gsap",
+    "@gsap/react"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json"
+  ]
 }

@@ -1,8 +1,8 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useId, useState } from "react";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useEffect, useId, useState } from "react";
 
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
@@ -29,7 +29,7 @@ export interface AnimatedTabsProps {
   onValueChange?: (value: string) => void;
   /** Accessible label for the tab list. @default "Tabs" */
   ariaLabel?: string;
-  /** Background class for the pointer hover indicator. @default "bg-accent" */
+  /** Background class for the shared active indicator. @default "bg-accent" */
   indicatorClassName?: string;
   /** Background class for the active tab. @default "bg-muted" */
   activeTabClassName?: string;
@@ -50,10 +50,16 @@ export default function AnimatedTabs({
   className,
   listClassName,
 }: AnimatedTabsProps) {
-  const [hoveredValue, setHoveredValue] = useState<string | null>(null);
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [activeValue, setActiveValue] = useState(
+    value ?? defaultValue ?? fallbackValue,
+  );
   const layoutId = useId();
   const shouldReduceMotion = useReducedMotion();
-  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+
+  useEffect(() => {
+    if (value !== undefined) setActiveValue(value);
+  }, [value]);
 
   return (
     <Tabs.Root
@@ -61,46 +67,41 @@ export default function AnimatedTabs({
       defaultValue={defaultValue ?? fallbackValue}
       orientation="horizontal"
       onValueChange={(nextValue) => {
-        if (typeof nextValue === "string") onValueChange?.(nextValue);
+        if (typeof nextValue !== "string") return;
+        setActiveValue(nextValue);
+        onValueChange?.(nextValue);
       }}
       className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
     >
-      <Tabs.List
-        aria-label={ariaLabel}
-        className={cn("flex gap-2", listClassName)}
-        onPointerLeave={() => setHoveredValue(null)}
-      >
-        {tabs.map((tab) => (
-          <Tabs.Tab
-            key={tab.value}
-            value={tab.value}
-            disabled={tab.disabled}
-            aria-controls={tab.ariaControls}
-            onPointerEnter={() => {
-              if (!tab.disabled) setHoveredValue(tab.value);
-            }}
-            className={(state) =>
-              cn(
-                "relative flex cursor-pointer items-center rounded-xl p-2",
-                "transition-colors duration-200",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                "disabled:pointer-events-none disabled:opacity-50",
-                state.active && activeTabClassName,
-              )
-            }
-          >
-            <AnimatePresence>
-              {hoveredValue === tab.value && (
+      <LayoutGroup id={layoutId}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn("flex gap-2", listClassName)}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              aria-controls={tab.ariaControls}
+              className={(state) =>
+                cn(
+                  "relative flex cursor-pointer items-center rounded-xl p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  state.active && activeTabClassName,
+                )
+              }
+            >
+              {activeValue === tab.value && (
                 <motion.span
                   aria-hidden="true"
-                  layoutId={`${layoutId}-hover`}
+                  layoutId={`${layoutId}-active`}
                   className={cn(
                     "pointer-events-none absolute inset-0 rounded-xl",
                     indicatorClassName,
                   )}
-                  initial={shouldReduceMotion ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
                   transition={
                     shouldReduceMotion
                       ? motionTransition.reduced
@@ -108,11 +109,11 @@ export default function AnimatedTabs({
                   }
                 />
               )}
-            </AnimatePresence>
-            <span className="relative">{tab.title}</span>
-          </Tabs.Tab>
-        ))}
-      </Tabs.List>
+              <span className="relative">{tab.title}</span>
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </LayoutGroup>
     </Tabs.Root>
   );
 }

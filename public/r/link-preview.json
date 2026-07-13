@@ -12,6 +12,12 @@
       "target": "components/ui/link-preview/link-preview.tsx"
     }
   ],
-  "dependencies": ["motion", "react-icons", "react-use-measure"],
-  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-motion.json"]
+  "dependencies": [
+    "motion",
+    "react-icons",
+    "react-use-measure"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-motion.json"
+  ]
 }

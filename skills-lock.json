@@ -24,6 +24,12 @@
       "sourceType": "github",
       "skillPath": "skills/emil-design-eng/SKILL.md",
       "computedHash": "8bdf9e4e6de7a4969147bf4828a4ad2c5aacd9fba4b690b250a85e0467ca387d"
+    },
+    "oklch-skill": {
+      "source": "jakubkrehel/oklch-skill",
+      "sourceType": "github",
+      "skillPath": "skills/oklch-skill/SKILL.md",
+      "computedHash": "3825dcd7ea094655e9f07280185ba9da1d10d08f44cf06a8c316eb42334d7cd3"
     }
   }
 }

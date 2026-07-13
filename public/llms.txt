@@ -1,0 +1,23 @@
+# Sona UI Agent Resources
+
+> Source-owned React components with purposeful motion and accessible interaction.
+
+## Start here
+
+- [Installation](https://sona-ui.vercel.app/docs/installation)
+- [Theming](https://sona-ui.vercel.app/docs/theming)
+- [Agent component catalog](https://sona-ui.vercel.app/agent/catalog.json)
+- [Registry index](https://sona-ui.vercel.app/r/registry.json)
+
+## Components
+
+- [Fluid Tabs](https://sona-ui.vercel.app/docs/fluid-tabs): An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.
+- [Animated Dialog](https://sona-ui.vercel.app/docs/animated-dialog): A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.
+- [Mesh Gradient Shader](https://sona-ui.vercel.app/docs/mesh-gradient-shader): A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.
+
+## Integration principles
+
+- Install through the Sona UI shadcn registry rather than copying source into prompts.
+- Inspect accessibility, motion, dependencies, and use cases before composing a component.
+- Preserve the consumer project's existing layout, tokens, and conventions.
+- Respect prefers-reduced-motion and keep decorative effects separate from meaningful content.

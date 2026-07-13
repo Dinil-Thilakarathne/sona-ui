@@ -40,6 +40,7 @@ import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
@@ -91,6 +92,59 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "fluid-tabs": {
+    controls: [
+      {
+        type: "select",
+        prop: "value",
+        label: "Active tab",
+        options: [
+          { label: "Overview", value: "overview" },
+          { label: "Activity", value: "activity" },
+          { label: "Settings", value: "settings" },
+          { label: "Security", value: "security" },
+          { label: "Billing", value: "billing" },
+        ],
+        default: "overview",
+      },
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Capsule", value: "capsule" },
+          { label: "Underline", value: "underline" },
+        ],
+        default: "capsule",
+      },
+      {
+        type: "select",
+        prop: "size",
+        label: "Size",
+        options: [
+          { label: "Small", value: "sm" },
+          { label: "Medium", value: "md" },
+          { label: "Large", value: "lg" },
+        ],
+        default: "md",
+      },
+    ],
+    render: (v) => (
+      <FluidTabs
+        key={v.value as string}
+        defaultValue={v.value as string}
+        variant={v.variant as "capsule" | "underline"}
+        size={v.size as "sm" | "md" | "lg"}
+        tabs={[
+          { value: "overview", title: "Overview" },
+          { value: "activity", title: "Activity" },
+          { value: "settings", title: "Settings" },
+          { value: "security", title: "Security" },
+          { value: "billing", title: "Billing" },
+        ]}
+      />
+    ),
+  },
   accordion: {
     controls: [
       {

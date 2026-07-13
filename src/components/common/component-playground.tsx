@@ -103,7 +103,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
         controlsOpen ? "lg:grid-cols-[75%_1fr]" : "grid-cols-1",
       )}
     >
-      <ComponentWrapper className="min-h-[300px]">
+      <ComponentWrapper className="min-h-[280px]">
         <PlaygroundErrorBoundary onReset={reset}>
           {rendered}
         </PlaygroundErrorBoundary>

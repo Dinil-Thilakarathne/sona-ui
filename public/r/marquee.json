@@ -12,6 +12,10 @@
       "target": "components/ui/marquee/marquee.tsx"
     }
   ],
-  "dependencies": ["motion"],
-  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json"
+  ]
 }

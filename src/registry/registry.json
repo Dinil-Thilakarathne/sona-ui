@@ -144,6 +144,19 @@
     "dependencies": ["motion"]
   },
   {
+    "name": "fluid-tabs",
+    "type": "registry:ui",
+    "title": "Fluid Tabs",
+    "description": "An accessible Base UI tab selector with a shared active surface that travels fluidly between selections, with capsule and underline variants.",
+    "files": [
+      {
+        "path": "registry/sonaui/fluid-tabs/fluid-tabs.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"]
+  },
+  {
     "name": "animated-tabs",
     "type": "registry:ui",
     "title": "Animated Tabs",

@@ -36,7 +36,7 @@ export default function PlaygroundWorkbench({
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[1440px] _px-4 py-8 sm:px-6 lg:px-8 min-h-screen">
       <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
           <a
@@ -46,9 +46,6 @@ export default function PlaygroundWorkbench({
             <ChevronLeft className="size-3.5" aria-hidden="true" />
             All playgrounds
           </a>
-          <p className="mb-1 font-mono text-xs text-muted-foreground">
-            /{component}
-          </p>
           <h1 className="text-2xl font-semibold tracking-tight text-foreground">
             {formatName(component)}
           </h1>
@@ -72,11 +69,7 @@ export default function PlaygroundWorkbench({
         </button>
       </header>
 
-      <div
-        className={cn(
-          !controlsOpen && "[&_[data-component-preview]]:rounded-none",
-        )}
-      >
+      <div>
         <div id="playground-controls">
           <ComponentPlayground
             component={component}
@@ -84,11 +77,6 @@ export default function PlaygroundWorkbench({
           />
         </div>
       </div>
-
-      <p className="mt-4 flex items-center gap-1.5 text-xs text-muted-foreground">
-        <ExternalLink className="size-3.5" aria-hidden="true" />
-        This page is available during development only.
-      </p>
     </div>
   );
 }

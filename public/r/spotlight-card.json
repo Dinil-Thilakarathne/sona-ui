@@ -12,6 +12,10 @@
       "target": "components/ui/spotlight-card/spotlight-card.tsx"
     }
   ],
-  "dependencies": ["motion"],
-  "registryDependencies": ["https://sona-ui.vercel.app/r/sona-utils.json"]
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json"
+  ]
 }

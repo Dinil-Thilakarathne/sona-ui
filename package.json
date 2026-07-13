@@ -10,10 +10,12 @@
   "scripts": {
     "predev": "bun run sync:releases",
     "dev": "next dev --turbopack",
-    "prebuild": "bun run build:registry && bun run sync:releases",
+    "prebuild": "bun run build:registry && bun run build:agent-resources && bun run sync:releases",
     "build:registry": "bun run scripts/build-registry.ts && bun run scripts/build-registry-json.ts && node --experimental-strip-types scripts/build-prop-types.ts",
+    "build:agent-resources": "bun scripts/build-agent-resources.ts",
     "build:registry:local": "REGISTRY_BASE_URL=http://127.0.0.1:3000/r bun run build:registry",
     "check:registry": "bun run scripts/validate-registry.ts",
+    "check:agent-resources": "bun scripts/validate-agent-resources.ts",
     "check:registry-consumers": "bun run scripts/check-registry-consumers.ts",
     "check:a11y": "bun run scripts/check-accessibility.mjs",
     "sync:releases": "bun run scripts/sync-releases.ts",

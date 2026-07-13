@@ -31,6 +31,12 @@ jobs:
       - name: Validate registry metadata
         run: bun run check:registry
 
+      - name: Build agent resources
+        run: bun run build:agent-resources
+
+      - name: Validate agent resources
+        run: bun run check:agent-resources
+
       - name: Build generated registry artifacts
         run: bun run build:registry
 
