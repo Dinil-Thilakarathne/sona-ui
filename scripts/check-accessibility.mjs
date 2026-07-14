@@ -13,7 +13,7 @@ const defaultSlugs = [
   "animated-switch",
   "animated-dropdown",
   "animated-dialog",
-  "animated-button",
+  "button",
   "ripple-button",
   "hold-to-delete-button",
   "magnetic-button",
