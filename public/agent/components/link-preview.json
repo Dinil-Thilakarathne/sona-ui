@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "link-preview",
+  "title": "Link Preview",
+  "category": "components",
+  "status": "stable",
+  "summary": "A contextual preview surface for supplied link metadata without relying on client-side scraping.",
+  "docsSlug": "link-preview",
+  "keywords": [
+    "link",
+    "preview",
+    "metadata"
+  ],
+  "useWhen": [
+    "A contextual preview surface for supplied link metadata without relying on client-side scraping."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/link-preview.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "react-use-measure"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/link-preview",
+    "rawUrl": "https://sona-ui.vercel.app/docs/link-preview/raw.md",
+    "sourceTitle": "link-preview"
+  }
+}

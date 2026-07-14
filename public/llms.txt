@@ -7,6 +7,7 @@
 - [Installation](https://sona-ui.vercel.app/docs/installation)
 - [Theming](https://sona-ui.vercel.app/docs/theming)
 - [Agent component catalog](https://sona-ui.vercel.app/agent/catalog.json)
+- [Full agent guidance](https://sona-ui.vercel.app/llms-full.txt)
 - [Registry index](https://sona-ui.vercel.app/r/registry.json)
 
 ## Components
@@ -14,6 +15,26 @@
 - [Fluid Tabs](https://sona-ui.vercel.app/docs/fluid-tabs): An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.
 - [Animated Dialog](https://sona-ui.vercel.app/docs/animated-dialog): A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.
 - [Mesh Gradient Shader](https://sona-ui.vercel.app/docs/mesh-gradient-shader): A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.
+- [Animated Dropdown](https://sona-ui.vercel.app/docs/animated-dropdown): An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.
+- [Animated Switch](https://sona-ui.vercel.app/docs/animated-switch): An iOS-style switch for immediate binary settings with tactile press feedback.
+- [Button](https://sona-ui.vercel.app/docs/button): A simple action button with subtle press feedback and reduced-motion support.
+- [Dot Orbit Shader](https://sona-ui.vercel.app/docs/dot-orbit-shader): An animated field of orbiting dots for decorative surfaces and expressive backgrounds.
+- [Magnetic Button](https://sona-ui.vercel.app/docs/magnetic-button): A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.
+- [Animated Tabs](https://sona-ui.vercel.app/docs/animated-tabs): A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.
+- [Accordion](https://sona-ui.vercel.app/docs/accordion): An accessible disclosure group for progressively revealing related content.
+- [Ripple Button](https://sona-ui.vercel.app/docs/ripple-button): A button with localized press feedback that makes activation visible without changing the action's meaning.
+- [Marquee](https://sona-ui.vercel.app/docs/marquee): A continuously moving content rail for decorative or low-priority repeated content.
+- [Spinning Text](https://sona-ui.vercel.app/docs/spinning-text): A circular text treatment for short decorative labels and editorial accents.
+- [Stagger Text](https://sona-ui.vercel.app/docs/stagger-text): A text entrance treatment that reveals short content progressively while preserving readability.
+- [Link Preview](https://sona-ui.vercel.app/docs/link-preview): A contextual preview surface for supplied link metadata without relying on client-side scraping.
+- [Bubble Up Button](https://sona-ui.vercel.app/docs/bubble-up-button): An expressive button treatment that changes label or content with a contained upward transition.
+- [Expandable Tabs](https://sona-ui.vercel.app/docs/expandable-tabs): A compact tab control that expands its selected item to expose more context.
+- [Split Text](https://sona-ui.vercel.app/docs/split-text): A text animation primitive that treats words or characters as individually addressable visual units.
+- [Image Trail](https://sona-ui.vercel.app/docs/image-trail): A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.
+- [Spotlight Card](https://sona-ui.vercel.app/docs/spotlight-card): A card that reveals localized pointer lighting while keeping content and hierarchy stable.
+- [Hold To Delete Button](https://sona-ui.vercel.app/docs/hold-to-delete-button): A deliberate destructive action that requires sustained input before completing deletion.
+- [Circular Dock Menu](https://sona-ui.vercel.app/docs/circular-dock-menu): A radial action menu for a small set of spatially related actions.
+- [Fan View](https://sona-ui.vercel.app/docs/fan-view): A fan-like arrangement for browsing a small set of layered visual items.
 
 ## Integration principles
 

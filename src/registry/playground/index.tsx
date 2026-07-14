@@ -18,7 +18,7 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/accordion";
-import AnimatedButton from "@/registry/sonaui/animated-button/animated-button";
+import Button from "@/registry/sonaui/button/button";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -366,7 +366,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
       </AnimatedDialog>
     ),
   },
-  "animated-button": {
+  button: {
     controls: [
       {
         type: "select",
@@ -390,53 +390,15 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         ],
         default: "md",
       },
-      {
-        type: "select",
-        prop: "swap",
-        label: "Transition",
-        options: [
-          { label: "Slide Up", value: "slide-up" },
-          { label: "Slide Down", value: "slide-down" },
-          { label: "Fade", value: "fade" },
-          { label: "Blur", value: "blur" },
-        ],
-        default: "slide-up",
-      },
-      {
-        type: "toggle",
-        prop: "hoverSwap",
-        label: "Hover Text-Swap",
-        default: false,
-      },
-      {
-        type: "select",
-        prop: "state",
-        label: "State (Simulated)",
-        options: [
-          { label: "Idle / Submit", value: "idle" },
-          { label: "Processing / Loading", value: "loading" },
-          { label: "Success / Completed", value: "success" },
-        ],
-        default: "idle",
-      },
     ],
-    render: (v) => {
-      const state = v.state as string;
-      return (
-        <AnimatedButton
-          variant={v.variant as "default" | "outlined" | "secondary"}
-          size={v.size as "sm" | "md" | "lg"}
-          swap={v.swap as "slide-up" | "slide-down" | "fade" | "blur"}
-          hoverSwap={v.hoverSwap as boolean}
-          contentKey={state}
-          className="w-36"
-        >
-          {state === "idle" && "Submit"}
-          {state === "loading" && "Loading..."}
-          {state === "success" && "Success ✓"}
-        </AnimatedButton>
-      );
-    },
+    render: (v) => (
+      <Button
+        variant={v.variant as "default" | "outlined" | "secondary"}
+        size={v.size as "sm" | "md" | "lg"}
+      >
+        Get started
+      </Button>
+    ),
   },
   "dot-orbit-shader": {
     controls: [

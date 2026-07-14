@@ -70,32 +70,6 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Visual style of the accordion."
     }
   ],
-  "animated-button": [
-    {
-      "name": "children",
-      "type": "React.ReactNode",
-      "default": "required",
-      "description": ""
-    },
-    {
-      "name": "contentKey",
-      "type": "string | number",
-      "default": "—",
-      "description": "Key identifying the current label/content state. Change it to trigger the transition. If omitted, it will fall back to deriving from children when they are simple strings."
-    },
-    {
-      "name": "swap",
-      "type": "\"slide-up\" | \"slide-down\" | \"fade\" | \"blur\"",
-      "default": "\"slide-up\"",
-      "description": "Swap animation transition style."
-    },
-    {
-      "name": "hoverSwap",
-      "type": "boolean",
-      "default": "false",
-      "description": "Whether to animate a text-swap effect vertically on hover. Replaces the dedicated ScrollUpButton with a unified hover interaction."
-    }
-  ],
   "animated-dialog": [
     {
       "name": "children",
@@ -278,6 +252,26 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes"
+    }
+  ],
+  "button": [
+    {
+      "name": "children",
+      "type": "React.ReactNode",
+      "default": "required",
+      "description": "Content rendered inside the button."
+    },
+    {
+      "name": "variant",
+      "type": "\"default\" | \"outlined\" | \"secondary\"",
+      "default": "\"default\"",
+      "description": "Visual style of the button."
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "default": "\"md\"",
+      "description": "Controls the button height, padding, and text size."
     }
   ],
   "circular-dock-menu": [

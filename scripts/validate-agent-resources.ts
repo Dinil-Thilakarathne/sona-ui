@@ -34,6 +34,10 @@ if (!fs.existsSync(path.join(root, "public/llms.txt"))) {
   errors.push("missing generated public/llms.txt");
 }
 
+if (!fs.existsSync(path.join(root, "public/llms-full.txt"))) {
+  errors.push("missing generated public/llms-full.txt");
+}
+
 if (errors.length > 0) {
   console.error("Agent resource validation failed:");
   for (const error of errors) console.error(`- ${error}`);

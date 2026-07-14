@@ -52,6 +52,36 @@
     }
   },
   {
+    "name": "agent-skill",
+    "type": "registry:file",
+    "title": "Sona UI Agent Skill",
+    "description": "Instructions for coding agents to discover, install, compose, and verify Sona UI components.",
+    "files": [
+      {
+        "path": "registry/sonaui/agent-skill/SKILL.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/SKILL.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/component-selection.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/component-selection.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/consumer-validation.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/consumer-validation.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/design-principles.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/design-principles.md"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  {
     "name": "animated-dropdown",
     "type": "registry:ui",
     "title": "Animated Dropdown",
@@ -92,13 +122,13 @@
     "dependencies": ["@base-ui/react", "motion"]
   },
   {
-    "name": "animated-button",
+    "name": "button",
     "type": "registry:ui",
-    "title": "Animated Button",
-    "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
+    "title": "Button",
+    "description": "A simple action button with subtle press feedback and reduced-motion support.",
     "files": [
       {
-        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "path": "registry/sonaui/button/button.tsx",
         "type": "registry:ui"
       }
     ],

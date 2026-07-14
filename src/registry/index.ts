@@ -30,7 +30,7 @@ import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-d
 import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
 import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
-import animated_button_animated_button_demo from "@/registry/examples/animated-button/animated-button-demo";
+import button_button_demo from "@/registry/examples/button/button-demo";
 import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
 import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
 import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
@@ -2035,187 +2035,39 @@ export default function AnimatedTabsExample() {
 }`,
     }
   ],
-  "animated-button": [
+  "button": [
     {
       name: "default",
-      component: animated_button_animated_button_demo,
-      code: `"use client";
+      component: button_button_demo,
+      code: `import { ArrowRight, Sparkles } from "lucide-react";
+import Button from "@/components/ui/button/button";
 
-import { ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
-import { useState } from "react";
-import AnimatedButton from "@/components/ui/animated-button/animated-button";
-
-export default function AnimatedButtonDemo() {
-  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
-  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">(
-    "slide-up",
-  );
-
-  const handleClick = () => {
-    if (state !== "idle") return;
-    setState("loading");
-    setTimeout(() => {
-      setState("success");
-      setTimeout(() => setState("idle"), 2000);
-    }, 1500);
-  };
-
+export default function ButtonDemo() {
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-md">
-      {/* Swap Animation Selector */}
-      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
-        {(["slide-up", "slide-down", "fade", "blur"] as const).map((style) => (
-          <button
-            key={style}
-            type="button"
-            onClick={() => setSwap(style)}
-            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
-              swap === style
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }\`}
-          >
-            {style.replace("-", " ")}
-          </button>
-        ))}
-      </div>
-
-      {/* Main state swap button */}
-      <div className="flex flex-col items-center gap-2">
-        <AnimatedButton
-          onClick={handleClick}
-          swap={swap}
-          contentKey={state}
-          variant="default"
-          size="md"
-          className="w-36"
-        >
-          {state === "idle" && (
-            <>
-              Submit <ArrowRight className="size-4" />
-            </>
-          )}
-          {state === "loading" && (
-            <>
-              <Loader2 className="size-4 animate-spin" /> Saving text 2...
-            </>
-          )}
-          {state === "success" && (
-            <>
-              <Check className="size-4 text-emerald-400" /> Success lorem lorem
-            </>
-          )}
-        </AnimatedButton>
-        <span className="text-xs text-muted-foreground">
-          Click to trigger state change
-        </span>
-      </div>
-
-      {/* Hover Swap Mode (ScrollUpButton merge) */}
-      <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
-        <span className="text-sm font-semibold text-foreground">
-          Hover Text Swap
-        </span>
-        <div className="flex gap-4">
-          <AnimatedButton hoverSwap variant="outlined" size="md">
-            Hover Me
-          </AnimatedButton>
-          <AnimatedButton hoverSwap variant="secondary" size="md">
-            <Sparkles className="size-4 mr-2" /> Playful Effect
-          </AnimatedButton>
-        </div>
-      </div>
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      <Button>
+        Get started <ArrowRight className="size-4" />
+      </Button>
+      <Button variant="outlined">Learn more</Button>
+      <Button variant="secondary">
+        <Sparkles className="size-4" /> Explore
+      </Button>
     </div>
   );
 }
 `,
-      imports: ``,
-      anatomy: `"use client";
-
-import { ArrowRight, Check, Loader2, Sparkles } from "lucide-react";
-import { useState } from "react";
-import AnimatedButton from "@/components/ui/animated-button/animated-button";
-
-export default function AnimatedButtonDemo() {
-  const [state, setState] = useState<"idle" | "loading" | "success">("idle");
-  const [swap, setSwap] = useState<"slide-up" | "slide-down" | "fade" | "blur">(
-    "slide-up",
-  );
-
-  const handleClick = () => {
-    if (state !== "idle") return;
-    setState("loading");
-    setTimeout(() => {
-      setState("success");
-      setTimeout(() => setState("idle"), 2000);
-    }, 1500);
-  };
-
+      imports: `import { ArrowRight, Sparkles } from "lucide-react";
+import Button from "@/components/ui/button/button";`,
+      anatomy: `export default function ButtonDemo() {
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-md">
-      {/* Swap Animation Selector */}
-      <div className="flex gap-2 p-1 bg-secondary rounded-lg text-xs">
-        {(["slide-up", "slide-down", "fade", "blur"] as const).map((style) => (
-          <button
-            key={style}
-            type="button"
-            onClick={() => setSwap(style)}
-            className={\`px-3 py-1.5 rounded-md font-medium capitalize transition-colors \${
-              swap === style
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }\`}
-          >
-            {style.replace("-", " ")}
-          </button>
-        ))}
-      </div>
-
-      {/* Main state swap button */}
-      <div className="flex flex-col items-center gap-2">
-        <AnimatedButton
-          onClick={handleClick}
-          swap={swap}
-          contentKey={state}
-          variant="default"
-          size="md"
-          className="w-36"
-        >
-          {state === "idle" && (
-            <>
-              Submit <ArrowRight className="size-4" />
-            </>
-          )}
-          {state === "loading" && (
-            <>
-              <Loader2 className="size-4 animate-spin" /> Saving text 2...
-            </>
-          )}
-          {state === "success" && (
-            <>
-              <Check className="size-4 text-emerald-400" /> Success lorem lorem
-            </>
-          )}
-        </AnimatedButton>
-        <span className="text-xs text-muted-foreground">
-          Click to trigger state change
-        </span>
-      </div>
-
-      {/* Hover Swap Mode (ScrollUpButton merge) */}
-      <div className="flex flex-col items-center gap-2 border-t pt-6 w-full">
-        <span className="text-sm font-semibold text-foreground">
-          Hover Text Swap
-        </span>
-        <div className="flex gap-4">
-          <AnimatedButton hoverSwap variant="outlined" size="md">
-            Hover Me
-          </AnimatedButton>
-          <AnimatedButton hoverSwap variant="secondary" size="md">
-            <Sparkles className="size-4 mr-2" /> Playful Effect
-          </AnimatedButton>
-        </div>
-      </div>
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      <Button>
+        Get started <ArrowRight className="size-4" />
+      </Button>
+      <Button variant="outlined">Learn more</Button>
+      <Button variant="secondary">
+        <Sparkles className="size-4" /> Explore
+      </Button>
     </div>
   );
 }`,
@@ -5857,21 +5709,19 @@ export default function AnimatedTabs({
       target: "components/sonaui/animated-tabs/animated-tabs.tsx"
     }
   ],
-  "animated-button": [
+  "button": [
     {
       type: "registry:ui",
       content: `"use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { forwardRef } from "react";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
 
-// ─── Button Variants (CVA) ───────────────────────────────────────────────────
-
-export const animatedButtonVariants = cva(
-  "relative inline-flex items-center justify-center font-medium rounded-xl select-none outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 transition-colors",
+export const buttonVariants = cva(
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium select-none outline-none transition-colors hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -5894,70 +5744,29 @@ export const animatedButtonVariants = cva(
   },
 );
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export interface AnimatedButtonProps
-  extends Omit<
-      React.ComponentPropsWithoutRef<typeof motion.button>,
-      "children"
-    >,
-    VariantProps<typeof animatedButtonVariants> {
+export interface ButtonProps
+  extends React.ComponentPropsWithoutRef<typeof motion.button>,
+    VariantProps<typeof buttonVariants> {
+  /** Content rendered inside the button. */
   children: React.ReactNode;
   /**
-   * Key identifying the current label/content state. Change it to trigger the transition.
-   * If omitted, it will fall back to deriving from children when they are simple strings.
+   * Visual style of the button.
+   * @default "default"
    */
-  contentKey?: string | number;
+  variant?: "default" | "outlined" | "secondary";
   /**
-   * Swap animation transition style.
-   * @default "slide-up"
+   * Controls the button height, padding, and text size.
+   * @default "md"
    */
-  swap?: "slide-up" | "slide-down" | "fade" | "blur";
-  /**
-   * Whether to animate a text-swap effect vertically on hover.
-   * Replaces the dedicated ScrollUpButton with a unified hover interaction.
-   * @default false
-   */
-  hoverSwap?: boolean;
+  size?: "sm" | "md" | "lg";
 }
 
-// ─── Motion Variants ──────────────────────────────────────────────────────────
-
-const swapVariants = {
-  "slide-up": {
-    initial: { y: "60%", opacity: 0 },
-    animate: { y: "0%", opacity: 1 },
-    exit: { y: "-60%", opacity: 0 },
-  },
-  "slide-down": {
-    initial: { y: "-60%", opacity: 0 },
-    animate: { y: "0%", opacity: 1 },
-    exit: { y: "60%", opacity: 0 },
-  },
-  fade: {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-  },
-  blur: {
-    initial: { filter: "blur(4px)", opacity: 0 },
-    animate: { filter: "blur(0px)", opacity: 1 },
-    exit: { filter: "blur(4px)", opacity: 0 },
-  },
-};
-
-export const AnimatedButton = forwardRef<
-  HTMLButtonElement,
-  AnimatedButtonProps
->(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      contentKey,
-      swap = "slide-up",
       variant = "default",
       size = "md",
-      hoverSwap = false,
       className,
       disabled,
       ...props
@@ -5966,117 +5775,30 @@ export const AnimatedButton = forwardRef<
   ) => {
     const shouldReduceMotion = useReducedMotion();
 
-    // Fallback key: string representation of children, if applicable
-    const resolvedKey =
-      contentKey ?? (typeof children === "string" ? children : undefined);
-
-    const isHoverSwap = hoverSwap && !shouldReduceMotion;
-
-    // Hover swap variants (two layers y-shifting)
-    const containerHoverVariants = {
-      initial: {},
-      hover: {},
-    };
-
-    const firstLayerVariants = {
-      initial: { y: "0%" },
-      hover: { y: "-150%" },
-    };
-
-    const secondLayerVariants = {
-      initial: { y: "150%" },
-      hover: { y: "0%" },
-    };
-
-    // If using hoverSwap, render a dual-layer sliding structure
-    if (isHoverSwap) {
-      return (
-        <motion.button
-          ref={ref}
-          disabled={disabled}
-          initial="initial"
-          whileHover="hover"
-          whileFocus="hover"
-          whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
-          variants={containerHoverVariants}
-          className={cn(
-            animatedButtonVariants({ variant, size }),
-            "overflow-hidden flex flex-col items-center justify-center w-fit",
-            className,
-          )}
-          {...props}
-        >
-          {/* Main Label Layer */}
-          <motion.span
-            variants={firstLayerVariants}
-            transition={motionTransition.spatial}
-            className="flex items-center justify-center w-full"
-          >
-            {children}
-          </motion.span>
-
-          {/* Incoming Hover Label Layer */}
-          <motion.span
-            variants={secondLayerVariants}
-            transition={motionTransition.spatial}
-            className="absolute flex items-center justify-center w-full"
-          >
-            {children}
-          </motion.span>
-        </motion.button>
-      );
-    }
-
-    // Default button with layout animations on state changes
     return (
       <motion.button
         ref={ref}
         disabled={disabled}
-        layout={shouldReduceMotion ? false : "size"}
-        whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
         transition={
           shouldReduceMotion
             ? motionTransition.reduced
             : motionTransition.spatial
         }
-        className={cn(
-          animatedButtonVariants({ variant, size }),
-          "overflow-hidden flex items-center justify-center w-fit",
-          className,
-        )}
+        className={cn(buttonVariants({ variant, size }), "w-fit", className)}
         {...props}
       >
-        <div className="relative w-full h-full flex items-center justify-center overflow-hidden py-0.5">
-          <AnimatePresence mode="popLayout" initial={false}>
-            <motion.span
-              key={resolvedKey}
-              variants={
-                shouldReduceMotion ? swapVariants.fade : swapVariants[swap]
-              }
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={
-                shouldReduceMotion
-                  ? motionTransition.reduced
-                  : motionTransition.spatial
-              }
-              className="flex items-center justify-center gap-2 whitespace-nowrap min-w-max"
-            >
-              {children}
-            </motion.span>
-          </AnimatePresence>
-        </div>
+        {children}
       </motion.button>
     );
   },
 );
 
-AnimatedButton.displayName = "AnimatedButton";
-export default AnimatedButton;
+Button.displayName = "Button";
+export default Button;
 `,
-      path: "animated-button/animated-button.tsx",
-      target: "components/sonaui/animated-button/animated-button.tsx"
+      path: "button/button.tsx",
+      target: "components/sonaui/button/button.tsx"
     }
   ],
   "animated-switch": [
@@ -6940,6 +6662,36 @@ export const componentMetadata = {
       }
     }
   },
+  "agent-skill": {
+    "name": "agent-skill",
+    "type": "registry:file",
+    "title": "Sona UI Agent Skill",
+    "description": "Instructions for coding agents to discover, install, compose, and verify Sona UI components.",
+    "files": [
+      {
+        "path": "registry/sonaui/agent-skill/SKILL.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/SKILL.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/component-selection.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/component-selection.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/consumer-validation.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/consumer-validation.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/design-principles.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/design-principles.md"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
   "animated-dropdown": {
     "name": "animated-dropdown",
     "type": "registry:ui",
@@ -6991,14 +6743,14 @@ export const componentMetadata = {
       "motion"
     ]
   },
-  "animated-button": {
-    "name": "animated-button",
+  "button": {
+    "name": "button",
     "type": "registry:ui",
-    "title": "Animated Button",
-    "description": "A button layout component that animates content-size changes, supports keyboard-aware hover text swaps, and respects reduced-motion preferences.",
+    "title": "Button",
+    "description": "A simple action button with subtle press feedback and reduced-motion support.",
     "files": [
       {
-        "path": "registry/sonaui/animated-button/animated-button.tsx",
+        "path": "registry/sonaui/button/button.tsx",
         "type": "registry:ui"
       }
     ],

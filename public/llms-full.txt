@@ -1,0 +1,596 @@
+# Sona UI Agent Resources (Full)
+
+> Detailed, machine-readable guidance for selecting and integrating Sona UI components.
+
+## Installation
+
+Configure the Sona UI registry in the consumer project's components.json:
+
+```json
+{
+  "registries": {
+    "@sona-ui": "https://sona-ui.vercel.app/r/{name}.json"
+  }
+}
+```
+
+Install a selected item with the consumer project's package runner:
+
+```bash
+bunx shadcn@latest add @sona-ui/<component>
+```
+
+## Selection guidance
+
+### Fluid Tabs
+
+- Category: components
+- Status: stable
+- Summary: An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.
+- Documentation: https://sona-ui.vercel.app/docs/fluid-tabs
+- Registry item: https://sona-ui.vercel.app/r/fluid-tabs.json
+
+Use when:
+- The interface switches between a small set of related views.
+- The active selection should feel spatially connected to the previous selection.
+
+Avoid when:
+- The interface needs deep navigation rather than local view switching.
+- There are too many options for a compact tab list.
+
+Capabilities:
+- Base UI tab primitives
+- Controlled and uncontrolled selection
+- Capsule and underline variants
+- Keyboard navigation
+
+Accessibility:
+- Uses semantic tab roles and keyboard navigation through Base UI.
+- Keep each tab label descriptive and preserve visible focus styles.
+
+Motion: Connect the previous and next selections with a shared active surface.
+Reduced motion: The active surface should switch without spatial animation.
+
+### Animated Dialog
+
+- Category: components
+- Status: stable
+- Summary: A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.
+- Documentation: https://sona-ui.vercel.app/docs/animated-dialog
+- Registry item: https://sona-ui.vercel.app/r/animated-dialog.json
+
+Use when:
+- The user must complete or confirm a focused task without leaving the current page.
+- The content needs an accessible modal boundary and explicit dismissal behavior.
+
+Avoid when:
+- The content is essential to the page and should not be hidden behind an overlay.
+- A lightweight disclosure or popover is sufficient.
+
+Capabilities:
+- Base UI dialog primitives
+- Controlled open state
+- Direction-aware enter and exit motion
+- Reduced-motion support
+
+Accessibility:
+- Preserves dialog semantics, focus management, and keyboard dismissal through Base UI.
+- Provide an accessible title and description for every dialog instance.
+
+Motion: Explain the dialog's relationship to the triggering surface.
+Reduced motion: Remove transform and opacity choreography while preserving the modal state change.
+
+### Mesh Gradient Shader
+
+- Category: shaders
+- Status: stable
+- Summary: A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.
+- Documentation: https://sona-ui.vercel.app/docs/mesh-gradient-shader
+- Registry item: https://sona-ui.vercel.app/r/mesh-gradient-shader.json
+
+Use when:
+- A visual surface needs atmospheric depth behind readable foreground content.
+- The experience can afford a WebGL-based decorative effect.
+
+Avoid when:
+- The effect would compete with primary content or reduce text contrast.
+- The target device or environment cannot reliably support the shader dependency.
+
+Capabilities:
+- Paper Design Shaders integration
+- Animated color spots and organic distortion
+- Configurable visual composition
+
+Accessibility:
+- Treat as decorative and keep meaningful content outside the shader canvas.
+- Verify foreground contrast against the complete animated background.
+
+Motion: Add slow atmospheric depth without becoming the page's primary action.
+Reduced motion: Use a static composition or disable the animated shader for reduced-motion users.
+
+### Animated Dropdown
+
+- Category: components
+- Status: stable
+- Summary: An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.
+- Documentation: https://sona-ui.vercel.app/docs/animated-dropdown
+- Registry item: https://sona-ui.vercel.app/r/animated-dropdown.json
+
+Use when:
+- An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Animated Switch
+
+- Category: components
+- Status: stable
+- Summary: An iOS-style switch for immediate binary settings with tactile press feedback.
+- Documentation: https://sona-ui.vercel.app/docs/animated-switch
+- Registry item: https://sona-ui.vercel.app/r/animated-switch.json
+
+Use when:
+- An iOS-style switch for immediate binary settings with tactile press feedback.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Button
+
+- Category: components
+- Status: stable
+- Summary: A simple action button with subtle press feedback and reduced-motion support.
+- Documentation: https://sona-ui.vercel.app/docs/button
+- Registry item: https://sona-ui.vercel.app/r/button.json
+
+Use when:
+- A simple action button with subtle press feedback and reduced-motion support.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Dot Orbit Shader
+
+- Category: shaders
+- Status: stable
+- Summary: An animated field of orbiting dots for decorative surfaces and expressive backgrounds.
+- Documentation: https://sona-ui.vercel.app/docs/dot-orbit-shader
+- Registry item: https://sona-ui.vercel.app/r/dot-orbit-shader.json
+
+Use when:
+- An animated field of orbiting dots for decorative surfaces and expressive backgrounds.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Magnetic Button
+
+- Category: effects
+- Status: stable
+- Summary: A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.
+- Documentation: https://sona-ui.vercel.app/docs/magnetic-button
+- Registry item: https://sona-ui.vercel.app/r/magnetic-button.json
+
+Use when:
+- A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Animated Tabs
+
+- Category: components
+- Status: stable
+- Summary: A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.
+- Documentation: https://sona-ui.vercel.app/docs/animated-tabs
+- Registry item: https://sona-ui.vercel.app/r/animated-tabs.json
+
+Use when:
+- A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Accordion
+
+- Category: components
+- Status: stable
+- Summary: An accessible disclosure group for progressively revealing related content.
+- Documentation: https://sona-ui.vercel.app/docs/accordion
+- Registry item: https://sona-ui.vercel.app/r/accordion.json
+
+Use when:
+- An accessible disclosure group for progressively revealing related content.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Ripple Button
+
+- Category: components
+- Status: stable
+- Summary: A button with localized press feedback that makes activation visible without changing the action's meaning.
+- Documentation: https://sona-ui.vercel.app/docs/ripple-button
+- Registry item: https://sona-ui.vercel.app/r/ripple-button.json
+
+Use when:
+- A button with localized press feedback that makes activation visible without changing the action's meaning.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Marquee
+
+- Category: effects
+- Status: stable
+- Summary: A continuously moving content rail for decorative or low-priority repeated content.
+- Documentation: https://sona-ui.vercel.app/docs/marquee
+- Registry item: https://sona-ui.vercel.app/r/marquee.json
+
+Use when:
+- A continuously moving content rail for decorative or low-priority repeated content.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Spinning Text
+
+- Category: text
+- Status: stable
+- Summary: A circular text treatment for short decorative labels and editorial accents.
+- Documentation: https://sona-ui.vercel.app/docs/spinning-text
+- Registry item: https://sona-ui.vercel.app/r/spinning-text.json
+
+Use when:
+- A circular text treatment for short decorative labels and editorial accents.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Stagger Text
+
+- Category: text
+- Status: stable
+- Summary: A text entrance treatment that reveals short content progressively while preserving readability.
+- Documentation: https://sona-ui.vercel.app/docs/stagger-text
+- Registry item: https://sona-ui.vercel.app/r/stagger-text.json
+
+Use when:
+- A text entrance treatment that reveals short content progressively while preserving readability.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Link Preview
+
+- Category: components
+- Status: stable
+- Summary: A contextual preview surface for supplied link metadata without relying on client-side scraping.
+- Documentation: https://sona-ui.vercel.app/docs/link-preview
+- Registry item: https://sona-ui.vercel.app/r/link-preview.json
+
+Use when:
+- A contextual preview surface for supplied link metadata without relying on client-side scraping.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Bubble Up Button
+
+- Category: components
+- Status: stable
+- Summary: An expressive button treatment that changes label or content with a contained upward transition.
+- Documentation: https://sona-ui.vercel.app/docs/bubble-up-button
+- Registry item: https://sona-ui.vercel.app/r/bubble-up-button.json
+
+Use when:
+- An expressive button treatment that changes label or content with a contained upward transition.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Expandable Tabs
+
+- Category: components
+- Status: stable
+- Summary: A compact tab control that expands its selected item to expose more context.
+- Documentation: https://sona-ui.vercel.app/docs/expandable-tabs
+- Registry item: https://sona-ui.vercel.app/r/expandable-tabs.json
+
+Use when:
+- A compact tab control that expands its selected item to expose more context.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Split Text
+
+- Category: text
+- Status: stable
+- Summary: A text animation primitive that treats words or characters as individually addressable visual units.
+- Documentation: https://sona-ui.vercel.app/docs/split-text
+- Registry item: https://sona-ui.vercel.app/r/split-text.json
+
+Use when:
+- A text animation primitive that treats words or characters as individually addressable visual units.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Image Trail
+
+- Category: effects
+- Status: stable
+- Summary: A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.
+- Documentation: https://sona-ui.vercel.app/docs/image-trail
+- Registry item: https://sona-ui.vercel.app/r/image-trail.json
+
+Use when:
+- A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Spotlight Card
+
+- Category: components
+- Status: stable
+- Summary: A card that reveals localized pointer lighting while keeping content and hierarchy stable.
+- Documentation: https://sona-ui.vercel.app/docs/spotlight-card
+- Registry item: https://sona-ui.vercel.app/r/spotlight-card.json
+
+Use when:
+- A card that reveals localized pointer lighting while keeping content and hierarchy stable.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Hold To Delete Button
+
+- Category: components
+- Status: stable
+- Summary: A deliberate destructive action that requires sustained input before completing deletion.
+- Documentation: https://sona-ui.vercel.app/docs/hold-to-delete-button
+- Registry item: https://sona-ui.vercel.app/r/hold-to-delete-button.json
+
+Use when:
+- A deliberate destructive action that requires sustained input before completing deletion.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Circular Dock Menu
+
+- Category: components
+- Status: stable
+- Summary: A radial action menu for a small set of spatially related actions.
+- Documentation: https://sona-ui.vercel.app/docs/circular-dock-menu
+- Registry item: https://sona-ui.vercel.app/r/circular-dock-menu.json
+
+Use when:
+- A radial action menu for a small set of spatially related actions.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Fan View
+
+- Category: effects
+- Status: stable
+- Summary: A fan-like arrangement for browsing a small set of layered visual items.
+- Documentation: https://sona-ui.vercel.app/docs/fan-view
+- Registry item: https://sona-ui.vercel.app/r/fan-view.json
+
+Use when:
+- A fan-like arrangement for browsing a small set of layered visual items.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+## Integration principles
+
+- Inspect the consumer project before changing aliases, tokens, layout, or global styles.
+- Preserve semantic HTML, keyboard behavior, focus visibility, and reduced-motion behavior.
+- Keep decorative effects separate from meaningful content and verify contrast against the complete visual surface.
+- Use the registry item as the installation authority; do not copy component source into prompts or skill files.

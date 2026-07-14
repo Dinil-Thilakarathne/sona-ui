@@ -135,3 +135,183 @@ export const agentResourceMetadata = {
     },
   },
 } satisfies Record<string, AgentResourceMetadata>;
+
+function catalogEntry(
+  name: string,
+  title: string,
+  category: AgentResourceCategory,
+  summary: string,
+  keywords: string[],
+): AgentResourceMetadata {
+  const decorative = category === "effects" || category === "shaders";
+  return {
+    name,
+    title,
+    category,
+    status: "stable",
+    summary,
+    docsSlug: name,
+    keywords,
+    useWhen: [summary],
+    avoidWhen: [
+      decorative
+        ? "The effect would compete with meaningful content or reduce readability."
+        : "The interaction does not match the component's focused responsibility.",
+    ],
+    capabilities: ["Source-owned Sona UI component", "Semantic theme tokens"],
+    accessibility: [
+      "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.",
+    ],
+    motion: {
+      purpose: decorative
+        ? "Add restrained visual depth without competing with the primary task."
+        : "Communicate state, continuity, or feedback at the point of interaction.",
+      reducedMotion: decorative
+        ? "Use a static or reduced visual treatment when motion is not preferred."
+        : "Reduce nonessential choreography while preserving the state change and feedback.",
+    },
+  };
+}
+
+Object.assign(agentResourceMetadata, {
+  "animated-dropdown": catalogEntry(
+    "animated-dropdown",
+    "Animated Dropdown",
+    "components",
+    "An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.",
+    ["dropdown", "menu", "actions"],
+  ),
+  "animated-switch": catalogEntry(
+    "animated-switch",
+    "Animated Switch",
+    "components",
+    "An iOS-style switch for immediate binary settings with tactile press feedback.",
+    ["switch", "toggle", "boolean setting"],
+  ),
+  button: catalogEntry(
+    "button",
+    "Button",
+    "components",
+    "A simple action button with subtle press feedback and reduced-motion support.",
+    ["button", "cta", "action"],
+  ),
+  "dot-orbit-shader": catalogEntry(
+    "dot-orbit-shader",
+    "Dot Orbit Shader",
+    "shaders",
+    "An animated field of orbiting dots for decorative surfaces and expressive backgrounds.",
+    ["shader", "dots", "background"],
+  ),
+  "magnetic-button": catalogEntry(
+    "magnetic-button",
+    "Magnetic Button",
+    "effects",
+    "A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.",
+    ["magnetic", "pointer", "hover"],
+  ),
+  "animated-tabs": catalogEntry(
+    "animated-tabs",
+    "Animated Tabs",
+    "components",
+    "A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.",
+    ["tabs", "navigation", "hover"],
+  ),
+  accordion: catalogEntry(
+    "accordion",
+    "Accordion",
+    "components",
+    "An accessible disclosure group for progressively revealing related content.",
+    ["accordion", "disclosure", "collapsible"],
+  ),
+  "ripple-button": catalogEntry(
+    "ripple-button",
+    "Ripple Button",
+    "components",
+    "A button with localized press feedback that makes activation visible without changing the action's meaning.",
+    ["button", "ripple", "press feedback"],
+  ),
+  marquee: catalogEntry(
+    "marquee",
+    "Marquee",
+    "effects",
+    "A continuously moving content rail for decorative or low-priority repeated content.",
+    ["marquee", "loop", "scrolling content"],
+  ),
+  "spinning-text": catalogEntry(
+    "spinning-text",
+    "Spinning Text",
+    "text",
+    "A circular text treatment for short decorative labels and editorial accents.",
+    ["text", "circular text", "typography"],
+  ),
+  "stagger-text": catalogEntry(
+    "stagger-text",
+    "Stagger Text",
+    "text",
+    "A text entrance treatment that reveals short content progressively while preserving readability.",
+    ["text", "entrance", "stagger"],
+  ),
+  "link-preview": catalogEntry(
+    "link-preview",
+    "Link Preview",
+    "components",
+    "A contextual preview surface for supplied link metadata without relying on client-side scraping.",
+    ["link", "preview", "metadata"],
+  ),
+  "bubble-up-button": catalogEntry(
+    "bubble-up-button",
+    "Bubble Up Button",
+    "components",
+    "An expressive button treatment that changes label or content with a contained upward transition.",
+    ["button", "label transition", "action"],
+  ),
+  "expandable-tabs": catalogEntry(
+    "expandable-tabs",
+    "Expandable Tabs",
+    "components",
+    "A compact tab control that expands its selected item to expose more context.",
+    ["tabs", "navigation", "expandable"],
+  ),
+  "split-text": catalogEntry(
+    "split-text",
+    "Split Text",
+    "text",
+    "A text animation primitive that treats words or characters as individually addressable visual units.",
+    ["text", "split", "typography"],
+  ),
+  "image-trail": catalogEntry(
+    "image-trail",
+    "Image Trail",
+    "effects",
+    "A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.",
+    ["image", "cursor", "trail"],
+  ),
+  "spotlight-card": catalogEntry(
+    "spotlight-card",
+    "Spotlight Card",
+    "components",
+    "A card that reveals localized pointer lighting while keeping content and hierarchy stable.",
+    ["card", "spotlight", "hover"],
+  ),
+  "hold-to-delete-button": catalogEntry(
+    "hold-to-delete-button",
+    "Hold To Delete Button",
+    "components",
+    "A deliberate destructive action that requires sustained input before completing deletion.",
+    ["delete", "destructive action", "hold"],
+  ),
+  "circular-dock-menu": catalogEntry(
+    "circular-dock-menu",
+    "Circular Dock Menu",
+    "components",
+    "A radial action menu for a small set of spatially related actions.",
+    ["menu", "radial", "dock"],
+  ),
+  "fan-view": catalogEntry(
+    "fan-view",
+    "Fan View",
+    "effects",
+    "A fan-like arrangement for browsing a small set of layered visual items.",
+    ["gallery", "fan", "cards"],
+  ),
+});

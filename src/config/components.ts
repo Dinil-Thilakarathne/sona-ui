@@ -20,6 +20,20 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Getting Started",
   },
   {
+    name: "AI agents",
+    slug: "ai-agents",
+    href: "/docs/ai-agents",
+    type: "Getting Started",
+    tag: "new",
+  },
+  {
+    name: "Skills",
+    slug: "skills",
+    href: "/docs/skills",
+    type: "Getting Started",
+    tag: "new",
+  },
+  {
     name: "Animated Dropdown",
     slug: "animated-dropdown",
     href: "/docs/animated-dropdown",
@@ -41,9 +55,9 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     tag: "new",
   },
   {
-    name: "Animated Button",
-    slug: "animated-button",
-    href: "/docs/animated-button",
+    name: "Button",
+    slug: "button",
+    href: "/docs/button",
     type: "Components",
     tag: "new",
   },
@@ -85,12 +99,12 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Components",
     tag: "new",
   },
-  {
-    name: "Animated Tabs",
-    slug: "animated-tabs",
-    href: "/docs/animated-tabs",
-    type: "Components",
-  },
+  // {
+  //   name: "Animated Tabs",
+  //   slug: "animated-tabs",
+  //   href: "/docs/animated-tabs",
+  //   type: "Components",
+  // },
   {
     name: "Expandable Tabs",
     slug: "expandable-tabs",

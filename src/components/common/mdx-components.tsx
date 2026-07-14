@@ -18,6 +18,7 @@ import {
 import { cn } from "@/lib/utils";
 import { DesignTokenReference } from "../design-token/design-token-reference";
 import { ComponentUsageServer } from "../usage/component-usage-server";
+import { AgentTable } from "./agent-table";
 import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
 import { ComponentInstallationServer } from "./component-installation-server";
 import ComponentPlayground from "./component-playground";
@@ -49,100 +50,73 @@ const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       data-doc-heading
-      className={cn(
-        "font-heading mt-2 scroll-m-20 text-2xl font-bold lg:text-4xl",
-        className,
-      )}
+      className={cn("docs-heading docs-heading-h1", className)}
       {...props}
     />
   ),
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       data-doc-heading
-      className={cn(
-        "font-heading mt-12 scroll-m-20 border-b pb-2 mb-2 text-xl font-semibold tracking-tight first:mt-0 lg:text-2xl",
-        className,
-      )}
+      className={cn("docs-heading docs-heading-h2", className)}
       {...props}
     />
   ),
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       data-doc-heading
-      className={cn(
-        "font-heading mt-8 scroll-m-20 pb-2 text-lg font-semibold tracking-tight lg:text-xl",
-        className,
-      )}
+      className={cn("docs-heading docs-heading-h3", className)}
       {...props}
     />
   ),
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       data-doc-heading
-      className={cn(
-        "font-heading mt-6 scroll-m-20 text-base font-semibold tracking-tight lg:text-lg",
-        className,
-      )}
+      className={cn("docs-heading docs-heading-h4", className)}
       {...props}
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("ml-6 list-disc", className)} {...props} />
+    <ul className={cn("docs-list docs-list-unordered", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("ml-6 list-decimal", className)} {...props} />
+    <ol className={cn("docs-list docs-list-ordered", className)} {...props} />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <li className={cn("mt-2", className)} {...props} />
+    <li className={cn("docs-list-item", className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-    <div className="overflow-x-auto">
-      <table
-        className={cn("border-border w-full border-collapse border", className)}
-        {...props}
-      />
+    <div className="docs-table-scroll">
+      <table className={cn("docs-table", className)} {...props} />
     </div>
   ),
   thead: ({
     className,
     ...props
   }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className={cn("bg-muted", className)} {...props} />
+    <thead className={cn("docs-table-head", className)} {...props} />
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-    <tr className={cn("border-b border-border", className)} {...props} />
+    <tr className={cn("docs-table-row", className)} {...props} />
   ),
   th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <th
-      className={cn("px-4 py-2 text-left font-medium", className)}
-      {...props}
-    />
+    <th className={cn("docs-table-heading", className)} {...props} />
   ),
   td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
-    <td className={cn("px-4 py-2", className)} {...props} />
+    <td className={cn("docs-table-cell", className)} {...props} />
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
-    <CustomLink
-      className={cn("font-medium underline underline-offset-4", className)}
-      {...props}
-    />
+    <CustomLink className={cn("docs-link", className)} {...props} />
   ),
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className={cn("text-sm leading-7 md:text-base", className)} {...props} />
+    <p className={cn("docs-paragraph", className)} {...props} />
   ),
   blockquote: ({
     className,
     ...props
   }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote
-      className={cn(
-        "border-border mt-6 border-l-2 pl-6 text-muted-foreground italic",
-        className,
-      )}
-      {...props}
-    />
+    <blockquote className={cn("docs-blockquote", className)} {...props} />
   ),
-  Divider: () => <div className="py-8 w-full" />,
+  Divider: () => <div className="docs-divider" />,
   CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,
@@ -158,6 +132,7 @@ const components = {
   ComponentPreview,
   ComponentPlayground,
   PropTable,
+  AgentTable,
   ComponentInstallation: ComponentInstallationServer,
 
   ComponentUsage: ComponentUsageServer,
@@ -190,10 +165,7 @@ export function Mdx({
             <>
               <h1
                 data-doc-heading
-                className={cn(
-                  "font-heading mt-2 scroll-m-20 text-2xl font-bold lg:text-4xl",
-                  headingClassName,
-                )}
+                className={cn("docs-heading docs-heading-h1", headingClassName)}
                 {...props}
               />
               <div className="flex flex-col gap-4 md:pt-4 mobile:mb-2 lg:absolute lg:top-0 lg:right-0 lg:block lg:pt-0">
@@ -210,7 +182,7 @@ export function Mdx({
   return (
     <article
       className={cn(
-        "docs-prose relative mx-auto max-w-[75ch]",
+        "docs-prose",
         headerActions && "lg:[&>h1]:pr-28",
         className,
       )}

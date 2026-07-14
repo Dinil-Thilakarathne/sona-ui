@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "A simple action button with subtle press feedback and reduced-motion support.",
+  "files": [
+    {
+      "path": "registry/sonaui/button/button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { forwardRef } from \"react\";\nimport { motionTransition } from \"@/lib/sona-motion\";\nimport { cn } from \"@/lib/sona-utils\";\n\nexport const buttonVariants = cva(\n  \"relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium select-none outline-none transition-colors hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-foreground text-background hover:bg-foreground/90\",\n        outlined:\n          \"border border-input bg-background hover:bg-accent hover:text-accent-foreground\",\n        secondary:\n          \"bg-secondary text-secondary-foreground hover:bg-secondary/80\",\n      },\n      size: {\n        sm: \"h-9 px-4 text-xs\",\n        md: \"h-10 px-5 text-sm\",\n        lg: \"h-11 px-6 text-base\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"md\",\n    },\n  },\n);\n\nexport interface ButtonProps\n  extends React.ComponentPropsWithoutRef<typeof motion.button>,\n    VariantProps<typeof buttonVariants> {\n  /** Content rendered inside the button. */\n  children: React.ReactNode;\n  /**\n   * Visual style of the button.\n   * @default \"default\"\n   */\n  variant?: \"default\" | \"outlined\" | \"secondary\";\n  /**\n   * Controls the button height, padding, and text size.\n   * @default \"md\"\n   */\n  size?: \"sm\" | \"md\" | \"lg\";\n}\n\nexport const Button = forwardRef<HTMLButtonElement, ButtonProps>(\n  (\n    {\n      children,\n      variant = \"default\",\n      size = \"md\",\n      className,\n      disabled,\n      ...props\n    },\n    ref,\n  ) => {\n    const shouldReduceMotion = useReducedMotion();\n\n    return (\n      <motion.button\n        ref={ref}\n        disabled={disabled}\n        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}\n        transition={\n          shouldReduceMotion\n            ? motionTransition.reduced\n            : motionTransition.spatial\n        }\n        className={cn(buttonVariants({ variant, size }), \"w-fit\", className)}\n        {...props}\n      >\n        {children}\n      </motion.button>\n    );\n  },\n);\n\nButton.displayName = \"Button\";\nexport default Button;\n",
+      "target": "components/ui/button/button.tsx"
+    }
+  ],
+  "dependencies": [
+    "class-variance-authority",
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://sona-ui.vercel.app/r/sona-utils.json",
+    "https://sona-ui.vercel.app/r/sona-motion.json"
+  ]
+}

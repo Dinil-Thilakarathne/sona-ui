@@ -37,6 +37,12 @@ jobs:
       - name: Validate agent resources
         run: bun run check:agent-resources
 
+      - name: Validate agent skill
+        run: bun run check:agent-skill
+
+      - name: Check agent contracts
+        run: bun run check:agent-contracts
+
       - name: Build generated registry artifacts
         run: bun run build:registry
 

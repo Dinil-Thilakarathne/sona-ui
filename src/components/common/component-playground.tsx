@@ -120,7 +120,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
               type="button"
               onClick={reset}
               disabled={!isDirty}
-              className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="text-xs text-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Reset
             </button>

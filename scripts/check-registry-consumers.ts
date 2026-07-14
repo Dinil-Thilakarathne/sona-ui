@@ -16,6 +16,10 @@ const payloadRoot = path.join(projectRoot, "public/r");
 const nodeModules = path.join(projectRoot, "node_modules");
 
 function resolveTarget(sourceRoot: string, target: string) {
+  if (target.startsWith(".agents/")) {
+    return path.join(path.dirname(sourceRoot), target);
+  }
+
   const aliases = [
     ["components/ui/", "components/ui/"],
     ["components/", "components/"],

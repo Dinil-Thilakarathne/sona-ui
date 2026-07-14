@@ -21,7 +21,7 @@ const tabsListVariants = cva(
   {
     variants: {
       variant: {
-        capsule: "rounded-xl bg-(--tabs-surface)",
+        capsule: "rounded-lg bg-(--tabs-surface)",
         underline:
           "data-[orientation=horizontal]:px-0 data-[orientation=vertical]:py-0 data-[orientation=horizontal]:pt-0",
       },

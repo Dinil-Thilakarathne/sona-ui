@@ -26,8 +26,14 @@ type BuiltRegistryFile = RegistryFileDefinition & {
 const registryPath = path.join(process.cwd(), "src/registry");
 const metadataPath = path.join(registryPath, "registry.json");
 const publicRegistryPath = path.join(process.cwd(), "public/r");
+const configuredRegistryBaseUrl = process.env.REGISTRY_BASE_URL?.trim();
+const vercelRegistryBaseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}/r`
+  : undefined;
 const registryBaseUrl = (
-  process.env.REGISTRY_BASE_URL ?? "https://sona-ui.vercel.app/r"
+  configuredRegistryBaseUrl ??
+  vercelRegistryBaseUrl ??
+  "https://sona-ui.vercel.app/r"
 ).replace(/\/$/, "");
 
 const foundationImports = {

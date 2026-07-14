@@ -17,8 +17,20 @@ const docsPath = path.join(root, "src/content/docs");
 const outputPath = path.join(root, "public/agent");
 const catalogPath = path.join(outputPath, "catalog.json");
 const detailsPath = path.join(outputPath, "components");
-const registryBaseUrl = "https://sona-ui.vercel.app/r";
-const siteBaseUrl = "https://sona-ui.vercel.app";
+function getSiteBaseUrl() {
+  const configuredUrl = process.env.AGENT_SITE_URL?.trim();
+  if (configuredUrl) return configuredUrl.replace(/\/$/, "");
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) return `https://${vercelUrl}`;
+
+  return "https://sona-ui.vercel.app";
+}
+
+const siteBaseUrl = getSiteBaseUrl();
+const registryBaseUrl = (
+  process.env.REGISTRY_BASE_URL?.trim() ?? `${siteBaseUrl}/r`
+).replace(/\/$/, "");
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
@@ -128,6 +140,7 @@ function buildResources() {
     `- [Installation](${siteBaseUrl}/docs/installation)`,
     `- [Theming](${siteBaseUrl}/docs/theming)`,
     `- [Agent component catalog](${siteBaseUrl}/agent/catalog.json)`,
+    `- [Full agent guidance](${siteBaseUrl}/llms-full.txt)`,
     `- [Registry index](${siteBaseUrl}/r/registry.json)`,
     "",
     "## Components",
@@ -145,6 +158,79 @@ function buildResources() {
     "",
   ];
   fs.writeFileSync(path.join(root, "public/llms.txt"), lines.join("\n"));
+
+  const fullLines = [
+    "# Sona UI Agent Resources (Full)",
+    "",
+    "> Detailed, machine-readable guidance for selecting and integrating Sona UI components.",
+    "",
+    "## Installation",
+    "",
+    `Configure the Sona UI registry in the consumer project's components.json:`,
+    "",
+    "```json",
+    JSON.stringify(
+      {
+        registries: {
+          "@sona-ui": `${registryBaseUrl}/{name}.json`,
+        },
+      },
+      null,
+      2,
+    ),
+    "```",
+    "",
+    `Install a selected item with the consumer project's package runner:`,
+    "",
+    "```bash",
+    "bunx shadcn@latest add @sona-ui/<component>",
+    "```",
+    "",
+    "## Selection guidance",
+    "",
+  ];
+
+  for (const item of metadata) {
+    fullLines.push(
+      `### ${item.title}`,
+      "",
+      `- Category: ${item.category}`,
+      `- Status: ${item.status}`,
+      `- Summary: ${item.summary}`,
+      `- Documentation: ${siteBaseUrl}/docs/${item.docsSlug}`,
+      `- Registry item: ${registryBaseUrl}/${item.name}.json`,
+      "",
+      "Use when:",
+      ...item.useWhen.map((value) => `- ${value}`),
+      "",
+      "Avoid when:",
+      ...item.avoidWhen.map((value) => `- ${value}`),
+      "",
+      "Capabilities:",
+      ...item.capabilities.map((value) => `- ${value}`),
+      "",
+      "Accessibility:",
+      ...item.accessibility.map((value) => `- ${value}`),
+      "",
+      `Motion: ${item.motion.purpose}`,
+      `Reduced motion: ${item.motion.reducedMotion}`,
+      "",
+    );
+  }
+
+  fullLines.push(
+    "## Integration principles",
+    "",
+    "- Inspect the consumer project before changing aliases, tokens, layout, or global styles.",
+    "- Preserve semantic HTML, keyboard behavior, focus visibility, and reduced-motion behavior.",
+    "- Keep decorative effects separate from meaningful content and verify contrast against the complete visual surface.",
+    "- Use the registry item as the installation authority; do not copy component source into prompts or skill files.",
+    "",
+  );
+  fs.writeFileSync(
+    path.join(root, "public/llms-full.txt"),
+    fullLines.join("\n"),
+  );
   console.log(`Built agent resources for ${metadata.length} registry items.`);
 }
 

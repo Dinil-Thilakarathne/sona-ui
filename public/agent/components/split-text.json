@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "name": "split-text",
+  "title": "Split Text",
+  "category": "text",
+  "status": "stable",
+  "summary": "A text animation primitive that treats words or characters as individually addressable visual units.",
+  "docsSlug": "split-text",
+  "keywords": [
+    "text",
+    "split",
+    "typography"
+  ],
+  "useWhen": [
+    "A text animation primitive that treats words or characters as individually addressable visual units."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/split-text.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/split-text",
+    "rawUrl": "https://sona-ui.vercel.app/docs/split-text/raw.md",
+    "sourceTitle": "split-text"
+  }
+}

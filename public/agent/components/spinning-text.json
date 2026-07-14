@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "spinning-text",
+  "title": "Spinning Text",
+  "category": "text",
+  "status": "stable",
+  "summary": "A circular text treatment for short decorative labels and editorial accents.",
+  "docsSlug": "spinning-text",
+  "keywords": [
+    "text",
+    "circular text",
+    "typography"
+  ],
+  "useWhen": [
+    "A circular text treatment for short decorative labels and editorial accents."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/spinning-text.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/spinning-text",
+    "rawUrl": "https://sona-ui.vercel.app/docs/spinning-text/raw.md",
+    "sourceTitle": "spinning-text"
+  }
+}
