@@ -270,6 +270,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "fluid-slider",
+      "type": "registry:ui",
+      "title": "Fluid Slider",
+      "description": "A labeled Base UI range control with direct surface selection, a dedicated draggable indicator, and restrained boundary resistance.",
+      "files": [
+        {
+          "path": "registry/sonaui/fluid-slider/fluid-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-slider/fluid-slider.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "animated-tabs",
       "type": "registry:ui",
       "title": "Animated Tabs",

@@ -187,6 +187,19 @@
     "dependencies": ["@base-ui/react", "motion"]
   },
   {
+    "name": "fluid-slider",
+    "type": "registry:ui",
+    "title": "Fluid Slider",
+    "description": "A labeled Base UI range control with direct surface selection, a dedicated draggable indicator, and restrained boundary resistance.",
+    "files": [
+      {
+        "path": "registry/sonaui/fluid-slider/fluid-slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"]
+  },
+  {
     "name": "animated-tabs",
     "type": "registry:ui",
     "title": "Animated Tabs",

@@ -462,6 +462,158 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional CSS classes for the root container."
     }
   ],
+  "fluid-slider": [
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Visible label associated with the slider."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "default": "undefined",
+      "description": "Controlled slider value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "default": "50",
+      "description": "Initial value for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "( value: number, details: Slider.Root.ChangeEventDetails, ) => void",
+      "default": "undefined",
+      "description": "Called continuously while the value changes."
+    },
+    {
+      "name": "onValueCommitted",
+      "type": "( value: number, details: Slider.Root.CommitEventDetails, ) => void",
+      "default": "undefined",
+      "description": "Called when a pointer or keyboard interaction commits."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "default": "0",
+      "description": "Minimum allowed value."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "default": "100",
+      "description": "Maximum allowed value."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": "1",
+      "description": "Smallest value increment."
+    },
+    {
+      "name": "largeStep",
+      "type": "number",
+      "default": "10",
+      "description": "Increment used by Page Up, Page Down, and modified arrow keys."
+    },
+    {
+      "name": "marks",
+      "type": "number[]",
+      "default": "[]",
+      "description": "Numeric positions rendered as quiet reference marks."
+    },
+    {
+      "name": "formatValue",
+      "type": "(value: number) => string",
+      "default": "undefined",
+      "description": "Formats the visible and accessible value text."
+    },
+    {
+      "name": "format",
+      "type": "Intl.NumberFormatOptions",
+      "default": "undefined",
+      "description": "Intl options used when no custom formatter is supplied."
+    },
+    {
+      "name": "locale",
+      "type": "Intl.LocalesArgument",
+      "default": "undefined",
+      "description": "Locale used by the default number formatter."
+    },
+    {
+      "name": "showValue",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the trailing formatted value is visible."
+    },
+    {
+      "name": "showHandle",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the active boundary grip is visible."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the slider ignores user interaction."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "default": "undefined",
+      "description": "Name submitted with the slider's hidden range input."
+    },
+    {
+      "name": "form",
+      "type": "string",
+      "default": "undefined",
+      "description": "ID of the form that owns the slider input."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "undefined",
+      "description": "Accessible name used instead of the visible label."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the slider root."
+    },
+    {
+      "name": "trackClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the track surface."
+    },
+    {
+      "name": "surfaceClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the filled surface."
+    },
+    {
+      "name": "labelClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the fixed label."
+    },
+    {
+      "name": "valueClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the trailing value."
+    },
+    {
+      "name": "handleClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the boundary grip."
+    }
+  ],
   "fluid-tabs": [
     {
       "name": "tabs",

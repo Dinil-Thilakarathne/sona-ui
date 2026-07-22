@@ -59,6 +59,7 @@ next-env.d.ts
 /local
 
 /docs
+/docs-local
 
 # Versioned component-ideation briefs
 !/docs/

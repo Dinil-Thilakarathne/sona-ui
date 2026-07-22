@@ -18,7 +18,6 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/accordion";
-import Button from "@/registry/sonaui/button/button";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -36,10 +35,12 @@ import {
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 import AnimatedTabs from "@/registry/sonaui/animated-tabs/animated-tabs";
+import Button from "@/registry/sonaui/button/button";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
 import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
@@ -92,6 +93,54 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "fluid-slider": {
+    controls: [
+      {
+        type: "text",
+        prop: "label",
+        label: "Label",
+        default: "Frequency",
+      },
+      {
+        type: "slider",
+        prop: "value",
+        label: "Initial value",
+        min: 0,
+        max: 100,
+        step: 1,
+        default: 35,
+      },
+      {
+        type: "toggle",
+        prop: "showValue",
+        label: "Show value",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "showHandle",
+        label: "Show handle",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "showMarks",
+        label: "Show marks",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <FluidSlider
+        key={`${v.label}-${v.value}`}
+        label={v.label as string}
+        defaultValue={v.value as number}
+        showValue={v.showValue as boolean}
+        showHandle={v.showHandle as boolean}
+        marks={v.showMarks ? [20, 40, 60, 80] : []}
+        formatValue={(value) => `${value}%`}
+      />
+    ),
+  },
   "fluid-tabs": {
     controls: [
       {
