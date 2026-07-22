@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  bind,
-  play,
-  type SoundName,
-  setEnabled,
-  setVolume,
-  sounds,
-} from "cuelume";
+import { bind, play, type SoundName, setEnabled, sounds } from "cuelume";
 import { Check, Copy, Loader2, Trash2, Volume2, VolumeX } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -141,24 +134,16 @@ function Section({
 
 export default function CuelumePlayground() {
   const [enabled, setEnabledState] = useState(true);
-  const [volume, setVolumeState] = useState(30);
   const [hoverSound, setHoverSound] = useState<SoundName>("tick");
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bind(rootRef.current ?? undefined);
-    setVolume(3); // sync initial volume to module on mount
   }, []);
 
   function handleEnabledChange(next: boolean) {
     setEnabledState(next);
     setEnabled(next);
-  }
-
-  function handleVolumeChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const next = Number(e.target.value);
-    setVolumeState(next);
-    setVolume(next);
   }
 
   return (
@@ -182,23 +167,6 @@ export default function CuelumePlayground() {
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <label className="flex items-center gap-2 rounded-lg border bg-background px-3 py-2">
-            <span className="font-medium text-foreground text-sm">Vol</span>
-            <input
-              type="range"
-              min={0}
-              max={10}
-              step={0.5}
-              value={volume}
-              onChange={handleVolumeChange}
-              className="w-24 accent-foreground"
-              aria-label="Global volume"
-            />
-            <span className="w-8 font-mono text-muted-foreground text-xs text-right">
-              {volume.toFixed(1)}×
-            </span>
-          </label>
-
           <div className="flex items-center gap-3 rounded-lg border bg-background px-3 py-2">
             {enabled ? (
               <Volume2 className="size-4 text-foreground" aria-hidden="true" />
