@@ -5579,11 +5579,13 @@ export default function SectionRail({
         return;
       }
 
+      // A fixed duration, not a spring. A spring's settle time grows with the
+      // distance it has to cover, so the dot visibly dragged when a fast scroll
+      // skipped several sections at once and snapped when it moved one. The
+      // travel should read the same no matter how far the active item jumped.
       const options = {
-        type: "spring",
-        stiffness: 480,
-        damping: 40,
-        mass: 0.7,
+        duration: 0.26,
+        ease: [0.22, 1, 0.36, 1],
       } as const;
       dotAnimations.current = [
         animate(dotX, targetX, options),
@@ -5896,7 +5898,13 @@ export default function SectionRail({
                     <motion.span
                       className={cn(
                         "absolute inset-0 rounded-full bg-(--section-rail-progress)",
-                        isVertical ? "origin-left" : "origin-top",
+                        // Fill grows away from the edge the rail is anchored
+                        // to, so it always reads as advancing outward-in.
+                        isVertical
+                          ? side === "right"
+                            ? "origin-right"
+                            : "origin-left"
+                          : "origin-top",
                       )}
                       style={
                         isVertical ? { scaleX: progress } : { scaleY: progress }
@@ -5980,7 +5988,11 @@ export default function SectionRail({
               "relative flex cursor-pointer items-center gap-2 rounded-sm outline-none",
               "focus-visible:ring-2 focus-visible:ring-(--section-rail-focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-background",
               isVertical ? "px-2 py-1.5" : "flex-col px-1.5 py-2",
-              side === "left" && isVertical && "flex-row-reverse justify-end",
+              // The line always sits flush against the edge the rail is
+              // anchored to; the dot slot tucks in behind it. Reversing for
+              // \`side="right"\` is what keeps every line right-aligned instead
+              // of the dot slot pushing them inward.
+              side === "right" && isVertical && "flex-row-reverse",
               item.disabled && "cursor-not-allowed",
             ),
             onClick: (event: React.MouseEvent<HTMLElement>) =>
