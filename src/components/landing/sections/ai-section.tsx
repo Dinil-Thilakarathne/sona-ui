@@ -39,27 +39,26 @@ export function AiSection() {
         </div>
       </div>
       <div
-        className="overflow-hidden rounded-2xl border border-border bg-foreground p-5 font-mono text-xs leading-[1.8] text-[oklch(.93_0_0)] shadow-lg"
+        className="overflow-hidden rounded-2xl border border-border bg-card p-5 font-mono text-xs leading-[1.8] text-card-foreground shadow-lg"
         role="img"
         aria-label="AI workflow example"
       >
         <div className="mb-6 flex gap-1.5">
-          <span className="size-2 rounded-full bg-white/40" />
-          <span className="size-2 rounded-full bg-white/40" />
-          <span className="size-2 rounded-full bg-white/40" />
+          <span className="size-2 rounded-full bg-muted-foreground/40" />
+          <span className="size-2 rounded-full bg-muted-foreground/40" />
+          <span className="size-2 rounded-full bg-muted-foreground/40" />
         </div>
         <p>
-          <span className="text-[oklch(.75_.15_250)]">$</span> discover sona
-          components for tabs
+          <span className="text-primary">$</span> discover sona components for
+          tabs
         </p>
-        <p className="text-white/60">
+        <p className="text-muted-foreground">
           → Fluid Tabs · accessible · motion-aware
         </p>
         <p>
-          <span className="text-[oklch(.75_.15_250)]">$</span> install
-          @sona-ui/fluid-tabs
+          <span className="text-primary">$</span> install @sona-ui/fluid-tabs
         </p>
-        <p className="text-[oklch(.75_.15_145)]">
+        <p className="text-success-foreground">
           ✓ source added to your project
         </p>
       </div>

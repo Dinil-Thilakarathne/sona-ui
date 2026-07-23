@@ -65,7 +65,7 @@ export function InstallCommand() {
           >
             $
           </span>
-          <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap text-foreground sm:text-base">
+          <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
             {command}
           </code>
           <CopyButton

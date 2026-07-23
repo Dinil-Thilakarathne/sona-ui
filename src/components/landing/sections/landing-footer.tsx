@@ -25,7 +25,7 @@ const footerLinkClassName =
 
 export function LandingFooter() {
   return (
-    <footer className="mx-auto grid w-full max-w-[76rem] gap-6 border-t border-border px-4 py-6 lg:py-16 pb-8 text-[0.8125rem] text-muted-foreground sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_auto]">
+    <footer className="mx-auto  w-full max-w-[76rem] gap-6 border-t border-border px-4 py-6 lg:py-16 pb-8 text-[0.8125rem] text-muted-foreground flex flex-col lg:flex-row justify-between">
       <div>
         <Link
           href="/"
@@ -34,28 +34,34 @@ export function LandingFooter() {
           Sona UI
         </Link>
       </div>
-      {footerLinkGroups.map((group) => (
-        <nav key={group.label} aria-label={group.label}>
-          <ul className="m-0 grid list-none content-start gap-2 p-0">
-            {group.links.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className={footerLinkClassName}>
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      ))}
-      <div>
-        <a
-          href="https://github.com/Dinil-Thilakarathne/sona-ui"
-          className="inline-flex items-start gap-1.5 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub <ArrowUpRight className="size-4" aria-hidden="true" />
-        </a>
+
+      <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex gap-8 ">
+          {footerLinkGroups.map((group) => (
+            <nav key={group.label} aria-label={group.label}>
+              <ul className="m-0 grid list-none content-start gap-2 p-0">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className={footerLinkClassName}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+
+        <div className=" w-fit">
+          <a
+            href="https://github.com/Dinil-Thilakarathne/sona-ui"
+            className="inline-flex items-start gap-1.5 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub <ArrowUpRight className="size-4" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </footer>
   );

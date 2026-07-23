@@ -30,7 +30,7 @@ html {
     --card-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
     --popover: light-dark(oklch(1 0 0), oklch(0.21 0 0));
     --popover-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
-    --primary: oklch(0.54 0.15 250);
+    --primary: light-dark(oklch(0.18 0 0), oklch(0.94 0 0));
     --primary-foreground: oklch(1 0 0);
     --neutral: light-dark(oklch(0.22 0 0), oklch(0.95 0 0));
     --neutral-foreground: light-dark(oklch(0.98 0 0), oklch(0.13 0 0));

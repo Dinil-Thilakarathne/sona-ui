@@ -2,6 +2,7 @@
 
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
+import { groupedComponents } from "@/config/components";
 import { LandingButtonLink } from "../button-link";
 import { InstallCommand } from "../install-command";
 
@@ -25,7 +26,7 @@ export function LandingHero() {
 
   return (
     <section
-      className="grid min-h-[calc(75svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
+      className="grid min-h-[calc(100svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
       aria-labelledby="landing-title"
     >
       <motion.div
@@ -34,17 +35,10 @@ export function LandingHero() {
         initial="hidden"
         animate="show"
       >
-        <motion.p
-          variants={item}
-          className="inline-flex items-center gap-2 text-xs leading-tight font-semibold tracking-[0.08em] text-muted-foreground uppercase"
-        >
-          <Sparkles className="size-3.5 text-primary" aria-hidden="true" />
-          Open source React component system
-        </motion.p>
         <motion.h1
           variants={item}
           id="landing-title"
-          className="mt-5 text-balance font-helvetica-neue text-[clamp(2.7rem,7.2vw,6.75rem)] leading-[.92] font-medium tracking-tight"
+          className="mt-5 text-balance font-helvetica-neue text-[clamp(2rem,7.2vw,6.75rem)] leading-[.92] font-medium tracking-tight"
         >
           Beautiful interactions,
           <br />
@@ -62,10 +56,10 @@ export function LandingHero() {
           className="mt-8 flex flex-wrap justify-center gap-2.5"
         >
           <LandingButtonLink
-            href="/docs"
+            href={groupedComponents[Object.keys(groupedComponents)[1]][0].href}
             className="rounded-full px-4 text-sm font-semibold"
           >
-            Browse components{" "}
+            Browse components
             <ArrowRight className="size-4" aria-hidden="true" />
           </LandingButtonLink>
           <LandingButtonLink

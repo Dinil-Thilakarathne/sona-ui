@@ -119,24 +119,24 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   //   type: "Components",
   //   tag: "new",
   // },
-  {
-    name: "Expandable Tabs",
-    slug: "expandable-tabs",
-    href: "/docs/expandable-tabs",
-    type: "Components",
-  },
+  // {
+  //   name: "Expandable Tabs",
+  //   slug: "expandable-tabs",
+  //   href: "/docs/expandable-tabs",
+  //   type: "Components",
+  // },
   {
     name: "Magnetic Button",
     slug: "magnetic-button",
     href: "/docs/magnetic-button",
     type: "Effects",
   },
-  {
-    name: "Link Preview",
-    slug: "link-preview",
-    href: "/docs/link-preview",
-    type: "Components",
-  },
+  // {
+  //   name: "Link Preview",
+  //   slug: "link-preview",
+  //   href: "/docs/link-preview",
+  //   type: "Components",
+  // },
   {
     name: "Marquee",
     slug: "marquee",
