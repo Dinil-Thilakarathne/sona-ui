@@ -52,3 +52,19 @@ next-env.d.ts
 
 #testing files
 /test
+
+# design docs
+/design
+
+/local
+
+/docs
+/docs-local
+
+# Versioned component-ideation briefs
+!/docs/
+!/docs/component-ideation/
+!/docs/component-ideation/**
+
+# personal social / marketing drafts — never commit
+/social

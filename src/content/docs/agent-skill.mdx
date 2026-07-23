@@ -1,0 +1,59 @@
+---
+title: "Skills"
+slug: skills
+description: "Give coding agents Sona UI's component selection, design, accessibility, and validation workflow."
+searchable: true
+---
+
+# Skills
+
+The Sona UI skill teaches a coding agent how to use the library with judgment. It does not copy component source into prompts; it points the agent to the registry and agent-readable component resources.
+
+## What the skill adds
+
+- Intent-based component selection.
+- Consumer-project inspection before editing.
+- Registry-first installation.
+- Accessibility and reduced-motion expectations.
+- Sona's restrained motion and semantic token principles.
+- Clean-consumer validation and failure classification.
+
+## Install from the registry
+
+Install the skill item into the provider-neutral agent directory:
+
+<CodeBlockWrapper
+  code="bunx shadcn@latest add @sona-ui/agent-skill"
+  language="bash"
+/>
+
+The item contains the skill entry point and focused references for selection, consumer validation, and design principles.
+
+## Verify the skill
+
+Ask your agent:
+
+<CodeBlockWrapper
+  code={`Find a Sona UI component for switching between related settings. 
+  Explain the selection, accessibility behavior, reduced-motion behavior, and dependencies before installing anything.`}
+  language="bash"
+/>
+
+The agent should inspect the Sona catalog, recommend a relevant component, and wait before making a project change.
+
+## Skill boundary
+
+The skill is procedural guidance. The registry is the installation authority. Component details and source remain versioned in the registry and documentation resources, so the skill can stay concise and avoid stale copies of implementation code.
+
+## Validation workflow
+
+After installation, ask the agent to:
+
+1. Confirm registry dependencies and foundation files resolve.
+2. Run the consumer's typecheck or build command.
+3. Exercise the primary keyboard interaction.
+4. Check narrow and wide layouts.
+5. Check light and dark themes when supported.
+6. Check reduced-motion behavior.
+
+If installation fails, the agent should classify the issue as consumer configuration, registry metadata, generated payload, agent resource, MCP/client, or deployment before changing source.

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "name": "accordion",
+  "title": "Accordion",
+  "category": "components",
+  "status": "stable",
+  "summary": "An accessible disclosure group for progressively revealing related content.",
+  "docsSlug": "accordion",
+  "keywords": [
+    "accordion",
+    "disclosure",
+    "collapsible"
+  ],
+  "useWhen": [
+    "An accessible disclosure group for progressively revealing related content."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/accordion.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/accordion",
+    "rawUrl": "https://sona-ui.vercel.app/docs/accordion/raw.md",
+    "sourceTitle": "accordion"
+  }
+}

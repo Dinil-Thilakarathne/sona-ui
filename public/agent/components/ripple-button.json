@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "ripple-button",
+  "title": "Ripple Button",
+  "category": "components",
+  "status": "stable",
+  "summary": "A button with localized press feedback that makes activation visible without changing the action's meaning.",
+  "docsSlug": "ripple-button",
+  "keywords": [
+    "button",
+    "ripple",
+    "press feedback"
+  ],
+  "useWhen": [
+    "A button with localized press feedback that makes activation visible without changing the action's meaning."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/ripple-button.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/ripple-button",
+    "rawUrl": "https://sona-ui.vercel.app/docs/ripple-button/raw.md",
+    "sourceTitle": "ripple-button"
+  }
+}

@@ -1,9 +1,5 @@
-import Hero from "@/components/hero/index";
+import LandingPage from "@/components/landing/landing-page";
 
 export default function Home() {
-  return (
-    <main className="mt-header-height">
-      <Hero />
-    </main>
-  );
+  return <LandingPage />;
 }

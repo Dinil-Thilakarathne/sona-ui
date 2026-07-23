@@ -21,9 +21,9 @@ export default function InfoCard() {
 
   return (
     <>
-      <div className="flex w-full justify-between">
+      <div className="flex justify-between w-full">
         <Button
-          className="flex w-fit items-center gap-2 text-white"
+          className="flex gap-2 items-center w-fit text-white"
           variant="outline"
         >
           npx @sonacode/sonaui-cli
@@ -35,7 +35,7 @@ export default function InfoCard() {
           <Link href={"/docs/accordion"}>Try it!</Link>
         </Button>
       </div>
-      <ul className="ml-auto text-right text-2xl lg:text-4xl">
+      <ul className="ml-auto text-2xl text-right lg:text-4xl">
         <li>
           <NumberFlow value={componentCount} />
           <span> Components</span>

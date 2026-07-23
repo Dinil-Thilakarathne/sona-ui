@@ -43,27 +43,27 @@ const Hero = () => {
   });
   return (
     // mobile sidebar
-    <section className="relative flex min-h-[calc(100vh-75px)] flex-col overflow-clip">
+    <section className="flex overflow-clip relative flex-col min-h-[calc(100vh-75px)]">
       <BgGradient />
-      <div className="absolute top-0 left-0 lg:hidden">
+      <div className="lg:hidden absolute left-0 top-0">
         <Sidebar />
       </div>
 
-      <div className="relative grid h-full grow items-center space-y-4 px-4 lg:flex-row lg:space-y-0 lg:space-x-8">
-        <div className="flex h-fit w-full flex-col items-center gap-y-6">
+      <div className="grid relative grow items-center lg:flex-row px-4 space-y-4 lg:space-x-8 lg:space-y-0 h-full">
+        <div className="flex flex-col gap-y-6 items-center h-fit w-full">
           <div className="overflow-clip">
             <div
-              className="flex w-fit items-center justify-center space-x-2 rounded-full border-slate-800 bg-slate-50 px-4 py-2 dark:bg-slate-800"
+              className="flex items-center justify-center px-4 py-2 space-x-2 w-fit bg-slate-50 dark:bg-slate-800 border-slate-800 rounded-full"
               ref={heroFlag}
             >
               <heroContent.flag.icon aria-label="hero-flag-img" />
               <span className="text-sm">{heroContent.flag.text}</span>
             </div>
           </div>
-          <div className="flex w-full flex-col items-center text-center">
+          <div className="flex flex-col items-center w-full text-center">
             <div className="overflow-clip">
               <h1
-                className="font-clash-display _font-roboto text-7xl font-bold uppercase lg:text-9xl 2xl:text-[20rem]"
+                className="font-bold font-clash-display text-7xl uppercase lg:text-9xl 2xl:text-[20rem] _font-roboto"
                 ref={mainHeader}
               >
                 {heroContent.header}
@@ -71,7 +71,7 @@ const Hero = () => {
             </div>
             <div className="overflow-clip">
               <p
-                className="max-w-2xl text-center text-lg text-gray-600 md:text-xl dark:text-gray-300"
+                className="max-w-2xl text-center text-gray-600 text-lg dark:text-gray-300 md:text-xl"
                 ref={heroDescription}
               >
                 {heroContent.description}

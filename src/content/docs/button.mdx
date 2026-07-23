@@ -1,0 +1,56 @@
+---
+title: Button
+slug: button
+tags: ["UI", "Button", "Interaction", "Animation", "Component"]
+---
+
+# Button
+
+A simple interactive button with subtle press feedback. It renders children directly and keeps content and state management in your application.
+
+## Features
+
+- **Fluid press feedback** — Scales down slightly while pressed for a tactile response.
+- **Simple composition** — Accepts text, icons, or any React content without built-in content transitions.
+- **Visual variants** — Includes default, outlined, and secondary styles in three sizes.
+- **Reduced motion** — Removes press motion when reduced motion is preferred.
+
+<Divider />
+
+<ComponentPreview component="button" name="default" />
+
+## Playground
+
+Explore the available sizes and visual variants.
+
+<ComponentPlayground component="button" />
+
+## Installation
+
+<ComponentInstallation component="button" />
+
+## Usage
+
+<ComponentUsage component="button" />
+
+## Code Example
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="call-to-action.tsx"
+  code={`import { ArrowRight } from "lucide-react";
+import Button from "@/components/ui/button";
+
+export function CallToAction() {
+  return (
+    <Button>
+      Get started
+      <ArrowRight className="size-4" />
+    </Button>
+  );
+}`}
+/>
+
+## Props
+
+<PropTable component="button" />

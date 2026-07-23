@@ -8,7 +8,7 @@ export function ComponentUsageServer({ component }: { component: string }) {
 
   if (!defaultExample) {
     return (
-      <div className="border-destructive bg-destructive/10 rounded-md border p-4">
+      <div className="p-4 bg-destructive/10 border border-destructive rounded-md">
         <p className="text-destructive text-sm">
           Component anatomy not found: <code>{component}</code>
         </p>

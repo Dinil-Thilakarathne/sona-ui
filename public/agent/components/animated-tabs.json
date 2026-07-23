@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "name": "animated-tabs",
+  "title": "Animated Tabs",
+  "category": "components",
+  "status": "stable",
+  "summary": "A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.",
+  "docsSlug": "animated-tabs",
+  "keywords": [
+    "tabs",
+    "navigation",
+    "hover"
+  ],
+  "useWhen": [
+    "A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/animated-tabs.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/animated-tabs",
+    "rawUrl": "https://sona-ui.vercel.app/docs/animated-tabs/raw.md",
+    "sourceTitle": "animated-tabs"
+  }
+}

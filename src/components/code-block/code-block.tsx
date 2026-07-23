@@ -206,7 +206,7 @@ function CodeBlockHeader({
 
   // Auto-layout content (only used when children not provided)
   const startContent = (
-    <div className="flex min-w-0 items-center gap-2">
+    <div className="flex gap-2 items-center min-w-0">
       {language && (
         <CodeBlockLanguage language={language} customIcon={customIcon} />
       )}
@@ -223,7 +223,7 @@ function CodeBlockHeader({
   );
 
   const endContent = showCopy && code && (
-    <div className="flex items-center gap-2">
+    <div className="flex gap-2 items-center">
       <CopyButton data-slot="code-block-copy-button" content={code} />
     </div>
   );
@@ -336,9 +336,9 @@ function CodeBlockTabsMobileDropDown({
   const activeLabel = tabs.find((t) => t.value === activeTab)?.label;
 
   return (
-    <div className="w-full md:hidden">
+    <div className="md:hidden w-full">
       <Menu.Root>
-        <Menu.Trigger className="border-input ring-offset-background placeholder:text-muted-foreground focus:ring-ring data-[state=open]:border-ring flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm focus:ring-1 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50">
+        <Menu.Trigger className="flex items-center justify-between px-3 py-2 h-9 w-full text-sm placeholder:text-muted-foreground bg-transparent border border-input ring-offset-background rounded-md data-[state=open]:border-ring focus:outline-none focus:ring-1 focus:ring-ring shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
           <span>{activeLabel}</span>
           <ChevronDown className="h-4 w-4 opacity-50" />
         </Menu.Trigger>
@@ -348,16 +348,16 @@ function CodeBlockTabsMobileDropDown({
             sideOffset={4}
             className="z-50 w-(--anchor-width)"
           >
-            <Menu.Popup className="bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 w-(--anchor-width) overflow-hidden rounded-md border p-1 shadow-md">
+            <Menu.Popup className="overflow-hidden p-1 w-(--anchor-width) text-popover-foreground bg-popover border rounded-md shadow-md data-ending-style:opacity-0 data-starting-style:opacity-0 duration-150 ease-out transition-[opacity,scale] data-ending-style:duration-100 motion-reduce:transition-none origin-(--transform-origin) data-ending-style:scale-95 data-starting-style:scale-95">
               {tabs.map((tab) => (
                 <Menu.Item
                   key={tab.value}
-                  className="focus:bg-accent focus:text-accent-foreground relative flex w-full cursor-default items-center rounded-sm py-1.5 pr-8 pl-2 text-sm outline-none select-none data-disabled:pointer-events-none data-disabled:opacity-50"
+                  className="flex relative items-center pl-2 pr-8 py-1.5 w-full text-sm focus:text-accent-foreground focus:bg-accent outline-none rounded-sm data-disabled:opacity-50 cursor-default select-none data-disabled:pointer-events-none"
                   onClick={(e) => onTabChange?.(tab.value, e as any)}
                 >
-                  <span className="flex items-center gap-2">{tab.label}</span>
+                  <span className="flex gap-2 items-center">{tab.label}</span>
                   {tab.value === activeTab && (
-                    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
+                    <span className="flex absolute right-2 items-center justify-center h-3.5 w-3.5">
                       <Check className="h-4 w-4" />
                     </span>
                   )}
@@ -384,11 +384,11 @@ function CodeBlockTabs({
     <>
       <div className="hidden md:flex">
         <Tabs value={activeTab} onValueChange={onTabChange} className="gap-1">
-          <div className="scrollbar-hide flex max-w-full items-center overflow-x-auto">
+          <div className="flex overflow-x-auto items-center max-w-full scrollbar-hide">
             <TabsList
               variant={variant}
               size="small"
-              className="w-max bg-transparent p-0 shadow-none! ring-0"
+              className="p-0 w-max bg-transparent ring-0 shadow-none!"
             >
               {tabs.map((tab) => (
                 <TabsTrigger key={tab.value} value={tab.value}>
@@ -486,7 +486,7 @@ function CodeBlockPre({
     lineNumbers && lines.length > 0 ? (
       <div className="flex">
         <CodeBlockLineNumbers lines={lines} />
-        <div className="min-w-0 flex-1">{children}</div>
+        <div className="flex-1 min-w-0">{children}</div>
       </div>
     ) : (
       children
@@ -509,7 +509,7 @@ function CodeBlockPre({
           hideScrollbar={hideScrollbar}
           nativeScroll={nativeScroll}
           viewportClassName="py-3"
-          className="min-h-0 flex-1"
+          className="flex-1 min-h-0"
         >
           {content}
         </ScrollArea>
@@ -540,7 +540,7 @@ function CodeBlockLineNumbers({
   const lineNumbers = lines.map((_, index) => (
     <div
       key={index}
-      className="text-right text-[.8125rem] leading-normal tabular-nums"
+      className="leading-normal text-[.8125rem] text-right tabular-nums"
     >
       {index + 1}
     </div>

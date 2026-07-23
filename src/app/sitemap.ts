@@ -51,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://sona-ui.vercel.app/docs/verticalTab",
+      url: "https://sona-ui.vercel.app/docs/animated-tabs",
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.8,

@@ -1,10 +1,15 @@
 "use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface FanViewItem {
   /** Display label shown on the card. */
@@ -14,6 +19,8 @@ export interface FanViewItem {
    * @default 160
    */
   width?: number;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface FanViewProps {
@@ -21,6 +28,12 @@ export interface FanViewProps {
    * Items displayed as fanned cards when open.
    */
   items?: FanViewItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the view opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the fan animation.
    * @default 540
@@ -51,16 +64,33 @@ function getFanPoint(index: number, total: number) {
 
 export default function FanView({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 540,
   damping = 28,
   className,
 }: FanViewProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.95 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -75,14 +105,14 @@ export default function FanView({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[420px] w-full items-end justify-center px-4 pb-16 pt-8",
@@ -93,13 +123,16 @@ export default function FanView({
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                (
+                  { label, onSelect, width = 160, x, y, rotate, zIndex },
+                  index,
+                ) => (
                   <m.button
                     key={label}
                     type="button"
                     title={label}
                     aria-label={label}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     style={{ width, zIndex }}
                     initial={{
                       x: 0,
@@ -116,7 +149,12 @@ export default function FanView({
                       scale: 1,
                       rotate,
                       filter: "blur(0px)",
-                      transition: { ...springConfig, delay: index * 0.04 },
+                      transition: {
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion ? 0 : index * 0.04,
+                      },
                     }}
                     exit={{
                       x: 0,
@@ -125,15 +163,29 @@ export default function FanView({
                       scale: 0.45,
                       rotate: 0,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.18,
-                        ease: "easeInOut",
-                        delay: (items.length - index - 1) * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.18,
+                            ease: "easeInOut",
+                            delay: (items.length - index - 1) * 0.025,
+                          },
                     }}
-                    whileHover={{ scale: 1.05, zIndex: 30 }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={() => setIsOpen((v) => !v)}
+                    whileHover={
+                      shouldReduceMotion ? {} : { scale: 1.05, zIndex: 30 }
+                    }
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
+                    onClick={() => {
+                      onSelect?.();
+                      setOpen(false);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Escape") {
+                        event.preventDefault();
+                        setOpen(false);
+                        triggerRef.current?.focus();
+                      }
+                    }}
                   >
                     <span
                       className={cn(
@@ -150,29 +202,30 @@ export default function FanView({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close fan view" : "Open fan view"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "relative z-20 flex h-16 w-16 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
-              className="relative block size-8"
+              className="block relative size-8"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>

@@ -1,0 +1,118 @@
+---
+title: Animated Dropdown
+slug: animated-dropdown
+tags: ["UI", "Dropdown", "Menu", "Animation", "Component"]
+---
+
+# Animated Dropdown
+
+A composable, fully accessible dropdown menu built on **Base UI** with a spring-driven shared hover highlight and origin-aware scale/fade animations. No hardcoded items — compose your own content.
+
+## Features
+
+- **Composable API** — `AnimatedDropdown` / `Trigger` / `Content` / `Item` / `Separator`, shadcn-style.
+- **Spring hover highlight** — shared `layoutId` glides between items as you move the mouse.
+- **Per-instance isolation** — `useId()` scopes the layout group so multiple dropdowns on the same page never conflict.
+- **Origin-aware animation** — popup scales in from the trigger position using Base UI's `--transform-origin`.
+- **Icon-agnostic** — pass any `ReactNode` as the `icon` prop.
+- **Danger variant** — red-tinted destructive items.
+- **Controlled or uncontrolled** — use `open`/`onOpenChange` or `defaultOpen` as needed.
+- **Full accessibility** — keyboard nav, typeahead, focus trap, and portal via Base UI.
+- **Reduced-motion safe** — instant transitions when the OS prefers reduced motion.
+
+<Divider />
+
+<ComponentPreview component="animated-dropdown" name="default" />
+
+## Playground
+
+Try different `side` and `align` positions.
+
+<ComponentPlayground component="animated-dropdown" />
+
+## Installation
+
+<ComponentInstallation component="animated-dropdown" />
+
+## Usage
+
+<ComponentUsage component="animated-dropdown" />
+
+## Examples
+
+### Danger variant
+
+Use `variant="danger"` on destructive items — they get a red tint and are visually separated.
+
+<ComponentPreview component="animated-dropdown" name="danger" />
+
+### Controlled open state
+
+Pass `open` and `onOpenChange` to fully control the dropdown from external state.
+
+<ComponentPreview component="animated-dropdown" name="controlled" />
+
+## Code Examples
+
+### Basic usage
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="my-dropdown.tsx"
+  code={`import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown";
+import { LogOut, Settings, User } from "lucide-react";
+
+export function MyDropdown() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent>
+        <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+          Log out
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}`}
+/>
+
+### Controlled state
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="controlled-dropdown.tsx"
+  code={`const [open, setOpen] = useState(false);
+
+<AnimatedDropdown open={open} onOpenChange={setOpen}>
+  <AnimatedDropdownTrigger>Menu</AnimatedDropdownTrigger>
+  <AnimatedDropdownContent>
+    <AnimatedDropdownItem onClick={() => setOpen(false)}>
+      Close on click
+    </AnimatedDropdownItem>
+  </AnimatedDropdownContent>
+</AnimatedDropdown>`}
+/>
+
+### Side and alignment
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="positioned-dropdown.tsx"
+  code={`// Opens to the right, aligned to the start of the trigger
+<AnimatedDropdownContent side="right" align="start" sideOffset={8}>
+  ...
+</AnimatedDropdownContent>`}
+/>
+
+## Props
+
+<PropTable component="animated-dropdown" />

@@ -15,9 +15,9 @@ export function ComponentPreviewServer({ name, component }: Props) {
     if (!example) {
       return (
         <div className="text-muted-foreground text-sm">
-          Example <code className="bg-muted rounded px-1 py-0.5">{name}</code>{" "}
+          Example <code className="px-1 py-0.5 bg-muted rounded">{name}</code>{" "}
           not found in registry for component{" "}
-          <code className="bg-muted rounded px-1 py-0.5">{component}</code>.
+          <code className="px-1 py-0.5 bg-muted rounded">{component}</code>.
         </div>
       );
     }

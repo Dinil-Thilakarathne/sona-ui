@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import ts from "typescript";
 
 /**
@@ -48,24 +48,31 @@ function normalizeType(text: string): string {
 }
 
 function getJsDoc(node: ts.Node): { description: string; default?: string } {
-  const tags = ts.getJSDocTags(node);
+  // @ts-expect-error - jsDoc is internal on Node in TypeScript AST
+  const jsDocNodes = (node as unknown as { jsDoc?: ts.JSDoc[] }).jsDoc ?? [];
   let def: string | undefined;
-  for (const tag of tags) {
-    if (tag.tagName.text === "default") {
-      def =
-        typeof tag.comment === "string"
-          ? tag.comment.trim()
-          : ts.getTextOfJSDocComment(tag.comment)?.trim();
+  let description = "";
+
+  for (const doc of jsDocNodes) {
+    if (doc.comment) {
+      description += `${typeof doc.comment === "string" ? doc.comment : (ts.getTextOfJSDocComment(doc.comment) ?? "")} `;
+    }
+    if (doc.tags) {
+      for (const tag of doc.tags) {
+        if (tag.tagName.text === "default") {
+          def =
+            typeof tag.comment === "string"
+              ? tag.comment.trim()
+              : ts.getTextOfJSDocComment(tag.comment)?.trim();
+        }
+      }
     }
   }
-  // The description is the JSDoc comment text attached to the node.
-  const jsDocNodes = (node as unknown as { jsDoc?: ts.JSDoc[] }).jsDoc ?? [];
-  const description = jsDocNodes
-    .map((d) => ts.getTextOfJSDocComment(d.comment) ?? "")
-    .join(" ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return { description, default: def };
+
+  return {
+    description: description.replace(/\s+/g, " ").trim(),
+    default: def,
+  };
 }
 
 function extractMembers(members: ts.NodeArray<ts.TypeElement>): PropMeta[] {
@@ -99,10 +106,6 @@ function buildPropTypes() {
     if (!fs.statSync(dirPath).isDirectory()) continue;
     const component = toKebabCase(startDir);
 
-    // Primary props interface is the one matching the component's main file,
-    // e.g. ripple-button/ripple-button.tsx -> RippleButtonProps. We prefer a
-    // `*Props` type/interface whose name (kebab-cased, minus "props") equals
-    // the component name.
     const files = collectTsxFiles(dirPath);
     let chosen: PropMeta[] | null = null;
     let fallback: PropMeta[] | null = null;
@@ -128,8 +131,6 @@ function buildPropTypes() {
           if (ts.isTypeLiteralNode(node.type)) {
             members = node.type.members;
           } else if (ts.isIntersectionTypeNode(node.type)) {
-            // e.g. `ComponentPropsWithoutRef<T> & { text: string; ... }` —
-            // gather the explicitly-declared members from the literal part(s).
             const literalMembers = node.type.types
               .filter(ts.isTypeLiteralNode)
               .flatMap((lit) => Array.from(lit.members));
@@ -145,8 +146,6 @@ function buildPropTypes() {
         if (meta.length === 0) return;
 
         const kebab = toKebabCase(name.replace(/Props$/, ""));
-        // Skip sub-component prop types (e.g. *ItemProps, *SegmentProps) when
-        // falling back, so we never emit a child part's props as the component's.
         const isSubPart = /(Item|Segment|Cell|Indicator)Props$/.test(name);
         if (kebab === component) chosen = meta;
         else if (!fallback && !isSubPart) fallback = meta;

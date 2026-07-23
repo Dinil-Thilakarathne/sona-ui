@@ -1,11 +1,27 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
-import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { motionTransition } from "@/lib/sona-motion";
+
+function useMediaQuery(query: string) {
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query],
+  );
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    [query],
+  );
+
+  return useSyncExternalStore(subscribe, getSnapshot, () => false);
+}
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
   /** The URL of the link to preview. */
@@ -25,38 +41,28 @@ export default function LinkPreview({
   showIcon = true,
   ...linkProps
 }: LinkPreviewProps) {
-  const [previewRef, previewBounds] = useMeasure();
-  const [containerRef, containerBounds] = useMeasure();
+  // scroll: true keeps viewport coordinates fresh while the page scrolls
+  const [containerRef, containerBounds] = useMeasure({ scroll: true });
   const desktop = useMediaQuery("(min-width: 768px)");
+  const shouldReduceMotion = useReducedMotion();
 
   const [isHover, setIsHover] = useState(false);
 
   return (
     <>
-      <Link
+      <a
         href={link}
-        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
-        onMouseEnter={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover(true);
+        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
+        onMouseEnter={() => {
+          if (desktop) setIsHover(true);
         }}
-        onClick={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (isHover) {
-            setIsHover(false);
-          }
-        }}
-        onFocus={(e) => {
-          e.preventDefault();
-          setIsHover(true);
+        onMouseLeave={() => setIsHover(false)}
+        onFocus={() => {
+          if (desktop) setIsHover(true);
         }}
         onBlur={() => setIsHover(false)}
         ref={containerRef}
+        {...linkProps}
       >
         {text}
         {showIcon && (
@@ -64,39 +70,51 @@ export default function LinkPreview({
             <FaArrowUpRightFromSquare />
           </span>
         )}
-      </Link>
+      </a>
       <AnimatePresence>
         {isHover && desktop && (
-          <motion.div
-            ref={previewRef}
-            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+          <aside
+            aria-label={`Link preview for ${link}`}
+            className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
-              left: containerBounds.left - previewBounds.width / 2,
-              top: containerBounds.top - previewBounds.height,
+              left: containerBounds.left + containerBounds.width / 2,
+              top: containerBounds.top - 8,
             }}
-            initial={{ opacity: 0, width: 0, height: 0 }}
-            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
-              <div className="flex w-full justify-between text-sm">
-                External Link
-                <Link href={link}>
-                  <FaArrowUpRightFromSquare />
-                </Link>
+            <motion.div
+              className="overflow-clip w-fit bg-popover text-popover-foreground border border-border rounded-xl shadow-xl origin-bottom"
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: 4 }
+              }
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.97 }
+              }
+              transition={
+                shouldReduceMotion
+                  ? motionTransition.reduced
+                  : motionTransition.enter
+              }
+            >
+              <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+                <div className="flex justify-between gap-x-4 w-full text-sm">
+                  External Link
+                  <a href={link} aria-label={`Open ${link}`}>
+                    <FaArrowUpRightFromSquare />
+                  </a>
+                </div>
+                <a href={link} className="text-nowrap underline">
+                  {link}
+                </a>
               </div>
-              <Link
-                href={link}
-                className="text-nowrap underline"
-                {...linkProps}
-              >
-                {link}
-              </Link>
             </motion.div>
-          </motion.div>
+          </aside>
         )}
       </AnimatePresence>
     </>

@@ -1,9 +1,14 @@
 "use client";
 
-import { motion, type Transition, type Variants } from "motion/react";
+import {
+  motion,
+  type Transition,
+  useReducedMotion,
+  type Variants,
+} from "motion/react";
 import { type CSSProperties, useMemo } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type SpinningTextProps = {
   /** The text content to be animated. Can be a single string or an array of strings. */
@@ -60,19 +65,12 @@ export default function SpinningText({
   transition,
   variants,
 }: SpinningTextProps) {
-  if (typeof children !== "string" && !Array.isArray(children)) {
-    throw new Error("children must be a string or an array of strings");
-  }
+  const shouldReduceMotion = useReducedMotion();
 
-  const textContent = useMemo(() => {
-    if (Array.isArray(children)) {
-      if (!children.every((child) => typeof child === "string")) {
-        throw new Error("all elements in children array must be strings");
-      }
-      return children.join("");
-    }
-    return children;
-  }, [children]);
+  const textContent = useMemo(
+    () => (Array.isArray(children) ? children.join("") : children),
+    [children],
+  );
 
   const characters = useMemo(() => {
     const chars = textContent.split("");
@@ -91,10 +89,11 @@ export default function SpinningText({
 
   const containerVariants = useMemo(
     () => ({
-      visible: { rotate: reverse ? -360 : 360 },
+      // Reduced motion: hold the ring static instead of spinning forever.
+      visible: { rotate: shouldReduceMotion ? 0 : reverse ? -360 : 360 },
       ...variants?.container,
     }),
-    [reverse, variants],
+    [reverse, variants, shouldReduceMotion],
   );
 
   const itemVariants = useMemo(
@@ -108,7 +107,12 @@ export default function SpinningText({
   return (
     <motion.div
       className={cn("relative", className)}
-      style={style}
+      // Give the ring an intrinsic footprint so it doesn't collapse to 0x0.
+      style={{
+        width: `${radius * 2 + 1}ch`,
+        height: `${radius * 2 + 1}ch`,
+        ...style,
+      }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -117,9 +121,10 @@ export default function SpinningText({
       {characters.map((char, index) => (
         <motion.span
           aria-hidden="true"
+          // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
           key={`${index}-${char}`}
           variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block"
+          className="inline-block absolute left-1/2 top-1/2"
           style={
             {
               "--index": index,

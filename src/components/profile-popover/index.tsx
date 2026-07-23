@@ -18,15 +18,15 @@ export default function ProfilePopover() {
     <>
       {isOpen && (
         <motion.div
-          className="bg-popover shadow-primary/20 border-secondary fixed bottom-16 left-4 mb-4 flex w-[calc(100%-2rem)] max-w-[300px] flex-col space-y-4 rounded-2xl border-[.5px] px-4 py-4"
+          className="flex fixed bottom-16 left-4 flex-col mb-4 px-4 py-4 space-y-4 max-w-[300px] w-[calc(100%-2rem)] bg-popover border-[.5px] border-secondary rounded-2xl shadow-primary/20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           ref={ref}
         >
           <div className="flex flex-col space-y-1">
-            <h3 className="text-lg font-semibold">I hope you like SonaUI...</h3>
-            <p className="text-sm text-pretty">
+            <h3 className="font-semibold text-lg">I hope you like SonaUI...</h3>
+            <p className="text-pretty text-sm">
               Hi, I’m Dinil — the creator of this project (and a few others). If
               you find it helpful, consider sponsoring me on GitHub or connect
               with me on Linkedin.
@@ -45,7 +45,7 @@ export default function ProfilePopover() {
             <AnimatedLink
               variant="outline"
               href="https://www.linkedin.com/in/dinil-thilakarathne/"
-              className="text-primary text-center"
+              className="text-center text-primary"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -55,10 +55,10 @@ export default function ProfilePopover() {
         </motion.div>
       )}
       <button
-        className="bg-secondary flex w-full cursor-pointer items-center justify-between rounded-lg p-2"
+        className="flex items-center justify-between p-2 w-full bg-secondary rounded-lg cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="_justify-center flex items-center space-x-2">
+        <div className="flex items-center space-x-2 _justify-center">
           <Image
             src={"/profile_pic.png"}
             alt="Profile Picture"

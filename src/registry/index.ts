@@ -1,7 +1,16 @@
 // This file is auto-generated. Do not edit.
 import * as React from "react";
+import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
+import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
+import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
 import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
+import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
+import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
+import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
+import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import fluid_tabs_fluid_tabs_demo from "@/registry/examples/fluid-tabs/fluid-tabs-demo";
+import fluid_tabs_fluid_tabs_underline from "@/registry/examples/fluid-tabs/fluid-tabs-underline";
 import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
 import dot_orbit_shader_dot_orbit_shader_slow from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-slow";
 import dot_orbit_shader_dot_orbit_shader_demo from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-demo";
@@ -17,7 +26,18 @@ import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
-import vertical_tab_vertical_tab_demo from "@/registry/examples/vertical-tab/vertical-tab-demo";
+import section_rail_section_rail_demo from "@/registry/examples/section-rail/section-rail-demo";
+import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
+import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
+import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
+import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
+import button_button_demo from "@/registry/examples/button/button-demo";
+import fluid_slider_fluid_slider_demo from "@/registry/examples/fluid-slider/fluid-slider-demo";
+import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
+import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
+import animated_switch_animated_switch_controlled from "@/registry/examples/animated-switch/animated-switch-controlled";
+import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
+import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
 import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
 import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
@@ -37,6 +57,240 @@ export type RegistryEntry = {
 };
 
 export const exampleRegistry: Record<string, RegistryEntry[]> = {
+  "animated-dropdown": [
+    {
+      name: "danger",
+      component: animated_dropdown_animated_dropdown_danger,
+      code: `"use client";
+
+import { Copy, Edit, Share2, Trash2 } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDanger() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent align="start">
+        <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Share2 />}>Share</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<Trash2 />} variant="danger">
+          Delete
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Copy, Edit, Share2, Trash2 } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDanger() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent align="start">
+        <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Share2 />}>Share</AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<Trash2 />} variant="danger">
+          Delete
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}`,
+    },
+    {
+      name: "controlled",
+      component: animated_dropdown_animated_dropdown_controlled,
+      code: `"use client";
+
+import { Bell, LogOut, Settings, User } from "lucide-react";
+import { useState } from "react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownControlled() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-4 items-center">
+      <p className="text-muted-foreground text-sm">
+        Dropdown is:{" "}
+        <span className="font-semibold text-foreground">
+          {open ? "open" : "closed"}
+        </span>
+      </p>
+      <AnimatedDropdown open={open} onOpenChange={setOpen}>
+        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownContent>
+          <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
+          <AnimatedDropdownSeparator />
+          <AnimatedDropdownItem
+            icon={<LogOut />}
+            variant="danger"
+            onClick={() => setOpen(false)}
+          >
+            Log out
+          </AnimatedDropdownItem>
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Bell, LogOut, Settings, User } from "lucide-react";
+import { useState } from "react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownControlled() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="flex flex-col gap-4 items-center">
+      <p className="text-muted-foreground text-sm">
+        Dropdown is:{" "}
+        <span className="font-semibold text-foreground">
+          {open ? "open" : "closed"}
+        </span>
+      </p>
+      <AnimatedDropdown open={open} onOpenChange={setOpen}>
+        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownContent>
+          <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Bell />}>
+            Notifications
+          </AnimatedDropdownItem>
+          <AnimatedDropdownItem icon={<Settings />}>
+            Settings
+          </AnimatedDropdownItem>
+          <AnimatedDropdownSeparator />
+          <AnimatedDropdownItem
+            icon={<LogOut />}
+            variant="danger"
+            onClick={() => setOpen(false)}
+          >
+            Log out
+          </AnimatedDropdownItem>
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: animated_dropdown_animated_dropdown_demo,
+      code: `"use client";
+
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDemo() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent>
+        <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>
+          Billing
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>
+          Notifications
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>
+          Settings
+        </AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+          Log out
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Bell, CreditCard, LogOut, Settings, User } from "lucide-react";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownSeparator,
+  AnimatedDropdownTrigger,
+} from "@/components/ui/animated-dropdown/animated-dropdown";
+
+export default function AnimatedDropdownDemo() {
+  return (
+    <AnimatedDropdown>
+      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownContent>
+        <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<CreditCard />}>
+          Billing
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Bell />}>
+          Notifications
+        </AnimatedDropdownItem>
+        <AnimatedDropdownItem icon={<Settings />}>
+          Settings
+        </AnimatedDropdownItem>
+        <AnimatedDropdownSeparator />
+        <AnimatedDropdownItem icon={<LogOut />} variant="danger">
+          Log out
+        </AnimatedDropdownItem>
+      </AnimatedDropdownContent>
+    </AnimatedDropdown>
+  );
+}`,
+    }
+  ],
   "circular-dock-menu": [
     {
       name: "default",
@@ -51,7 +305,7 @@ import {
   Music,
 } from "lucide-react";
 
-import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import CircularDockMenu from "@/components/ui/circular-dock-menu/circular-dock-menu";
 
 const ITEMS = [
   { label: "Document", icon: FileText },
@@ -76,7 +330,7 @@ import {
   Music,
 } from "lucide-react";
 
-import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import CircularDockMenu from "@/components/ui/circular-dock-menu/circular-dock-menu";
 
 const ITEMS = [
   { label: "Document", icon: FileText },
@@ -91,17 +345,258 @@ export default function CircularDockMenuDemo() {
 }`,
     }
   ],
+  "image-trail": [
+    {
+      name: "interactive",
+      component: image_trail_image_trail_interactive,
+      code: `"use client";
+
+import { useState } from "react";
+import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailInteractiveExample() {
+  const [clicks, setClicks] = useState(0);
+
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+        <p className="pointer-events-none text-center text-muted-foreground text-sm">
+          Sweep the cursor to spawn the trail, then click the button or the link
+          — the images never block them.
+        </p>
+        <button
+          type="button"
+          onClick={() => setClicks((c) => c + 1)}
+          className="rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground text-sm shadow-sm transition-colors hover:bg-primary/90"
+        >
+          Clicked {clicks} {clicks === 1 ? "time" : "times"}
+        </button>
+        <a
+          href="https://sonaui.dev"
+          target="_blank"
+          rel="noreferrer"
+          className="text-foreground text-sm underline underline-offset-4 hover:text-primary"
+        >
+          A link that stays hoverable
+        </a>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailInteractiveExample() {
+  const [clicks, setClicks] = useState(0);
+
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+        <p className="pointer-events-none text-center text-muted-foreground text-sm">
+          Sweep the cursor to spawn the trail, then click the button or the link
+          — the images never block them.
+        </p>
+        <button
+          type="button"
+          onClick={() => setClicks((c) => c + 1)}
+          className="rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground text-sm shadow-sm transition-colors hover:bg-primary/90"
+        >
+          Clicked {clicks} {clicks === 1 ? "time" : "times"}
+        </button>
+        <a
+          href="https://sonaui.dev"
+          target="_blank"
+          rel="noreferrer"
+          className="text-foreground text-sm underline underline-offset-4 hover:text-primary"
+        >
+          A link that stays hoverable
+        </a>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "blur",
+      component: image_trail_image_trail_blur,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailBlurExample() {
+  return (
+    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Blur trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailBlurExample() {
+  return (
+    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Blur trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "default",
+      component: image_trail_image_trail_demo,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailExample() {
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Move your cursor here
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailExample() {
+  return (
+    <ImageTrail images={images} className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Move your cursor here
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    },
+    {
+      name: "tilt",
+      component: image_trail_image_trail_tilt,
+      code: `import ImageTrail from "@/components/ui/image-trail/image-trail";
+
+const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailTiltExample() {
+  return (
+    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Tilt trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}
+`,
+      imports: `import ImageTrail from "@/components/ui/image-trail/image-trail";`,
+      anatomy: `const images = [
+  "https://picsum.photos/id/1015/300/200",
+  "https://picsum.photos/id/1025/300/200",
+  "https://picsum.photos/id/1035/300/200",
+  "https://picsum.photos/id/1043/300/200",
+  "https://picsum.photos/id/1050/300/200",
+  "https://picsum.photos/id/1062/300/200",
+];
+
+export default function ImageTrailTiltExample() {
+  return (
+    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+      <div className="flex h-full w-full items-center justify-center">
+        <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
+          Tilt trail
+        </h3>
+      </div>
+    </ImageTrail>
+  );
+}`,
+    }
+  ],
   "magnetic-button": [
     {
       name: "default",
       component: magnetic_button_magnetic_button_demo,
-      code: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
+      code: `import Magnetic from "@/components/ui/magnetic-button/magnetic-button";
 
 export default function MagneticButtonExample() {
   return (
-    <div className="border-border rounded-full border border-dashed p-2">
+    <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+        <button
+          type="button"
+          className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer"
+        >
           Magnetic Button
         </button>
       </Magnetic>
@@ -109,12 +604,15 @@ export default function MagneticButtonExample() {
   );
 }
 `,
-      imports: `import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";`,
+      imports: `import Magnetic from "@/components/ui/magnetic-button/magnetic-button";`,
       anatomy: `export default function MagneticButtonExample() {
   return (
-    <div className="border-border rounded-full border border-dashed p-2">
+    <div className="p-2 border border-border border-dashed rounded-full">
       <Magnetic interactionArea="parent">
-        <button className="bg-background text-foreground cursor-pointer rounded-full px-6 py-4 font-semibold">
+        <button
+          type="button"
+          className="px-6 py-4 font-semibold text-foreground bg-background rounded-full cursor-pointer"
+        >
           Magnetic Button
         </button>
       </Magnetic>
@@ -123,16 +621,76 @@ export default function MagneticButtonExample() {
 }`,
     }
   ],
+  "fluid-tabs": [
+    {
+      name: "default",
+      component: fluid_tabs_fluid_tabs_demo,
+      code: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+const tabs = [
+  { value: "overview", title: "Overview" },
+  { value: "activity", title: "Activity" },
+  { value: "settings", title: "Settings" },
+];
+
+export default function FluidTabsDemo() {
+  return <FluidTabs tabs={tabs} />;
+}
+`,
+      imports: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";`,
+      anatomy: `const tabs = [
+  { value: "overview", title: "Overview" },
+  { value: "activity", title: "Activity" },
+  { value: "settings", title: "Settings" },
+];
+
+export default function FluidTabsDemo() {
+  return <FluidTabs tabs={tabs} />;
+}`,
+    },
+    {
+      name: "underline",
+      component: fluid_tabs_fluid_tabs_underline,
+      code: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+export default function FluidTabsUnderlineDemo() {
+  return (
+    <FluidTabs
+      tabs={[
+        { value: "all", title: "All" },
+        { value: "design", title: "Design" },
+        { value: "engineering", title: "Engineering" },
+      ]}
+      variant="underline"
+    />
+  );
+}
+`,
+      imports: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";`,
+      anatomy: `export default function FluidTabsUnderlineDemo() {
+  return (
+    <FluidTabs
+      tabs={[
+        { value: "all", title: "All" },
+        { value: "design", title: "Design" },
+        { value: "engineering", title: "Engineering" },
+      ]}
+      variant="underline"
+    />
+  );
+}`,
+    }
+  ],
   "dot-orbit-shader": [
     {
       name: "dense",
       component: dot_orbit_shader_dot_orbit_shader_dense,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderDense() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#0a0a0a"
       colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
       size={0.5}
@@ -143,11 +701,11 @@ export default function DotOrbitShaderDense() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderDense() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#0a0a0a"
       colors={["#ff0080", "#7928ca", "#0070f3", "#00dfd8"]}
       size={0.5}
@@ -161,12 +719,12 @@ export default function DotOrbitShaderDense() {
     {
       name: "slow",
       component: dot_orbit_shader_dot_orbit_shader_slow,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderSlow() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#111827"
       colors={["#34d399", "#059669", "#065f46"]}
       size={0.45}
@@ -177,11 +735,11 @@ export default function DotOrbitShaderSlow() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderSlow() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#111827"
       colors={["#34d399", "#059669", "#065f46"]}
       size={0.45}
@@ -195,26 +753,26 @@ export default function DotOrbitShaderSlow() {
     {
       name: "default",
       component: dot_orbit_shader_dot_orbit_shader_demo,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderExample() {
-  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+  return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderExample() {
-  return <DotOrbitShader className="h-64 lg:h-72 w-full" />;
+  return <DotOrbitShader className="h-64 w-full lg:h-72" />;
 }`,
     },
     {
       name: "pastel",
       component: dot_orbit_shader_dot_orbit_shader_pastel,
-      code: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
+      code: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
 export default function DotOrbitShaderPastel() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#fdf6f0"
       colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
       size={0.35}
@@ -224,11 +782,11 @@ export default function DotOrbitShaderPastel() {
   );
 }
 `,
-      imports: `import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";`,
+      imports: `import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";`,
       anatomy: `export default function DotOrbitShaderPastel() {
   return (
     <DotOrbitShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colorBack="#fdf6f0"
       colors={["#f9a8d4", "#a5f3fc", "#bbf7d0", "#fde68a", "#ddd6fe"]}
       size={0.35}
@@ -249,7 +807,7 @@ export default function DotOrbitShaderPastel() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionSplittedExample() {
   const accordionData = [
@@ -295,7 +853,7 @@ export default function AccordionSplittedExample() {
       variant="splitted"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -316,7 +874,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionSplittedExample() {
   const accordionData = [
     {
@@ -361,7 +919,7 @@ export default function AccordionSplittedExample() {
       variant="splitted"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -385,7 +943,7 @@ export default function AccordionSplittedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionAnimatedExample() {
   const accordionData = [
@@ -452,7 +1010,7 @@ export default function AccordionAnimatedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionAnimatedExample() {
   const accordionData = [
     {
@@ -521,7 +1079,7 @@ export default function AccordionAnimatedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionDefaultExample() {
   const accordionData = [
@@ -563,7 +1121,7 @@ export default function AccordionDefaultExample() {
   return (
     <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -584,7 +1142,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionDefaultExample() {
   const accordionData = [
     {
@@ -625,7 +1183,7 @@ export default function AccordionDefaultExample() {
   return (
     <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -649,7 +1207,7 @@ export default function AccordionDefaultExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionMultiStepExample() {
   const accordionData = [
@@ -691,7 +1249,7 @@ export default function AccordionMultiStepExample() {
   return (
     <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -712,7 +1270,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionMultiStepExample() {
   const accordionData = [
     {
@@ -753,7 +1311,7 @@ export default function AccordionMultiStepExample() {
   return (
     <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -777,7 +1335,7 @@ export default function AccordionMultiStepExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";
+} from "@/components/ui/accordion/accordion";
 
 export default function AccordionOutlinedExample() {
   const accordionData = [
@@ -823,7 +1381,7 @@ export default function AccordionOutlinedExample() {
       variant="outlined"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -844,7 +1402,7 @@ export default function AccordionOutlinedExample() {
   AccordionItemHeader,
   AccordionItemTrigger,
   AccordionRoot,
-} from "@/registry/sonaui/accordion/accordion";`,
+} from "@/components/ui/accordion/accordion";`,
       anatomy: `export default function AccordionOutlinedExample() {
   const accordionData = [
     {
@@ -889,7 +1447,7 @@ export default function AccordionOutlinedExample() {
       variant="outlined"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>
@@ -909,20 +1467,20 @@ export default function AccordionOutlinedExample() {
     {
       name: "default",
       component: spinning_text_spinning_text_demo,
-      code: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
+      code: `import SpinningText from "@/components/ui/spinning-text/spinning-text";
 
 export default function SpinningTextExample() {
   return (
-    <div className="flex min-h-[320px] items-center justify-center">
+    <div className="flex items-center justify-center min-h-[320px]">
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
 }
 `,
-      imports: `import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";`,
+      imports: `import SpinningText from "@/components/ui/spinning-text/spinning-text";`,
       anatomy: `export default function SpinningTextExample() {
   return (
-    <div className="flex min-h-[320px] items-center justify-center">
+    <div className="flex items-center justify-center min-h-[320px]">
       <SpinningText>This is example text!</SpinningText>
     </div>
   );
@@ -933,13 +1491,13 @@ export default function SpinningTextExample() {
     {
       name: "default",
       component: bubble_up_button_bubble_up_button_demo,
-      code: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";
+      code: `import BubbleUpButton from "@/components/ui/bubble-up-button/bubble-up-button";
 
 export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }
 `,
-      imports: `import BubbleUpButton from "@/registry/sonaui/bubble-up-button/bubble-up-button";`,
+      imports: `import BubbleUpButton from "@/components/ui/bubble-up-button/bubble-up-button";`,
       anatomy: `export default function BubbleUpButtonExample() {
   return <BubbleUpButton className="bg-background">Hover me!</BubbleUpButton>;
 }`,
@@ -951,7 +1509,7 @@ export default function BubbleUpButtonExample() {
       component: fan_view_fan_view_demo,
       code: `"use client";
 
-import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FanView from "@/components/ui/fan-view/fan-view";
 
 const ITEMS = [
   { label: "Music", width: 164 },
@@ -968,7 +1526,7 @@ export default function FanViewDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FanView from "@/components/ui/fan-view/fan-view";
 
 const ITEMS = [
   { label: "Music", width: 164 },
@@ -995,7 +1553,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import Marquee from "@/registry/sonaui/marquee/marquee";
+import Marquee from "@/components/ui/marquee/marquee";
 
 const TECH_STACK = [
   {
@@ -1018,8 +1576,8 @@ const TECH_STACK = [
 
 export default function MarqueeExample() {
   return (
-    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-      <div className="flex items-center gap-x-8 md:gap-x-16">
+    <Marquee speed={80} gap="4rem" direction="left" pauseOnHover>
+      <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
             {tech.icon}
@@ -1032,9 +1590,9 @@ export default function MarqueeExample() {
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex h-16 shrink items-center gap-x-4">
+    <div className="flex gap-x-4 items-center shrink h-16">
       <span className="*:xl:h-16 *:xl:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
+      <span className="font-medium text-sm lg:text-lg">{text}</span>
     </div>
   );
 };
@@ -1047,7 +1605,7 @@ import {
   TailwindIcon,
   TypescriptIcon,
 } from "@/assets/svgs";
-import Marquee from "@/registry/sonaui/marquee/marquee";`,
+import Marquee from "@/components/ui/marquee/marquee";`,
       anatomy: `const TECH_STACK = [
   {
     name: "Next.js",
@@ -1069,8 +1627,8 @@ import Marquee from "@/registry/sonaui/marquee/marquee";`,
 
 export default function MarqueeExample() {
   return (
-    <Marquee duration={10} containerClassName="md:space-x-16 " activeHover>
-      <div className="flex items-center gap-x-8 md:gap-x-16">
+    <Marquee speed={80} gap="4rem" direction="left" pauseOnHover>
+      <div className="flex gap-x-8 items-center md:gap-x-16">
         {TECH_STACK.map((tech) => (
           <Icon key={tech.name} text={tech.name}>
             {tech.icon}
@@ -1083,9 +1641,9 @@ export default function MarqueeExample() {
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex h-16 shrink items-center gap-x-4">
+    <div className="flex gap-x-4 items-center shrink h-16">
       <span className="*:xl:h-16 *:xl:w-16">{children}</span>
-      <span className="text-sm font-medium lg:text-lg">{text}</span>
+      <span className="font-medium text-sm lg:text-lg">{text}</span>
     </div>
   );
 };`,
@@ -1100,7 +1658,7 @@ const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
 import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
-} from "@/registry/sonaui/ripple-button/ripple-button";
+} from "@/components/ui/ripple-button/ripple-button";
 
 interface LocalRippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -1136,7 +1694,7 @@ export default function RippleButtonExample({
 import RippleButton, {
   RippleButtonText,
   type RippleButtonTextProps,
-} from "@/registry/sonaui/ripple-button/ripple-button";`,
+} from "@/components/ui/ripple-button/ripple-button";`,
       anatomy: `interface LocalRippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
@@ -1171,13 +1729,13 @@ export default function RippleButtonExample({
     {
       name: "default",
       component: spotlight_card_spotlight_card_demo,
-      code: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
+      code: `import SpotlightCard from "@/components/ui/spotlight-card/spotlight-card";
 
 export default function SpotlightCardExample() {
   return (
     <SpotlightCard className="max-w-sm">
-      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <h3 className="font-semibold text-foreground text-lg">Spotlight Card</h3>
+      <p className="mt-2 text-muted-foreground text-sm">
         Move your cursor across the card to reveal the spotlight that follows
         your pointer.
       </p>
@@ -1185,12 +1743,12 @@ export default function SpotlightCardExample() {
   );
 }
 `,
-      imports: `import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";`,
+      imports: `import SpotlightCard from "@/components/ui/spotlight-card/spotlight-card";`,
       anatomy: `export default function SpotlightCardExample() {
   return (
     <SpotlightCard className="max-w-sm">
-      <h3 className="text-foreground text-lg font-semibold">Spotlight Card</h3>
-      <p className="text-muted-foreground mt-2 text-sm">
+      <h3 className="font-semibold text-foreground text-lg">Spotlight Card</h3>
+      <p className="mt-2 text-muted-foreground text-sm">
         Move your cursor across the card to reveal the spotlight that follows
         your pointer.
       </p>
@@ -1199,67 +1757,713 @@ export default function SpotlightCardExample() {
 }`,
     }
   ],
-  "vertical-tab": [
+  "section-rail": [
     {
       name: "default",
-      component: vertical_tab_vertical_tab_demo,
-      code: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";
+      component: section_rail_section_rail_demo,
+      code: `"use client";
 
-const VerticalTabs_data = [
+import { useRef } from "react";
+
+import SectionRail from "@/components/ui/section-rail/section-rail";
+
+const sections = [
   {
-    title: "Home",
+    id: "section-rail-demo-overview",
+    label: "Overview",
+    description: "The goal, scope, and main ideas behind this page.",
   },
   {
-    title: "Profile",
+    id: "section-rail-demo-interaction",
+    label: "Interaction",
+    description: "How the component responds to hover, focus, and scroll.",
   },
   {
-    title: "Settings",
+    id: "section-rail-demo-motion",
+    label: "Motion",
+    description: "Direct scroll progress, no bounce, no ambient animation.",
   },
   {
-    title: "Help",
-  },
-  {
-    title: "About",
-  },
-  {
-    title: "Contact",
-  },
-  {
-    title: "Feedback",
+    id: "section-rail-demo-accessibility",
+    label: "Accessibility",
+    description: "Labels on focus, aria-current, and reduced-motion support.",
   },
 ];
 
-export default function VerticalTabExample() {
-  return <VerticalTab tabs={VerticalTabs_data} />;
+const copy =
+  "A rail answers three questions at a glance: where am I, what is nearby, and where can I go. Everything else is decoration.";
+
+export default function SectionRailDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="flex w-full max-w-2xl items-stretch gap-6">
+      <div
+        ref={scrollRef}
+        className="h-80 flex-1 overflow-y-auto rounded-xl border border-border bg-secondary/40 p-6"
+      >
+        {sections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className="scroll-mt-6 py-10"
+          >
+            <h3 className="font-semibold text-foreground text-lg">
+              {section.label}
+            </h3>
+            <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+              {section.description} {copy}
+            </p>
+          </section>
+        ))}
+      </div>
+
+      <div className="flex items-center">
+        <SectionRail
+          items={sections}
+          scrollRoot={scrollRef}
+          scrollOffset={24}
+          side="left"
+        />
+      </div>
+    </div>
+  );
 }
 `,
-      imports: `import VerticalTab from "@/registry/sonaui/vertical-tab/vertical-tab";`,
-      anatomy: `const VerticalTabs_data = [
+      imports: ``,
+      anatomy: `"use client";
+
+import { useRef } from "react";
+
+import SectionRail from "@/components/ui/section-rail/section-rail";
+
+const sections = [
   {
-    title: "Home",
+    id: "section-rail-demo-overview",
+    label: "Overview",
+    description: "The goal, scope, and main ideas behind this page.",
   },
   {
-    title: "Profile",
+    id: "section-rail-demo-interaction",
+    label: "Interaction",
+    description: "How the component responds to hover, focus, and scroll.",
   },
   {
-    title: "Settings",
+    id: "section-rail-demo-motion",
+    label: "Motion",
+    description: "Direct scroll progress, no bounce, no ambient animation.",
   },
   {
-    title: "Help",
-  },
-  {
-    title: "About",
-  },
-  {
-    title: "Contact",
-  },
-  {
-    title: "Feedback",
+    id: "section-rail-demo-accessibility",
+    label: "Accessibility",
+    description: "Labels on focus, aria-current, and reduced-motion support.",
   },
 ];
 
-export default function VerticalTabExample() {
-  return <VerticalTab tabs={VerticalTabs_data} />;
+const copy =
+  "A rail answers three questions at a glance: where am I, what is nearby, and where can I go. Everything else is decoration.";
+
+export default function SectionRailDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="flex w-full max-w-2xl items-stretch gap-6">
+      <div
+        ref={scrollRef}
+        className="h-80 flex-1 overflow-y-auto rounded-xl border border-border bg-secondary/40 p-6"
+      >
+        {sections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className="scroll-mt-6 py-10"
+          >
+            <h3 className="font-semibold text-foreground text-lg">
+              {section.label}
+            </h3>
+            <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+              {section.description} {copy}
+            </p>
+          </section>
+        ))}
+      </div>
+
+      <div className="flex items-center">
+        <SectionRail
+          items={sections}
+          scrollRoot={scrollRef}
+          scrollOffset={24}
+          side="left"
+        />
+      </div>
+    </div>
+  );
+}`,
+    }
+  ],
+  "animated-dialog": [
+    {
+      name: "default",
+      component: animated_dialog_animated_dialog_demo,
+      code: `"use client";
+
+import { useState } from "react";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <AnimatedDialog>
+        <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
+        <AnimatedDialogContent from={"bottom"}>
+          <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
+          <AnimatedDialogDescription>
+            This modal is configured to animate from the{" "}
+            <span className="font-semibold text-foreground capitalize">
+              "Bottom"
+            </span>
+            . You can test all entry vectors using the switcher above.
+          </AnimatedDialogDescription>
+          <div className="mt-6 flex justify-end gap-3">
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors hover:cursor-pointer"
+                >
+                  Cancel
+                </button>
+              }
+            />
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium transition-colors hover:cursor-pointer"
+                >
+                  Confirm
+                </button>
+              }
+            />
+          </div>
+        </AnimatedDialogContent>
+      </AnimatedDialog>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogDemo() {
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <AnimatedDialog>
+        <AnimatedDialogTrigger>Open Dialog</AnimatedDialogTrigger>
+        <AnimatedDialogContent from={"bottom"}>
+          <AnimatedDialogTitle>Directional Transition</AnimatedDialogTitle>
+          <AnimatedDialogDescription>
+            This modal is configured to animate from the{" "}
+            <span className="font-semibold text-foreground capitalize">
+              "Bottom"
+            </span>
+            . You can test all entry vectors using the switcher above.
+          </AnimatedDialogDescription>
+          <div className="mt-6 flex justify-end gap-3">
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors hover:cursor-pointer"
+                >
+                  Cancel
+                </button>
+              }
+            />
+            <AnimatedDialogClose
+              render={
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium transition-colors hover:cursor-pointer"
+                >
+                  Confirm
+                </button>
+              }
+            />
+          </div>
+        </AnimatedDialogContent>
+      </AnimatedDialog>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "toast",
+      component: animated_dialog_animated_dialog_toast,
+      code: `"use client";
+
+import { toast } from "sonner";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogToast() {
+  return (
+    <AnimatedDialog>
+      <AnimatedDialogTrigger>Trigger Action</AnimatedDialogTrigger>
+      <AnimatedDialogContent from="bottom">
+        <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
+        <AnimatedDialogDescription>
+          This action will permanently delete the repository. This change is
+          irreversible.
+        </AnimatedDialogDescription>
+        <div className="mt-6 flex justify-end gap-3">
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.error("Project deletion aborted")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+              >
+                Cancel
+              </button>
+            }
+          />
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.success("Project deleted successfully!")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
+              >
+                Delete
+              </button>
+            }
+          />
+        </div>
+      </AnimatedDialogContent>
+    </AnimatedDialog>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { toast } from "sonner";
+import {
+  AnimatedDialog,
+  AnimatedDialogClose,
+  AnimatedDialogContent,
+  AnimatedDialogDescription,
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
+
+export default function AnimatedDialogToast() {
+  return (
+    <AnimatedDialog>
+      <AnimatedDialogTrigger>Trigger Action</AnimatedDialogTrigger>
+      <AnimatedDialogContent from="bottom">
+        <AnimatedDialogTitle>Delete Project?</AnimatedDialogTitle>
+        <AnimatedDialogDescription>
+          This action will permanently delete the repository. This change is
+          irreversible.
+        </AnimatedDialogDescription>
+        <div className="mt-6 flex justify-end gap-3">
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.error("Project deletion aborted")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
+              >
+                Cancel
+              </button>
+            }
+          />
+          <AnimatedDialogClose
+            render={
+              <button
+                type="button"
+                onClick={() => toast.success("Project deleted successfully!")}
+                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
+              >
+                Delete
+              </button>
+            }
+          />
+        </div>
+      </AnimatedDialogContent>
+    </AnimatedDialog>
+  );
+}`,
+    }
+  ],
+  "split-text": [
+    {
+      name: "default",
+      component: split_text_split_text_demo,
+      code: `import SplitText from "@/components/ui/split-text/split-text";
+
+export default function SplitTextExample() {
+  return (
+    <SplitText variant="words" className="max-w-md text-center">
+      <h2 className="font-semibold text-3xl text-foreground">
+        Text that reveals itself, one word at a time.
+      </h2>
+    </SplitText>
+  );
+}
+`,
+      imports: `import SplitText from "@/components/ui/split-text/split-text";`,
+      anatomy: `export default function SplitTextExample() {
+  return (
+    <SplitText variant="words" className="max-w-md text-center">
+      <h2 className="font-semibold text-3xl text-foreground">
+        Text that reveals itself, one word at a time.
+      </h2>
+    </SplitText>
+  );
+}`,
+    }
+  ],
+  "animated-tabs": [
+    {
+      name: "default",
+      component: animated_tabs_animated_tabs_demo,
+      code: `import AnimatedTabs from "@/components/ui/animated-tabs/animated-tabs";
+
+const tabs = [
+  { value: "home", title: "Home" },
+  { value: "profile", title: "Profile" },
+  { value: "settings", title: "Settings" },
+  { value: "help", title: "Help" },
+  { value: "about", title: "About" },
+];
+
+export default function AnimatedTabsExample() {
+  return <AnimatedTabs tabs={tabs} />;
+}
+`,
+      imports: `import AnimatedTabs from "@/components/ui/animated-tabs/animated-tabs";`,
+      anatomy: `const tabs = [
+  { value: "home", title: "Home" },
+  { value: "profile", title: "Profile" },
+  { value: "settings", title: "Settings" },
+  { value: "help", title: "Help" },
+  { value: "about", title: "About" },
+];
+
+export default function AnimatedTabsExample() {
+  return <AnimatedTabs tabs={tabs} />;
+}`,
+    }
+  ],
+  "button": [
+    {
+      name: "default",
+      component: button_button_demo,
+      code: `import { ArrowRight, Sparkles } from "lucide-react";
+import Button from "@/components/ui/button/button";
+
+export default function ButtonDemo() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      <Button>
+        Get started <ArrowRight className="size-4" />
+      </Button>
+      <Button variant="outlined">Learn more</Button>
+      <Button variant="secondary">
+        <Sparkles className="size-4" /> Explore
+      </Button>
+    </div>
+  );
+}
+`,
+      imports: `import { ArrowRight, Sparkles } from "lucide-react";
+import Button from "@/components/ui/button/button";`,
+      anatomy: `export default function ButtonDemo() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-4">
+      <Button>
+        Get started <ArrowRight className="size-4" />
+      </Button>
+      <Button variant="outlined">Learn more</Button>
+      <Button variant="secondary">
+        <Sparkles className="size-4" /> Explore
+      </Button>
+    </div>
+  );
+}`,
+    }
+  ],
+  "fluid-slider": [
+    {
+      name: "default",
+      component: fluid_slider_fluid_slider_demo,
+      code: `import FluidSlider from "@/components/ui/fluid-slider/fluid-slider";
+
+export default function FluidSliderDemo() {
+  return (
+    <div className="flex w-full max-w-xl flex-col gap-5">
+      <FluidSlider
+        label="Frequency"
+        defaultValue={15}
+        formatValue={(value) => \`\${value}%\`}
+      />
+      <FluidSlider
+        label="Resonance"
+        defaultValue={6}
+        max={10}
+        marks={[2, 4, 6, 8]}
+      />
+    </div>
+  );
+}
+`,
+      imports: `import FluidSlider from "@/components/ui/fluid-slider/fluid-slider";`,
+      anatomy: `export default function FluidSliderDemo() {
+  return (
+    <div className="flex w-full max-w-xl flex-col gap-5">
+      <FluidSlider
+        label="Frequency"
+        defaultValue={15}
+        formatValue={(value) => \`\${value}%\`}
+      />
+      <FluidSlider
+        label="Resonance"
+        defaultValue={6}
+        max={10}
+        marks={[2, 4, 6, 8]}
+      />
+    </div>
+  );
+}`,
+    }
+  ],
+  "animated-switch": [
+    {
+      name: "default",
+      component: animated_switch_animated_switch_demo,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  return <AnimatedSwitch defaultChecked />;
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  return <AnimatedSwitch defaultChecked />;
+}`,
+    },
+    {
+      name: "disabled",
+      component: animated_switch_animated_switch_disabled,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDisabled() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch disabled />
+        <span className="text-sm text-muted-foreground">Disabled Off</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch defaultChecked disabled />
+        <span className="text-sm text-muted-foreground">Disabled On</span>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDisabled() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch disabled />
+        <span className="text-sm text-muted-foreground">Disabled Off</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <AnimatedSwitch defaultChecked disabled />
+        <span className="text-sm text-muted-foreground">Disabled On</span>
+      </div>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "controlled",
+      component: animated_switch_animated_switch_controlled,
+      code: `"use client";
+
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchControlled() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex items-center gap-3">
+      <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
+      <span className="text-foreground text-sm font-medium">
+        Controlled State:{" "}
+        <span className="text-foreground font-semibold">
+          {checked ? "ON" : "OFF"}
+        </span>
+      </span>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchControlled() {
+  const [checked, setChecked] = useState(false);
+
+  return (
+    <div className="flex items-center gap-3">
+      <AnimatedSwitch checked={checked} onCheckedChange={setChecked} />
+      <span className="text-foreground text-sm font-medium">
+        Controlled State:{" "}
+        <span className="text-foreground font-semibold">
+          {checked ? "ON" : "OFF"}
+        </span>
+      </span>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "sizes",
+      component: animated_switch_animated_switch_sizes,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchSizes() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="sm" />
+        <span className="text-xs text-muted-foreground">sm</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="md" defaultChecked />
+        <span className="text-xs text-muted-foreground">md</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="lg" />
+        <span className="text-xs text-muted-foreground">lg</span>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchSizes() {
+  return (
+    <div className="flex items-center gap-6">
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="sm" />
+        <span className="text-xs text-muted-foreground">sm</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="md" defaultChecked />
+        <span className="text-xs text-muted-foreground">md</span>
+      </div>
+      <div className="flex flex-col items-center gap-1.5">
+        <AnimatedSwitch size="lg" />
+        <span className="text-xs text-muted-foreground">lg</span>
+      </div>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "disable",
+      component: animated_switch_animated_switch_disable,
+      code: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  return (
+    <div className="flex flex-col gap-6 items-start">
+      {/* Controlled & Disabled */}
+      <div className="flex gap-8 items-center pt-4 w-full border-t">
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch defaultChecked disabled />
+          <span className="font-medium text-muted-foreground text-sm">
+            Disabled
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export default function AnimatedSwitchDemo() {
+  return (
+    <div className="flex flex-col gap-6 items-start">
+      {/* Controlled & Disabled */}
+      <div className="flex gap-8 items-center pt-4 w-full border-t">
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch defaultChecked disabled />
+          <span className="font-medium text-muted-foreground text-sm">
+            Disabled
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 }`,
     }
   ],
@@ -1269,87 +2473,67 @@ export default function VerticalTabExample() {
       component: expandable_tabs_expandable_tabs_demo,
       code: `"use client";
 
-import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
+import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
-type TabDataType = {
-  title: string;
-  icon: IconType;
-};
-
-const TabData: TabDataType[] = [
+const tabs = [
   {
+    value: "home",
     title: "Home",
     icon: FaHome,
   },
   {
+    value: "profile",
     title: "Profile",
     icon: FaUser,
   },
   {
+    value: "settings",
     title: "Settings",
     icon: FaCog,
   },
   {
+    value: "logout",
     title: "Logout",
     icon: FaSignOutAlt,
   },
 ];
 
 export default function ExpandableTabsExample() {
-  return (
-    <ExpandableTabs
-      tabs={TabData}
-      defaultActiveIndex={0}
-      motionConfig={{
-        transition: { duration: 0.2, ease: "easeInOut" },
-      }}
-    />
-  );
+  return <ExpandableTabs tabs={tabs} defaultValue="home" />;
 }
 `,
       imports: ``,
       anatomy: `"use client";
 
-import type { IconType } from "react-icons";
 import { FaCog, FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
-import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
+import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
 
-type TabDataType = {
-  title: string;
-  icon: IconType;
-};
-
-const TabData: TabDataType[] = [
+const tabs = [
   {
+    value: "home",
     title: "Home",
     icon: FaHome,
   },
   {
+    value: "profile",
     title: "Profile",
     icon: FaUser,
   },
   {
+    value: "settings",
     title: "Settings",
     icon: FaCog,
   },
   {
+    value: "logout",
     title: "Logout",
     icon: FaSignOutAlt,
   },
 ];
 
 export default function ExpandableTabsExample() {
-  return (
-    <ExpandableTabs
-      tabs={TabData}
-      defaultActiveIndex={0}
-      motionConfig={{
-        transition: { duration: 0.2, ease: "easeInOut" },
-      }}
-    />
-  );
+  return <ExpandableTabs tabs={tabs} defaultValue="home" />;
 }`,
     }
   ],
@@ -1357,12 +2541,12 @@ export default function ExpandableTabsExample() {
     {
       name: "ocean",
       component: mesh_gradient_shader_mesh_gradient_shader_ocean,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderOcean() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
       distortion={0.5}
       swirl={0.1}
@@ -1370,11 +2554,11 @@ export default function MeshGradientShaderOcean() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderOcean() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#006994", "#0099cc", "#00b4d8", "#48cae4", "#90e0ef"]}
       distortion={0.5}
       swirl={0.1}
@@ -1385,26 +2569,26 @@ export default function MeshGradientShaderOcean() {
     {
       name: "default",
       component: mesh_gradient_shader_mesh_gradient_shader_demo,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderExample() {
-  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+  return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderExample() {
-  return <MeshGradientShader className="h-64 lg:h-72 w-full" />;
+  return <MeshGradientShader className="h-64 w-full lg:h-72" />;
 }`,
     },
     {
       name: "sunset",
       component: mesh_gradient_shader_mesh_gradient_shader_sunset,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderSunset() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
       distortion={0.4}
       swirl={0.5}
@@ -1412,11 +2596,11 @@ export default function MeshGradientShaderSunset() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderSunset() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#ff6b35", "#f7931e", "#ffcd3c", "#ff4e6a", "#c0392b"]}
       distortion={0.4}
       swirl={0.5}
@@ -1427,12 +2611,12 @@ export default function MeshGradientShaderSunset() {
     {
       name: "static",
       component: mesh_gradient_shader_mesh_gradient_shader_static,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderStatic() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
       distortion={0.2}
       swirl={0.05}
@@ -1441,11 +2625,11 @@ export default function MeshGradientShaderStatic() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderStatic() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#a855f7", "#6366f1", "#3b82f6", "#06b6d4", "#10b981"]}
       distortion={0.2}
       swirl={0.05}
@@ -1457,12 +2641,12 @@ export default function MeshGradientShaderStatic() {
     {
       name: "monochrome",
       component: mesh_gradient_shader_mesh_gradient_shader_monochrome,
-      code: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+      code: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
 export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
       distortion={0.6}
       swirl={0.3}
@@ -1471,11 +2655,11 @@ export default function MeshGradientShaderMonochrome() {
   );
 }
 `,
-      imports: `import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";`,
+      imports: `import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";`,
       anatomy: `export default function MeshGradientShaderMonochrome() {
   return (
     <MeshGradientShader
-      className="h-64 lg:h-72 w-full"
+      className="h-64 w-full lg:h-72"
       colors={["#111111", "#333333", "#555555", "#888888", "#cccccc"]}
       distortion={0.6}
       swirl={0.3}
@@ -1489,11 +2673,11 @@ export default function MeshGradientShaderMonochrome() {
     {
       name: "default",
       component: link_preview_link_preview_demo,
-      code: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";
+      code: `import LinkPreview from "@/components/ui/link-preview/link-preview";
 
 export default function LinkPreviewExample() {
   return (
-    <div className="flex w-full flex-col justify-center gap-4">
+    <div className="flex flex-col gap-4 justify-center w-full">
       <h3>Projects that I works on!!!</h3>
       <ul className="list-disc *:ml-2 *:lg:ml-4">
         <li>
@@ -1501,7 +2685,7 @@ export default function LinkPreviewExample() {
           <LinkPreview
             link="https://sona-ui.vercel.app/"
             text="Sona UI"
-            className="flex h-full w-full items-center justify-center"
+            className="flex items-center justify-center h-full w-full"
           />
         </li>
       </ul>
@@ -1509,10 +2693,10 @@ export default function LinkPreviewExample() {
   );
 }
 `,
-      imports: `import LinkPreview from "@/registry/sonaui/link-preview/link-preview";`,
+      imports: `import LinkPreview from "@/components/ui/link-preview/link-preview";`,
       anatomy: `export default function LinkPreviewExample() {
   return (
-    <div className="flex w-full flex-col justify-center gap-4">
+    <div className="flex flex-col gap-4 justify-center w-full">
       <h3>Projects that I works on!!!</h3>
       <ul className="list-disc *:ml-2 *:lg:ml-4">
         <li>
@@ -1520,7 +2704,7 @@ export default function LinkPreviewExample() {
           <LinkPreview
             link="https://sona-ui.vercel.app/"
             text="Sona UI"
-            className="flex h-full w-full items-center justify-center"
+            className="flex items-center justify-center h-full w-full"
           />
         </li>
       </ul>
@@ -1533,13 +2717,13 @@ export default function LinkPreviewExample() {
     {
       name: "default",
       component: stagger_text_stagger_text_demo,
-      code: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";
+      code: `import StaggerText from "@/components/ui/stagger-text/stagger-text";
 
 export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }
 `,
-      imports: `import StaggerText from "@/registry/sonaui/stagger-text/stagger-text";`,
+      imports: `import StaggerText from "@/components/ui/stagger-text/stagger-text";`,
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
 }`,
@@ -1552,7 +2736,7 @@ export default function StaggerTextExample() {
       code: `"use client";
 
 import { toast } from "sonner";
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
+import HoldToDeleteButton from "@/components/ui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
@@ -1568,7 +2752,7 @@ export default function HoldToDeleteButtonDemo() {
       anatomy: `"use client";
 
 import { toast } from "sonner";
-import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
+import HoldToDeleteButton from "@/components/ui/hold-to-delete-button/hold-to-delete-button";
 
 export default function HoldToDeleteButtonDemo() {
   return (
@@ -1593,16 +2777,315 @@ export type Registry = {
 }
 
 export const registry: Registry = {
+  "animated-dropdown": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Menu } from "@base-ui/react/menu";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useId,
+  useState,
+} from "react";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+// ─── Context ─────────────────────────────────────────────────────────────────
+
+interface DropdownContextValue {
+  /** Unique layoutId prefix for the hover highlight — scoped per Root instance. */
+  layoutId: string;
+  /** Currently highlighted item id (for keyboard + mouse parity). */
+  activeId: string | null;
+  setActiveId: (id: string | null) => void;
+}
+
+const DropdownContext = createContext<DropdownContextValue | null>(null);
+
+function useDropdownContext() {
+  const ctx = useContext(DropdownContext);
+  if (!ctx)
+    throw new Error(
+      "AnimatedDropdown subcomponents must be used within <AnimatedDropdown>",
+    );
+  return ctx;
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface AnimatedDropdownProps {
+  children: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Callback when open state changes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Whether the menu ignores user interaction. @default false */
+  disabled?: boolean;
+  /** Whether the open menu limits interaction to the menu. @default true */
+  modal?: boolean;
+}
+
+export interface AnimatedDropdownContentProps {
+  children: ReactNode;
+  className?: string;
+  /**
+   * Side the menu opens on.
+   * @default "bottom"
+   */
+  side?: "bottom" | "top" | "left" | "right";
+  /**
+   * Alignment along the side.
+   * @default "center"
+   */
+  align?: "start" | "center" | "end";
+  /**
+   * Gap between trigger and popup in px.
+   * @default 6
+   */
+  sideOffset?: number;
+}
+
+export interface AnimatedDropdownItemProps {
+  children: ReactNode;
+  /** Icon to display before the label (any ReactNode — no HugeIcons dependency). */
+  icon?: ReactNode;
+  /**
+   * Visual variant.
+   * @default "default"
+   */
+  variant?: "default" | "danger";
+  disabled?: boolean;
+  onClick?: () => void;
+  className?: string;
+}
+
+export interface AnimatedDropdownTriggerProps {
+  children: ReactNode;
+  className?: string;
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+
+/**
+ * Root dropdown — owns open state and the hover-highlight layout group.
+ * Wrap all other AnimatedDropdown subcomponents inside this.
+ */
+export function AnimatedDropdown({
+  children,
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  disabled = false,
+  modal = true,
+}: AnimatedDropdownProps) {
+  const layoutId = useId();
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const handleOpenChange = (nextOpen: boolean) => {
+    if (!nextOpen) setActiveId(null);
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <DropdownContext.Provider value={{ layoutId, activeId, setActiveId }}>
+      <LayoutGroup id={layoutId}>
+        <Menu.Root
+          open={open}
+          defaultOpen={defaultOpen}
+          disabled={disabled}
+          modal={modal}
+          onOpenChange={handleOpenChange}
+        >
+          {children}
+        </Menu.Root>
+      </LayoutGroup>
+    </DropdownContext.Provider>
+  );
+}
+
+// ─── Trigger ──────────────────────────────────────────────────────────────────
+
+/**
+ * The element that opens the dropdown when clicked.
+ * Renders as a \`<button>\` by default via Base UI.
+ */
+export function AnimatedDropdownTrigger({
+  children,
+  className,
+}: AnimatedDropdownTriggerProps) {
+  return (
+    <Menu.Trigger
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
+        "bg-secondary text-secondary-foreground text-sm font-medium",
+        "hover:bg-muted transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        "data-[popup-open]:bg-muted",
+        className,
+      )}
+    >
+      {children}
+    </Menu.Trigger>
+  );
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+/**
+ * The animated popup panel containing menu items.
+ * Scales in from its trigger origin using Base UI's \`--transform-origin\` variable.
+ */
+export function AnimatedDropdownContent({
+  children,
+  className,
+  side = "bottom",
+  align = "center",
+  sideOffset = 6,
+}: AnimatedDropdownContentProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  return (
+    <Menu.Portal>
+      <Menu.Positioner side={side} align={align} sideOffset={sideOffset}>
+        <Menu.Popup
+          className={cn(
+            // Layout
+            "z-50 min-w-[160px] rounded-xl p-1",
+            // Surface
+            "bg-popover text-popover-foreground shadow-lg",
+            "border border-border/60",
+            // Origin-aware transform — Base UI injects --transform-origin
+            "origin-[var(--transform-origin)]",
+            // Enter animation (CSS @starting-style + transition)
+            "transition-[opacity,transform]",
+            "starting:scale-95 starting:opacity-0",
+            shouldReduceMotion ? "duration-0" : "duration-150",
+            className,
+          )}
+        >
+          {children}
+        </Menu.Popup>
+      </Menu.Positioner>
+    </Menu.Portal>
+  );
+}
+
+// ─── Item ─────────────────────────────────────────────────────────────────────
+
+/**
+ * A single menu item with an animated hover-highlight background.
+ * The highlight uses a shared \`layoutId\` so it glides between items on mouse-over.
+ */
+export function AnimatedDropdownItem({
+  children,
+  icon,
+  variant = "default",
+  disabled,
+  onClick,
+  className,
+}: AnimatedDropdownItemProps) {
+  const { layoutId, activeId, setActiveId } = useDropdownContext();
+  const itemId = useId();
+  const shouldReduceMotion = useReducedMotion();
+
+  const isActive = activeId === itemId;
+
+  return (
+    <Menu.Item
+      disabled={disabled}
+      onClick={onClick}
+      className={cn(
+        "relative flex cursor-pointer select-none items-center gap-2.5",
+        "rounded-lg px-2.5 py-2 text-sm outline-none",
+        "transition-colors duration-75",
+        variant === "danger"
+          ? "text-danger-foreground focus:text-danger-foreground"
+          : "text-popover-foreground",
+        disabled && "cursor-not-allowed opacity-50",
+        className,
+      )}
+      onMouseEnter={() => setActiveId(itemId)}
+      onFocus={() => setActiveId(itemId)}
+      onMouseLeave={() => setActiveId(null)}
+      onBlur={() => setActiveId(null)}
+    >
+      {/* Animated highlight — shared across all items in this dropdown instance */}
+      <AnimatePresence>
+        {isActive && (
+          <motion.span
+            layoutId={shouldReduceMotion ? undefined : \`\${layoutId}-highlight\`}
+            className={cn(
+              "absolute inset-0 rounded-lg",
+              variant === "danger" ? "bg-danger" : "bg-accent",
+            )}
+            initial={shouldReduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={
+              shouldReduceMotion
+                ? motionTransition.reduced
+                : motionTransition.spatial
+            }
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Icon */}
+      {icon && (
+        <span className="relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground">
+          {icon}
+        </span>
+      )}
+
+      {/* Label */}
+      <span className="relative z-10 flex-1">{children}</span>
+    </Menu.Item>
+  );
+}
+
+// ─── Separator ────────────────────────────────────────────────────────────────
+
+/** A thin visual divider between groups of items. */
+export function AnimatedDropdownSeparator({
+  className,
+}: {
+  className?: string;
+}) {
+  return (
+    <Menu.Separator className={cn("my-1 h-px bg-border/60 mx-1", className)} />
+  );
+}
+`,
+      path: "animated-dropdown/animated-dropdown.tsx",
+      target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
+    }
+  ],
   "circular-dock-menu": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DockMenuItem {
   /** Display label shown on the item pill. */
@@ -1613,6 +3096,8 @@ export interface DockMenuItem {
     strokeWidth?: number;
     "aria-hidden"?: boolean | "true" | "false";
   }>;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface CircularDockMenuProps {
@@ -1620,6 +3105,12 @@ export interface CircularDockMenuProps {
    * Items rendered as arc pills when the menu is open.
    */
   items?: DockMenuItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the menu opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the open/close animation.
    * @default 420
@@ -1649,16 +3140,34 @@ function getArcPosition(index: number, total: number) {
 
 export default function CircularDockMenu({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 420,
   damping = 32,
   className,
 }: CircularDockMenuProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.8 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -1673,25 +3182,25 @@ export default function CircularDockMenu({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[520px] w-full items-center justify-center overflow-hidden px-4 py-10",
           className,
         )}
       >
-        <div ref={rootRef} className="relative h-[440px] w-full max-w-[520px]">
+        <div ref={rootRef} className="relative h-[440px] max-w-[520px] w-full">
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, icon: Icon, x, y, rotate }, index) => (
+                ({ label, icon: Icon, onSelect, x, y, rotate }, index) => (
                   <m.div
                     key={label}
                     className="absolute bottom-12 left-1/2 z-10"
@@ -1711,8 +3220,12 @@ export default function CircularDockMenu({
                       rotate,
                       filter: "blur(0px)",
                       transition: {
-                        ...springConfig,
-                        delay: (items.length - index - 1) * 0.045,
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion
+                          ? 0
+                          : (items.length - index - 1) * 0.045,
                       },
                     }}
                     exit={{
@@ -1722,11 +3235,13 @@ export default function CircularDockMenu({
                       scale: 0.48,
                       rotate: 10,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.2,
-                        ease: "easeInOut",
-                        delay: index * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.2,
+                            ease: "easeInOut",
+                            delay: index * 0.025,
+                          },
                     }}
                   >
                     <m.button
@@ -1735,14 +3250,27 @@ export default function CircularDockMenu({
                         "relative flex h-14 -translate-x-1/2 items-center gap-3 rounded-full border px-5",
                         "border-border bg-background text-foreground shadow-lg",
                         "cursor-pointer text-lg font-semibold whitespace-nowrap",
-                        "hover:border-border/80",
+                        "hover:border-border/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                       )}
-                      whileHover={{ scale: 1.05, zIndex: 20 }}
-                      whileTap={{ scale: 0.96 }}
+                      onClick={() => {
+                        onSelect?.();
+                        setOpen(false);
+                      }}
+                      onKeyDown={(event) => {
+                        if (event.key === "Escape") {
+                          event.preventDefault();
+                          setOpen(false);
+                          triggerRef.current?.focus();
+                        }
+                      }}
+                      whileHover={
+                        shouldReduceMotion ? {} : { scale: 1.05, zIndex: 20 }
+                      }
+                      whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                     >
                       <Icon
                         aria-hidden="true"
-                        className="text-muted-foreground size-6"
+                        className="size-6 text-muted-foreground"
                         strokeWidth={2}
                       />
                       <span>{label}</span>
@@ -1753,29 +3281,30 @@ export default function CircularDockMenu({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "absolute bottom-12 left-1/2 z-20 flex size-24 -translate-x-1/2 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
-              className="relative block size-9"
+              className="block relative size-9"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>
@@ -1790,6 +3319,238 @@ export default function CircularDockMenu({
       target: "components/sonaui/circular-dock-menu/circular-dock-menu.tsx"
     }
   ],
+  "image-trail": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  AnimatePresence,
+  motion,
+  type TargetAndTransition,
+  useReducedMotion,
+} from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
+
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+type ImageTrailVariant = "scale" | "fade" | "blur" | "rise" | "tilt";
+
+export interface ImageTrailProps {
+  /** Image sources spawned in order as the pointer moves. */
+  images: string[];
+  /** The content the effect is scoped to; the trail only spawns over this area. */
+  children: ReactNode;
+  /** Additional CSS classes for the container. */
+  className?: string;
+  /** Extra classes for each trail image (use for sizing, e.g. \`"w-48"\`). @default "w-40" */
+  itemClassName?: string;
+  /**
+   * Pointer distance in pixels travelled before the next image spawns.
+   * @default 80
+   */
+  threshold?: number;
+  /**
+   * Maximum number of images alive at once.
+   * @default 8
+   */
+  maxImages?: number;
+  /**
+   * How long an image stays before it animates out, in milliseconds.
+   * @default 600
+   */
+  lifetime?: number;
+  /**
+   * Entrance and exit animation style.
+   * @default "scale"
+   */
+  variant?: "scale" | "fade" | "blur" | "rise" | "tilt";
+  /**
+   * CSS selector for elements that suppress the effect when hovered, keeping
+   * interactive UI unobstructed.
+   * @default "a, button, input, [data-image-trail-ignore]"
+   */
+  ignoreSelector?: string;
+  /**
+   * z-index of the trail layer.
+   * @default 10
+   */
+  zIndex?: number;
+}
+
+interface TrailItem {
+  id: number;
+  src: string;
+  x: number;
+  y: number;
+  rotate: number;
+}
+
+const VARIANTS: Record<
+  ImageTrailVariant,
+  {
+    initial: TargetAndTransition;
+    animate: TargetAndTransition;
+    exit: TargetAndTransition;
+  }
+> = {
+  scale: {
+    initial: { opacity: 0, scale: 0.4 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 },
+  },
+  fade: {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  },
+  blur: {
+    initial: { opacity: 0, filter: "blur(12px)" },
+    animate: { opacity: 1, filter: "blur(0px)" },
+    exit: { opacity: 0, filter: "blur(8px)" },
+  },
+  rise: {
+    initial: { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -24 },
+  },
+  tilt: {
+    initial: { opacity: 0, scale: 0.6 },
+    animate: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.8 },
+  },
+};
+
+export default function ImageTrail({
+  images,
+  children,
+  className,
+  itemClassName = "w-40",
+  threshold = 80,
+  maxImages = 8,
+  lifetime = 600,
+  variant = "scale",
+  ignoreSelector = "a, button, input, [data-image-trail-ignore]",
+  zIndex = 10,
+}: ImageTrailProps) {
+  const prefersReducedMotion = useReducedMotion();
+  const [trail, setTrail] = useState<TrailItem[]>([]);
+
+  const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const imageIndex = useRef(0);
+  const idCounter = useRef(0);
+  const timers = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  // Clear any pending removals when the component unmounts.
+  useEffect(() => {
+    const pending = timers.current;
+    return () => {
+      pending.forEach(clearTimeout);
+      pending.clear();
+    };
+  }, []);
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion || event.pointerType !== "mouse") return;
+
+    // Over interactive UI: stop spawning and fast-clear live images so they
+    // don't obstruct it. Their exit animation still plays via AnimatePresence.
+    if ((event.target as Element).closest(ignoreSelector)) {
+      timers.current.forEach(clearTimeout);
+      timers.current.clear();
+      lastPos.current = null;
+      setTrail((prev) => (prev.length ? [] : prev));
+      return;
+    }
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const last = lastPos.current;
+    if (last && Math.hypot(x - last.x, y - last.y) < threshold) return;
+    lastPos.current = { x, y };
+
+    const src = images[imageIndex.current % images.length];
+    imageIndex.current += 1;
+    const id = idCounter.current++;
+    const rotate = (Math.random() - 0.5) * (variant === "tilt" ? 24 : 8);
+
+    setTrail((prev) => {
+      const next = [...prev, { id, src, x, y, rotate }];
+      return next.length > maxImages
+        ? next.slice(next.length - maxImages)
+        : next;
+    });
+
+    const timer = setTimeout(() => {
+      setTrail((prev) => prev.filter((item) => item.id !== id));
+      timers.current.delete(timer);
+    }, lifetime);
+    timers.current.add(timer);
+  };
+
+  const active = VARIANTS[variant];
+
+  return (
+    <div
+      onPointerMove={handlePointerMove}
+      onPointerLeave={() => {
+        lastPos.current = null;
+      }}
+      className={cn("relative overflow-hidden", className)}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ zIndex }}
+      >
+        <AnimatePresence>
+          {trail.map((item) => (
+            // biome-ignore lint/performance/noImgElement: registry components stay framework-agnostic — no next/image dependency
+            <motion.img
+              key={item.id}
+              src={item.src}
+              alt=""
+              draggable={false}
+              className={cn(
+                "absolute -translate-x-1/2 -translate-y-1/2 rounded-lg object-cover shadow-lg",
+                itemClassName,
+              )}
+              style={{ left: item.x, top: item.y, rotate: item.rotate }}
+              initial={active.initial}
+              animate={active.animate}
+              exit={active.exit}
+              transition={motionTransition.expressive}
+            />
+          ))}
+        </AnimatePresence>
+      </div>
+      {children}
+    </div>
+  );
+}
+`,
+      path: "image-trail/image-trail.tsx",
+      target: "components/sonaui/image-trail/image-trail.tsx"
+    }
+  ],
+  "sona-utils": [
+    {
+      type: "registry:ui",
+      content: `import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+/** Merge conditional class names while resolving Tailwind conflicts. */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`,
+      path: "sona-utils/sona-utils.ts",
+      target: "components/sonaui/sona-utils/sona-utils.ts"
+    }
+  ],
   "magnetic-button": [
     {
       type: "registry:ui",
@@ -1799,14 +3560,15 @@ import {
   motion,
   type SpringOptions,
   useMotionValue,
+  useReducedMotion,
   useSpring,
 } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 const SPRING_CONFIG = { stiffness: 30, damping: 6, mass: 0.6 };
 
-interface MagneticProps {
+export interface MagneticProps {
   /** The content to be rendered inside the magnetic button. */
   children: ReactNode;
   /**
@@ -1828,6 +3590,8 @@ interface MagneticProps {
   springConfig?: SpringOptions;
   /** Additional class names for custom styling. */
   customClassName?: string;
+  /** Additional classes for the wrapper. Prefer this for new usage. */
+  className?: string;
 }
 
 export default function Magnetic({
@@ -1835,21 +3599,25 @@ export default function Magnetic({
   magneticIntensity = 0.6,
   magneticRange = 100,
   interactionArea = "self",
-  springConfig,
+  springConfig = SPRING_CONFIG,
   customClassName,
+  className,
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
-
-  springConfig = springConfig || SPRING_CONFIG;
+  const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
   const motionY = useMotionValue(0);
 
   const springMotionX = useSpring(motionX, springConfig);
   const springMotionY = useSpring(motionY, springConfig);
+  const resolvedRange = Math.max(1, magneticRange);
 
+  // Only listen while hovered — no idle document-wide mousemove work.
   useEffect(() => {
+    if (!isMouseHovered || shouldReduceMotion) return;
+
     const calculateMouseDistance = (event: MouseEvent) => {
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
@@ -1860,8 +3628,8 @@ export default function Magnetic({
 
         const absoluteDistance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-        if (isMouseHovered && absoluteDistance <= magneticRange) {
-          const scale = 1 - absoluteDistance / magneticRange;
+        if (absoluteDistance <= resolvedRange) {
+          const scale = 1 - absoluteDistance / resolvedRange;
 
           motionX.set(distanceX * magneticIntensity * scale);
           motionY.set(distanceY * magneticIntensity * scale);
@@ -1878,21 +3646,32 @@ export default function Magnetic({
       document.removeEventListener("mousemove", calculateMouseDistance);
     };
   }, [
-    magneticRef,
     isMouseHovered,
+    shouldReduceMotion,
     magneticIntensity,
-    magneticRange,
+    resolvedRange,
     motionX,
     motionY,
-    interactionArea,
   ]);
+
+  useEffect(() => {
+    if (shouldReduceMotion) {
+      setMouseHovered(false);
+      motionX.set(0);
+      motionY.set(0);
+    }
+  }, [motionX, motionY, shouldReduceMotion]);
 
   useEffect(() => {
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
       const parentElement = magneticRef.current.parentElement;
 
       const handleParentMouseEnter = () => setMouseHovered(true);
-      const handleParentMouseLeave = () => setMouseHovered(false);
+      const handleParentMouseLeave = () => {
+        setMouseHovered(false);
+        motionX.set(0);
+        motionY.set(0);
+      };
 
       parentElement.addEventListener("mouseenter", handleParentMouseEnter);
       parentElement.addEventListener("mouseleave", handleParentMouseLeave);
@@ -1902,7 +3681,7 @@ export default function Magnetic({
         parentElement.removeEventListener("mouseleave", handleParentMouseLeave);
       };
     }
-  }, [interactionArea]);
+  }, [interactionArea, motionX, motionY]);
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {
@@ -1928,7 +3707,7 @@ export default function Magnetic({
         y: springMotionY,
       }}
       role="presentation"
-      className={cn("", customClassName)}
+      className={cn(customClassName, className)}
     >
       {children}
     </motion.div>
@@ -1939,14 +3718,201 @@ export default function Magnetic({
       target: "components/sonaui/magnetic-button/magnetic-button.tsx"
     }
   ],
+  "fluid-tabs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Tabs } from "@base-ui/react/tabs";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import {
+  type CSSProperties,
+  type ReactNode,
+  useId,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface FluidTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Content displayed inside the tab trigger. */
+  title: ReactNode;
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
+
+export interface FluidTabsProps {
+  /** Tabs displayed in the horizontal tab list. */
+  tabs: FluidTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Visual treatment for the active surface. @default "capsule" */
+  variant?: "capsule" | "underline";
+  /** Size of the tab triggers. @default "md" */
+  size?: "sm" | "md" | "lg";
+  /** Accessible label for the tab list. @default "Tabs" */
+  ariaLabel?: string;
+  /** Styling hook for the active surface. @default "bg-[var(--fluid-tabs-surface-active)]" */
+  activeIndicatorClassName?: string;
+  /** Optional styling hook for the supporting hover cue. @default "bg-[var(--fluid-tabs-hover)]" */
+  hoverClassName?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+}
+
+const sizeClasses = {
+  sm: "min-h-8 px-2.5 text-xs",
+  md: "min-h-9 px-3 text-sm",
+  lg: "min-h-11 px-4 text-base",
+} as const;
+
+const tokenStyle = {
+  "--fluid-tabs-surface": "var(--tabs-surface)",
+  "--fluid-tabs-surface-active": "var(--tabs-indicator)",
+  "--fluid-tabs-label": "var(--muted-foreground)",
+  "--fluid-tabs-label-active": "var(--foreground)",
+  "--fluid-tabs-hover": "color-mix(in oklab, var(--accent) 35%, transparent)",
+  "--fluid-tabs-focus-ring": "var(--ring)",
+  "--fluid-tabs-border": "var(--border)",
+  "--fluid-tabs-capsule-border-radius": "var(--radius-lg)",
+} as CSSProperties;
+
+export default function FluidTabs({
+  tabs,
+  value,
+  defaultValue,
+  onValueChange,
+  variant = "capsule",
+  size = "md",
+  ariaLabel = "Tabs",
+  activeIndicatorClassName = "bg-[var(--fluid-tabs-surface-active)]",
+  hoverClassName = "bg-[var(--fluid-tabs-hover)]",
+  className,
+  listClassName,
+}: FluidTabsProps) {
+  const layoutId = useId();
+  const keyboardSelectionRef = useRef(false);
+  const shouldReduceMotion = useReducedMotion();
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
+  );
+  const activeValue = value ?? internalValue;
+
+  return (
+    <Tabs.Root
+      value={value}
+      defaultValue={defaultValue ?? fallbackValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue);
+        keyboardSelectionRef.current = false;
+      }}
+      className={cn(
+        "relative w-fit max-w-full overflow-x-auto border-b border-[var(--fluid-tabs-border)]",
+        className,
+      )}
+      style={tokenStyle}
+    >
+      <LayoutGroup id={layoutId}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn(
+            "flex w-max gap-1 p-1",
+            variant === "capsule" && "rounded-xl bg-(--fluid-tabs-surface)",
+            listClassName,
+          )}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              aria-controls={tab.ariaControls}
+              onKeyDown={() => {
+                keyboardSelectionRef.current = true;
+              }}
+              className={(state) =>
+                cn(
+                  "group relative flex cursor-pointer items-center justify-center whitespace-nowrap rounded-lg font-medium text-(--fluid-tabs-label) transition-colors duration-150",
+                  sizeClasses[size],
+                  "hover:text-(--fluid-tabs-label-active) focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--fluid-tabs-focus-ring)",
+                  "disabled:pointer-events-none disabled:opacity-45",
+                  variant === "underline" && "rounded-none",
+                  state.active && "text-(--fluid-tabs-label-active)",
+                )
+              }
+            >
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-150 group-hover:opacity-100",
+                  hoverClassName,
+                  variant === "underline" &&
+                    "inset-x-1 top-auto h-0.5 rounded-full",
+                  variant === "capsule" &&
+                    "rounded-(--fluid-tabs-capsule-border-radius)",
+                )}
+              />
+              {activeValue === tab.value && (
+                <motion.span
+                  aria-hidden="true"
+                  layoutId={\`\${layoutId}-active\`}
+                  className={cn(
+                    "pointer-events-none absolute",
+                    variant === "capsule" &&
+                      "inset-0 rounded-lg border border-(--tabs-indicator-border)",
+                    variant === "underline" &&
+                      "inset-x-1 bottom-0 h-0.5 rounded-full bg-(--fluid-tabs-surface-active)",
+                    activeIndicatorClassName,
+                  )}
+                  transition={
+                    shouldReduceMotion || keyboardSelectionRef.current
+                      ? { duration: 0 }
+                      : {
+                          type: "spring",
+                          stiffness: 320,
+                          damping: 40,
+                          mass: 0.9,
+                        }
+                  }
+                />
+              )}
+              <span className="relative z-1">{tab.title}</span>
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </LayoutGroup>
+    </Tabs.Root>
+  );
+}
+`,
+      path: "fluid-tabs/fluid-tabs.tsx",
+      target: "components/sonaui/fluid-tabs/fluid-tabs.tsx"
+    }
+  ],
   "dot-orbit-shader": [
     {
       type: "registry:ui",
       content: `"use client";
 
 import { DotOrbit } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DotOrbitShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -1999,10 +3965,13 @@ export default function DotOrbitShader({
   style,
   ...props
 }: DotOrbitShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // Background color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colorBack, ...style }}
       {...props}
     >
       <DotOrbit
@@ -2012,7 +3981,7 @@ export default function DotOrbitShader({
         sizeRange={sizeRange}
         spreading={spreading}
         stepsPerColor={stepsPerColor}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>
@@ -2028,43 +3997,42 @@ export default function DotOrbitShader({
       type: "registry:ui",
       content: `"use client";
 
+import { Accordion } from "@base-ui/react/accordion";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
-import {
-  createContext,
-  type ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  ViewTransition,
-} from "react";
-import { cn } from "@/lib/utils";
+import { createContext, type ReactNode, useContext } from "react";
+
+import { cn } from "@/lib/sona-utils";
 import AnimatedPlusMinusButton from "./animated-plus-minus-button";
 import styles from "./styles.module.css";
 
-// Types
-type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
+export type AccordionVariant = "default" | "outlined" | "splitted" | "animated";
 
-interface AccordionProps {
-  /** The content to be displayed inside the accordion. */
+export interface AccordionProps
+  extends Omit<Accordion.Root.Props<string>, "className" | "multiple"> {
+  /** The accordion items. */
   children: ReactNode;
-  /**
-   * Allows multiple accordion items to be open at the same time.
-   * @default false
-   */
+  /** Allows multiple accordion items to be open simultaneously. @default false */
   allowMultiple?: boolean;
-  /** Additional CSS classes for the accordion container. */
+  /** Controlled values of the currently open items. */
+  value?: string[];
+  /** Values of the initially open items for uncontrolled usage. */
+  defaultValue?: string[];
+  /** Called when the set of open item values changes. */
+  onValueChange?: Accordion.Root.Props<string>["onValueChange"];
+  /** Whether the entire accordion ignores interaction. @default false */
+  disabled?: boolean;
+  /** Keeps closed panels mounted in the DOM. @default false */
+  keepMounted?: boolean;
+  /** Allows browser find-in-page to reveal matching panel content. @default false */
+  hiddenUntilFound?: boolean;
+  /** Additional classes for the accordion root. */
   className?: string;
-  /**
-   * The visual style of the accordion.
-   * @default default
-   */
+  /** Visual style of the accordion. @default "default" */
   variant?: AccordionVariant;
 }
 
-const accordionWrapperVarinats = cva(
-  "flex flex-col overflow-clip rounded-2xl",
+const accordionWrapperVariants = cva(
+  "flex w-full flex-col items-stretch overflow-clip rounded-2xl",
   {
     variants: {
       variant: {
@@ -2074,236 +4042,186 @@ const accordionWrapperVarinats = cva(
         animated: styles.wrapper,
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 );
 
 const accordionItemVariants = cva(
-  "relative overflow-hidden bg-background text-foreground transition-all duration-300",
+  "relative w-full min-w-0 overflow-hidden bg-background text-foreground transition-[transform,border-radius] duration-300",
   {
     variants: {
       variant: {
         default: "border-b border-border",
         outlined:
           "border-foreground border-t border-x last:border-b first:rounded-t-2xl last:rounded-b-2xl",
-        splitted: "rounded-2xl ",
+        splitted: "rounded-2xl",
         animated: styles.animated,
       },
     },
-    defaultVariants: {
-      variant: "default",
-    },
+    defaultVariants: { variant: "default" },
   },
 );
 
-interface AccordionItemProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof accordionItemVariants> {
-  children: ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  value?: string;
+const AccordionContext = createContext<{ variant: AccordionVariant } | null>(
+  null,
+);
+
+function useAccordionContext(component: string) {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used within AccordionRoot\`);
+  }
+  return context;
 }
 
-interface AccordionItemHeaderProps {
-  value: string;
-  children: ReactNode;
-}
-interface AccordionItemTriggerProps {
-  value: string;
-  children: ReactNode;
-}
-
-interface AccordionItemContentProps {
-  children: ReactNode;
-  value: string;
-}
-
-const AccordionContext = createContext<{
-  openItems: Set<string>;
-  toggleItem: (value: string) => void;
-  variant: AccordionVariant;
-  value: string;
-} | null>(null);
-
-const AccordionRoot = ({
+export function AccordionRoot({
   children,
   allowMultiple = false,
   className,
   variant = "default",
-}: AccordionProps) => {
-  const [openItems, setOpenItems] = useState<Set<string>>(new Set());
-  const [value, setValue] = useState<string>("");
-  const toggleItem = (v: string) => {
-    setOpenItems((prev) => {
-      const newOpenItems = new Set(prev);
-      if (newOpenItems.has(v)) {
-        newOpenItems.delete(v);
-      } else {
-        if (!allowMultiple) newOpenItems.clear();
-        newOpenItems.add(v);
-      }
-      return newOpenItems;
-    });
-    if (value !== v) {
-      setValue(v);
-    } else {
-      setValue("");
-    }
-  };
-
-  return (
-    <AccordionContext.Provider
-      value={{ openItems, toggleItem, variant, value }}
-    >
-      <ViewTransition>
-        <div
-          role="presentation"
-          className={cn(
-            accordionWrapperVarinats({ variant }),
-            variant === "splitted" && "gap-y-2",
-            className,
-          )}
-        >
-          {children}
-        </div>
-      </ViewTransition>
-    </AccordionContext.Provider>
-  );
-};
-
-const AccordionItem = ({
-  children,
-  className,
-  style,
-  value,
   ...props
-}: AccordionItemProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionItem must be used within AccordionRoot");
-  const { variant } = context;
+}: AccordionProps) {
   return (
-    <div
-      role="presentation"
-      className={cn(accordionItemVariants({ variant }), className)}
-      style={style}
-      data-active={value === context.value}
-      {...props}
-    >
-      <div className="relative">{children}</div>
-    </div>
-  );
-};
-
-const AccordionItemHeader = ({ value, children }: AccordionItemHeaderProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
-  const { openItems } = context;
-
-  const isOpen = openItems.has(value);
-
-  return (
-    <div className="flex items-center justify-between rounded-xl px-8 pt-4 font-medium text-balance">
-      <div className="">{children}</div>
-      <AnimatedPlusMinusButton isOpen={isOpen} />
-    </div>
-  );
-};
-
-const AccordionItemTrigger = ({
-  value,
-  children,
-}: AccordionItemTriggerProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionTrigger must be used within AccordionRoot");
-
-  const { openItems, toggleItem } = context;
-  const isOpen = openItems.has(value);
-
-  return (
-    <div
-      aria-expanded={isOpen}
-      onClick={() => toggleItem(value)}
-      className="cursor-pointer"
-    >
-      {children}
-    </div>
-  );
-};
-
-const AccordionItemContent = ({
-  children,
-  value,
-}: AccordionItemContentProps) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionContent must be used within AccordionRoot");
-
-  const { openItems } = context;
-  const isOpen = openItems.has(value);
-
-  const ref = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (ref.current) {
-      setHeight(ref.current.offsetHeight + 16);
-    }
-  }, [isOpen]);
-
-  const variants = {
-    open: { opacity: [0, 0.5, 1], y: 0 },
-    exit: { opacity: 0, y: 50 },
-    initial: { opacity: 0, y: 50 },
-  };
-
-  const motionVariants = {
-    open: { opacity: [0, 1], y: [10, 0] },
-    exit: { opacity: [1, 0.1, 0], y: [0, 10] },
-    initial: { opacity: 0, y: 0 },
-  };
-
-  return (
-    <motion.div
-      role="region"
-      aria-hidden={!isOpen}
-      className={\`overflow-hidden px-8 py-2 text-sm transition-[height]\`}
-      initial={{ height: 0 }}
-      animate={{ height: isOpen ? height : 0 }}
-      transition={{ duration: 0.26, ease: "easeIn" }}
-    >
-      <motion.div
-        initial="initial"
-        animate={isOpen ? "open" : "exit"}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-          delay: 0.2,
-          type: "tween",
-        }}
-        // className="pb-2"
-        variants={motionVariants}
-        ref={ref}
+    <AccordionContext.Provider value={{ variant }}>
+      <Accordion.Root
+        multiple={allowMultiple}
+        className={cn(
+          accordionWrapperVariants({ variant }),
+          variant === "splitted" && "gap-y-2",
+          className,
+        )}
+        {...props}
       >
         {children}
-      </motion.div>
-    </motion.div>
+      </Accordion.Root>
+    </AccordionContext.Provider>
   );
-};
+}
 
-export {
-  AccordionContext,
-  AccordionItem,
-  AccordionItemContent,
-  AccordionItemHeader,
-  AccordionItemTrigger,
-  AccordionRoot,
-};
+export interface AccordionItemProps
+  extends Omit<Accordion.Item.Props, "className">,
+    VariantProps<typeof accordionItemVariants> {
+  /** Stable value used to identify the item. */
+  value?: string;
+  /** Additional classes for the accordion item. */
+  className?: string;
+}
+
+export function AccordionItem({
+  children,
+  className,
+  value,
+  ...props
+}: AccordionItemProps) {
+  const { variant } = useAccordionContext("AccordionItem");
+
+  return (
+    <Accordion.Item
+      value={value}
+      className={cn(accordionItemVariants({ variant }), className)}
+      {...props}
+    >
+      <div className="relative w-full min-w-0">{children}</div>
+    </Accordion.Item>
+  );
+}
+
+export interface AccordionItemHeaderProps {
+  /** Header content displayed before the open-state icon. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the header layout. */
+  className?: string;
+}
+
+export function AccordionItemHeader({
+  children,
+  className,
+}: AccordionItemHeaderProps) {
+  useAccordionContext("AccordionItemHeader");
+  return (
+    <div
+      className={cn(
+        "flex w-full min-w-0 items-center justify-between rounded-xl px-8 py-4 font-medium text-balance",
+        className,
+      )}
+    >
+      <div className="min-w-0 flex-1">{children}</div>
+      <AnimatedPlusMinusButton />
+    </div>
+  );
+}
+
+export interface AccordionItemTriggerProps
+  extends Omit<Accordion.Trigger.Props, "className"> {
+  /** Trigger contents. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the trigger. */
+  className?: string;
+}
+
+export function AccordionItemTrigger({
+  children,
+  className,
+  value: _value,
+  ...props
+}: AccordionItemTriggerProps) {
+  useAccordionContext("AccordionItemTrigger");
+  return (
+    <Accordion.Header className="w-full">
+      <Accordion.Trigger
+        className={cn(
+          "group block w-full min-w-0 cursor-pointer text-left",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </Accordion.Trigger>
+    </Accordion.Header>
+  );
+}
+
+export interface AccordionItemContentProps
+  extends Omit<Accordion.Panel.Props, "className"> {
+  /** Panel contents. */
+  children: ReactNode;
+  /** Legacy item value; state is now owned by AccordionItem. */
+  value?: string;
+  /** Additional classes for the panel content. */
+  className?: string;
+}
+
+export function AccordionItemContent({
+  children,
+  className,
+  value: _value,
+  ...props
+}: AccordionItemContentProps) {
+  useAccordionContext("AccordionItemContent");
+  return (
+    <Accordion.Panel
+      className={cn(
+        "h-[var(--accordion-panel-height)] w-full min-w-0 overflow-hidden text-sm opacity-100",
+        "transition-[height,opacity] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]",
+        "data-starting-style:h-0 data-ending-style:h-0",
+        "data-starting-style:opacity-0 data-ending-style:opacity-0",
+        "motion-reduce:transition-none",
+      )}
+      {...props}
+    >
+      <div className={cn("w-full min-w-0 px-8 pb-4", className)}>
+        {children}
+      </div>
+    </Accordion.Panel>
+  );
+}
+
+export { AccordionContext };
 `,
       path: "accordion/accordion.tsx",
       target: "components/sonaui/accordion/accordion.tsx"
@@ -2311,64 +4229,41 @@ export {
     {
       type: "registry:ui",
       content: `"use client";
-import { motion } from "framer-motion";
 
-interface AnimatedPlusMinusButtonProps {
+export interface AnimatedPlusMinusButtonProps {
+  /** Icon size in pixels. @default 24 */
   size?: number;
-  isOpen?: boolean;
 }
-const AnimatedPlusMinusButton = ({
+
+export default function AnimatedPlusMinusButton({
   size = 24,
-  isOpen = false,
-}: AnimatedPlusMinusButtonProps) => {
+}: AnimatedPlusMinusButtonProps) {
   return (
-    <span
-      role="button"
-      aria-pressed="true"
-      className="flex items-center justify-center"
-    >
-      <motion.svg
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        initial="closed"
-        animate={isOpen ? "open" : "closed"}
-      >
-        {/* Horizontal line */}
-        <motion.line
+    <span aria-hidden="true" className="flex items-center justify-center">
+      <svg width={size} height={size} viewBox="0 0 24 24">
+        <title>Expand or collapse</title>
+        <line
           x1="1"
           y1="12"
           x2="23"
           y2="12"
           stroke="currentColor"
           strokeWidth="1"
-          variants={{
-            closed: { opacity: 1 },
-            open: { opacity: 0 },
-          }}
-          transition={{ duration: 0.3 }}
+          className="origin-center transition-opacity duration-200 group-data-panel-open:opacity-0 motion-reduce:transition-none"
         />
-
-        {/* Vertical line */}
-        <motion.line
+        <line
           x1="12"
           y1="1"
           x2="12"
           y2="23"
           stroke="currentColor"
           strokeWidth="1"
-          variants={{
-            closed: { rotate: 0, opacity: 1 },
-            open: { rotate: 90, opacity: 1 },
-          }}
-          transition={{ duration: 0.3 }}
+          className="origin-center transition-transform duration-200 group-data-panel-open:rotate-90 motion-reduce:transition-none"
         />
-      </motion.svg>
+      </svg>
     </span>
   );
-};
-
-export default AnimatedPlusMinusButton;
+}
 `,
       path: "accordion/animated-plus-minus-button.tsx",
       target: "components/sonaui/accordion/animated-plus-minus-button.tsx"
@@ -2379,10 +4274,15 @@ export default AnimatedPlusMinusButton;
       type: "registry:ui",
       content: `"use client";
 
-import { motion, type Transition, type Variants } from "motion/react";
+import {
+  motion,
+  type Transition,
+  useReducedMotion,
+  type Variants,
+} from "motion/react";
 import { type CSSProperties, useMemo } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type SpinningTextProps = {
   /** The text content to be animated. Can be a single string or an array of strings. */
@@ -2439,19 +4339,12 @@ export default function SpinningText({
   transition,
   variants,
 }: SpinningTextProps) {
-  if (typeof children !== "string" && !Array.isArray(children)) {
-    throw new Error("children must be a string or an array of strings");
-  }
+  const shouldReduceMotion = useReducedMotion();
 
-  const textContent = useMemo(() => {
-    if (Array.isArray(children)) {
-      if (!children.every((child) => typeof child === "string")) {
-        throw new Error("all elements in children array must be strings");
-      }
-      return children.join("");
-    }
-    return children;
-  }, [children]);
+  const textContent = useMemo(
+    () => (Array.isArray(children) ? children.join("") : children),
+    [children],
+  );
 
   const characters = useMemo(() => {
     const chars = textContent.split("");
@@ -2470,10 +4363,11 @@ export default function SpinningText({
 
   const containerVariants = useMemo(
     () => ({
-      visible: { rotate: reverse ? -360 : 360 },
+      // Reduced motion: hold the ring static instead of spinning forever.
+      visible: { rotate: shouldReduceMotion ? 0 : reverse ? -360 : 360 },
       ...variants?.container,
     }),
-    [reverse, variants],
+    [reverse, variants, shouldReduceMotion],
   );
 
   const itemVariants = useMemo(
@@ -2487,7 +4381,12 @@ export default function SpinningText({
   return (
     <motion.div
       className={cn("relative", className)}
-      style={style}
+      // Give the ring an intrinsic footprint so it doesn't collapse to 0x0.
+      style={{
+        width: \`\${radius * 2 + 1}ch\`,
+        height: \`\${radius * 2 + 1}ch\`,
+        ...style,
+      }}
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -2496,9 +4395,10 @@ export default function SpinningText({
       {characters.map((char, index) => (
         <motion.span
           aria-hidden="true"
+          // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
           key={\`\${index}-\${char}\`}
           variants={itemVariants}
-          className="absolute top-1/2 left-1/2 inline-block"
+          className="inline-block absolute left-1/2 top-1/2"
           style={
             {
               "--index": index,
@@ -2525,14 +4425,46 @@ export default function SpinningText({
       target: "components/sonaui/spinning-text/spinning-text.tsx"
     }
   ],
+  "sona-motion": [
+    {
+      type: "registry:ui",
+      content: `import type { Transition } from "motion/react";
+
+/** Shared easing curves for stateful Sona UI motion. */
+export const motionEasing = {
+  enter: [0.23, 1, 0.32, 1],
+  exit: [0.4, 0, 1, 1],
+  move: [0.65, 0, 0.35, 1],
+} as const;
+
+/** Semantic motion transitions. Choose by interaction purpose, not component. */
+export const motionTransition = {
+  instant: { duration: 0 },
+  reduced: { duration: 0.12, ease: motionEasing.enter },
+  feedback: { type: "spring", bounce: 0, duration: 0.22 },
+  enter: { duration: 0.18, ease: motionEasing.enter },
+  exit: { duration: 0.12, ease: motionEasing.exit },
+  spatial: { type: "spring", bounce: 0, duration: 0.35 },
+  expressive: { type: "spring", bounce: 0.18, duration: 0.4 },
+} satisfies Record<string, Transition>;
+`,
+      path: "sona-motion/sona-motion.ts",
+      target: "components/sonaui/sona-motion/sona-motion.ts"
+    }
+  ],
   "bubble-up-button": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { type MotionConfigProps, motion, useAnimation } from "motion/react";
-import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import {
+  type MotionConfigProps,
+  motion,
+  useAnimation,
+  useReducedMotion,
+} from "motion/react";
+import { type ReactNode, useRef } from "react";
+import { cn } from "@/lib/sona-utils";
 
 interface BubbleUpButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -2546,50 +4478,61 @@ interface BubbleUpButtonProps
 export default function BubbleUpButton({
   children = "Hover me!",
   motionControls = {
-    transition: { type: "spring", stiffness: 200, damping: 40 },
+    transition: { type: "spring", stiffness: 300, damping: 32 },
   },
   className = "",
   disabled = false,
   ...props
 }: BubbleUpButtonProps) {
   const controls = useAnimation();
+  const shouldReduceMotion = useReducedMotion();
+  // Tracks the latest intent so a re-enter during the exit animation
+  // doesn't get clobbered by the post-exit reset.
+  const hoverIntent = useRef(false);
 
-  const handleMouseEnter = async () => {
+  const fill = async () => {
+    hoverIntent.current = true;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% 100%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
   };
 
-  const handleMouseLeave = async () => {
+  const drain = async () => {
+    hoverIntent.current = false;
     await controls.start({
       clipPath: "ellipse(120% 120% at 50% -120%)",
+      transition: shouldReduceMotion ? { duration: 0 } : undefined,
     });
-    controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    if (!hoverIntent.current) {
+      controls.set({ clipPath: "ellipse(0% 0% at 50% 100%)" });
+    }
   };
 
   return (
     <button
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={fill}
+      onMouseLeave={drain}
+      onFocus={fill}
+      onBlur={drain}
       disabled={disabled}
       className={cn(
-        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-black px-16 py-2",
+        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-foreground px-16 py-2",
         "transition-opacity duration-200",
-        "focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black focus:outline-none",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
         className,
       )}
-      aria-label={typeof children === "string" ? children : "Bubble up button"}
       {...props}
     >
       <motion.div
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute top-0 left-0 h-full w-full bg-white"
+        className="absolute left-0 top-0 h-full w-full bg-background"
         aria-hidden="true"
       />
-      <span className="relative text-white mix-blend-difference">
+      <span className="relative text-background mix-blend-difference">
         {children}
       </span>
     </button>
@@ -2605,11 +4548,16 @@ export default function BubbleUpButton({
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, MotionConfig, type Transition } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type Transition,
+  useReducedMotion,
+} from "motion/react";
 import * as m from "motion/react-m";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface FanViewItem {
   /** Display label shown on the card. */
@@ -2619,6 +4567,8 @@ export interface FanViewItem {
    * @default 160
    */
   width?: number;
+  /** Called when the item is selected. */
+  onSelect?: () => void;
 }
 
 export interface FanViewProps {
@@ -2626,6 +4576,12 @@ export interface FanViewProps {
    * Items displayed as fanned cards when open.
    */
   items?: FanViewItem[];
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called when the view opens or closes. */
+  onOpenChange?: (open: boolean) => void;
   /**
    * Spring stiffness for the fan animation.
    * @default 540
@@ -2656,16 +4612,33 @@ function getFanPoint(index: number, total: number) {
 
 export default function FanView({
   items = DEFAULT_ITEMS,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
   stiffness = 540,
   damping = 28,
   className,
 }: FanViewProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const springConfig: Transition = useMemo(
     () => ({ type: "spring", stiffness, damping, mass: 0.95 }),
     [stiffness, damping],
+  );
+  const resolvedTransition: Transition = shouldReduceMotion
+    ? { duration: 0 }
+    : springConfig;
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (!isControlled) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [isControlled, onOpenChange],
   );
 
   const positionedItems = useMemo(
@@ -2680,14 +4653,14 @@ export default function FanView({
   useEffect(() => {
     if (!isOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setIsOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
     };
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [isOpen]);
+  }, [isOpen, setOpen]);
 
   return (
-    <MotionConfig transition={springConfig}>
+    <MotionConfig transition={resolvedTransition}>
       <div
         className={cn(
           "flex min-h-[420px] w-full items-end justify-center px-4 pb-16 pt-8",
@@ -2698,13 +4671,16 @@ export default function FanView({
           <AnimatePresence initial={false}>
             {isOpen &&
               positionedItems.map(
-                ({ label, width = 160, x, y, rotate, zIndex }, index) => (
+                (
+                  { label, onSelect, width = 160, x, y, rotate, zIndex },
+                  index,
+                ) => (
                   <m.button
                     key={label}
                     type="button"
                     title={label}
                     aria-label={label}
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 cursor-pointer"
+                    className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     style={{ width, zIndex }}
                     initial={{
                       x: 0,
@@ -2721,7 +4697,12 @@ export default function FanView({
                       scale: 1,
                       rotate,
                       filter: "blur(0px)",
-                      transition: { ...springConfig, delay: index * 0.04 },
+                      transition: {
+                        ...(shouldReduceMotion
+                          ? { duration: 0 }
+                          : springConfig),
+                        delay: shouldReduceMotion ? 0 : index * 0.04,
+                      },
                     }}
                     exit={{
                       x: 0,
@@ -2730,15 +4711,29 @@ export default function FanView({
                       scale: 0.45,
                       rotate: 0,
                       filter: "blur(10px)",
-                      transition: {
-                        duration: 0.18,
-                        ease: "easeInOut",
-                        delay: (items.length - index - 1) * 0.025,
-                      },
+                      transition: shouldReduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.18,
+                            ease: "easeInOut",
+                            delay: (items.length - index - 1) * 0.025,
+                          },
                     }}
-                    whileHover={{ scale: 1.05, zIndex: 30 }}
-                    whileTap={{ scale: 0.96 }}
-                    onClick={() => setIsOpen((v) => !v)}
+                    whileHover={
+                      shouldReduceMotion ? {} : { scale: 1.05, zIndex: 30 }
+                    }
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
+                    onClick={() => {
+                      onSelect?.();
+                      setOpen(false);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Escape") {
+                        event.preventDefault();
+                        setOpen(false);
+                        triggerRef.current?.focus();
+                      }
+                    }}
                   >
                     <span
                       className={cn(
@@ -2755,29 +4750,30 @@ export default function FanView({
           </AnimatePresence>
 
           <m.button
+            ref={triggerRef}
             type="button"
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close fan view" : "Open fan view"}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => setOpen(!isOpen)}
             className={cn(
               "relative z-20 flex h-16 w-16 items-center justify-center rounded-full border",
               "border-border bg-background text-foreground shadow-lg",
-              "hover:border-border/80 cursor-pointer",
+              "hover:border-border/80 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             )}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.94 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.04 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.94 }}
           >
             <m.span
-              className="relative block size-8"
+              className="block relative size-8"
               animate={isOpen ? "open" : "closed"}
               initial={false}
             >
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 0 }, open: { rotate: 45 } }}
               />
               <m.span
-                className="bg-foreground absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full"
+                className="absolute left-0 top-1/2 h-1 w-full bg-foreground rounded-full -translate-y-1/2"
                 variants={{ closed: { rotate: 90 }, open: { rotate: -45 } }}
               />
             </m.span>
@@ -2798,192 +4794,294 @@ export default function FanView({
       content: `"use client";
 
 import {
-  motion,
-  useMotionTemplate,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
   useScroll,
   useSpring,
-  useTransform,
   useVelocity,
 } from "motion/react";
-import { forwardRef, useEffect, useRef, useState } from "react";
-import useMeasure from "react-use-measure";
-import { useClock } from "@/hooks/useClock";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
+import { cn } from "@/lib/sona-utils";
 
-// Constants
-const DEFAULT_DURATION = 10; // Default duration in seconds
-
-// Helper function to calculate the number of marquee items
-const calculateItemCount = (
-  containerWidth: number,
-  itemWidth: number,
-): number => {
-  return Math.ceil(containerWidth / itemWidth);
-};
-
-interface MarqueeProps {
-  /** The content to be rendered inside the marquee. */
+export interface MarqueeProps {
+  /** Content of one marquee segment. Can be a single small element or a long strip. */
   children: React.ReactNode;
-  /** Additional class names for custom styling of the marquee items. */
   className?: string;
-  /** Additional class names for custom styling of the marquee container. */
+  /** Class for the outer clipping container. */
   containerClassName?: string;
   /**
-   * The duration of the marquee animation in seconds.
-   * @default 10
+   * Scroll speed in pixels per second. Higher = faster.
+   * @default 80
    */
-  duration?: number;
+  speed?: number;
   /**
-   * Determines whether the marquee scrolls in reverse direction.
+   * Gap between repeated segments, any CSS length string.
+   * @default "4rem"
+   */
+  gap?: string;
+  /**
+   * Scroll direction.
+   * @default "left"
+   */
+  direction?: "left" | "right" | "up" | "down";
+  /**
+   * Multiply speed by scroll velocity (and flip direction on scroll-up).
    * @default false
    */
-  reverse?: boolean;
+  scrollVelocity?: boolean;
   /**
-   * Enables dynamic speed adjustment based on scroll velocity.
+   * Max speed multiplier when scrollVelocity is enabled.
+   * @default 5
+   */
+  maxVelocity?: number;
+  /**
+   * Pause (with easing, not a snap) on hover.
    * @default false
    */
-  activeScroll?: boolean;
+  pauseOnHover?: boolean;
   /**
-   * Pauses the marquee animation when hovered.
-   * @default false
+   * How many segment copies to render.
+   * "auto" measures the container and fills 2× it.
+   * @default "auto"
    */
-  activeHover?: boolean;
+  repeat?: number | "auto";
 }
 
 export default function Marquee({
   children,
   className,
   containerClassName,
-  duration = DEFAULT_DURATION,
-  reverse = false,
-  activeScroll = false,
-  activeHover = false,
+  speed = 80,
+  gap = "4rem",
+  direction = "left",
+  scrollVelocity = false,
+  maxVelocity = 5,
+  pauseOnHover = false,
+  repeat = "auto",
 }: MarqueeProps) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [parentBounds, setParentBounds] = useState({ width: 0, height: 0 });
-  const [marqueeItemRef, marqueeItemBounds] = useMeasure();
-  const [count, setCount] = useState(0);
-  const [activeDirection, setActiveDirection] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
-  const [isClient, setIsClient] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const segmentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  // How many copies are rendered (updated by ResizeObserver)
+  const countRef = useRef<number>(typeof repeat === "number" ? repeat : 4);
 
+  // Motion value for translation — never stored in React state
+  const baseX = useMotionValue(0);
+  const isHovered = useRef(false);
+  // 0 = fully paused, 1 = full speed — lerped in rAF
+  const speedMultiplier = useRef(1);
+
+  // Scroll velocity pipeline (motion values only — no setState)
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
+  const scrollVelocityMV = useVelocity(scrollY);
+  const smoothVelocity = useSpring(scrollVelocityMV, {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
 
+  const isVertical = direction === "up" || direction === "down";
+  const directionSign = direction === "left" || direction === "up" ? 1 : -1;
+
+  // ResizeObserver — recompute copy count when container or segment resize
   useEffect(() => {
-    if (ref.current && isClient) {
-      if (ref.current.parentElement) {
-        const { width, height } =
-          ref.current.parentElement.getBoundingClientRect();
-        setParentBounds({ width, height });
+    if (repeat !== "auto" || shouldReduceMotion) return;
+
+    const container = containerRef.current;
+    const segment = segmentRef.current;
+    if (!container || !segment) return;
+
+    function recompute() {
+      if (!container || !segment) return;
+      const containerSize = isVertical
+        ? container.offsetHeight
+        : container.offsetWidth;
+      const segmentSize = isVertical
+        ? segment.offsetHeight
+        : segment.offsetWidth;
+      if (segmentSize > 0) {
+        countRef.current = Math.max(
+          2,
+          Math.ceil((containerSize * 2) / segmentSize) + 1,
+        );
       }
     }
-  }, [ref, isClient]);
 
-  // Update item count when dimensions change
-  useEffect(() => {
-    if (marqueeItemBounds.width > 0 && parentBounds.width > 0) {
-      setCount(calculateItemCount(parentBounds.width, marqueeItemBounds.width));
+    recompute();
+    const ro = new ResizeObserver(recompute);
+    ro.observe(container);
+    ro.observe(segment);
+    return () => ro.disconnect();
+  }, [repeat, isVertical, shouldReduceMotion]);
+
+  // Hover handlers
+  const onMouseEnter = () => {
+    if (pauseOnHover) isHovered.current = true;
+  };
+  const onMouseLeave = () => {
+    if (pauseOnHover) isHovered.current = false;
+  };
+
+  // Main animation loop — all in motion values, zero React state
+  useAnimationFrame((_, delta) => {
+    if (shouldReduceMotion) return;
+
+    const segment = segmentRef.current;
+    if (!segment) return;
+
+    const segmentSize = isVertical ? segment.offsetHeight : segment.offsetWidth;
+    if (segmentSize === 0) return;
+
+    // Lerp speedMultiplier toward target (eased pause on hover)
+    const targetMultiplier = isHovered.current ? 0 : 1;
+    speedMultiplier.current +=
+      (targetMultiplier - speedMultiplier.current) * 0.1;
+
+    // Velocity boost from scroll
+    let velocityBoost = 1;
+    let velocityFlip = 1;
+    if (scrollVelocity) {
+      const v = smoothVelocity.get();
+      velocityBoost = Math.min(Math.abs(v) / 200, maxVelocity);
+      velocityBoost = Math.max(velocityBoost, 1);
+      if (v < -50) velocityFlip = -1;
     }
-  }, [marqueeItemBounds, parentBounds, children]);
 
-  // Update active direction based on velocity
-  useEffect(() => {
-    return velocityFactor.on("change", (value) => {
-      setActiveDirection(value < 0);
-    });
-  }, [velocityFactor]);
+    const pxPerMs = speed / 1000;
+    const delta_px =
+      pxPerMs *
+      delta *
+      directionSign *
+      velocityFlip *
+      speedMultiplier.current *
+      velocityBoost;
 
-  // Update speed dynamically based on velocity factor
-  useEffect(() => {
-    const unsubscribe = velocityFactor.on("change", (value) => {
-      setSpeed(activeScroll && value > 0 ? value : 1);
-    });
+    let next = baseX.get() - delta_px;
 
-    return () => unsubscribe();
-  }, [velocityFactor, activeScroll]);
-
-  // Update speed when hovered
-  useEffect(() => {
-    if (!activeHover) return;
-    if (isHovered) {
-      setSpeed(0);
+    // Wrap: keep translation within [-segmentSize, 0)
+    if (directionSign > 0) {
+      // moving left/up — translate goes negative
+      if (next <= -segmentSize) next += segmentSize;
     } else {
-      setSpeed(activeScroll ? velocityFactor.get() : 1);
+      // moving right/down — translate goes positive
+      if (next >= 0) next -= segmentSize;
+      if (next < -segmentSize) next += segmentSize;
     }
-  }, [isHovered, activeScroll, velocityFactor, activeHover]);
 
-  const clock = useClock({
-    defaultValue: Date.now(),
-    reverse: activeScroll ? activeDirection : reverse,
-    speed,
-  }).value;
+    baseX.set(next);
+  });
 
-  const progress = useTransform(clock, (time) => (time % duration) / duration);
-  const percentage = useTransform(progress, (t) => t * 100);
-  const translateX = useMotionTemplate\`-\${percentage}%\`;
+  const copies = repeat !== "auto" ? repeat : countRef.current;
+  const items = Array.from({ length: copies });
+
+  if (shouldReduceMotion) {
+    // Static strip — no animation
+    return (
+      <section
+        ref={containerRef}
+        aria-label="Scrolling content"
+        className={cn("overflow-hidden", containerClassName)}
+      >
+        <div
+          className={cn(
+            isVertical ? "flex flex-col" : "flex flex-row",
+            "w-max",
+            className,
+          )}
+          style={{ gap }}
+        >
+          <div ref={segmentRef}>{children}</div>
+          {items.map((_, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: static decorative copies
+            <div key={i} aria-hidden="true">
+              {children}
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
-    isClient && (
-      <motion.div
-        style={{ translateX }}
-        className={cn("flex w-fit space-x-16", containerClassName)}
-        ref={ref}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+    <section
+      ref={containerRef}
+      aria-label="Scrolling content"
+      className={cn("overflow-hidden", containerClassName)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {/* The track: a flex row/col of copies, translated as a unit */}
+      <MotionTrack
+        baseX={baseX}
+        isVertical={isVertical}
+        gap={gap}
+        className={className}
+        segmentRef={segmentRef}
+        items={items}
       >
-        <MarqueeItem className={className} ref={marqueeItemRef}>
-          {children}
-        </MarqueeItem>
-        {Array.from({ length: count }).map((_, i) => (
-          <MarqueeItem
-            key={i}
-            isCopy
-            style={{ left: \`calc(\${(i + 1) * 100}%)\` }}
-          >
-            {children}
-          </MarqueeItem>
-        ))}
-      </motion.div>
-    )
+        {children}
+      </MotionTrack>
+    </section>
   );
 }
 
-interface MarqueeItemProps {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-  isCopy?: boolean;
-}
+// Split into a separate component to isolate motion subscription
+import { type MotionValue, motion } from "motion/react";
 
-const MarqueeItem = forwardRef<HTMLDivElement, MarqueeItemProps>(
-  ({ children, className, isCopy, style }, ref) => {
-    return (
+function MotionTrack({
+  baseX,
+  isVertical,
+  gap,
+  className,
+  segmentRef,
+  items,
+  children,
+}: {
+  baseX: MotionValue<number>;
+  isVertical: boolean;
+  gap: string;
+  className?: string;
+  segmentRef: React.RefObject<HTMLDivElement | null>;
+  items: unknown[];
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      style={isVertical ? { y: baseX } : { x: baseX }}
+      className={cn(
+        isVertical ? "flex flex-col" : "flex flex-row",
+        "w-max will-change-transform",
+        className,
+      )}
+    >
+      {/* First segment — measured for loop math */}
       <div
-        className={cn("w-full text-nowrap", isCopy && "absolute", className)}
-        style={style}
-        ref={ref}
+        ref={segmentRef}
+        style={{
+          paddingRight: isVertical ? 0 : gap,
+          paddingBottom: isVertical ? gap : 0,
+        }}
       >
         {children}
       </div>
-    );
-  },
-);
-
-MarqueeItem.displayName = "MarqueeItem";
+      {/* Copies — decorative, aria-hidden */}
+      {items.map((_, i) => (
+        <div
+          key={String(i)}
+          aria-hidden="true"
+          style={{
+            paddingRight: isVertical ? 0 : gap,
+            paddingBottom: isVertical ? gap : 0,
+          }}
+        >
+          {children}
+        </div>
+      ))}
+    </motion.div>
+  );
+}
 `,
       path: "marquee/marquee.tsx",
       target: "components/sonaui/marquee/marquee.tsx"
@@ -2994,10 +5092,10 @@ MarqueeItem.displayName = "MarqueeItem";
       type: "registry:ui",
       content: `"use client";
 
-import { motion } from "motion/react";
-import { type ReactNode, useCallback, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useCallback, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface RippleButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -3025,43 +5123,71 @@ interface RippleProps {
   key: number;
 }
 
+const RIPPLE_SIZE = 10;
+
 export default function RippleButton({
   children,
   className,
   scaleAmount = 25,
   duration = 0.5,
   rippleStyle,
+  disabled,
+  onPointerEnter,
+  onPointerDown,
+  onPointerUp,
+  onPointerLeave,
+  onPointerCancel,
   ...props
 }: RippleButtonProps) {
   const [ripple, setRipple] = useState<RippleProps | null>(null);
   const [isHover, setIsHover] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const rippleKey = useRef(0);
 
-  const handleMouseEnter = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      const button = event.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      setRipple({ x, y, key: Date.now() });
+  const showRipple = useCallback(
+    (event: React.PointerEvent<HTMLButtonElement>) => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      rippleKey.current += 1;
+      setRipple({
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+        key: rippleKey.current,
+      });
+      setIsHover(true);
     },
     [],
   );
 
-  const buttonClasses = useMemo(
-    () =>
-      cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-all duration-300 ease-in-out hover:cursor-pointer",
-        className,
-      ),
-    [className],
-  );
-
   return (
     <button
-      className={buttonClasses}
-      onMouseEnter={handleMouseEnter}
-      onMouseOver={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
+      className={cn(
+        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
+        className,
+      )}
+      disabled={disabled}
+      onPointerEnter={(e) => {
+        onPointerEnter?.(e);
+        if (disabled) return;
+        // Touch pointers fire enter on tap — let pointerdown handle those.
+        if (e.pointerType === "mouse") showRipple(e);
+      }}
+      onPointerDown={(e) => {
+        onPointerDown?.(e);
+        if (disabled) return;
+        if (e.pointerType !== "mouse") showRipple(e);
+      }}
+      onPointerUp={(e) => {
+        onPointerUp?.(e);
+        if (e.pointerType !== "mouse") setIsHover(false);
+      }}
+      onPointerLeave={(e) => {
+        onPointerLeave?.(e);
+        setIsHover(false);
+      }}
+      onPointerCancel={(e) => {
+        onPointerCancel?.(e);
+        setIsHover(false);
+      }}
       {...props}
     >
       {ripple && (
@@ -3072,17 +5198,21 @@ export default function RippleButton({
             rippleStyle,
           )}
           style={{
-            left: ripple.x,
-            top: ripple.y,
-            width: "10px",
-            height: "10px",
-            transform: "translate(-50%, -50%) scale(0)",
+            left: ripple.x - RIPPLE_SIZE / 2,
+            top: ripple.y - RIPPLE_SIZE / 2,
+            width: RIPPLE_SIZE,
+            height: RIPPLE_SIZE,
           }}
+          initial={{ scale: 0 }}
           animate={isHover ? { scale: scaleAmount } : { scale: 0 }}
-          transition={{
-            duration: isHover ? duration : 0.4,
-            ease: "easeIn",
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: isHover ? duration : 0.4,
+                  ease: [0.23, 1, 0.32, 1],
+                }
+          }
         />
       )}
       {children}
@@ -3103,8 +5233,6 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
         "text-background dark:text-foreground mix-blend-difference",
         className,
       )}
-      role="presentation"
-      aria-label="ripple-button-text"
     >
       {text}
     </span>
@@ -3123,7 +5251,7 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface SpotlightCardProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -3154,12 +5282,14 @@ export default function SpotlightCard({
   spotlightColor = "rgba(255,255,255,0.15)",
   spotlightSize = 350,
   disabled = false,
+  onMouseMove,
   ...props
 }: SpotlightCardProps) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  // Start off-canvas so the first hover doesn't flash the glow at (0,0).
+  const mouseX = useMotionValue(-spotlightSize);
+  const mouseY = useMotionValue(-spotlightSize);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
@@ -3169,8 +5299,11 @@ export default function SpotlightCard({
   const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
 
   return (
-    <div
-      onMouseMove={handleMouseMove}
+    <article
+      onMouseMove={(event) => {
+        handleMouseMove(event);
+        onMouseMove?.(event as React.MouseEvent<HTMLDivElement>);
+      }}
       className={cn(
         "group border-border bg-secondary relative overflow-hidden rounded-xl border p-8",
         className,
@@ -3180,12 +5313,12 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
           style={{ background }}
         />
       )}
       <div className="relative z-10">{children}</div>
-    </div>
+    </article>
   );
 }
 `,
@@ -3193,152 +5326,2173 @@ export default function SpotlightCard({
       target: "components/sonaui/spotlight-card/spotlight-card.tsx"
     }
   ],
-  "vertical-tab": [
+  "section-rail": [
     {
       type: "registry:ui",
       content: `"use client";
 
-import { motion } from "motion/react";
-import { useRef, useState } from "react";
-import useMeasure from "react-use-measure";
+import { AnimatePresence, animate, motion, useMotionValue } from "motion/react";
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
-interface VerticalTabProps {
-  /** An array of tab objects, each containing a title for the tab. */
-  tabs: {
-    title: string;
-  }[];
-  /**
-   * The background color of the indicator. Accepts Tailwind CSS classes.
-   * @default "bg-slate-300"
-   */
-  indicatorBgColor?: string;
-  /**
-   * The background color of the active tab. Accepts Tailwind CSS classes.
-   * @default "bg-slate-400 dark:bg-slate-600"
-   */
-  activeTabBgColor?: string;
-  /**
-   * Additional class names for the container element.
-   * @default ""
-   */
-  containerClassName?: string;
+export interface SectionRailThumbnail {
+  /** Image source for the context card. */
+  src: string;
+  /** Alternative text. The card is supplementary, so this may be decorative. */
+  alt: string;
 }
 
-export default function VerticalTab({
-  tabs,
-  indicatorBgColor = "bg-slate-300",
-  activeTabBgColor = "bg-slate-400 dark:bg-slate-600",
-  containerClassName = "",
-}: VerticalTabProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [lastHoveredIndex, setLastHoveredIndex] = useState<number | null>(null);
+export interface SectionRailItem {
+  /** Unique key. In scroll mode this must match the target element's DOM id. */
+  id: string;
+  /** Short destination name. This is the accessible name of the item. */
+  label: string;
+  /** Optional one-to-two-line summary shown in the fine-pointer context card. */
+  description?: string;
+  /** Optional image shown in the fine-pointer context card. */
+  thumbnail?: SectionRailThumbnail;
+  /** Renders the item as present but non-navigable. */
+  disabled?: boolean;
+}
 
-  const [ref, bounds] = useMeasure();
-  const tabRef = useRef<HTMLDivElement | null>(null);
+export interface SectionRailProps {
+  /** The sections represented by the rail, in document order. */
+  items: SectionRailItem[];
+  /**
+   * \`"scroll"\` resolves the active item from the page; \`"controlled"\` leaves it
+   * to \`activeId\` / \`onActiveChange\`.
+   * @default "scroll"
+   */
+  mode?: "scroll" | "controlled";
+  /** Active item id for controlled usage. @default undefined */
+  activeId?: string;
+  /** Initial active item id for uncontrolled usage. @default undefined */
+  defaultActiveId?: string;
+  /** Called whenever the active item changes. @default undefined */
+  onActiveChange?: (id: string) => void;
+  /**
+   * When labels sit next to the rail on fine pointers. Defaults to \`"hidden"\`
+   * because the context card already names the section, so an inline label
+   * would only appear underneath it. Coarse pointers, which never get a card,
+   * always show labels.
+   * @default "hidden"
+   */
+  showLabels?: "hidden" | "always" | "active" | "hover";
+  /**
+   * How the active item is marked. \`"progress"\` fills the active line from the
+   * section's own scroll position.
+   * @default "progress"
+   */
+  activeIndicator?: "dot" | "fill" | "progress";
+  /** Direction the rail runs in. @default "vertical" */
+  orientation?: "vertical" | "horizontal";
+  /** Which edge the rail is anchored to, which flips label and card placement. @default "right" */
+  side?: "left" | "right";
+  /** Pixels of fixed-header compensation used when scrolling to a section. @default 96 */
+  scrollOffset?: number;
+  /** Resolves a section element when ids are not real DOM ids. @default undefined */
+  getSectionElement?: (id: string) => HTMLElement | null;
+  /**
+   * Scrolling element the sections live in. Defaults to the page itself.
+   * @default undefined
+   */
+  scrollRoot?: React.RefObject<HTMLElement | null>;
+  /**
+   * When the context card appears. Cards never appear on coarse pointers.
+   * @default "hover-and-focus"
+   */
+  showPreview?: "never" | "hover" | "focus" | "hover-and-focus";
+  /** Accessible name for the rail's landmark. @default "Section navigation" */
+  ariaLabel?: string;
+  /** Additional classes for the rail root. @default undefined */
+  className?: string;
+  /** Additional classes for each rail line. @default undefined */
+  lineClassName?: string;
+  /** Additional classes for the item labels. @default undefined */
+  labelClassName?: string;
+  /** Additional classes for the context card surface. @default undefined */
+  previewClassName?: string;
+}
 
-  const handleMouseEnter = (tabElement: HTMLDivElement, index: number) => {
-    tabRef.current = tabElement;
-    ref(tabElement); // Update the ref dynamically
-    setIsMouseOver(true);
-    setLastHoveredIndex(index); // Store the last hovered index
-  };
+const tokenStyle = {
+  "--section-rail-track":
+    "color-mix(in oklab, var(--foreground) 22%, transparent)",
+  "--section-rail-active": "var(--foreground)",
+  "--section-rail-hover":
+    "color-mix(in oklab, var(--foreground) 55%, transparent)",
+  "--section-rail-label": "var(--muted-foreground)",
+  "--section-rail-focus-ring": "var(--ring)",
+  "--section-rail-progress": "var(--primary)",
+  "--section-rail-preview-surface":
+    "color-mix(in oklab, var(--popover) 78%, transparent)",
+  "--section-rail-preview-border":
+    "color-mix(in oklab, var(--foreground) 10%, transparent)",
+  "--section-rail-preview-shadow":
+    "0 12px 32px -12px color-mix(in oklab, var(--foreground) 30%, transparent)",
+  "--section-rail-preview-thumbnail":
+    "color-mix(in oklab, var(--foreground) 6%, transparent)",
+} as CSSProperties;
 
-  const handleMouseLeave = () => {
-    tabRef.current = null;
-    setIsMouseOver(false);
-    ref(null); // Reset the ref when mouse leaves
-  };
+/**
+ * The active line is the longest line the rail can ever draw, so it doubles as
+ * the rail's fixed track width. Every line is drawn inside a slot of exactly
+ * this size, which keeps the rail's footprint constant: growing a line on hover
+ * never reflows the page, and labels and context cards always anchor to the
+ * same edge instead of sliding with whichever line happens to be widest.
+ */
+const LINE_TRACK = 30;
+const LINE_REST = 18;
+/** Capped so an emphasised inactive line (18 + 10) stays under the track. */
+const LINE_EMPHASIS = 10;
 
-  const handleMouseClick = (i: number) => {
-    setActiveIndex(i);
-  };
-  const handleKeyDown = (
-    e: React.KeyboardEvent<HTMLDivElement>,
-    currentIndex: number,
+const useIsomorphicLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const list = window.matchMedia(query);
+    const update = () => setMatches(list.matches);
+    update();
+    list.addEventListener("change", update);
+    return () => list.removeEventListener("change", update);
+  }, [query]);
+
+  return matches;
+}
+
+export default function SectionRail({
+  items,
+  mode = "scroll",
+  activeId,
+  defaultActiveId,
+  onActiveChange,
+  showLabels = "hidden",
+  activeIndicator = "progress",
+  orientation = "vertical",
+  side = "right",
+  scrollOffset = 96,
+  getSectionElement,
+  scrollRoot,
+  showPreview = "hover-and-focus",
+  ariaLabel = "Section navigation",
+  className,
+  lineClassName,
+  labelClassName,
+  previewClassName,
+}: SectionRailProps) {
+  const descriptionIdPrefix = useId();
+  const coarsePointer = useMediaQuery("(pointer: coarse)");
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const isVertical = orientation === "vertical";
+
+  const [internalActiveId, setInternalActiveId] = useState(
+    () => defaultActiveId ?? items[0]?.id,
+  );
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+
+  const resolvedActiveId = activeId ?? internalActiveId;
+  const activeIndex = items.findIndex((item) => item.id === resolvedActiveId);
+  // One shared value for the whole rail: only the active line reads it, so
+  // scrolling never re-renders React or animates every item.
+  const progress = useMotionValue(0);
+
+  // Latest-value refs so the observer below depends only on things that
+  // genuinely change what it watches. Callers routinely pass inline \`items\`
+  // arrays and inline handlers; without this the observer would be torn down
+  // and rebuilt on every render — and again on every active change — which
+  // makes the active item flicker mid-scroll and the dot's travel erratic.
+  const itemsRef = useRef(items);
+  itemsRef.current = items;
+  const getSectionElementRef = useRef(getSectionElement);
+  getSectionElementRef.current = getSectionElement;
+  const onActiveChangeRef = useRef(onActiveChange);
+  onActiveChangeRef.current = onActiveChange;
+  const isControlledRef = useRef(activeId !== undefined);
+  isControlledRef.current = activeId !== undefined;
+  const activeIdRef = useRef(resolvedActiveId);
+  activeIdRef.current = resolvedActiveId;
+
+  const itemsKey = items.map((item) => item.id).join(" ");
+
+  const resolveElement = useCallback(
+    (id: string) =>
+      getSectionElementRef.current
+        ? getSectionElementRef.current(id)
+        : document.getElementById(id),
+    [],
+  );
+
+  const commitActive = useCallback((id: string) => {
+    if (!isControlledRef.current) setInternalActiveId(id);
+    onActiveChangeRef.current?.(id);
+  }, []);
+
+  // The dot is one element for the whole rail, positioned from the active
+  // item's measured slot. A per-item dot matched with \`layoutId\` had to hand
+  // off between mounting and unmounting nodes on every active change, so its
+  // travel time depended on how much else re-rendered that frame; this is a
+  // single value animating to a measured target, which is always the same.
+  const listRef = useRef<HTMLOListElement>(null);
+  const dotSlots = useRef(new Map<string, HTMLElement>());
+  const dotX = useMotionValue(0);
+  const dotY = useMotionValue(0);
+  const dotPlaced = useRef(false);
+  const dotAnimations = useRef<ReturnType<typeof animate>[]>([]);
+
+  useIsomorphicLayoutEffect(() => {
+    if (activeIndicator !== "dot") return;
+
+    const list = listRef.current;
+    const slot = dotSlots.current.get(resolvedActiveId ?? "");
+    if (!list || !slot) return;
+
+    const place = (animated: boolean) => {
+      const listRect = list.getBoundingClientRect();
+      const slotRect = slot.getBoundingClientRect();
+      const targetX = slotRect.left - listRect.left;
+      const targetY = slotRect.top - listRect.top;
+
+      for (const animation of dotAnimations.current) animation.stop();
+      dotAnimations.current = [];
+
+      // The first placement and any resize are corrections, not transitions.
+      if (!animated || !dotPlaced.current || reducedMotion) {
+        dotPlaced.current = true;
+        dotX.set(targetX);
+        dotY.set(targetY);
+        return;
+      }
+
+      // A fixed duration, not a spring. A spring's settle time grows with the
+      // distance it has to cover, so the dot visibly dragged when a fast scroll
+      // skipped several sections at once and snapped when it moved one. The
+      // travel should read the same no matter how far the active item jumped.
+      const options = {
+        duration: 0.26,
+        ease: [0.22, 1, 0.36, 1],
+      } as const;
+      dotAnimations.current = [
+        animate(dotX, targetX, options),
+        animate(dotY, targetY, options),
+      ];
+    };
+
+    place(true);
+
+    const resizeObserver = new ResizeObserver(() => place(false));
+    resizeObserver.observe(list);
+
+    return () => {
+      resizeObserver.disconnect();
+      for (const animation of dotAnimations.current) animation.stop();
+      dotAnimations.current = [];
+    };
+  }, [activeIndicator, resolvedActiveId, reducedMotion, dotX, dotY, itemsKey]);
+
+  // Active section resolution. IntersectionObserver decides *which* section is
+  // current; a rAF-throttled scroll read decides how far through it we are.
+  // \`items\` is read through a ref so inline arrays don't rebuild the observer;
+  // \`itemsKey\` is what actually signals the observed set of sections changed.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional, see above
+  useEffect(() => {
+    const items = itemsRef.current;
+    if (mode !== "scroll" || items.length === 0) return;
+
+    const elements = items
+      .map((item) => ({ id: item.id, element: resolveElement(item.id) }))
+      .filter(
+        (entry): entry is { id: string; element: HTMLElement } =>
+          entry.element !== null,
+      );
+    if (elements.length === 0) return;
+
+    const root = scrollRoot?.current ?? null;
+    const visible = new Set<string>();
+    let currentId = activeIdRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id =
+            entry.target.id ||
+            elements.find((e) => e.element === entry.target)?.id;
+          if (!id) continue;
+          if (entry.isIntersecting) visible.add(id);
+          else visible.delete(id);
+        }
+
+        const next = items.find((item) => visible.has(item.id))?.id;
+        if (next && next !== currentId) {
+          currentId = next;
+          commitActive(next);
+        }
+      },
+      { root, rootMargin: \`-\${scrollOffset}px 0px -55% 0px\`, threshold: 0 },
+    );
+
+    for (const { element } of elements) observer.observe(element);
+
+    const readMetrics = () => {
+      if (root) {
+        return {
+          scrollTop: root.scrollTop,
+          maxScroll: Math.max(root.scrollHeight - root.clientHeight, 0),
+          viewportTop: root.getBoundingClientRect().top,
+        };
+      }
+      const doc = document.documentElement;
+      return {
+        scrollTop: window.scrollY,
+        maxScroll: Math.max(doc.scrollHeight - window.innerHeight, 0),
+        viewportTop: 0,
+      };
+    };
+
+    let frame = 0;
+    const readProgress = () => {
+      frame = 0;
+      const { scrollTop, maxScroll, viewportTop } = readMetrics();
+
+      // The bottom of the page is a hard stop: the last section can never
+      // scroll its own end past the offset line, so without this its fill
+      // would top out short of 100%. Treat reaching the end as arriving.
+      const atEnd = scrollTop >= maxScroll - 1;
+      if (atEnd) {
+        const last = elements[elements.length - 1]?.id;
+        if (last && last !== currentId) {
+          currentId = last;
+          commitActive(last);
+        }
+      }
+
+      const element = resolveElement(currentId ?? "");
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const sectionTop = rect.top - viewportTop + scrollTop;
+      const start = sectionTop - scrollOffset;
+      // Clamp the end of the section's travel to the furthest the scroller can
+      // actually go, so every section — including the last — completes.
+      const end = Math.min(start + rect.height, maxScroll);
+      const span = end - start;
+
+      progress.set(span <= 0 ? 1 : clamp((scrollTop - start) / span, 0, 1));
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(readProgress);
+    };
+
+    const scroller: HTMLElement | Window = root ?? window;
+    readProgress();
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      observer.disconnect();
+      scroller.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [
+    scrollRoot,
+    commitActive,
+    itemsKey,
+    mode,
+    progress,
+    resolveElement,
+    scrollOffset,
+  ]);
+
+  // In controlled mode there is no scroll position to read, so the active line
+  // is simply full.
+  useEffect(() => {
+    if (mode === "controlled") progress.set(1);
+  }, [mode, progress]);
+
+  const navigate = (
+    event: React.MouseEvent<HTMLElement>,
+    item: SectionRailItem,
   ) => {
-    if (e.key === "ArrowRight") {
-      setActiveIndex((prev) => (prev + 1) % tabs.length);
-    } else if (e.key === "ArrowLeft") {
-      setActiveIndex((prev) => (prev - 1 + tabs.length) % tabs.length);
+    if (item.disabled) {
+      event.preventDefault();
+      return;
     }
-    if (e.key === "Enter" || e.key === " ") {
-      setActiveIndex(currentIndex);
+
+    commitActive(item.id);
+    if (mode !== "scroll") return;
+
+    const element = resolveElement(item.id);
+    if (!element) return;
+
+    event.preventDefault();
+    // \`detail === 0\` means the click came from Enter/Space, which must land
+    // instantly rather than animating.
+    const keyboardActivated = event.detail === 0;
+    const behavior = keyboardActivated || reducedMotion ? "auto" : "smooth";
+    const root = scrollRoot?.current ?? null;
+
+    if (root) {
+      const top =
+        root.scrollTop +
+        (element.getBoundingClientRect().top -
+          root.getBoundingClientRect().top) -
+        scrollOffset;
+      root.scrollTo({ top, behavior });
+    } else {
+      const top =
+        element.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      window.scrollTo({ top, behavior });
     }
+
+    // Only own the page URL when the rail actually navigates the page.
+    if (element.id && !root) {
+      window.history.replaceState(null, "", \`#\${element.id}\`);
+    }
+    element.setAttribute("tabindex", "-1");
+    element.focus({ preventScroll: true });
+  };
+
+  const previewOnHover =
+    showPreview === "hover" || showPreview === "hover-and-focus";
+  const previewOnFocus =
+    showPreview === "focus" || showPreview === "hover-and-focus";
+
+  return (
+    <nav
+      aria-label={ariaLabel}
+      data-orientation={orientation}
+      data-side={side}
+      className={cn(
+        "group/section-rail relative",
+        isVertical ? "w-fit" : "h-fit",
+        className,
+      )}
+      style={tokenStyle}
+      onPointerLeave={() => setHoveredId(null)}
+    >
+      <ol
+        ref={listRef}
+        className={cn(
+          "relative flex list-none",
+          isVertical
+            ? cn("flex-col", side === "right" ? "items-end" : "items-start")
+            : "flex-row items-end",
+        )}
+      >
+        {activeIndicator === "dot" && (
+          <motion.span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-0 left-0 z-10 size-1.5 rounded-full bg-(--section-rail-progress)"
+            style={{ x: dotX, y: dotY }}
+          />
+        )}
+        {items.map((item, index) => {
+          const isActive = index === activeIndex;
+          const isHovered = hoveredId === item.id;
+          const isFocused = focusedId === item.id;
+          const distance =
+            hoveredId === null
+              ? Number.POSITIVE_INFINITY
+              : Math.abs(index - items.findIndex((i) => i.id === hoveredId));
+
+          const previewVisible =
+            !coarsePointer &&
+            showPreview !== "never" &&
+            Boolean(item.description || item.thumbnail) &&
+            ((previewOnHover && isHovered) || (previewOnFocus && isFocused));
+
+          // A visible card already names the section, so the inline label steps
+          // aside rather than rendering behind it. Focus still reveals the
+          // label whenever no card is showing.
+          const labelVisible =
+            coarsePointer ||
+            showLabels === "always" ||
+            (showLabels === "active" && isActive) ||
+            ((showLabels === "hover" || isFocused) &&
+              (isHovered || isFocused) &&
+              !previewVisible);
+
+          // Neighbours of the hovered item grow a little too, so the rail is
+          // easier to aim at without any of them becoming a separate target.
+          const emphasis =
+            distance === 0
+              ? 1
+              : distance === 1
+                ? 0.45
+                : distance === 2
+                  ? 0.15
+                  : 0;
+          const lineLength = isActive
+            ? LINE_TRACK
+            : LINE_REST + emphasis * LINE_EMPHASIS;
+
+          const descriptionId = item.description
+            ? \`\${descriptionIdPrefix}-\${item.id}\`
+            : undefined;
+
+          const content = (
+            <>
+              {/* Fixed-size slot. The line animates inside it, so the rail
+                  never changes width and nothing around it reflows. */}
+              <span
+                aria-hidden="true"
+                className="relative block shrink-0"
+                style={
+                  isVertical
+                    ? { width: LINE_TRACK, height: 2 }
+                    : { height: LINE_TRACK, width: 2 }
+                }
+              >
+                <motion.span
+                  className={cn(
+                    "absolute overflow-hidden rounded-full",
+                    isVertical
+                      ? cn("inset-y-0", side === "right" ? "end-0" : "start-0")
+                      : "inset-x-0 bottom-0",
+                    item.disabled && "opacity-40",
+                    lineClassName,
+                  )}
+                  initial={false}
+                  animate={{
+                    [isVertical ? "width" : "height"]: lineLength,
+                    backgroundColor: isActive
+                      ? activeIndicator === "progress"
+                        ? "var(--section-rail-track)"
+                        : "var(--section-rail-active)"
+                      : distance <= 1
+                        ? "var(--section-rail-hover)"
+                        : "var(--section-rail-track)",
+                  }}
+                  transition={
+                    reducedMotion
+                      ? { duration: 0 }
+                      : {
+                          type: "spring",
+                          stiffness: 520,
+                          damping: 42,
+                          mass: 0.7,
+                        }
+                  }
+                  style={
+                    isVertical ? { width: lineLength } : { height: lineLength }
+                  }
+                >
+                  {isActive && activeIndicator === "progress" && (
+                    <motion.span
+                      className={cn(
+                        "absolute inset-0 rounded-full bg-(--section-rail-progress)",
+                        // Fill grows away from the edge the rail is anchored
+                        // to, so it always reads as advancing outward-in.
+                        isVertical
+                          ? side === "right"
+                            ? "origin-right"
+                            : "origin-left"
+                          : "origin-top",
+                      )}
+                      style={
+                        isVertical ? { scaleX: progress } : { scaleY: progress }
+                      }
+                    />
+                  )}
+                </motion.span>
+              </span>
+
+              {/* Reserved for every item, not just the active one, so the
+                  item's width — and with it the label and card anchor —
+                  doesn't change as the dot moves down the rail. The single
+                  rail dot is measured against these slots. */}
+              {activeIndicator === "dot" && (
+                <span
+                  ref={(node) => {
+                    if (node) dotSlots.current.set(item.id, node);
+                    else dotSlots.current.delete(item.id);
+                  }}
+                  aria-hidden="true"
+                  className="block size-1.5 shrink-0"
+                />
+              )}
+
+              <motion.span
+                className={cn(
+                  "whitespace-nowrap font-medium text-(--section-rail-label) text-xs",
+                  isActive && "text-(--section-rail-active)",
+                  coarsePointer
+                    ? "static"
+                    : cn(
+                        "pointer-events-none absolute",
+                        isVertical
+                          ? side === "right"
+                            ? "end-full me-3"
+                            : "start-full ms-3"
+                          : "bottom-full mb-3",
+                      ),
+                  labelClassName,
+                )}
+                initial={false}
+                animate={{
+                  opacity: labelVisible ? 1 : 0,
+                  filter: labelVisible ? "blur(0px)" : "blur(3px)",
+                  [isVertical ? "x" : "y"]: labelVisible
+                    ? 0
+                    : isVertical
+                      ? side === "right"
+                        ? 6
+                        : -6
+                      : 6,
+                }}
+                transition={
+                  reducedMotion
+                    ? { duration: 0 }
+                    : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+                }
+              >
+                {item.label}
+              </motion.span>
+
+              {descriptionId && (
+                <span id={descriptionId} className="sr-only">
+                  {item.description}
+                </span>
+              )}
+            </>
+          );
+
+          const interactiveProps = {
+            "aria-current": isActive
+              ? ((mode === "scroll" ? "location" : "true") as
+                  | "location"
+                  | "true")
+              : undefined,
+            "aria-describedby": descriptionId,
+            "aria-disabled": item.disabled || undefined,
+            "data-active": isActive || undefined,
+            className: cn(
+              // The visible line is 2px; the hit area is not.
+              "relative flex cursor-pointer items-center gap-2 rounded-sm outline-none",
+              "focus-visible:ring-2 focus-visible:ring-(--section-rail-focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              isVertical ? "px-2 py-1.5" : "flex-col px-1.5 py-2",
+              // The line always sits flush against the edge the rail is
+              // anchored to; the dot slot tucks in behind it. Reversing for
+              // \`side="right"\` is what keeps every line right-aligned instead
+              // of the dot slot pushing them inward.
+              side === "right" && isVertical && "flex-row-reverse",
+              item.disabled && "cursor-not-allowed",
+            ),
+            onClick: (event: React.MouseEvent<HTMLElement>) =>
+              navigate(event, item),
+            onPointerEnter: () => setHoveredId(item.id),
+            onFocus: () => setFocusedId(item.id),
+            onBlur: () =>
+              setFocusedId((current) => (current === item.id ? null : current)),
+          };
+
+          return (
+            <li key={item.id} className="relative flex">
+              {mode === "scroll" ? (
+                <a href={\`#\${item.id}\`} {...interactiveProps}>
+                  {content}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled={item.disabled}
+                  {...interactiveProps}
+                >
+                  {content}
+                </button>
+              )}
+
+              <AnimatePresence>
+                {previewVisible && (
+                  <SectionRailPreview
+                    item={item}
+                    isVertical={isVertical}
+                    side={side}
+                    reducedMotion={reducedMotion}
+                    className={previewClassName}
+                  />
+                )}
+              </AnimatePresence>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+function SectionRailPreview({
+  item,
+  isVertical,
+  side,
+  reducedMotion,
+  className,
+}: {
+  item: SectionRailItem;
+  isVertical: boolean;
+  side: "left" | "right";
+  reducedMotion: boolean;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shift, setShift] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+
+  // Collision handling: flip across the anchor if the preferred side has no
+  // room, then slide along the rail axis so the card stays fully on screen.
+  useIsomorphicLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const margin = 12;
+    const rect = node.getBoundingClientRect();
+
+    if (!flipped) {
+      const overflowsStart = rect.left < margin;
+      const overflowsEnd = rect.right > window.innerWidth - margin;
+      if (isVertical && (overflowsStart || overflowsEnd)) {
+        setFlipped(true);
+        return;
+      }
+      if (!isVertical && rect.top < margin) {
+        setFlipped(true);
+        return;
+      }
+    }
+
+    if (isVertical) {
+      if (rect.top < margin) setShift(margin - rect.top);
+      else if (rect.bottom > window.innerHeight - margin)
+        setShift(window.innerHeight - margin - rect.bottom);
+    } else if (rect.left < margin) {
+      setShift(margin - rect.left);
+    } else if (rect.right > window.innerWidth - margin) {
+      setShift(window.innerWidth - margin - rect.right);
+    }
+  }, [flipped, isVertical]);
+
+  const inlineSide = side === "right" ? !flipped : flipped;
+  const placement = isVertical
+    ? inlineSide
+      ? "end-full me-4 top-1/2 -translate-y-1/2"
+      : "start-full ms-4 top-1/2 -translate-y-1/2"
+    : flipped
+      ? "top-full mt-4 start-1/2 -translate-x-1/2"
+      : "bottom-full mb-4 start-1/2 -translate-x-1/2";
+
+  return (
+    <motion.div
+      ref={ref}
+      aria-hidden="true"
+      initial={
+        reducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.96, filter: "blur(8px)" }
+      }
+      animate={
+        reducedMotion
+          ? { opacity: 1 }
+          : { opacity: 1, scale: 1, filter: "blur(0px)" }
+      }
+      exit={
+        reducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.98, filter: "blur(6px)" }
+      }
+      transition={
+        reducedMotion
+          ? { duration: 0 }
+          : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+      }
+      style={{
+        [isVertical ? "marginTop" : "marginLeft"]: shift,
+        transformOrigin: isVertical
+          ? inlineSide
+            ? "right center"
+            : "left center"
+          : flipped
+            ? "center top"
+            : "center bottom",
+      }}
+      className={cn(
+        "pointer-events-none absolute z-50 w-60 rounded-xl border p-3 backdrop-blur-xl",
+        "border-(--section-rail-preview-border) bg-(--section-rail-preview-surface) shadow-(--section-rail-preview-shadow)",
+        placement,
+        className,
+      )}
+    >
+      {item.thumbnail && (
+        <div className="mb-2.5 aspect-video w-full overflow-hidden rounded-lg bg-(--section-rail-preview-thumbnail)">
+          {/* biome-ignore lint/performance/noImgElement: registry components stay framework-agnostic */}
+          <img
+            src={item.thumbnail.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="size-full object-cover"
+          />
+        </div>
+      )}
+      <p className="font-medium text-foreground text-sm">{item.label}</p>
+      {item.description && (
+        <p className="mt-1 line-clamp-2 text-muted-foreground text-xs leading-relaxed">
+          {item.description}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+`,
+      path: "section-rail/section-rail.tsx",
+      target: "components/sonaui/section-rail/section-rail.tsx"
+    }
+  ],
+  "animated-dialog": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Dialog } from "@base-ui/react/dialog";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { createContext, type ReactNode, useContext, useState } from "react";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+// ─── Context ─────────────────────────────────────────────────────────────────
+
+interface DialogContextValue {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+
+const DialogContext = createContext<DialogContextValue | null>(null);
+
+function useDialogContext() {
+  const ctx = useContext(DialogContext);
+  if (!ctx) {
+    throw new Error(
+      "AnimatedDialog subcomponents must be used within <AnimatedDialog>",
+    );
+  }
+  return ctx;
+}
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface AnimatedDialogProps {
+  children: ReactNode;
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /** Whether the dialog traps interaction inside the modal. @default true */
+  modal?: boolean;
+}
+
+export interface AnimatedDialogContentProps {
+  children: ReactNode;
+  /**
+   * Direction the dialog slides in from.
+   * @default "bottom"
+   */
+  from?: "top" | "bottom" | "left" | "right" | "center";
+  /**
+   * Direction the dialog slides out to. Defaults to reversing the entrance.
+   */
+  exitTo?: "top" | "bottom" | "left" | "right" | "center";
+  className?: string;
+  /**
+   * Class name for the backdrop overlay.
+   */
+  backdropClassName?: string;
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialog({
+  children,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
+  modal = true,
+}: AnimatedDialogProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) {
+      setInternalOpen(nextOpen);
+    }
+    onOpenChange?.(nextOpen);
   };
 
   return (
-    <div
-      className={cn(
-        "relative flex w-fit overflow-x-scroll border-b p-2",
-        containerClassName,
-      )}
-      onMouseLeave={() => handleMouseLeave()}
-    >
-      {isMouseOver && tabRef.current && (
-        <motion.div
-          className={cn(
-            "absolute left-0 rounded-xl bg-slate-300 will-change-[transform_width_height] dark:bg-slate-400",
-            indicatorBgColor,
-          )}
-          initial={{
-            opacity: 0,
-            width: bounds.width,
-            height: bounds.height,
-            translateX:
-              lastHoveredIndex !== null && tabs[lastHoveredIndex]
-                ? tabRef.current.offsetLeft
-                : 0,
-          }}
-          animate={{
-            opacity: 1,
-            translateX: tabRef.current ? tabRef.current.offsetLeft : 0,
-            width: bounds.width,
-            height: bounds.height,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
-      )}
-      <div className="flex space-x-2" role="tablist">
-        {tabs.map((tab, index) => (
-          <TabItem
-            key={index}
-            title={tab.title}
-            data-tab-index={index}
-            className={cn(
-              "relative flex cursor-pointer items-center p-2",
-              "rounded-xl transition-colors duration-300",
-              "focus:ring-2 focus:ring-slate-300 focus:outline-none",
-              index === activeIndex ? \`\${activeTabBgColor}\` : "",
-            )}
-            onMouseEnter={(e) => handleMouseEnter(e.currentTarget, index)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            onClick={() => handleMouseClick(index)}
-            aria-selected={index === activeIndex}
-            aria-label={\`Tab \${index + 1}\`}
-          />
-        ))}
-      </div>
-    </div>
+    <DialogContext.Provider value={{ open, setOpen }}>
+      <Dialog.Root
+        open={open}
+        defaultOpen={defaultOpen}
+        modal={modal}
+        onOpenChange={setOpen}
+      >
+        {children}
+      </Dialog.Root>
+    </DialogContext.Provider>
   );
 }
 
-interface TabItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
-}
+// ─── Trigger ──────────────────────────────────────────────────────────────────
 
-const TabItem = ({ title, ...props }: TabItemProps) => {
+export function AnimatedDialogTrigger({
+  children,
+  className,
+  ...props
+}: Dialog.Trigger.Props) {
   return (
-    <div {...props} role="tab" tabIndex={0}>
-      <span>{title}</span>
+    <Dialog.Trigger
+      className={cn(
+        "inline-flex items-center justify-center rounded-lg px-4 py-2",
+        "bg-foreground text-background text-sm font-medium",
+        "hover:bg-foreground/90 transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </Dialog.Trigger>
+  );
+}
+
+// ─── Content ──────────────────────────────────────────────────────────────────
+
+const motionVariants = {
+  initial: (from: string) => {
+    switch (from) {
+      case "top":
+        return { y: -24, opacity: 0, scale: 0.97 };
+      case "bottom":
+        return { y: 24, opacity: 0, scale: 0.97 };
+      case "left":
+        return { x: -24, opacity: 0, scale: 0.97 };
+      case "right":
+        return { x: 24, opacity: 0, scale: 0.97 };
+      default:
+        return { scale: 0.95, opacity: 0 };
+    }
+  },
+  animate: {
+    x: 0,
+    y: 0,
+    scale: 1,
+    opacity: 1,
+  },
+  exit: (exitTo: string) => {
+    switch (exitTo) {
+      case "top":
+        return { y: -20, opacity: 0, scale: 0.97 };
+      case "bottom":
+        return { y: 20, opacity: 0, scale: 0.97 };
+      case "left":
+        return { x: -20, opacity: 0, scale: 0.97 };
+      case "right":
+        return { x: 20, opacity: 0, scale: 0.97 };
+      default:
+        return { scale: 0.95, opacity: 0 };
+    }
+  },
+};
+
+export function AnimatedDialogContent({
+  children,
+  from = "bottom",
+  exitTo,
+  className,
+  backdropClassName,
+}: AnimatedDialogContentProps) {
+  const { open } = useDialogContext();
+  const shouldReduceMotion = useReducedMotion();
+  const resolvedExitTo = exitTo ?? from;
+
+  return (
+    <Dialog.Portal>
+      <AnimatePresence custom={resolvedExitTo}>
+        {open && (
+          <>
+            {/* Backdrop Overlay */}
+            <Dialog.Backdrop
+              render={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? motionTransition.reduced
+                      : motionTransition.enter
+                  }
+                  className={cn(
+                    "fixed inset-0 z-50 bg-black/40 backdrop-blur-sm",
+                    backdropClassName,
+                  )}
+                />
+              }
+            />
+
+            {/* Positioner centering the popup */}
+            <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
+              <Dialog.Popup
+                className="pointer-events-auto"
+                render={
+                  <motion.div
+                    custom={from}
+                    variants={shouldReduceMotion ? {} : motionVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={
+                      shouldReduceMotion
+                        ? motionTransition.reduced
+                        : motionTransition.enter
+                    }
+                    className={cn(
+                      "w-full max-w-md overflow-hidden rounded-2xl p-6",
+                      "bg-popover text-popover-foreground shadow-2xl",
+                      "border border-border/80",
+                      className,
+                    )}
+                  >
+                    {children}
+                  </motion.div>
+                }
+              />
+            </div>
+          </>
+        )}
+      </AnimatePresence>
+    </Dialog.Portal>
+  );
+}
+
+// ─── Title ────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialogTitle({
+  className,
+  ...props
+}: Dialog.Title.Props) {
+  return (
+    <Dialog.Title
+      className={cn(
+        "text-lg font-semibold tracking-tight text-foreground",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+// ─── Description ──────────────────────────────────────────────────────────────
+
+export function AnimatedDialogDescription({
+  className,
+  ...props
+}: Dialog.Description.Props) {
+  return (
+    <Dialog.Description
+      className={cn("mt-1.5 text-sm text-muted-foreground", className)}
+      {...props}
+    />
+  );
+}
+
+// ─── Close ────────────────────────────────────────────────────────────────────
+
+export function AnimatedDialogClose({
+  className,
+  ...props
+}: Dialog.Close.Props) {
+  return (
+    <Dialog.Close
+      className={cn(
+        "inline-flex items-center justify-center rounded-lg px-4 py-2",
+        "bg-secondary text-secondary-foreground text-sm font-medium",
+        "hover:bg-muted transition-colors duration-150",
+        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+`,
+      path: "animated-dialog/animated-dialog.tsx",
+      target: "components/sonaui/animated-dialog/animated-dialog.tsx"
+    }
+  ],
+  "split-text": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText as GSAPSplitText } from "gsap/SplitText";
+import { type ReactNode, useRef } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+gsap.registerPlugin(useGSAP, GSAPSplitText, ScrollTrigger);
+
+type SplitUnit = "chars" | "words" | "lines";
+
+export interface SplitTextProps {
+  /** A single text element (e.g. a heading or paragraph) to split and animate. */
+  children: ReactNode;
+  /** Additional CSS classes for the wrapper. */
+  className?: string;
+  /**
+   * Which unit the text is split into and animated.
+   * @default "words"
+   */
+  variant?: SplitUnit;
+  /**
+   * Mask each split piece (clip it) so it reveals from behind an edge instead
+   * of animating in fully visible. Masks by the same unit set in \`variant\`.
+   * @default true
+   */
+  mask?: boolean;
+  /**
+   * GSAP tween vars merged over the defaults, e.g. \`{ duration: 1.2 }\`.
+   * @default { yPercent: 120, rotate: 5, stagger: 0.2, duration: 0.4 }
+   */
+  animationProps?: gsap.TweenVars;
+  /**
+   * Play the animation when the element scrolls into view instead of on mount.
+   * @default false
+   */
+  scrollTrigger?: boolean;
+  /**
+   * ScrollTrigger start position (only used when \`scrollTrigger\` is true).
+   * @default "top 85%"
+   */
+  start?: string;
+  /**
+   * Re-split on resize so line breaks stay correct. Note: this replays the
+   * animation on every resize, so it suits looping reveals more than one-shot
+   * entrances. Font-load correctness is handled automatically either way.
+   * @default false
+   */
+  autoSplit?: boolean;
+  /**
+   * Show ScrollTrigger debug markers.
+   * @default false
+   */
+  markers?: boolean;
+}
+
+export default function SplitText({
+  children,
+  className,
+  variant = "words",
+  mask = true,
+  animationProps = {},
+  scrollTrigger = false,
+  start = "top 85%",
+  autoSplit = false,
+  markers = false,
+}: SplitTextProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const defaultAnimationProps: gsap.TweenVars = {
+    yPercent: 120,
+    rotate: 5,
+    stagger: 0.2,
+    duration: 0.4,
+  };
+
+  const mergedAnimationProps = { ...defaultAnimationProps, ...animationProps };
+
+  useGSAP(
+    () => {
+      const containerEl = containerRef.current;
+      if (!containerEl) return;
+
+      // Reveal the wrapper (it starts hidden to avoid a flash of unsplit text).
+      gsap.set(containerEl, { opacity: 1 });
+
+      // Reduced motion: show the final text, skip the animation entirely.
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (prefersReducedMotion) return;
+
+      const targetEl = containerEl.firstElementChild as HTMLElement | null;
+      if (!targetEl) {
+        console.warn(
+          "[SplitText] Expected a single wrapping element as children (e.g. an <h2>), but found none. Nothing will animate.",
+        );
+      }
+      if (!targetEl) return;
+
+      let split: GSAPSplitText | undefined;
+
+      // Build the split + animation. Kept in a closure so it can run after fonts
+      // load, and re-run per re-split when \`autoSplit\` is on.
+      const build = () => {
+        split = GSAPSplitText.create(targetEl, {
+          type: variant,
+          mask: mask ? variant : undefined,
+          autoSplit,
+          // Create the tween inside onSplit and return it so GSAP re-runs it on
+          // every re-split (font swap / resize when autoSplit is enabled).
+          onSplit: (self) => {
+            const tl = gsap.timeline(
+              scrollTrigger
+                ? { scrollTrigger: { trigger: containerEl, start, markers } }
+                : {},
+            );
+            tl.from(self[variant], mergedAnimationProps);
+            return tl;
+          },
+        });
+      };
+
+      // Wait for web fonts before splitting so \`lines\` and masks measure against
+      // the real font metrics, not the fallback. Resolves immediately if loaded.
+      let cancelled = false;
+      const fonts = typeof document !== "undefined" ? document.fonts : null;
+      if (fonts && fonts.status !== "loaded") {
+        fonts.ready.then(() => {
+          if (!cancelled) build();
+        });
+      } else {
+        build();
+      }
+
+      return () => {
+        cancelled = true;
+        split?.revert();
+      };
+    },
+    {
+      dependencies: [{ ...mergedAnimationProps }, variant, mask, scrollTrigger],
+      scope: containerRef,
+      revertOnUpdate: true,
+    },
+  );
+
+  return (
+    <div ref={containerRef} className={cn("opacity-0", className)}>
+      {children}
     </div>
   );
-};
+}
 `,
-      path: "vertical-tab/vertical-tab.tsx",
-      target: "components/sonaui/vertical-tab/vertical-tab.tsx"
+      path: "split-text/split-text.tsx",
+      target: "components/sonaui/split-text/split-text.tsx"
+    }
+  ],
+  "animated-tabs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Tabs } from "@base-ui/react/tabs";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { type ReactNode, useEffect, useId, useState } from "react";
+
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Content displayed inside the tab trigger. */
+  title: ReactNode;
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
+
+export interface AnimatedTabsProps {
+  /** Tabs displayed in the horizontal tab list. */
+  tabs: AnimatedTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Accessible label for the tab list. @default "Tabs" */
+  ariaLabel?: string;
+  /** Background class for the shared active indicator. @default "bg-accent" */
+  indicatorClassName?: string;
+  /** Background class for the active tab. @default "bg-muted" */
+  activeTabClassName?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+}
+
+export default function AnimatedTabs({
+  tabs,
+  value,
+  defaultValue,
+  onValueChange,
+  ariaLabel = "Tabs",
+  indicatorClassName = "bg-accent",
+  activeTabClassName = "bg-muted",
+  className,
+  listClassName,
+}: AnimatedTabsProps) {
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [activeValue, setActiveValue] = useState(
+    value ?? defaultValue ?? fallbackValue,
+  );
+  const layoutId = useId();
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (value !== undefined) setActiveValue(value);
+  }, [value]);
+
+  return (
+    <Tabs.Root
+      value={value}
+      defaultValue={defaultValue ?? fallbackValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        setActiveValue(nextValue);
+        onValueChange?.(nextValue);
+      }}
+      className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
+    >
+      <LayoutGroup id={layoutId}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn("flex gap-2", listClassName)}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              disabled={tab.disabled}
+              aria-controls={tab.ariaControls}
+              className={(state) =>
+                cn(
+                  "relative flex cursor-pointer items-center rounded-xl p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  state.active && activeTabClassName,
+                )
+              }
+            >
+              {activeValue === tab.value && (
+                <motion.span
+                  aria-hidden="true"
+                  layoutId={\`\${layoutId}-active\`}
+                  className={cn(
+                    "pointer-events-none absolute inset-0 rounded-xl",
+                    indicatorClassName,
+                  )}
+                  transition={
+                    shouldReduceMotion
+                      ? motionTransition.reduced
+                      : motionTransition.spatial
+                  }
+                />
+              )}
+              <span className="relative">{tab.title}</span>
+            </Tabs.Tab>
+          ))}
+        </Tabs.List>
+      </LayoutGroup>
+    </Tabs.Root>
+  );
+}
+`,
+      path: "animated-tabs/animated-tabs.tsx",
+      target: "components/sonaui/animated-tabs/animated-tabs.tsx"
+    }
+  ],
+  "button": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion, useReducedMotion } from "motion/react";
+import { forwardRef } from "react";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export const buttonVariants = cva(
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl font-medium select-none outline-none transition-colors hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-foreground text-background hover:bg-foreground/90",
+        outlined:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      },
+      size: {
+        sm: "h-9 px-4 text-xs",
+        md: "h-10 px-5 text-sm",
+        lg: "h-11 px-6 text-base",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "md",
+    },
+  },
+);
+
+export interface ButtonProps
+  extends React.ComponentPropsWithoutRef<typeof motion.button>,
+    VariantProps<typeof buttonVariants> {
+  /** Content rendered inside the button. */
+  children: React.ReactNode;
+  /**
+   * Visual style of the button.
+   * @default "default"
+   */
+  variant?: "default" | "outlined" | "secondary";
+  /**
+   * Controls the button height, padding, and text size.
+   * @default "md"
+   */
+  size?: "sm" | "md" | "lg";
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      variant = "default",
+      size = "md",
+      className,
+      disabled,
+      ...props
+    },
+    ref,
+  ) => {
+    const shouldReduceMotion = useReducedMotion();
+
+    return (
+      <motion.button
+        ref={ref}
+        disabled={disabled}
+        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
+        whileHover={{ scale: 1.05 }}
+        transition={
+          shouldReduceMotion
+            ? motionTransition.reduced
+            : motionTransition.spatial
+        }
+        className={cn(buttonVariants({ variant, size }), "w-fit", className)}
+        {...props}
+      >
+        {children}
+      </motion.button>
+    );
+  },
+);
+
+Button.displayName = "Button";
+export default Button;
+`,
+      path: "button/button.tsx",
+      target: "components/sonaui/button/button.tsx"
+    }
+  ],
+  "fluid-slider": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Slider } from "@base-ui/react/slider";
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import {
+  type CSSProperties,
+  type ReactNode,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface FluidSliderProps {
+  /** Visible label associated with the slider. */
+  label: ReactNode;
+  /** Controlled slider value. @default undefined */
+  value?: number;
+  /** Initial value for uncontrolled usage. @default 50 */
+  defaultValue?: number;
+  /** Called continuously while the value changes. @default undefined */
+  onValueChange?: (
+    value: number,
+    details: Slider.Root.ChangeEventDetails,
+  ) => void;
+  /** Called when a pointer or keyboard interaction commits. @default undefined */
+  onValueCommitted?: (
+    value: number,
+    details: Slider.Root.CommitEventDetails,
+  ) => void;
+  /** Minimum allowed value. @default 0 */
+  min?: number;
+  /** Maximum allowed value. @default 100 */
+  max?: number;
+  /** Smallest value increment. @default 1 */
+  step?: number;
+  /** Increment used by Page Up, Page Down, and modified arrow keys. @default 10 */
+  largeStep?: number;
+  /** Numeric positions rendered as quiet reference marks. @default [] */
+  marks?: number[];
+  /** Formats the visible and accessible value text. @default undefined */
+  formatValue?: (value: number) => string;
+  /** Intl options used when no custom formatter is supplied. @default undefined */
+  format?: Intl.NumberFormatOptions;
+  /** Locale used by the default number formatter. @default undefined */
+  locale?: Intl.LocalesArgument;
+  /** Whether the trailing formatted value is visible. @default true */
+  showValue?: boolean;
+  /** Whether the active boundary grip is visible. @default true */
+  showHandle?: boolean;
+  /** Whether the slider ignores user interaction. @default false */
+  disabled?: boolean;
+  /** Name submitted with the slider's hidden range input. @default undefined */
+  name?: string;
+  /** ID of the form that owns the slider input. @default undefined */
+  form?: string;
+  /** Accessible name used instead of the visible label. @default undefined */
+  ariaLabel?: string;
+  /** Additional classes for the slider root. @default undefined */
+  className?: string;
+  /** Additional classes for the track surface. @default undefined */
+  trackClassName?: string;
+  /** Additional classes for the filled surface. @default undefined */
+  surfaceClassName?: string;
+  /** Additional classes for the fixed label. @default undefined */
+  labelClassName?: string;
+  /** Additional classes for the trailing value. @default undefined */
+  valueClassName?: string;
+  /** Additional classes for the boundary grip. @default undefined */
+  handleClassName?: string;
+}
+
+const tokenStyle = {
+  "--fluid-slider-track": "var(--background)",
+  "--fluid-slider-surface":
+    "color-mix(in oklab, var(--primary) 16%, var(--background))",
+  "--fluid-slider-surface-active":
+    "color-mix(in oklab, var(--primary) 22%, var(--background))",
+  "--fluid-slider-handle": "var(--primary)",
+  "--fluid-slider-label": "var(--foreground)",
+  "--fluid-slider-value": "var(--muted-foreground)",
+  "--fluid-slider-mark":
+    "color-mix(in oklab, var(--foreground) 32%, transparent)",
+  "--fluid-slider-focus-ring": "var(--ring)",
+  "--fluid-slider-disabled-opacity": "0.48",
+  "--fluid-slider-border-radius": "var(--radius)",
+} as CSSProperties;
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function rubberband(overshoot: number, dimension: number, constant = 0.55) {
+  return (
+    (overshoot * dimension * constant) /
+    (dimension + constant * Math.abs(overshoot))
+  );
+}
+
+export default function FluidSlider({
+  label,
+  value,
+  defaultValue = 50,
+  onValueChange,
+  onValueCommitted,
+  min = 0,
+  max = 100,
+  step = 1,
+  largeStep = 10,
+  marks = [],
+  formatValue,
+  format,
+  locale,
+  showValue = true,
+  showHandle = true,
+  disabled = false,
+  name,
+  form,
+  ariaLabel,
+  className,
+  trackClassName,
+  surfaceClassName,
+  labelClassName,
+  valueClassName,
+  handleClassName,
+}: FluidSliderProps) {
+  const labelId = useId();
+  const shouldReduceMotion = useReducedMotion();
+  const [internalValue, setInternalValue] = useState(() =>
+    clamp(defaultValue, min, max),
+  );
+  const currentValue = clamp(value ?? internalValue, min, max);
+  const range = max - min;
+  const progress = range === 0 ? 0 : ((currentValue - min) / range) * 100;
+  const controlRef = useRef<HTMLDivElement>(null);
+  const pointerActiveRef = useRef(false);
+  const trackPressRef = useRef(false);
+  const dragMovedRef = useRef(false);
+  const pointerStartXRef = useRef(0);
+  const fillAnimationRef = useRef<ReturnType<typeof animate> | null>(null);
+  const grabOffsetRef = useRef(0);
+  const pointerVelocityRef = useRef(0);
+  const previousPointerRef = useRef({ x: 0, time: 0 });
+  const settleAnimationRef = useRef<ReturnType<typeof animate> | null>(null);
+  const progressMotion = useMotionValue(progress / 100);
+  const overshoot = useMotionValue(0);
+  const trackWidth = useMotionValue(1);
+  const direction = useMotionValue(1);
+  const press = useMotionValue(0);
+  const pressAnimationRef = useRef<ReturnType<typeof animate> | null>(null);
+
+  useEffect(() => {
+    const target = progress / 100;
+    fillAnimationRef.current?.stop();
+
+    // A tap on the inactive track (pointer pressed but not yet dragged) should
+    // glide the fill to the new value. Dragging tracks 1:1 and keyboard/external
+    // changes stay instant, per the interaction spec.
+    const isTap = pointerActiveRef.current && !dragMovedRef.current;
+    if (isTap && !shouldReduceMotion) {
+      fillAnimationRef.current = animate(progressMotion, target, {
+        type: "spring",
+        stiffness: 420,
+        damping: 40,
+        mass: 0.9,
+      });
+    } else {
+      progressMotion.set(target);
+    }
+  }, [progress, progressMotion, shouldReduceMotion]);
+
+  useEffect(() => {
+    const control = controlRef.current;
+    if (!control) return;
+
+    const updateWidth = () =>
+      trackWidth.set(control.getBoundingClientRect().width);
+    updateWidth();
+
+    const resizeObserver = new ResizeObserver(updateWidth);
+    resizeObserver.observe(control);
+    return () => resizeObserver.disconnect();
+  }, [trackWidth]);
+
+  useEffect(
+    () => () => {
+      settleAnimationRef.current?.stop();
+      pressAnimationRef.current?.stop();
+      fillAnimationRef.current?.stop();
+    },
+    [],
+  );
+
+  // The filled fraction (0–1), including any damped overshoot past the bounds.
+  // Clip-path, not scaleX, sizes the fill so its border-radius stays a true,
+  // undistorted match for the track corners at every value.
+  const fillFraction = useTransform(() => {
+    const width = Math.max(trackWidth.get(), 1);
+    const directionalOvershoot = (overshoot.get() / width) * direction.get();
+    return clamp(progressMotion.get() + directionalOvershoot, 0, 1);
+  });
+  const surfaceClipPath = useTransform(() => {
+    const inset = (1 - fillFraction.get()) * 100;
+    const isRtl = direction.get() === -1;
+    const insetEnd = isRtl ? 0 : inset;
+    const insetStart = isRtl ? inset : 0;
+    return \`inset(0px \${insetEnd}% 0px \${insetStart}% round var(--fluid-slider-border-radius))\`;
+  });
+
+  // Immediate-response squash: the active surface compresses slightly while
+  // pressed and eases back on release. Presentation only — never the value.
+  const surfaceScaleY = useTransform(press, [0, 1], [1, 0.98]);
+
+  const animatePress = (target: number) => {
+    pressAnimationRef.current?.stop();
+    if (shouldReduceMotion) {
+      press.set(target);
+      return;
+    }
+    pressAnimationRef.current = animate(press, target, {
+      type: "spring",
+      stiffness: 640,
+      damping: 34,
+      mass: 0.6,
+    });
+  };
+
+  const formatter = useMemo(
+    () => new Intl.NumberFormat(locale, format),
+    [format, locale],
+  );
+  const formattedValue = formatValue
+    ? formatValue(currentValue)
+    : formatter.format(currentValue);
+  const visibleMarks = marks.filter((mark) => mark >= min && mark <= max);
+
+  const settleOvershoot = () => {
+    pointerActiveRef.current = false;
+    trackPressRef.current = false;
+    controlRef.current?.removeAttribute("data-pressed");
+    animatePress(0);
+    if (overshoot.get() === 0) return;
+
+    settleAnimationRef.current?.stop();
+    if (shouldReduceMotion) {
+      overshoot.set(0);
+      return;
+    }
+
+    settleAnimationRef.current = animate(overshoot, 0, {
+      type: "spring",
+      stiffness: 520,
+      damping: 42,
+      mass: 0.65,
+      velocity: pointerVelocityRef.current,
+    });
+  };
+
+  // Base UI's own track-press handler can't resolve the thumb when it is
+  // rendered through motion (getFingerState returns null), so a bare-track tap
+  // never sets the value. Since Slider.Root is fully controlled by this
+  // component, we drive Base UI's hidden range input directly: it fires the
+  // real onValueChange with proper event details, which flows through the
+  // Slider.Root handler below.
+  const applyValueFromClientX = (clientX: number) => {
+    const control = controlRef.current;
+    if (!control) return;
+
+    const rect = control.getBoundingClientRect();
+    if (rect.width === 0) return;
+
+    const isRtl = getComputedStyle(control).direction === "rtl";
+    let ratio = (clientX - rect.left) / rect.width;
+    if (isRtl) ratio = 1 - ratio;
+    ratio = clamp(ratio, 0, 1);
+
+    const raw = min + ratio * range;
+    const stepped = clamp(
+      Math.round((raw - min) / step) * step + min,
+      min,
+      max,
+    );
+
+    const input = control.querySelector<HTMLInputElement>(
+      'input[type="range"]',
+    );
+    if (!input || Number(input.value) === stepped) return;
+
+    const nativeSetter = Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      "value",
+    )?.set;
+    nativeSetter?.call(input, String(stepped));
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  };
+
+  const handlePointerDown = (event: PointerEvent) => {
+    if (disabled || event.button !== 0) return;
+
+    settleAnimationRef.current?.stop();
+    pointerActiveRef.current = true;
+    dragMovedRef.current = false;
+    pointerStartXRef.current = event.clientX;
+    controlRef.current?.setAttribute("data-pressed", "");
+    animatePress(1);
+    pointerVelocityRef.current = 0;
+    previousPointerRef.current = { x: event.clientX, time: event.timeStamp };
+
+    const control = controlRef.current;
+    if (control) {
+      const rect = control.getBoundingClientRect();
+      trackWidth.set(rect.width);
+      direction.set(getComputedStyle(control).direction === "rtl" ? -1 : 1);
+    }
+
+    const target = event.target as HTMLElement;
+    const pressedHandle = target.closest<HTMLElement>(
+      "[data-fluid-slider-hit]",
+    );
+    const thumb = target.closest<HTMLElement>("[data-fluid-slider-thumb]");
+
+    if (pressedHandle && thumb) {
+      trackPressRef.current = false;
+      const thumbRect = thumb.getBoundingClientRect();
+      grabOffsetRef.current =
+        event.clientX - (thumbRect.left + thumbRect.width / 2);
+    } else {
+      // A surface press is a positional command, not a drag gesture. Move the
+      // value to that point immediately; continuous adjustment begins only
+      // from the boundary indicator.
+      trackPressRef.current = true;
+      grabOffsetRef.current = 0;
+      overshoot.set(0);
+      applyValueFromClientX(event.clientX);
+    }
+  };
+
+  const handlePointerMove = (event: PointerEvent) => {
+    if (!pointerActiveRef.current || disabled) return;
+
+    // Once handle movement passes the threshold, stop any pending tap glide so
+    // the boundary remains locked 1:1 to the pointer.
+    if (
+      !dragMovedRef.current &&
+      Math.abs(event.clientX - pointerStartXRef.current) > 8
+    ) {
+      dragMovedRef.current = true;
+      fillAnimationRef.current?.stop();
+    }
+
+    // Surface presses set one value on pointer-down. Only the indicator is a
+    // continuous drag target.
+    if (trackPressRef.current) return;
+
+    const previous = previousPointerRef.current;
+    const elapsed = Math.max(event.timeStamp - previous.time, 1);
+    pointerVelocityRef.current =
+      ((event.clientX - previous.x) / elapsed) * 1000;
+    previousPointerRef.current = { x: event.clientX, time: event.timeStamp };
+
+    if (shouldReduceMotion) {
+      overshoot.set(0);
+      return;
+    }
+
+    const control = controlRef.current;
+    if (!control) return;
+
+    const rect = control.getBoundingClientRect();
+    const presentedBoundary = event.clientX - grabOffsetRef.current;
+    const rawOvershoot =
+      presentedBoundary < rect.left
+        ? presentedBoundary - rect.left
+        : presentedBoundary > rect.right
+          ? presentedBoundary - rect.right
+          : 0;
+
+    overshoot.set(rubberband(rawOvershoot, rect.width));
+  };
+
+  useEffect(() => {
+    const control = controlRef.current;
+    if (!control) return;
+
+    control.addEventListener("pointerdown", handlePointerDown);
+    control.addEventListener("pointermove", handlePointerMove);
+    control.addEventListener("pointerup", settleOvershoot);
+    control.addEventListener("pointercancel", settleOvershoot);
+    control.addEventListener("lostpointercapture", settleOvershoot);
+
+    return () => {
+      control.removeEventListener("pointerdown", handlePointerDown);
+      control.removeEventListener("pointermove", handlePointerMove);
+      control.removeEventListener("pointerup", settleOvershoot);
+      control.removeEventListener("pointercancel", settleOvershoot);
+      control.removeEventListener("lostpointercapture", settleOvershoot);
+    };
+  });
+
+  const fluidStyle = {
+    ...tokenStyle,
+    "--fluid-slider-progress": progress,
+  } as CSSProperties;
+
+  return (
+    <Slider.Root
+      aria-labelledby={ariaLabel ? undefined : labelId}
+      value={currentValue}
+      min={min}
+      max={max}
+      step={step}
+      largeStep={largeStep}
+      format={format}
+      locale={locale}
+      disabled={disabled}
+      name={name}
+      form={form}
+      onValueChange={(nextValue, details) => {
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue, details);
+      }}
+      onValueCommitted={onValueCommitted}
+      className={cn(
+        "group/fluid-slider w-full max-w-xl select-none rounded-xl",
+        disabled &&
+          "pointer-events-none opacity-(--fluid-slider-disabled-opacity)",
+        className,
+      )}
+      style={fluidStyle}
+    >
+      <Slider.Control
+        ref={controlRef}
+        data-fluid-slider-control=""
+        className={cn(
+          "group/fluid-slider-control relative h-16 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
+          "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
+          trackClassName,
+        )}
+      >
+        <Slider.Track className="relative h-full w-full [container-type:inline-size]">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]"
+          />
+
+          <Slider.Indicator
+            render={
+              <motion.div
+                style={{ clipPath: surfaceClipPath, scaleY: surfaceScaleY }}
+              />
+            }
+            className={cn(
+              "w-full! pointer-events-none absolute inset-0 origin-left rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-surface) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--background)_55%,transparent),0_1px_2px_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-[filter,background-color] duration-150 rtl:origin-right",
+              surfaceClassName,
+            )}
+            style={{ insetInlineStart: 0, insetInlineEnd: 0 }}
+          />
+
+          {visibleMarks.map((mark) => {
+            const markProgress = range === 0 ? 0 : ((mark - min) / range) * 100;
+            return (
+              <span
+                key={mark}
+                aria-hidden="true"
+                className="pointer-events-none absolute top-1/2 z-5 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-mark) rtl:translate-x-1/2"
+                style={{ insetInlineStart: \`\${markProgress}%\` }}
+              />
+            );
+          })}
+
+          <Slider.Label
+            className={cn(
+              "pointer-events-none absolute inset-y-0 start-5 z-10 flex items-center truncate pe-24 font-medium text-(--fluid-slider-label) text-sm",
+              labelClassName,
+            )}
+          >
+            <span id={labelId}>{label}</span>
+          </Slider.Label>
+
+          {showValue && (
+            <Slider.Value
+              className={cn(
+                "pointer-events-none absolute inset-y-0 end-5 z-10 flex items-center font-medium text-(--fluid-slider-value) text-sm tabular-nums",
+                valueClassName,
+              )}
+            >
+              {() => formattedValue}
+            </Slider.Value>
+          )}
+
+          <Slider.Thumb
+            render={<motion.div style={{ x: overshoot }} />}
+            data-fluid-slider-thumb=""
+            aria-label={ariaLabel}
+            aria-valuetext={formattedValue}
+            className="absolute z-20 h-full w-0 outline-none"
+          >
+            <span
+              data-fluid-slider-hit=""
+              aria-hidden="true"
+              className="absolute inset-y-0 z-20 w-11 -translate-x-1/2 cursor-grab active:cursor-grabbing rtl:translate-x-1/2"
+              style={{
+                insetInlineStart: "50%",
+              }}
+            />
+            {showHandle && (
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "pointer-events-none absolute top-1/2 start-1/2 h-7 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-handle) opacity-90 shadow-[0_0_0_1px_color-mix(in_oklab,var(--background)_30%,transparent)] transition-[height,opacity] duration-150 group-data-[pressed]/fluid-slider-control:h-8 group-data-[pressed]/fluid-slider-control:opacity-100 rtl:translate-x-1/2",
+                  handleClassName,
+                )}
+              />
+            )}
+          </Slider.Thumb>
+        </Slider.Track>
+      </Slider.Control>
+    </Slider.Root>
+  );
+}
+`,
+      path: "fluid-slider/fluid-slider.tsx",
+      target: "components/sonaui/fluid-slider/fluid-slider.tsx"
+    }
+  ],
+  "animated-switch": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Switch } from "@base-ui/react/switch";
+import { motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedSwitchProps
+  extends Omit<
+    Switch.Root.Props,
+    "checked" | "defaultChecked" | "onCheckedChange" | "className"
+  > {
+  /** Controlled checked state. */
+  checked?: boolean;
+  /** Initial checked state for uncontrolled usage. @default false */
+  defaultChecked?: boolean;
+  /** Callback fired when the checked state changes. */
+  onCheckedChange?: (checked: boolean) => void;
+  /** Whether the switch is disabled. @default false */
+  disabled?: boolean;
+  /** The size of the switch. @default "md" */
+  size?: "sm" | "md" | "lg";
+  /** Additional classes for the switch track. */
+  className?: string;
+}
+
+const sizeClasses = {
+  sm: { track: "h-5 w-9 p-0.5", thumb: "h-4 w-4", xTranslate: 16 },
+  md: { track: "h-6 w-11 p-0.5", thumb: "h-5 w-5", xTranslate: 20 },
+  lg: { track: "h-8 w-14 p-0.5", thumb: "h-7 w-7", xTranslate: 24 },
+};
+
+export default function AnimatedSwitch({
+  checked,
+  defaultChecked = false,
+  onCheckedChange,
+  disabled = false,
+  size = "md",
+  className,
+  onPointerDownCapture,
+  onPointerUpCapture,
+  onPointerCancelCapture,
+  onLostPointerCapture,
+  ...props
+}: AnimatedSwitchProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const [isPressing, setIsPressing] = useState(false);
+  const [visualChecked, setVisualChecked] = useState(defaultChecked);
+  const sizes = sizeClasses[size];
+  const resolvedChecked = checked ?? visualChecked;
+  const accessibleLabel =
+    props["aria-label"] ?? (props["aria-labelledby"] ? undefined : "Toggle");
+
+  return (
+    <Switch.Root
+      {...props}
+      checked={checked}
+      defaultChecked={defaultChecked}
+      disabled={disabled}
+      aria-label={accessibleLabel}
+      onCheckedChange={(nextChecked) => {
+        setVisualChecked(nextChecked);
+        onCheckedChange?.(nextChecked);
+      }}
+      onPointerDownCapture={(event) => {
+        onPointerDownCapture?.(event);
+        if (event.button !== 0 || disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        setIsPressing(true);
+      }}
+      onPointerUpCapture={(event) => {
+        onPointerUpCapture?.(event);
+        setIsPressing(false);
+      }}
+      onPointerCancelCapture={(event) => {
+        onPointerCancelCapture?.(event);
+        setIsPressing(false);
+      }}
+      onLostPointerCapture={(event) => {
+        onLostPointerCapture?.(event);
+        setIsPressing(false);
+      }}
+      className={cn(
+        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border border-transparent",
+        "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
+        "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        sizes.track,
+        "data-[checked]:bg-foreground data-[unchecked]:bg-foreground/20",
+        "disabled:cursor-not-allowed disabled:opacity-50",
+        className,
+      )}
+    >
+      <Switch.Thumb
+        className={cn(
+          "block rounded-full bg-background shadow-lg ring-0",
+          sizes.thumb,
+        )}
+        render={
+          <motion.span
+            style={{
+              transformOrigin: resolvedChecked ? "right center" : "left center",
+            }}
+            animate={{
+              x: resolvedChecked ? sizes.xTranslate : 0,
+              scaleX: isPressing && !shouldReduceMotion ? 1.18 : 1,
+              scaleY: isPressing && !shouldReduceMotion ? 0.92 : 1,
+            }}
+            transition={
+              shouldReduceMotion
+                ? motionTransition.instant
+                : motionTransition.feedback
+            }
+          />
+        }
+      />
+    </Switch.Root>
+  );
+}
+`,
+      path: "animated-switch/animated-switch.tsx",
+      target: "components/sonaui/animated-switch/animated-switch.tsx"
     }
   ],
   "expandable-tabs": [
@@ -3346,96 +7500,145 @@ const TabItem = ({ title, ...props }: TabItemProps) => {
       type: "registry:ui",
       content: `"use client";
 
-import { MotionConfig, type MotionConfigProps, motion } from "motion/react";
+import { Tabs } from "@base-ui/react/tabs";
+import {
+  AnimatePresence,
+  MotionConfig,
+  type MotionConfigProps,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 import { useState } from "react";
 import type { IconType } from "react-icons";
 
-import { cn } from "@/lib/utils";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
-export type TabsData = {
+export interface ExpandableTabItem {
+  /** Stable value used to identify the tab. */
+  value: string;
+  /** Text revealed when the tab is active. */
   title: string;
+  /** Icon displayed for the tab. */
   icon: IconType;
-};
+  /** Whether the tab is unavailable. @default false */
+  disabled?: boolean;
+  /** ID of the external tab panel controlled by this tab. */
+  ariaControls?: string;
+}
 
-interface ExpandableTabsProps {
-  /** An array of tab objects, each containing a title and an icon. */
-  tabs: TabsData[];
-  /**
-   * Additional class names for the container element.
-   * @default ""
-   */
-  containerClassName?: string;
-  /**
-   * The index of the tab that is active by default.
-   * @default 0
-   */
-  defaultActiveIndex?: number;
-  /** Motion configuration for the transition animations. */
+export interface ExpandableTabsProps {
+  /** Tabs displayed in the expandable horizontal tab list. */
+  tabs: ExpandableTabItem[];
+  /** Controlled active tab value. */
+  value?: string;
+  /** Initially active tab for uncontrolled usage. */
+  defaultValue?: string;
+  /** Called when the active tab changes. */
+  onValueChange?: (value: string) => void;
+  /** Accessible label for the tab list. @default "Expandable tabs" */
+  ariaLabel?: string;
+  /** Additional classes for the root container. */
+  className?: string;
+  /** Additional classes for the tab list. */
+  listClassName?: string;
+  /** Additional classes for the active tab. */
+  activeTabClassName?: string;
+  /** Motion configuration applied to the layout and label transitions. */
   motionConfig?: MotionConfigProps;
 }
 
 export default function ExpandableTabs({
   tabs,
-  containerClassName = "",
-  defaultActiveIndex = 0,
-  motionConfig = {
-    transition: { duration: 0.2, ease: "easeInOut" },
-  },
+  value,
+  defaultValue,
+  onValueChange,
+  ariaLabel = "Expandable tabs",
+  className,
+  listClassName,
+  activeTabClassName = "bg-accent text-accent-foreground",
+  motionConfig,
 }: ExpandableTabsProps) {
-  const [isActive, setIsActive] = useState(defaultActiveIndex);
+  const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
+  );
+  const [inputModality, setInputModality] = useState<"keyboard" | "pointer">(
+    "pointer",
+  );
+  const shouldReduceMotion = useReducedMotion();
+  const activeValue = value ?? internalValue;
+  const transition =
+    shouldReduceMotion || inputModality === "keyboard"
+      ? motionTransition.instant
+      : (motionConfig?.transition ?? motionTransition.spatial);
 
   return (
-    <motion.div
-      className={cn(
-        "flex space-x-2 rounded-full border bg-transparent p-2 transition-[width] will-change-[width,_contents]",
-        containerClassName,
-      )}
-      layout
+    <Tabs.Root
+      value={activeValue}
+      orientation="horizontal"
+      onValueChange={(nextValue) => {
+        if (typeof nextValue !== "string") return;
+        if (value === undefined) setInternalValue(nextValue);
+        onValueChange?.(nextValue);
+      }}
+      className={className}
     >
-      <MotionConfig {...motionConfig}>
-        {tabs.map((tab, index) => (
-          <motion.div
-            key={index}
-            role="button"
-            className={cn(
-              "flex cursor-pointer items-center space-x-2 overflow-clip rounded-full p-2",
-              "transition-[width,_background-color] duration-300 ease-in-out",
-              isActive === index && "bg-slate-300 dark:text-slate-800",
-            )}
-            onClick={() => setIsActive(index)}
-            tabIndex={0}
-          >
-            <div className="h-full grow items-center justify-center">
-              <tab.icon className="text-lg" aria-label={\`\${tab.title}-icon\`} />
-            </div>
-            <motion.span
-              className="overflow-hidden text-sm leading-[1]"
-              key={tab.title}
-              initial={isActive === index ? "" : "inactive"}
-              animate={isActive === index ? "active" : "inactive"}
-              variants={TabItemVariants}
-            >
-              {tab.title}
-            </motion.span>
-          </motion.div>
-        ))}
+      <MotionConfig transition={transition}>
+        <Tabs.List
+          aria-label={ariaLabel}
+          className={cn(
+            "flex gap-2 rounded-full border bg-transparent p-2",
+            listClassName,
+          )}
+          onKeyDownCapture={() => setInputModality("keyboard")}
+          onPointerDownCapture={() => setInputModality("pointer")}
+        >
+          {tabs.map((tab) => {
+            const isActive = activeValue === tab.value;
+            return (
+              <Tabs.Tab
+                key={tab.value}
+                value={tab.value}
+                disabled={tab.disabled}
+                aria-label={tab.title}
+                aria-controls={tab.ariaControls}
+                render={<motion.button layout />}
+                className={cn(
+                  "flex cursor-pointer items-center gap-2 overflow-clip rounded-full p-2",
+                  "transition-colors duration-200",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "disabled:pointer-events-none disabled:opacity-50",
+                  isActive && activeTabClassName,
+                )}
+              >
+                <motion.span
+                  layout
+                  className="flex h-full grow items-center justify-center"
+                >
+                  <tab.icon className="text-lg" aria-hidden="true" />
+                </motion.span>
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.span
+                      layout
+                      className="overflow-hidden whitespace-nowrap text-sm leading-none"
+                      initial={{ opacity: 0, width: 0 }}
+                      animate={{ opacity: 1, width: "auto" }}
+                      exit={{ opacity: 0, width: 0 }}
+                    >
+                      {tab.title}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </Tabs.Tab>
+            );
+          })}
+        </Tabs.List>
       </MotionConfig>
-    </motion.div>
+    </Tabs.Root>
   );
 }
-
-const TabItemVariants = {
-  active: {
-    opacity: 1,
-    width: "auto",
-    y: 0,
-  },
-  inactive: {
-    opacity: 0,
-    width: 0,
-    y: 20,
-  },
-};
 `,
       path: "expandable-tabs/expandable-tabs.tsx",
       target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
@@ -3447,8 +7650,9 @@ const TabItemVariants = {
       content: `"use client";
 
 import { MeshGradient } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface MeshGradientShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -3495,10 +7699,13 @@ export default function MeshGradientShader({
   style,
   ...props
 }: MeshGradientShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // First color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colors[0], ...style }}
       {...props}
     >
       <MeshGradient
@@ -3507,7 +7714,7 @@ export default function MeshGradientShader({
         swirl={swirl}
         grainMixer={grainMixer}
         grainOverlay={grainOverlay}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>
@@ -3523,12 +7730,28 @@ export default function MeshGradientShader({
       type: "registry:ui",
       content: `"use client";
 
-import { AnimatePresence, motion } from "motion/react";
-import Link from "next/link";
-import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { motionTransition } from "@/lib/sona-motion";
+
+function useMediaQuery(query: string) {
+  const getSnapshot = useCallback(
+    () => window.matchMedia(query).matches,
+    [query],
+  );
+  const subscribe = useCallback(
+    (callback: () => void) => {
+      const mediaQuery = window.matchMedia(query);
+      mediaQuery.addEventListener("change", callback);
+      return () => mediaQuery.removeEventListener("change", callback);
+    },
+    [query],
+  );
+
+  return useSyncExternalStore(subscribe, getSnapshot, () => false);
+}
 
 interface LinkPreviewProps extends React.HTMLAttributes<HTMLAnchorElement> {
   /** The URL of the link to preview. */
@@ -3548,38 +7771,28 @@ export default function LinkPreview({
   showIcon = true,
   ...linkProps
 }: LinkPreviewProps) {
-  const [previewRef, previewBounds] = useMeasure();
-  const [containerRef, containerBounds] = useMeasure();
+  // scroll: true keeps viewport coordinates fresh while the page scrolls
+  const [containerRef, containerBounds] = useMeasure({ scroll: true });
   const desktop = useMediaQuery("(min-width: 768px)");
+  const shouldReduceMotion = useReducedMotion();
 
   const [isHover, setIsHover] = useState(false);
 
   return (
     <>
-      <Link
+      <a
         href={link}
-        className="relative inline-flex cursor-pointer items-center underline underline-offset-3"
-        onMouseEnter={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover(true);
+        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
+        onMouseEnter={() => {
+          if (desktop) setIsHover(true);
         }}
-        onClick={(e) => {
-          if (!desktop) return;
-          e.preventDefault();
-          setIsHover((prev) => !prev);
-        }}
-        onMouseLeave={() => {
-          if (isHover) {
-            setIsHover(false);
-          }
-        }}
-        onFocus={(e) => {
-          e.preventDefault();
-          setIsHover(true);
+        onMouseLeave={() => setIsHover(false)}
+        onFocus={() => {
+          if (desktop) setIsHover(true);
         }}
         onBlur={() => setIsHover(false)}
         ref={containerRef}
+        {...linkProps}
       >
         {text}
         {showIcon && (
@@ -3587,39 +7800,51 @@ export default function LinkPreview({
             <FaArrowUpRightFromSquare />
           </span>
         )}
-      </Link>
+      </a>
       <AnimatePresence>
         {isHover && desktop && (
-          <motion.div
-            ref={previewRef}
-            className="absolute z-50 w-fit origin-center overflow-clip rounded-xl border border-slate-400 bg-slate-100 shadow-xl dark:bg-slate-600"
+          <aside
+            aria-label={\`Link preview for \${link}\`}
+            className="fixed z-50 -translate-x-1/2 -translate-y-full pointer-events-auto"
             style={{
-              left: containerBounds.left - previewBounds.width / 2,
-              top: containerBounds.top - previewBounds.height,
+              left: containerBounds.left + containerBounds.width / 2,
+              top: containerBounds.top - 8,
             }}
-            initial={{ opacity: 0, width: 0, height: 0 }}
-            animate={{ opacity: 1, width: "fit-content", height: "auto" }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
           >
-            <motion.div className="flex w-fit flex-col gap-y-2 rounded-xl px-4 py-2">
-              <div className="flex w-full justify-between text-sm">
-                External Link
-                <Link href={link}>
-                  <FaArrowUpRightFromSquare />
-                </Link>
+            <motion.div
+              className="overflow-clip w-fit bg-popover text-popover-foreground border border-border rounded-xl shadow-xl origin-bottom"
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.95, y: 4 }
+              }
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.97 }
+              }
+              transition={
+                shouldReduceMotion
+                  ? motionTransition.reduced
+                  : motionTransition.enter
+              }
+            >
+              <div className="flex flex-col gap-y-2 px-4 py-2 w-fit rounded-xl">
+                <div className="flex justify-between gap-x-4 w-full text-sm">
+                  External Link
+                  <a href={link} aria-label={\`Open \${link}\`}>
+                    <FaArrowUpRightFromSquare />
+                  </a>
+                </div>
+                <a href={link} className="text-nowrap underline">
+                  {link}
+                </a>
               </div>
-              <Link
-                href={link}
-                className="text-nowrap underline"
-                {...linkProps}
-              >
-                {link}
-              </Link>
             </motion.div>
-          </motion.div>
+          </aside>
         )}
       </AnimatePresence>
     </>
@@ -3635,10 +7860,10 @@ export default function LinkPreview({
       type: "registry:ui",
       content: `"use client";
 
-import { motion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { type ReactNode, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 type StaggerTextEleType = "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -3659,42 +7884,52 @@ export default function StaggerText({
   text = "text",
   className,
   as = "h3",
+  ...props
 }: StaggerTextProps<StaggerTextEleType>) {
   const Tag = as; // Explicitly type as a React component
-  const [activeIndex, setActiveIndex] = useState(5);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  return (
-    <>
-      <h1 className="sr-only">{text}</h1>
-      <Tag
-        className={cn("overflow-clip tracking-wide select-text", className)}
-        aria-label={text}
-        onCopy={(e) => {
-          e.preventDefault();
-          e.clipboardData.setData("text/plain", text);
-        }}
-      >
-        {text.split("").map((char, i) => {
-          const delay = Math.abs(activeIndex - i);
-          return (
-            <StaggerTextItem
-              char={char}
-              key={i}
-              onMouseEnter={() => {
-                setActiveIndex(i);
-                setIsActive(true);
-              }}
-              onMouseLeave={() => {
-                setActiveIndex(-1);
-                setIsActive(false);
-              }}
-              delay={delay}
-              isHovered={isActive}
-            />
-          );
-        })}
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return (
+      <Tag className={cn("tracking-wide", className)} {...props}>
+        {text}
       </Tag>
-    </>
+    );
+  }
+
+  return (
+    <Tag
+      className={cn("overflow-clip tracking-wide select-text", className)}
+      aria-label={text}
+      onCopy={(e) => {
+        e.preventDefault();
+        e.clipboardData.setData("text/plain", text);
+      }}
+      {...props}
+    >
+      {text.split("").map((char, i) => {
+        const delay = Math.abs(activeIndex - i);
+        return (
+          <StaggerTextItem
+            char={char}
+            // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
+            key={i}
+            onMouseEnter={() => {
+              setActiveIndex(i);
+              setIsActive(true);
+            }}
+            onMouseLeave={() => {
+              setActiveIndex(-1);
+              setIsActive(false);
+            }}
+            delay={delay}
+            isHovered={isActive}
+          />
+        );
+      })}
+    </Tag>
   );
 }
 
@@ -3714,7 +7949,7 @@ const StaggerTextItem = ({
   return (
     <motion.span
       {...props}
-      className="relative inline-flex flex-col"
+      className="inline-flex relative flex-col"
       role="presentation"
     >
       <StaggerItemSegment
@@ -3756,7 +7991,7 @@ const StaggerItemSegment = ({
   if (isCopy) {
     return (
       <motion.span
-        className="absolute top-[0] left-0 h-fit w-full select-text"
+        className="absolute left-0 top-[0] h-fit w-full select-text"
         style={{ translate: "0 100%" }}
         {...props}
       >
@@ -3798,10 +8033,10 @@ const variants: Variants = {
       type: "registry:ui",
       content: `"use client";
 
-import * as m from "motion/react-m";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface HoldToDeleteButtonProps {
   /** Text displayed inside the button. */
@@ -3818,6 +8053,8 @@ export interface HoldToDeleteButtonProps {
   successDuration?: number;
   /** Called once when the hold completes. */
   onDelete?: () => void;
+  /** Whether the button ignores interaction. @default false */
+  disabled?: boolean;
   /** Additional CSS classes for the button. */
   className?: string;
 }
@@ -3827,12 +8064,16 @@ export default function HoldToDeleteButton({
   holdDuration = 2000,
   successDuration = 1200,
   onDelete,
+  disabled = false,
   className,
 }: HoldToDeleteButtonProps) {
   const [isHolding, setIsHolding] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const resolvedHoldDuration = Math.max(0, holdDuration);
+  const resolvedSuccessDuration = Math.max(0, successDuration);
 
   const cancelHold = () => {
     if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
@@ -3848,25 +8089,26 @@ export default function HoldToDeleteButton({
   };
 
   const handlePointerDown = () => {
-    if (isCompleted) return;
+    if (isCompleted || disabled) return;
     cancelHold();
     setIsHolding(true);
     holdTimerRef.current = setTimeout(() => {
       setIsHolding(false);
       setIsCompleted(true);
       onDelete?.();
-    }, holdDuration);
+    }, resolvedHoldDuration);
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: successDuration is stable per render
   useEffect(() => {
     if (!isCompleted) return;
-    successTimerRef.current = setTimeout(resetState, successDuration);
+    successTimerRef.current = setTimeout(resetState, resolvedSuccessDuration);
     return () => {
       if (successTimerRef.current) clearTimeout(successTimerRef.current);
     };
-  }, [isCompleted]);
+  }, [isCompleted, resolvedSuccessDuration]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: unmount-only cleanup
   useEffect(
     () => () => {
       cancelHold();
@@ -3876,34 +8118,49 @@ export default function HoldToDeleteButton({
   );
 
   return (
-    <m.button
-      layout
-      layoutId="hold-to-delete-button"
+    <motion.button
       type="button"
       className={cn(
         "relative cursor-pointer overflow-clip rounded-full border-2 px-6 py-3 font-medium",
         className,
       )}
-      whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
-      onPointerDown={handlePointerDown}
+      disabled={disabled}
+      aria-busy={isHolding}
+      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+      onPointerDown={(event) => {
+        if (disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        handlePointerDown();
+      }}
       onPointerUp={cancelHold}
       onPointerLeave={cancelHold}
+      onPointerCancel={cancelHold}
+      onKeyDown={(e) => {
+        if ((e.key === " " || e.key === "Enter") && !e.repeat) {
+          e.preventDefault();
+          handlePointerDown();
+        }
+      }}
+      onKeyUp={(e) => {
+        if (e.key === " " || e.key === "Enter") cancelHold();
+      }}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-red-400"
+        className="absolute inset-0 h-full w-full bg-danger-foreground"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
-          transition: isHolding
-            ? \`clip-path \${holdDuration}ms linear\`
-            : "clip-path 200ms ease-out",
+          transition: shouldReduceMotion
+            ? "none"
+            : isHolding
+              ? \`clip-path \${resolvedHoldDuration}ms linear\`
+              : "clip-path 200ms ease-out",
         }}
       />
-      <span className="relative text-xl">
+      <span aria-live="polite" className="relative text-xl">
         {isCompleted ? "Deleted!" : label}
       </span>
-    </m.button>
+    </motion.button>
   );
 }
 `,
@@ -3914,6 +8171,160 @@ export default function HoldToDeleteButton({
 };
 
 export const componentMetadata = {
+  "sona-utils": {
+    "name": "sona-utils",
+    "type": "registry:lib",
+    "title": "Sona Utilities",
+    "description": "Shared class-name utilities used by Sona UI registry components.",
+    "files": [
+      {
+        "path": "registry/sonaui/sona-utils/sona-utils.ts",
+        "type": "registry:lib",
+        "target": "lib/sona-utils.ts"
+      }
+    ],
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
+  },
+  "sona-motion": {
+    "name": "sona-motion",
+    "type": "registry:lib",
+    "title": "Sona Motion",
+    "description": "Semantic motion transitions for feedback, entrances, exits, spatial movement, expressive interactions, and reduced motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/sona-motion/sona-motion.ts",
+        "type": "registry:lib",
+        "target": "lib/sona-motion.ts"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "sona-theme": {
+    "name": "sona-theme",
+    "type": "registry:theme",
+    "title": "Sona Theme",
+    "description": "Optional Sona UI semantic status colors and shared design tokens for Tailwind CSS v4.",
+    "files": [],
+    "dependencies": [],
+    "registryDependencies": [],
+    "cssVars": {
+      "theme": {
+        "radius-sona": "0.75rem"
+      },
+      "light": {
+        "danger": "oklch(0.97 0.04 25)",
+        "danger-foreground": "oklch(0.55 0.18 25)",
+        "danger-border": "oklch(0.9 0.1 25)"
+      },
+      "dark": {
+        "danger": "oklch(0.34 0.1 20)",
+        "danger-foreground": "oklch(0.75 0.15 25)",
+        "danger-border": "oklch(0.36 0.11 25)"
+      }
+    }
+  },
+  "agent-skill": {
+    "name": "agent-skill",
+    "type": "registry:file",
+    "title": "Sona UI Agent Skill",
+    "description": "Instructions for coding agents to discover, install, compose, and verify Sona UI components.",
+    "files": [
+      {
+        "path": "registry/sonaui/agent-skill/SKILL.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/SKILL.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/component-selection.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/component-selection.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/consumer-validation.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/consumer-validation.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/design-principles.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/design-principles.md"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": []
+  },
+  "animated-dropdown": {
+    "name": "animated-dropdown",
+    "type": "registry:ui",
+    "title": "Animated Dropdown",
+    "description": "A composable, accessible dropdown menu built on Base UI with controlled state, interruptible hover highlighting, and origin-aware enter motion.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dropdown/animated-dropdown.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-theme.json"
+    ]
+  },
+  "animated-switch": {
+    "name": "animated-switch",
+    "type": "registry:ui",
+    "title": "Animated Switch",
+    "description": "An interactive iOS-style squish switch built on Base UI Switch primitives, with interruptible press feedback and a shared feedback spring.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-switch/animated-switch.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "animated-dialog": {
+    "name": "animated-dialog",
+    "type": "registry:ui",
+    "title": "Animated Dialog",
+    "description": "A composable, accessible dialog modal built on Base UI with controlled state, direction-aware enter and exit motion, and reduced-motion support.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-dialog/animated-dialog.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "button": {
+    "name": "button",
+    "type": "registry:ui",
+    "title": "Button",
+    "description": "A simple action button with subtle press feedback and reduced-motion support.",
+    "files": [
+      {
+        "path": "registry/sonaui/button/button.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
+  },
   "dot-orbit-shader": {
     "name": "dot-orbit-shader",
     "type": "registry:ui",
@@ -3926,7 +8337,8 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
-      "@paper-design/shaders-react"
+      "@paper-design/shaders-react",
+      "motion"
     ]
   },
   "mesh-gradient-shader": {
@@ -3941,42 +8353,78 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
-      "@paper-design/shaders-react"
+      "@paper-design/shaders-react",
+      "motion"
     ]
   },
-  "magnetic": {
-    "name": "magnetic",
+  "magnetic-button": {
+    "name": "magnetic-button",
     "type": "registry:ui",
     "title": "Magnetic",
-    "description": "The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.",
+    "description": "A pointer-aware magnetic wrapper with bounded pull strength, self or parent interaction areas, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/magnetic-button/magnetic-button.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": [
+      "motion"
+    ]
   },
-  "vertical-tab": {
-    "name": "vertical-tab",
+  "fluid-tabs": {
+    "name": "fluid-tabs",
     "type": "registry:ui",
-    "title": "VerticalTab",
-    "description": "The `VerticalTab` component is a versatile and interactive UI element designed for creating vertical tabbed navigation. It provides a smooth user experience with dynamic indicator transitions and customizable styles.",
+    "title": "Fluid Tabs",
+    "description": "An accessible Base UI tab selector with a shared active surface that travels fluidly between selections, with capsule and underline variants.",
     "files": [
       {
-        "path": "registry/sonaui/vertical-tab/vertical-tab.tsx",
+        "path": "registry/sonaui/fluid-tabs/fluid-tabs.tsx",
         "type": "registry:ui"
       }
     ],
     "dependencies": [
-      "react-use-measure"
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "fluid-slider": {
+    "name": "fluid-slider",
+    "type": "registry:ui",
+    "title": "Fluid Slider",
+    "description": "A labeled Base UI range control with direct surface selection, a dedicated draggable indicator, and restrained boundary resistance.",
+    "files": [
+      {
+        "path": "registry/sonaui/fluid-slider/fluid-slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "animated-tabs": {
+    "name": "animated-tabs",
+    "type": "registry:ui",
+    "title": "Animated Tabs",
+    "description": "An accessible horizontal tab selector built on Base UI with controlled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-tabs/animated-tabs.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
     ]
   },
   "accordion": {
     "name": "accordion",
     "type": "registry:ui",
     "title": "Accordion",
-    "description": "The `Accordion` component allows you to toggle the visibility of content sections. It is useful for FAQs, menus, and more.",
+    "description": "An accessible Base UI accordion with controlled and uncontrolled state, four visual variants, interruptible disclosure transitions, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/accordion/accordion.tsx",
@@ -3985,31 +8433,38 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/accordion/animated-plus-minus-button.tsx",
         "type": "registry:ui"
+      },
+      {
+        "path": "registry/sonaui/accordion/styles.module.css",
+        "type": "registry:file",
+        "target": "components/ui/accordion/styles.module.css"
       }
     ],
     "dependencies": [
-      "class-variance-authority",
-      "motion"
+      "@base-ui/react",
+      "class-variance-authority"
     ]
   },
   "ripple-button": {
     "name": "ripple-button",
     "type": "registry:ui",
     "title": "RippleButton",
-    "description": "An interactive button with a ripple effect for modern UIs.",
+    "description": "A pointer-aware ripple button with touch-safe feedback, customizable motion, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/ripple-button/ripple-button.tsx",
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": [
+      "motion"
+    ]
   },
   "marquee": {
     "name": "marquee",
     "type": "registry:ui",
     "title": "Marquee",
-    "description": "The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.",
+    "description": "A scroll-velocity marquee with seamless loop math, eased hover pause, vertical/horizontal direction, ResizeObserver-based copy count, and full prefers-reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/marquee/marquee.tsx",
@@ -4017,7 +8472,7 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
-      "react-use-measure"
+      "motion"
     ]
   },
   "spinning-text": {
@@ -4031,7 +8486,9 @@ export const componentMetadata = {
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": [
+      "motion"
+    ]
   },
   "stagger-text": {
     "name": "stagger-text",
@@ -4044,7 +8501,9 @@ export const componentMetadata = {
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": [
+      "motion"
+    ]
   },
   "link-preview": {
     "name": "link-preview",
@@ -4058,6 +8517,8 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
+      "motion",
+      "react-icons",
       "react-use-measure"
     ]
   },
@@ -4072,13 +8533,15 @@ export const componentMetadata = {
         "type": "registry:ui"
       }
     ],
-    "dependencies": []
+    "dependencies": [
+      "motion"
+    ]
   },
   "expandable-tabs": {
     "name": "expandable-tabs",
     "type": "registry:ui",
-    "title": "ExpandableTabs",
-    "description": "The `ExpandableTabs` component is a dynamic and interactive UI element designed for creating horizontal tabbed navigation.",
+    "title": "Expandable Tabs",
+    "description": "An accessible Base UI tab selector that expands the active icon into a labeled pill with input-aware layout motion.",
     "files": [
       {
         "path": "registry/sonaui/expandable-tabs/expandable-tabs.tsx",
@@ -4086,7 +8549,40 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
+      "@base-ui/react",
+      "motion",
       "react-icons"
+    ]
+  },
+  "split-text": {
+    "name": "split-text",
+    "type": "registry:ui",
+    "title": "Split Text",
+    "description": "Splits text into characters, words, or lines and reveals them with a staggered, optionally scroll-triggered animation.",
+    "files": [
+      {
+        "path": "registry/sonaui/split-text/split-text.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ]
+  },
+  "image-trail": {
+    "name": "image-trail",
+    "type": "registry:ui",
+    "title": "Image Trail",
+    "description": "Spawns a trail of images that follow the cursor across a scoped area, with multiple appearance styles.",
+    "files": [
+      {
+        "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
     ]
   },
   "spotlight-card": {
@@ -4108,7 +8604,7 @@ export const componentMetadata = {
     "name": "hold-to-delete-button",
     "type": "registry:ui",
     "title": "Hold To Delete Button",
-    "description": "A button that reveals a destructive fill animation while held, triggering a callback only after the full hold duration completes.",
+    "description": "A hold-to-confirm destructive button with pointer capture, keyboard activation, cancellation, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/hold-to-delete-button/hold-to-delete-button.tsx",
@@ -4123,7 +8619,7 @@ export const componentMetadata = {
     "name": "circular-dock-menu",
     "type": "registry:ui",
     "title": "Circular Dock Menu",
-    "description": "A circular trigger button that fans items out in a radial arc with spring animations.",
+    "description": "A circular dock menu with controlled state, keyboard dismissal, item callbacks, outside-click handling, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/circular-dock-menu/circular-dock-menu.tsx",
@@ -4139,10 +8635,25 @@ export const componentMetadata = {
     "name": "fan-view",
     "type": "registry:ui",
     "title": "Fan View",
-    "description": "A trigger button that spreads labeled cards into a fanned arc layout with staggered spring animations.",
+    "description": "A fanned card menu with controlled state, item callbacks, keyboard dismissal, outside-click handling, and reduced-motion support.",
     "files": [
       {
         "path": "registry/sonaui/fan-view/fan-view.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "section-rail": {
+    "name": "section-rail",
+    "type": "registry:ui",
+    "title": "Section Rail",
+    "description": "A compact navigation rail that tracks the reader's position through a long page, revealing labels and editorial context cards on hover and focus.",
+    "files": [
+      {
+        "path": "registry/sonaui/section-rail/section-rail.tsx",
         "type": "registry:ui"
       }
     ],

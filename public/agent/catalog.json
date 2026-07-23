@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "registry": "https://sona-ui.vercel.app/r/{name}.json",
+  "items": [
+    {
+      "name": "fluid-tabs",
+      "title": "Fluid Tabs",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.",
+      "keywords": [
+        "tabs",
+        "navigation",
+        "segmented content",
+        "settings"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/fluid-tabs",
+      "registryItem": "https://sona-ui.vercel.app/r/fluid-tabs.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/fluid-tabs.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-dialog",
+      "title": "Animated Dialog",
+      "category": "components",
+      "status": "stable",
+      "summary": "A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.",
+      "keywords": [
+        "dialog",
+        "modal",
+        "confirmation",
+        "focused task",
+        "overlay"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/animated-dialog",
+      "registryItem": "https://sona-ui.vercel.app/r/animated-dialog.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/animated-dialog.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "mesh-gradient-shader",
+      "title": "Mesh Gradient Shader",
+      "category": "shaders",
+      "status": "stable",
+      "summary": "A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.",
+      "keywords": [
+        "shader",
+        "background",
+        "gradient",
+        "hero",
+        "decorative motion"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/mesh-gradient-shader",
+      "registryItem": "https://sona-ui.vercel.app/r/mesh-gradient-shader.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/mesh-gradient-shader.json",
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-dropdown",
+      "title": "Animated Dropdown",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.",
+      "keywords": [
+        "dropdown",
+        "menu",
+        "actions"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/animated-dropdown",
+      "registryItem": "https://sona-ui.vercel.app/r/animated-dropdown.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/animated-dropdown.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-switch",
+      "title": "Animated Switch",
+      "category": "components",
+      "status": "stable",
+      "summary": "An iOS-style switch for immediate binary settings with tactile press feedback.",
+      "keywords": [
+        "switch",
+        "toggle",
+        "boolean setting"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/animated-switch",
+      "registryItem": "https://sona-ui.vercel.app/r/animated-switch.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/animated-switch.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "category": "components",
+      "status": "stable",
+      "summary": "A simple action button with subtle press feedback and reduced-motion support.",
+      "keywords": [
+        "button",
+        "cta",
+        "action"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/button",
+      "registryItem": "https://sona-ui.vercel.app/r/button.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/button.json",
+      "dependencies": [
+        "class-variance-authority",
+        "motion"
+      ]
+    },
+    {
+      "name": "dot-orbit-shader",
+      "title": "Dot Orbit Shader",
+      "category": "shaders",
+      "status": "stable",
+      "summary": "An animated field of orbiting dots for decorative surfaces and expressive backgrounds.",
+      "keywords": [
+        "shader",
+        "dots",
+        "background"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/dot-orbit-shader",
+      "registryItem": "https://sona-ui.vercel.app/r/dot-orbit-shader.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/dot-orbit-shader.json",
+      "dependencies": [
+        "@paper-design/shaders-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "magnetic-button",
+      "title": "Magnetic Button",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.",
+      "keywords": [
+        "magnetic",
+        "pointer",
+        "hover"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/magnetic-button",
+      "registryItem": "https://sona-ui.vercel.app/r/magnetic-button.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/magnetic-button.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-tabs",
+      "title": "Animated Tabs",
+      "category": "components",
+      "status": "stable",
+      "summary": "A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.",
+      "keywords": [
+        "tabs",
+        "navigation",
+        "hover"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/animated-tabs",
+      "registryItem": "https://sona-ui.vercel.app/r/animated-tabs.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/animated-tabs.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "accordion",
+      "title": "Accordion",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible disclosure group for progressively revealing related content.",
+      "keywords": [
+        "accordion",
+        "disclosure",
+        "collapsible"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/accordion",
+      "registryItem": "https://sona-ui.vercel.app/r/accordion.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/accordion.json",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ]
+    },
+    {
+      "name": "ripple-button",
+      "title": "Ripple Button",
+      "category": "components",
+      "status": "stable",
+      "summary": "A button with localized press feedback that makes activation visible without changing the action's meaning.",
+      "keywords": [
+        "button",
+        "ripple",
+        "press feedback"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/ripple-button",
+      "registryItem": "https://sona-ui.vercel.app/r/ripple-button.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/ripple-button.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "marquee",
+      "title": "Marquee",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A continuously moving content rail for decorative or low-priority repeated content.",
+      "keywords": [
+        "marquee",
+        "loop",
+        "scrolling content"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/marquee",
+      "registryItem": "https://sona-ui.vercel.app/r/marquee.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/marquee.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "spinning-text",
+      "title": "Spinning Text",
+      "category": "text",
+      "status": "stable",
+      "summary": "A circular text treatment for short decorative labels and editorial accents.",
+      "keywords": [
+        "text",
+        "circular text",
+        "typography"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/spinning-text",
+      "registryItem": "https://sona-ui.vercel.app/r/spinning-text.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/spinning-text.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "stagger-text",
+      "title": "Stagger Text",
+      "category": "text",
+      "status": "stable",
+      "summary": "A text entrance treatment that reveals short content progressively while preserving readability.",
+      "keywords": [
+        "text",
+        "entrance",
+        "stagger"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/stagger-text",
+      "registryItem": "https://sona-ui.vercel.app/r/stagger-text.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/stagger-text.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "link-preview",
+      "title": "Link Preview",
+      "category": "components",
+      "status": "stable",
+      "summary": "A contextual preview surface for supplied link metadata without relying on client-side scraping.",
+      "keywords": [
+        "link",
+        "preview",
+        "metadata"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/link-preview",
+      "registryItem": "https://sona-ui.vercel.app/r/link-preview.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/link-preview.json",
+      "dependencies": [
+        "motion",
+        "react-icons",
+        "react-use-measure"
+      ]
+    },
+    {
+      "name": "bubble-up-button",
+      "title": "Bubble Up Button",
+      "category": "components",
+      "status": "stable",
+      "summary": "An expressive button treatment that changes label or content with a contained upward transition.",
+      "keywords": [
+        "button",
+        "label transition",
+        "action"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/bubble-up-button",
+      "registryItem": "https://sona-ui.vercel.app/r/bubble-up-button.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/bubble-up-button.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "expandable-tabs",
+      "title": "Expandable Tabs",
+      "category": "components",
+      "status": "stable",
+      "summary": "A compact tab control that expands its selected item to expose more context.",
+      "keywords": [
+        "tabs",
+        "navigation",
+        "expandable"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/expandable-tabs",
+      "registryItem": "https://sona-ui.vercel.app/r/expandable-tabs.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/expandable-tabs.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion",
+        "react-icons"
+      ]
+    },
+    {
+      "name": "split-text",
+      "title": "Split Text",
+      "category": "text",
+      "status": "stable",
+      "summary": "A text animation primitive that treats words or characters as individually addressable visual units.",
+      "keywords": [
+        "text",
+        "split",
+        "typography"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/split-text",
+      "registryItem": "https://sona-ui.vercel.app/r/split-text.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/split-text.json",
+      "dependencies": [
+        "gsap",
+        "@gsap/react"
+      ]
+    },
+    {
+      "name": "image-trail",
+      "title": "Image Trail",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.",
+      "keywords": [
+        "image",
+        "cursor",
+        "trail"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/image-trail",
+      "registryItem": "https://sona-ui.vercel.app/r/image-trail.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/image-trail.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "spotlight-card",
+      "title": "Spotlight Card",
+      "category": "components",
+      "status": "stable",
+      "summary": "A card that reveals localized pointer lighting while keeping content and hierarchy stable.",
+      "keywords": [
+        "card",
+        "spotlight",
+        "hover"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/spotlight-card",
+      "registryItem": "https://sona-ui.vercel.app/r/spotlight-card.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/spotlight-card.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "hold-to-delete-button",
+      "title": "Hold To Delete Button",
+      "category": "components",
+      "status": "stable",
+      "summary": "A deliberate destructive action that requires sustained input before completing deletion.",
+      "keywords": [
+        "delete",
+        "destructive action",
+        "hold"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/hold-to-delete-button",
+      "registryItem": "https://sona-ui.vercel.app/r/hold-to-delete-button.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/hold-to-delete-button.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "circular-dock-menu",
+      "title": "Circular Dock Menu",
+      "category": "components",
+      "status": "stable",
+      "summary": "A radial action menu for a small set of spatially related actions.",
+      "keywords": [
+        "menu",
+        "radial",
+        "dock"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/circular-dock-menu",
+      "registryItem": "https://sona-ui.vercel.app/r/circular-dock-menu.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/circular-dock-menu.json",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "fan-view",
+      "title": "Fan View",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A fan-like arrangement for browsing a small set of layered visual items.",
+      "keywords": [
+        "gallery",
+        "fan",
+        "cards"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/fan-view",
+      "registryItem": "https://sona-ui.vercel.app/r/fan-view.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/fan-view.json",
+      "dependencies": [
+        "motion"
+      ]
+    }
+  ]
+}

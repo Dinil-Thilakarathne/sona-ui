@@ -8,7 +8,7 @@ import FeaturedBar from "@/components/common/featured-bar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import Header from "@/components/header";
 import { siteMetaData } from "@/config/metadata";
-import { clashDisplay } from "@/fonts";
+import { clashDisplay, HelveticaNeue } from "@/fonts";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { PostHogProvider } from "./providers";
 
@@ -24,6 +24,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { Toaster } from "sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,13 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} bg-background text-foreground antialiased`}
+        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased`}
       >
         <PostHogProvider>
           <ThemeProvider>
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
             {children}
+            <Toaster position="bottom-right" richColors />
           </ThemeProvider>
         </PostHogProvider>
       </body>

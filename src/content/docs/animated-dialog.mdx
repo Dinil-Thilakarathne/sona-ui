@@ -1,0 +1,92 @@
+---
+title: Animated Dialog
+slug: animated-dialog
+tags: ["UI", "Dialog", "Modal", "Animation", "Component"]
+---
+
+# Animated Dialog
+
+A composable, highly accessible dialog modal built on **Base UI** Dialog primitives and styled with **Motion**. It supports directional slide transitions (animating from the top, bottom, left, right, or center).
+
+## Features
+
+- **Directional Entrance & Exit** — Configure modal transitions (`from` / `exitTo`) to slide from different vector origins.
+- **Responsive Motion** — Uses short, interruptible transitions for the surface and backdrop, without overshoot on modal entrance.
+- **Standard Composable API** — Compose layouts with `AnimatedDialog`, `Trigger`, `Content`, `Title`, `Description`, and `Close`.
+- **Portal & Accessibility** — Handles focus locking, scroll trapping, screen-readers, and rendering overlays cleanly via Base UI.
+- **Controlled or uncontrolled** — Use `open`/`onOpenChange` or `defaultOpen` as needed.
+- **RTL & SSR Safe** — Hydrates styles without layout shifting.
+- **Reduced Motion** — Seamlessly bypasses physical slide translations to fade in/out instantly.
+
+<Divider />
+
+<ComponentPreview component="animated-dialog" name="default" />
+
+## Playground
+
+Explore different slide options live.
+
+<ComponentPlayground component="animated-dialog" />
+
+## Installation
+
+<ComponentInstallation component="animated-dialog" />
+
+## Usage
+
+<ComponentUsage component="animated-dialog" />
+
+## Code Examples
+
+### Directional Slide
+
+Choose how the content surfaces by setting the `from` and `exitTo` options.
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="directional-modal.tsx"
+  code={`import {
+  AnimatedDialog,
+  AnimatedDialogContent,
+  AnimatedDialogTrigger,
+  AnimatedDialogTitle,
+  AnimatedDialogDescription,
+} from "@/components/ui/animated-dialog";
+
+export function Modal() {
+  return (
+    <AnimatedDialog>
+      <AnimatedDialogTrigger>Trigger</AnimatedDialogTrigger>
+      {/* Slides in from the left, exits sliding up towards the top */}
+      <AnimatedDialogContent from="left" exitTo="top">
+        <AnimatedDialogTitle>Info</AnimatedDialogTitle>
+        <AnimatedDialogDescription>
+          Detailed descriptions here.
+        </AnimatedDialogDescription>
+      </AnimatedDialogContent>
+    </AnimatedDialog>
+  );
+}`}
+/>
+
+### Center Scale
+
+Configure `from="center"` for standard modal zoom-fade effects.
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="center-modal.tsx"
+  code={`<AnimatedDialogContent from="center">
+  <AnimatedDialogTitle>Static Centered Modal</AnimatedDialogTitle>
+</AnimatedDialogContent>`}
+/>
+
+### Action Toasts
+
+Trigger notifications on confirmation or cancellation actions.
+
+<ComponentPreview component="animated-dialog" name="toast" />
+
+## Props
+
+<PropTable component="animated-dialog" />

@@ -1,7 +1,6 @@
 "use client";
 
-import type { ReactElement } from "react";
-import { startTransition, useState, ViewTransition } from "react";
+import { useState, ViewTransition } from "react";
 import {
   CodeBlock,
   CodeBlockCode,
@@ -27,12 +26,17 @@ interface ComponentInstallProps {
     dependencies?: string[];
     registryDependencies?: string[];
   };
+  themeFiles?: Array<{
+    path: string;
+    content: string;
+  }>;
 }
 
 export function ComponentInstallation({
   component,
   componentFiles,
   metadata,
+  themeFiles,
 }: ComponentInstallProps) {
   const [manualPackageManager, setManualPackageManager] = useState("npm");
   const [activeFileTab, setActiveFileTab] = useState(
@@ -61,7 +65,7 @@ export function ComponentInstallation({
   };
 
   return (
-    <div className="not-prose my-3 w-full max-w-full min-w-0">
+    <div className="my-3 max-w-full min-w-0 w-full not-prose">
       <Tabs defaultValue="cli" className="gap-6">
         <TabsList variant="underline">
           <TabsTrigger value="cli">CLI</TabsTrigger>
@@ -79,7 +83,7 @@ export function ComponentInstallation({
           <TabsContent value="manual">
             <div className="space-y-4">
               <div>
-                <p className="mb-2 text-sm font-medium">
+                <p className="mb-2 font-medium text-sm">
                   Install dependencies:
                 </p>
                 <CodeBlock
@@ -106,13 +110,13 @@ export function ComponentInstallation({
 
               {componentFiles && componentFiles.length > 0 && (
                 <div>
-                  <p className="mb-2 text-sm font-medium">
+                  <p className="mb-2 font-medium text-sm">
                     Copy and paste the component files:
                   </p>
                   {componentFiles.length === 1 ? (
                     // Single file: no tabs needed
                     <CodeBlock code={componentFiles[0].content} language="tsx">
-                      <CodeBlockHeader filename={componentFiles[0].path} />
+                      <CodeBlockHeader filename={componentFiles[0].target} />
                       <CodeBlockPre>
                         <CodeBlockCode />
                       </CodeBlockPre>
@@ -129,13 +133,12 @@ export function ComponentInstallation({
                           <CodeBlockHeader
                             tabs={componentFiles.map((f) => ({
                               value: f.path,
-                              label: f.path,
+                              label: f.target,
                             }))}
                             activeTab={activeFileTab}
                             onTabChange={(value) =>
                               setActiveFileTab(value as string)
                             }
-                            showCopy={false}
                           />
                           <CodeBlockPre>
                             <CodeBlockCode />
@@ -144,6 +147,26 @@ export function ComponentInstallation({
                       );
                     })()
                   )}
+                </div>
+              )}
+
+              {themeFiles && themeFiles.length > 0 && (
+                <div>
+                  <p className="mb-2 font-medium text-sm">
+                    Add the required Sona theme tokens to your global CSS:
+                  </p>
+                  {themeFiles.map((file) => (
+                    <CodeBlock
+                      key={file.path}
+                      code={file.content}
+                      language="css"
+                    >
+                      <CodeBlockHeader filename={file.path} />
+                      <CodeBlockPre>
+                        <CodeBlockCode />
+                      </CodeBlockPre>
+                    </CodeBlock>
+                  ))}
                 </div>
               )}
             </div>

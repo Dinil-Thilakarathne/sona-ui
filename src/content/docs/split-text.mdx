@@ -1,0 +1,47 @@
+---
+title: Split Text
+slug: split-text
+tags: ["UI", "Text", "Animation", "Component"]
+---
+
+# Split Text Component
+
+Splits a line of text into characters, words, or lines and reveals the pieces with a staggered animation — on mount or when it scrolls into view. Built on GSAP's `SplitText` and `ScrollTrigger` for accurate masking and resize-safe line splitting.
+
+## Features
+
+- Split by `chars`, `words`, or `lines`, each masked so pieces reveal from behind an edge.
+- Play on mount or on scroll into view via `scrollTrigger` with a configurable `start`.
+- Fully overridable motion through `animationProps` (GSAP tween vars).
+- `autoSplit` re-splits on resize so line breaks stay correct.
+- Respects `prefers-reduced-motion` — shows the final text with no animation.
+
+<Divider />
+
+<ComponentPreview component="split-text" name="default" />
+
+## Playground
+
+Change what the text splits into and tune the motion, then replay.
+
+<ComponentPlayground component="split-text" />
+
+## Installation
+
+<ComponentInstallation component="split-text" />
+
+## Usage
+
+<ComponentUsage component="split-text" />
+
+## Notes & caveats
+
+- **Wrap your text in a single element.** `children` must be one element (e.g. an `<h2>` or `<p>`) — the component splits its first child. A raw string or multiple siblings won't animate (a dev-only warning is logged).
+- **`lines` needs a block element with a width.** Line splitting is only meaningful when the text wraps, so give the wrapper a width (e.g. `max-w-md`); on an inline or shrink-wrapped element every "line" collapses into one.
+- **`chars` is best for short, Latin text.** Character splitting breaks emoji and complex scripts (Arabic, Indic, ligatures), and on long text the `stagger × count` total gets very long. Prefer `words` or `lines` there.
+- **Font loading is handled for you.** The split waits for `document.fonts.ready`, so line breaks and masks measure against the real font — no need to enable `autoSplit` just for that.
+- **Reduced motion.** With `prefers-reduced-motion`, the text is shown immediately with no animation.
+
+## Props
+
+<PropTable component="split-text" />
