@@ -26,6 +26,7 @@ import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
+import section_rail_section_rail_demo from "@/registry/examples/section-rail/section-rail-demo";
 import animated_dialog_animated_dialog_demo from "@/registry/examples/animated-dialog/animated-dialog-demo";
 import animated_dialog_animated_dialog_toast from "@/registry/examples/animated-dialog/animated-dialog-toast";
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
@@ -1752,6 +1753,150 @@ export default function SpotlightCardExample() {
         your pointer.
       </p>
     </SpotlightCard>
+  );
+}`,
+    }
+  ],
+  "section-rail": [
+    {
+      name: "default",
+      component: section_rail_section_rail_demo,
+      code: `"use client";
+
+import { useRef } from "react";
+
+import SectionRail from "@/components/ui/section-rail/section-rail";
+
+const sections = [
+  {
+    id: "section-rail-demo-overview",
+    label: "Overview",
+    description: "The goal, scope, and main ideas behind this page.",
+  },
+  {
+    id: "section-rail-demo-interaction",
+    label: "Interaction",
+    description: "How the component responds to hover, focus, and scroll.",
+  },
+  {
+    id: "section-rail-demo-motion",
+    label: "Motion",
+    description: "Direct scroll progress, no bounce, no ambient animation.",
+  },
+  {
+    id: "section-rail-demo-accessibility",
+    label: "Accessibility",
+    description: "Labels on focus, aria-current, and reduced-motion support.",
+  },
+];
+
+const copy =
+  "A rail answers three questions at a glance: where am I, what is nearby, and where can I go. Everything else is decoration.";
+
+export default function SectionRailDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="flex w-full max-w-2xl items-stretch gap-6">
+      <div
+        ref={scrollRef}
+        className="h-80 flex-1 overflow-y-auto rounded-xl border border-border bg-secondary/40 p-6"
+      >
+        {sections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className="scroll-mt-6 py-10"
+          >
+            <h3 className="font-semibold text-foreground text-lg">
+              {section.label}
+            </h3>
+            <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+              {section.description} {copy}
+            </p>
+          </section>
+        ))}
+      </div>
+
+      <div className="flex items-center">
+        <SectionRail
+          items={sections}
+          scrollRoot={scrollRef}
+          scrollOffset={24}
+          side="left"
+        />
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useRef } from "react";
+
+import SectionRail from "@/components/ui/section-rail/section-rail";
+
+const sections = [
+  {
+    id: "section-rail-demo-overview",
+    label: "Overview",
+    description: "The goal, scope, and main ideas behind this page.",
+  },
+  {
+    id: "section-rail-demo-interaction",
+    label: "Interaction",
+    description: "How the component responds to hover, focus, and scroll.",
+  },
+  {
+    id: "section-rail-demo-motion",
+    label: "Motion",
+    description: "Direct scroll progress, no bounce, no ambient animation.",
+  },
+  {
+    id: "section-rail-demo-accessibility",
+    label: "Accessibility",
+    description: "Labels on focus, aria-current, and reduced-motion support.",
+  },
+];
+
+const copy =
+  "A rail answers three questions at a glance: where am I, what is nearby, and where can I go. Everything else is decoration.";
+
+export default function SectionRailDemo() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="flex w-full max-w-2xl items-stretch gap-6">
+      <div
+        ref={scrollRef}
+        className="h-80 flex-1 overflow-y-auto rounded-xl border border-border bg-secondary/40 p-6"
+      >
+        {sections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className="scroll-mt-6 py-10"
+          >
+            <h3 className="font-semibold text-foreground text-lg">
+              {section.label}
+            </h3>
+            <p className="mt-2 text-muted-foreground text-sm leading-relaxed">
+              {section.description} {copy}
+            </p>
+          </section>
+        ))}
+      </div>
+
+      <div className="flex items-center">
+        <SectionRail
+          items={sections}
+          scrollRoot={scrollRef}
+          scrollOffset={24}
+          side="left"
+        />
+      </div>
+    </div>
   );
 }`,
     }
@@ -5181,6 +5326,832 @@ export default function SpotlightCard({
       target: "components/sonaui/spotlight-card/spotlight-card.tsx"
     }
   ],
+  "section-rail": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { AnimatePresence, animate, motion, useMotionValue } from "motion/react";
+import {
+  type CSSProperties,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface SectionRailThumbnail {
+  /** Image source for the context card. */
+  src: string;
+  /** Alternative text. The card is supplementary, so this may be decorative. */
+  alt: string;
+}
+
+export interface SectionRailItem {
+  /** Unique key. In scroll mode this must match the target element's DOM id. */
+  id: string;
+  /** Short destination name. This is the accessible name of the item. */
+  label: string;
+  /** Optional one-to-two-line summary shown in the fine-pointer context card. */
+  description?: string;
+  /** Optional image shown in the fine-pointer context card. */
+  thumbnail?: SectionRailThumbnail;
+  /** Renders the item as present but non-navigable. */
+  disabled?: boolean;
+}
+
+export interface SectionRailProps {
+  /** The sections represented by the rail, in document order. */
+  items: SectionRailItem[];
+  /**
+   * \`"scroll"\` resolves the active item from the page; \`"controlled"\` leaves it
+   * to \`activeId\` / \`onActiveChange\`.
+   * @default "scroll"
+   */
+  mode?: "scroll" | "controlled";
+  /** Active item id for controlled usage. @default undefined */
+  activeId?: string;
+  /** Initial active item id for uncontrolled usage. @default undefined */
+  defaultActiveId?: string;
+  /** Called whenever the active item changes. @default undefined */
+  onActiveChange?: (id: string) => void;
+  /**
+   * When labels sit next to the rail on fine pointers. Defaults to \`"hidden"\`
+   * because the context card already names the section, so an inline label
+   * would only appear underneath it. Coarse pointers, which never get a card,
+   * always show labels.
+   * @default "hidden"
+   */
+  showLabels?: "hidden" | "always" | "active" | "hover";
+  /**
+   * How the active item is marked. \`"progress"\` fills the active line from the
+   * section's own scroll position.
+   * @default "progress"
+   */
+  activeIndicator?: "dot" | "fill" | "progress";
+  /** Direction the rail runs in. @default "vertical" */
+  orientation?: "vertical" | "horizontal";
+  /** Which edge the rail is anchored to, which flips label and card placement. @default "right" */
+  side?: "left" | "right";
+  /** Pixels of fixed-header compensation used when scrolling to a section. @default 96 */
+  scrollOffset?: number;
+  /** Resolves a section element when ids are not real DOM ids. @default undefined */
+  getSectionElement?: (id: string) => HTMLElement | null;
+  /**
+   * Scrolling element the sections live in. Defaults to the page itself.
+   * @default undefined
+   */
+  scrollRoot?: React.RefObject<HTMLElement | null>;
+  /**
+   * When the context card appears. Cards never appear on coarse pointers.
+   * @default "hover-and-focus"
+   */
+  showPreview?: "never" | "hover" | "focus" | "hover-and-focus";
+  /** Accessible name for the rail's landmark. @default "Section navigation" */
+  ariaLabel?: string;
+  /** Additional classes for the rail root. @default undefined */
+  className?: string;
+  /** Additional classes for each rail line. @default undefined */
+  lineClassName?: string;
+  /** Additional classes for the item labels. @default undefined */
+  labelClassName?: string;
+  /** Additional classes for the context card surface. @default undefined */
+  previewClassName?: string;
+}
+
+const tokenStyle = {
+  "--section-rail-track":
+    "color-mix(in oklab, var(--foreground) 22%, transparent)",
+  "--section-rail-active": "var(--foreground)",
+  "--section-rail-hover":
+    "color-mix(in oklab, var(--foreground) 55%, transparent)",
+  "--section-rail-label": "var(--muted-foreground)",
+  "--section-rail-focus-ring": "var(--ring)",
+  "--section-rail-progress": "var(--primary)",
+  "--section-rail-preview-surface":
+    "color-mix(in oklab, var(--popover) 78%, transparent)",
+  "--section-rail-preview-border":
+    "color-mix(in oklab, var(--foreground) 10%, transparent)",
+  "--section-rail-preview-shadow":
+    "0 12px 32px -12px color-mix(in oklab, var(--foreground) 30%, transparent)",
+  "--section-rail-preview-thumbnail":
+    "color-mix(in oklab, var(--foreground) 6%, transparent)",
+} as CSSProperties;
+
+/**
+ * The active line is the longest line the rail can ever draw, so it doubles as
+ * the rail's fixed track width. Every line is drawn inside a slot of exactly
+ * this size, which keeps the rail's footprint constant: growing a line on hover
+ * never reflows the page, and labels and context cards always anchor to the
+ * same edge instead of sliding with whichever line happens to be widest.
+ */
+const LINE_TRACK = 30;
+const LINE_REST = 18;
+/** Capped so an emphasised inactive line (18 + 10) stays under the track. */
+const LINE_EMPHASIS = 10;
+
+const useIsomorphicLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const list = window.matchMedia(query);
+    const update = () => setMatches(list.matches);
+    update();
+    list.addEventListener("change", update);
+    return () => list.removeEventListener("change", update);
+  }, [query]);
+
+  return matches;
+}
+
+export default function SectionRail({
+  items,
+  mode = "scroll",
+  activeId,
+  defaultActiveId,
+  onActiveChange,
+  showLabels = "hidden",
+  activeIndicator = "progress",
+  orientation = "vertical",
+  side = "right",
+  scrollOffset = 96,
+  getSectionElement,
+  scrollRoot,
+  showPreview = "hover-and-focus",
+  ariaLabel = "Section navigation",
+  className,
+  lineClassName,
+  labelClassName,
+  previewClassName,
+}: SectionRailProps) {
+  const descriptionIdPrefix = useId();
+  const coarsePointer = useMediaQuery("(pointer: coarse)");
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const isVertical = orientation === "vertical";
+
+  const [internalActiveId, setInternalActiveId] = useState(
+    () => defaultActiveId ?? items[0]?.id,
+  );
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [focusedId, setFocusedId] = useState<string | null>(null);
+
+  const resolvedActiveId = activeId ?? internalActiveId;
+  const activeIndex = items.findIndex((item) => item.id === resolvedActiveId);
+  // One shared value for the whole rail: only the active line reads it, so
+  // scrolling never re-renders React or animates every item.
+  const progress = useMotionValue(0);
+
+  // Latest-value refs so the observer below depends only on things that
+  // genuinely change what it watches. Callers routinely pass inline \`items\`
+  // arrays and inline handlers; without this the observer would be torn down
+  // and rebuilt on every render — and again on every active change — which
+  // makes the active item flicker mid-scroll and the dot's travel erratic.
+  const itemsRef = useRef(items);
+  itemsRef.current = items;
+  const getSectionElementRef = useRef(getSectionElement);
+  getSectionElementRef.current = getSectionElement;
+  const onActiveChangeRef = useRef(onActiveChange);
+  onActiveChangeRef.current = onActiveChange;
+  const isControlledRef = useRef(activeId !== undefined);
+  isControlledRef.current = activeId !== undefined;
+  const activeIdRef = useRef(resolvedActiveId);
+  activeIdRef.current = resolvedActiveId;
+
+  const itemsKey = items.map((item) => item.id).join(" ");
+
+  const resolveElement = useCallback(
+    (id: string) =>
+      getSectionElementRef.current
+        ? getSectionElementRef.current(id)
+        : document.getElementById(id),
+    [],
+  );
+
+  const commitActive = useCallback((id: string) => {
+    if (!isControlledRef.current) setInternalActiveId(id);
+    onActiveChangeRef.current?.(id);
+  }, []);
+
+  // The dot is one element for the whole rail, positioned from the active
+  // item's measured slot. A per-item dot matched with \`layoutId\` had to hand
+  // off between mounting and unmounting nodes on every active change, so its
+  // travel time depended on how much else re-rendered that frame; this is a
+  // single value animating to a measured target, which is always the same.
+  const listRef = useRef<HTMLOListElement>(null);
+  const dotSlots = useRef(new Map<string, HTMLElement>());
+  const dotX = useMotionValue(0);
+  const dotY = useMotionValue(0);
+  const dotPlaced = useRef(false);
+  const dotAnimations = useRef<ReturnType<typeof animate>[]>([]);
+
+  useIsomorphicLayoutEffect(() => {
+    if (activeIndicator !== "dot") return;
+
+    const list = listRef.current;
+    const slot = dotSlots.current.get(resolvedActiveId ?? "");
+    if (!list || !slot) return;
+
+    const place = (animated: boolean) => {
+      const listRect = list.getBoundingClientRect();
+      const slotRect = slot.getBoundingClientRect();
+      const targetX = slotRect.left - listRect.left;
+      const targetY = slotRect.top - listRect.top;
+
+      for (const animation of dotAnimations.current) animation.stop();
+      dotAnimations.current = [];
+
+      // The first placement and any resize are corrections, not transitions.
+      if (!animated || !dotPlaced.current || reducedMotion) {
+        dotPlaced.current = true;
+        dotX.set(targetX);
+        dotY.set(targetY);
+        return;
+      }
+
+      const options = {
+        type: "spring",
+        stiffness: 480,
+        damping: 40,
+        mass: 0.7,
+      } as const;
+      dotAnimations.current = [
+        animate(dotX, targetX, options),
+        animate(dotY, targetY, options),
+      ];
+    };
+
+    place(true);
+
+    const resizeObserver = new ResizeObserver(() => place(false));
+    resizeObserver.observe(list);
+
+    return () => {
+      resizeObserver.disconnect();
+      for (const animation of dotAnimations.current) animation.stop();
+      dotAnimations.current = [];
+    };
+  }, [activeIndicator, resolvedActiveId, reducedMotion, dotX, dotY, itemsKey]);
+
+  // Active section resolution. IntersectionObserver decides *which* section is
+  // current; a rAF-throttled scroll read decides how far through it we are.
+  // \`items\` is read through a ref so inline arrays don't rebuild the observer;
+  // \`itemsKey\` is what actually signals the observed set of sections changed.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: intentional, see above
+  useEffect(() => {
+    const items = itemsRef.current;
+    if (mode !== "scroll" || items.length === 0) return;
+
+    const elements = items
+      .map((item) => ({ id: item.id, element: resolveElement(item.id) }))
+      .filter(
+        (entry): entry is { id: string; element: HTMLElement } =>
+          entry.element !== null,
+      );
+    if (elements.length === 0) return;
+
+    const root = scrollRoot?.current ?? null;
+    const visible = new Set<string>();
+    let currentId = activeIdRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id =
+            entry.target.id ||
+            elements.find((e) => e.element === entry.target)?.id;
+          if (!id) continue;
+          if (entry.isIntersecting) visible.add(id);
+          else visible.delete(id);
+        }
+
+        const next = items.find((item) => visible.has(item.id))?.id;
+        if (next && next !== currentId) {
+          currentId = next;
+          commitActive(next);
+        }
+      },
+      { root, rootMargin: \`-\${scrollOffset}px 0px -55% 0px\`, threshold: 0 },
+    );
+
+    for (const { element } of elements) observer.observe(element);
+
+    const readMetrics = () => {
+      if (root) {
+        return {
+          scrollTop: root.scrollTop,
+          maxScroll: Math.max(root.scrollHeight - root.clientHeight, 0),
+          viewportTop: root.getBoundingClientRect().top,
+        };
+      }
+      const doc = document.documentElement;
+      return {
+        scrollTop: window.scrollY,
+        maxScroll: Math.max(doc.scrollHeight - window.innerHeight, 0),
+        viewportTop: 0,
+      };
+    };
+
+    let frame = 0;
+    const readProgress = () => {
+      frame = 0;
+      const { scrollTop, maxScroll, viewportTop } = readMetrics();
+
+      // The bottom of the page is a hard stop: the last section can never
+      // scroll its own end past the offset line, so without this its fill
+      // would top out short of 100%. Treat reaching the end as arriving.
+      const atEnd = scrollTop >= maxScroll - 1;
+      if (atEnd) {
+        const last = elements[elements.length - 1]?.id;
+        if (last && last !== currentId) {
+          currentId = last;
+          commitActive(last);
+        }
+      }
+
+      const element = resolveElement(currentId ?? "");
+      if (!element) return;
+
+      const rect = element.getBoundingClientRect();
+      const sectionTop = rect.top - viewportTop + scrollTop;
+      const start = sectionTop - scrollOffset;
+      // Clamp the end of the section's travel to the furthest the scroller can
+      // actually go, so every section — including the last — completes.
+      const end = Math.min(start + rect.height, maxScroll);
+      const span = end - start;
+
+      progress.set(span <= 0 ? 1 : clamp((scrollTop - start) / span, 0, 1));
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(readProgress);
+    };
+
+    const scroller: HTMLElement | Window = root ?? window;
+    readProgress();
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      observer.disconnect();
+      scroller.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [
+    scrollRoot,
+    commitActive,
+    itemsKey,
+    mode,
+    progress,
+    resolveElement,
+    scrollOffset,
+  ]);
+
+  // In controlled mode there is no scroll position to read, so the active line
+  // is simply full.
+  useEffect(() => {
+    if (mode === "controlled") progress.set(1);
+  }, [mode, progress]);
+
+  const navigate = (
+    event: React.MouseEvent<HTMLElement>,
+    item: SectionRailItem,
+  ) => {
+    if (item.disabled) {
+      event.preventDefault();
+      return;
+    }
+
+    commitActive(item.id);
+    if (mode !== "scroll") return;
+
+    const element = resolveElement(item.id);
+    if (!element) return;
+
+    event.preventDefault();
+    // \`detail === 0\` means the click came from Enter/Space, which must land
+    // instantly rather than animating.
+    const keyboardActivated = event.detail === 0;
+    const behavior = keyboardActivated || reducedMotion ? "auto" : "smooth";
+    const root = scrollRoot?.current ?? null;
+
+    if (root) {
+      const top =
+        root.scrollTop +
+        (element.getBoundingClientRect().top -
+          root.getBoundingClientRect().top) -
+        scrollOffset;
+      root.scrollTo({ top, behavior });
+    } else {
+      const top =
+        element.getBoundingClientRect().top + window.scrollY - scrollOffset;
+      window.scrollTo({ top, behavior });
+    }
+
+    // Only own the page URL when the rail actually navigates the page.
+    if (element.id && !root) {
+      window.history.replaceState(null, "", \`#\${element.id}\`);
+    }
+    element.setAttribute("tabindex", "-1");
+    element.focus({ preventScroll: true });
+  };
+
+  const previewOnHover =
+    showPreview === "hover" || showPreview === "hover-and-focus";
+  const previewOnFocus =
+    showPreview === "focus" || showPreview === "hover-and-focus";
+
+  return (
+    <nav
+      aria-label={ariaLabel}
+      data-orientation={orientation}
+      data-side={side}
+      className={cn(
+        "group/section-rail relative",
+        isVertical ? "w-fit" : "h-fit",
+        className,
+      )}
+      style={tokenStyle}
+      onPointerLeave={() => setHoveredId(null)}
+    >
+      <ol
+        ref={listRef}
+        className={cn(
+          "relative flex list-none",
+          isVertical
+            ? cn("flex-col", side === "right" ? "items-end" : "items-start")
+            : "flex-row items-end",
+        )}
+      >
+        {activeIndicator === "dot" && (
+          <motion.span
+            aria-hidden="true"
+            className="pointer-events-none absolute top-0 left-0 z-10 size-1.5 rounded-full bg-(--section-rail-progress)"
+            style={{ x: dotX, y: dotY }}
+          />
+        )}
+        {items.map((item, index) => {
+          const isActive = index === activeIndex;
+          const isHovered = hoveredId === item.id;
+          const isFocused = focusedId === item.id;
+          const distance =
+            hoveredId === null
+              ? Number.POSITIVE_INFINITY
+              : Math.abs(index - items.findIndex((i) => i.id === hoveredId));
+
+          const previewVisible =
+            !coarsePointer &&
+            showPreview !== "never" &&
+            Boolean(item.description || item.thumbnail) &&
+            ((previewOnHover && isHovered) || (previewOnFocus && isFocused));
+
+          // A visible card already names the section, so the inline label steps
+          // aside rather than rendering behind it. Focus still reveals the
+          // label whenever no card is showing.
+          const labelVisible =
+            coarsePointer ||
+            showLabels === "always" ||
+            (showLabels === "active" && isActive) ||
+            ((showLabels === "hover" || isFocused) &&
+              (isHovered || isFocused) &&
+              !previewVisible);
+
+          // Neighbours of the hovered item grow a little too, so the rail is
+          // easier to aim at without any of them becoming a separate target.
+          const emphasis =
+            distance === 0
+              ? 1
+              : distance === 1
+                ? 0.45
+                : distance === 2
+                  ? 0.15
+                  : 0;
+          const lineLength = isActive
+            ? LINE_TRACK
+            : LINE_REST + emphasis * LINE_EMPHASIS;
+
+          const descriptionId = item.description
+            ? \`\${descriptionIdPrefix}-\${item.id}\`
+            : undefined;
+
+          const content = (
+            <>
+              {/* Fixed-size slot. The line animates inside it, so the rail
+                  never changes width and nothing around it reflows. */}
+              <span
+                aria-hidden="true"
+                className="relative block shrink-0"
+                style={
+                  isVertical
+                    ? { width: LINE_TRACK, height: 2 }
+                    : { height: LINE_TRACK, width: 2 }
+                }
+              >
+                <motion.span
+                  className={cn(
+                    "absolute overflow-hidden rounded-full",
+                    isVertical
+                      ? cn("inset-y-0", side === "right" ? "end-0" : "start-0")
+                      : "inset-x-0 bottom-0",
+                    item.disabled && "opacity-40",
+                    lineClassName,
+                  )}
+                  initial={false}
+                  animate={{
+                    [isVertical ? "width" : "height"]: lineLength,
+                    backgroundColor: isActive
+                      ? activeIndicator === "progress"
+                        ? "var(--section-rail-track)"
+                        : "var(--section-rail-active)"
+                      : distance <= 1
+                        ? "var(--section-rail-hover)"
+                        : "var(--section-rail-track)",
+                  }}
+                  transition={
+                    reducedMotion
+                      ? { duration: 0 }
+                      : {
+                          type: "spring",
+                          stiffness: 520,
+                          damping: 42,
+                          mass: 0.7,
+                        }
+                  }
+                  style={
+                    isVertical ? { width: lineLength } : { height: lineLength }
+                  }
+                >
+                  {isActive && activeIndicator === "progress" && (
+                    <motion.span
+                      className={cn(
+                        "absolute inset-0 rounded-full bg-(--section-rail-progress)",
+                        isVertical ? "origin-left" : "origin-top",
+                      )}
+                      style={
+                        isVertical ? { scaleX: progress } : { scaleY: progress }
+                      }
+                    />
+                  )}
+                </motion.span>
+              </span>
+
+              {/* Reserved for every item, not just the active one, so the
+                  item's width — and with it the label and card anchor —
+                  doesn't change as the dot moves down the rail. The single
+                  rail dot is measured against these slots. */}
+              {activeIndicator === "dot" && (
+                <span
+                  ref={(node) => {
+                    if (node) dotSlots.current.set(item.id, node);
+                    else dotSlots.current.delete(item.id);
+                  }}
+                  aria-hidden="true"
+                  className="block size-1.5 shrink-0"
+                />
+              )}
+
+              <motion.span
+                className={cn(
+                  "whitespace-nowrap font-medium text-(--section-rail-label) text-xs",
+                  isActive && "text-(--section-rail-active)",
+                  coarsePointer
+                    ? "static"
+                    : cn(
+                        "pointer-events-none absolute",
+                        isVertical
+                          ? side === "right"
+                            ? "end-full me-3"
+                            : "start-full ms-3"
+                          : "bottom-full mb-3",
+                      ),
+                  labelClassName,
+                )}
+                initial={false}
+                animate={{
+                  opacity: labelVisible ? 1 : 0,
+                  filter: labelVisible ? "blur(0px)" : "blur(3px)",
+                  [isVertical ? "x" : "y"]: labelVisible
+                    ? 0
+                    : isVertical
+                      ? side === "right"
+                        ? 6
+                        : -6
+                      : 6,
+                }}
+                transition={
+                  reducedMotion
+                    ? { duration: 0 }
+                    : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+                }
+              >
+                {item.label}
+              </motion.span>
+
+              {descriptionId && (
+                <span id={descriptionId} className="sr-only">
+                  {item.description}
+                </span>
+              )}
+            </>
+          );
+
+          const interactiveProps = {
+            "aria-current": isActive
+              ? ((mode === "scroll" ? "location" : "true") as
+                  | "location"
+                  | "true")
+              : undefined,
+            "aria-describedby": descriptionId,
+            "aria-disabled": item.disabled || undefined,
+            "data-active": isActive || undefined,
+            className: cn(
+              // The visible line is 2px; the hit area is not.
+              "relative flex cursor-pointer items-center gap-2 rounded-sm outline-none",
+              "focus-visible:ring-2 focus-visible:ring-(--section-rail-focus-ring) focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+              isVertical ? "px-2 py-1.5" : "flex-col px-1.5 py-2",
+              side === "left" && isVertical && "flex-row-reverse justify-end",
+              item.disabled && "cursor-not-allowed",
+            ),
+            onClick: (event: React.MouseEvent<HTMLElement>) =>
+              navigate(event, item),
+            onPointerEnter: () => setHoveredId(item.id),
+            onFocus: () => setFocusedId(item.id),
+            onBlur: () =>
+              setFocusedId((current) => (current === item.id ? null : current)),
+          };
+
+          return (
+            <li key={item.id} className="relative flex">
+              {mode === "scroll" ? (
+                <a href={\`#\${item.id}\`} {...interactiveProps}>
+                  {content}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  disabled={item.disabled}
+                  {...interactiveProps}
+                >
+                  {content}
+                </button>
+              )}
+
+              <AnimatePresence>
+                {previewVisible && (
+                  <SectionRailPreview
+                    item={item}
+                    isVertical={isVertical}
+                    side={side}
+                    reducedMotion={reducedMotion}
+                    className={previewClassName}
+                  />
+                )}
+              </AnimatePresence>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+function SectionRailPreview({
+  item,
+  isVertical,
+  side,
+  reducedMotion,
+  className,
+}: {
+  item: SectionRailItem;
+  isVertical: boolean;
+  side: "left" | "right";
+  reducedMotion: boolean;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shift, setShift] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+
+  // Collision handling: flip across the anchor if the preferred side has no
+  // room, then slide along the rail axis so the card stays fully on screen.
+  useIsomorphicLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const margin = 12;
+    const rect = node.getBoundingClientRect();
+
+    if (!flipped) {
+      const overflowsStart = rect.left < margin;
+      const overflowsEnd = rect.right > window.innerWidth - margin;
+      if (isVertical && (overflowsStart || overflowsEnd)) {
+        setFlipped(true);
+        return;
+      }
+      if (!isVertical && rect.top < margin) {
+        setFlipped(true);
+        return;
+      }
+    }
+
+    if (isVertical) {
+      if (rect.top < margin) setShift(margin - rect.top);
+      else if (rect.bottom > window.innerHeight - margin)
+        setShift(window.innerHeight - margin - rect.bottom);
+    } else if (rect.left < margin) {
+      setShift(margin - rect.left);
+    } else if (rect.right > window.innerWidth - margin) {
+      setShift(window.innerWidth - margin - rect.right);
+    }
+  }, [flipped, isVertical]);
+
+  const inlineSide = side === "right" ? !flipped : flipped;
+  const placement = isVertical
+    ? inlineSide
+      ? "end-full me-4 top-1/2 -translate-y-1/2"
+      : "start-full ms-4 top-1/2 -translate-y-1/2"
+    : flipped
+      ? "top-full mt-4 start-1/2 -translate-x-1/2"
+      : "bottom-full mb-4 start-1/2 -translate-x-1/2";
+
+  return (
+    <motion.div
+      ref={ref}
+      aria-hidden="true"
+      initial={
+        reducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.96, filter: "blur(8px)" }
+      }
+      animate={
+        reducedMotion
+          ? { opacity: 1 }
+          : { opacity: 1, scale: 1, filter: "blur(0px)" }
+      }
+      exit={
+        reducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, scale: 0.98, filter: "blur(6px)" }
+      }
+      transition={
+        reducedMotion
+          ? { duration: 0 }
+          : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+      }
+      style={{
+        [isVertical ? "marginTop" : "marginLeft"]: shift,
+        transformOrigin: isVertical
+          ? inlineSide
+            ? "right center"
+            : "left center"
+          : flipped
+            ? "center top"
+            : "center bottom",
+      }}
+      className={cn(
+        "pointer-events-none absolute z-50 w-60 rounded-xl border p-3 backdrop-blur-xl",
+        "border-(--section-rail-preview-border) bg-(--section-rail-preview-surface) shadow-(--section-rail-preview-shadow)",
+        placement,
+        className,
+      )}
+    >
+      {item.thumbnail && (
+        <div className="mb-2.5 aspect-video w-full overflow-hidden rounded-lg bg-(--section-rail-preview-thumbnail)">
+          {/* biome-ignore lint/performance/noImgElement: registry components stay framework-agnostic */}
+          <img
+            src={item.thumbnail.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="size-full object-cover"
+          />
+        </div>
+      )}
+      <p className="font-medium text-foreground text-sm">{item.label}</p>
+      {item.description && (
+        <p className="mt-1 line-clamp-2 text-muted-foreground text-xs leading-relaxed">
+          {item.description}
+        </p>
+      )}
+    </motion.div>
+  );
+}
+`,
+      path: "section-rail/section-rail.tsx",
+      target: "components/sonaui/section-rail/section-rail.tsx"
+    }
+  ],
   "animated-dialog": [
     {
       type: "registry:ui",
@@ -7656,6 +8627,21 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/fan-view/fan-view.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "section-rail": {
+    "name": "section-rail",
+    "type": "registry:ui",
+    "title": "Section Rail",
+    "description": "A compact navigation rail that tracks the reader's position through a long page, revealing labels and editorial context cards on hover and focus.",
+    "files": [
+      {
+        "path": "registry/sonaui/section-rail/section-rail.tsx",
         "type": "registry:ui"
       }
     ],

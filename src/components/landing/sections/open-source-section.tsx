@@ -16,7 +16,7 @@ export function OpenSourceSection() {
       </p>
       <h2
         id="open-title"
-        className="mt-3 max-w-[18ch] text-balance font-clash-display text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
+        className="mt-3 max-w-[18ch] text-balance font-helvetica-neue text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
       >
         Engineering proof over marketing filler.
       </h2>

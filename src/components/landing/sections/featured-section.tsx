@@ -64,23 +64,9 @@ const featured: Featured[] = [
           label="Frequency"
           defaultValue={15}
           formatValue={(value) => `${value}%`}
+          marks={[10, 20, 30, 40, 50, 60, 70, 80, 90]}
         />
       </div>
-    ),
-  },
-  {
-    name: "Spotlight Card",
-    slug: "spotlight-card",
-    category: "Effects",
-    description: "A focused surface treatment that follows attention.",
-    padDemo: false,
-    demo: (
-      <SpotlightCard className="h-full w-full">
-        <h3 className="font-semibold text-foreground">Follows your pointer</h3>
-        <p className="mt-2 text-[0.8125rem] leading-relaxed text-muted-foreground">
-          Move your cursor across the card to reveal the spotlight.
-        </p>
-      </SpotlightCard>
     ),
   },
 ];
@@ -98,7 +84,7 @@ export function FeaturedSection() {
           </p>
           <h2
             id="noteworthy-title"
-            className="mt-3 max-w-[18ch] text-balance font-clash-display text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
+            className="mt-3 max-w-[18ch] text-balance font-helvetica-neue text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
           >
             Components with a point of view.
           </h2>

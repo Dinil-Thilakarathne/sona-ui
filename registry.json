@@ -609,6 +609,26 @@
       "registryDependencies": [
         "https://sona-ui.vercel.app/r/sona-utils.json"
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "section-rail",
+      "type": "registry:ui",
+      "title": "Section Rail",
+      "description": "A compact navigation rail that tracks the reader's position through a long page, revealing labels and editorial context cards on hover and focus.",
+      "files": [
+        {
+          "path": "registry/sonaui/section-rail/section-rail.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/section-rail/section-rail.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
     }
   ]
 }

@@ -1,44 +1,82 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
+import useMeasure from "react-use-measure";
+import { CopyButton } from "@/components/copy-button/copy-button";
 
-const command = "bunx shadcn@latest add @sona-ui/fluid-tabs";
+const commands = {
+  you: "npx shadcn@latest add @sona-ui/magnetic-button",
+  agent: "npx shadcn@latest add @sona-ui/agent-skill",
+} as const;
+
+type CommandTarget = keyof typeof commands;
 
 export function InstallCommand() {
-  const [copied, setCopied] = useState(false);
+  const [target, setTarget] = useState<CommandTarget>("you");
+  const [measureRef, bounds] = useMeasure();
+  const reduceMotion = useReducedMotion();
+  const command = commands[target];
 
-  const copyCommand = async () => {
-    try {
-      await navigator.clipboard.writeText(command);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      // Clipboard API unavailable (non-secure context / older browser)
-    }
+  const selectTarget = (nextTarget: CommandTarget) => {
+    setTarget(nextTarget);
   };
 
   return (
-    <div className="mt-6 flex w-full max-w-xl items-center justify-between gap-2 overflow-hidden rounded-xl border border-border bg-card p-1.5 pl-3.5 text-left shadow-sm">
-      <code className="overflow-hidden bg-transparent p-0 font-mono text-xs text-ellipsis whitespace-nowrap text-muted-foreground">
-        $ {command}
-      </code>
-      <button
-        type="button"
-        onClick={copyCommand}
-        className="inline-flex min-h-8 shrink-0 items-center gap-1.5 rounded-lg bg-foreground px-2.5 py-2 text-xs font-semibold text-background transition-transform duration-200 active:scale-[.96] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transition-none"
-        aria-label={copied ? "Install command copied" : "Copy install command"}
+    <div className="mt-8 flex w-fit flex-col items-center gap-5">
+      <fieldset className="m-0 flex items-center justify-center gap-5 border-0 p-0">
+        <legend className="sr-only">Choose installation target</legend>
+        <button
+          type="button"
+          onClick={() => selectTarget("you")}
+          className="min-h-11 text-lg font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground aria-pressed:text-foreground motion-reduce:transition-none hover:cursor-pointer"
+          aria-pressed={target === "you"}
+        >
+          For you
+        </button>
+        <span className="h-7 w-px bg-border" aria-hidden="true" />
+        <button
+          type="button"
+          onClick={() => selectTarget("agent")}
+          className="min-h-11 text-lg font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground aria-pressed:text-foreground motion-reduce:transition-none hover:cursor-pointer"
+          aria-pressed={target === "agent"}
+        >
+          For your agent
+        </button>
+      </fieldset>
+
+      <motion.div
+        initial={false}
+        animate={bounds.width ? { width: bounds.width } : undefined}
+        transition={
+          reduceMotion
+            ? { duration: 0 }
+            : { type: "spring", duration: 0.3, bounce: 0 }
+        }
+        className="max-w-full overflow-hidden rounded-full border border-border/80 bg-background/50"
       >
-        {copied ? (
-          <Check className="size-3.5" aria-hidden="true" />
-        ) : (
-          <Copy className="size-3.5" aria-hidden="true" />
-        )}
-        <span>{copied ? "Copied" : "Copy"}</span>
-      </button>
-      <span className="sr-only" aria-live="polite">
-        {copied ? "Install command copied to clipboard" : ""}
-      </span>
+        <div
+          ref={measureRef}
+          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-5 text-left"
+        >
+          <span
+            className="shrink-0 font-mono text-base text-muted-foreground/60"
+            aria-hidden="true"
+          >
+            $
+          </span>
+          <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap text-foreground sm:text-base">
+            {command}
+          </code>
+          <CopyButton
+            key={target}
+            content={command}
+            componentName="landing-install-command"
+            language="shell"
+            className="size-11 shrink-0 rounded-full p-0 text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+          />
+        </div>
+      </motion.div>
     </div>
   );
 }

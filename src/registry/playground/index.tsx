@@ -11,6 +11,7 @@ import {
   User,
 } from "lucide-react";
 import type * as React from "react";
+import SectionRailPlayground from "@/registry/playground/section-rail-playground";
 import {
   AccordionItem,
   AccordionItemContent,
@@ -93,6 +94,51 @@ export type PlaygroundEntry = {
 };
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "section-rail": {
+    controls: [
+      {
+        type: "select",
+        prop: "activeIndicator",
+        label: "Active indicator",
+        options: [
+          { label: "Progress", value: "progress" },
+          { label: "Fill", value: "fill" },
+          { label: "Dot", value: "dot" },
+        ],
+        default: "progress",
+      },
+      {
+        type: "select",
+        prop: "showLabels",
+        label: "Show labels",
+        options: [
+          { label: "Hidden", value: "hidden" },
+          { label: "Active only", value: "active" },
+          { label: "Always", value: "always" },
+          { label: "On hover", value: "hover" },
+        ],
+        default: "hidden",
+      },
+      {
+        type: "select",
+        prop: "side",
+        label: "Rail side",
+        options: [
+          { label: "Right", value: "right" },
+          { label: "Left", value: "left" },
+        ],
+        default: "right",
+      },
+    ],
+    render: (v) => (
+      <SectionRailPlayground
+        activeIndicator={v.activeIndicator as "dot" | "fill" | "progress"}
+        showLabels={v.showLabels as "hidden" | "always" | "active" | "hover"}
+        side={v.side as "left" | "right"}
+      />
+    ),
+  },
+
   "fluid-slider": {
     controls: [
       {

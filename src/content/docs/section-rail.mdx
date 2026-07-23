@@ -1,0 +1,42 @@
+---
+title: Section Rail
+slug: section-rail
+tags: ["UI", "Navigation", "Scroll", "Component"]
+---
+
+# Section Rail Component
+
+A compact navigation rail for long pages, case studies, and multi-step flows. Each section is a single line; the active line tracks how far you have read, and hovering or focusing a line reveals its label and an optional editorial context card.
+
+## Features
+
+- Active section resolved with `IntersectionObserver`, with continuous scroll progress on the active line.
+- One shared motion value drives progress, so scrolling never animates every item.
+- Hover proximity widens the nearest lines, making 2px targets easy to hit.
+- Lines animate inside a fixed-width track, so the rail never reflows the page around it.
+- Optional context card with description and thumbnail, anchored to one shared edge and collision-aware at viewport edges.
+- Coarse pointers get labelled lines instead — never a hover-only affordance.
+- Real `<a href="#id">` anchors in scroll mode, buttons with `aria-current` when controlled.
+- Respects `prefers-reduced-motion` for both the rail and its scroll behavior.
+
+<Divider />
+
+<ComponentPreview component="section-rail" name="default" />
+
+## Playground
+
+Change the indicator, label policy, and side, then scroll the panel or hover a line.
+
+<ComponentPlayground component="section-rail" />
+
+## Installation
+
+<ComponentInstallation component="section-rail" />
+
+## Usage
+
+<ComponentUsage component="section-rail" />
+
+## Props
+
+<PropTable component="section-rail" />

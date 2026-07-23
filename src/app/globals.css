@@ -171,8 +171,7 @@ html {
 
 @theme inline {
     --font-clash-display: "ClashDisplay", sans-serif;
-
-    --breakpoint-xs: 24rem;
+    --font-helvetica-neue: var(--font-helvetica-neue);
 }
 
 @layer utilities {

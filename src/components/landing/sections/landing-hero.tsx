@@ -2,7 +2,7 @@
 
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
-import Link from "next/link";
+import { LandingButtonLink } from "../button-link";
 import { InstallCommand } from "../install-command";
 
 export function LandingHero() {
@@ -25,11 +25,11 @@ export function LandingHero() {
 
   return (
     <section
-      className="grid min-h-[calc(100svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
+      className="grid min-h-[calc(75svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
       aria-labelledby="landing-title"
     >
       <motion.div
-        className="grid w-full max-w-3xl justify-items-center"
+        className="grid w-full _max-w-3xl justify-items-center"
         variants={container}
         initial="hidden"
         animate="show"
@@ -44,7 +44,7 @@ export function LandingHero() {
         <motion.h1
           variants={item}
           id="landing-title"
-          className="mt-5 max-w-[13ch] text-balance font-clash-display text-[clamp(2.7rem,7.2vw,6.75rem)] leading-[.92] font-semibold tracking-[-0.065em]"
+          className="mt-5 text-balance font-helvetica-neue text-[clamp(2.7rem,7.2vw,6.75rem)] leading-[.92] font-medium tracking-tight"
         >
           Beautiful interactions,
           <br />
@@ -61,19 +61,20 @@ export function LandingHero() {
           variants={item}
           className="mt-8 flex flex-wrap justify-center gap-2.5"
         >
-          <Link
+          <LandingButtonLink
             href="/docs"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-sm leading-none font-semibold text-background transition-[transform,background-color] duration-200 hover:-translate-y-px hover:bg-primary active:scale-[.97] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none"
+            className="rounded-full px-4 text-sm font-semibold"
           >
             Browse components{" "}
             <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-          <Link
+          </LandingButtonLink>
+          <LandingButtonLink
             href="/docs/installation"
-            className="inline-flex min-h-11 items-center justify-center rounded-full border border-border bg-background px-4 py-2.5 text-sm leading-none font-semibold text-foreground transition-[transform,background-color] duration-200 hover:-translate-y-px hover:bg-secondary active:scale-[.97] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none"
+            variant="outlined"
+            className="rounded-full px-4 text-sm font-semibold"
           >
             Get started
-          </Link>
+          </LandingButtonLink>
         </motion.div>
         <motion.div
           variants={item}

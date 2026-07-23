@@ -978,6 +978,116 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional CSS classes for the ripple effect."
     }
   ],
+  "section-rail": [
+    {
+      "name": "items",
+      "type": "SectionRailItem[]",
+      "default": "required",
+      "description": "The sections represented by the rail, in document order."
+    },
+    {
+      "name": "mode",
+      "type": "\"scroll\" | \"controlled\"",
+      "default": "\"scroll\"",
+      "description": "`\"scroll\"` resolves the active item from the page; `\"controlled\"` leaves it to `activeId` / `onActiveChange`."
+    },
+    {
+      "name": "activeId",
+      "type": "string",
+      "default": "undefined",
+      "description": "Active item id for controlled usage."
+    },
+    {
+      "name": "defaultActiveId",
+      "type": "string",
+      "default": "undefined",
+      "description": "Initial active item id for uncontrolled usage."
+    },
+    {
+      "name": "onActiveChange",
+      "type": "(id: string) => void",
+      "default": "undefined",
+      "description": "Called whenever the active item changes."
+    },
+    {
+      "name": "showLabels",
+      "type": "\"hidden\" | \"always\" | \"active\" | \"hover\"",
+      "default": "\"hidden\"",
+      "description": "When labels sit next to the rail on fine pointers. Defaults to `\"hidden\"` because the context card already names the section, so an inline label would only appear underneath it. Coarse pointers, which never get a card, always show labels."
+    },
+    {
+      "name": "activeIndicator",
+      "type": "\"dot\" | \"fill\" | \"progress\"",
+      "default": "\"progress\"",
+      "description": "How the active item is marked. `\"progress\"` fills the active line from the section's own scroll position."
+    },
+    {
+      "name": "orientation",
+      "type": "\"vertical\" | \"horizontal\"",
+      "default": "\"vertical\"",
+      "description": "Direction the rail runs in."
+    },
+    {
+      "name": "side",
+      "type": "\"left\" | \"right\"",
+      "default": "\"right\"",
+      "description": "Which edge the rail is anchored to, which flips label and card placement."
+    },
+    {
+      "name": "scrollOffset",
+      "type": "number",
+      "default": "96",
+      "description": "Pixels of fixed-header compensation used when scrolling to a section."
+    },
+    {
+      "name": "getSectionElement",
+      "type": "(id: string) => HTMLElement | null",
+      "default": "undefined",
+      "description": "Resolves a section element when ids are not real DOM ids."
+    },
+    {
+      "name": "scrollRoot",
+      "type": "React.RefObject<HTMLElement | null>",
+      "default": "undefined",
+      "description": "Scrolling element the sections live in. Defaults to the page itself."
+    },
+    {
+      "name": "showPreview",
+      "type": "\"never\" | \"hover\" | \"focus\" | \"hover-and-focus\"",
+      "default": "\"hover-and-focus\"",
+      "description": "When the context card appears. Cards never appear on coarse pointers."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Section navigation\"",
+      "description": "Accessible name for the rail's landmark."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the rail root."
+    },
+    {
+      "name": "lineClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for each rail line."
+    },
+    {
+      "name": "labelClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the item labels."
+    },
+    {
+      "name": "previewClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the context card surface."
+    }
+  ],
   "spinning-text": [
     {
       "name": "children",

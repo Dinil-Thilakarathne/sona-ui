@@ -112,6 +112,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   //   href: "/docs/animated-tabs",
   //   type: "Components",
   // },
+  // {
+  //   name: "Section Rail",
+  //   slug: "section-rail",
+  //   href: "/docs/section-rail",
+  //   type: "Components",
+  //   tag: "new",
+  // },
   {
     name: "Expandable Tabs",
     slug: "expandable-tabs",

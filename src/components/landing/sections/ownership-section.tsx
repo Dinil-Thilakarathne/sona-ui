@@ -34,7 +34,7 @@ export function OwnershipSection() {
         </p>
         <h2
           id="ownership-title"
-          className="mt-3 max-w-[18ch] text-balance font-clash-display text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
+          className="mt-3 max-w-[18ch] text-balance font-helvetica-neue text-[clamp(2rem,3.6vw,3.75rem)] leading-[.98] font-semibold tracking-[-0.05em]"
         >
           The component is yours once you install it.
         </h2>
@@ -59,7 +59,7 @@ export function OwnershipSection() {
             <span className="font-mono text-[0.6875rem] leading-6 text-muted-foreground">
               {number}
             </span>
-            <Icon className="mt-0.5 size-5 text-primary" aria-hidden="true" />
+            <Icon className="mt-1 size-5 text-primary" aria-hidden="true" />
             <div>
               <strong className="text-sm">{title}</strong>
               <p className="mt-1 text-[0.8125rem] leading-relaxed text-muted-foreground">

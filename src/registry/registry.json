@@ -11,7 +11,10 @@
         "target": "lib/sona-utils.ts"
       }
     ],
-    "dependencies": ["clsx", "tailwind-merge"]
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
   },
   {
     "name": "sona-motion",
@@ -25,7 +28,9 @@
         "target": "lib/sona-motion.ts"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "sona-theme",
@@ -92,8 +97,13 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"],
-    "registryDependencies": ["https://sona-ui.vercel.app/r/sona-theme.json"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-theme.json"
+    ]
   },
   {
     "name": "animated-switch",
@@ -106,7 +116,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "animated-dialog",
@@ -119,7 +132,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "button",
@@ -132,7 +148,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["class-variance-authority", "motion"]
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
   },
   {
     "name": "dot-orbit-shader",
@@ -145,7 +164,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react", "motion"]
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   {
     "name": "mesh-gradient-shader",
@@ -158,7 +180,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react", "motion"]
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   {
     "name": "magnetic-button",
@@ -171,7 +196,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "fluid-tabs",
@@ -184,7 +211,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "fluid-slider",
@@ -197,7 +227,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "animated-tabs",
@@ -210,7 +243,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "accordion",
@@ -232,7 +268,10 @@
         "target": "components/ui/accordion/styles.module.css"
       }
     ],
-    "dependencies": ["@base-ui/react", "class-variance-authority"]
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ]
   },
   {
     "name": "ripple-button",
@@ -245,7 +284,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "marquee",
@@ -258,7 +299,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "spinning-text",
@@ -271,7 +314,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "stagger-text",
@@ -284,7 +329,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "link-preview",
@@ -297,7 +344,11 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion", "react-icons", "react-use-measure"]
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "react-use-measure"
+    ]
   },
   {
     "name": "bubble-up-button",
@@ -310,7 +361,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "expandable-tabs",
@@ -323,7 +376,11 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion", "react-icons"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion",
+      "react-icons"
+    ]
   },
   {
     "name": "split-text",
@@ -336,7 +393,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["gsap", "@gsap/react"]
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ]
   },
   {
     "name": "image-trail",
@@ -349,7 +409,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "spotlight-card",
@@ -362,7 +424,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "hold-to-delete-button",
@@ -375,7 +439,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "circular-dock-menu",
@@ -388,7 +454,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion", "lucide-react"]
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ]
   },
   {
     "name": "fan-view",
@@ -401,6 +470,23 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
+  },
+  {
+    "name": "section-rail",
+    "type": "registry:ui",
+    "title": "Section Rail",
+    "description": "A compact navigation rail that tracks the reader's position through a long page, revealing labels and editorial context cards on hover and focus.",
+    "files": [
+      {
+        "path": "registry/sonaui/section-rail/section-rail.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
   }
 ]

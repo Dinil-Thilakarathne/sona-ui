@@ -11,7 +11,6 @@ export default function LandingPage() {
   return (
     <main className="overflow-x-clip pt-header-height">
       <LandingHero />
-      <ProofSection />
       <FeaturedSection />
       <OwnershipSection />
       <AiSection />
