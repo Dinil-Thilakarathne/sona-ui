@@ -1,9 +1,10 @@
 import { allDocs, type Doc } from "content-collections";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-navigation";
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
+import { FIRST_COMP_LINK } from "@/lib/constants";
 import DocClient from "./DocClient";
 
 async function getDocFromParams({
@@ -16,7 +17,7 @@ async function getDocFromParams({
   const slugPath = slug?.join("/");
 
   if (!slugPath) {
-    notFound();
+    redirect(FIRST_COMP_LINK);
   }
 
   // Find the document by slug

@@ -73,7 +73,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const pathname = usePathname();
   const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 1280px)");
   const isControlled = controlledIsOpen !== undefined;
   const isOpen = isControlled ? controlledIsOpen : uncontrolledIsOpen;
 
@@ -102,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <>
       {/* Desktop Sidebar (Persistent layout sidebar) */}
-      <aside className="hidden lg:flex overflow-y-auto overscroll-none fixed left-2 top-header-height z-40 flex-col my-4 p-4 space-y-2 h-[calc(100svh-var(--spacing-header-height)-2rem)] w-[min(var(--sidebar-width),100%)] bg-sidebar rounded-lg">
+      <aside className="hidden xl:flex overflow-y-auto overscroll-none fixed left-2 top-header-height z-40 flex-col my-4 p-4 space-y-2 h-[calc(100svh-var(--spacing-header-height)-2rem)] w-[min(var(--sidebar-width),100%)] bg-sidebar rounded-lg">
         <SidebarContent pathname={pathname} onLinkClick={() => {}} />
       </aside>
 
@@ -111,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SheetTrigger
           render={
             <motion.button
-              className="block lg:hidden fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] z-50 p-4 bg-background/90 border border-border rounded-full shadow-lg backdrop-blur"
+              className="block xl:hidden fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] z-50 p-4 bg-background/90 border border-border rounded-full shadow-lg backdrop-blur"
               whileTap={{ scale: 0.95 }}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

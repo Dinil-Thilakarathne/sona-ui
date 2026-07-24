@@ -193,7 +193,7 @@ export function DocsTableOfContents() {
 
   return (
     <>
-      <aside className="hidden xl:block">
+      <aside className="hidden lg:block">
         <nav
           aria-label="Table of contents"
           className="sticky top-28 border-l border-border pl-5"
@@ -215,7 +215,7 @@ export function DocsTableOfContents() {
           render={
             <button
               type="button"
-              className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-4 z-40 flex max-w-[calc(100vw-6rem)] items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-2 text-sm shadow-lg backdrop-blur-md transition-[transform,background-color] duration-150 active:scale-[0.97] motion-reduce:transition-none xl:hidden"
+              className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-4 z-40 flex max-w-[calc(100vw-6rem)] items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-2 text-sm shadow-lg backdrop-blur-md transition-[transform,background-color] duration-150 active:scale-[0.97] motion-reduce:transition-none lg:hidden"
               aria-label="Open table of contents"
               aria-expanded={open}
             >

@@ -1,29 +1,76 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import { useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import { CopyButton } from "@/components/copy-button/copy-button";
 
-const commands = {
-  you: "npx shadcn@latest add @sona-ui/magnetic-button",
-  agent: "npx shadcn@latest add @sona-ui/agent-skill",
-} as const;
+const commandPrefix = "npx shadcn@latest add @sona-ui/";
+const agentComponent = "agent-skill";
+const featuredComponents = [
+  "magnetic-button",
+  "fluid-tabs",
+  "animated-dialog",
+  "bubble-up-button",
+  "fluid-slider",
+] as const;
 
-type CommandTarget = keyof typeof commands;
+type CommandTarget = "you" | "agent";
 
 export function InstallCommand() {
   const [target, setTarget] = useState<CommandTarget>("you");
+  const [componentIndex, setComponentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true);
   const [measureRef, bounds] = useMeasure();
   const reduceMotion = useReducedMotion();
-  const command = commands[target];
+  const selectedComponent =
+    target === "you" ? featuredComponents[componentIndex] : agentComponent;
+  const command = `${commandPrefix}${selectedComponent}`;
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      setIsDocumentVisible(document.visibilityState === "visible");
+    };
+
+    updateVisibility();
+    document.addEventListener("visibilitychange", updateVisibility);
+    return () =>
+      document.removeEventListener("visibilitychange", updateVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (
+      target !== "you" ||
+      reduceMotion ||
+      isHovered ||
+      hasInteracted ||
+      !isDocumentVisible
+    ) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setComponentIndex(
+        (currentIndex) => (currentIndex + 1) % featuredComponents.length,
+      );
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, [hasInteracted, isDocumentVisible, isHovered, reduceMotion, target]);
 
   const selectTarget = (nextTarget: CommandTarget) => {
+    setHasInteracted(true);
     setTarget(nextTarget);
   };
 
   return (
-    <div className="mt-8 flex w-fit flex-col items-center gap-5">
+    <div
+      className="mt-8 flex w-fit flex-col items-center gap-5"
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
+    >
       <fieldset className="m-0 flex items-center justify-center gap-5 border-0 p-0">
         <legend className="sr-only">Choose installation target</legend>
         <button
@@ -54,6 +101,8 @@ export function InstallCommand() {
             : { type: "spring", duration: 0.3, bounce: 0 }
         }
         className="max-w-full overflow-hidden rounded-full border border-border/80 bg-background/50"
+        onPointerDownCapture={() => setHasInteracted(true)}
+        onFocusCapture={() => setHasInteracted(true)}
       >
         <div
           ref={measureRef}
@@ -66,12 +115,42 @@ export function InstallCommand() {
             $
           </span>
           <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
-            {command}
+            {commandPrefix}
+            {target === "you" ? (
+              <span className="inline-grid min-w-[16ch] [grid-template-areas:'slug']">
+                <AnimatePresence initial={false} mode="popLayout">
+                  <motion.span
+                    key={selectedComponent}
+                    className="[grid-area:slug]"
+                    initial={
+                      reduceMotion
+                        ? false
+                        : { opacity: 0, y: 4, filter: "blur(2px)" }
+                    }
+                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    exit={
+                      reduceMotion
+                        ? { opacity: 0 }
+                        : { opacity: 0, y: -3, filter: "blur(2px)" }
+                    }
+                    transition={
+                      reduceMotion
+                        ? { duration: 0 }
+                        : { type: "spring", duration: 0.3, bounce: 0 }
+                    }
+                  >
+                    {selectedComponent}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+            ) : (
+              agentComponent
+            )}
           </code>
           <CopyButton
-            key={target}
+            key={`${target}-${selectedComponent}`}
             content={command}
-            componentName="landing-install-command"
+            componentName={`landing-install-${selectedComponent}`}
             language="shell"
             className="size-11 shrink-0 rounded-full p-0 text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           />

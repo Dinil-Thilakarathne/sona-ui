@@ -25,7 +25,7 @@ export default function DocClient({ doc, navigation }: DocClientProps) {
 
   return (
     <div className="relative mx-auto w-full max-w-[calc(75ch+17rem)]">
-      <div className="xl:grid xl:grid-cols-[minmax(0,75ch)_13rem] xl:gap-x-12">
+      <div className="lg:grid lg:grid-cols-[minmax(0,75ch)_13rem] lg:gap-x-12">
         <div>
           <Mdx
             code={doc.body.code}

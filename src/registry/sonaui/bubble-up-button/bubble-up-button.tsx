@@ -60,7 +60,7 @@ export default function BubbleUpButton({
       onBlur={drain}
       disabled={disabled}
       className={cn(
-        "relative flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-foreground px-16 py-2",
+        "relative isolate flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-background text-foreground px-16 py-2",
         "transition-opacity duration-200",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
@@ -72,10 +72,10 @@ export default function BubbleUpButton({
         animate={controls}
         initial={{ clipPath: "ellipse(0% 0% at 50% 100%)" }}
         transition={motionControls.transition}
-        className="absolute left-0 top-0 h-full w-full bg-background"
+        className="absolute left-0 top-0 h-full w-full bg-foreground"
         aria-hidden="true"
       />
-      <span className="relative text-background mix-blend-difference">
+      <span className="relative text-white mix-blend-difference">
         {children}
       </span>
     </button>
