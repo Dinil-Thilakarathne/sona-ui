@@ -19,6 +19,9 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/registry/sonaui/accordion/accordion";
+import ActivityGraph, {
+  type ActivityGraphDatum,
+} from "@/registry/sonaui/activity-graph/activity-graph";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -93,7 +96,109 @@ export type PlaygroundEntry = {
   render: (values: Record<string, unknown>) => React.ReactNode;
 };
 
+const playgroundActivity: ActivityGraphDatum[] = Array.from(
+  { length: 181 },
+  (_, index) => {
+    const date = new Date(Date.UTC(2026, 0, 1 + index));
+    const rhythm = Math.sin(index * 0.28) + Math.cos(index * 0.11);
+
+    return {
+      date: date.toISOString().slice(0, 10),
+      value:
+        index % 9 === 0 || index % 14 === 0
+          ? 0
+          : Math.max(1, Math.round((rhythm + 2) * 3)),
+    };
+  },
+);
+
+function getActivityColors(color: string, levels: number) {
+  const count = Math.min(6, Math.max(1, Math.round(levels)));
+  return Array.from({ length: count }, (_, index) => {
+    if (index === count - 1) return color;
+    const strength =
+      count === 1 ? 100 : Math.round(24 + (index / (count - 1)) * 64);
+    return `color-mix(in oklab, ${color} ${strength}%, var(--background))`;
+  });
+}
+
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "activity-graph": {
+    controls: [
+      {
+        type: "slider",
+        prop: "levels",
+        label: "Intensity levels",
+        min: 2,
+        max: 6,
+        step: 1,
+        default: 4,
+      },
+      {
+        type: "select",
+        prop: "weekStartsOn",
+        label: "Week starts on",
+        options: [
+          { label: "Sunday", value: "0" },
+          { label: "Monday", value: "1" },
+          { label: "Saturday", value: "6" },
+        ],
+        default: "0",
+      },
+      {
+        type: "toggle",
+        prop: "showMonthLabels",
+        label: "Month labels",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "showWeekdayLabels",
+        label: "Weekday labels",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "showLegend",
+        label: "Legend",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "showTooltip",
+        label: "Tooltip",
+        default: true,
+      },
+      {
+        type: "color",
+        prop: "color",
+        label: "Activity color",
+        default: "#22c55e",
+      },
+      {
+        type: "color",
+        prop: "emptyColor",
+        label: "Empty color",
+        default: "#e5e7eb",
+      },
+    ],
+    render: (v) => (
+      <ActivityGraph
+        data={playgroundActivity}
+        startDate="2026-01-01"
+        endDate="2026-06-30"
+        levels={v.levels as number}
+        weekStartsOn={Number(v.weekStartsOn) as 0 | 1 | 6}
+        showMonthLabels={v.showMonthLabels as boolean}
+        showWeekdayLabels={v.showWeekdayLabels as boolean}
+        showLegend={v.showLegend as boolean}
+        showTooltip={v.showTooltip as boolean}
+        colors={getActivityColors(v.color as string, v.levels as number)}
+        emptyColor={v.emptyColor as string}
+        ariaLabel="Playground activity"
+      />
+    ),
+  },
   "section-rail": {
     controls: [
       {

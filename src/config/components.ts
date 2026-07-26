@@ -106,6 +106,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Components",
     tag: "new",
   },
+  {
+    name: "Activity Graph",
+    slug: "activity-graph",
+    href: "/docs/activity-graph",
+    type: "Components",
+    tag: "new",
+  },
   // {
   //   name: "Animated Tabs",
   //   slug: "animated-tabs",

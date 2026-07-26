@@ -145,6 +145,7 @@ interface MDXProps {
   className?: string;
   headerActions?: React.ReactNode;
   mobileHeaderContent?: React.ReactNode;
+  sourceFiles?: Record<string, string>;
 }
 
 export function Mdx({
@@ -152,12 +153,31 @@ export function Mdx({
   className,
   headerActions,
   mobileHeaderContent,
+  sourceFiles,
 }: MDXProps) {
   const Component = useMDXComponent(code);
-  const mdxComponents =
-    headerActions || mobileHeaderContent
+  const mdxComponents = {
+    ...components,
+    SourceCode: ({
+      source,
+      filename,
+      language = "typescript",
+    }: {
+      source: string;
+      filename?: string;
+      language?: string;
+    }) => (
+      <InternalCodeBlock
+        code={
+          sourceFiles?.[source] ??
+          `// Source unavailable for documentation key: ${source}`
+        }
+        filename={filename}
+        language={language}
+      />
+    ),
+    ...(headerActions || mobileHeaderContent
       ? {
-          ...components,
           h1: ({
             className: headingClassName,
             ...props
@@ -177,7 +197,8 @@ export function Mdx({
             </>
           ),
         }
-      : components;
+      : {}),
+  };
 
   return (
     <article

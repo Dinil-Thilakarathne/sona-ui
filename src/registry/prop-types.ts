@@ -70,6 +70,164 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Visual style of the accordion."
     }
   ],
+  "activity-graph": [
+    {
+      "name": "data",
+      "type": "ActivityGraphDatum[]",
+      "default": "required",
+      "description": "Dated activity records displayed in the graph."
+    },
+    {
+      "name": "startDate",
+      "type": "Date | string",
+      "default": "364 days before endDate",
+      "description": "Inclusive first date displayed by the graph."
+    },
+    {
+      "name": "endDate",
+      "type": "Date | string",
+      "default": "latest data date or today",
+      "description": "Inclusive last date displayed by the graph."
+    },
+    {
+      "name": "levels",
+      "type": "number",
+      "default": "4",
+      "description": "Number of non-empty color intensity levels."
+    },
+    {
+      "name": "maxDays",
+      "type": "number",
+      "default": "366",
+      "description": "Maximum number of calendar days rendered."
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "0 | 1 | 6",
+      "default": "0",
+      "description": "First day of each visual week: Sunday, Monday, or Saturday."
+    },
+    {
+      "name": "value",
+      "type": "Date | string | null",
+      "default": "undefined",
+      "description": "Controlled selected date."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Date | string | null",
+      "default": "undefined",
+      "description": "Initially selected date for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(date: Date, item: ActivityGraphDatum | undefined) => void",
+      "default": "undefined",
+      "description": "Called when a date is selected."
+    },
+    {
+      "name": "onCellSelect",
+      "type": "(item: ActivityGraphDatum | undefined, date: Date) => void",
+      "default": "undefined",
+      "description": "Called when a selected date is activated with pointer or keyboard."
+    },
+    {
+      "name": "renderValue",
+      "type": "(context: ActivityGraphValueContext) => ReactNode",
+      "default": "undefined",
+      "description": "Custom content shown for the currently explored date."
+    },
+    {
+      "name": "showValue",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the active date and value above the graph."
+    },
+    {
+      "name": "showTooltip",
+      "type": "boolean",
+      "default": "false",
+      "description": "Shows an anchored tooltip when a date cell is hovered or focused."
+    },
+    {
+      "name": "tooltipDelay",
+      "type": "number",
+      "default": "400",
+      "description": "Delay before the first tooltip opens, in milliseconds."
+    },
+    {
+      "name": "renderTooltip",
+      "type": "(context: ActivityGraphValueContext) => ReactNode",
+      "default": "undefined",
+      "description": "Custom content rendered inside the optional cell tooltip."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "default": "undefined",
+      "description": "Custom colors for non-empty intensity levels, ordered from low to high."
+    },
+    {
+      "name": "emptyColor",
+      "type": "string",
+      "default": "undefined",
+      "description": "Custom color for dates without activity."
+    },
+    {
+      "name": "showMonthLabels",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows month labels above the graph."
+    },
+    {
+      "name": "showWeekdayLabels",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows abbreviated weekday labels beside the graph."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the intensity legend below the graph."
+    },
+    {
+      "name": "emptyLabel",
+      "type": "string",
+      "default": "\"No activity\"",
+      "description": "Accessible description for a date without activity."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Activity graph\"",
+      "description": "Accessible name for the interactive graph."
+    },
+    {
+      "name": "gridClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the scrollable graph region."
+    },
+    {
+      "name": "cellClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes applied to every date cell."
+    },
+    {
+      "name": "tooltipClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the optional tooltip surface."
+    },
+    {
+      "name": "legendClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the intensity legend."
+    }
+  ],
   "animated-dialog": [
     {
       "name": "children",

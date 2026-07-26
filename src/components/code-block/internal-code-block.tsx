@@ -7,7 +7,7 @@ import {
 } from "./code-block";
 
 interface InternalCodeBlockProps
-  extends React.ComponentProps<typeof CodeBlock> {
+  extends Omit<React.ComponentProps<typeof CodeBlock>, "children"> {
   filename?: string;
 }
 

@@ -5,6 +5,7 @@ import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-n
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { FIRST_COMP_LINK } from "@/lib/constants";
+import { readFileContent } from "@/lib/file-utils";
 import DocClient from "./DocClient";
 
 async function getDocFromParams({
@@ -82,6 +83,14 @@ export default async function DocPage({
     title: nextItem.name,
     href: nextItem.href,
   };
+  const sourceFiles =
+    doc.slug === "activity-graph"
+      ? {
+          "github-contributions": await readFileContent(
+            "src/lib/github-contributions.ts",
+          ),
+        }
+      : undefined;
 
   return (
     <DocClient
@@ -91,6 +100,7 @@ export default async function DocPage({
         body: { code: doc.body.code, raw: doc.body.raw },
       }}
       navigation={{ previous, next }}
+      sourceFiles={sourceFiles}
     />
   );
 }
