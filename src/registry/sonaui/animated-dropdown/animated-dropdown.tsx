@@ -91,6 +91,12 @@ export interface AnimatedDropdownItemProps {
 export interface AnimatedDropdownTriggerProps {
   children: ReactNode;
   className?: string;
+  /** Associates the trigger with an external visible label. */
+  "aria-labelledby"?: string;
+}
+
+export interface AnimatedDropdownTriggerIndicatorProps {
+  className?: string;
 }
 
 // ─── Root ─────────────────────────────────────────────────────────────────────
@@ -141,11 +147,13 @@ export function AnimatedDropdown({
 export function AnimatedDropdownTrigger({
   children,
   className,
+  "aria-labelledby": ariaLabelledBy,
 }: AnimatedDropdownTriggerProps) {
   return (
     <Menu.Trigger
+      aria-labelledby={ariaLabelledBy}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
+        "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:bg-muted transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
@@ -155,6 +163,34 @@ export function AnimatedDropdownTrigger({
     >
       {children}
     </Menu.Trigger>
+  );
+}
+
+/**
+ * A state-aware chevron for the dropdown trigger.
+ * Rotates when Base UI marks the parent trigger as open.
+ */
+export function AnimatedDropdownTriggerIndicator({
+  className,
+}: AnimatedDropdownTriggerIndicatorProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(
+        "size-4 shrink-0 text-muted-foreground",
+        "transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "group-data-[popup-open]:rotate-180 motion-reduce:transition-none",
+        className,
+      )}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
 
@@ -224,11 +260,11 @@ export function AnimatedDropdownItem({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2.5",
+        "group relative flex cursor-pointer select-none items-center gap-2.5",
         "rounded-lg px-2.5 py-2 text-sm outline-none",
         "transition-colors duration-75",
         variant === "danger"
-          ? "text-danger-foreground focus:text-danger-foreground"
+          ? "text-danger-foreground focus:text-white"
           : "text-popover-foreground",
         disabled && "cursor-not-allowed opacity-50",
         className,
@@ -261,7 +297,14 @@ export function AnimatedDropdownItem({
 
       {/* Icon */}
       {icon && (
-        <span className="relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground">
+        <span
+          className={cn(
+            "relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground",
+            variant === "danger"
+              ? "text-danger-foreground group-focus:text-white"
+              : "text-popover-foreground",
+          )}
+        >
           {icon}
         </span>
       )}

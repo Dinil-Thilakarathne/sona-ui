@@ -36,6 +36,7 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 import AnimatedTabs from "@/registry/sonaui/animated-tabs/animated-tabs";
@@ -472,7 +473,10 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     ],
     render: (v) => (
       <AnimatedDropdown>
-        <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownTrigger>
+          My Account
+          <AnimatedDropdownTriggerIndicator />
+        </AnimatedDropdownTrigger>
         <AnimatedDropdownContent
           side={v.side as "bottom" | "top" | "left" | "right"}
           align={v.align as "start" | "center" | "end"}

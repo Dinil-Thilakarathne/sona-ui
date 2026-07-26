@@ -71,12 +71,16 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownDanger() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        Actions
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent align="start">
         <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
@@ -100,12 +104,16 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownDanger() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>Actions ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        Actions
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent align="start">
         <AnimatedDropdownItem icon={<Edit />}>Edit</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<Copy />}>Duplicate</AnimatedDropdownItem>
@@ -132,6 +140,7 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownControlled() {
@@ -146,7 +155,10 @@ export default function AnimatedDropdownControlled() {
         </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
-        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownTrigger>
+          Controlled
+          <AnimatedDropdownTriggerIndicator />
+        </AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
           <AnimatedDropdownItem icon={<Bell />}>
@@ -180,6 +192,7 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownControlled() {
@@ -194,7 +207,10 @@ export default function AnimatedDropdownControlled() {
         </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
-        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownTrigger>
+          Controlled
+          <AnimatedDropdownTriggerIndicator />
+        </AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
           <AnimatedDropdownItem icon={<Bell />}>
@@ -229,12 +245,16 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownDemo() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        My Account
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<CreditCard />}>
@@ -265,12 +285,16 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownDemo() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        My Account
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<CreditCard />}>
@@ -3116,6 +3140,12 @@ export interface AnimatedDropdownItemProps {
 export interface AnimatedDropdownTriggerProps {
   children: ReactNode;
   className?: string;
+  /** Associates the trigger with an external visible label. */
+  "aria-labelledby"?: string;
+}
+
+export interface AnimatedDropdownTriggerIndicatorProps {
+  className?: string;
 }
 
 // ─── Root ─────────────────────────────────────────────────────────────────────
@@ -3166,11 +3196,13 @@ export function AnimatedDropdown({
 export function AnimatedDropdownTrigger({
   children,
   className,
+  "aria-labelledby": ariaLabelledBy,
 }: AnimatedDropdownTriggerProps) {
   return (
     <Menu.Trigger
+      aria-labelledby={ariaLabelledBy}
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
+        "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:bg-muted transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
@@ -3180,6 +3212,34 @@ export function AnimatedDropdownTrigger({
     >
       {children}
     </Menu.Trigger>
+  );
+}
+
+/**
+ * A state-aware chevron for the dropdown trigger.
+ * Rotates when Base UI marks the parent trigger as open.
+ */
+export function AnimatedDropdownTriggerIndicator({
+  className,
+}: AnimatedDropdownTriggerIndicatorProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(
+        "size-4 shrink-0 text-muted-foreground",
+        "transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "group-data-[popup-open]:rotate-180 motion-reduce:transition-none",
+        className,
+      )}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
   );
 }
 
@@ -3249,11 +3309,11 @@ export function AnimatedDropdownItem({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        "relative flex cursor-pointer select-none items-center gap-2.5",
+        "group relative flex cursor-pointer select-none items-center gap-2.5",
         "rounded-lg px-2.5 py-2 text-sm outline-none",
         "transition-colors duration-75",
         variant === "danger"
-          ? "text-danger-foreground focus:text-danger-foreground"
+          ? "text-danger-foreground focus:text-white"
           : "text-popover-foreground",
         disabled && "cursor-not-allowed opacity-50",
         className,
@@ -3286,7 +3346,14 @@ export function AnimatedDropdownItem({
 
       {/* Icon */}
       {icon && (
-        <span className="relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground">
+        <span
+          className={cn(
+            "relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground",
+            variant === "danger"
+              ? "text-danger-foreground group-focus:text-white"
+              : "text-popover-foreground",
+          )}
+        >
           {icon}
         </span>
       )}
@@ -4004,7 +4071,10 @@ export interface FluidTabsProps {
   size?: "sm" | "md" | "lg";
   /** Accessible label for the tab list. @default "Tabs" */
   ariaLabel?: string;
-  /** Styling hook for the active surface. @default "bg-[var(--fluid-tabs-surface-active)]" */
+  /**
+   * Styling hook for the active surface.
+   * @default Capsule uses the active surface token; underline uses foreground.
+   */
   activeIndicatorClassName?: string;
   /** Optional styling hook for the supporting hover cue. @default "bg-[var(--fluid-tabs-hover)]" */
   hoverClassName?: string;
@@ -4039,7 +4109,7 @@ export default function FluidTabs({
   variant = "capsule",
   size = "md",
   ariaLabel = "Tabs",
-  activeIndicatorClassName = "bg-[var(--fluid-tabs-surface-active)]",
+  activeIndicatorClassName,
   hoverClassName = "bg-[var(--fluid-tabs-hover)]",
   className,
   listClassName,
@@ -4064,10 +4134,7 @@ export default function FluidTabs({
         onValueChange?.(nextValue);
         keyboardSelectionRef.current = false;
       }}
-      className={cn(
-        "relative w-fit max-w-full overflow-x-auto border-b border-[var(--fluid-tabs-border)]",
-        className,
-      )}
+      className={cn("relative w-fit max-w-full overflow-x-auto", className)}
       style={tokenStyle}
     >
       <LayoutGroup id={layoutId}>
@@ -4119,8 +4186,11 @@ export default function FluidTabs({
                     variant === "capsule" &&
                       "inset-0 rounded-lg border border-(--tabs-indicator-border)",
                     variant === "underline" &&
-                      "inset-x-1 bottom-0 h-0.5 rounded-full bg-(--fluid-tabs-surface-active)",
-                    activeIndicatorClassName,
+                      "inset-x-1 bottom-0 h-0.5 rounded-full",
+                    activeIndicatorClassName ??
+                      (variant === "underline"
+                        ? "bg-foreground"
+                        : "bg-[var(--fluid-tabs-surface-active)]"),
                   )}
                   transition={
                     shouldReduceMotion || keyboardSelectionRef.current
@@ -9376,7 +9446,7 @@ export default function HoldToDeleteButton({
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-danger-foreground"
+        className="absolute inset-0 h-full w-full bg-danger"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
           transition: shouldReduceMotion

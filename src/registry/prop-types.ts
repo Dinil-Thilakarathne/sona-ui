@@ -818,7 +818,7 @@ export const componentProps: Record<string, PropMeta[]> = {
     {
       "name": "activeIndicatorClassName",
       "type": "string",
-      "default": "\"bg-[var(--fluid-tabs-surface-active)]\"",
+      "default": "Capsule uses the active surface token; underline uses foreground.",
       "description": "Styling hook for the active surface."
     },
     {
