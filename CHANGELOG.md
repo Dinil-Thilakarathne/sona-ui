@@ -1,3 +1,34 @@
+# [2.15.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.14.0...v2.15.0) (2026-07-27)
+
+
+### Bug Fixes
+
+* Add content collections build step to typecheck ([b3bd00a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b3bd00aed7a5fa0c824d1eaaf4da5d731d8fca18))
+* Add hover cursor pointer to dialog buttons ([01d3daf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/01d3dafd64ffadbcfd622994a0d812bb1d7eeab5))
+* Enhance search UI animations and update mobile components ([ae1fd09](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ae1fd094ee4240ba1ca3f505fee784afd1997b46))
+* Refactor landing page and update component navigation ([be76c02](https://github.com/Dinil-Thilakarathne/sona-ui/commit/be76c02af1e5023e7555e8f687a1fc34b60c5fba))
+* Refine SectionRail animation and layout ([d055669](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d05566975207c8b557188d0369d88e365243de37))
+* Remove component audit document ([76c626f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/76c626f87e2020a72d53d4dcb4b7c8d2dcd6066d))
+* Rename animated-button to button in accessibility script ([3bcf5c3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3bcf5c37940598e285e22146fa4d940563f838c6))
+* Update primary foreground color to support light-dark mode ([8204e46](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8204e4678e03d0c7624bfac44d7e2f305cb72188))
+* Update project description in package.json ([101e7a3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/101e7a33d9de21f0f33407b56cf77eb5402e103f))
+
+
+### Features
+
+* Add ActivityGraph component and GitHub contribution integration ([69b9bcd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/69b9bcd087b243a68e0fb1914002a0425b2f525f))
+* Add agent documentation and skills ([b630f4a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b630f4a5ff1ec446ede746198d06d27b6578e55f))
+* Add documentation navigation and table of contents ([f878900](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f87890010bdce3635f0024eefc59b42dd1223ff0))
+* Add Fluid Slider component ([66c8cec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/66c8cec0b6ca03162e089088db4050090d1e623e))
+* Add hover scale animation to Button and remove volume control ([3f08612](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3f086123f32e848bf8104b50fc170d28bb0ead1c))
+* Add Image Trail and Split Text components ([9f5641b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9f5641b2ed65dede4de9ddc8e833ee69fb2c26fd))
+* Improve AnimatedDropdown and internal component styling ([f1b16f9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f1b16f9e90648c567195ba76630c42863a922dd6))
+* Refactor codebase and update dependencies ([5530910](https://github.com/Dinil-Thilakarathne/sona-ui/commit/55309109176d3cbe5ea983464233357e5a819490))
+* Refactor components and add new UI suite ([77d4cc7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/77d4cc79f5d60d97a9e66deb99cdfd440cb8bcb4))
+* Refactor landing page and UI components ([fae1ae9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fae1ae9e507e9181e9c706077aaddc8b945cf9dc))
+* Refactor registry path aliases and add local build script ([22f1fc9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/22f1fc900edc8e3e15105b371b3b1a25160f30f1))
+* Refactor registry to Sona UI standard ([4697f62](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4697f62a8617541d989ed81b76b5f81bdc52f14e))
+
 # [2.14.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.13.0...v2.14.0) (2026-07-06)
 
 
