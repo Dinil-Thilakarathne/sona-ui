@@ -2,6 +2,7 @@
 
 import { Slider } from "@base-ui/react/slider";
 import { Switch } from "@base-ui/react/switch";
+import { Check } from "lucide-react";
 import {
   Component,
   type ErrorInfo,
@@ -14,6 +15,13 @@ import {
 import ComponentWrapper from "@/components/common/component-wrapper";
 import { cn } from "@/lib/utils";
 import { type Control, playgroundRegistry } from "@/registry/playground";
+import {
+  AnimatedDropdown,
+  AnimatedDropdownContent,
+  AnimatedDropdownItem,
+  AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
+} from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 
 interface ComponentPlaygroundProps {
   component: string;
@@ -267,19 +275,39 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
       )}
 
       {control.type === "select" && (
-        <select
-          id={controlId}
-          aria-labelledby={labelId}
-          value={value as string}
-          onChange={(e) => onChange(e.target.value)}
-          className="px-2.5 py-1.5 text-foreground text-sm bg-background border border-border outline-none rounded-md focus:ring-2 focus:ring-ring/40"
-        >
-          {control.options.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+        <AnimatedDropdown modal={false}>
+          <AnimatedDropdownTrigger
+            aria-labelledby={labelId}
+            className="w-full justify-between rounded-md border border-border bg-background px-2.5 py-1.5 text-foreground hover:bg-background data-[popup-open]:bg-background"
+          >
+            {control.options.find((option) => option.value === value)?.label ??
+              String(value)}
+            <AnimatedDropdownTriggerIndicator />
+          </AnimatedDropdownTrigger>
+          <AnimatedDropdownContent
+            align="start"
+            className="w-[var(--anchor-width)]"
+          >
+            {control.options.map((option) => {
+              const selected = option.value === value;
+
+              return (
+                <AnimatedDropdownItem
+                  key={option.value}
+                  icon={
+                    <Check
+                      className={cn(!selected && "opacity-0")}
+                      aria-hidden="true"
+                    />
+                  }
+                  onClick={() => onChange(option.value)}
+                >
+                  {option.label}
+                </AnimatedDropdownItem>
+              );
+            })}
+          </AnimatedDropdownContent>
+        </AnimatedDropdown>
       )}
     </div>
   );

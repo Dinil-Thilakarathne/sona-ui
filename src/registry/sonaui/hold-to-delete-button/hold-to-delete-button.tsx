@@ -114,7 +114,7 @@ export default function HoldToDeleteButton({
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-danger-foreground"
+        className="absolute inset-0 h-full w-full bg-danger"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
           transition: shouldReduceMotion

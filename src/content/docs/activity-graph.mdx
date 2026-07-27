@@ -1,0 +1,116 @@
+---
+title: Activity Graph
+slug: activity-graph
+tags: ["UI", "Data Visualization", "Calendar", "Motion", "Component"]
+---
+
+# Activity Graph Component
+
+A keyboard-accessible calendar heatmap with a shared tooltip that preserves spatial continuity while exploring daily activity.
+
+The preview fetches Dinil Thilakarathne's latest profile-level GitHub contribution calendar on the server. It covers activity across repositories included by GitHub's contribution rules; no repository names, commit messages, hashes, or author details are sent to the component.
+
+## Features
+
+- Familiar week-by-week calendar layout for commits, habits, deployments, sales, and other daily activity.
+- Quantile-like intensity levels that remain useful when a few dates contain unusually large values.
+- Controlled and uncontrolled date selection with activation callbacks and optional metadata.
+- Duplicate dates combine into one daily value without changing the visual calendar structure.
+- Roving keyboard focus with visual-direction arrow keys, row-aware Home and End, and Enter or Space to commit a selection.
+- One shared tooltip surface that travels smoothly between pointer targets, with invisible hit-area bridges across visual cell gaps and text that settles in from the travel direction; keyboard and reduced-motion updates remain immediate.
+- Optional anchored cell tooltip with custom content and a shared delay across the graph.
+- Consumer-defined level and empty-cell colors without replacing the normalization model.
+- Optional month labels, weekday labels, value summary, legend, and targeted styling hooks.
+- A 366-day default range guard, 24px coarse-pointer targets, screen-reader range summary, and latest-date-first mobile scrolling.
+- Semantic `--activity-graph-*` tokens for cell size, spacing, radius, color levels, and keyboard focus.
+
+<Divider />
+
+<ComponentPreview component="activity-graph" name="default" />
+
+## Playground
+
+Change the tooltip, colors, visible labels, legend, week start, and intensity levels while exploring the graph with pointer or keyboard.
+
+<ComponentPlayground component="activity-graph" />
+
+## Installation
+
+<ComponentInstallation component="activity-graph" />
+
+## Usage
+
+<ComponentUsage component="activity-graph" />
+
+## Using GitHub data
+
+GitHub's GraphQL API requires authentication, including for public contribution calendars. Keep the token in a server-only environment variable:
+
+<CodeBlockWrapper code={`GITHUB_TOKEN=github_pat_...`} language="bash" />
+
+Then fetch the profile calendar in a Server Component and pass its days to `ActivityGraph`:
+
+<CodeBlockWrapper
+  code={`import { getGitHubProfileContributions } from "@/lib/github-contributions";
+import ActivityGraph from "@/components/ui/activity-graph/activity-graph";
+
+export default async function GitHubActivity() {
+  const calendar = await getGitHubProfileContributions({
+    login: "Dinil-Thilakarathne",
+  });
+
+return (
+
+  <ActivityGraph
+        data={calendar.days}
+        startDate={calendar.from}
+        endDate={calendar.to}
+        showTooltip
+    />
+  );
+}`}
+language="ts"
+/>
+The default one-year range follows the current date, so the showcase never needs
+hardcoded daily values. GitHub's contribution calendar includes qualifying
+commits, pull requests, issues, reviews, and repository creation—not commits
+alone.
+
+A token can always read public contribution data. If it belongs to the displayed profile and has access to that user's private repositories, GitHub can also include private contribution counts. The utility uses `cache: "no-store"` so token-scoped results are not stored in a shared application cache.
+
+Keep GitHub credentials and API calls outside `ActivityGraph`. The component only renders the supplied daily values, so it remains reusable and safe to install in client applications.
+
+## Data normalization
+
+`ActivityGraph` treats supplied dates as wall-clock calendar dates, ignores invalid data records, and safely falls back when a range or selected date cannot be parsed. Duplicate dates are summed; their custom label is discarded after merging so it cannot contradict the combined value.
+
+The default intensity algorithm ranks non-zero values and distributes them across the configured `levels`. This keeps the full palette useful when a few days are much larger than the rest. Dates with zero activity always use the empty color.
+
+By default, the component renders at most 366 days. Increase `maxDays` deliberately for longer ranges, keeping in mind that every rendered date is an interactive grid cell.
+
+Arrow keys only explore the grid. `Enter`, `Space`, or a pointer click commits the date and calls the selection callbacks. When neither `value` nor `defaultValue` is supplied, the graph begins without a selected date.
+
+## CSS variables
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `--activity-graph-cell-size` | `0.75rem` | Visible cell width and height. Coarse pointers receive a `1.25rem` override. |
+| `--activity-graph-cell-gap` | `0.25rem` | Visual spacing and invisible hit-area bridge between cells. |
+| `--activity-graph-cell-radius` | `0.1875rem` | Cell corner radius. |
+| `--activity-graph-empty` | Semantic muted mix | Empty-day color. |
+| `--activity-graph-level-1` … `--activity-graph-level-6` | Semantic primary mixes | Ordered intensity colors. |
+| `--activity-graph-focus-ring` | `var(--ring)` | Keyboard focus and selected-date outline. |
+
+### GitHub contribution utility
+
+This is the server utility used by the showcase. It queries GitHub's profile contribution calendar, normalizes each day into the `ActivityGraph` data contract, and keeps `GITHUB_TOKEN` outside the client bundle.
+
+<SourceCode
+  source="github-contributions"
+  filename="src/lib/github-contributions.ts"
+  language="typescript"
+/>
+
+## Props
+
+<PropTable component="activity-graph" />

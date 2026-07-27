@@ -291,6 +291,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "activity-graph",
+      "type": "registry:ui",
+      "title": "Activity Graph",
+      "description": "A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.",
+      "files": [
+        {
+          "path": "registry/sonaui/activity-graph/activity-graph.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/activity-graph/activity-graph.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://sona-ui.vercel.app/r/sona-utils.json"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "animated-tabs",
       "type": "registry:ui",
       "title": "Animated Tabs",

@@ -1,10 +1,29 @@
+import { promises as fs } from "node:fs";
+import path from "node:path";
 import { allDocs, type Doc } from "content-collections";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-navigation";
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
+import { FIRST_COMP_LINK } from "@/lib/constants";
 import DocClient from "./DocClient";
+
+async function readGitHubContributionsSource() {
+  const sourcePath = path.join(
+    process.cwd(),
+    "src",
+    "lib",
+    "github-contributions.ts",
+  );
+
+  try {
+    return await fs.readFile(sourcePath, "utf-8");
+  } catch (error) {
+    console.error("Error reading the GitHub contributions source:", error);
+    return "// Error reading file: src/lib/github-contributions.ts";
+  }
+}
 
 async function getDocFromParams({
   params,
@@ -16,7 +35,7 @@ async function getDocFromParams({
   const slugPath = slug?.join("/");
 
   if (!slugPath) {
-    notFound();
+    redirect(FIRST_COMP_LINK);
   }
 
   // Find the document by slug
@@ -81,6 +100,12 @@ export default async function DocPage({
     title: nextItem.name,
     href: nextItem.href,
   };
+  const sourceFiles =
+    doc.slug === "activity-graph"
+      ? {
+          "github-contributions": await readGitHubContributionsSource(),
+        }
+      : undefined;
 
   return (
     <DocClient
@@ -90,6 +115,7 @@ export default async function DocPage({
         body: { code: doc.body.code, raw: doc.body.raw },
       }}
       navigation={{ previous, next }}
+      sourceFiles={sourceFiles}
     />
   );
 }

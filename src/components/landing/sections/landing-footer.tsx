@@ -16,6 +16,7 @@ const footerLinkGroups = [
       { label: "AI agents", href: "/docs/ai-agents" },
       { label: "Skills", href: "/docs/skills" },
       { label: "Changelog", href: "/docs/changelog" },
+      { label: "llms.txt", href: "/llms.txt" },
     ],
   },
 ] as const;

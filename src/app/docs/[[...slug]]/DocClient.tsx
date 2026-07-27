@@ -17,18 +17,24 @@ interface DocClientProps {
     body: { code: string; raw: string };
   };
   navigation: { previous?: DocsPageLink; next?: DocsPageLink };
+  sourceFiles?: Record<string, string>;
 }
 
-export default function DocClient({ doc, navigation }: DocClientProps) {
+export default function DocClient({
+  doc,
+  navigation,
+  sourceFiles,
+}: DocClientProps) {
   const url = `${SITE_METADATA.siteLink}/docs/${doc.slug}`;
   const mdUrl = `/api/md?slug=${encodeURIComponent(doc.slug)}`;
 
   return (
     <div className="relative mx-auto w-full max-w-[calc(75ch+17rem)]">
-      <div className="xl:grid xl:grid-cols-[minmax(0,75ch)_13rem] xl:gap-x-12">
+      <div className="lg:grid lg:grid-cols-[minmax(0,75ch)_13rem] lg:gap-x-12">
         <div>
           <Mdx
             code={doc.body.code}
+            sourceFiles={sourceFiles}
             headerActions={
               <DocsCopyPage page={doc.body.raw} url={url} mdUrl={mdUrl} />
             }

@@ -65,13 +65,17 @@ Pass `open` and `onOpenChange` to fully control the dropdown from external state
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/components/ui/animated-dropdown";
 import { LogOut, Settings, User } from "lucide-react";
 
 export function MyDropdown() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        Account
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<Settings />}>Settings</AnimatedDropdownItem>

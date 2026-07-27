@@ -38,7 +38,10 @@ export interface FluidTabsProps {
   size?: "sm" | "md" | "lg";
   /** Accessible label for the tab list. @default "Tabs" */
   ariaLabel?: string;
-  /** Styling hook for the active surface. @default "bg-[var(--fluid-tabs-surface-active)]" */
+  /**
+   * Styling hook for the active surface.
+   * @default Capsule uses the active surface token; underline uses foreground.
+   */
   activeIndicatorClassName?: string;
   /** Optional styling hook for the supporting hover cue. @default "bg-[var(--fluid-tabs-hover)]" */
   hoverClassName?: string;
@@ -73,7 +76,7 @@ export default function FluidTabs({
   variant = "capsule",
   size = "md",
   ariaLabel = "Tabs",
-  activeIndicatorClassName = "bg-[var(--fluid-tabs-surface-active)]",
+  activeIndicatorClassName,
   hoverClassName = "bg-[var(--fluid-tabs-hover)]",
   className,
   listClassName,
@@ -98,10 +101,7 @@ export default function FluidTabs({
         onValueChange?.(nextValue);
         keyboardSelectionRef.current = false;
       }}
-      className={cn(
-        "relative w-fit max-w-full overflow-x-auto border-b border-[var(--fluid-tabs-border)]",
-        className,
-      )}
+      className={cn("relative w-fit max-w-full overflow-x-auto", className)}
       style={tokenStyle}
     >
       <LayoutGroup id={layoutId}>
@@ -153,8 +153,11 @@ export default function FluidTabs({
                     variant === "capsule" &&
                       "inset-0 rounded-lg border border-(--tabs-indicator-border)",
                     variant === "underline" &&
-                      "inset-x-1 bottom-0 h-0.5 rounded-full bg-(--fluid-tabs-surface-active)",
-                    activeIndicatorClassName,
+                      "inset-x-1 bottom-0 h-0.5 rounded-full",
+                    activeIndicatorClassName ??
+                      (variant === "underline"
+                        ? "bg-foreground"
+                        : "bg-[var(--fluid-tabs-surface-active)]"),
                   )}
                   transition={
                     shouldReduceMotion || keyboardSelectionRef.current

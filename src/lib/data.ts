@@ -1,9 +1,9 @@
-import { groupedComponents } from "@/config/components";
+import { FIRST_COMP_LINK } from "./constants";
 import type { NavLinksPropsType } from "./types";
 
 export const navLinks: NavLinksPropsType[] = [
   {
     name: "Components",
-    href: groupedComponents[Object.keys(groupedComponents)[1]][0].href,
+    href: FIRST_COMP_LINK,
   },
 ];

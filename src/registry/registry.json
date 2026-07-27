@@ -233,6 +233,25 @@
     ]
   },
   {
+    "name": "activity-graph",
+    "type": "registry:ui",
+    "title": "Activity Graph",
+    "description": "A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.",
+    "files": [
+      {
+        "path": "registry/sonaui/activity-graph/activity-graph.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-utils.json"
+    ]
+  },
+  {
     "name": "animated-tabs",
     "type": "registry:ui",
     "title": "Animated Tabs",

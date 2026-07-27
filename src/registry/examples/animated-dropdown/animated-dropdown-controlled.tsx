@@ -8,6 +8,7 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownControlled() {
@@ -22,7 +23,10 @@ export default function AnimatedDropdownControlled() {
         </span>
       </p>
       <AnimatedDropdown open={open} onOpenChange={setOpen}>
-        <AnimatedDropdownTrigger>Controlled ▾</AnimatedDropdownTrigger>
+        <AnimatedDropdownTrigger>
+          Controlled
+          <AnimatedDropdownTriggerIndicator />
+        </AnimatedDropdownTrigger>
         <AnimatedDropdownContent>
           <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
           <AnimatedDropdownItem icon={<Bell />}>

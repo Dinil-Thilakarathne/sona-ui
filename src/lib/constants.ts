@@ -1,5 +1,6 @@
 import type { IconType } from "react-icons";
 import { BsStars } from "react-icons/bs";
+import { groupedComponents } from "@/config/components";
 
 type heroContentProps = {
   flag: {
@@ -25,3 +26,6 @@ export const heroContent: heroContentProps = {
 export const GIT_REP_LINK = "https://github.com/Dinil-Thilakarathne/sona-ui";
 
 export const FEATURE_FLAG = false;
+
+export const FIRST_COMP_LINK =
+  groupedComponents[Object.keys(groupedComponents)[1]][0].href;
