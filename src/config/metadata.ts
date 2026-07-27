@@ -15,14 +15,6 @@ export const siteMetaData: Metadata = {
     description: SITE_METADATA.description,
     url: SITE_METADATA.siteLink,
     siteName: SITE_METADATA.siteName,
-    images: [
-      {
-        url: SITE_METADATA.ogImage,
-        width: 1200,
-        height: 630,
-        alt: SITE_METADATA.title,
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -30,7 +22,6 @@ export const siteMetaData: Metadata = {
     card: "summary_large_image",
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
-    images: [SITE_METADATA.twitterImage],
     creator: SITE_METADATA.authorTwitter,
   },
   //   manifest: "/site.webmanifest",p
