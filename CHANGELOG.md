@@ -1,3 +1,10 @@
+## [2.16.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.0...v2.16.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* Remove InteractionPreview from social image component ([f2a1796](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f2a179672c0f94157d396f410a70a8d61677dc90))
+
 # [2.16.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.15.1...v2.16.0) (2026-07-27)
 
 
