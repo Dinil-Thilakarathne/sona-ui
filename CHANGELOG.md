@@ -1,3 +1,10 @@
+## [2.15.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.15.0...v2.15.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* Refactor registry to use package-based dependencies ([74799ef](https://github.com/Dinil-Thilakarathne/sona-ui/commit/74799efec32591d6d137f609621f475476bc0100))
+
 # [2.15.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.14.0...v2.15.0) (2026-07-27)
 
 
