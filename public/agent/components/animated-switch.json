@@ -35,7 +35,10 @@
       "@base-ui/react",
       "motion"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-utils",
+      "@sona-ui/sona-motion"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/animated-switch",

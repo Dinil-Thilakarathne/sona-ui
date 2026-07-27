@@ -18,6 +18,6 @@
     "react-use-measure"
   ],
   "registryDependencies": [
-    "https://sona-ui.vercel.app/r/sona-motion.json"
+    "@sona-ui/sona-motion"
   ]
 }

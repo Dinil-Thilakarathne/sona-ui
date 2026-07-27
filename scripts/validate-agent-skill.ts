@@ -18,6 +18,11 @@ const requiredSkillTerms = [
   "prefers-reduced-motion",
   "Inspect the consumer",
   "Install the smallest useful set",
+  "Reference routing",
+  "Installation preflight",
+  "Ask before overwriting",
+  "protected, preview-only, or unreachable",
+  "Required for interactive components",
 ];
 const errors: string[] = [];
 

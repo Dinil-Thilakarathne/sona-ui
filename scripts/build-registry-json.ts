@@ -26,15 +26,6 @@ type BuiltRegistryFile = RegistryFileDefinition & {
 const registryPath = path.join(process.cwd(), "src/registry");
 const metadataPath = path.join(registryPath, "registry.json");
 const publicRegistryPath = path.join(process.cwd(), "public/r");
-const configuredRegistryBaseUrl = process.env.REGISTRY_BASE_URL?.trim();
-const vercelRegistryBaseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}/r`
-  : undefined;
-const registryBaseUrl = (
-  configuredRegistryBaseUrl ??
-  vercelRegistryBaseUrl ??
-  "https://sona-ui.vercel.app/r"
-).replace(/\/$/, "");
 
 const foundationImports = {
   "@/lib/sona-utils": "sona-utils",
@@ -91,7 +82,7 @@ function inferFoundationDependencies(files: BuiltRegistryFile[]) {
         file.content.includes(`"${specifier}"`) ||
         file.content.includes(`'${specifier}'`)
       ) {
-        dependencies.add(`${registryBaseUrl}/${itemName}.json`);
+        dependencies.add(`@sona-ui/${itemName}`);
       }
     }
   }
@@ -99,9 +90,8 @@ function inferFoundationDependencies(files: BuiltRegistryFile[]) {
 }
 
 function resolveRegistryDependency(dependency: string) {
-  if (registryBaseUrl === "https://sona-ui.vercel.app/r") return dependency;
-  const match = dependency.match(/\/r\/([^/]+\.json)$/);
-  return match ? `${registryBaseUrl}/${match[1]}` : dependency;
+  const match = dependency.match(/\/r\/([^/]+)\.json$/);
+  return match ? `@sona-ui/${match[1]}` : dependency;
 }
 
 function buildRegistryJson() {

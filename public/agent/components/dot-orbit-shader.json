@@ -35,7 +35,9 @@
       "@paper-design/shaders-react",
       "motion"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/dot-orbit-shader",

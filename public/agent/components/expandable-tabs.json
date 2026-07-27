@@ -36,7 +36,10 @@
       "motion",
       "react-icons"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-utils",
+      "@sona-ui/sona-motion"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/expandable-tabs",
