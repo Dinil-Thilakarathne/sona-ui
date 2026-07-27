@@ -332,21 +332,6 @@ export function SonaSocialImage() {
 
       <div
         style={{
-          alignItems: "center",
-          bottom: 0,
-          display: "flex",
-          justifyContent: "center",
-          position: "absolute",
-          right: 36,
-          top: 0,
-          width: 470,
-        }}
-      >
-        <InteractionPreview />
-      </div>
-
-      <div
-        style={{
           border: "1px solid rgba(24,24,27,0.1)",
           borderRadius: 30,
           bottom: 0,
