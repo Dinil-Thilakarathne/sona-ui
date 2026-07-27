@@ -16,7 +16,5 @@ export const SITE_METADATA = {
   authorTwitter: "@codebydinil",
   siteLink: "https://sona-ui.vercel.app",
   siteName: "Sona UI",
-  ogImage: "https://sona-ui.vercel.app/og-image.png",
-  twitterImage: "https://sona-ui.vercel.app/og-image.png",
   currentVersion: "v2.0",
 };
