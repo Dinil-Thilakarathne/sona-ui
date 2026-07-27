@@ -7,12 +7,16 @@ import {
   AnimatedDropdownItem,
   AnimatedDropdownSeparator,
   AnimatedDropdownTrigger,
+  AnimatedDropdownTriggerIndicator,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 
 export default function AnimatedDropdownDemo() {
   return (
     <AnimatedDropdown>
-      <AnimatedDropdownTrigger>My Account ▾</AnimatedDropdownTrigger>
+      <AnimatedDropdownTrigger>
+        My Account
+        <AnimatedDropdownTriggerIndicator />
+      </AnimatedDropdownTrigger>
       <AnimatedDropdownContent>
         <AnimatedDropdownItem icon={<User />}>Profile</AnimatedDropdownItem>
         <AnimatedDropdownItem icon={<CreditCard />}>
