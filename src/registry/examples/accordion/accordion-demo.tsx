@@ -46,7 +46,7 @@ export default function AccordionDefaultExample() {
   return (
     <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>

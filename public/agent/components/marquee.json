@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "marquee",
+  "title": "Marquee",
+  "category": "effects",
+  "status": "stable",
+  "summary": "A continuously moving content rail for decorative or low-priority repeated content.",
+  "docsSlug": "marquee",
+  "keywords": [
+    "marquee",
+    "loop",
+    "scrolling content"
+  ],
+  "useWhen": [
+    "A continuously moving content rail for decorative or low-priority repeated content."
+  ],
+  "avoidWhen": [
+    "The effect would compete with meaningful content or reduce readability."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Add restrained visual depth without competing with the primary task.",
+    "reducedMotion": "Use a static or reduced visual treatment when motion is not preferred."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/marquee.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/marquee",
+    "rawUrl": "https://sona-ui.vercel.app/docs/marquee/raw.md",
+    "sourceTitle": "marquee"
+  }
+}

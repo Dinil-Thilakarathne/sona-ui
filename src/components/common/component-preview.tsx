@@ -31,7 +31,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
       </TabsList>
       <TabsContent
         value="preview"
-        className="flex min-h-[350px] items-center justify-center"
+        className="flex items-center justify-center min-h-[350px]"
       >
         <ComponentWrapper>{component}</ComponentWrapper>
       </TabsContent>

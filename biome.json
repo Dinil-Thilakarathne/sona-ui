@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
   "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
   "files": { "ignoreUnknown": false },
   "formatter": {
@@ -16,18 +16,7 @@
     "useEditorconfig": true
   },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "preset": "recommended",
-      "nursery": {
-        "useSortedClasses": {
-          "level": "warn",
-          "options": {
-            "functions": ["clsx", "cva", "twMerge"]
-          }
-        }
-      }
-    }
+    "enabled": true
   },
   "javascript": {
     "formatter": {

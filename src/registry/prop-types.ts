@@ -8,12 +8,454 @@ export type PropMeta = {
 };
 
 export const componentProps: Record<string, PropMeta[]> = {
+  "accordion": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The accordion items."
+    },
+    {
+      "name": "allowMultiple",
+      "type": "boolean",
+      "default": "false",
+      "description": "Allows multiple accordion items to be open simultaneously."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "default": "—",
+      "description": "Controlled values of the currently open items."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "default": "—",
+      "description": "Values of the initially open items for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "Accordion.Root.Props<string>[\"onValueChange\"]",
+      "default": "—",
+      "description": "Called when the set of open item values changes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the entire accordion ignores interaction."
+    },
+    {
+      "name": "keepMounted",
+      "type": "boolean",
+      "default": "false",
+      "description": "Keeps closed panels mounted in the DOM."
+    },
+    {
+      "name": "hiddenUntilFound",
+      "type": "boolean",
+      "default": "false",
+      "description": "Allows browser find-in-page to reveal matching panel content."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the accordion root."
+    },
+    {
+      "name": "variant",
+      "type": "AccordionVariant",
+      "default": "\"default\"",
+      "description": "Visual style of the accordion."
+    }
+  ],
+  "activity-graph": [
+    {
+      "name": "data",
+      "type": "ActivityGraphDatum[]",
+      "default": "required",
+      "description": "Dated activity records displayed in the graph."
+    },
+    {
+      "name": "startDate",
+      "type": "Date | string",
+      "default": "364 days before endDate",
+      "description": "Inclusive first date displayed by the graph."
+    },
+    {
+      "name": "endDate",
+      "type": "Date | string",
+      "default": "latest data date or today",
+      "description": "Inclusive last date displayed by the graph."
+    },
+    {
+      "name": "levels",
+      "type": "number",
+      "default": "4",
+      "description": "Number of non-empty color intensity levels."
+    },
+    {
+      "name": "maxDays",
+      "type": "number",
+      "default": "366",
+      "description": "Maximum number of calendar days rendered."
+    },
+    {
+      "name": "weekStartsOn",
+      "type": "0 | 1 | 6",
+      "default": "0",
+      "description": "First day of each visual week: Sunday, Monday, or Saturday."
+    },
+    {
+      "name": "value",
+      "type": "Date | string | null",
+      "default": "undefined",
+      "description": "Controlled selected date."
+    },
+    {
+      "name": "defaultValue",
+      "type": "Date | string | null",
+      "default": "undefined",
+      "description": "Initially selected date for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(date: Date, item: ActivityGraphDatum | undefined) => void",
+      "default": "undefined",
+      "description": "Called when a date is selected."
+    },
+    {
+      "name": "onCellSelect",
+      "type": "(item: ActivityGraphDatum | undefined, date: Date) => void",
+      "default": "undefined",
+      "description": "Called when a selected date is activated with pointer or keyboard."
+    },
+    {
+      "name": "renderValue",
+      "type": "(context: ActivityGraphValueContext) => ReactNode",
+      "default": "undefined",
+      "description": "Custom content shown for the currently explored date."
+    },
+    {
+      "name": "showValue",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the active date and value above the graph."
+    },
+    {
+      "name": "showTooltip",
+      "type": "boolean",
+      "default": "false",
+      "description": "Shows an anchored tooltip when a date cell is hovered or focused."
+    },
+    {
+      "name": "tooltipDelay",
+      "type": "number",
+      "default": "400",
+      "description": "Delay before the first tooltip opens, in milliseconds."
+    },
+    {
+      "name": "renderTooltip",
+      "type": "(context: ActivityGraphValueContext) => ReactNode",
+      "default": "undefined",
+      "description": "Custom content rendered inside the optional cell tooltip."
+    },
+    {
+      "name": "colors",
+      "type": "string[]",
+      "default": "undefined",
+      "description": "Custom colors for non-empty intensity levels, ordered from low to high."
+    },
+    {
+      "name": "emptyColor",
+      "type": "string",
+      "default": "undefined",
+      "description": "Custom color for dates without activity."
+    },
+    {
+      "name": "showMonthLabels",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows month labels above the graph."
+    },
+    {
+      "name": "showWeekdayLabels",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows abbreviated weekday labels beside the graph."
+    },
+    {
+      "name": "showLegend",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the intensity legend below the graph."
+    },
+    {
+      "name": "emptyLabel",
+      "type": "string",
+      "default": "\"No activity\"",
+      "description": "Accessible description for a date without activity."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Activity graph\"",
+      "description": "Accessible name for the interactive graph."
+    },
+    {
+      "name": "gridClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the scrollable graph region."
+    },
+    {
+      "name": "cellClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes applied to every date cell."
+    },
+    {
+      "name": "tooltipClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the optional tooltip surface."
+    },
+    {
+      "name": "legendClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the intensity legend."
+    }
+  ],
+  "animated-dialog": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": ""
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial open state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": ""
+    },
+    {
+      "name": "modal",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the dialog traps interaction inside the modal."
+    }
+  ],
+  "animated-dropdown": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": ""
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial open state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Callback when open state changes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the menu ignores user interaction."
+    },
+    {
+      "name": "modal",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the open menu limits interaction to the menu."
+    }
+  ],
+  "animated-switch": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled checked state."
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial checked state for uncontrolled usage."
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "(checked: boolean) => void",
+      "default": "—",
+      "description": "Callback fired when the checked state changes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the switch is disabled."
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "default": "\"md\"",
+      "description": "The size of the switch."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the switch track."
+    }
+  ],
+  "animated-tabs": [
+    {
+      "name": "tabs",
+      "type": "AnimatedTabItem[]",
+      "default": "required",
+      "description": "Tabs displayed in the horizontal tab list."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "default": "—",
+      "description": "Controlled active tab value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "default": "—",
+      "description": "Initially active tab for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "default": "—",
+      "description": "Called when the active tab changes."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Tabs\"",
+      "description": "Accessible label for the tab list."
+    },
+    {
+      "name": "indicatorClassName",
+      "type": "string",
+      "default": "\"bg-accent\"",
+      "description": "Background class for the shared active indicator."
+    },
+    {
+      "name": "activeTabClassName",
+      "type": "string",
+      "default": "\"bg-muted\"",
+      "description": "Background class for the active tab."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the root container."
+    },
+    {
+      "name": "listClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the tab list."
+    }
+  ],
+  "bubble-up-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "—",
+      "description": "Content to display inside the button"
+    },
+    {
+      "name": "motionControls",
+      "type": "MotionConfigProps",
+      "default": "—",
+      "description": "Motion configuration for animations"
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes"
+    }
+  ],
+  "button": [
+    {
+      "name": "children",
+      "type": "React.ReactNode",
+      "default": "required",
+      "description": "Content rendered inside the button."
+    },
+    {
+      "name": "variant",
+      "type": "\"default\" | \"outlined\" | \"secondary\"",
+      "default": "\"default\"",
+      "description": "Visual style of the button."
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "default": "\"md\"",
+      "description": "Controls the button height, padding, and text size."
+    }
+  ],
   "circular-dock-menu": [
     {
       "name": "items",
       "type": "DockMenuItem[]",
       "default": "—",
       "description": "Items rendered as arc pills when the menu is open."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial open state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Called when the menu opens or closes."
     },
     {
       "name": "stiffness",
@@ -32,44 +474,6 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes for the root container."
-    }
-  ],
-  "magnetic-button": [
-    {
-      "name": "children",
-      "type": "ReactNode",
-      "default": "required",
-      "description": "The content to be rendered inside the magnetic button."
-    },
-    {
-      "name": "magneticIntensity",
-      "type": "number",
-      "default": "0.6",
-      "description": "The intensity of the magnetic pull effect."
-    },
-    {
-      "name": "magneticRange",
-      "type": "number",
-      "default": "100",
-      "description": "The range within which the magnetic effect is active."
-    },
-    {
-      "name": "interactionArea",
-      "type": "\"self\" | \"parent\"",
-      "default": "\"self\"",
-      "description": "Defines the area of interaction for the magnetic effect."
-    },
-    {
-      "name": "springConfig",
-      "type": "SpringOptions",
-      "default": "—",
-      "description": "Configuration for the spring animation."
-    },
-    {
-      "name": "customClassName",
-      "type": "string",
-      "default": "—",
-      "description": "Additional class names for custom styling."
     }
   ],
   "dot-orbit-shader": [
@@ -116,30 +520,730 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Animation speed multiplier. 0 = static."
     }
   ],
-  "accordion": [
+  "expandable-tabs": [
     {
-      "name": "children",
-      "type": "ReactNode",
+      "name": "tabs",
+      "type": "ExpandableTabItem[]",
       "default": "required",
-      "description": "The content to be displayed inside the accordion."
+      "description": "Tabs displayed in the expandable horizontal tab list."
     },
     {
-      "name": "allowMultiple",
-      "type": "boolean",
-      "default": "false",
-      "description": "Allows multiple accordion items to be open at the same time."
+      "name": "value",
+      "type": "string",
+      "default": "—",
+      "description": "Controlled active tab value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "default": "—",
+      "description": "Initially active tab for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "default": "—",
+      "description": "Called when the active tab changes."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Expandable tabs\"",
+      "description": "Accessible label for the tab list."
     },
     {
       "name": "className",
       "type": "string",
       "default": "—",
-      "description": "Additional CSS classes for the accordion container."
+      "description": "Additional classes for the root container."
+    },
+    {
+      "name": "listClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the tab list."
+    },
+    {
+      "name": "activeTabClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the active tab."
+    },
+    {
+      "name": "motionConfig",
+      "type": "MotionConfigProps",
+      "default": "—",
+      "description": "Motion configuration applied to the layout and label transitions."
+    }
+  ],
+  "fan-view": [
+    {
+      "name": "items",
+      "type": "FanViewItem[]",
+      "default": "—",
+      "description": "Items displayed as fanned cards when open."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial open state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Called when the view opens or closes."
+    },
+    {
+      "name": "stiffness",
+      "type": "number",
+      "default": "540",
+      "description": "Spring stiffness for the fan animation."
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "default": "28",
+      "description": "Spring damping for the fan animation."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the root container."
+    }
+  ],
+  "fluid-slider": [
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Visible label associated with the slider."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "default": "undefined",
+      "description": "Controlled slider value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "default": "50",
+      "description": "Initial value for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "( value: number, details: Slider.Root.ChangeEventDetails, ) => void",
+      "default": "undefined",
+      "description": "Called continuously while the value changes."
+    },
+    {
+      "name": "onValueCommitted",
+      "type": "( value: number, details: Slider.Root.CommitEventDetails, ) => void",
+      "default": "undefined",
+      "description": "Called when a pointer or keyboard interaction commits."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "default": "0",
+      "description": "Minimum allowed value."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "default": "100",
+      "description": "Maximum allowed value."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": "1",
+      "description": "Smallest value increment."
+    },
+    {
+      "name": "largeStep",
+      "type": "number",
+      "default": "10",
+      "description": "Increment used by Page Up, Page Down, and modified arrow keys."
+    },
+    {
+      "name": "marks",
+      "type": "number[]",
+      "default": "[]",
+      "description": "Numeric positions rendered as quiet reference marks."
+    },
+    {
+      "name": "formatValue",
+      "type": "(value: number) => string",
+      "default": "undefined",
+      "description": "Formats the visible and accessible value text."
+    },
+    {
+      "name": "format",
+      "type": "Intl.NumberFormatOptions",
+      "default": "undefined",
+      "description": "Intl options used when no custom formatter is supplied."
+    },
+    {
+      "name": "locale",
+      "type": "Intl.LocalesArgument",
+      "default": "undefined",
+      "description": "Locale used by the default number formatter."
+    },
+    {
+      "name": "showValue",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the trailing formatted value is visible."
+    },
+    {
+      "name": "showHandle",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the active boundary grip is visible."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the slider ignores user interaction."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "default": "undefined",
+      "description": "Name submitted with the slider's hidden range input."
+    },
+    {
+      "name": "form",
+      "type": "string",
+      "default": "undefined",
+      "description": "ID of the form that owns the slider input."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "undefined",
+      "description": "Accessible name used instead of the visible label."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the slider root."
+    },
+    {
+      "name": "trackClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the track surface."
+    },
+    {
+      "name": "surfaceClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the filled surface."
+    },
+    {
+      "name": "labelClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the fixed label."
+    },
+    {
+      "name": "valueClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the trailing value."
+    },
+    {
+      "name": "handleClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the boundary grip."
+    }
+  ],
+  "fluid-tabs": [
+    {
+      "name": "tabs",
+      "type": "FluidTabItem[]",
+      "default": "required",
+      "description": "Tabs displayed in the horizontal tab list."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "default": "—",
+      "description": "Controlled active tab value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "default": "—",
+      "description": "Initially active tab for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string) => void",
+      "default": "—",
+      "description": "Called when the active tab changes."
     },
     {
       "name": "variant",
-      "type": "AccordionVariant",
-      "default": "default",
-      "description": "The visual style of the accordion."
+      "type": "\"capsule\" | \"underline\"",
+      "default": "\"capsule\"",
+      "description": "Visual treatment for the active surface."
+    },
+    {
+      "name": "size",
+      "type": "\"sm\" | \"md\" | \"lg\"",
+      "default": "\"md\"",
+      "description": "Size of the tab triggers."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Tabs\"",
+      "description": "Accessible label for the tab list."
+    },
+    {
+      "name": "activeIndicatorClassName",
+      "type": "string",
+      "default": "Capsule uses the active surface token; underline uses foreground.",
+      "description": "Styling hook for the active surface."
+    },
+    {
+      "name": "hoverClassName",
+      "type": "string",
+      "default": "\"bg-[var(--fluid-tabs-hover)]\"",
+      "description": "Optional styling hook for the supporting hover cue."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the root container."
+    },
+    {
+      "name": "listClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the tab list."
+    }
+  ],
+  "hold-to-delete-button": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "—",
+      "description": "Text displayed inside the button."
+    },
+    {
+      "name": "holdDuration",
+      "type": "number",
+      "default": "2000",
+      "description": "Duration in milliseconds the user must hold before the action triggers."
+    },
+    {
+      "name": "successDuration",
+      "type": "number",
+      "default": "1200",
+      "description": "Duration in milliseconds the success state is visible before auto-resetting."
+    },
+    {
+      "name": "onDelete",
+      "type": "() => void",
+      "default": "—",
+      "description": "Called once when the hold completes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the button ignores interaction."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the button."
+    }
+  ],
+  "image-trail": [
+    {
+      "name": "images",
+      "type": "string[]",
+      "default": "required",
+      "description": "Image sources spawned in order as the pointer moves."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content the effect is scoped to; the trail only spawns over this area."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the container."
+    },
+    {
+      "name": "itemClassName",
+      "type": "string",
+      "default": "\"w-40\"",
+      "description": "Extra classes for each trail image (use for sizing, e.g. `\"w-48\"`)."
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "default": "80",
+      "description": "Pointer distance in pixels travelled before the next image spawns."
+    },
+    {
+      "name": "maxImages",
+      "type": "number",
+      "default": "8",
+      "description": "Maximum number of images alive at once."
+    },
+    {
+      "name": "lifetime",
+      "type": "number",
+      "default": "600",
+      "description": "How long an image stays before it animates out, in milliseconds."
+    },
+    {
+      "name": "variant",
+      "type": "\"scale\" | \"fade\" | \"blur\" | \"rise\" | \"tilt\"",
+      "default": "\"scale\"",
+      "description": "Entrance and exit animation style."
+    },
+    {
+      "name": "ignoreSelector",
+      "type": "string",
+      "default": "\"a, button, input, [data-image-trail-ignore]\"",
+      "description": "CSS selector for elements that suppress the effect when hovered, keeping interactive UI unobstructed."
+    },
+    {
+      "name": "zIndex",
+      "type": "number",
+      "default": "10",
+      "description": "z-index of the trail layer."
+    }
+  ],
+  "link-preview": [
+    {
+      "name": "link",
+      "type": "string",
+      "default": "required",
+      "description": "The URL of the link to preview."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "default": "required",
+      "description": "The text to display for the link."
+    },
+    {
+      "name": "showIcon",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether to show an icon next to the link text."
+    }
+  ],
+  "magnetic-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content to be rendered inside the magnetic button."
+    },
+    {
+      "name": "magneticIntensity",
+      "type": "number",
+      "default": "0.6",
+      "description": "The intensity of the magnetic pull effect."
+    },
+    {
+      "name": "magneticRange",
+      "type": "number",
+      "default": "100",
+      "description": "The range within which the magnetic effect is active."
+    },
+    {
+      "name": "interactionArea",
+      "type": "\"self\" | \"parent\"",
+      "default": "\"self\"",
+      "description": "Defines the area of interaction for the magnetic effect."
+    },
+    {
+      "name": "springConfig",
+      "type": "SpringOptions",
+      "default": "—",
+      "description": "Configuration for the spring animation."
+    },
+    {
+      "name": "customClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Additional class names for custom styling."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the wrapper. Prefer this for new usage."
+    }
+  ],
+  "marquee": [
+    {
+      "name": "children",
+      "type": "React.ReactNode",
+      "default": "required",
+      "description": "Content of one marquee segment. Can be a single small element or a long strip."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": ""
+    },
+    {
+      "name": "containerClassName",
+      "type": "string",
+      "default": "—",
+      "description": "Class for the outer clipping container."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "80",
+      "description": "Scroll speed in pixels per second. Higher = faster."
+    },
+    {
+      "name": "gap",
+      "type": "string",
+      "default": "\"4rem\"",
+      "description": "Gap between repeated segments, any CSS length string."
+    },
+    {
+      "name": "direction",
+      "type": "\"left\" | \"right\" | \"up\" | \"down\"",
+      "default": "\"left\"",
+      "description": "Scroll direction."
+    },
+    {
+      "name": "scrollVelocity",
+      "type": "boolean",
+      "default": "false",
+      "description": "Multiply speed by scroll velocity (and flip direction on scroll-up)."
+    },
+    {
+      "name": "maxVelocity",
+      "type": "number",
+      "default": "5",
+      "description": "Max speed multiplier when scrollVelocity is enabled."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "default": "false",
+      "description": "Pause (with easing, not a snap) on hover."
+    },
+    {
+      "name": "repeat",
+      "type": "number | \"auto\"",
+      "default": "\"auto\"",
+      "description": "How many segment copies to render. \"auto\" measures the container and fills 2× it."
+    }
+  ],
+  "mesh-gradient-shader": [
+    {
+      "name": "colors",
+      "type": "string[]",
+      "default": "[\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\", \"#ffeaa7\"]",
+      "description": "Up to 10 color spots. Accepts hex, RGB, or HSL strings."
+    },
+    {
+      "name": "distortion",
+      "type": "number",
+      "default": "0.3",
+      "description": "Power of organic noise distortion (0–1)."
+    },
+    {
+      "name": "swirl",
+      "type": "number",
+      "default": "0.2",
+      "description": "Power of vortex distortion (0–1)."
+    },
+    {
+      "name": "grainMixer",
+      "type": "number",
+      "default": "0",
+      "description": "Grain distortion on color edges (0–1)."
+    },
+    {
+      "name": "grainOverlay",
+      "type": "number",
+      "default": "0",
+      "description": "Post-processing grain overlay (0–1)."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "1",
+      "description": "Animation speed multiplier. 0 = static."
+    }
+  ],
+  "ripple-button": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The content to be displayed inside the button."
+    },
+    {
+      "name": "scaleAmount",
+      "type": "number",
+      "default": "25",
+      "description": "The scale amount for the ripple effect."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the button."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "0.5",
+      "description": "Duration of the ripple animation in seconds."
+    },
+    {
+      "name": "rippleStyle",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the ripple effect."
+    }
+  ],
+  "section-rail": [
+    {
+      "name": "items",
+      "type": "SectionRailItem[]",
+      "default": "required",
+      "description": "The sections represented by the rail, in document order."
+    },
+    {
+      "name": "mode",
+      "type": "\"scroll\" | \"controlled\"",
+      "default": "\"scroll\"",
+      "description": "`\"scroll\"` resolves the active item from the page; `\"controlled\"` leaves it to `activeId` / `onActiveChange`."
+    },
+    {
+      "name": "activeId",
+      "type": "string",
+      "default": "undefined",
+      "description": "Active item id for controlled usage."
+    },
+    {
+      "name": "defaultActiveId",
+      "type": "string",
+      "default": "undefined",
+      "description": "Initial active item id for uncontrolled usage."
+    },
+    {
+      "name": "onActiveChange",
+      "type": "(id: string) => void",
+      "default": "undefined",
+      "description": "Called whenever the active item changes."
+    },
+    {
+      "name": "showLabels",
+      "type": "\"hidden\" | \"always\" | \"active\" | \"hover\"",
+      "default": "\"hidden\"",
+      "description": "When labels sit next to the rail on fine pointers. Defaults to `\"hidden\"` because the context card already names the section, so an inline label would only appear underneath it. Coarse pointers, which never get a card, always show labels."
+    },
+    {
+      "name": "activeIndicator",
+      "type": "\"dot\" | \"fill\" | \"progress\"",
+      "default": "\"progress\"",
+      "description": "How the active item is marked. `\"progress\"` fills the active line from the section's own scroll position."
+    },
+    {
+      "name": "orientation",
+      "type": "\"vertical\" | \"horizontal\"",
+      "default": "\"vertical\"",
+      "description": "Direction the rail runs in."
+    },
+    {
+      "name": "side",
+      "type": "\"left\" | \"right\"",
+      "default": "\"right\"",
+      "description": "Which edge the rail is anchored to, which flips label and card placement."
+    },
+    {
+      "name": "scrollOffset",
+      "type": "number",
+      "default": "96",
+      "description": "Pixels of fixed-header compensation used when scrolling to a section."
+    },
+    {
+      "name": "getSectionElement",
+      "type": "(id: string) => HTMLElement | null",
+      "default": "undefined",
+      "description": "Resolves a section element when ids are not real DOM ids."
+    },
+    {
+      "name": "scrollRoot",
+      "type": "React.RefObject<HTMLElement | null>",
+      "default": "undefined",
+      "description": "Scrolling element the sections live in. Defaults to the page itself."
+    },
+    {
+      "name": "showPreview",
+      "type": "\"never\" | \"hover\" | \"focus\" | \"hover-and-focus\"",
+      "default": "\"hover-and-focus\"",
+      "description": "When the context card appears. Cards never appear on coarse pointers."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Section navigation\"",
+      "description": "Accessible name for the rail's landmark."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the rail root."
+    },
+    {
+      "name": "lineClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for each rail line."
+    },
+    {
+      "name": "labelClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the item labels."
+    },
+    {
+      "name": "previewClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the context card surface."
     }
   ],
   "spinning-text": [
@@ -192,126 +1296,60 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Custom animation variants for the container and individual characters."
     }
   ],
-  "bubble-up-button": [
-    {
-      "name": "children",
-      "type": "ReactNode",
-      "default": "—",
-      "description": "Content to display inside the button"
-    },
-    {
-      "name": "motionControls",
-      "type": "MotionConfigProps",
-      "default": "—",
-      "description": "Motion configuration for animations"
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes"
-    }
-  ],
-  "fan-view": [
-    {
-      "name": "items",
-      "type": "FanViewItem[]",
-      "default": "—",
-      "description": "Items displayed as fanned cards when open."
-    },
-    {
-      "name": "stiffness",
-      "type": "number",
-      "default": "540",
-      "description": "Spring stiffness for the fan animation."
-    },
-    {
-      "name": "damping",
-      "type": "number",
-      "default": "28",
-      "description": "Spring damping for the fan animation."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the root container."
-    }
-  ],
-  "marquee": [
-    {
-      "name": "children",
-      "type": "React.ReactNode",
-      "default": "required",
-      "description": "The content to be rendered inside the marquee."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional class names for custom styling of the marquee items."
-    },
-    {
-      "name": "containerClassName",
-      "type": "string",
-      "default": "—",
-      "description": "Additional class names for custom styling of the marquee container."
-    },
-    {
-      "name": "duration",
-      "type": "number",
-      "default": "10",
-      "description": "The duration of the marquee animation in seconds."
-    },
-    {
-      "name": "reverse",
-      "type": "boolean",
-      "default": "false",
-      "description": "Determines whether the marquee scrolls in reverse direction."
-    },
-    {
-      "name": "activeScroll",
-      "type": "boolean",
-      "default": "false",
-      "description": "Enables dynamic speed adjustment based on scroll velocity."
-    },
-    {
-      "name": "activeHover",
-      "type": "boolean",
-      "default": "false",
-      "description": "Pauses the marquee animation when hovered."
-    }
-  ],
-  "ripple-button": [
+  "split-text": [
     {
       "name": "children",
       "type": "ReactNode",
       "default": "required",
-      "description": "The content to be displayed inside the button."
-    },
-    {
-      "name": "scaleAmount",
-      "type": "number",
-      "default": "25",
-      "description": "The scale amount for the ripple effect."
+      "description": "A single text element (e.g. a heading or paragraph) to split and animate."
     },
     {
       "name": "className",
       "type": "string",
       "default": "—",
-      "description": "Additional CSS classes for the button."
+      "description": "Additional CSS classes for the wrapper."
     },
     {
-      "name": "duration",
-      "type": "number",
-      "default": "0.5",
-      "description": "Duration of the ripple animation in seconds."
+      "name": "variant",
+      "type": "SplitUnit",
+      "default": "\"words\"",
+      "description": "Which unit the text is split into and animated."
     },
     {
-      "name": "rippleStyle",
+      "name": "mask",
+      "type": "boolean",
+      "default": "true",
+      "description": "Mask each split piece (clip it) so it reveals from behind an edge instead of animating in fully visible. Masks by the same unit set in `variant`."
+    },
+    {
+      "name": "animationProps",
+      "type": "gsap.TweenVars",
+      "default": "{ yPercent: 120, rotate: 5, stagger: 0.2, duration: 0.4 }",
+      "description": "GSAP tween vars merged over the defaults, e.g. `{ duration: 1.2 }`."
+    },
+    {
+      "name": "scrollTrigger",
+      "type": "boolean",
+      "default": "false",
+      "description": "Play the animation when the element scrolls into view instead of on mount."
+    },
+    {
+      "name": "start",
       "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the ripple effect."
+      "default": "\"top 85%\"",
+      "description": "ScrollTrigger start position (only used when `scrollTrigger` is true)."
+    },
+    {
+      "name": "autoSplit",
+      "type": "boolean",
+      "default": "false",
+      "description": "Re-split on resize so line breaks stay correct. Note: this replays the animation on every resize, so it suits looping reveals more than one-shot entrances. Font-load correctness is handled automatically either way."
+    },
+    {
+      "name": "markers",
+      "type": "boolean",
+      "default": "false",
+      "description": "Show ScrollTrigger debug markers."
     }
   ],
   "spotlight-card": [
@@ -346,116 +1384,6 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Disables the spotlight effect."
     }
   ],
-  "vertical-tab": [
-    {
-      "name": "tabs",
-      "type": "{ title: string; }[]",
-      "default": "required",
-      "description": "An array of tab objects, each containing a title for the tab."
-    },
-    {
-      "name": "indicatorBgColor",
-      "type": "string",
-      "default": "\"bg-slate-300\"",
-      "description": "The background color of the indicator. Accepts Tailwind CSS classes."
-    },
-    {
-      "name": "activeTabBgColor",
-      "type": "string",
-      "default": "\"bg-slate-400 dark:bg-slate-600\"",
-      "description": "The background color of the active tab. Accepts Tailwind CSS classes."
-    },
-    {
-      "name": "containerClassName",
-      "type": "string",
-      "default": "\"\"",
-      "description": "Additional class names for the container element."
-    }
-  ],
-  "expandable-tabs": [
-    {
-      "name": "tabs",
-      "type": "TabsData[]",
-      "default": "required",
-      "description": "An array of tab objects, each containing a title and an icon."
-    },
-    {
-      "name": "containerClassName",
-      "type": "string",
-      "default": "\"\"",
-      "description": "Additional class names for the container element."
-    },
-    {
-      "name": "defaultActiveIndex",
-      "type": "number",
-      "default": "0",
-      "description": "The index of the tab that is active by default."
-    },
-    {
-      "name": "motionConfig",
-      "type": "MotionConfigProps",
-      "default": "—",
-      "description": "Motion configuration for the transition animations."
-    }
-  ],
-  "mesh-gradient-shader": [
-    {
-      "name": "colors",
-      "type": "string[]",
-      "default": "[\"#ff6b6b\", \"#4ecdc4\", \"#45b7d1\", \"#96ceb4\", \"#ffeaa7\"]",
-      "description": "Up to 10 color spots. Accepts hex, RGB, or HSL strings."
-    },
-    {
-      "name": "distortion",
-      "type": "number",
-      "default": "0.3",
-      "description": "Power of organic noise distortion (0–1)."
-    },
-    {
-      "name": "swirl",
-      "type": "number",
-      "default": "0.2",
-      "description": "Power of vortex distortion (0–1)."
-    },
-    {
-      "name": "grainMixer",
-      "type": "number",
-      "default": "0",
-      "description": "Grain distortion on color edges (0–1)."
-    },
-    {
-      "name": "grainOverlay",
-      "type": "number",
-      "default": "0",
-      "description": "Post-processing grain overlay (0–1)."
-    },
-    {
-      "name": "speed",
-      "type": "number",
-      "default": "1",
-      "description": "Animation speed multiplier. 0 = static."
-    }
-  ],
-  "link-preview": [
-    {
-      "name": "link",
-      "type": "string",
-      "default": "required",
-      "description": "The URL of the link to preview."
-    },
-    {
-      "name": "text",
-      "type": "string",
-      "default": "required",
-      "description": "The text to display for the link."
-    },
-    {
-      "name": "showIcon",
-      "type": "boolean",
-      "default": "true",
-      "description": "Whether to show an icon next to the link text."
-    }
-  ],
   "stagger-text": [
     {
       "name": "text",
@@ -474,38 +1402,6 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "T",
       "default": "\"h3\"",
       "description": "The HTML tag to be used for the text container."
-    }
-  ],
-  "hold-to-delete-button": [
-    {
-      "name": "label",
-      "type": "string",
-      "default": "—",
-      "description": "Text displayed inside the button."
-    },
-    {
-      "name": "holdDuration",
-      "type": "number",
-      "default": "2000",
-      "description": "Duration in milliseconds the user must hold before the action triggers."
-    },
-    {
-      "name": "successDuration",
-      "type": "number",
-      "default": "1200",
-      "description": "Duration in milliseconds the success state is visible before auto-resetting."
-    },
-    {
-      "name": "onDelete",
-      "type": "() => void",
-      "default": "—",
-      "description": "Called once when the hold completes."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "default": "—",
-      "description": "Additional CSS classes for the button."
     }
   ]
 };

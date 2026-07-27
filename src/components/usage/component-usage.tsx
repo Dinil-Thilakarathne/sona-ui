@@ -19,7 +19,7 @@ export function ComponentUsage({
   highlightedAnatomy,
 }: ComponentUsageProps) {
   return (
-    <div className="not-prose my-6 w-full max-w-full min-w-0 space-y-4">
+    <div className="my-6 space-y-4 max-w-full min-w-0 w-full not-prose">
       <CodeBlock
         code={anatomy}
         language="tsx"

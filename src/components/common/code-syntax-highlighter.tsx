@@ -89,7 +89,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
         className,
       )}
     >
-      <div className="max-h-[40vh] overflow-y-scroll">
+      <div className="overflow-y-scroll max-h-[40vh]">
         <SyntaxHighlighterLib
           language={language}
           style={oneDark}
@@ -113,7 +113,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
 
       <Button
         onClick={handleCopy}
-        className="absolute top-2 right-2 text-sm hover:underline"
+        className="absolute right-2 top-2 text-sm hover:underline"
       >
         {copied ? "Copied!" : "Copy Code"}
       </Button>
@@ -122,7 +122,7 @@ export const CodeSyntaxHighlighter: React.FC<SyntaxHighlighterProps> = ({
         <div className="absolute bottom-0 left-0 h-[50%] w-full bg-[rgb(0,0,0)] mask-t-from-0% mask-t-to-70%" />
       )}
 
-      <div className="absolute bottom-2 left-0 flex w-full items-center justify-center">
+      <div className="flex absolute bottom-2 left-0 items-center justify-center w-full">
         {codeContent.split("\n").length > 10 && (
           <Button
             onClick={toggleExpand}

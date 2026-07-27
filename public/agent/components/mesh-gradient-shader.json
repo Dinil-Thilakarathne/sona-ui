@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "name": "mesh-gradient-shader",
+  "title": "Mesh Gradient Shader",
+  "category": "shaders",
+  "status": "stable",
+  "summary": "A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.",
+  "docsSlug": "mesh-gradient-shader",
+  "keywords": [
+    "shader",
+    "background",
+    "gradient",
+    "hero",
+    "decorative motion"
+  ],
+  "useWhen": [
+    "A visual surface needs atmospheric depth behind readable foreground content.",
+    "The experience can afford a WebGL-based decorative effect."
+  ],
+  "avoidWhen": [
+    "The effect would compete with primary content or reduce text contrast.",
+    "The target device or environment cannot reliably support the shader dependency."
+  ],
+  "capabilities": [
+    "Paper Design Shaders integration",
+    "Animated color spots and organic distortion",
+    "Configurable visual composition"
+  ],
+  "accessibility": [
+    "Treat as decorative and keep meaningful content outside the shader canvas.",
+    "Verify foreground contrast against the complete animated background."
+  ],
+  "motion": {
+    "purpose": "Add slow atmospheric depth without becoming the page's primary action.",
+    "reducedMotion": "Use a static composition or disable the animated shader for reduced-motion users."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/mesh-gradient-shader.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/mesh-gradient-shader",
+    "rawUrl": "https://sona-ui.vercel.app/docs/mesh-gradient-shader/raw.md",
+    "sourceTitle": "mesh-gradient-shader"
+  }
+}

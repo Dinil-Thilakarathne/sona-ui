@@ -5,6 +5,7 @@ import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useEffect, useState } from "react";
 import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
+import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function useCopyToClipboard(timeout: number = 2000) {
@@ -37,6 +38,8 @@ interface CopyButtonProps
   timeout?: number;
   copyIcon?: React.ReactNode;
   checkIcon?: React.ReactNode;
+  componentName?: string;
+  language?: string;
 }
 
 function CopyButton({
@@ -45,6 +48,8 @@ function CopyButton({
   className,
   copyIcon,
   checkIcon,
+  componentName,
+  language,
   ...props
 }: CopyButtonProps) {
   const { copied, copy } = useCopyToClipboard(timeout);
@@ -63,12 +68,19 @@ function CopyButton({
   return (
     <Button
       data-slot="copy-button"
-      onClick={() => copy(content)}
+      onClick={() => {
+        copy(content);
+        analytics.codeCopied({
+          component: componentName ?? "unknown",
+          language,
+        });
+      }}
       className={cn(
-        "text-muted-foreground size-auto rounded-md  p-1.5 [grid-template-areas:'stack'] [&>span]:grid [&>span]:place-content-center [&>span]:p-0",
+        "size-auto rounded-md p-1.5 text-muted-foreground [grid-template-areas:'stack'] [&>span]:grid [&>span]:place-content-center [&>span]:p-0",
         "relative",
         "flex items-center justify-center",
         "hover:cursor-pointer",
+        "transition-transform duration-150 ease-out active:scale-95 motion-reduce:transition-none",
         className,
       )}
       aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
@@ -79,7 +91,7 @@ function CopyButton({
       <span
         aria-hidden="true"
         className={cn(
-          "ease flex items-center justify-center blur-none transition-[scale,opacity,filter] delay-0 duration-300 [grid-area:stack]",
+          "ease flex items-center justify-center blur-none transition-[scale,opacity,filter] delay-0 duration-200 [grid-area:stack] motion-reduce:transition-none",
           "absolute inset-0",
           copied && "scale-50 opacity-0 blur-xs delay-0",
         )}
@@ -91,7 +103,7 @@ function CopyButton({
       <span
         aria-hidden="true"
         className={cn(
-          "ease flex scale-50 items-center justify-center opacity-0 blur-xs transition-[scale,opacity,filter] delay-0 duration-300 [grid-area:stack]",
+          "ease flex scale-50 items-center justify-center opacity-0 blur-xs transition-[scale,opacity,filter] delay-0 duration-200 [grid-area:stack] motion-reduce:transition-none",
           "absolute inset-0",
           copied && "scale-100 opacity-100 blur-none delay-0",
         )}

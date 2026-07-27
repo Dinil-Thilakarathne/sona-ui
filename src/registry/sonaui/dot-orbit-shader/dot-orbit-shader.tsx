@@ -1,8 +1,9 @@
 "use client";
 
 import { DotOrbit } from "@paper-design/shaders-react";
+import { useReducedMotion } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface DotOrbitShaderProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -55,10 +56,13 @@ export default function DotOrbitShader({
   style,
   ...props
 }: DotOrbitShaderProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div
       className={cn("overflow-hidden rounded-xl", className)}
-      style={style}
+      // Background color doubles as a fallback while WebGL boots (or is unavailable).
+      style={{ backgroundColor: colorBack, ...style }}
       {...props}
     >
       <DotOrbit
@@ -68,7 +72,7 @@ export default function DotOrbitShader({
         sizeRange={sizeRange}
         spreading={spreading}
         stepsPerColor={stepsPerColor}
-        speed={speed}
+        speed={shouldReduceMotion ? 0 : speed}
         style={{ width: "100%", height: "100%" }}
       />
     </div>

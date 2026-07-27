@@ -50,7 +50,7 @@ export default function AccordionSplittedExample() {
       variant="splitted"
     >
       {accordionData.map((item) => (
-        <AccordionItem key={item.value}>
+        <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
             <AccordionItemHeader value={item.value}>
               <span className="flex-1">{item.title}</span>

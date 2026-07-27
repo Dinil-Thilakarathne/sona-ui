@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "name": "fluid-tabs",
+  "title": "Fluid Tabs",
+  "category": "components",
+  "status": "stable",
+  "summary": "An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.",
+  "docsSlug": "fluid-tabs",
+  "keywords": [
+    "tabs",
+    "navigation",
+    "segmented content",
+    "settings"
+  ],
+  "useWhen": [
+    "The interface switches between a small set of related views.",
+    "The active selection should feel spatially connected to the previous selection."
+  ],
+  "avoidWhen": [
+    "The interface needs deep navigation rather than local view switching.",
+    "There are too many options for a compact tab list."
+  ],
+  "capabilities": [
+    "Base UI tab primitives",
+    "Controlled and uncontrolled selection",
+    "Capsule and underline variants",
+    "Keyboard navigation"
+  ],
+  "accessibility": [
+    "Uses semantic tab roles and keyboard navigation through Base UI.",
+    "Keep each tab label descriptive and preserve visible focus styles."
+  ],
+  "motion": {
+    "purpose": "Connect the previous and next selections with a shared active surface.",
+    "reducedMotion": "The active surface should switch without spatial animation."
+  },
+  "related": [
+    "animated-tabs",
+    "expandable-tabs"
+  ],
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/fluid-tabs.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/fluid-tabs",
+    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-tabs/raw.md",
+    "sourceTitle": "fluid-tabs"
+  }
+}

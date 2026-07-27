@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 const Tag: React.FC<TagPropsType> = ({ text, type = "default", className }) => {
   const baseClasses =
-    "inline-flex items-center px-2 py-0.5 rounded-full text-sm ";
+    "inline-flex items-center px-2 py-0.5 rounded-full text-tiny";
 
   const typeClasses = {
     new: "bg-green-200 text-green-800 dark:bg-green-300 dark:text-green-950",

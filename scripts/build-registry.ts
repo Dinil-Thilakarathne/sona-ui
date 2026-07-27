@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 const REGISTRY_PATH = path.join(process.cwd(), "src/registry");
 const EXAMPLE_PATH = path.join(REGISTRY_PATH, "examples");
@@ -11,37 +11,36 @@ function toKebabCase(str: string) {
   return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
-function parseFileName(fileName: string) {
-  const nameWithoutExt = path.basename(fileName, path.extname(fileName));
-
-  // Split by underscore to find variants
-  // E.g., Accordion_ex.tsx -> ["Accordion", "ex"]
-  // E.g., Accordion_bordered.tsx -> ["Accordion", "bordered"]
-  const parts = nameWithoutExt.split("_");
-
-  const componentName = parts[0];
-  let variantName = "default";
-
-  if (parts.length > 1) {
-    const suffix = parts.slice(1).join("_"); // handle multiple underscores if needed, or just take the last one.
-    // For now, let's assume [Component]_[Variant]
-
-    // Map 'ex' to 'default' to preserve existing behavior
-    if (suffix === "ex") {
-      variantName = "default";
-    } else {
-      variantName = toKebabCase(suffix);
-    }
-  }
-
-  const component = toKebabCase(componentName);
-
-  return {
-    component,
-    name: variantName,
-    importName: nameWithoutExt,
-  };
+// Displayed code must import from where users install components
+// (each registry item's target: components/ui/<name>/<file>), not from
+// this repo's internal src/registry layout.
+function rewriteImportsForDisplay(source: string): string {
+  return source.replace(/@\/registry\/sonaui\//g, "@/components/ui/");
 }
+
+type ExampleEntry = {
+  name: string;
+  componentCode: string;
+  code: string;
+  imports: string;
+  anatomy: string;
+};
+
+type RegistryFile = {
+  path: string;
+  type: string;
+  content: string;
+  target: string;
+};
+
+type RegistryMetadataItem = {
+  name: string;
+  usage?: {
+    imports?: string | string[];
+    code?: string | string[];
+  };
+  [key: string]: unknown;
+};
 
 async function buildRegistry() {
   if (!fs.existsSync(EXAMPLE_PATH)) {
@@ -50,7 +49,7 @@ async function buildRegistry() {
   }
 
   // --- 1. Process Examples ---
-  const exampleRegistry: Record<string, any[]> = {};
+  const exampleRegistry: Record<string, ExampleEntry[]> = {};
   const imports: string[] = [];
 
   // Helper to split content into imports and body
@@ -118,7 +117,9 @@ async function buildRegistry() {
 
       if (!item.endsWith(".tsx") && !item.endsWith(".ts")) continue;
 
-      const content = fs.readFileSync(itemPath, "utf-8");
+      const content = rewriteImportsForDisplay(
+        fs.readFileSync(itemPath, "utf-8"),
+      );
       // path relative to example folder: e.g. "accordion/accordion-demo.tsx"
       const relativePath = path.relative(EXAMPLE_PATH, itemPath);
       // Normalized import path: "accordion/accordion-demo"
@@ -150,7 +151,7 @@ async function buildRegistry() {
       } else {
         // Try to strip the component name from the start if it exists, to get the variant
         // e.g. accordion-bordered -> bordered
-        if (fileNameNoExt.startsWith(component + "-")) {
+        if (fileNameNoExt.startsWith(`${component}-`)) {
           name = fileNameNoExt.substring(component.length + 1);
         } else {
           name = fileNameNoExt; // fallback
@@ -184,7 +185,7 @@ async function buildRegistry() {
   scanExamples(EXAMPLE_PATH);
 
   // --- 2. Process Component Source Code ---
-  const registry: Record<string, any> = {};
+  const registry: Record<string, RegistryFile[]> = {};
 
   if (fs.existsSync(COMPONENT_PATH)) {
     const componentDirs = fs.readdirSync(COMPONENT_PATH);
@@ -195,12 +196,7 @@ async function buildRegistry() {
 
       // The directory name is the component name (e.g., "accordion")
       // We need to recursively find all files in this directory
-      const files: {
-        path: string;
-        type: string; // "registry:ui"
-        content: string;
-        target: string; // The import path that users should use? Or relative path.
-      }[] = [];
+      const files: RegistryFile[] = [];
 
       function scanDir(currentPath: string) {
         const items = fs.readdirSync(currentPath);
@@ -211,7 +207,9 @@ async function buildRegistry() {
           } else {
             if (!item.endsWith(".tsx") && !item.endsWith(".ts")) continue;
 
-            const content = fs.readFileSync(itemPath, "utf-8");
+            const content = rewriteImportsForDisplay(
+              fs.readFileSync(itemPath, "utf-8"),
+            );
             const relativePath = path.relative(COMPONENT_PATH, itemPath);
             // e.g. accordion/Accordion.tsx
 
@@ -235,15 +233,24 @@ async function buildRegistry() {
 
   // --- 3. Process Component Metadata from registry.json ---
   const registryJsonPath = path.join(REGISTRY_PATH, "registry.json");
-  let componentMetadata = {};
+  let componentMetadata: Record<string, RegistryMetadataItem> = {};
 
   if (fs.existsSync(registryJsonPath)) {
     try {
-      const registryData = JSON.parse(
+      const registryData: unknown = JSON.parse(
         fs.readFileSync(registryJsonPath, "utf-8"),
       );
+      if (!Array.isArray(registryData)) {
+        throw new Error("registry.json must contain an array");
+      }
       // Convert array to object keyed by component name
-      componentMetadata = registryData.reduce((acc: any, item: any) => {
+      componentMetadata = registryData.reduce<
+        Record<string, RegistryMetadataItem>
+      >((acc, rawItem) => {
+        if (!rawItem || typeof rawItem !== "object" || !("name" in rawItem)) {
+          return acc;
+        }
+        const item = rawItem as RegistryMetadataItem;
         // Normalize usage fields if they are arrays
         if (item.usage) {
           if (Array.isArray(item.usage.imports)) {
@@ -251,6 +258,12 @@ async function buildRegistry() {
           }
           if (Array.isArray(item.usage.code)) {
             item.usage.code = item.usage.code.join("\n");
+          }
+          if (typeof item.usage.imports === "string") {
+            item.usage.imports = rewriteImportsForDisplay(item.usage.imports);
+          }
+          if (typeof item.usage.code === "string") {
+            item.usage.code = rewriteImportsForDisplay(item.usage.code);
           }
         }
         acc[item.name] = item;
@@ -309,7 +322,7 @@ ${Object.entries(registry)
     ([component, files]) => `  "${component}": [
 ${files
   .map(
-    (file: any) => `    {
+    (file) => `    {
       type: "${file.type}",
       content: \`${file.content.replace(/`/g, "\\`").replace(/\$/g, "\\$")}\`,
       path: "${file.target}",

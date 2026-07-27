@@ -1,8 +1,29 @@
-import { allDocs, type Doc } from ".content-collections/generated";
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import { allDocs, type Doc } from "content-collections";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-navigation";
+import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
+import { FIRST_COMP_LINK } from "@/lib/constants";
 import DocClient from "./DocClient";
+
+async function readGitHubContributionsSource() {
+  const sourcePath = path.join(
+    process.cwd(),
+    "src",
+    "lib",
+    "github-contributions.ts",
+  );
+
+  try {
+    return await fs.readFile(sourcePath, "utf-8");
+  } catch (error) {
+    console.error("Error reading the GitHub contributions source:", error);
+    return "// Error reading file: src/lib/github-contributions.ts";
+  }
+}
 
 async function getDocFromParams({
   params,
@@ -14,7 +35,7 @@ async function getDocFromParams({
   const slugPath = slug?.join("/");
 
   if (!slugPath) {
-    notFound();
+    redirect(FIRST_COMP_LINK);
   }
 
   // Find the document by slug
@@ -63,5 +84,38 @@ export default async function DocPage({
   if (!doc) {
     notFound();
   }
-  return <DocClient doc={doc} />;
+
+  const currentIndex = componentNavigationLinks.findIndex(
+    (item) => item.slug === doc.slug,
+  );
+  const previousItem =
+    currentIndex > 0 ? componentNavigationLinks[currentIndex - 1] : undefined;
+  const nextItem =
+    currentIndex >= 0 ? componentNavigationLinks[currentIndex + 1] : undefined;
+  const previous: DocsPageLink | undefined = previousItem && {
+    title: previousItem.name,
+    href: previousItem.href,
+  };
+  const next: DocsPageLink | undefined = nextItem && {
+    title: nextItem.name,
+    href: nextItem.href,
+  };
+  const sourceFiles =
+    doc.slug === "activity-graph"
+      ? {
+          "github-contributions": await readGitHubContributionsSource(),
+        }
+      : undefined;
+
+  return (
+    <DocClient
+      doc={{
+        title: doc.title,
+        slug: doc.slug,
+        body: { code: doc.body.code, raw: doc.body.raw },
+      }}
+      navigation={{ previous, next }}
+      sourceFiles={sourceFiles}
+    />
+  );
 }

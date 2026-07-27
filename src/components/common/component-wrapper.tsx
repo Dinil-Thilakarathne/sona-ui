@@ -14,8 +14,9 @@ const ComponentWrapper: React.FC<ComponentWrapperProps> = ({
 }) => {
   return (
     <div
+      data-component-preview
       className={cn(
-        "xs:w-full bg-secondary  min-h-[350px] flex w-[calc(100vw-16px)] items-center justify-center overflow-clip rounded-xl border p-4 shadow-lg sm:w-full md:p-6",
+        "flex min-h-[350px] w-full items-center justify-center overflow-clip rounded-xl border bg-secondary p-4 shadow-xs md:p-6",
         className,
       )}
     >

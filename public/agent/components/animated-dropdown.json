@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "name": "animated-dropdown",
+  "title": "Animated Dropdown",
+  "category": "components",
+  "status": "stable",
+  "summary": "An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.",
+  "docsSlug": "animated-dropdown",
+  "keywords": [
+    "dropdown",
+    "menu",
+    "actions"
+  ],
+  "useWhen": [
+    "An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/animated-dropdown.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "https://sona-ui.vercel.app/r/sona-theme.json"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/animated-dropdown",
+    "rawUrl": "https://sona-ui.vercel.app/docs/animated-dropdown/raw.md",
+    "sourceTitle": "animated-dropdown"
+  }
+}

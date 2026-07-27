@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "name": "dot-orbit-shader",
+  "title": "Dot Orbit Shader",
+  "category": "shaders",
+  "status": "stable",
+  "summary": "An animated field of orbiting dots for decorative surfaces and expressive backgrounds.",
+  "docsSlug": "dot-orbit-shader",
+  "keywords": [
+    "shader",
+    "dots",
+    "background"
+  ],
+  "useWhen": [
+    "An animated field of orbiting dots for decorative surfaces and expressive backgrounds."
+  ],
+  "avoidWhen": [
+    "The effect would compete with meaningful content or reduce readability."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Add restrained visual depth without competing with the primary task.",
+    "reducedMotion": "Use a static or reduced visual treatment when motion is not preferred."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/dot-orbit-shader.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/dot-orbit-shader",
+    "rawUrl": "https://sona-ui.vercel.app/docs/dot-orbit-shader/raw.md",
+    "sourceTitle": "dot-orbit-shader"
+  }
+}

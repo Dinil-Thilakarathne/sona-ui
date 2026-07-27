@@ -1,0 +1,35 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "agent-skill",
+  "type": "registry:file",
+  "title": "Sona UI Agent Skill",
+  "description": "Instructions for coding agents to discover, install, compose, and verify Sona UI components.",
+  "files": [
+    {
+      "path": "registry/sonaui/agent-skill/SKILL.md",
+      "type": "registry:file",
+      "target": ".agents/skills/sona-ui/SKILL.md",
+      "content": "---\nname: sona-ui\nversion: 1.0.0\ndescription: Use Sona UI components through the registry while preserving accessibility, purposeful motion, and consumer conventions.\n---\n\n# Sona UI Agent Skill\n\nUse this skill when a user asks you to discover, install, compose, or review a Sona UI component.\n\n## Core invariant\n\nInstall source-owned components through the Sona UI shadcn registry. Do not copy component source into prompts or recreate a component that already exists in the registry.\n\nRegistry namespace:\n\n```text\n@sona-ui\n```\n\nRegistry URL:\n\n```text\nhttps://sona-ui.vercel.app/r/{name}.json\n```\n\n## Workflow\n\n1. Inspect the consumer project's framework, React version, styling entry, aliases, and existing component conventions.\n2. Translate the user's request into an interaction intent before choosing a component by name.\n3. Search the Sona UI agent catalog at `https://sona-ui.vercel.app/agent/catalog.json`.\n4. Read the selected component detail resource and documentation before installing.\n5. Install the smallest useful set with the project's existing package runner:\n\n   ```bash\n   bunx shadcn@latest add @sona-ui/<component>\n   ```\n\n   Use `pnpx`, `npx`, or `yarn dlx` when that matches the consumer project.\n\n6. Integrate without changing unrelated layout, global tokens, or architecture.\n7. Validate types, dependencies, keyboard behavior, responsive behavior, and reduced motion.\n\nFor provider setup, use the compatibility fixtures documented in the repository for Codex, Claude Code, and Cursor. The official shadcn MCP server is the supported MCP path; Sona UI does not require a custom MCP server for registry discovery or installation.\n\n## Selection rules\n\n- Prefer components whose `useWhen` guidance matches the user's actual goal.\n- Read `avoidWhen` before installing; explain when no Sona component is appropriate.\n- Treat shaders and pointer effects as progressive enhancement.\n- Keep destructive actions deliberate and accessible.\n- Use semantic theme tokens rather than hard-coded colors.\n\n## Motion and accessibility\n\nMotion must communicate feedback, orientation, continuity, or hierarchy. Remove nonessential choreography for `prefers-reduced-motion` while preserving the state change.\n\nPreserve semantic HTML, keyboard access, visible focus, accessible names, dialog labeling, and contrast against the complete visual surface. Do not hide meaningful content inside decorative canvases.\n\n## Scope discipline\n\nInspect before editing. Ask the user before making a material layout decision that was not requested. Do not rewrite a consumer's styling system to match Sona UI.\n\n## Validation\n\nAfter installation:\n\n- Confirm registry dependencies and foundation files resolve.\n- Run the consumer's typecheck or build command.\n- Exercise the primary keyboard interaction.\n- Check narrow and wide layouts.\n- Check light and dark themes when supported.\n- Check reduced-motion behavior.\n\nIf installation fails, classify the failure as consumer configuration, registry metadata, generated payload, agent resource, MCP/client, or deployment before changing source.\n"
+    },
+    {
+      "path": "registry/sonaui/agent-skill/references/component-selection.md",
+      "type": "registry:file",
+      "target": ".agents/skills/sona-ui/references/component-selection.md",
+      "content": "# Component Selection\n\nUse intent, constraints, and interaction shape to select a Sona UI item.\n\nStart with the user's job:\n\n- Local view switching → tabs.\n- Focused confirmation or short task → dialog.\n- Progressive disclosure → accordion or dropdown.\n- Deliberate destructive action → hold-to-delete.\n- Atmospheric visual depth → shader or spotlight effect.\n- Short decorative typography → text motion resource.\n\nCompare the selected item's `useWhen`, `avoidWhen`, accessibility, motion, and dependency fields before installation. If the request needs a general navigation system, do not force a local tabs component into that role.\n"
+    },
+    {
+      "path": "registry/sonaui/agent-skill/references/consumer-validation.md",
+      "type": "registry:file",
+      "target": ".agents/skills/sona-ui/references/consumer-validation.md",
+      "content": "# Consumer Validation\n\nThe registry install boundary is the source of truth.\n\nCheck `components.json`, aliases, Tailwind CSS entry points, React/framework versions, and existing `components/ui` conventions before installing. After installation, verify generated target paths, foundation dependencies, imports, and the consumer's own typecheck/build.\n\nSeparate consumer configuration failures from Sona registry failures. Do not repair a consumer alias by changing component source unless the generated payload is actually incorrect.\n"
+    },
+    {
+      "path": "registry/sonaui/agent-skill/references/design-principles.md",
+      "type": "registry:file",
+      "target": ".agents/skills/sona-ui/references/design-principles.md",
+      "content": "# Sona UI Design Principles\n\n- Interaction should feel clear before it feels expressive.\n- Motion communicates feedback, continuity, orientation, or hierarchy.\n- Hover is progressive enhancement, never the only interaction path.\n- Prefer semantic tokens and component-local variables.\n- Keep decorative effects separate from meaningful content.\n- Preserve the consumer's existing layout decisions unless the user asks for a redesign.\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": []
+}

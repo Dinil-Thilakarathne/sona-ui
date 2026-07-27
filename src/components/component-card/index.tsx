@@ -10,16 +10,16 @@ const ComponentCard: React.FC<ComponentItemsPropsType> = ({
   href,
 }) => {
   return (
-    <div className="flex flex-col overflow-clip rounded-lg border bg-white p-2 shadow-md">
+    <div className="flex overflow-clip flex-col p-2 bg-white border rounded-lg shadow-md">
       {/* Image Section */}
-      <div className="relative m-auto flex w-fit grow items-center justify-center">
+      <div className="flex relative grow items-center justify-center m-auto w-fit">
         {imgSrc && (
           <Image
             src={imgSrc}
             alt={name}
             width={720}
             height={250}
-            className="rounded-t-lgk w-auto md:rounded-t-none md:rounded-l-lg"
+            className="w-auto rounded-t-lgk md:rounded-l-lg md:rounded-t-none"
           />
         )}
       </div>
@@ -27,7 +27,7 @@ const ComponentCard: React.FC<ComponentItemsPropsType> = ({
       {/* Content Section */}
       <div className="flex flex-1 flex-col p-4">
         <div className="flex items-start space-x-0.5">
-          <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
+          <h3 className="font-semibold text-gray-800 text-lg">{name}</h3>
           {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-xs" />}
         </div>
 

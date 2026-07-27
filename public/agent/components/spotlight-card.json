@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "name": "spotlight-card",
+  "title": "Spotlight Card",
+  "category": "components",
+  "status": "stable",
+  "summary": "A card that reveals localized pointer lighting while keeping content and hierarchy stable.",
+  "docsSlug": "spotlight-card",
+  "keywords": [
+    "card",
+    "spotlight",
+    "hover"
+  ],
+  "useWhen": [
+    "A card that reveals localized pointer lighting while keeping content and hierarchy stable."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/spotlight-card.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": []
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/spotlight-card",
+    "rawUrl": "https://sona-ui.vercel.app/docs/spotlight-card/raw.md",
+    "sourceTitle": "spotlight-card"
+  }
+}

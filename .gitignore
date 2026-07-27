@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -52,3 +53,19 @@ next-env.d.ts
 
 #testing files
 /test
+
+# design docs
+/design
+
+/local
+
+/docs
+/docs-local
+
+# Versioned component-ideation briefs
+!/docs/
+!/docs/component-ideation/
+!/docs/component-ideation/**
+
+# personal social / marketing drafts — never commit
+/social

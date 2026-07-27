@@ -50,9 +50,9 @@ export default function FeatureGrid() {
     });
   });
   return (
-    <div className="grid gap-4 lg:grid-cols-3 lg:gap-8">
+    <div className="grid lg:grid-cols-3 gap-4 lg:gap-8">
       <FeatureCard>
-        <Button className="flex w-fit items-center gap-2">
+        <Button className="flex gap-2 items-center w-fit">
           <span className="*:scale-75">
             <GitPullRequest />
           </span>
@@ -60,10 +60,10 @@ export default function FeatureGrid() {
         </Button>
         <Link
           href="https://github.com/Dinil-Thilakarathne/sona-ui"
-          className="flex items-center gap-2 text-2xl normal-case lg:text-4xl"
+          className="flex gap-2 items-center normal-case text-2xl lg:text-4xl"
         >
           <StaggerText text="Be a contributor" />
-          <ArrowUpRight className="aspect-square h-full lg:scale-125" />
+          <ArrowUpRight className="h-full lg:scale-125 aspect-square" />
         </Link>
       </FeatureCard>
 
@@ -72,13 +72,13 @@ export default function FeatureGrid() {
       </FeatureCard>
 
       <FeatureCard>
-        <Button className="flex w-fit items-center gap-2">
+        <Button className="flex gap-2 items-center w-fit">
           <span className="*:scale-75">
             <Layers />
           </span>
           Modern Stack
         </Button>
-        <div className="_text-black grid grid-cols-2 grid-rows-2 gap-4">
+        <div className="grid grid-cols-2 grid-rows-2 gap-4 _text-black">
           {TECH_STACK.map((tech) => (
             <Icon key={tech.name} text={tech.name}>
               {tech.icon}
@@ -113,9 +113,9 @@ const FeatureCard = ({
 
 const Icon = ({ children, text }: { children: ReactNode; text: string }) => {
   return (
-    <div className="flex items-center gap-x-2">
+    <div className="flex gap-x-2 items-center">
       {children}
-      <span className="text-sm font-medium">{text}</span>
+      <span className="font-medium text-sm">{text}</span>
     </div>
   );
 };

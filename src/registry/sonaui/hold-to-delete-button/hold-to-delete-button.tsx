@@ -1,9 +1,9 @@
 "use client";
 
-import * as m from "motion/react-m";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/sona-utils";
 
 export interface HoldToDeleteButtonProps {
   /** Text displayed inside the button. */
@@ -20,6 +20,8 @@ export interface HoldToDeleteButtonProps {
   successDuration?: number;
   /** Called once when the hold completes. */
   onDelete?: () => void;
+  /** Whether the button ignores interaction. @default false */
+  disabled?: boolean;
   /** Additional CSS classes for the button. */
   className?: string;
 }
@@ -29,12 +31,16 @@ export default function HoldToDeleteButton({
   holdDuration = 2000,
   successDuration = 1200,
   onDelete,
+  disabled = false,
   className,
 }: HoldToDeleteButtonProps) {
   const [isHolding, setIsHolding] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const holdTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const resolvedHoldDuration = Math.max(0, holdDuration);
+  const resolvedSuccessDuration = Math.max(0, successDuration);
 
   const cancelHold = () => {
     if (holdTimerRef.current) clearTimeout(holdTimerRef.current);
@@ -50,25 +56,26 @@ export default function HoldToDeleteButton({
   };
 
   const handlePointerDown = () => {
-    if (isCompleted) return;
+    if (isCompleted || disabled) return;
     cancelHold();
     setIsHolding(true);
     holdTimerRef.current = setTimeout(() => {
       setIsHolding(false);
       setIsCompleted(true);
       onDelete?.();
-    }, holdDuration);
+    }, resolvedHoldDuration);
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: successDuration is stable per render
   useEffect(() => {
     if (!isCompleted) return;
-    successTimerRef.current = setTimeout(resetState, successDuration);
+    successTimerRef.current = setTimeout(resetState, resolvedSuccessDuration);
     return () => {
       if (successTimerRef.current) clearTimeout(successTimerRef.current);
     };
-  }, [isCompleted]);
+  }, [isCompleted, resolvedSuccessDuration]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: unmount-only cleanup
   useEffect(
     () => () => {
       cancelHold();
@@ -78,33 +85,48 @@ export default function HoldToDeleteButton({
   );
 
   return (
-    <m.button
-      layout
-      layoutId="hold-to-delete-button"
+    <motion.button
       type="button"
       className={cn(
         "relative cursor-pointer overflow-clip rounded-full border-2 px-6 py-3 font-medium",
         className,
       )}
-      whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1.05 }}
-      onPointerDown={handlePointerDown}
+      disabled={disabled}
+      aria-busy={isHolding}
+      whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
+      onPointerDown={(event) => {
+        if (disabled) return;
+        event.currentTarget.setPointerCapture(event.pointerId);
+        handlePointerDown();
+      }}
       onPointerUp={cancelHold}
       onPointerLeave={cancelHold}
+      onPointerCancel={cancelHold}
+      onKeyDown={(e) => {
+        if ((e.key === " " || e.key === "Enter") && !e.repeat) {
+          e.preventDefault();
+          handlePointerDown();
+        }
+      }}
+      onKeyUp={(e) => {
+        if (e.key === " " || e.key === "Enter") cancelHold();
+      }}
     >
       <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full bg-red-400"
+        className="absolute inset-0 h-full w-full bg-danger"
         style={{
           clipPath: isHolding ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
-          transition: isHolding
-            ? `clip-path ${holdDuration}ms linear`
-            : "clip-path 200ms ease-out",
+          transition: shouldReduceMotion
+            ? "none"
+            : isHolding
+              ? `clip-path ${resolvedHoldDuration}ms linear`
+              : "clip-path 200ms ease-out",
         }}
       />
-      <span className="relative text-xl">
+      <span aria-live="polite" className="relative text-xl">
         {isCompleted ? "Deleted!" : label}
       </span>
-    </m.button>
+    </motion.button>
   );
 }
