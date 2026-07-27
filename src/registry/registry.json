@@ -8,7 +8,7 @@
       {
         "path": "registry/sonaui/sona-utils/sona-utils.ts",
         "type": "registry:lib",
-        "target": "lib/sona-utils.ts"
+        "target": "@lib/sona-utils.ts"
       }
     ],
     "dependencies": [
@@ -25,7 +25,7 @@
       {
         "path": "registry/sonaui/sona-motion/sona-motion.ts",
         "type": "registry:lib",
-        "target": "lib/sona-motion.ts"
+        "target": "@lib/sona-motion.ts"
       }
     ],
     "dependencies": [
@@ -102,7 +102,7 @@
       "motion"
     ],
     "registryDependencies": [
-      "https://sona-ui.vercel.app/r/sona-theme.json"
+      "@sona-ui/sona-theme"
     ]
   },
   {
@@ -145,7 +145,8 @@
     "files": [
       {
         "path": "registry/sonaui/button/button.tsx",
-        "type": "registry:ui"
+        "type": "registry:ui",
+        "target": "@ui/button.tsx"
       }
     ],
     "dependencies": [
@@ -248,7 +249,7 @@
       "motion"
     ],
     "registryDependencies": [
-      "https://sona-ui.vercel.app/r/sona-utils.json"
+      "@sona-ui/sona-utils"
     ]
   },
   {

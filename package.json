@@ -19,6 +19,7 @@
     "check:agent-skill": "bun scripts/validate-agent-skill.ts",
     "check:agent-contracts": "bun scripts/check-agent-contracts.ts",
     "check:registry-consumers": "bun run scripts/check-registry-consumers.ts",
+    "check:registry-production": "bun run scripts/check-production-registry-install.ts",
     "check:a11y": "bun run scripts/check-accessibility.mjs",
     "sync:releases": "bun run scripts/sync-releases.ts",
     "content:build": "bun scripts/build-content-collections.ts",

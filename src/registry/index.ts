@@ -7120,8 +7120,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         disabled={disabled}
-        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
-        whileHover={{ scale: 1.05 }}
+        whileTap={disabled || shouldReduceMotion ? undefined : { scale: 0.97 }}
+        whileHover={
+          disabled || shouldReduceMotion ? undefined : { scale: 1.02 }
+        }
         transition={
           shouldReduceMotion
             ? motionTransition.reduced
@@ -9479,7 +9481,7 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/sona-utils/sona-utils.ts",
         "type": "registry:lib",
-        "target": "lib/sona-utils.ts"
+        "target": "@lib/sona-utils.ts"
       }
     ],
     "dependencies": [
@@ -9496,7 +9498,7 @@ export const componentMetadata = {
       {
         "path": "registry/sonaui/sona-motion/sona-motion.ts",
         "type": "registry:lib",
-        "target": "lib/sona-motion.ts"
+        "target": "@lib/sona-motion.ts"
       }
     ],
     "dependencies": [
@@ -9573,7 +9575,7 @@ export const componentMetadata = {
       "motion"
     ],
     "registryDependencies": [
-      "https://sona-ui.vercel.app/r/sona-theme.json"
+      "@sona-ui/sona-theme"
     ]
   },
   "animated-switch": {
@@ -9616,7 +9618,8 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/button/button.tsx",
-        "type": "registry:ui"
+        "type": "registry:ui",
+        "target": "@ui/button.tsx"
       }
     ],
     "dependencies": [
@@ -9719,7 +9722,7 @@ export const componentMetadata = {
       "motion"
     ],
     "registryDependencies": [
-      "https://sona-ui.vercel.app/r/sona-utils.json"
+      "@sona-ui/sona-utils"
     ]
   },
   "animated-tabs": {

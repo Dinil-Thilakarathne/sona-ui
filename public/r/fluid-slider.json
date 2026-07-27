@@ -17,6 +17,6 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://sona-ui.vercel.app/r/sona-utils.json"
+    "@sona-ui/sona-utils"
   ]
 }

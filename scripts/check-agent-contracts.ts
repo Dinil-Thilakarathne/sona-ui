@@ -4,6 +4,7 @@ import path from "node:path";
 const root = process.cwd();
 const catalogPath = path.join(root, "public/agent/catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8")) as {
+  registry: string;
   items: Array<{
     name: string;
     detail: string;
@@ -13,6 +14,7 @@ const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8")) as {
 };
 
 const errors: string[] = [];
+const productionOrigin = "https://sona-ui.vercel.app";
 const requiredPublicFiles = [
   "public/llms.txt",
   "public/llms-full.txt",
@@ -33,8 +35,50 @@ for (const item of catalog.items) {
   if (!fs.existsSync(path.join(root, "public/r", registryName))) {
     errors.push(`${item.name}: missing registry resource ${registryName}`);
   }
-  if (!item.docs.startsWith("https://sona-ui.vercel.app/docs/")) {
+  if (!item.docs.startsWith(`${productionOrigin}/docs/`)) {
     errors.push(`${item.name}: invalid docs URL`);
+  }
+
+  const detailPath = path.join(root, "public/agent/components", detailName);
+  const registryPath = path.join(root, "public/r", registryName);
+  if (fs.existsSync(detailPath) && fs.existsSync(registryPath)) {
+    const detail = JSON.parse(fs.readFileSync(detailPath, "utf8")) as {
+      registry: { registryDependencies?: string[] };
+      docs: { url: string; rawUrl: string };
+    };
+    const payload = JSON.parse(fs.readFileSync(registryPath, "utf8")) as {
+      registryDependencies?: string[];
+    };
+    if (
+      JSON.stringify(detail.registry.registryDependencies ?? []) !==
+      JSON.stringify(payload.registryDependencies ?? [])
+    ) {
+      errors.push(`${item.name}: agent detail does not match resolved payload`);
+    }
+    if (
+      !detail.docs.url.startsWith(`${productionOrigin}/docs/`) ||
+      !detail.docs.rawUrl.startsWith(`${productionOrigin}/docs/`)
+    ) {
+      errors.push(`${item.name}: agent detail leaks a non-production URL`);
+    }
+  }
+}
+
+if (catalog.registry !== `${productionOrigin}/r/{name}.json`) {
+  errors.push("catalog: registry URL is not the production alias");
+}
+
+for (const fileName of fs.readdirSync(path.join(root, "public/r"))) {
+  if (!fileName.endsWith(".json") || fileName === "registry.json") continue;
+  const payload = JSON.parse(
+    fs.readFileSync(path.join(root, "public/r", fileName), "utf8"),
+  ) as { registryDependencies?: string[] };
+  for (const dependency of payload.registryDependencies ?? []) {
+    if (!dependency.startsWith("@sona-ui/")) {
+      errors.push(
+        `${fileName}: registry dependency must use @sona-ui namespace: ${dependency}`,
+      );
+    }
   }
 }
 

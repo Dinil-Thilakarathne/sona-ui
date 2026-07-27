@@ -36,7 +36,9 @@
       "react-icons",
       "react-use-measure"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-motion"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/link-preview",

@@ -65,8 +65,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         disabled={disabled}
-        whileTap={shouldReduceMotion ? undefined : { scale: 0.97 }}
-        whileHover={{ scale: 1.05 }}
+        whileTap={disabled || shouldReduceMotion ? undefined : { scale: 0.97 }}
+        whileHover={
+          disabled || shouldReduceMotion ? undefined : { scale: 1.02 }
+        }
         transition={
           shouldReduceMotion
             ? motionTransition.reduced

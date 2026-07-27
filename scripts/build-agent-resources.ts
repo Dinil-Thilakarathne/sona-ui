@@ -11,8 +11,13 @@ type RegistryItem = {
   registryDependencies?: string[];
 };
 
+type ResolvedRegistryItem = RegistryItem & {
+  $schema: string;
+};
+
 const root = process.cwd();
 const sourceRegistryPath = path.join(root, "src/registry/registry.json");
+const resolvedRegistryPath = path.join(root, "public/r");
 const docsPath = path.join(root, "src/content/docs");
 const outputPath = path.join(root, "public/agent");
 const catalogPath = path.join(outputPath, "catalog.json");
@@ -20,9 +25,6 @@ const detailsPath = path.join(outputPath, "components");
 function getSiteBaseUrl() {
   const configuredUrl = process.env.AGENT_SITE_URL?.trim();
   if (configuredUrl) return configuredUrl.replace(/\/$/, "");
-
-  const vercelUrl = process.env.VERCEL_URL?.trim();
-  if (vercelUrl) return `https://${vercelUrl}`;
 
   return "https://sona-ui.vercel.app";
 }
@@ -51,8 +53,24 @@ function readDocTitle(slug: string) {
 function buildResources() {
   const registry = readJson<RegistryItem[]>(sourceRegistryPath);
   const registryByName = new Map(registry.map((item) => [item.name, item]));
+  const resolvedRegistryByName = new Map(
+    registry.map((item) => {
+      const resolvedPath = path.join(resolvedRegistryPath, `${item.name}.json`);
+      if (!fs.existsSync(resolvedPath)) {
+        throw new Error(
+          `${item.name}: missing resolved registry payload; run build:registry first`,
+        );
+      }
+      return [item.name, readJson<ResolvedRegistryItem>(resolvedPath)];
+    }),
+  );
   const metadata = Object.values(agentResourceMetadata);
   const errors: string[] = [];
+  const getResolvedRegistryItem = (name: string) => {
+    const item = resolvedRegistryByName.get(name);
+    if (!item) throw new Error(`${name}: missing resolved registry item`);
+    return item;
+  };
 
   for (const item of metadata) {
     const registryItem = registryByName.get(item.name);
@@ -83,7 +101,7 @@ function buildResources() {
 
   ensureDir(detailsPath);
   const catalogItems = metadata.map((item) => {
-    const registryItem = registryByName.get(item.name)!;
+    const registryItem = getResolvedRegistryItem(item.name);
     return {
       name: item.name,
       title: item.title,
@@ -107,8 +125,9 @@ function buildResources() {
   fs.writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);
 
   for (const item of metadata) {
-    const registryItem = registryByName.get(item.name)!;
-    const doc = readDocTitle(item.docsSlug)!;
+    const registryItem = getResolvedRegistryItem(item.name);
+    const doc = readDocTitle(item.docsSlug);
+    if (!doc) throw new Error(`${item.name}: missing docs file`);
     const detail = {
       schemaVersion: 1,
       ...item,

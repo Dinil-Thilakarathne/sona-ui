@@ -45,7 +45,9 @@
       "@base-ui/react",
       "motion"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/fluid-tabs",

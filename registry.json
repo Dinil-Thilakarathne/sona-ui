@@ -13,7 +13,7 @@
         {
           "path": "registry/sonaui/sona-utils/sona-utils.ts",
           "type": "registry:lib",
-          "target": "lib/sona-utils.ts"
+          "target": "@lib/sona-utils.ts"
         }
       ],
       "dependencies": [
@@ -32,7 +32,7 @@
         {
           "path": "registry/sonaui/sona-motion/sona-motion.ts",
           "type": "registry:lib",
-          "target": "lib/sona-motion.ts"
+          "target": "@lib/sona-motion.ts"
         }
       ],
       "dependencies": [
@@ -114,9 +114,9 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-theme.json",
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-theme",
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -137,8 +137,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -159,8 +159,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -173,7 +173,7 @@
         {
           "path": "registry/sonaui/button/button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/button/button.tsx"
+          "target": "@ui/button.tsx"
         }
       ],
       "dependencies": [
@@ -181,8 +181,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -203,7 +203,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -224,7 +224,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -244,7 +244,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -265,7 +265,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -286,7 +286,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -307,7 +307,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -328,8 +328,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -360,7 +360,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -380,7 +380,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -400,7 +400,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -420,7 +420,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -440,7 +440,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -462,7 +462,7 @@
         "react-use-measure"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -482,7 +482,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -504,8 +504,8 @@
         "react-icons"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -526,7 +526,7 @@
         "@gsap/react"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -546,8 +546,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json",
-        "https://sona-ui.vercel.app/r/sona-motion.json"
+        "@sona-ui/sona-utils",
+        "@sona-ui/sona-motion"
       ]
     },
     {
@@ -567,7 +567,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -587,7 +587,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -608,7 +608,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -628,7 +628,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -648,7 +648,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://sona-ui.vercel.app/r/sona-utils.json"
+        "@sona-ui/sona-utils"
       ]
     }
   ]

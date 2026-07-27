@@ -35,7 +35,9 @@
       "gsap",
       "@gsap/react"
     ],
-    "registryDependencies": []
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   "docs": {
     "url": "https://sona-ui.vercel.app/docs/split-text",
