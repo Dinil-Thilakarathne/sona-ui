@@ -1,3 +1,15 @@
+# [2.17.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.1...v2.17.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* Refactor HoldToDeleteButton with improved animations ([c940962](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c94096238f5d2158a4017e5ad0b0c01a93553e16))
+
+
+### Features
+
+* Add animation audit and prototyping agent skills ([06aa237](https://github.com/Dinil-Thilakarathne/sona-ui/commit/06aa23772fc3ec1013e839c6da17195896e0e519))
+
 ## [2.16.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.0...v2.16.1) (2026-07-27)
 
 
