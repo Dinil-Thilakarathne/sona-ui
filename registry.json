@@ -584,6 +584,7 @@
         }
       ],
       "dependencies": [
+        "lucide-react",
         "motion"
       ],
       "registryDependencies": [

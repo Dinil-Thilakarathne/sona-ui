@@ -10051,6 +10051,7 @@ export const componentMetadata = {
       }
     ],
     "dependencies": [
+      "lucide-react",
       "motion"
     ]
   },
