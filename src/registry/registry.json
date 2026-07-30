@@ -460,6 +460,7 @@
       }
     ],
     "dependencies": [
+      "lucide-react",
       "motion"
     ]
   },
