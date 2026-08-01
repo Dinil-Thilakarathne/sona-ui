@@ -32,6 +32,22 @@ interface ComponentInstallProps {
   }>;
 }
 
+function getFileLanguage(path: string) {
+  const extension = path.split(".").pop()?.toLowerCase();
+
+  switch (extension) {
+    case "css":
+      return "css";
+    case "js":
+    case "jsx":
+    case "ts":
+    case "tsx":
+      return extension;
+    default:
+      return "text";
+  }
+}
+
 export function ComponentInstallation({
   component,
   componentFiles,
@@ -115,7 +131,10 @@ export function ComponentInstallation({
                   </p>
                   {componentFiles.length === 1 ? (
                     // Single file: no tabs needed
-                    <CodeBlock code={componentFiles[0].content} language="tsx">
+                    <CodeBlock
+                      code={componentFiles[0].content}
+                      language={getFileLanguage(componentFiles[0].target)}
+                    >
                       <CodeBlockHeader filename={componentFiles[0].target} />
                       <CodeBlockPre>
                         <CodeBlockCode />
@@ -129,7 +148,10 @@ export function ComponentInstallation({
                         componentFiles[0];
 
                       return (
-                        <CodeBlock code={activeFile.content} language="tsx">
+                        <CodeBlock
+                          code={activeFile.content}
+                          language={getFileLanguage(activeFile.target)}
+                        >
                           <CodeBlockHeader
                             tabs={componentFiles.map((f) => ({
                               value: f.path,

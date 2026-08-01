@@ -1,0 +1,4 @@
+interface:
+  display_name: "Promote Portfolio Component"
+  short_description: "Promote finished Crafts into Sona UI"
+  default_prompt: "Use $promote-portfolio-component to assess and promote this portfolio component into Sona UI: <component-path>."

@@ -396,6 +396,7 @@
       "registryItem": "https://sona-ui.vercel.app/r/hold-to-delete-button.json",
       "detail": "https://sona-ui.vercel.app/agent/components/hold-to-delete-button.json",
       "dependencies": [
+        "lucide-react",
         "motion"
       ]
     },

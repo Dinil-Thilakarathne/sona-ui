@@ -576,6 +576,80 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Motion configuration applied to the layout and label transitions."
     }
   ],
+  "expanding-action": [
+    {
+      "name": "items",
+      "type": "ExpandingActionItem[]",
+      "default": "required",
+      "description": "Short choices revealed when the action expands."
+    },
+    {
+      "name": "trigger",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Content displayed inside the collapsed trigger."
+    },
+    {
+      "name": "triggerIcon",
+      "type": "ReactNode",
+      "default": "undefined",
+      "description": "Optional icon displayed before the trigger content."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Controlled expanded state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial expanded state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "undefined",
+      "description": "Called whenever the expanded state changes."
+    },
+    {
+      "name": "onValueSelect",
+      "type": "(value: string) => void",
+      "default": "undefined",
+      "description": "Called with the selected item value before the action collapses."
+    },
+    {
+      "name": "backLabel",
+      "type": "string",
+      "default": "\"Back\"",
+      "description": "Accessible label for the control that returns to the trigger."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the trigger and choices are unavailable."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the rendered state container."
+    },
+    {
+      "name": "triggerClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the collapsed trigger."
+    },
+    {
+      "name": "optionClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes applied to every choice button."
+    }
+  ],
   "fan-view": [
     {
       "name": "items",
@@ -838,6 +912,44 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional classes for the tab list."
+    }
+  ],
+  "fluid-tooltip": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Related tooltip roots rendered inside the group."
+    },
+    {
+      "name": "orientation",
+      "type": "FluidTooltipOrientation",
+      "default": "\"auto\"",
+      "description": "Axis used to calculate directional content entry."
+    },
+    {
+      "name": "openDelay",
+      "type": "number",
+      "default": "350",
+      "description": "Delay before the first pointer tooltip opens, in milliseconds."
+    },
+    {
+      "name": "closeDelay",
+      "type": "number",
+      "default": "100",
+      "description": "Grace period before a pointer tooltip closes, in milliseconds."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Disables tooltip behavior for every trigger in the group."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the positioned tooltip surface."
     }
   ],
   "hold-to-delete-button": [

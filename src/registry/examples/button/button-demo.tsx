@@ -7,10 +7,6 @@ export default function ButtonDemo() {
       <Button>
         Get started <ArrowRight className="size-4" />
       </Button>
-      <Button variant="outlined">Learn more</Button>
-      <Button variant="secondary">
-        <Sparkles className="size-4" /> Explore
-      </Button>
     </div>
   );
 }

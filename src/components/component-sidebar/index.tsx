@@ -12,7 +12,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/common/sheet";
-import { groupedComponents } from "@/config/components";
+import {
+  componentNavigationLinks,
+  groupedComponents,
+} from "@/config/components";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { navLinks } from "@/lib/data";
 import SidebarLink from "../common/sidebar-link";
@@ -28,13 +31,19 @@ const SidebarContent: React.FC<{
 }> = ({ pathname, onLinkClick }) => {
   return (
     <>
-      <nav className="flex flex-col gap-y-4">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="font-medium text-sm">Browse</h2>
+        <span className="font-mono text-[10px] text-muted-foreground">
+          {componentNavigationLinks.length}
+        </span>
+      </div>
+      <nav className="flex flex-col" aria-label="Documentation categories">
         {Object.entries(groupedComponents).map(([type, components]) => (
-          <div key={type} className="flex flex-col gap-y-1 py-2">
-            <h3 className="mb-1 font-semibold text-foreground/90 text-xs tracking-wider uppercase">
+          <section key={type} className="mb-5">
+            <h3 className="mb-1.5 font-mono text-[10px] text-muted-foreground tracking-[0.16em] uppercase">
               {type}
             </h3>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-0.5">
               {components.map((item) => (
                 <SidebarLink
                   key={item.name}
@@ -42,6 +51,7 @@ const SidebarContent: React.FC<{
                   name={item.name}
                   tag={item.tag}
                   onClick={onLinkClick}
+                  className="rounded-md px-3 py-1.5 transition-colors duration-150 ease-out hover:bg-muted/60"
                   textClassName={
                     pathname === item.href ? "text-foreground font-medium" : ""
                   }
@@ -49,7 +59,7 @@ const SidebarContent: React.FC<{
                 />
               ))}
             </div>
-          </div>
+          </section>
         ))}
       </nav>
       <div className="grow w-full" />

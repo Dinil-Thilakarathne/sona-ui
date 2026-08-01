@@ -270,6 +270,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "fluid-tooltip",
+      "type": "registry:ui",
+      "title": "Fluid Tooltip",
+      "description": "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+      "files": [
+        {
+          "path": "registry/sonaui/fluid-tooltip/fluid-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-tooltip/fluid-tooltip.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "fluid-slider",
       "type": "registry:ui",
       "title": "Fluid Slider",
@@ -330,6 +351,27 @@
       "registryDependencies": [
         "@sona-ui/sona-utils",
         "@sona-ui/sona-motion"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "expanding-action",
+      "type": "registry:ui",
+      "title": "Expanding Action",
+      "description": "A compact action that transforms in place into a short set of related choices with accessible focus management.",
+      "files": [
+        {
+          "path": "registry/sonaui/expanding-action/expanding-action.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expanding-action/expanding-action.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
       ]
     },
     {

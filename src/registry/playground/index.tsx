@@ -4,9 +4,11 @@ import {
   Clapperboard,
   CreditCard,
   FileText,
+  Home,
   ImageIcon,
   LogOut,
   Music,
+  Search,
   Settings,
   User,
 } from "lucide-react";
@@ -44,9 +46,11 @@ import Button from "@/registry/sonaui/button/button";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
+import ExpandingAction from "@/registry/sonaui/expanding-action/expanding-action";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
 import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
 import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
+import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
@@ -124,6 +128,41 @@ function getActivityColors(color: string, levels: number) {
 }
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "expanding-action": {
+    controls: [
+      {
+        type: "text",
+        prop: "trigger",
+        label: "Trigger label",
+        default: "New project",
+      },
+      {
+        type: "toggle",
+        prop: "defaultOpen",
+        label: "Initially expanded",
+        default: false,
+      },
+      {
+        type: "toggle",
+        prop: "disabled",
+        label: "Disabled",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <ExpandingAction
+        key={`${String(v.trigger)}-${String(v.defaultOpen)}-${String(v.disabled)}`}
+        trigger={v.trigger as string}
+        defaultOpen={v.defaultOpen as boolean}
+        disabled={v.disabled as boolean}
+        items={[
+          { value: "marketing", label: "Marketing" },
+          { value: "design", label: "Design" },
+          { value: "development", label: "Development" },
+        ]}
+      />
+    ),
+  },
   "activity-graph": {
     controls: [
       {
@@ -345,6 +384,84 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         ]}
       />
     ),
+  },
+  "fluid-tooltip": {
+    controls: [
+      {
+        type: "select",
+        prop: "orientation",
+        label: "Orientation",
+        options: [
+          { label: "Horizontal", value: "horizontal" },
+          { label: "Vertical", value: "vertical" },
+          { label: "Auto", value: "auto" },
+        ],
+        default: "horizontal",
+      },
+      {
+        type: "slider",
+        prop: "openDelay",
+        label: "First open delay (ms)",
+        min: 0,
+        max: 800,
+        step: 50,
+        default: 350,
+      },
+      {
+        type: "slider",
+        prop: "closeDelay",
+        label: "Close delay (ms)",
+        min: 0,
+        max: 300,
+        step: 25,
+        default: 100,
+      },
+      {
+        type: "toggle",
+        prop: "disabled",
+        label: "Disable tooltips",
+        default: false,
+      },
+    ],
+    render: (v) => {
+      const orientation = v.orientation as "horizontal" | "vertical" | "auto";
+      const tooltipItems = [
+        { id: "home", label: "Home", icon: Home },
+        { id: "search", label: "Search", icon: Search },
+        { id: "notifications", label: "Notifications", icon: Bell },
+        { id: "settings", label: "Settings", icon: Settings },
+      ];
+
+      return (
+        <FluidTooltip.Group
+          orientation={orientation}
+          openDelay={v.openDelay as number}
+          closeDelay={v.closeDelay as number}
+          disabled={v.disabled as boolean}
+        >
+          <div
+            className={`flex items-center gap-1 rounded-2xl border border-border bg-muted/60 p-1.5 ${
+              orientation === "vertical" ? "flex-col" : ""
+            }`}
+          >
+            {tooltipItems.map((item) => (
+              <FluidTooltip.Root key={item.id} id={item.id}>
+                <FluidTooltip.Trigger asChild>
+                  <button
+                    type="button"
+                    aria-label={item.label}
+                    className="grid size-10 place-items-center rounded-xl text-muted-foreground outline-none transition-colors duration-150 hover:bg-background hover:text-foreground focus-visible:bg-background focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    <item.icon aria-hidden="true" className="size-4" />
+                  </button>
+                </FluidTooltip.Trigger>
+                <FluidTooltip.Content>{item.label}</FluidTooltip.Content>
+              </FluidTooltip.Root>
+            ))}
+          </div>
+        </FluidTooltip.Group>
+      );
+    },
   },
   accordion: {
     controls: [

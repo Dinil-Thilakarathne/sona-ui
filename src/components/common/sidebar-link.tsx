@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import Tag from "./tag";
 
 interface NavLinkProps extends NavLinksPropsType, LinkProps {
+  className?: string;
   href: string;
   textClassName?: string;
 }
@@ -12,12 +13,18 @@ const SidebarLink = ({
   name,
   tag,
   href,
+  className,
   textClassName,
   ...props
 }: NavLinkProps) => {
   const isDisabled = tag === "soon";
   return isDisabled ? (
-    <div className="flex relative items-start space-x-0.5 cursor-not-allowed group">
+    <div
+      className={cn(
+        "flex relative items-start space-x-0.5 cursor-not-allowed group",
+        className,
+      )}
+    >
       <h3 className={cn("text-muted-foreground text-sm", textClassName)}>
         {name}
       </h3>
@@ -26,7 +33,7 @@ const SidebarLink = ({
     </div>
   ) : (
     <Link
-      className={cn("group relative flex items-start space-x-0.5")}
+      className={cn("group relative flex items-start space-x-0.5", className)}
       href={href}
       {...props}
     >
