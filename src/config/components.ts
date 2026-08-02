@@ -55,6 +55,20 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     tag: "new",
   },
   {
+    name: "Lightbox",
+    slug: "lightbox",
+    href: "/docs/lightbox",
+    type: "Components",
+    tag: "new",
+  },
+  {
+    name: "Avatar Showcase",
+    slug: "avatar-showcase",
+    href: "/docs/avatar-showcase",
+    type: "Motion",
+    tag: "new",
+  },
+  {
     name: "Button",
     slug: "button",
     href: "/docs/button",

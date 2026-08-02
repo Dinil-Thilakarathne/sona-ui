@@ -392,6 +392,56 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the tab list."
     }
   ],
+  "avatar-showcase": [
+    {
+      "name": "items",
+      "type": "AvatarShowcaseItem[]",
+      "default": "required",
+      "description": "Ordered people to present. The first item is treated as the most recent."
+    },
+    {
+      "name": "lanes",
+      "type": "1 | 2 | 3",
+      "default": "1",
+      "description": "Number of vertically staggered lanes used by the moving strip."
+    },
+    {
+      "name": "totalCount",
+      "type": "number",
+      "default": "items.length",
+      "description": "Total community size when `items` contains only a recent subset."
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional message revealed with the final count. Omit it for a count-only ending."
+    },
+    {
+      "name": "maxItems",
+      "type": "number",
+      "default": "80",
+      "description": "Maximum number of avatars rendered before deterministic sampling is applied."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "undefined",
+      "description": "Fixed playback duration in seconds. When omitted, duration is derived from the total count."
+    },
+    {
+      "name": "avatarSize",
+      "type": "number",
+      "default": "56",
+      "description": "Avatar diameter in pixels."
+    },
+    {
+      "name": "onComplete",
+      "type": "() => void",
+      "default": "undefined",
+      "description": "Called after the strip finishes and the ending is revealed."
+    }
+  ],
   "bubble-up-button": [
     {
       "name": "children",
@@ -1050,6 +1100,68 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "number",
       "default": "10",
       "description": "z-index of the trail layer."
+    }
+  ],
+  "lightbox": [
+    {
+      "name": "src",
+      "type": "string",
+      "default": "required",
+      "description": "The image URL shown in both the thumbnail and expanded preview."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "default": "required",
+      "description": "Accessible alternative text for the image."
+    },
+    {
+      "name": "caption",
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional caption displayed beneath the expanded image."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial open state for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "undefined",
+      "description": "Called whenever the expanded preview opens or closes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the thumbnail trigger."
+    },
+    {
+      "name": "imageClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the thumbnail image."
+    },
+    {
+      "name": "previewClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the expanded image."
+    },
+    {
+      "name": "backdropClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the modal backdrop."
     }
   ],
   "link-preview": [

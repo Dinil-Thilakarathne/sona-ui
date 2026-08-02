@@ -23,6 +23,7 @@ import accordion_accordion_outlined from "@/registry/examples/accordion/accordio
 import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
 import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
+import lightbox_lightbox_demo from "@/registry/examples/lightbox/lightbox-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
@@ -49,6 +50,7 @@ import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/example
 import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
+import avatar_showcase_avatar_showcase_demo from "@/registry/examples/avatar-showcase/avatar-showcase-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
 
 export type RegistryEntry = {
@@ -1565,6 +1567,36 @@ const ITEMS = [
 
 export default function FanViewDemo() {
   return <FanView items={ITEMS} />;
+}`,
+    }
+  ],
+  "lightbox": [
+    {
+      name: "default",
+      component: lightbox_lightbox_demo,
+      code: `import Lightbox from "@/components/ui/lightbox/lightbox";
+
+export default function LightboxDemo() {
+  return (
+    <Lightbox
+      alt="Accordion component preview on a dark canvas"
+      caption="Select the backdrop, close button, or press Escape to return."
+      className="aspect-[16/10] w-full max-w-xl"
+      src="/og/accordion-og.png"
+    />
+  );
+}
+`,
+      imports: `import Lightbox from "@/components/ui/lightbox/lightbox";`,
+      anatomy: `export default function LightboxDemo() {
+  return (
+    <Lightbox
+      alt="Accordion component preview on a dark canvas"
+      caption="Select the backdrop, close button, or press Escape to return."
+      className="aspect-[16/10] w-full max-w-xl"
+      src="/og/accordion-og.png"
+    />
+  );
 }`,
     }
   ],
@@ -3109,6 +3141,116 @@ export default function StaggerTextExample() {
       imports: `import StaggerText from "@/components/ui/stagger-text/stagger-text";`,
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
+}`,
+    }
+  ],
+  "avatar-showcase": [
+    {
+      name: "default",
+      component: avatar_showcase_avatar_showcase_demo,
+      code: `import AvatarShowcase, {
+  type AvatarShowcaseItem,
+} from "@/components/ui/avatar-showcase/avatar-showcase";
+
+const FOLLOWERS: AvatarShowcaseItem[] = [
+  { id: "1", name: "Maya Chen", imageUrl: "https://i.pravatar.cc/160?img=5" },
+  {
+    id: "2",
+    name: "Noah Williams",
+    imageUrl: "https://i.pravatar.cc/160?img=12",
+  },
+  {
+    id: "3",
+    name: "Aisha Rahman",
+    imageUrl: "https://i.pravatar.cc/160?img=32",
+  },
+  { id: "4", name: "Leo Martin", imageUrl: "https://i.pravatar.cc/160?img=11" },
+  {
+    id: "5",
+    name: "Sofia Silva",
+    imageUrl: "https://i.pravatar.cc/160?img=47",
+  },
+  { id: "6", name: "Ethan Kim", imageUrl: "https://i.pravatar.cc/160?img=68" },
+  {
+    id: "7",
+    name: "Amara Okafor",
+    imageUrl: "https://i.pravatar.cc/160?img=44",
+  },
+  {
+    id: "8",
+    name: "Oliver Smith",
+    imageUrl: "https://i.pravatar.cc/160?img=15",
+  },
+  { id: "9", name: "Priya Nair", imageUrl: "https://i.pravatar.cc/160?img=49" },
+  {
+    id: "10",
+    name: "Mateo Garcia",
+    imageUrl: "https://i.pravatar.cc/160?img=53",
+  },
+  { id: "11", name: "Hana Sato", imageUrl: "https://i.pravatar.cc/160?img=25" },
+  { id: "12", name: "Jon Bell", imageUrl: "https://i.pravatar.cc/160?img=3" },
+];
+
+export default function AvatarShowcaseExample() {
+  return (
+    <AvatarShowcase
+      items={FOLLOWERS}
+      message="Thanks for following"
+      totalCount={912}
+    />
+  );
+}
+`,
+      imports: `import AvatarShowcase, {
+  type AvatarShowcaseItem,
+} from "@/components/ui/avatar-showcase/avatar-showcase";`,
+      anatomy: `const FOLLOWERS: AvatarShowcaseItem[] = [
+  { id: "1", name: "Maya Chen", imageUrl: "https://i.pravatar.cc/160?img=5" },
+  {
+    id: "2",
+    name: "Noah Williams",
+    imageUrl: "https://i.pravatar.cc/160?img=12",
+  },
+  {
+    id: "3",
+    name: "Aisha Rahman",
+    imageUrl: "https://i.pravatar.cc/160?img=32",
+  },
+  { id: "4", name: "Leo Martin", imageUrl: "https://i.pravatar.cc/160?img=11" },
+  {
+    id: "5",
+    name: "Sofia Silva",
+    imageUrl: "https://i.pravatar.cc/160?img=47",
+  },
+  { id: "6", name: "Ethan Kim", imageUrl: "https://i.pravatar.cc/160?img=68" },
+  {
+    id: "7",
+    name: "Amara Okafor",
+    imageUrl: "https://i.pravatar.cc/160?img=44",
+  },
+  {
+    id: "8",
+    name: "Oliver Smith",
+    imageUrl: "https://i.pravatar.cc/160?img=15",
+  },
+  { id: "9", name: "Priya Nair", imageUrl: "https://i.pravatar.cc/160?img=49" },
+  {
+    id: "10",
+    name: "Mateo Garcia",
+    imageUrl: "https://i.pravatar.cc/160?img=53",
+  },
+  { id: "11", name: "Hana Sato", imageUrl: "https://i.pravatar.cc/160?img=25" },
+  { id: "12", name: "Jon Bell", imageUrl: "https://i.pravatar.cc/160?img=3" },
+];
+
+export default function AvatarShowcaseExample() {
+  return (
+    <AvatarShowcase
+      items={FOLLOWERS}
+      message="Thanks for following"
+      totalCount={912}
+    />
+  );
 }`,
     }
   ],
@@ -5289,6 +5431,216 @@ export default function FanView({
 `,
       path: "fan-view/fan-view.tsx",
       target: "components/sonaui/fan-view/fan-view.tsx"
+    }
+  ],
+  "lightbox": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Dialog } from "@base-ui/react/dialog";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import { useId, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface LightboxProps {
+  /** The image URL shown in both the thumbnail and expanded preview. */
+  src: string;
+  /** Accessible alternative text for the image. */
+  alt: string;
+  /** Optional caption displayed beneath the expanded image. @default undefined */
+  caption?: string;
+  /** Controlled open state. @default undefined */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called whenever the expanded preview opens or closes. @default undefined */
+  onOpenChange?: (open: boolean) => void;
+  /** Additional CSS classes for the thumbnail trigger. @default undefined */
+  className?: string;
+  /** Additional CSS classes for the thumbnail image. @default undefined */
+  imageClassName?: string;
+  /** Additional CSS classes for the expanded image. @default undefined */
+  previewClassName?: string;
+  /** Additional CSS classes for the modal backdrop. @default undefined */
+  backdropClassName?: string;
+}
+
+export default function Lightbox({
+  src,
+  alt,
+  caption,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
+  className,
+  imageClassName,
+  previewClassName,
+  backdropClassName,
+}: LightboxProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const instanceId = useId();
+  const shouldReduceMotion = useReducedMotion();
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  const layoutId = shouldReduceMotion
+    ? undefined
+    : \`\${instanceId}-lightbox-image\`;
+
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <LayoutGroup id={instanceId}>
+      <Dialog.Root defaultOpen={defaultOpen} onOpenChange={setOpen} open={open}>
+        <Dialog.Trigger
+          className={cn(
+            "group relative block w-full cursor-zoom-in rounded-2xl bg-muted text-left",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/35 focus-visible:ring-offset-4 focus-visible:ring-offset-background",
+            className,
+          )}
+          render={
+            <motion.button
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            />
+          }
+        >
+          {/* biome-ignore lint/performance/noImgElement: a registry component must remain framework-agnostic */}
+          <motion.img
+            alt={alt}
+            className={cn(
+              "block h-full w-full rounded-2xl object-cover",
+              imageClassName,
+            )}
+            layoutId={layoutId}
+            src={src}
+            transition={{ type: "spring", bounce: 0, duration: 0.38 }}
+          />
+          <span className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/28 via-transparent to-transparent opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100" />
+          <span className="absolute right-3 bottom-3 inline-flex size-9 translate-y-1 items-center justify-center rounded-full bg-black/52 text-white opacity-0 shadow-sm backdrop-blur-md transition-[opacity,transform] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+            <svg
+              aria-hidden="true"
+              className="size-4"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m21 21-4.35-4.35M11 8v6m-3-3h6m5 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.8"
+              />
+            </svg>
+          </span>
+          <span className="sr-only">Open image preview: {alt}</span>
+        </Dialog.Trigger>
+
+        <AnimatePresence>
+          {open ? (
+            <Dialog.Portal keepMounted>
+              <Dialog.Backdrop
+                className={cn(
+                  "fixed inset-0 z-50 bg-black/72 backdrop-blur-md",
+                  backdropClassName,
+                )}
+                render={
+                  <motion.div
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    transition={{ duration: shouldReduceMotion ? 0.12 : 0.22 }}
+                  />
+                }
+              />
+
+              <Dialog.Popup
+                aria-label={\`Image preview: \${alt}\`}
+                className="fixed inset-0 z-50 grid cursor-zoom-out place-items-center p-5 sm:p-10"
+                onClick={() => setOpen(false)}
+                render={<motion.div />}
+              >
+                <Dialog.Close
+                  aria-label="Close image preview"
+                  className="absolute top-4 right-4 z-10 inline-flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/45 text-white shadow-lg backdrop-blur-md transition-colors duration-150 ease-out hover:bg-black/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:top-6 sm:right-6"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="size-[18px]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18 6 6 18M6 6l12 12"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                </Dialog.Close>
+
+                <motion.figure
+                  animate={{ opacity: 1 }}
+                  className="m-0 flex max-h-[88svh] max-w-[90vw] cursor-default flex-col items-center gap-3"
+                  exit={{ opacity: shouldReduceMotion ? 0 : 1 }}
+                  initial={{ opacity: shouldReduceMotion ? 0 : 1 }}
+                  onClick={(event) => event.stopPropagation()}
+                  transition={{ duration: 0.12 }}
+                >
+                  {/* biome-ignore lint/performance/noImgElement: a registry component must remain framework-agnostic */}
+                  <motion.img
+                    alt={alt}
+                    className={cn(
+                      "block max-h-[82svh] max-w-[90vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/12 will-change-transform",
+                      previewClassName,
+                    )}
+                    layoutId={layoutId}
+                    src={src}
+                    transition={{
+                      type: "spring",
+                      bounce: 0,
+                      duration: shouldReduceMotion ? 0.01 : 0.38,
+                    }}
+                  />
+                  {caption ? (
+                    <motion.figcaption
+                      animate={{ opacity: 1, y: 0 }}
+                      className="max-w-xl text-center text-sm leading-5 text-white/72"
+                      initial={
+                        shouldReduceMotion
+                          ? { opacity: 1, y: 0 }
+                          : { opacity: 0, y: 4 }
+                      }
+                      transition={{
+                        delay: shouldReduceMotion ? 0 : 0.14,
+                        duration: 0.18,
+                        ease: "easeOut",
+                      }}
+                    >
+                      {caption}
+                    </motion.figcaption>
+                  ) : null}
+                </motion.figure>
+              </Dialog.Popup>
+            </Dialog.Portal>
+          ) : null}
+        </AnimatePresence>
+      </Dialog.Root>
+    </LayoutGroup>
+  );
+}
+`,
+      path: "lightbox/lightbox.tsx",
+      target: "components/sonaui/lightbox/lightbox.tsx"
     }
   ],
   "marquee": [
@@ -10140,6 +10492,293 @@ const variants: Variants = {
       target: "components/sonaui/stagger-text/stagger-text.tsx"
     }
   ],
+  "avatar-showcase": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface AvatarShowcaseItem {
+  /** Stable identifier used to preserve the supplied item order. */
+  id: string;
+  /** Accessible name for the person or profile. */
+  name: string;
+  /** Avatar image URL. */
+  imageUrl: string;
+}
+
+export interface AvatarShowcaseProps extends React.HTMLAttributes<HTMLElement> {
+  /** Ordered people to present. The first item is treated as the most recent. */
+  items: AvatarShowcaseItem[];
+  /** Number of vertically staggered lanes used by the moving strip.
+   * @default 1
+   */
+  lanes?: 1 | 2 | 3;
+  /** Total community size when \`items\` contains only a recent subset.
+   * @default items.length
+   */
+  totalCount?: number;
+  /** Optional message revealed with the final count. Omit it for a count-only ending.
+   * @default undefined
+   */
+  message?: string;
+  /** Maximum number of avatars rendered before deterministic sampling is applied.
+   * @default 80
+   */
+  maxItems?: number;
+  /** Fixed playback duration in seconds. When omitted, duration is derived from the total count.
+   * @default undefined
+   */
+  duration?: number;
+  /** Avatar diameter in pixels.
+   * @default 56
+   */
+  avatarSize?: number;
+  /** Called after the strip finishes and the ending is revealed.
+   * @default undefined
+   */
+  onComplete?: () => void;
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function sampleItems(items: AvatarShowcaseItem[], limit: number) {
+  if (items.length <= limit) return items;
+
+  const recentCount = Math.min(12, Math.ceil(limit / 3));
+  const recentItems = items.slice(0, recentCount);
+  const remainingSlots = limit - recentCount;
+  const remainingItems = items.slice(recentCount);
+
+  const sampledItems = Array.from({ length: remainingSlots }, (_, index) => {
+    const sampleIndex = Math.floor(
+      (index * (remainingItems.length - 1)) / Math.max(1, remainingSlots - 1),
+    );
+    return remainingItems[sampleIndex];
+  });
+
+  return [...recentItems, ...sampledItems];
+}
+
+function getInitials(name: string) {
+  return (
+    name
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase() || "?"
+  );
+}
+
+function ShowcaseAvatar({
+  item,
+  size,
+}: {
+  item: AvatarShowcaseItem;
+  size: number;
+}) {
+  const [hasImageError, setHasImageError] = useState(false);
+
+  return (
+    <div
+      className="relative grid shrink-0 place-items-center overflow-hidden rounded-full bg-muted font-medium text-muted-foreground shadow-[0_0_0_1px_color-mix(in_oklab,var(--border)_80%,transparent),0_8px_24px_-12px_color-mix(in_oklab,var(--foreground)_24%,transparent)]"
+      style={{ width: size, height: size }}
+      title={item.name}
+    >
+      {hasImageError ? (
+        <span
+          aria-hidden="true"
+          style={{ fontSize: Math.max(11, size * 0.28) }}
+        >
+          {getInitials(item.name)}
+        </span>
+      ) : (
+        // biome-ignore lint/performance/noImgElement: registry consumers may provide any remote image source
+        <img
+          alt=""
+          className="size-full object-cover"
+          draggable={false}
+          loading="eager"
+          onError={() => setHasImageError(true)}
+          src={item.imageUrl}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function AvatarShowcase({
+  items,
+  lanes = 1,
+  totalCount = items.length,
+  message,
+  maxItems = 80,
+  duration,
+  avatarSize = 56,
+  className,
+  onComplete,
+  ...props
+}: AvatarShowcaseProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [measurement, setMeasurement] = useState({ container: 0, track: 0 });
+  const [isComplete, setIsComplete] = useState(false);
+
+  const safeLaneCount = clamp(Math.round(lanes), 1, 3);
+  const safeAvatarSize = clamp(avatarSize, 32, 96);
+  const safeLimit = Math.max(1, Math.floor(maxItems));
+  const visibleItems = useMemo(
+    () => sampleItems(items, safeLimit),
+    [items, safeLimit],
+  );
+  const effectiveLanes = Math.min(safeLaneCount, visibleItems.length || 1);
+  const laneOffset = safeAvatarSize * 0.58;
+  const containerHeight = safeAvatarSize + laneOffset * (effectiveLanes - 1);
+  const measurementKey = \`\${visibleItems.map((item) => item.id).join(":")}-\${effectiveLanes}-\${safeAvatarSize}\`;
+  const resolvedCount = Math.max(totalCount, items.length);
+  const resolvedDuration =
+    duration ?? clamp(8 + Math.log10(Math.max(1, resolvedCount)) * 1.2, 8, 12);
+
+  useEffect(() => {
+    // Reconnect the observer when the rendered strip geometry changes.
+    void measurementKey;
+    const container = containerRef.current;
+    const track = trackRef.current;
+    if (!container || !track) return;
+
+    const measure = () => {
+      const nextMeasurement = {
+        container: container.clientWidth,
+        track: track.scrollWidth,
+      };
+      // Removing the completed track reports a transient zero width. Ignoring
+      // that observation keeps the final count visible instead of restarting.
+      if (nextMeasurement.container === 0 || nextMeasurement.track === 0)
+        return;
+      setMeasurement(nextMeasurement);
+      setIsComplete(false);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, [measurementKey]);
+
+  if (visibleItems.length === 0) {
+    return (
+      <section
+        aria-label="No people to showcase yet"
+        className={cn(
+          "grid min-h-28 place-items-center overflow-hidden rounded-xl border border-border bg-background px-6 text-center text-muted-foreground text-sm",
+          className,
+        )}
+        {...props}
+      >
+        No people to showcase yet.
+      </section>
+    );
+  }
+
+  const summary = \`Showing \${visibleItems.length.toLocaleString()} of \${resolvedCount.toLocaleString()} people.\`;
+  const staticItems = visibleItems.slice(0, Math.min(8, visibleItems.length));
+  const canAnimate =
+    !shouldReduceMotion && measurement.container > 0 && measurement.track > 0;
+
+  return (
+    <section
+      ref={containerRef}
+      aria-label={summary}
+      className={cn(
+        "relative w-full overflow-hidden rounded-xl border border-border bg-background px-4 py-8",
+        className,
+      )}
+      {...props}
+    >
+      <span className="sr-only">{summary}</span>
+
+      {shouldReduceMotion ? (
+        <div
+          className="flex items-center justify-center -space-x-3"
+          aria-hidden="true"
+        >
+          {staticItems.map((item) => (
+            <ShowcaseAvatar item={item} key={item.id} size={safeAvatarSize} />
+          ))}
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
+          {!isComplete ? (
+            <motion.div
+              aria-hidden="true"
+              animate={
+                canAnimate
+                  ? { x: -measurement.track - safeAvatarSize }
+                  : { x: 0 }
+              }
+              className="flex w-max items-start gap-3 will-change-transform"
+              initial={{ x: measurement.container + safeAvatarSize }}
+              key={\`\${measurement.container}-\${measurement.track}-\${measurementKey}\`}
+              onAnimationComplete={() => {
+                if (!canAnimate) return;
+                setIsComplete(true);
+                onComplete?.();
+              }}
+              ref={trackRef}
+              style={{ height: containerHeight }}
+              transition={{ duration: resolvedDuration, ease: "linear" }}
+            >
+              {visibleItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  style={{
+                    transform: \`translateY(\${(index % effectiveLanes) * laneOffset}px)\`,
+                  }}
+                >
+                  <ShowcaseAvatar item={item} size={safeAvatarSize} />
+                </div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              className="grid min-h-20 place-items-center text-center"
+              initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+              key="summary"
+              transition={{ type: "spring", duration: 0.45, bounce: 0 }}
+            >
+              <div>
+                <p className="font-semibold tabular-nums text-2xl text-foreground">
+                  {resolvedCount.toLocaleString()}
+                </p>
+                {message ? (
+                  <p className="mt-1 text-muted-foreground text-sm">
+                    {message}
+                  </p>
+                ) : null}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+    </section>
+  );
+}
+`,
+      path: "avatar-showcase/avatar-showcase.tsx",
+      target: "components/sonaui/avatar-showcase/avatar-showcase.tsx"
+    }
+  ],
   "hold-to-delete-button": [
     {
       type: "registry:ui",
@@ -10863,6 +11502,37 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "lightbox": {
+    "name": "lightbox",
+    "type": "registry:ui",
+    "title": "Lightbox",
+    "description": "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+    "files": [
+      {
+        "path": "registry/sonaui/lightbox/lightbox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "avatar-showcase": {
+    "name": "avatar-showcase",
+    "type": "registry:ui",
+    "title": "Avatar Showcase",
+    "description": "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+    "files": [
+      {
+        "path": "registry/sonaui/avatar-showcase/avatar-showcase.tsx",
         "type": "registry:ui"
       }
     ],

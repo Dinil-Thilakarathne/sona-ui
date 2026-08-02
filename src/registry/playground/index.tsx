@@ -42,6 +42,9 @@ import {
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 import AnimatedTabs from "@/registry/sonaui/animated-tabs/animated-tabs";
+import AvatarShowcase, {
+  type AvatarShowcaseItem,
+} from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 import Button from "@/registry/sonaui/button/button";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
@@ -53,6 +56,7 @@ import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
+import Lightbox from "@/registry/sonaui/lightbox/lightbox";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
 import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
@@ -127,7 +131,91 @@ function getActivityColors(color: string, levels: number) {
   });
 }
 
+const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
+  { length: 24 },
+  (_, index) => ({
+    id: String(index + 1),
+    name: `Community member ${index + 1}`,
+    imageUrl: `https://i.pravatar.cc/160?img=${index + 1}`,
+  }),
+);
+
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "avatar-showcase": {
+    controls: [
+      {
+        type: "select",
+        prop: "lanes",
+        label: "Lanes",
+        options: [
+          { label: "One", value: "1" },
+          { label: "Two", value: "2" },
+          { label: "Three", value: "3" },
+        ],
+        default: "1",
+      },
+      {
+        type: "slider",
+        prop: "totalCount",
+        label: "Total count",
+        min: 20,
+        max: 20000,
+        step: 20,
+        default: 900,
+      },
+      {
+        type: "slider",
+        prop: "avatarSize",
+        label: "Avatar size",
+        min: 40,
+        max: 80,
+        step: 4,
+        default: 56,
+      },
+      {
+        type: "text",
+        prop: "message",
+        label: "Ending message",
+        default: "Thanks for following",
+      },
+    ],
+    render: (v) => (
+      <AvatarShowcase
+        key={`${String(v.lanes)}-${String(v.totalCount)}-${String(v.avatarSize)}-${String(v.message)}`}
+        avatarSize={v.avatarSize as number}
+        items={playgroundAvatars}
+        lanes={Number(v.lanes) as 1 | 2 | 3}
+        message={(v.message as string) || undefined}
+        totalCount={v.totalCount as number}
+      />
+    ),
+  },
+  lightbox: {
+    controls: [
+      {
+        type: "text",
+        prop: "caption",
+        label: "Caption",
+        default: "A spatial preview that returns to its source.",
+      },
+      {
+        type: "toggle",
+        prop: "defaultOpen",
+        label: "Initially open",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <Lightbox
+        key={`${String(v.caption)}-${String(v.defaultOpen)}`}
+        alt="Accordion component preview on a dark canvas"
+        caption={v.caption as string}
+        className="aspect-[16/10] w-full max-w-xl"
+        defaultOpen={v.defaultOpen as boolean}
+        src="/og/accordion-og.png"
+      />
+    ),
+  },
   "expanding-action": {
     controls: [
       {
