@@ -1,3 +1,13 @@
+# [2.18.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.17.0...v2.18.0) (2026-08-02)
+
+
+### Features
+
+* Add Avatar Showcase and Lightbox components ([2cae817](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2cae8171ff0384cb7b0ab4cebbada026a3397483))
+* Add Expanding Action and Fluid Tooltip components ([84cdba6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/84cdba697449f70654f19a71056028f196bf0b55))
+* Disable Lightbox and Avatar Showcase components ([9a1493d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9a1493d7e329052a57cfe75964bfd93da028bea6))
+* Update Sona UI agent skill content and documentation ([818d036](https://github.com/Dinil-Thilakarathne/sona-ui/commit/818d036c4be9cc8d535d341aca3ac14823f301fe))
+
 # [2.17.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.1...v2.17.0) (2026-07-30)
 
 
