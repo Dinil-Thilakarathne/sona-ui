@@ -91,6 +91,11 @@
           "path": "registry/sonaui/agent-skill/references/design-principles.md",
           "type": "registry:file",
           "target": ".agents/skills/sona-ui/references/design-principles.md"
+        },
+        {
+          "path": "registry/sonaui/agent-skill/references/provider-setup.md",
+          "type": "registry:file",
+          "target": ".agents/skills/sona-ui/references/provider-setup.md"
         }
       ],
       "dependencies": [],
@@ -270,6 +275,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "fluid-tooltip",
+      "type": "registry:ui",
+      "title": "Fluid Tooltip",
+      "description": "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+      "files": [
+        {
+          "path": "registry/sonaui/fluid-tooltip/fluid-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/fluid-tooltip/fluid-tooltip.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "fluid-slider",
       "type": "registry:ui",
       "title": "Fluid Slider",
@@ -330,6 +356,27 @@
       "registryDependencies": [
         "@sona-ui/sona-utils",
         "@sona-ui/sona-motion"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "expanding-action",
+      "type": "registry:ui",
+      "title": "Expanding Action",
+      "description": "A compact action that transforms in place into a short set of related choices with accessible focus management.",
+      "files": [
+        {
+          "path": "registry/sonaui/expanding-action/expanding-action.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/expanding-action/expanding-action.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -548,6 +595,47 @@
       "registryDependencies": [
         "@sona-ui/sona-utils",
         "@sona-ui/sona-motion"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "lightbox",
+      "type": "registry:ui",
+      "title": "Lightbox",
+      "description": "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+      "files": [
+        {
+          "path": "registry/sonaui/lightbox/lightbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/lightbox/lightbox.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "avatar-showcase",
+      "type": "registry:ui",
+      "title": "Avatar Showcase",
+      "description": "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+      "files": [
+        {
+          "path": "registry/sonaui/avatar-showcase/avatar-showcase.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/avatar-showcase/avatar-showcase.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
       ]
     },
     {

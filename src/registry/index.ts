@@ -23,6 +23,7 @@ import accordion_accordion_outlined from "@/registry/examples/accordion/accordio
 import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
 import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
+import lightbox_lightbox_demo from "@/registry/examples/lightbox/lightbox-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
@@ -40,6 +41,8 @@ import animated_switch_animated_switch_sizes from "@/registry/examples/animated-
 import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
 import activity_graph_activity_graph_demo from "@/registry/examples/activity-graph/activity-graph-demo";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
+import expanding_action_expanding_action_demo from "@/registry/examples/expanding-action/expanding-action-demo";
+import fluid_tooltip_fluid_tooltip_demo from "@/registry/examples/fluid-tooltip/fluid-tooltip-demo";
 import mesh_gradient_shader_mesh_gradient_shader_ocean from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-ocean";
 import mesh_gradient_shader_mesh_gradient_shader_demo from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-demo";
 import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-sunset";
@@ -47,6 +50,7 @@ import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/example
 import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
+import avatar_showcase_avatar_showcase_demo from "@/registry/examples/avatar-showcase/avatar-showcase-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
 
 export type RegistryEntry = {
@@ -1566,6 +1570,36 @@ export default function FanViewDemo() {
 }`,
     }
   ],
+  "lightbox": [
+    {
+      name: "default",
+      component: lightbox_lightbox_demo,
+      code: `import Lightbox from "@/components/ui/lightbox/lightbox";
+
+export default function LightboxDemo() {
+  return (
+    <Lightbox
+      alt="Accordion component preview on a dark canvas"
+      caption="Select the backdrop, close button, or press Escape to return."
+      className="aspect-[16/10] w-full max-w-xl"
+      src="/og/accordion-og.png"
+    />
+  );
+}
+`,
+      imports: `import Lightbox from "@/components/ui/lightbox/lightbox";`,
+      anatomy: `export default function LightboxDemo() {
+  return (
+    <Lightbox
+      alt="Accordion component preview on a dark canvas"
+      caption="Select the backdrop, close button, or press Escape to return."
+      className="aspect-[16/10] w-full max-w-xl"
+      src="/og/accordion-og.png"
+    />
+  );
+}`,
+    }
+  ],
   "marquee": [
     {
       name: "default",
@@ -2219,10 +2253,6 @@ export default function ButtonDemo() {
       <Button>
         Get started <ArrowRight className="size-4" />
       </Button>
-      <Button variant="outlined">Learn more</Button>
-      <Button variant="secondary">
-        <Sparkles className="size-4" /> Explore
-      </Button>
     </div>
   );
 }
@@ -2234,10 +2264,6 @@ import Button from "@/components/ui/button/button";`,
     <div className="flex flex-wrap items-center justify-center gap-4">
       <Button>
         Get started <ArrowRight className="size-4" />
-      </Button>
-      <Button variant="outlined">Learn more</Button>
-      <Button variant="secondary">
-        <Sparkles className="size-4" /> Explore
       </Button>
     </div>
   );
@@ -2804,6 +2830,128 @@ export default function ExpandableTabsExample() {
 }`,
     }
   ],
+  "expanding-action": [
+    {
+      name: "default",
+      component: expanding_action_expanding_action_demo,
+      code: `"use client";
+
+import { Plus } from "lucide-react";
+
+import ExpandingAction from "@/components/ui/expanding-action/expanding-action";
+
+const projectTypes = [
+  { value: "marketing", label: "Marketing" },
+  { value: "design", label: "Design" },
+  { value: "development", label: "Development" },
+];
+
+export default function ExpandingActionDemo() {
+  return (
+    <ExpandingAction
+      trigger="New project"
+      triggerIcon={<Plus className="size-4" strokeWidth={1.75} />}
+      items={projectTypes}
+    />
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Plus } from "lucide-react";
+
+import ExpandingAction from "@/components/ui/expanding-action/expanding-action";
+
+const projectTypes = [
+  { value: "marketing", label: "Marketing" },
+  { value: "design", label: "Design" },
+  { value: "development", label: "Development" },
+];
+
+export default function ExpandingActionDemo() {
+  return (
+    <ExpandingAction
+      trigger="New project"
+      triggerIcon={<Plus className="size-4" strokeWidth={1.75} />}
+      items={projectTypes}
+    />
+  );
+}`,
+    }
+  ],
+  "fluid-tooltip": [
+    {
+      name: "default",
+      component: fluid_tooltip_fluid_tooltip_demo,
+      code: `import { Bell, Home, Search, Settings } from "lucide-react";
+
+import FluidTooltip from "@/components/ui/fluid-tooltip/fluid-tooltip";
+
+const items = [
+  { id: "home", label: "Home", icon: Home },
+  { id: "search", label: "Search", icon: Search },
+  { id: "notifications", label: "Notifications", icon: Bell },
+  { id: "settings", label: "Settings", icon: Settings },
+];
+
+export default function FluidTooltipDemo() {
+  return (
+    <FluidTooltip.Group orientation="horizontal">
+      <div className="flex items-center gap-1 rounded-2xl border border-border bg-muted/60 p-1.5">
+        {items.map((item) => (
+          <FluidTooltip.Root key={item.id} id={item.id}>
+            <FluidTooltip.Trigger asChild>
+              <button
+                type="button"
+                aria-label={item.label}
+                className="grid size-10 place-items-center rounded-xl text-muted-foreground outline-none transition-colors duration-150 hover:bg-background hover:text-foreground focus-visible:bg-background focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <item.icon aria-hidden="true" className="size-4" />
+              </button>
+            </FluidTooltip.Trigger>
+            <FluidTooltip.Content>{item.label}</FluidTooltip.Content>
+          </FluidTooltip.Root>
+        ))}
+      </div>
+    </FluidTooltip.Group>
+  );
+}
+`,
+      imports: `import { Bell, Home, Search, Settings } from "lucide-react";
+
+import FluidTooltip from "@/components/ui/fluid-tooltip/fluid-tooltip";`,
+      anatomy: `const items = [
+  { id: "home", label: "Home", icon: Home },
+  { id: "search", label: "Search", icon: Search },
+  { id: "notifications", label: "Notifications", icon: Bell },
+  { id: "settings", label: "Settings", icon: Settings },
+];
+
+export default function FluidTooltipDemo() {
+  return (
+    <FluidTooltip.Group orientation="horizontal">
+      <div className="flex items-center gap-1 rounded-2xl border border-border bg-muted/60 p-1.5">
+        {items.map((item) => (
+          <FluidTooltip.Root key={item.id} id={item.id}>
+            <FluidTooltip.Trigger asChild>
+              <button
+                type="button"
+                aria-label={item.label}
+                className="grid size-10 place-items-center rounded-xl text-muted-foreground outline-none transition-colors duration-150 hover:bg-background hover:text-foreground focus-visible:bg-background focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <item.icon aria-hidden="true" className="size-4" />
+              </button>
+            </FluidTooltip.Trigger>
+            <FluidTooltip.Content>{item.label}</FluidTooltip.Content>
+          </FluidTooltip.Root>
+        ))}
+      </div>
+    </FluidTooltip.Group>
+  );
+}`,
+    }
+  ],
   "mesh-gradient-shader": [
     {
       name: "ocean",
@@ -2993,6 +3141,116 @@ export default function StaggerTextExample() {
       imports: `import StaggerText from "@/components/ui/stagger-text/stagger-text";`,
       anatomy: `export default function StaggerTextExample() {
   return <StaggerText text="Stagger Text!!" />;
+}`,
+    }
+  ],
+  "avatar-showcase": [
+    {
+      name: "default",
+      component: avatar_showcase_avatar_showcase_demo,
+      code: `import AvatarShowcase, {
+  type AvatarShowcaseItem,
+} from "@/components/ui/avatar-showcase/avatar-showcase";
+
+const FOLLOWERS: AvatarShowcaseItem[] = [
+  { id: "1", name: "Maya Chen", imageUrl: "https://i.pravatar.cc/160?img=5" },
+  {
+    id: "2",
+    name: "Noah Williams",
+    imageUrl: "https://i.pravatar.cc/160?img=12",
+  },
+  {
+    id: "3",
+    name: "Aisha Rahman",
+    imageUrl: "https://i.pravatar.cc/160?img=32",
+  },
+  { id: "4", name: "Leo Martin", imageUrl: "https://i.pravatar.cc/160?img=11" },
+  {
+    id: "5",
+    name: "Sofia Silva",
+    imageUrl: "https://i.pravatar.cc/160?img=47",
+  },
+  { id: "6", name: "Ethan Kim", imageUrl: "https://i.pravatar.cc/160?img=68" },
+  {
+    id: "7",
+    name: "Amara Okafor",
+    imageUrl: "https://i.pravatar.cc/160?img=44",
+  },
+  {
+    id: "8",
+    name: "Oliver Smith",
+    imageUrl: "https://i.pravatar.cc/160?img=15",
+  },
+  { id: "9", name: "Priya Nair", imageUrl: "https://i.pravatar.cc/160?img=49" },
+  {
+    id: "10",
+    name: "Mateo Garcia",
+    imageUrl: "https://i.pravatar.cc/160?img=53",
+  },
+  { id: "11", name: "Hana Sato", imageUrl: "https://i.pravatar.cc/160?img=25" },
+  { id: "12", name: "Jon Bell", imageUrl: "https://i.pravatar.cc/160?img=3" },
+];
+
+export default function AvatarShowcaseExample() {
+  return (
+    <AvatarShowcase
+      items={FOLLOWERS}
+      message="Thanks for following"
+      totalCount={912}
+    />
+  );
+}
+`,
+      imports: `import AvatarShowcase, {
+  type AvatarShowcaseItem,
+} from "@/components/ui/avatar-showcase/avatar-showcase";`,
+      anatomy: `const FOLLOWERS: AvatarShowcaseItem[] = [
+  { id: "1", name: "Maya Chen", imageUrl: "https://i.pravatar.cc/160?img=5" },
+  {
+    id: "2",
+    name: "Noah Williams",
+    imageUrl: "https://i.pravatar.cc/160?img=12",
+  },
+  {
+    id: "3",
+    name: "Aisha Rahman",
+    imageUrl: "https://i.pravatar.cc/160?img=32",
+  },
+  { id: "4", name: "Leo Martin", imageUrl: "https://i.pravatar.cc/160?img=11" },
+  {
+    id: "5",
+    name: "Sofia Silva",
+    imageUrl: "https://i.pravatar.cc/160?img=47",
+  },
+  { id: "6", name: "Ethan Kim", imageUrl: "https://i.pravatar.cc/160?img=68" },
+  {
+    id: "7",
+    name: "Amara Okafor",
+    imageUrl: "https://i.pravatar.cc/160?img=44",
+  },
+  {
+    id: "8",
+    name: "Oliver Smith",
+    imageUrl: "https://i.pravatar.cc/160?img=15",
+  },
+  { id: "9", name: "Priya Nair", imageUrl: "https://i.pravatar.cc/160?img=49" },
+  {
+    id: "10",
+    name: "Mateo Garcia",
+    imageUrl: "https://i.pravatar.cc/160?img=53",
+  },
+  { id: "11", name: "Hana Sato", imageUrl: "https://i.pravatar.cc/160?img=25" },
+  { id: "12", name: "Jon Bell", imageUrl: "https://i.pravatar.cc/160?img=3" },
+];
+
+export default function AvatarShowcaseExample() {
+  return (
+    <AvatarShowcase
+      items={FOLLOWERS}
+      message="Thanks for following"
+      totalCount={912}
+    />
+  );
 }`,
     }
   ],
@@ -4307,6 +4565,80 @@ export default function DotOrbitShader({
   ],
   "accordion": [
     {
+      type: "registry:file",
+      content: `.wrapper {
+  border-radius: 1rem;
+  overflow: visible;
+}
+
+.animated {
+  --_margin-gap: 1.5rem;
+  --ease: linear(
+    0 0%,
+    0.2688 9.91%,
+    0.3859 15%,
+    0.4917 20.19%,
+    0.5865 25.5%,
+    0.6705 30.93%,
+    0.7441 36.51%,
+    0.8075 42.26%,
+    0.8593 47.98%,
+    0.9022 53.93%,
+    0.9366 60.13%,
+    0.963 66.67%,
+    0.9812 73.4%,
+    0.9929 80.76%,
+    0.9986 88.89%,
+    1 100%
+  );
+  --bounce-duration: calc((1 / var(--speed, 1)) * 1s);
+  --duration: calc((0.36 / var(--speed, 1)) * 1s);
+
+  outline: 1px solid;
+
+  transition-property: transform, border-radius;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--ease);
+  transform-style: preserve-3d;
+  perspective: 120px;
+}
+
+.animated:has(~ .animated[data-open]) {
+  transform: translate3d(0, calc(var(--_margin-gap) * -1), 0);
+}
+
+.animated[data-open] ~ .animated {
+  transform: translate3d(0, calc(var(--_margin-gap) * 1), 0);
+}
+
+.animated:is(:first-child) {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.animated:is(:last-child) {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.animated[data-open] {
+  border-radius: 1rem;
+}
+
+.animated[data-open] + .animated {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.animated.animated:has(+ .animated[data-open]) {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+`,
+      path: "accordion/styles.module.css",
+      target: "components/sonaui/accordion/styles.module.css"
+    },
+    {
       type: "registry:ui",
       content: `"use client";
 
@@ -5099,6 +5431,216 @@ export default function FanView({
 `,
       path: "fan-view/fan-view.tsx",
       target: "components/sonaui/fan-view/fan-view.tsx"
+    }
+  ],
+  "lightbox": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Dialog } from "@base-ui/react/dialog";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import { useId, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface LightboxProps {
+  /** The image URL shown in both the thumbnail and expanded preview. */
+  src: string;
+  /** Accessible alternative text for the image. */
+  alt: string;
+  /** Optional caption displayed beneath the expanded image. @default undefined */
+  caption?: string;
+  /** Controlled open state. @default undefined */
+  open?: boolean;
+  /** Initial open state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called whenever the expanded preview opens or closes. @default undefined */
+  onOpenChange?: (open: boolean) => void;
+  /** Additional CSS classes for the thumbnail trigger. @default undefined */
+  className?: string;
+  /** Additional CSS classes for the thumbnail image. @default undefined */
+  imageClassName?: string;
+  /** Additional CSS classes for the expanded image. @default undefined */
+  previewClassName?: string;
+  /** Additional CSS classes for the modal backdrop. @default undefined */
+  backdropClassName?: string;
+}
+
+export default function Lightbox({
+  src,
+  alt,
+  caption,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
+  className,
+  imageClassName,
+  previewClassName,
+  backdropClassName,
+}: LightboxProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const instanceId = useId();
+  const shouldReduceMotion = useReducedMotion();
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+  const layoutId = shouldReduceMotion
+    ? undefined
+    : \`\${instanceId}-lightbox-image\`;
+
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <LayoutGroup id={instanceId}>
+      <Dialog.Root defaultOpen={defaultOpen} onOpenChange={setOpen} open={open}>
+        <Dialog.Trigger
+          className={cn(
+            "group relative block w-full cursor-zoom-in rounded-2xl bg-muted text-left",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/35 focus-visible:ring-offset-4 focus-visible:ring-offset-background",
+            className,
+          )}
+          render={
+            <motion.button
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+            />
+          }
+        >
+          {/* biome-ignore lint/performance/noImgElement: a registry component must remain framework-agnostic */}
+          <motion.img
+            alt={alt}
+            className={cn(
+              "block h-full w-full rounded-2xl object-cover",
+              imageClassName,
+            )}
+            layoutId={layoutId}
+            src={src}
+            transition={{ type: "spring", bounce: 0, duration: 0.38 }}
+          />
+          <span className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/28 via-transparent to-transparent opacity-0 transition-opacity duration-200 ease-out group-hover:opacity-100" />
+          <span className="absolute right-3 bottom-3 inline-flex size-9 translate-y-1 items-center justify-center rounded-full bg-black/52 text-white opacity-0 shadow-sm backdrop-blur-md transition-[opacity,transform] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+            <svg
+              aria-hidden="true"
+              className="size-4"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="m21 21-4.35-4.35M11 8v6m-3-3h6m5 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.8"
+              />
+            </svg>
+          </span>
+          <span className="sr-only">Open image preview: {alt}</span>
+        </Dialog.Trigger>
+
+        <AnimatePresence>
+          {open ? (
+            <Dialog.Portal keepMounted>
+              <Dialog.Backdrop
+                className={cn(
+                  "fixed inset-0 z-50 bg-black/72 backdrop-blur-md",
+                  backdropClassName,
+                )}
+                render={
+                  <motion.div
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    transition={{ duration: shouldReduceMotion ? 0.12 : 0.22 }}
+                  />
+                }
+              />
+
+              <Dialog.Popup
+                aria-label={\`Image preview: \${alt}\`}
+                className="fixed inset-0 z-50 grid cursor-zoom-out place-items-center p-5 sm:p-10"
+                onClick={() => setOpen(false)}
+                render={<motion.div />}
+              >
+                <Dialog.Close
+                  aria-label="Close image preview"
+                  className="absolute top-4 right-4 z-10 inline-flex size-10 cursor-pointer items-center justify-center rounded-full bg-black/45 text-white shadow-lg backdrop-blur-md transition-colors duration-150 ease-out hover:bg-black/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 sm:top-6 sm:right-6"
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="size-[18px]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M18 6 6 18M6 6l12 12"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                </Dialog.Close>
+
+                <motion.figure
+                  animate={{ opacity: 1 }}
+                  className="m-0 flex max-h-[88svh] max-w-[90vw] cursor-default flex-col items-center gap-3"
+                  exit={{ opacity: shouldReduceMotion ? 0 : 1 }}
+                  initial={{ opacity: shouldReduceMotion ? 0 : 1 }}
+                  onClick={(event) => event.stopPropagation()}
+                  transition={{ duration: 0.12 }}
+                >
+                  {/* biome-ignore lint/performance/noImgElement: a registry component must remain framework-agnostic */}
+                  <motion.img
+                    alt={alt}
+                    className={cn(
+                      "block max-h-[82svh] max-w-[90vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/12 will-change-transform",
+                      previewClassName,
+                    )}
+                    layoutId={layoutId}
+                    src={src}
+                    transition={{
+                      type: "spring",
+                      bounce: 0,
+                      duration: shouldReduceMotion ? 0.01 : 0.38,
+                    }}
+                  />
+                  {caption ? (
+                    <motion.figcaption
+                      animate={{ opacity: 1, y: 0 }}
+                      className="max-w-xl text-center text-sm leading-5 text-white/72"
+                      initial={
+                        shouldReduceMotion
+                          ? { opacity: 1, y: 0 }
+                          : { opacity: 0, y: 4 }
+                      }
+                      transition={{
+                        delay: shouldReduceMotion ? 0 : 0.14,
+                        duration: 0.18,
+                        ease: "easeOut",
+                      }}
+                    >
+                      {caption}
+                    </motion.figcaption>
+                  ) : null}
+                </motion.figure>
+              </Dialog.Popup>
+            </Dialog.Portal>
+          ) : null}
+        </AnimatePresence>
+      </Dialog.Root>
+    </LayoutGroup>
+  );
+}
+`,
+      path: "lightbox/lightbox.tsx",
+      target: "components/sonaui/lightbox/lightbox.tsx"
     }
   ],
   "marquee": [
@@ -8945,6 +9487,627 @@ export default function ExpandableTabs({
       target: "components/sonaui/expandable-tabs/expandable-tabs.tsx"
     }
   ],
+  "expanding-action": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { ChevronLeft } from "lucide-react";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  MotionConfig,
+  motion,
+} from "motion/react";
+import { type CSSProperties, type ReactNode, useId, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface ExpandingActionItem {
+  /** Stable value passed to \`onValueSelect\` when the item is chosen. */
+  value: string;
+  /** Content displayed inside the choice button. */
+  label: ReactNode;
+  /** Whether the choice is unavailable. @default false */
+  disabled?: boolean;
+}
+
+export interface ExpandingActionProps {
+  /** Short choices revealed when the action expands. */
+  items: ExpandingActionItem[];
+  /** Content displayed inside the collapsed trigger. */
+  trigger: ReactNode;
+  /** Optional icon displayed before the trigger content. @default undefined */
+  triggerIcon?: ReactNode;
+  /** Controlled expanded state. @default undefined */
+  open?: boolean;
+  /** Initial expanded state for uncontrolled usage. @default false */
+  defaultOpen?: boolean;
+  /** Called whenever the expanded state changes. @default undefined */
+  onOpenChange?: (open: boolean) => void;
+  /** Called with the selected item value before the action collapses. @default undefined */
+  onValueSelect?: (value: string) => void;
+  /** Accessible label for the control that returns to the trigger. @default "Back" */
+  backLabel?: string;
+  /** Whether the trigger and choices are unavailable. @default false */
+  disabled?: boolean;
+  /** Additional classes for the rendered state container. @default undefined */
+  className?: string;
+  /** Additional classes for the collapsed trigger. @default undefined */
+  triggerClassName?: string;
+  /** Additional classes applied to every choice button. @default undefined */
+  optionClassName?: string;
+}
+
+const surfaceTransition = {
+  type: "spring",
+  duration: 0.32,
+  bounce: 0.2,
+} as const;
+
+const contentTransition = {
+  duration: 0.14,
+  ease: [0.23, 1, 0.32, 1],
+} as const;
+
+const tokenStyle = {
+  "--expanding-action-surface": "var(--background)",
+  "--expanding-action-foreground": "var(--foreground)",
+  "--expanding-action-muted": "var(--muted-foreground)",
+  "--expanding-action-hover":
+    "color-mix(in oklab, var(--accent) 55%, transparent)",
+  "--expanding-action-border": "var(--border)",
+  "--expanding-action-ring": "var(--ring)",
+} as CSSProperties;
+
+export default function ExpandingAction({
+  items,
+  trigger,
+  triggerIcon,
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  onValueSelect,
+  backLabel = "Back",
+  disabled = false,
+  className,
+  triggerClassName,
+  optionClassName,
+}: ExpandingActionProps) {
+  const instanceId = useId();
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const isOpen = open ?? internalOpen;
+  const hasEnabledItem = items.some((item) => !item.disabled);
+
+  const setOpen = (nextOpen: boolean) => {
+    if (open === undefined) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <LayoutGroup id={\`\${instanceId}-expanding-action\`}>
+        <AnimatePresence initial={false} mode="popLayout">
+          {!isOpen ? (
+            <motion.button
+              key="trigger"
+              type="button"
+              disabled={disabled || !hasEnabledItem}
+              onClick={() => setOpen(true)}
+              className={cn(
+                "relative flex h-12 cursor-pointer items-center gap-2 rounded-full px-5 text-sm font-medium text-(--expanding-action-foreground) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring)",
+                className,
+                triggerClassName,
+              )}
+              style={tokenStyle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={contentTransition}
+            >
+              <motion.span
+                layoutId={\`\${instanceId}-surface\`}
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full border border-(--expanding-action-border) bg-(--expanding-action-surface)/70 shadow-sm"
+                transition={surfaceTransition}
+              />
+              {triggerIcon ? (
+                <span
+                  aria-hidden="true"
+                  className="relative grid size-4 shrink-0 place-items-center"
+                >
+                  {triggerIcon}
+                </span>
+              ) : null}
+              <span className="relative whitespace-nowrap">{trigger}</span>
+            </motion.button>
+          ) : (
+            <motion.div
+              key="choices"
+              className={cn(
+                "relative flex max-w-full items-center overflow-x-auto rounded-full p-1",
+                className,
+              )}
+              style={tokenStyle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={contentTransition}
+            >
+              <motion.span
+                layoutId={\`\${instanceId}-surface\`}
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full border border-(--expanding-action-border) bg-(--expanding-action-surface)/70 shadow-sm"
+                transition={surfaceTransition}
+              />
+              <div className="relative flex items-center gap-1">
+                <button
+                  type="button"
+                  disabled={disabled}
+                  onClick={() => setOpen(false)}
+                  aria-label={backLabel}
+                  className="grid size-10 shrink-0 cursor-pointer place-items-center rounded-full text-(--expanding-action-muted) transition-colors hover:bg-(--expanding-action-hover) hover:text-(--expanding-action-foreground) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45"
+                >
+                  <ChevronLeft
+                    aria-hidden="true"
+                    className="size-4"
+                    strokeWidth={1.75}
+                  />
+                </button>
+                <span
+                  aria-hidden="true"
+                  className="h-5 w-px shrink-0 bg-(--expanding-action-border)"
+                />
+                {items.map((item) => (
+                  <button
+                    key={item.value}
+                    type="button"
+                    disabled={disabled || item.disabled}
+                    onClick={() => {
+                      onValueSelect?.(item.value);
+                      setOpen(false);
+                    }}
+                    className={cn(
+                      "h-10 shrink-0 cursor-pointer whitespace-nowrap rounded-full px-3 text-sm text-(--expanding-action-foreground) transition-colors hover:bg-(--expanding-action-hover) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
+                      optionClassName,
+                    )}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </LayoutGroup>
+    </MotionConfig>
+  );
+}
+`,
+      path: "expanding-action/expanding-action.tsx",
+      target: "components/sonaui/expanding-action/expanding-action.tsx"
+    }
+  ],
+  "fluid-tooltip": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Tooltip } from "@base-ui/react/tooltip";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  type CSSProperties,
+  createContext,
+  type FocusEventHandler,
+  forwardRef,
+  type KeyboardEventHandler,
+  type PointerEventHandler,
+  type ReactElement,
+  type ReactNode,
+  type Ref,
+  type RefObject,
+  useContext,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+type FluidTooltipOrientation = "horizontal" | "vertical" | "auto";
+type FluidTooltipSide = "top" | "right" | "bottom" | "left";
+type FluidTooltipAlign = "start" | "center" | "end";
+type FluidTooltipDirection = -1 | 0 | 1;
+type FluidTooltipMotionAxis = "x" | "y";
+
+interface FluidTooltipPayload {
+  id: string;
+  contentRef: RefObject<ReactNode>;
+  side: FluidTooltipSide;
+  align: FluidTooltipAlign;
+  sideOffset: number;
+  showArrowRef: RefObject<boolean>;
+  contentClassNameRef: RefObject<string | undefined>;
+}
+
+interface FluidTooltipGroupContextValue {
+  handle: Tooltip.Handle<FluidTooltipPayload>;
+  disabled: boolean;
+  defaultSide: FluidTooltipSide;
+  direction: FluidTooltipDirection;
+  keyboardNavigation: boolean;
+  registerPointerTarget: (element: HTMLElement) => void;
+  registerKeyboardTarget: () => void;
+}
+
+interface FluidTooltipRootContextValue {
+  id: string;
+  contentRef: RefObject<ReactNode>;
+  disabled: boolean;
+  side?: FluidTooltipSide;
+  align: FluidTooltipAlign;
+  sideOffset: number;
+  showArrowRef: RefObject<boolean>;
+  contentClassNameRef: RefObject<string | undefined>;
+}
+
+const GroupContext = createContext<FluidTooltipGroupContextValue | null>(null);
+const RootContext = createContext<FluidTooltipRootContextValue | null>(null);
+
+const tokenStyle = {
+  "--fluid-tooltip-surface": "var(--foreground)",
+  "--fluid-tooltip-label": "var(--background)",
+  "--fluid-tooltip-shadow": "rgb(0 0 0 / 0.28)",
+} as CSSProperties;
+
+function useGroupContext(component: string) {
+  const context = useContext(GroupContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used inside FluidTooltip.Group.\`);
+  }
+  return context;
+}
+
+function useRootContext(component: string) {
+  const context = useContext(RootContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used inside FluidTooltip.Root.\`);
+  }
+  return context;
+}
+
+export interface FluidTooltipGroupProps {
+  /** Related tooltip roots rendered inside the group. */
+  children: ReactNode;
+  /** Axis used to calculate directional content entry. @default "auto" */
+  orientation?: FluidTooltipOrientation;
+  /** Delay before the first pointer tooltip opens, in milliseconds. @default 350 */
+  openDelay?: number;
+  /** Grace period before a pointer tooltip closes, in milliseconds. @default 100 */
+  closeDelay?: number;
+  /** Disables tooltip behavior for every trigger in the group. @default false */
+  disabled?: boolean;
+  /** Additional CSS classes for the positioned tooltip surface. @default undefined */
+  className?: string;
+}
+
+export function FluidTooltipGroup({
+  children,
+  orientation = "auto",
+  openDelay = 350,
+  closeDelay = 100,
+  disabled = false,
+  className,
+}: FluidTooltipGroupProps) {
+  const handle = useMemo(() => Tooltip.createHandle<FluidTooltipPayload>(), []);
+  const shouldReduceMotion = useReducedMotion();
+  const previousCenter = useRef<{ x: number; y: number } | null>(null);
+  const [direction, setDirection] = useState<FluidTooltipDirection>(0);
+  const [motionAxis, setMotionAxis] = useState<FluidTooltipMotionAxis>(
+    orientation === "vertical" ? "y" : "x",
+  );
+  const [keyboardNavigation, setKeyboardNavigation] = useState(false);
+
+  const context = useMemo<FluidTooltipGroupContextValue>(
+    () => ({
+      handle,
+      disabled,
+      defaultSide: orientation === "vertical" ? "right" : "top",
+      direction,
+      keyboardNavigation,
+      registerPointerTarget(element) {
+        const bounds = element.getBoundingClientRect();
+        const center = {
+          x: bounds.left + bounds.width / 2,
+          y: bounds.top + bounds.height / 2,
+        };
+        const previous = previousCenter.current;
+
+        if (!previous) {
+          setDirection(0);
+          setMotionAxis(orientation === "vertical" ? "y" : "x");
+        } else {
+          const deltaX = center.x - previous.x;
+          const deltaY = center.y - previous.y;
+          const resolvedAxis =
+            orientation === "horizontal"
+              ? "x"
+              : orientation === "vertical"
+                ? "y"
+                : Math.abs(deltaX) >= Math.abs(deltaY)
+                  ? "x"
+                  : "y";
+          const delta = resolvedAxis === "x" ? deltaX : deltaY;
+          setMotionAxis(resolvedAxis);
+          setDirection(delta === 0 ? 0 : delta > 0 ? 1 : -1);
+        }
+
+        previousCenter.current = center;
+        setKeyboardNavigation(false);
+      },
+      registerKeyboardTarget() {
+        previousCenter.current = null;
+        setDirection(0);
+        setMotionAxis(orientation === "vertical" ? "y" : "x");
+        setKeyboardNavigation(true);
+      },
+    }),
+    [disabled, direction, handle, keyboardNavigation, orientation],
+  );
+
+  const directionalOffset =
+    shouldReduceMotion || keyboardNavigation ? 0 : direction * 8;
+  const contentOffset = {
+    x: motionAxis === "x" ? directionalOffset : 0,
+    y: motionAxis === "y" ? directionalOffset : 0,
+  };
+
+  return (
+    <Tooltip.Provider
+      delay={Math.max(0, openDelay)}
+      closeDelay={Math.max(0, closeDelay)}
+    >
+      <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
+
+      <Tooltip.Root
+        handle={handle}
+        disabled={disabled}
+        onOpenChange={(open) => {
+          if (!open) {
+            previousCenter.current = null;
+            setDirection(0);
+            setMotionAxis(orientation === "vertical" ? "y" : "x");
+          }
+        }}
+      >
+        {({ payload }) => (
+          <Tooltip.Portal>
+            {payload ? (
+              <Tooltip.Positioner
+                align={payload.align}
+                className={cn(
+                  "z-50 transition-transform duration-120 [transition-timing-function:cubic-bezier(0.23,1,0.42,1)]",
+                  (shouldReduceMotion || keyboardNavigation) &&
+                    "transition-none",
+                )}
+                collisionPadding={8}
+                side={payload.side}
+                sideOffset={payload.sideOffset}
+              >
+                <Tooltip.Popup
+                  className={cn(
+                    "relative origin-[var(--transform-origin)] rounded-lg bg-[var(--fluid-tooltip-surface)] px-2.5 py-1.5 text-[12px] font-medium leading-none text-[var(--fluid-tooltip-label)] shadow-[0_8px_24px_-8px_var(--fluid-tooltip-shadow)]",
+                    "transition-[transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0",
+                    (shouldReduceMotion || keyboardNavigation) &&
+                      "transition-none",
+                    className,
+                    payload.contentClassNameRef.current,
+                  )}
+                  style={tokenStyle}
+                >
+                  <AnimatePresence
+                    custom={directionalOffset}
+                    initial={false}
+                    mode="popLayout"
+                  >
+                    <motion.span
+                      key={payload.id}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      className="block whitespace-nowrap"
+                      exit={{
+                        opacity: 0,
+                        x: contentOffset.x * -0.5,
+                        y: contentOffset.y * -0.5,
+                      }}
+                      initial={
+                        directionalOffset === 0
+                          ? false
+                          : {
+                              opacity: 0,
+                              x: contentOffset.x,
+                              y: contentOffset.y,
+                            }
+                      }
+                      transition={
+                        shouldReduceMotion || keyboardNavigation
+                          ? { duration: 0 }
+                          : {
+                              duration: 0.18,
+                              ease: [0.23, 1, 0.42, 1],
+                            }
+                      }
+                    >
+                      {payload.contentRef.current}
+                    </motion.span>
+                  </AnimatePresence>
+
+                  {payload.showArrowRef.current ? (
+                    <Tooltip.Arrow className="absolute size-2 rotate-45 bg-[var(--fluid-tooltip-surface)] data-[side=bottom]:-top-1 data-[side=left]:-right-1 data-[side=right]:-left-1 data-[side=top]:-bottom-1" />
+                  ) : null}
+                </Tooltip.Popup>
+              </Tooltip.Positioner>
+            ) : null}
+          </Tooltip.Portal>
+        )}
+      </Tooltip.Root>
+    </Tooltip.Provider>
+  );
+}
+
+export interface FluidTooltipRootProps {
+  /** Stable identifier used to key directional content transitions. */
+  id: string;
+  /** Trigger and content parts associated with this tooltip. */
+  children: ReactNode;
+  /** Preferred side of the trigger. Overrides the group default when provided. @default undefined */
+  side?: FluidTooltipSide;
+  /** Alignment relative to the trigger. @default "center" */
+  align?: FluidTooltipAlign;
+  /** Distance between the trigger and tooltip, in pixels. @default 8 */
+  sideOffset?: number;
+  /** Disables this tooltip without disabling its trigger. @default false */
+  disabled?: boolean;
+}
+
+export function FluidTooltipRoot({
+  id,
+  children,
+  side,
+  align = "center",
+  sideOffset = 8,
+  disabled = false,
+}: FluidTooltipRootProps) {
+  const contentRef = useRef<ReactNode>(null);
+  const showArrowRef = useRef(true);
+  const contentClassNameRef = useRef<string | undefined>(undefined);
+  const context = useMemo<FluidTooltipRootContextValue>(
+    () => ({
+      id,
+      contentRef,
+      disabled,
+      side,
+      align,
+      sideOffset,
+      showArrowRef,
+      contentClassNameRef,
+    }),
+    [align, disabled, id, side, sideOffset],
+  );
+
+  return (
+    <RootContext.Provider value={context}>{children}</RootContext.Provider>
+  );
+}
+
+export interface FluidTooltipTriggerProps
+  extends Omit<React.HTMLAttributes<HTMLElement>, "children"> {
+  /** Existing button or link used as the actual trigger. */
+  children: ReactElement;
+  /** Uses the child element without introducing a wrapper. @default true */
+  asChild?: boolean;
+  /** Keeps the tooltip open when the trigger is activated. @default false */
+  keepOpenOnClick?: boolean;
+}
+
+export const FluidTooltipTrigger = forwardRef<
+  HTMLElement,
+  FluidTooltipTriggerProps
+>(function FluidTooltipTrigger(
+  {
+    children,
+    asChild = true,
+    keepOpenOnClick = false,
+    onPointerEnter,
+    onFocus,
+    onKeyDown,
+    ...props
+  },
+  ref,
+) {
+  const group = useGroupContext("FluidTooltip.Trigger");
+  const root = useRootContext("FluidTooltip.Trigger");
+
+  const payload: FluidTooltipPayload = {
+    id: root.id,
+    contentRef: root.contentRef,
+    side: root.side ?? group.defaultSide,
+    align: root.align,
+    sideOffset: root.sideOffset,
+    showArrowRef: root.showArrowRef,
+    contentClassNameRef: root.contentClassNameRef,
+  };
+
+  const handlePointerEnter: PointerEventHandler<HTMLElement> = (event) => {
+    if (event.pointerType !== "touch") {
+      group.registerPointerTarget(event.currentTarget);
+    }
+    onPointerEnter?.(event);
+  };
+  const handleFocus: FocusEventHandler<HTMLElement> = (event) => {
+    group.registerKeyboardTarget();
+    onFocus?.(event);
+  };
+  const handleKeyDown: KeyboardEventHandler<HTMLElement> = (event) => {
+    group.registerKeyboardTarget();
+    onKeyDown?.(event);
+  };
+
+  return (
+    <Tooltip.Trigger
+      {...props}
+      ref={ref as Ref<HTMLButtonElement>}
+      closeOnClick={!keepOpenOnClick}
+      disabled={group.disabled || root.disabled}
+      handle={group.handle}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
+      onPointerEnter={handlePointerEnter}
+      payload={payload}
+      render={asChild ? children : undefined}
+    >
+      {asChild ? undefined : children}
+    </Tooltip.Trigger>
+  );
+});
+
+export interface FluidTooltipContentProps {
+  /** Short, non-interactive tooltip label. */
+  children: ReactNode;
+  /** Additional CSS classes for this tooltip's surface. @default undefined */
+  className?: string;
+  /** Shows the arrow connecting the surface to its trigger. @default true */
+  showArrow?: boolean;
+}
+
+export function FluidTooltipContent({
+  children,
+  className,
+  showArrow = true,
+}: FluidTooltipContentProps) {
+  const root = useRootContext("FluidTooltip.Content");
+  useLayoutEffect(() => {
+    root.contentRef.current = children;
+    root.contentClassNameRef.current = className;
+    root.showArrowRef.current = showArrow;
+  }, [children, className, root, showArrow]);
+  return null;
+}
+
+export const FluidTooltip = {
+  Group: FluidTooltipGroup,
+  Root: FluidTooltipRoot,
+  Trigger: FluidTooltipTrigger,
+  Content: FluidTooltipContent,
+};
+
+export default FluidTooltip;
+`,
+      path: "fluid-tooltip/fluid-tooltip.tsx",
+      target: "components/sonaui/fluid-tooltip/fluid-tooltip.tsx"
+    }
+  ],
   "mesh-gradient-shader": [
     {
       type: "registry:ui",
@@ -9329,6 +10492,293 @@ const variants: Variants = {
       target: "components/sonaui/stagger-text/stagger-text.tsx"
     }
   ],
+  "avatar-showcase": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface AvatarShowcaseItem {
+  /** Stable identifier used to preserve the supplied item order. */
+  id: string;
+  /** Accessible name for the person or profile. */
+  name: string;
+  /** Avatar image URL. */
+  imageUrl: string;
+}
+
+export interface AvatarShowcaseProps extends React.HTMLAttributes<HTMLElement> {
+  /** Ordered people to present. The first item is treated as the most recent. */
+  items: AvatarShowcaseItem[];
+  /** Number of vertically staggered lanes used by the moving strip.
+   * @default 1
+   */
+  lanes?: 1 | 2 | 3;
+  /** Total community size when \`items\` contains only a recent subset.
+   * @default items.length
+   */
+  totalCount?: number;
+  /** Optional message revealed with the final count. Omit it for a count-only ending.
+   * @default undefined
+   */
+  message?: string;
+  /** Maximum number of avatars rendered before deterministic sampling is applied.
+   * @default 80
+   */
+  maxItems?: number;
+  /** Fixed playback duration in seconds. When omitted, duration is derived from the total count.
+   * @default undefined
+   */
+  duration?: number;
+  /** Avatar diameter in pixels.
+   * @default 56
+   */
+  avatarSize?: number;
+  /** Called after the strip finishes and the ending is revealed.
+   * @default undefined
+   */
+  onComplete?: () => void;
+}
+
+function clamp(value: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function sampleItems(items: AvatarShowcaseItem[], limit: number) {
+  if (items.length <= limit) return items;
+
+  const recentCount = Math.min(12, Math.ceil(limit / 3));
+  const recentItems = items.slice(0, recentCount);
+  const remainingSlots = limit - recentCount;
+  const remainingItems = items.slice(recentCount);
+
+  const sampledItems = Array.from({ length: remainingSlots }, (_, index) => {
+    const sampleIndex = Math.floor(
+      (index * (remainingItems.length - 1)) / Math.max(1, remainingSlots - 1),
+    );
+    return remainingItems[sampleIndex];
+  });
+
+  return [...recentItems, ...sampledItems];
+}
+
+function getInitials(name: string) {
+  return (
+    name
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase() || "?"
+  );
+}
+
+function ShowcaseAvatar({
+  item,
+  size,
+}: {
+  item: AvatarShowcaseItem;
+  size: number;
+}) {
+  const [hasImageError, setHasImageError] = useState(false);
+
+  return (
+    <div
+      className="relative grid shrink-0 place-items-center overflow-hidden rounded-full bg-muted font-medium text-muted-foreground shadow-[0_0_0_1px_color-mix(in_oklab,var(--border)_80%,transparent),0_8px_24px_-12px_color-mix(in_oklab,var(--foreground)_24%,transparent)]"
+      style={{ width: size, height: size }}
+      title={item.name}
+    >
+      {hasImageError ? (
+        <span
+          aria-hidden="true"
+          style={{ fontSize: Math.max(11, size * 0.28) }}
+        >
+          {getInitials(item.name)}
+        </span>
+      ) : (
+        // biome-ignore lint/performance/noImgElement: registry consumers may provide any remote image source
+        <img
+          alt=""
+          className="size-full object-cover"
+          draggable={false}
+          loading="eager"
+          onError={() => setHasImageError(true)}
+          src={item.imageUrl}
+        />
+      )}
+    </div>
+  );
+}
+
+export default function AvatarShowcase({
+  items,
+  lanes = 1,
+  totalCount = items.length,
+  message,
+  maxItems = 80,
+  duration,
+  avatarSize = 56,
+  className,
+  onComplete,
+  ...props
+}: AvatarShowcaseProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [measurement, setMeasurement] = useState({ container: 0, track: 0 });
+  const [isComplete, setIsComplete] = useState(false);
+
+  const safeLaneCount = clamp(Math.round(lanes), 1, 3);
+  const safeAvatarSize = clamp(avatarSize, 32, 96);
+  const safeLimit = Math.max(1, Math.floor(maxItems));
+  const visibleItems = useMemo(
+    () => sampleItems(items, safeLimit),
+    [items, safeLimit],
+  );
+  const effectiveLanes = Math.min(safeLaneCount, visibleItems.length || 1);
+  const laneOffset = safeAvatarSize * 0.58;
+  const containerHeight = safeAvatarSize + laneOffset * (effectiveLanes - 1);
+  const measurementKey = \`\${visibleItems.map((item) => item.id).join(":")}-\${effectiveLanes}-\${safeAvatarSize}\`;
+  const resolvedCount = Math.max(totalCount, items.length);
+  const resolvedDuration =
+    duration ?? clamp(8 + Math.log10(Math.max(1, resolvedCount)) * 1.2, 8, 12);
+
+  useEffect(() => {
+    // Reconnect the observer when the rendered strip geometry changes.
+    void measurementKey;
+    const container = containerRef.current;
+    const track = trackRef.current;
+    if (!container || !track) return;
+
+    const measure = () => {
+      const nextMeasurement = {
+        container: container.clientWidth,
+        track: track.scrollWidth,
+      };
+      // Removing the completed track reports a transient zero width. Ignoring
+      // that observation keeps the final count visible instead of restarting.
+      if (nextMeasurement.container === 0 || nextMeasurement.track === 0)
+        return;
+      setMeasurement(nextMeasurement);
+      setIsComplete(false);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, [measurementKey]);
+
+  if (visibleItems.length === 0) {
+    return (
+      <section
+        aria-label="No people to showcase yet"
+        className={cn(
+          "grid min-h-28 place-items-center overflow-hidden rounded-xl border border-border bg-background px-6 text-center text-muted-foreground text-sm",
+          className,
+        )}
+        {...props}
+      >
+        No people to showcase yet.
+      </section>
+    );
+  }
+
+  const summary = \`Showing \${visibleItems.length.toLocaleString()} of \${resolvedCount.toLocaleString()} people.\`;
+  const staticItems = visibleItems.slice(0, Math.min(8, visibleItems.length));
+  const canAnimate =
+    !shouldReduceMotion && measurement.container > 0 && measurement.track > 0;
+
+  return (
+    <section
+      ref={containerRef}
+      aria-label={summary}
+      className={cn(
+        "relative w-full overflow-hidden rounded-xl border border-border bg-background px-4 py-8",
+        className,
+      )}
+      {...props}
+    >
+      <span className="sr-only">{summary}</span>
+
+      {shouldReduceMotion ? (
+        <div
+          className="flex items-center justify-center -space-x-3"
+          aria-hidden="true"
+        >
+          {staticItems.map((item) => (
+            <ShowcaseAvatar item={item} key={item.id} size={safeAvatarSize} />
+          ))}
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
+          {!isComplete ? (
+            <motion.div
+              aria-hidden="true"
+              animate={
+                canAnimate
+                  ? { x: -measurement.track - safeAvatarSize }
+                  : { x: 0 }
+              }
+              className="flex w-max items-start gap-3 will-change-transform"
+              initial={{ x: measurement.container + safeAvatarSize }}
+              key={\`\${measurement.container}-\${measurement.track}-\${measurementKey}\`}
+              onAnimationComplete={() => {
+                if (!canAnimate) return;
+                setIsComplete(true);
+                onComplete?.();
+              }}
+              ref={trackRef}
+              style={{ height: containerHeight }}
+              transition={{ duration: resolvedDuration, ease: "linear" }}
+            >
+              {visibleItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  style={{
+                    transform: \`translateY(\${(index % effectiveLanes) * laneOffset}px)\`,
+                  }}
+                >
+                  <ShowcaseAvatar item={item} size={safeAvatarSize} />
+                </div>
+              ))}
+            </motion.div>
+          ) : (
+            <motion.div
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              className="grid min-h-20 place-items-center text-center"
+              initial={{ opacity: 0, y: 8, filter: "blur(4px)" }}
+              key="summary"
+              transition={{ type: "spring", duration: 0.45, bounce: 0 }}
+            >
+              <div>
+                <p className="font-semibold tabular-nums text-2xl text-foreground">
+                  {resolvedCount.toLocaleString()}
+                </p>
+                {message ? (
+                  <p className="mt-1 text-muted-foreground text-sm">
+                    {message}
+                  </p>
+                ) : null}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
+    </section>
+  );
+}
+`,
+      path: "avatar-showcase/avatar-showcase.tsx",
+      target: "components/sonaui/avatar-showcase/avatar-showcase.tsx"
+    }
+  ],
   "hold-to-delete-button": [
     {
       type: "registry:ui",
@@ -9672,6 +11122,11 @@ export const componentMetadata = {
         "path": "registry/sonaui/agent-skill/references/design-principles.md",
         "type": "registry:file",
         "target": ".agents/skills/sona-ui/references/design-principles.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/provider-setup.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/provider-setup.md"
       }
     ],
     "dependencies": [],
@@ -9808,6 +11263,22 @@ export const componentMetadata = {
       "motion"
     ]
   },
+  "fluid-tooltip": {
+    "name": "fluid-tooltip",
+    "type": "registry:ui",
+    "title": "Fluid Tooltip",
+    "description": "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+    "files": [
+      {
+        "path": "registry/sonaui/fluid-tooltip/fluid-tooltip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
   "fluid-slider": {
     "name": "fluid-slider",
     "type": "registry:ui",
@@ -9857,6 +11328,25 @@ export const componentMetadata = {
     "dependencies": [
       "@base-ui/react",
       "motion"
+    ]
+  },
+  "expanding-action": {
+    "name": "expanding-action",
+    "type": "registry:ui",
+    "title": "Expanding Action",
+    "description": "A compact action that transforms in place into a short set of related choices with accessible focus management.",
+    "files": [
+      {
+        "path": "registry/sonaui/expanding-action/expanding-action.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
     ]
   },
   "accordion": {
@@ -10017,6 +11507,37 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/image-trail/image-trail.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "lightbox": {
+    "name": "lightbox",
+    "type": "registry:ui",
+    "title": "Lightbox",
+    "description": "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+    "files": [
+      {
+        "path": "registry/sonaui/lightbox/lightbox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "avatar-showcase": {
+    "name": "avatar-showcase",
+    "type": "registry:ui",
+    "title": "Avatar Showcase",
+    "description": "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+    "files": [
+      {
+        "path": "registry/sonaui/avatar-showcase/avatar-showcase.tsx",
         "type": "registry:ui"
       }
     ],

@@ -1,0 +1,41 @@
+---
+title: Fluid Tooltip
+slug: fluid-tooltip
+tags: ["UI", "Tooltip", "Navigation", "Motion"]
+---
+
+# Fluid Tooltip Component
+
+A grouped tooltip system that preserves spatial orientation while people scan related icon controls.
+
+## Features
+
+- Uses a deliberate first pointer delay, then opens sibling tooltips immediately.
+- Moves new labels eight pixels from left or right in horizontal groups and from top or bottom in vertical groups.
+- Keeps the tooltip surface continuous while its anchor and content change.
+- Places horizontal tooltips above their triggers and vertical tooltips to the right by default, with collision-aware flipping.
+- Shows keyboard tooltips immediately without directional travel.
+- Removes travel for reduced-motion preferences and leaves coarse-pointer controls usable.
+- Built on Base UI for tooltip semantics, positioning, collision handling, and accessible descriptions.
+
+<Divider />
+
+<ComponentPreview component="fluid-tooltip" name="default" />
+
+## Playground
+
+Adjust the group delay and orientation, then move between the controls.
+
+<ComponentPlayground component="fluid-tooltip" />
+
+## Installation
+
+<ComponentInstallation component="fluid-tooltip" />
+
+## Usage
+
+<ComponentUsage component="fluid-tooltip" />
+
+## Props
+
+<PropTable component="fluid-tooltip" />

@@ -1,0 +1,39 @@
+---
+title: Avatar Showcase
+slug: avatar-showcase
+tags: ["UI", "Avatar", "Community", "Motion"]
+---
+
+# Avatar Showcase Component
+
+A recording-friendly avatar strip that adapts its pacing to the size of a community without coupling presentation to a data provider.
+
+## Features
+
+- Presents ordered avatars in one, two, or three staggered lanes.
+- Uses a bounded duration and deterministic sampling for large collections.
+- Accepts a total count when only a recent subset is available.
+- Reveals the final count with an optional custom message.
+- Falls back to a static, readable avatar group when reduced motion is preferred.
+
+<Divider />
+
+<ComponentPreview component="avatar-showcase" name="default" />
+
+## Playground
+
+Adjust the lane count, community size, message, and avatar size.
+
+<ComponentPlayground component="avatar-showcase" />
+
+## Installation
+
+<ComponentInstallation component="avatar-showcase" />
+
+## Usage
+
+<ComponentUsage component="avatar-showcase" />
+
+## Props
+
+<PropTable component="avatar-showcase" />

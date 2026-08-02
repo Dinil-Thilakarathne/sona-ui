@@ -205,7 +205,8 @@ async function buildRegistry() {
           if (fs.statSync(itemPath).isDirectory()) {
             scanDir(itemPath);
           } else {
-            if (!item.endsWith(".tsx") && !item.endsWith(".ts")) continue;
+            const extension = path.extname(item);
+            if (![".tsx", ".ts", ".css"].includes(extension)) continue;
 
             const content = rewriteImportsForDisplay(
               fs.readFileSync(itemPath, "utf-8"),
@@ -215,7 +216,7 @@ async function buildRegistry() {
 
             files.push({
               path: itemPath, // Absolute path (not really needed in registry)
-              type: "registry:ui",
+              type: extension === ".css" ? "registry:file" : "registry:ui",
               content: content,
               target: relativePath,
             });

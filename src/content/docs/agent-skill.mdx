@@ -20,14 +20,36 @@ The Sona UI skill teaches a coding agent how to use the library with judgment. I
 
 ## Install from the registry
 
-Install the skill item into the provider-neutral agent directory:
+Initialize shadcn when the project does not already have `components.json`:
+
+<CodeBlockWrapper
+  code="bunx shadcn@latest init"
+  language="bash"
+/>
+
+Add the Sona UI registry to `components.json`:
+
+<CodeBlockWrapper
+  code={`{
+  "registries": {
+    "@sona-ui": "https://sona-ui.vercel.app/r/{name}.json"
+  }
+}`}
+  language="json"
+/>
+
+Then install the skill into `.agents/skills/sona-ui/`:
 
 <CodeBlockWrapper
   code="bunx shadcn@latest add @sona-ui/agent-skill"
   language="bash"
 />
 
-The item contains the skill entry point and focused references for selection, consumer validation, and design principles.
+The item contains the skill entry point and focused references for selection, consumer validation, design principles, and provider setup. It does not require a custom Sona MCP server.
+
+## Client support
+
+The skill uses the open `SKILL.md` package structure. Automatic discovery of the shared `.agents/skills` directory depends on the agent client and its configuration. Codex, Claude Code, and Cursor have configuration fixtures in this repository; live client discovery and installation remain separate release checks.
 
 ## Verify the skill
 
@@ -39,7 +61,7 @@ Ask your agent:
   language="bash"
 />
 
-The agent should inspect the Sona catalog, recommend a relevant component, and wait before making a project change.
+The agent should inspect the consumer project and Sona catalog, recommend a relevant component, explain the decision, and wait because the prompt explicitly says not to install.
 
 ## Skill boundary
 
@@ -47,7 +69,7 @@ The skill is procedural guidance. The registry is the installation authority. Co
 
 ## Validation workflow
 
-After installation, ask the agent to:
+After installation, ask the agent to record a pass, failure, or not-run status for every applicable check:
 
 1. Confirm registry dependencies and foundation files resolve.
 2. Run the consumer's typecheck or build command.
@@ -57,3 +79,5 @@ After installation, ask the agent to:
 6. Check reduced-motion behavior.
 
 If installation fails, the agent should classify the issue as consumer configuration, registry metadata, generated payload, agent resource, MCP/client, or deployment before changing source.
+
+Static checks do not prove interaction or rendered visual quality. Keep typecheck/build results separate from keyboard, reduced-motion, responsive, theme, and browser-review results.

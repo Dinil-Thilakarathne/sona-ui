@@ -1,0 +1,4 @@
+interface:
+  display_name: "Component Anatomy"
+  short_description: "Build inspectable component anatomy boards"
+  default_prompt: "Use $component-anatomy to create an Inspection Board for this Sona UI component: <component-path>."
