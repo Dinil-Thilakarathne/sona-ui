@@ -82,7 +82,30 @@ try {
     throw new Error("production install did not add the motion dependency");
   }
 
-  console.log("Production registry smoke test passed for @sona-ui/button.");
+  execFileSync(
+    "npx",
+    ["--yes", "shadcn@latest", "add", "@sona-ui/agent-skill", "--yes"],
+    { cwd: fixtureRoot, stdio: "inherit" },
+  );
+
+  const expectedSkillFiles = [
+    ".agents/skills/sona-ui/SKILL.md",
+    ".agents/skills/sona-ui/references/component-selection.md",
+    ".agents/skills/sona-ui/references/consumer-validation.md",
+    ".agents/skills/sona-ui/references/design-principles.md",
+    ".agents/skills/sona-ui/references/provider-setup.md",
+  ];
+  for (const relativePath of expectedSkillFiles) {
+    if (!fs.existsSync(path.join(fixtureRoot, relativePath))) {
+      throw new Error(
+        `production skill install did not create ${relativePath}`,
+      );
+    }
+  }
+
+  console.log(
+    "Production registry smoke test passed for @sona-ui/button and @sona-ui/agent-skill.",
+  );
 } finally {
   fs.rmSync(fixtureRoot, { recursive: true, force: true });
 }

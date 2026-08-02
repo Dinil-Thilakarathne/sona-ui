@@ -11122,6 +11122,11 @@ export const componentMetadata = {
         "path": "registry/sonaui/agent-skill/references/design-principles.md",
         "type": "registry:file",
         "target": ".agents/skills/sona-ui/references/design-principles.md"
+      },
+      {
+        "path": "registry/sonaui/agent-skill/references/provider-setup.md",
+        "type": "registry:file",
+        "target": ".agents/skills/sona-ui/references/provider-setup.md"
       }
     ],
     "dependencies": [],

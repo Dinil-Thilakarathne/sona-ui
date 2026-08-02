@@ -11,4 +11,4 @@ Start with the user's job:
 - Atmospheric visual depth → shader or spotlight effect.
 - Short decorative typography → text motion resource.
 
-Compare the selected item's `useWhen`, `avoidWhen`, accessibility, motion, and dependency fields before installation. If the request needs a general navigation system, do not force a local tabs component into that role.
+Compare every plausible item's `useWhen`, `avoidWhen`, accessibility, motion, and dependency fields before installation. Selection is complete when one candidate—or the decision to use no Sona component—is justified against all five fields. If the request needs a general navigation system, choose a navigation pattern rather than forcing local tabs into that role.
