@@ -6,6 +6,7 @@ import Tag from "./tag";
 interface NavLinkProps extends NavLinksPropsType, LinkProps {
   className?: string;
   href: string;
+  showIndicator?: boolean;
   textClassName?: string;
 }
 
@@ -14,6 +15,7 @@ const SidebarLink = ({
   tag,
   href,
   className,
+  showIndicator = true,
   textClassName,
   ...props
 }: NavLinkProps) => {
@@ -29,7 +31,9 @@ const SidebarLink = ({
         {name}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0" />}
-      <div className="absolute left-0 h-[0.75px] w-full bg-foreground rounded-full duration-100 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5"></div>
+      {showIndicator && (
+        <div className="absolute left-0 h-[0.75px] w-full bg-foreground rounded-full duration-100 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5" />
+      )}
     </div>
   ) : (
     <Link
@@ -46,7 +50,9 @@ const SidebarLink = ({
         {name}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-tiny" />}
-      <div className="absolute left-0 h-[0.75px] w-full bg-foreground rounded-full duration-150 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5"></div>
+      {showIndicator && (
+        <div className="absolute left-0 h-[0.75px] w-full bg-foreground rounded-full duration-150 ease-out transition-transform motion-reduce:transition-none origin-left scale-x-0 group-data-[active=true]:scale-x-100 group-hover:scale-x-100 -bottom-0.5" />
+      )}
     </Link>
   );
 };

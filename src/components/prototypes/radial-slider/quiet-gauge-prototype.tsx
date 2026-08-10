@@ -28,7 +28,7 @@ export default function QuietDialPrototype() {
           aria-valuemin={0}
           aria-valuenow={value}
           aria-valuetext={`${value} percent`}
-          className="group relative mx-auto aspect-square w-full max-w-[340px] cursor-grab touch-none rounded-[2rem] bg-card p-8 shadow-[0_14px_50px_color-mix(in_oklab,var(--foreground)_7%,transparent),inset_0_0_0_1px_var(--border)] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="group relative mx-auto aspect-square w-full max-w-[340px] cursor-grab touch-none rounded-[2rem] bg-card p-8 smooth-shadow-ring-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           data-pressed={pressed}
           role="slider"
           tabIndex={0}

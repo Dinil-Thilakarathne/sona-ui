@@ -1,10 +1,9 @@
 ---
 title: Animated Dropdown
 slug: animated-dropdown
+component: animated-dropdown
 tags: ["UI", "Dropdown", "Menu", "Animation", "Component"]
 ---
-
-# Animated Dropdown
 
 A composable, fully accessible dropdown menu built on **Base UI** with a spring-driven shared hover highlight and origin-aware scale/fade animations. No hardcoded items — compose your own content.
 
@@ -20,37 +19,15 @@ A composable, fully accessible dropdown menu built on **Base UI** with a spring-
 - **Full accessibility** — keyboard nav, typeahead, focus trap, and portal via Base UI.
 - **Reduced-motion safe** — instant transitions when the OS prefers reduced motion.
 
-<Divider />
-
-<ComponentPreview component="animated-dropdown" name="default" />
-
-## Playground
-
-Try different `side` and `align` positions.
-
-<ComponentPlayground component="animated-dropdown" />
-
-## Installation
-
-<ComponentInstallation component="animated-dropdown" />
-
-## Usage
-
-<ComponentUsage component="animated-dropdown" />
-
 ## Examples
 
 ### Danger variant
 
 Use `variant="danger"` on destructive items — they get a red tint and are visually separated.
 
-<ComponentPreview component="animated-dropdown" name="danger" />
-
 ### Controlled open state
 
 Pass `open` and `onOpenChange` to fully control the dropdown from external state.
-
-<ComponentPreview component="animated-dropdown" name="controlled" />
 
 ## Code Examples
 
@@ -116,7 +93,3 @@ export function MyDropdown() {
   ...
 </AnimatedDropdownContent>`}
 />
-
-## Props
-
-<PropTable component="animated-dropdown" />

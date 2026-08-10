@@ -102,7 +102,7 @@ export function FeaturedSection() {
           <article
             key={item.slug}
             className={cn(
-              "flex min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-[border-color] duration-200 hover:border-foreground/35",
+              "flex min-w-0 flex-col overflow-hidden rounded-2xl bg-card smooth-shadow-ring-sm transition-[transform] duration-200",
               item.className,
             )}
           >

@@ -1,10 +1,9 @@
 ---
 title: Activity Graph
 slug: activity-graph
+component: activity-graph
 tags: ["UI", "Data Visualization", "Calendar", "Motion", "Component"]
 ---
-
-# Activity Graph Component
 
 A keyboard-accessible calendar heatmap with a shared tooltip that preserves spatial continuity while exploring daily activity.
 
@@ -23,24 +22,6 @@ The preview fetches Dinil Thilakarathne's latest profile-level GitHub contributi
 - Optional month labels, weekday labels, value summary, legend, and targeted styling hooks.
 - A 366-day default range guard, 24px coarse-pointer targets, screen-reader range summary, and latest-date-first mobile scrolling.
 - Semantic `--activity-graph-*` tokens for cell size, spacing, radius, color levels, and keyboard focus.
-
-<Divider />
-
-<ComponentPreview component="activity-graph" name="default" />
-
-## Playground
-
-Change the tooltip, colors, visible labels, legend, week start, and intensity levels while exploring the graph with pointer or keyboard.
-
-<ComponentPlayground component="activity-graph" />
-
-## Installation
-
-<ComponentInstallation component="activity-graph" />
-
-## Usage
-
-<ComponentUsage component="activity-graph" />
 
 ## Using GitHub data
 
@@ -110,7 +91,3 @@ This is the server utility used by the showcase. It queries GitHub's profile con
   filename="src/lib/github-contributions.ts"
   language="typescript"
 />
-
-## Props
-
-<PropTable component="activity-graph" />

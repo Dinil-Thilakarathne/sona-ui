@@ -18,7 +18,7 @@ export default function ProfilePopover() {
     <>
       {isOpen && (
         <motion.div
-          className="flex fixed bottom-16 left-4 flex-col mb-4 px-4 py-4 space-y-4 max-w-[300px] w-[calc(100%-2rem)] bg-popover border-[.5px] border-secondary rounded-2xl shadow-primary/20"
+          className="flex fixed bottom-16 left-4 flex-col mb-4 px-4 py-4 space-y-4 max-w-[300px] w-[calc(100%-2rem)] bg-popover rounded-2xl smooth-shadow-ring-md shadow-primary/20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}

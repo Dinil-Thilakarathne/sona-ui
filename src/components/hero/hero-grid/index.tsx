@@ -48,7 +48,7 @@ const GridItem = ({ children, className }: GridItemProps) => {
   return (
     <div
       className={cn(
-        "flex h-full items-center justify-center rounded-lg border border-slate-100 shadow-md shadow-slate-400 *:h-full *:border-0 dark:shadow-slate-600",
+        "flex h-full items-center justify-center rounded-lg smooth-shadow-ring-md shadow-slate-400 *:h-full *:border-0 dark:shadow-slate-600",
         className,
       )}
     >

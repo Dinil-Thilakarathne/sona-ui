@@ -183,7 +183,7 @@ export default function FluidTabsInspectionBoard() {
         <section
           ref={boardRef}
           aria-label="Fluid Tabs component anatomy inspection board"
-          className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/[0.07] bg-[#202020] shadow-[0_32px_90px_rgba(0,0,0,0.3)]"
+          className="relative aspect-video w-full overflow-hidden rounded-2xl bg-[#202020] smooth-shadow-ring-xl shadow-[0_32px_90px_rgba(0,0,0,0.3)]"
         >
           <div className="absolute left-[8%] top-[8%]">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/25">

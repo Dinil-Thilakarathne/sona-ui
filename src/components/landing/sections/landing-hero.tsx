@@ -73,7 +73,7 @@ export function LandingHero() {
       onPointerMove={moveLight}
       onPointerLeave={hideLight}
     >
-      <HeroMeshBackground meshX={springMeshX} meshY={springMeshY} />
+      {/*<HeroMeshBackground meshX={springMeshX} meshY={springMeshY} />*/}
       <motion.div
         className="relative z-10 grid gap-4 lg:gap-8 w-full _max-w-3xl justify-items-center"
         variants={container}

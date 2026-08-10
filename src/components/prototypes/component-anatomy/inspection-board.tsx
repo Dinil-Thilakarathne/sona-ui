@@ -191,7 +191,7 @@ export function InspectionOverlay({
             }}
           >
             <div
-              className={`rounded-[5px] border bg-black/90 px-2.5 py-1 font-mono text-[11px] leading-none tracking-[0.02em] shadow-[0_4px_16px_rgba(0,0,0,0.24)] ${tone.border} ${tone.text}`}
+              className={`rounded-[5px] bg-black/90 px-2.5 py-1 font-mono text-[11px] leading-none tracking-[0.02em] smooth-shadow-ring-sm shadow-[0_4px_16px_rgba(0,0,0,0.24)] ${tone.text}`}
             >
               {annotation.label}
             </div>

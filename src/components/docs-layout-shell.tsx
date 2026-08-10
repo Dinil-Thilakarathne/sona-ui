@@ -1,16 +1,19 @@
-"use client";
-
+import { GuideframeGrid } from "@guideframe/react";
 import type { ReactNode } from "react";
-
-import Sidebar from "@/components/component-sidebar";
 
 const DocsLayoutShell: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <main className="flex mt-header-height min-h-[calc(100vh-75px)]">
-      <Sidebar />
-      <section className="flex-1 p-2 md:p-6 xl:ml-sidebar-width w-full xl:max-w-[calc(100%-var(--sidebar-width))] duration-300 transition-[margin]">
-        {children}
-      </section>
+    <main className="relative min-h-svh w-full">
+      <GuideframeGrid
+        panel={true}
+        rulers={true}
+        maxWidth={768}
+        margin={8}
+        columns={{ desktop: 6, tablet: 4, mobile: 3 }}
+        gutter={8}
+        defaultVisible={false}
+      />
+      {children}
     </main>
   );
 };

@@ -34,7 +34,7 @@ export default function CompactIndexPrototype() {
           aria-valuemin={0}
           aria-valuenow={value}
           aria-valuetext={`${value} percent`}
-          className="group relative mx-auto aspect-square w-full max-w-[300px] cursor-grab touch-none rounded-3xl bg-card p-5 shadow-[inset_0_0_0_1px_var(--border)] outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+          className="group relative mx-auto aspect-square w-full max-w-[300px] cursor-grab touch-none rounded-3xl bg-card p-5 smooth-shadow-ring-md outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           data-pressed={pressed}
           role="slider"
           tabIndex={0}

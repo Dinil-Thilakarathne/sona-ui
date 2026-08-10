@@ -53,7 +53,7 @@ export function OwnershipSection() {
       <ol className="grid gap-3">
         {steps.map(([number, Icon, title, description]) => (
           <li
-            className="grid grid-cols-[auto_auto_1fr] items-start gap-3.5 rounded-xl border border-border bg-card p-4 shadow-sm"
+            className="grid grid-cols-[auto_auto_1fr] items-start gap-3.5 rounded-xl bg-card p-4 smooth-shadow-ring-sm"
             key={number}
           >
             <span className="font-mono text-[0.6875rem] leading-6 text-muted-foreground">

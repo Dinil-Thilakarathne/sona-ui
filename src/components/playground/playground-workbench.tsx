@@ -58,7 +58,7 @@ export default function PlaygroundWorkbench({
           onClick={() => setControlsOpen((open) => !open)}
           aria-expanded={controlsOpen}
           aria-controls="playground-controls"
-          className="inline-flex h-9 items-center gap-2 rounded-md border bg-background px-3 text-sm font-medium text-foreground shadow-xs transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="inline-flex h-9 items-center gap-2 rounded-md bg-background px-3 text-sm font-medium text-foreground smooth-shadow-ring-xs transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {controlsOpen ? (
             <ChevronRight className="size-4" aria-hidden="true" />

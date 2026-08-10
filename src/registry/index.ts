@@ -3518,7 +3518,12 @@ export function AnimatedDropdownContent({
 
   return (
     <Menu.Portal>
-      <Menu.Positioner side={side} align={align} sideOffset={sideOffset}>
+      <Menu.Positioner
+        side={side}
+        align={align}
+        sideOffset={sideOffset}
+        className="z-50"
+      >
         <Menu.Popup
           className={cn(
             // Layout

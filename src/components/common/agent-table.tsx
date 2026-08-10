@@ -11,7 +11,7 @@ interface AgentTableProps {
 export function AgentTable({ rows }: AgentTableProps) {
   return (
     <div className="py-3">
-      <div className="overflow-x-auto border border-border rounded-lg shadow-sm">
+      <div className="overflow-x-auto rounded-lg smooth-shadow-ring-sm">
         <table className="w-full text-left text-sm border-collapse">
           <thead className="bg-secondary">
             <tr>

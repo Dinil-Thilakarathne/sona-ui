@@ -39,7 +39,7 @@ export function AiSection() {
         </div>
       </div>
       <div
-        className="overflow-hidden rounded-2xl border border-border bg-card p-5 font-mono text-xs leading-[1.8] text-card-foreground shadow-lg"
+        className="overflow-hidden rounded-2xl bg-card p-5 font-mono text-xs leading-[1.8] text-card-foreground smooth-shadow-ring-lg"
         role="img"
         aria-label="AI workflow example"
       >

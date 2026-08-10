@@ -1,10 +1,9 @@
 ---
 title: Image Trail
 slug: image-trail
+component: image-trail
 tags: ["UI", "Effect", "Cursor", "Component"]
 ---
-
-# Image Trail Component
 
 A cursor-driven effect that spawns a trail of images as the pointer moves across a scoped area — the editorial, portfolio-site look, built to stay out of the way of your interactive UI.
 
@@ -17,42 +16,10 @@ A cursor-driven effect that spawns a trail of images as the pointer moves across
 - Fixed image budget (`maxImages`) with automatic recycling — no unbounded DOM growth.
 - Respects `prefers-reduced-motion` and only runs for a fine (mouse) pointer.
 
-<Divider />
-
-<ComponentPreview component="image-trail" name="default" />
-
 ## Interactive content underneath
 
 The trail layer is `pointer-events: none`, so images can visually sit on top of buttons and links without ever intercepting clicks or hover. The effect also skips spawning while the cursor is over anything matching `ignoreSelector` (default `a, button, input, [data-image-trail-ignore]`), keeping interactive UI unobstructed. Sweep across the area below, then click the button or hover the link.
 
-<ComponentPreview component="image-trail" name="interactive" />
-
 ## Variants
 
 Each appearance style has its own enter/exit motion. Set it via the `variant` prop.
-
-### Blur
-
-<ComponentPreview component="image-trail" name="blur" />
-
-### Tilt
-
-<ComponentPreview component="image-trail" name="tilt" />
-
-## Playground
-
-Change the appearance style, spawn distance, image budget, and lifetime, then move your cursor across the area.
-
-<ComponentPlayground component="image-trail" />
-
-## Installation
-
-<ComponentInstallation component="image-trail" />
-
-## Usage
-
-<ComponentUsage component="image-trail" />
-
-## Props
-
-<PropTable component="image-trail" />

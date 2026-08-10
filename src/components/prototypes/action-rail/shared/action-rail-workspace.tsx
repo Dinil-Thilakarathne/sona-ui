@@ -213,7 +213,7 @@ export default function ActionRailWorkspace({ variant }: { variant: Variant }) {
 
         <section
           aria-label="Projects"
-          className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_18px_60px_-36px_color-mix(in_oklab,var(--foreground)_24%,transparent)]"
+          className="overflow-hidden rounded-2xl bg-card smooth-shadow-ring-lg shadow-[0_18px_60px_-36px_color-mix(in_oklab,var(--foreground)_24%,transparent)]"
         >
           <div className="flex flex-col gap-4 border-border border-b px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -494,7 +494,7 @@ function ProjectList({
                   : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
               }
               className={cn(
-                "flex items-center border border-border/80 bg-popover/82 text-popover-foreground shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--foreground)_30%,transparent)] backdrop-blur-xl",
+                "flex items-center bg-popover/82 text-popover-foreground smooth-shadow-ring-md shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--foreground)_30%,transparent)] backdrop-blur-xl",
                 variant === "floating" && "gap-0.5 rounded-xl p-1",
                 variant === "dock" &&
                   cn(

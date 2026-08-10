@@ -23,7 +23,7 @@ import { useSearch } from "@/hooks/useSearch";
 import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-export function Search() {
+export function Search({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = React.useState(false);
   const { query, setQuery, results } = useSearch();
   const router = useRouter();
@@ -66,13 +66,24 @@ export function Search() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         type="button"
-        className="hidden lg:inline-flex gap-2 items-center px-3 py-1.5 font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent border border-input rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm transition-colors"
+        aria-label={compact ? "Search documentation" : undefined}
+        title={compact ? "Search documentation" : undefined}
+        className={cn(
+          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
+          compact
+            ? "inline-flex size-9 justify-center"
+            : "hidden lg:inline-flex gap-2 px-3 py-1.5 smooth-shadow-ring-sm",
+        )}
       >
         <SearchIcon className="size-4" />
-        <span>Search documentation...</span>
-        <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted border rounded pointer-events-none select-none">
-          <span className="text-xs">⌘</span>K
-        </kbd>
+        {!compact && (
+          <>
+            <span>Search documentation...</span>
+            <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted border rounded pointer-events-none select-none">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </>
+        )}
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -80,7 +91,7 @@ export function Search() {
         <Dialog.Popup
           initialFocus={inputRef}
           aria-describedby={undefined}
-          className="fixed left-1/2 top-[15vh] z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 origin-top overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg transition duration-150 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none"
+          className="fixed left-1/2 top-[15vh] z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 origin-top overflow-hidden rounded-xl bg-popover text-popover-foreground smooth-shadow-ring-lg transition duration-150 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none"
         >
           <Dialog.Title className="sr-only">Search documentation</Dialog.Title>
           <Command

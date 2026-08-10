@@ -51,7 +51,8 @@ const SidebarContent: React.FC<{
                   name={item.name}
                   tag={item.tag}
                   onClick={onLinkClick}
-                  className="rounded-md px-3 py-1.5 transition-colors duration-150 ease-out hover:bg-muted/60"
+                  showIndicator={false}
+                  className="rounded-md px-3 py-1.5 transition-colors duration-150 ease-out hover:bg-muted/60 data-[active=true]:bg-muted/60"
                   textClassName={
                     pathname === item.href ? "text-foreground font-medium" : ""
                   }
@@ -121,7 +122,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SheetTrigger
           render={
             <motion.button
-              className="block xl:hidden fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] z-50 p-4 bg-background/90 border border-border rounded-full shadow-lg backdrop-blur"
+              className="block xl:hidden fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] z-50 p-4 bg-background/90 rounded-full smooth-shadow-ring-lg backdrop-blur"
               whileTap={{ scale: 0.95 }}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

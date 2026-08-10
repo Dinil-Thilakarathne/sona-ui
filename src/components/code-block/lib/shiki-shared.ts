@@ -2,10 +2,11 @@ import { toJsxRuntime } from "hast-util-to-jsx-runtime";
 import type { JSX } from "react";
 import { Fragment } from "react";
 import { jsx, jsxs } from "react/jsx-runtime";
+import type { BundledLanguage } from "shiki";
 import type { ShikiTransformer } from "shiki/core";
 import { createHighlighterCore } from "shiki/core";
 import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
-import type { BundledLanguage } from "shiki/langs";
+import { bundledLanguages } from "shiki/langs";
 import { createDiffTransformer } from "./transformers/diff";
 import { createFocusTransformer } from "./transformers/focus";
 import { createHighlightLinesTransformer } from "./transformers/highlight-lines";
@@ -63,8 +64,7 @@ async function highlightWithLang(
 
   // Load language dynamically if not already loaded (cached Set for performance)
   if (!loadedLanguages.has(lang)) {
-    // Dynamically import only the specific language module needed
-    const langModule = await import(`shiki/langs/${lang}.mjs`);
+    const langModule = await bundledLanguages[lang]();
     await instance.loadLanguage(langModule.default);
     loadedLanguages.add(lang);
   }

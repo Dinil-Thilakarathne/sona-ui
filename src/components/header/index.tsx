@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { navLinks } from "@/lib/data";
 import FadeInComp from "../common/fade-in";
@@ -9,6 +12,10 @@ import { ModeToggle } from "../common/theme-toggle";
 import { Search } from "../Search";
 
 const Header = () => {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/docs")) return null;
+
   return (
     <header className="fixed left-0 top-0 z-49 lg:px-2 min-h-header-height w-full">
       <div className="flex items-center justify-between px-2 py-4 w-full  backdrop-blur-md">

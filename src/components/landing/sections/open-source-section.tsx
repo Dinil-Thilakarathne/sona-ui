@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 
 const cardClass =
-  "grid min-h-44 content-start gap-2.5 rounded-2xl border border-border bg-card p-5 shadow-sm transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-foreground/35 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none";
+  "grid min-h-44 content-start gap-2.5 rounded-2xl bg-card p-5 smooth-shadow-ring-sm transition-[transform] duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none";
 
 export function OpenSourceSection() {
   return (

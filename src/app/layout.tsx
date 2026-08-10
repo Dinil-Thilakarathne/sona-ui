@@ -34,12 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased`}
+        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased relative`}
       >
         <PostHogProvider>
           <ThemeProvider>
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
+            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0"></div>
             {children}
             <Toaster position="bottom-right" richColors />
           </ThemeProvider>
