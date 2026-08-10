@@ -9,7 +9,6 @@ import {
   Code2,
   Copy,
   Home,
-  Menu,
   RotateCcw,
   Settings2,
 } from "lucide-react";
@@ -23,6 +22,13 @@ import {
   CodeBlockHeader,
   CodeBlockPre,
 } from "@/components/code-block/code-block";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/common/drawer";
 import { Mdx } from "@/components/common/mdx-components";
 import {
   Sheet,
@@ -119,16 +125,17 @@ function DocsNavigation({
   const normalized = query.trim().toLowerCase();
 
   return (
-    <Sheet open={open} onOpenChange={onOpenChange}>
+    <Sheet modal={false} open={open} onOpenChange={onOpenChange}>
       <SheetContent
         side="left"
-        className="w-[min(22rem,calc(100vw-1rem))] p-0 smooth-shadow-ring-lg! data-[side=left]:border-r-0"
+        showCloseButton={false}
+        className="top-16! bottom-2! left-4! z-70! h-auto! w-[min(22rem,calc(100vw-1rem))] rounded-2xl p-0 smooth-shadow-ring-xl! data-[side=left]:border-r-0"
       >
         <SheetHeader className="border-b border-border p-5">
           <SheetTitle>Documentation</SheetTitle>
           <SheetDescription>Browse guides and components</SheetDescription>
         </SheetHeader>
-        <div className="flex min-h-0 flex-1 flex-col p-4">
+        <div className="flex min-h-0 flex-1 flex-col p-4 pt-0">
           <label className="mb-4">
             <span className="sr-only">Filter documentation</span>
             <input
@@ -277,15 +284,25 @@ function ContentsSheet({
 
 function FocusNavigationBar({
   title,
+  open,
   onNavigate,
 }: {
   title: string;
+  open: boolean;
   onNavigate: () => void;
 }) {
   return (
-    <div className="pointer-events-auto flex min-w-0 items-center gap-1 rounded-xl bg-background/90 p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl">
-      <IconButton label="Open documentation navigation" onClick={onNavigate}>
-        <Menu className="size-4" />
+    <div className="pointer-events-auto relative z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-background/90 p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl">
+      <IconButton
+        label={
+          open
+            ? "Close documentation navigation"
+            : "Open documentation navigation"
+        }
+        aria-expanded={open}
+        onClick={onNavigate}
+      >
+        <SidebarToggleIcon open={open} />
       </IconButton>
       <nav
         aria-label="Breadcrumb"
@@ -299,9 +316,66 @@ function FocusNavigationBar({
   );
 }
 
+function SidebarToggleIcon({ open }: { open: boolean }) {
+  if (open) {
+    return (
+      <svg
+        key="sidebar-open"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24px"
+        height="24px"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          d="m20,3H4c-1.654,0-3,1.346-3,3v12c0,1.654,1.346,3,3,3h16c1.654,0,3-1.346,3-3V6c0-1.654-1.346-3-3-3ZM3,18V6c0-.551.449-1,1-1h11v14H4c-.551,0-1-.449-1-1Z"
+          strokeWidth="0"
+          fill="#7A7A7A"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      key="sidebar-closed"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24px"
+      height="24px"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <line
+        x1="15"
+        y1="4"
+        x2="15"
+        y2="20"
+        fill="none"
+        stroke="#7A7A7A"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+      <rect
+        x="4"
+        y="2"
+        width="16"
+        height="20"
+        rx="2"
+        ry="2"
+        transform="translate(24) rotate(90)"
+        fill="none"
+        stroke="#7A7A7A"
+        strokeLinecap="square"
+        strokeMiterlimit="10"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+}
+
 function FocusActionsBar({ children }: { children: ReactNode }) {
   return (
-    <div className="pointer-events-auto relative z-60 ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-background/90 p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw]">
+    <div className="pointer-events-auto relative z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-background/90 p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw]">
       {children}
     </div>
   );
@@ -321,10 +395,11 @@ function GuidePage({
   const headings = useDocumentHeadings("[data-guide-document]");
   return (
     <div className="relative flex h-svh overflow-hidden flex-col bg-background">
-      <header className="pointer-events-none flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
+      <header className="relative z-[70] flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
         <FocusNavigationBar
           title={doc.title}
-          onNavigate={() => setNavOpen(true)}
+          open={navOpen}
+          onNavigate={() => setNavOpen(!navOpen)}
         />
         <FocusActionsBar>
           <Link
@@ -833,9 +908,15 @@ function InstallBar({ component }: { component: string }) {
         {command}
       </code>
       <IconButton
-        label="Copy installation command"
+        label={
+          copied ? "Installation command copied" : "Copy installation command"
+        }
         onClick={copy}
-        className="size-8"
+        className={cn(
+          "size-8",
+          copied &&
+            "bg-green-900/40 text-white hover:bg-green-900/40 focus-visible:ring-success/50",
+        )}
       >
         {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </IconButton>
@@ -894,9 +975,11 @@ function ComponentPage({
     setActiveExampleName(value);
   };
   const openPanel = (requestedPanel: DocsPanel) => {
-    const nextPanel = panel === requestedPanel ? null : requestedPanel;
-    if (nextPanel) setRenderedPanel(nextPanel);
-    setPanel(nextPanel);
+    setPanel((current) => {
+      const nextPanel = current === requestedPanel ? null : requestedPanel;
+      if (nextPanel) setRenderedPanel(nextPanel);
+      return nextPanel;
+    });
   };
   const panelContent =
     panelForContent === "description" ? (
@@ -941,10 +1024,11 @@ function ComponentPage({
 
   return (
     <div className="relative flex h-svh overflow-hidden flex-col bg-background">
-      <header className="pointer-events-none flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
+      <header className="relative z-[70] flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
         <FocusNavigationBar
           title={doc.title}
-          onNavigate={() => setNavOpen(true)}
+          open={navOpen}
+          onNavigate={() => setNavOpen(!navOpen)}
         />
         <FocusActionsBar>
           <Link
@@ -1020,33 +1104,32 @@ function ComponentPage({
           </motion.aside>
         )}
       </main>
-      <Sheet
-        modal={false}
+      <Drawer
         open={Boolean(panel && isMobile)}
         onOpenChange={(open) => {
           if (!open) setPanel(null);
         }}
+        showSwipeHandle
+        swipeDirection="down"
       >
-        <SheetContent
-          side="right"
-          showCloseButton={false}
-          className="inset-0 m-0 h-svh rounded-none p-0 pt-16 shadow-none! data-[side=right]:w-screen data-[side=right]:max-w-none data-[side=right]:border-l-0 sm:data-[side=right]:max-w-none"
-        >
-          <SheetHeader className="sr-only">
-            <SheetTitle>
+        <DrawerContent className="inset-x-2! bottom-2! h-[min(82svh,46rem)]! max-h-[calc(100dvh-1rem)]! rounded-2xl border-0! bg-card p-0 smooth-shadow-ring-md! sm:inset-x-4! sm:bottom-4!">
+          <DrawerHeader className="sr-only">
+            <DrawerTitle>
               {panelForContent === "source"
                 ? "Source code"
                 : panelForContent === "controls"
                   ? "Component controls"
                   : "Component description"}
-            </SheetTitle>
-            <SheetDescription>
+            </DrawerTitle>
+            <DrawerDescription>
               Documentation panel for {doc.title}
-            </SheetDescription>
-          </SheetHeader>
-          {panelContent}
-        </SheetContent>
-      </Sheet>
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            {panelContent}
+          </div>
+        </DrawerContent>
+      </Drawer>
       <DocsNavigation
         open={navOpen}
         onOpenChange={setNavOpen}
