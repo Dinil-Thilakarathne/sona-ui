@@ -1,8 +1,9 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
+import { TextMorph } from "torph/react";
 import { CopyButton } from "@/components/copy-button/copy-button";
 
 const commandPrefix = "npx shadcn@latest add @sona-ui/";
@@ -100,52 +101,32 @@ export function InstallCommand() {
             ? { duration: 0 }
             : { type: "spring", duration: 0.3, bounce: 0 }
         }
-        className="max-w-full overflow-hidden rounded-full border border-border/80 bg-background/50"
+        className="max-w-full overflow-hidden rounded-full bg-card/80 text-card-foreground smooth-shadow-ring-sm backdrop-blur-md"
         onPointerDownCapture={() => setHasInteracted(true)}
         onFocusCapture={() => setHasInteracted(true)}
       >
         <div
           ref={measureRef}
-          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-5 text-left"
+          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-4 text-left"
         >
           <span
-            className="shrink-0 font-mono text-base text-muted-foreground/60"
+            className="grid size-8 shrink-0 place-items-center rounded-full bg-muted/70 font-mono text-sm text-muted-foreground"
             aria-hidden="true"
           >
             $
           </span>
           <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
             {commandPrefix}
-            {target === "you" ? (
-              <span className="inline-grid min-w-[16ch] [grid-template-areas:'slug']">
-                <AnimatePresence initial={false} mode="popLayout">
-                  <motion.span
-                    key={selectedComponent}
-                    className="[grid-area:slug]"
-                    initial={
-                      reduceMotion
-                        ? false
-                        : { opacity: 0, y: 4, filter: "blur(2px)" }
-                    }
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={
-                      reduceMotion
-                        ? { opacity: 0 }
-                        : { opacity: 0, y: -3, filter: "blur(2px)" }
-                    }
-                    transition={
-                      reduceMotion
-                        ? { duration: 0 }
-                        : { type: "spring", duration: 0.3, bounce: 0 }
-                    }
-                  >
-                    {selectedComponent}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-            ) : (
-              agentComponent
-            )}
+            <TextMorph
+              as="span"
+              className="min-w-[16ch]"
+              duration={260}
+              ease="cubic-bezier(0.22, 1, 0.36, 1)"
+              scale={false}
+              disabled={Boolean(reduceMotion)}
+            >
+              {selectedComponent}
+            </TextMorph>
           </code>
           <CopyButton
             key={`${target}-${selectedComponent}`}

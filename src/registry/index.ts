@@ -1966,7 +1966,6 @@ export default function SectionRailDemo() {
       component: animated_dialog_animated_dialog_demo,
       code: `"use client";
 
-import { useState } from "react";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -1991,26 +1990,12 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors hover:cursor-pointer"
-                >
-                  Cancel
-                </button>
-              }
-            />
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium transition-colors hover:cursor-pointer"
-                >
-                  Confirm
-                </button>
-              }
-            />
+            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+              Cancel
+            </AnimatedDialogClose>
+            <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">
+              Confirm
+            </AnimatedDialogClose>
           </div>
         </AnimatedDialogContent>
       </AnimatedDialog>
@@ -2021,7 +2006,6 @@ export default function AnimatedDialogDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import { useState } from "react";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -2046,26 +2030,12 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors hover:cursor-pointer"
-                >
-                  Cancel
-                </button>
-              }
-            />
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium transition-colors hover:cursor-pointer"
-                >
-                  Confirm
-                </button>
-              }
-            />
+            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+              Cancel
+            </AnimatedDialogClose>
+            <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">
+              Confirm
+            </AnimatedDialogClose>
           </div>
         </AnimatedDialogContent>
       </AnimatedDialog>
@@ -2100,27 +2070,16 @@ export default function AnimatedDialogToast() {
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose
-            render={
-              <button
-                type="button"
-                onClick={() => toast.error("Project deletion aborted")}
-                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
-              >
-                Cancel
-              </button>
-            }
-          />
+            onClick={() => toast.error("Project deletion aborted")}
+          >
+            Cancel
+          </AnimatedDialogClose>
           <AnimatedDialogClose
-            render={
-              <button
-                type="button"
-                onClick={() => toast.success("Project deleted successfully!")}
-                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
-              >
-                Delete
-              </button>
-            }
-          />
+            onClick={() => toast.success("Project deleted successfully!")}
+            className="bg-danger text-danger-foreground hover:bg-danger/90"
+          >
+            Delete
+          </AnimatedDialogClose>
         </div>
       </AnimatedDialogContent>
     </AnimatedDialog>
@@ -2152,27 +2111,16 @@ export default function AnimatedDialogToast() {
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose
-            render={
-              <button
-                type="button"
-                onClick={() => toast.error("Project deletion aborted")}
-                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors"
-              >
-                Cancel
-              </button>
-            }
-          />
+            onClick={() => toast.error("Project deletion aborted")}
+          >
+            Cancel
+          </AnimatedDialogClose>
           <AnimatedDialogClose
-            render={
-              <button
-                type="button"
-                onClick={() => toast.success("Project deleted successfully!")}
-                className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-danger text-danger-foreground text-sm font-medium hover:bg-danger/90 transition-colors"
-              >
-                Delete
-              </button>
-            }
-          />
+            onClick={() => toast.success("Project deleted successfully!")}
+            className="bg-danger text-danger-foreground hover:bg-danger/90"
+          >
+            Delete
+          </AnimatedDialogClose>
         </div>
       </AnimatedDialogContent>
     </AnimatedDialog>
@@ -2188,7 +2136,11 @@ export default function AnimatedDialogToast() {
 
 export default function SplitTextExample() {
   return (
-    <SplitText variant="words" className="max-w-md text-center">
+    <SplitText
+      variant="words"
+      className="max-w-md text-center"
+      animationProps={{ duration: 0.3, stagger: 0.1 }}
+    >
       <h2 className="font-semibold text-3xl text-foreground">
         Text that reveals itself, one word at a time.
       </h2>
@@ -2199,7 +2151,11 @@ export default function SplitTextExample() {
       imports: `import SplitText from "@/components/ui/split-text/split-text";`,
       anatomy: `export default function SplitTextExample() {
   return (
-    <SplitText variant="words" className="max-w-md text-center">
+    <SplitText
+      variant="words"
+      className="max-w-md text-center"
+      animationProps={{ duration: 0.3, stagger: 0.1 }}
+    >
       <h2 className="font-semibold text-3xl text-foreground">
         Text that reveals itself, one word at a time.
       </h2>
@@ -3462,7 +3418,7 @@ export function AnimatedDropdownTrigger({
       className={cn(
         "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
-        "hover:bg-muted transition-colors duration-150",
+        "hover:bg-muted hover:cursor-pointer transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
         "data-[popup-open]:bg-muted",
         className,
@@ -7130,7 +7086,7 @@ export function AnimatedDialogTrigger({
       className={cn(
         "inline-flex items-center justify-center rounded-lg px-4 py-2",
         "bg-foreground text-background text-sm font-medium",
-        "hover:bg-foreground/90 transition-colors duration-150",
+        "hover:bg-foreground/90 hover:cursor-pointer transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
         className,
       )}
@@ -9700,7 +9656,6 @@ export default function ExpandingAction({
       content: `"use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   createContext,
@@ -9725,7 +9680,6 @@ type FluidTooltipOrientation = "horizontal" | "vertical" | "auto";
 type FluidTooltipSide = "top" | "right" | "bottom" | "left";
 type FluidTooltipAlign = "start" | "center" | "end";
 type FluidTooltipDirection = -1 | 0 | 1;
-type FluidTooltipMotionAxis = "x" | "y";
 
 interface FluidTooltipPayload {
   id: string;
@@ -9807,12 +9761,8 @@ export function FluidTooltipGroup({
   className,
 }: FluidTooltipGroupProps) {
   const handle = useMemo(() => Tooltip.createHandle<FluidTooltipPayload>(), []);
-  const shouldReduceMotion = useReducedMotion();
   const previousCenter = useRef<{ x: number; y: number } | null>(null);
   const [direction, setDirection] = useState<FluidTooltipDirection>(0);
-  const [motionAxis, setMotionAxis] = useState<FluidTooltipMotionAxis>(
-    orientation === "vertical" ? "y" : "x",
-  );
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
 
   const context = useMemo<FluidTooltipGroupContextValue>(
@@ -9832,7 +9782,6 @@ export function FluidTooltipGroup({
 
         if (!previous) {
           setDirection(0);
-          setMotionAxis(orientation === "vertical" ? "y" : "x");
         } else {
           const deltaX = center.x - previous.x;
           const deltaY = center.y - previous.y;
@@ -9845,7 +9794,6 @@ export function FluidTooltipGroup({
                   ? "x"
                   : "y";
           const delta = resolvedAxis === "x" ? deltaX : deltaY;
-          setMotionAxis(resolvedAxis);
           setDirection(delta === 0 ? 0 : delta > 0 ? 1 : -1);
         }
 
@@ -9855,24 +9803,17 @@ export function FluidTooltipGroup({
       registerKeyboardTarget() {
         previousCenter.current = null;
         setDirection(0);
-        setMotionAxis(orientation === "vertical" ? "y" : "x");
         setKeyboardNavigation(true);
       },
     }),
     [disabled, direction, handle, keyboardNavigation, orientation],
   );
 
-  const directionalOffset =
-    shouldReduceMotion || keyboardNavigation ? 0 : direction * 8;
-  const contentOffset = {
-    x: motionAxis === "x" ? directionalOffset : 0,
-    y: motionAxis === "y" ? directionalOffset : 0,
-  };
-
   return (
     <Tooltip.Provider
       delay={Math.max(0, openDelay)}
       closeDelay={Math.max(0, closeDelay)}
+      timeout={50}
     >
       <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
 
@@ -9883,7 +9824,6 @@ export function FluidTooltipGroup({
           if (!open) {
             previousCenter.current = null;
             setDirection(0);
-            setMotionAxis(orientation === "vertical" ? "y" : "x");
           }
         }}
       >
@@ -9893,9 +9833,7 @@ export function FluidTooltipGroup({
               <Tooltip.Positioner
                 align={payload.align}
                 className={cn(
-                  "z-50 transition-transform duration-120 [transition-timing-function:cubic-bezier(0.23,1,0.42,1)]",
-                  (shouldReduceMotion || keyboardNavigation) &&
-                    "transition-none",
+                  "z-50 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
                 )}
                 collisionPadding={8}
                 side={payload.side}
@@ -9903,50 +9841,27 @@ export function FluidTooltipGroup({
               >
                 <Tooltip.Popup
                   className={cn(
-                    "relative origin-[var(--transform-origin)] rounded-lg bg-[var(--fluid-tooltip-surface)] px-2.5 py-1.5 text-[12px] font-medium leading-none text-[var(--fluid-tooltip-label)] shadow-[0_8px_24px_-8px_var(--fluid-tooltip-shadow)]",
-                    "transition-[transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0",
-                    (shouldReduceMotion || keyboardNavigation) &&
-                      "transition-none",
+                    "relative origin-[var(--transform-origin)] rounded-lg bg-[var(--fluid-tooltip-surface)] text-[12px] font-medium leading-none text-[var(--fluid-tooltip-label)] shadow-[0_8px_24px_-8px_var(--fluid-tooltip-shadow)]",
+                    "h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-[var(--available-width)] transition-[width,height,transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0 data-instant:transition-none motion-reduce:transition-none",
                     className,
                     payload.contentClassNameRef.current,
                   )}
                   style={tokenStyle}
                 >
-                  <AnimatePresence
-                    custom={directionalOffset}
-                    initial={false}
-                    mode="popLayout"
+                  <Tooltip.Viewport
+                    className={cn(
+                      "relative box-border h-full w-full overflow-clip px-2 py-1",
+                      "[&_[data-previous]]:w-[calc(var(--popup-width)-1rem)] [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-0 [&_[data-previous]]:pointer-events-none [&_[data-previous]]:transition-none",
+                      "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[200ms,120ms]",
+                      "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-2",
+                      "data-[activation-direction~='up']:[&_[data-current][data-starting-style]]:-translate-y-2 data-[activation-direction~='down']:[&_[data-current][data-starting-style]]:translate-y-2",
+                      "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-2",
+                      "data-[activation-direction~='up']:[&_[data-previous][data-ending-style]]:translate-y-2 data-[activation-direction~='down']:[&_[data-previous][data-ending-style]]:-translate-y-2",
+                      "[[data-instant]_&_[data-previous]]:transition-none [[data-instant]_&_[data-current]]:transition-none motion-reduce:[&_[data-current]]:transition-none motion-reduce:[&_[data-previous]]:transition-none",
+                    )}
                   >
-                    <motion.span
-                      key={payload.id}
-                      animate={{ opacity: 1, x: 0, y: 0 }}
-                      className="block whitespace-nowrap"
-                      exit={{
-                        opacity: 0,
-                        x: contentOffset.x * -0.5,
-                        y: contentOffset.y * -0.5,
-                      }}
-                      initial={
-                        directionalOffset === 0
-                          ? false
-                          : {
-                              opacity: 0,
-                              x: contentOffset.x,
-                              y: contentOffset.y,
-                            }
-                      }
-                      transition={
-                        shouldReduceMotion || keyboardNavigation
-                          ? { duration: 0 }
-                          : {
-                              duration: 0.18,
-                              ease: [0.23, 1, 0.42, 1],
-                            }
-                      }
-                    >
-                      {payload.contentRef.current}
-                    </motion.span>
-                  </AnimatePresence>
+                    {payload.contentRef.current}
+                  </Tooltip.Viewport>
 
                   {payload.showArrowRef.current ? (
                     <Tooltip.Arrow className="absolute size-2 rotate-45 bg-[var(--fluid-tooltip-surface)] data-[side=bottom]:-top-1 data-[side=left]:-right-1 data-[side=right]:-left-1 data-[side=top]:-bottom-1" />

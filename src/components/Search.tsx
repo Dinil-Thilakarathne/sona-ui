@@ -18,7 +18,6 @@ import {
 } from "motion/react";
 import { useRouter } from "next/navigation";
 import * as React from "react";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useSearch } from "@/hooks/useSearch";
 import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -30,16 +29,20 @@ export function Search({ compact = false }: { compact?: boolean }) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const layoutId = React.useId();
   const shouldReduceMotion = useReducedMotion();
+  const [shortcutModifier, setShortcutModifier] = React.useState("⌘");
   const [hoveredResult, setHoveredResult] = React.useState<string | null>(null);
   const [selectedResult, setSelectedResult] = React.useState<string | null>(
     null,
   );
 
-  const isDesktop = useMediaQuery("(min-width: 1024px) and (pointer: fine)");
+  React.useEffect(() => {
+    const isApplePlatform = /Mac|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    setShortcutModifier(isApplePlatform ? "⌘" : "Ctrl");
+  }, []);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey) && isDesktop) {
+      if (e.code === "KeyK" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((prev) => !prev);
       }
@@ -47,7 +50,7 @@ export function Search({ compact = false }: { compact?: boolean }) {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [isDesktop]);
+  }, []);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -79,8 +82,8 @@ export function Search({ compact = false }: { compact?: boolean }) {
         {!compact && (
           <>
             <span>Search documentation...</span>
-            <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted border rounded pointer-events-none select-none">
-              <span className="text-xs">⌘</span>K
+            <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted rounded pointer-events-none select-none">
+              <span className="text-xs">{shortcutModifier}</span>K
             </kbd>
           </>
         )}

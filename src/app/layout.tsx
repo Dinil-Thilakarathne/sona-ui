@@ -40,7 +40,7 @@ export default function RootLayout({
           <ThemeProvider>
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
-            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0"></div>
+            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0 select-none z-0"></div>
             {children}
             <Toaster position="bottom-right" richColors />
           </ThemeProvider>

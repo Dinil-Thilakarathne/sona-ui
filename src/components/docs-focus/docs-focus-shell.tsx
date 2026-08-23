@@ -172,13 +172,24 @@ function DocsNavigation({
                         }
                         onClick={() => onOpenChange(false)}
                         className={cn(
-                          "flex items-center justify-between rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
+                          "group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
                           pathname === item.href && "bg-accent text-foreground",
                         )}
                       >
                         {item.name}
                         {item.tag && (
-                          <span className="font-mono text-[9px] uppercase">
+                          <span
+                            className={cn(
+                              "font-mono text-[9px] uppercase transition-colors",
+                              item.tag === "new" && "text-success",
+                              item.tag === "updated" && "text-info",
+                              !["new", "updated"].includes(item.tag) &&
+                                "text-muted-foreground/70 group-hover:text-foreground/80",
+                              pathname === item.href &&
+                                !["new", "updated"].includes(item.tag) &&
+                                "text-foreground/80",
+                            )}
+                          >
                             {item.tag}
                           </span>
                         )}
@@ -912,11 +923,7 @@ function InstallBar({ component }: { component: string }) {
           copied ? "Installation command copied" : "Copy installation command"
         }
         onClick={copy}
-        className={cn(
-          "size-8",
-          copied &&
-            "bg-green-900/40 text-white hover:bg-green-900/40 focus-visible:ring-success/50",
-        )}
+        className={cn("size-8")}
       >
         {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
       </IconButton>
@@ -1075,7 +1082,7 @@ function ComponentPage({
           }}
           className="relative grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-2xl bg-card smooth-shadow-ring-md"
         >
-          <div className="flex min-h-0 w-full items-center justify-center overflow-auto p-6 pb-20 md:p-10 md:pb-24">
+          <div className="flex min-h-0 w-full items-center justify-center">
             {preview}
           </div>
           <InstallBar component={data.component} />

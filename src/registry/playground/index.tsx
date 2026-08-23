@@ -760,16 +760,9 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
             <AnimatedDialogClose>Cancel</AnimatedDialogClose>
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2text-primary-foreground text-sm font-medium transition-colors"
-                >
-                  Action
-                </button>
-              }
-            />
+            <AnimatedDialogClose className="bg-primary text-primary-foreground">
+              Action
+            </AnimatedDialogClose>
           </div>
         </AnimatedDialogContent>
       </AnimatedDialog>

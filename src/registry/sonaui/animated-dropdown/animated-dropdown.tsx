@@ -155,7 +155,7 @@ export function AnimatedDropdownTrigger({
       className={cn(
         "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
-        "hover:bg-muted transition-colors duration-150",
+        "hover:bg-muted hover:cursor-pointer transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
         "data-[popup-open]:bg-muted",
         className,

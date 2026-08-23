@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   AnimatedDialog,
   AnimatedDialogClose,
@@ -25,26 +24,12 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium hover:bg-muted transition-colors hover:cursor-pointer"
-                >
-                  Cancel
-                </button>
-              }
-            />
-            <AnimatedDialogClose
-              render={
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-lg px-4 py-2 bg-primary text-primary-foreground text-sm font-medium transition-colors hover:cursor-pointer"
-                >
-                  Confirm
-                </button>
-              }
-            />
+            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+              Cancel
+            </AnimatedDialogClose>
+            <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">
+              Confirm
+            </AnimatedDialogClose>
           </div>
         </AnimatedDialogContent>
       </AnimatedDialog>
