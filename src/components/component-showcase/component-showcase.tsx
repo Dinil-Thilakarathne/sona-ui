@@ -4,9 +4,9 @@ import { AnimatePresence } from "motion/react";
 import { useMemo, useState } from "react";
 import { componentShowcaseVideos } from "@/config/component-showcase";
 import { componentNavigationLinks } from "@/config/components";
-import { exampleRegistry } from "@/registry";
 import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import { ComponentShowcaseCard } from "./component-showcase-card";
+import { ComponentShowcaseRegistryPreview } from "./component-showcase-registry-preview";
 import type { ComponentShowcaseItem } from "./types";
 
 const defaultItems: ComponentShowcaseItem[] = componentNavigationLinks
@@ -24,20 +24,6 @@ const defaultCategories = [
   "All",
   ...Array.from(new Set(defaultItems.map((item) => item.category))),
 ];
-
-function RegistryPreview({ slug }: { slug: string }) {
-  const example = exampleRegistry[slug]?.at(-1);
-
-  if (!example) {
-    return (
-      <span className="text-xs text-muted-foreground">Preview coming soon</span>
-    );
-  }
-
-  const Example = example.component;
-
-  return <Example />;
-}
 
 type ComponentShowcaseProps = {
   items?: ComponentShowcaseItem[];
@@ -98,7 +84,11 @@ export function ComponentShowcase({
               <ComponentShowcaseCard
                 key={item.slug}
                 item={item}
-                preview={item.preview ?? <RegistryPreview slug={item.slug} />}
+                preview={
+                  item.preview ?? (
+                    <ComponentShowcaseRegistryPreview slug={item.slug} />
+                  )
+                }
               />
             ))}
           </AnimatePresence>

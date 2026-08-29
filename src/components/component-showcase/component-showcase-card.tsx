@@ -16,12 +16,16 @@ import type { ComponentShowcaseItem } from "./types";
 type ComponentShowcaseCardProps = {
   item: ComponentShowcaseItem;
   preview: ReactNode;
+  autoPlayVideo?: boolean;
 };
 
 export const ComponentShowcaseCard = forwardRef<
   HTMLElement,
   ComponentShowcaseCardProps
->(function ComponentShowcaseCard({ item, preview }, ref) {
+>(function ComponentShowcaseCard(
+  { item, preview, autoPlayVideo = false },
+  ref,
+) {
   const shouldReduceMotion = useReducedMotion();
   const [isActive, setIsActive] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
@@ -64,44 +68,46 @@ export const ComponentShowcaseCard = forwardRef<
       onFocusCapture={() => setIsActive(true)}
       onPointerEnter={activateOnPointerEnter}
       onMouseLeave={() => setIsActive(false)}
-      className="group flex min-w-0 flex-col overflow-hidden rounded-2xl bg-card smooth-shadow-ring-sm"
+      className="group relative flex min-w-0 flex-col overflow-hidden rounded-2xl bg-card p-2 smooth-shadow-ring-sm"
     >
+      <div className="relative flex aspect-[5/3] items-center justify-center overflow-hidden rounded-xl">
+        {isVideo && item.video ? (
+          <ComponentShowcaseVideoPlayer
+            isActive={autoPlayVideo || isActive}
+            onError={() => setVideoFailed(true)}
+            video={item.video}
+          />
+        ) : (
+          <>
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--foreground)/0.08),transparent_55%)]" />
+            <div className="relative flex min-h-0 max-w-full items-center justify-center p-5">
+              {preview}
+            </div>
+          </>
+        )}
+      </div>
+
+      <div className="flex items-center justify-between gap-4 p-2 pt-3">
+        <div className="min-w-0">
+          <p className="mb-1 truncate font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.12em]">
+            {item.category}
+          </p>
+          <h2 className="truncate font-semibold text-sm tracking-[-0.015em]">
+            {item.name}
+          </h2>
+        </div>
+        <ArrowUpRight
+          className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-within:-translate-y-0.5 group-focus-within:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </div>
+
       <Link
         href={item.href}
         aria-label={`View ${item.name} documentation`}
-        className="flex h-full flex-1 flex-col rounded-[inherit] p-2 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-foreground"
+        className="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-foreground"
       >
-        <div className="relative flex aspect-[5/3] items-center justify-center overflow-hidden rounded-xl">
-          {isVideo && item.video ? (
-            <ComponentShowcaseVideoPlayer
-              isActive={isActive}
-              onError={() => setVideoFailed(true)}
-              video={item.video}
-            />
-          ) : (
-            <>
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--foreground)/0.08),transparent_55%)]" />
-              <div className="relative flex min-h-0 max-w-full items-center justify-center p-5">
-                {preview}
-              </div>
-            </>
-          )}
-        </div>
-
-        <div className="flex items-center justify-between gap-4 p-2 pt-3">
-          <div className="min-w-0">
-            <p className="mb-1 truncate font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.12em]">
-              {item.category}
-            </p>
-            <h2 className="truncate font-semibold text-sm tracking-[-0.015em]">
-              {item.name}
-            </h2>
-          </div>
-          <ArrowUpRight
-            className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-within:-translate-y-0.5 group-focus-within:translate-x-0.5"
-            aria-hidden="true"
-          />
-        </div>
+        <span className="sr-only">View {item.name} documentation</span>
       </Link>
     </motion.article>
   );

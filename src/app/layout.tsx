@@ -24,6 +24,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { GuideframeGrid } from "@guideframe/react";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
@@ -40,9 +41,18 @@ export default function RootLayout({
           <ThemeProvider>
             {FEATURE_FLAG && <FeaturedBar />}
             <Header />
-            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0 select-none z-0"></div>
             {children}
             <Toaster position="bottom-right" richColors />
+            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0 select-none z-0"></div>
+            <GuideframeGrid
+              panel={true}
+              rulers={true}
+              maxWidth={768}
+              margin={8}
+              columns={{ desktop: 6, tablet: 4, mobile: 3 }}
+              gutter={8}
+              defaultVisible={false}
+            />
           </ThemeProvider>
         </PostHogProvider>
       </body>

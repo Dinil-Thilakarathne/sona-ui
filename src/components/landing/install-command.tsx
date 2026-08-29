@@ -107,14 +107,8 @@ export function InstallCommand() {
       >
         <div
           ref={measureRef}
-          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-4 text-left"
+          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-6 text-left"
         >
-          <span
-            className="grid size-8 shrink-0 place-items-center rounded-full bg-muted/70 font-mono text-sm text-muted-foreground"
-            aria-hidden="true"
-          >
-            $
-          </span>
           <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
             {commandPrefix}
             <TextMorph

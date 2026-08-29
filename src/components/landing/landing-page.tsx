@@ -9,12 +9,12 @@ import { OwnershipSection } from "./sections/ownership-section";
 
 export default function LandingPage() {
   return (
-    <main className="overflow-x-clip pt-header-height">
+    <main className="overflow-x-clip pt-header-height relative z-10">
       <LandingHero />
       <FeaturedSection />
-      <OwnershipSection />
+      {/*<OwnershipSection />*/}
       {/*<AiSection />*/}
-      <OpenSourceSection />
+      {/*<OpenSourceSection />*/}
       <FinalCtaSection />
       <LandingFooter />
     </main>
