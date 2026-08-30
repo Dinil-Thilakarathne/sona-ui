@@ -1,3 +1,11 @@
+## [2.19.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.0...v2.19.1) (2026-08-30)
+
+
+### Bug Fixes
+
+* Update header navigation padding and changelog ([045bae7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/045bae70b12248125278dbd8e5530909cc9d4829))
+* Update hero button link to components page ([3c7ab63](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3c7ab633ee35d32644eb5151ad5414d07532a265))
+
 # [2.19.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.18.0...v2.19.0) (2026-08-30)
 
 
