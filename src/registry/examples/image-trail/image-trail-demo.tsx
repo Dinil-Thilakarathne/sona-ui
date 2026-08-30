@@ -11,7 +11,7 @@ const images = [
 
 export default function ImageTrailExample() {
   return (
-    <ImageTrail images={images} className="h-80 w-full">
+    <ImageTrail images={images} className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Move your cursor here

@@ -155,9 +155,9 @@ export function AnimatedDropdownTrigger({
       className={cn(
         "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
-        "hover:bg-muted hover:cursor-pointer transition-colors duration-150",
+        "hover:cursor-pointer hover:bg-popover transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        "data-[popup-open]:bg-muted",
+        "data-[popup-open]:bg-popover",
         className,
       )}
     >
@@ -183,7 +183,7 @@ export function AnimatedDropdownTriggerIndicator({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(
-        "size-4 shrink-0 text-muted-foreground",
+        "size-4 shrink-0 text-secondary-foreground",
         "transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
         "group-data-[popup-open]:rotate-180 motion-reduce:transition-none",
         className,

@@ -27,6 +27,26 @@ function getSystemTheme(): ResolvedTheme {
     : "light";
 }
 
+function getStoredTheme(): Theme | null {
+  try {
+    const theme = window.localStorage.getItem(THEME_STORAGE_KEY);
+
+    return theme === "light" || theme === "dark" || theme === "system"
+      ? theme
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveTheme(theme: Theme) {
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Theme switching should still work when storage is unavailable.
+  }
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("system");
   const [systemTheme, setSystemTheme] = useState<ResolvedTheme>("light");
@@ -34,9 +54,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const savedTheme = window.localStorage.getItem(
-      THEME_STORAGE_KEY,
-    ) as Theme | null;
+    const savedTheme = getStoredTheme();
     const nextSystemTheme = getSystemTheme();
 
     setSystemTheme(nextSystemTheme);
@@ -80,7 +98,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       resolvedTheme,
       setTheme: (nextTheme: Theme) => {
         setThemeState(nextTheme);
-        window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+        saveTheme(nextTheme);
       },
     }),
     [resolvedTheme, theme],

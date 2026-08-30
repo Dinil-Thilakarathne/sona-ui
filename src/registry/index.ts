@@ -396,7 +396,7 @@ export default function ImageTrailInteractiveExample() {
   const [clicks, setClicks] = useState(0);
 
   return (
-    <ImageTrail images={images} className="h-80 w-full">
+    <ImageTrail images={images} className="h-full w-full">
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
           Sweep the cursor to spawn the trail, then click the button or the link
@@ -441,7 +441,7 @@ export default function ImageTrailInteractiveExample() {
   const [clicks, setClicks] = useState(0);
 
   return (
-    <ImageTrail images={images} className="h-80 w-full">
+    <ImageTrail images={images} className="h-full w-full">
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
           Sweep the cursor to spawn the trail, then click the button or the link
@@ -483,7 +483,7 @@ const images = [
 
 export default function ImageTrailBlurExample() {
   return (
-    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+    <ImageTrail images={images} variant="blur" className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Blur trail
@@ -505,7 +505,7 @@ export default function ImageTrailBlurExample() {
 
 export default function ImageTrailBlurExample() {
   return (
-    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+    <ImageTrail images={images} variant="blur" className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Blur trail
@@ -531,7 +531,7 @@ const images = [
 
 export default function ImageTrailExample() {
   return (
-    <ImageTrail images={images} className="h-80 w-full">
+    <ImageTrail images={images} className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Move your cursor here
@@ -553,7 +553,7 @@ export default function ImageTrailExample() {
 
 export default function ImageTrailExample() {
   return (
-    <ImageTrail images={images} className="h-80 w-full">
+    <ImageTrail images={images} className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Move your cursor here
@@ -579,7 +579,7 @@ const images = [
 
 export default function ImageTrailTiltExample() {
   return (
-    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+    <ImageTrail images={images} variant="tilt" className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Tilt trail
@@ -601,7 +601,7 @@ export default function ImageTrailTiltExample() {
 
 export default function ImageTrailTiltExample() {
   return (
-    <ImageTrail images={images} variant="tilt" className="h-80 w-full">
+    <ImageTrail images={images} variant="tilt" className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Tilt trail
@@ -2153,7 +2153,7 @@ export default function SplitTextExample() {
       className="max-w-md text-center"
       animationProps={{ duration: 0.3, stagger: 0.1 }}
     >
-      <h2 className="font-semibold text-3xl text-foreground">
+      <h2 className="font-semibold text-5xl text-foreground">
         Text that reveals itself, one word at a time.
       </h2>
     </SplitText>
@@ -2168,7 +2168,7 @@ export default function SplitTextExample() {
       className="max-w-md text-center"
       animationProps={{ duration: 0.3, stagger: 0.1 }}
     >
-      <h2 className="font-semibold text-3xl text-foreground">
+      <h2 className="font-semibold text-5xl text-foreground">
         Text that reveals itself, one word at a time.
       </h2>
     </SplitText>
@@ -3103,12 +3103,16 @@ export default function LinkPreviewExample() {
       code: `import StaggerText from "@/components/ui/stagger-text/stagger-text";
 
 export default function StaggerTextExample() {
-  return <StaggerText text="Stagger Text!!" />;
+  return (
+    <StaggerText text="Stagger Text!!" className="text-5xl leading-[1.2]" />
+  );
 }
 `,
       imports: `import StaggerText from "@/components/ui/stagger-text/stagger-text";`,
       anatomy: `export default function StaggerTextExample() {
-  return <StaggerText text="Stagger Text!!" />;
+  return (
+    <StaggerText text="Stagger Text!!" className="text-5xl leading-[1.2]" />
+  );
 }`,
     }
   ],
@@ -3430,9 +3434,9 @@ export function AnimatedDropdownTrigger({
       className={cn(
         "group inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5",
         "bg-secondary text-secondary-foreground text-sm font-medium",
-        "hover:bg-muted hover:cursor-pointer transition-colors duration-150",
+        "hover:cursor-pointer hover:bg-popover transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        "data-[popup-open]:bg-muted",
+        "data-[popup-open]:bg-popover",
         className,
       )}
     >
@@ -3458,7 +3462,7 @@ export function AnimatedDropdownTriggerIndicator({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(
-        "size-4 shrink-0 text-muted-foreground",
+        "size-4 shrink-0 text-secondary-foreground",
         "transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
         "group-data-[popup-open]:rotate-180 motion-reduce:transition-none",
         className,
@@ -5135,7 +5139,7 @@ export default function BubbleUpButton({
       onBlur={drain}
       disabled={disabled}
       className={cn(
-        "relative isolate flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl border bg-background text-foreground px-16 py-2",
+        "relative isolate flex h-fit w-fit cursor-pointer overflow-clip rounded-2xl bg-background text-foreground px-16 py-2",
         "transition-opacity duration-200",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none",
         disabled && "cursor-not-allowed opacity-50",
@@ -5989,7 +5993,7 @@ export default function RippleButton({
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
+        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
         className,
       )}
       disabled={disabled}

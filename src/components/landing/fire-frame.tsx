@@ -128,7 +128,7 @@ export function FireFrame() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const updateColors = useRef<(colors: FireColors) => void>(() => undefined);
   const [status, setStatus] = useState<Status>("loading");
-  const [colors, setColors] = useState<FireColors>(DEFAULT_FIRE_COLORS);
+  const [colors, _setColors] = useState<FireColors>(DEFAULT_FIRE_COLORS);
 
   useEffect(() => {
     updateColors.current(colors);
@@ -149,6 +149,12 @@ export function FireFrame() {
 
     void (async () => {
       try {
+        const adapter = await navigator.gpu.requestAdapter();
+        if (!adapter) {
+          if (!disposed) setStatus("unsupported");
+          return;
+        }
+
         gpu = await init();
         if (disposed) {
           gpu.dispose();
@@ -198,8 +204,7 @@ export function FireFrame() {
         }
 
         setStatus("ready");
-      } catch (error) {
-        console.error("Unable to start the vgpu fire background", error);
+      } catch {
         if (!disposed) setStatus("error");
       }
     })();
@@ -211,6 +216,10 @@ export function FireFrame() {
       gpu?.dispose();
     };
   }, []);
+
+  if (status === "unsupported" || status === "error") {
+    return null;
+  }
 
   return (
     <div className="pointer-events-none absolute inset-x-1/2 bottom-0 z-0 h-full w-screen -translate-x-1/2 overflow-hidden bg-transparent">

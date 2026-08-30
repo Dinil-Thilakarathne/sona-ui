@@ -39,7 +39,7 @@ export function LandingFooter() {
               Sona UI
             </Link>
           </div>
-          <div className="flex flex-col lg:flex-row gap-16">
+          <div className="flex flex-col lg:flex-row gap-16 mobile:pt-4">
             <div className="flex gap-8 ">
               {footerLinkGroups.map((group) => (
                 <nav key={group.label} aria-label={group.label}>
@@ -86,7 +86,7 @@ const ExternalLink = ({ href, label }: ExternalLinkProps) => {
   return (
     <a
       href={href}
-      className="w-full flex items-start justify-between gap-1.5 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground"
+      className="w-fit lg:w-full flex items-start justify-between gap-1.5 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground"
       target="_blank"
       rel="noreferrer"
     >

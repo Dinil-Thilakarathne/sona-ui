@@ -576,9 +576,9 @@ function AnimatedSelectDropdown({
         <AnimatedDropdownTrigger
           aria-labelledby={labelId}
           className={cn(
-            "h-9 max-w-32 justify-between gap-2 bg-muted px-2.5 py-1 text-xs font-normal capitalize text-foreground",
+            "h-9 max-w-32 justify-between gap-2 bg-popover/20 px-2.5 py-1 text-xs font-normal capitalize text-foreground",
             appearance === "control" &&
-              "h-10 max-w-none rounded-lg border border-border bg-focus-panel px-3 text-sm normal-case hover:bg-muted data-[popup-open]:bg-muted",
+              "h-10 max-w-none rounded-lg border border-border bg-focus-panel px-3 text-sm normal-case hover:bg-popover data-[popup-open]:bg-muted",
             triggerClassName,
           )}
         >
