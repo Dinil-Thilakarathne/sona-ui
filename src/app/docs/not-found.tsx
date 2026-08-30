@@ -10,7 +10,7 @@ const NotFound = () => {
     setCount(404);
   }, []);
   return (
-    <div className="flex items-center justify-center h-full">
+    <div className="flex items-center justify-center h-full min-h-svh">
       <div className="flex flex-col items-center justify-center space-y-4 text-center">
         <h1 className="italic text-5xl lg:text-9xl">
           <NumberFlow value={count} />

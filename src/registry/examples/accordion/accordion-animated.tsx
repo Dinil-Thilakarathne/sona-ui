@@ -46,7 +46,7 @@ export default function AccordionAnimatedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="animated"
     >
       {accordionData.map((item) => (

@@ -878,7 +878,7 @@ export default function AccordionSplittedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="splitted"
     >
       {accordionData.map((item) => (
@@ -944,7 +944,7 @@ export default function AccordionSplittedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="splitted"
     >
       {accordionData.map((item) => (
@@ -1014,7 +1014,7 @@ export default function AccordionAnimatedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="animated"
     >
       {accordionData.map((item) => (
@@ -1080,7 +1080,7 @@ export default function AccordionAnimatedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="animated"
     >
       {accordionData.map((item) => (
@@ -1148,7 +1148,10 @@ export default function AccordionDefaultExample() {
     },
   ];
   return (
-    <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
+    >
       {accordionData.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
@@ -1210,7 +1213,10 @@ export default function AccordionDefaultExample() {
     },
   ];
   return (
-    <AccordionRoot allowMultiple={false} className="mx-auto max-w-4xl">
+    <AccordionRoot
+      allowMultiple={false}
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
+    >
       {accordionData.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
@@ -1276,7 +1282,10 @@ export default function AccordionMultiStepExample() {
     },
   ];
   return (
-    <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
+    <AccordionRoot
+      allowMultiple={true}
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
+    >
       {accordionData.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
@@ -1338,7 +1347,10 @@ export default function AccordionMultiStepExample() {
     },
   ];
   return (
-    <AccordionRoot allowMultiple={true} className="mx-auto max-w-4xl">
+    <AccordionRoot
+      allowMultiple={true}
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
+    >
       {accordionData.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
           <AccordionItemTrigger value={item.value}>
@@ -1406,7 +1418,7 @@ export default function AccordionOutlinedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="outlined"
     >
       {accordionData.map((item) => (
@@ -1472,7 +1484,7 @@ export default function AccordionOutlinedExample() {
   return (
     <AccordionRoot
       allowMultiple={false}
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-[min(calc(100vw-3rem),var(--container-xl))]"
       variant="outlined"
     >
       {accordionData.map((item) => (
@@ -9833,7 +9845,7 @@ export function FluidTooltipGroup({
               <Tooltip.Positioner
                 align={payload.align}
                 className={cn(
-                  "z-50 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
+                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
                 )}
                 collisionPadding={8}
                 side={payload.side}

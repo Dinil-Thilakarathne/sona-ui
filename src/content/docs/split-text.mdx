@@ -5,20 +5,44 @@ component: split-text
 tags: ["UI", "Text", "Animation", "Component"]
 ---
 
-Splits a line of text into characters, words, or lines and reveals the pieces with a staggered animation — on mount or when it scrolls into view. Built on GSAP's `SplitText` and `ScrollTrigger` for accurate masking and resize-safe line splitting.
+Use Split Text to reveal a short heading or statement by characters, words, or lines. It uses GSAP splitting and waits for fonts before it measures line-based text.
 
-## Features
+## Install
 
-- Split by `chars`, `words`, or `lines`, each masked so pieces reveal from behind an edge.
-- Play on mount or on scroll into view via `scrollTrigger` with a configurable `start`.
-- Fully overridable motion through `animationProps` (GSAP tween vars).
-- `autoSplit` re-splits on resize so line breaks stay correct.
-- Respects `prefers-reduced-motion` — shows the final text with no animation.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/split-text`} />
 
-## Notes & caveats
+## Basic usage
 
-- **Wrap your text in a single element.** `children` must be one element (e.g. an `<h2>` or `<p>`) — the component splits its first child. A raw string or multiple siblings won't animate (a dev-only warning is logged).
-- **`lines` needs a block element with a width.** Line splitting is only meaningful when the text wraps, so give the wrapper a width (e.g. `max-w-md`); on an inline or shrink-wrapped element every "line" collapses into one.
-- **`chars` is best for short, Latin text.** Character splitting breaks emoji and complex scripts (Arabic, Indic, ligatures), and on long text the `stagger × count` total gets very long. Prefer `words` or `lines` there.
-- **Font loading is handled for you.** The split waits for `document.fonts.ready`, so line breaks and masks measure against the real font — no need to enable `autoSplit` just for that.
-- **Reduced motion.** With `prefers-reduced-motion`, the text is shown immediately with no animation.
+<CodeBlockWrapper language="tsx" filename="split-heading.tsx" code={`import SplitText from "@/components/ui/split-text/split-text";
+
+export function SplitHeading() {
+  return <SplitText variant="words"><h2>Build with care.</h2></SplitText>;
+}`} />
+
+## Examples
+
+Use words or lines for longer text and characters for short Latin phrases. Set scrollTrigger when the reveal should begin as the text enters the viewport.
+
+## Usage
+
+<ComponentUsage component="split-text" />
+
+## API
+
+<PropTable component="split-text" />
+
+## Accessibility
+
+Pass one element as the child so the component can split it safely. Reduced-motion preferences render the final text immediately.
+
+## Styling
+
+Use a block element with a defined width for line splitting. AutoSplit remeasures lines after a resize when the layout can change.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

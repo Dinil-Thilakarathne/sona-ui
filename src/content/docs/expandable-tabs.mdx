@@ -2,15 +2,57 @@
 title: Expandable Tabs
 slug: expandable-tabs
 component: expandable-tabs
-tags: ["UI", "tabs", "Component"]
+tags: ["UI", "Tabs", "Component"]
 ---
 
-`ExpandableTabs` is an accessible horizontal tab selector that expands the active icon into a labeled pill. It uses Base UI for state and keyboard behavior, with input-aware Motion layout transitions.
+Use Expandable Tabs for a compact list of icon-led destinations. The active item expands into a labeled pill, while keyboard navigation remains immediate and predictable.
 
-## Features
+## Install
 
-- **Accessible foundation**: Base UI provides roving focus, disabled states, and arrow-key navigation.
-- **Input-aware motion**: Pointer changes use spatial motion while keyboard changes remain immediate.
-- **Controlled or uncontrolled**: Supports `value`, `defaultValue`, and `onValueChange`.
-- **Customizable**: Override root, list, active-tab, and Motion configuration.
-- **Reduced motion**: Removes spatial expansion while preserving clear active-state feedback.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/expandable-tabs`} />
+
+## Basic usage
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="navigation-tabs.tsx"
+  code={`import { Home, Settings } from "lucide-react";
+import ExpandableTabs from "@/components/ui/expandable-tabs/expandable-tabs";
+
+const tabs = [
+  { value: "home", title: "Home", icon: Home },
+  { value: "settings", title: "Settings", icon: Settings },
+];
+
+export function NavigationTabs() {
+  return <ExpandableTabs tabs={tabs} defaultValue="home" />;
+}`}
+/>
+
+## Examples
+
+Use controlled value when the selection must update another part of the interface. Disable a tab only when its destination is unavailable.
+
+## Usage
+
+<ComponentUsage component="expandable-tabs" />
+
+## API
+
+<PropTable component="expandable-tabs" />
+
+## Accessibility
+
+Expandable Tabs uses Base UI tab semantics, arrow-key navigation, and visible focus states. Pointer input receives spatial motion while keyboard input updates without travel.
+
+## Styling
+
+Override root, list, active tab, and motion options to match the surrounding navigation. Reduced-motion preferences keep the active state clear without expansion.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

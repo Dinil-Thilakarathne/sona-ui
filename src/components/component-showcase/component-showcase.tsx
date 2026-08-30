@@ -46,7 +46,7 @@ export function ComponentShowcase({
   );
 
   return (
-    <main className="mx-auto w-full max-w-[82rem] px-4 pt-[calc(var(--spacing-header-height)+4rem)] pb-20 sm:px-6 lg:px-8 relative z-10">
+    <main className="mx-auto w-full  max-w-[76rem] px-4 pt-[calc(var(--spacing-header-height)+4rem)] pb-20 sm:px-6 lg:px-8 relative z-10">
       <header className="mb-10 max-w-4xl flex flex-col gap-2">
         <p className="font-mono text-[0.6875rem] text-muted-foreground uppercase tracking-[0.14em]">
           Sona UI collection

@@ -178,7 +178,7 @@ export function FluidTooltipGroup({
               <Tooltip.Positioner
                 align={payload.align}
                 className={cn(
-                  "z-50 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
+                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
                 )}
                 collisionPadding={8}
                 side={payload.side}

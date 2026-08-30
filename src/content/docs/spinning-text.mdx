@@ -5,13 +5,44 @@ component: spinning-text
 tags: ["UI", "Text", "Component"]
 ---
 
-The `SpinningText` component is a dynamic and visually engaging UI element that animates text in a circular spinning motion. It is highly customizable, allowing you to control the animation's speed, direction, radius, and more.
+Use Spinning Text for a short decorative phrase that can orbit around an icon, mark, or focal point. Keep the text concise because the circular treatment is intended for recognition, not long reading.
 
-## Features
+## Install
 
-- **Circular Animation**: Spins text in a circular path for a unique visual effect.
-- **Customizable Speed**: Control the animation duration with the `duration` prop.
-- **Reverse Animation**: Easily reverse the spinning direction using the `reverse` prop.
-- **Flexible Styling**: Customize the font size, radius, and additional styles via props.
-- **Accessible**: Includes a screen-reader-friendly version of the text for better accessibility.
-- **Lightweight**: Built with `motion` for smooth animations and optimized performance.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/spinning-text`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="spinning-label.tsx" code={`import SpinningText from "@/components/ui/spinning-text/spinning-text";
+
+export function SpinningLabel() {
+  return <SpinningText>Explore Sona UI</SpinningText>;
+}`} />
+
+## Examples
+
+Adjust duration, direction, radius, and text styling to fit the composition. Use reverse when the surrounding movement needs the opposite direction.
+
+## Usage
+
+<ComponentUsage component="spinning-text" />
+
+## API
+
+<PropTable component="spinning-text" />
+
+## Accessibility
+
+The component includes a screen-reader-friendly text alternative. Do not use rotating text as the only place for essential information.
+
+## Styling
+
+Use className and the radius options to fit the text around a central element. Reduced-motion preferences should retain the text without continuous rotation.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

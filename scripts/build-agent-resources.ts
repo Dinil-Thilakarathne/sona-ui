@@ -161,6 +161,7 @@ function buildResources() {
     `- [Agent component catalog](${siteBaseUrl}/agent/catalog.json)`,
     `- [Full agent guidance](${siteBaseUrl}/llms-full.txt)`,
     `- [Registry index](${siteBaseUrl}/r/registry.json)`,
+    `- [OpenAPI description](${siteBaseUrl}/openapi.json)`,
     "",
     "## Components",
     "",

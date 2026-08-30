@@ -5,17 +5,44 @@ component: mesh-gradient-shader
 tags: ["Shader", "Background", "Effect", "Animation"]
 ---
 
-A flowing composition of animated color spots, shaped by organic distortion and vortex effects. Powered by [Paper Design Shaders](https://shaders.paper.design/).
+Use Mesh Gradient Shader for a decorative background built from moving color spots, distortion, and vortex effects. It can provide subtle ambient motion or remain static behind content.
 
-## Features
+## Install
 
-- Up to 10 customizable color spots in any CSS color format.
-- Independent distortion and swirl controls for organic or structured looks.
-- Optional grain effects for added texture.
-- Animatable with speed control — set to `0` for a static gradient.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/mesh-gradient-shader`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="mesh-background.tsx" code={`import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
+
+export function MeshBackground() {
+  return <MeshGradientShader className="absolute inset-0" speed={0.2} />;
+}`} />
 
 ## Examples
 
-### Static
+Adjust colors, distortion, swirl, and grain to fit the surface. Set speed to zero when the background should remain still.
 
-Set `speed={0}` to freeze the gradient — useful as a decorative background.
+## Usage
+
+<ComponentUsage component="mesh-gradient-shader" />
+
+## API
+
+<PropTable component="mesh-gradient-shader" />
+
+## Accessibility
+
+Treat the shader as decorative. Check text contrast against the final color field and provide a reduced-motion alternative for meaningful content.
+
+## Styling
+
+Use className to constrain the shader to its background layer. The color controls accept standard CSS color values.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

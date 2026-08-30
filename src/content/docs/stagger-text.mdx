@@ -5,10 +5,44 @@ component: stagger-text
 tags: ["UI", "Text", "Component"]
 ---
 
-A text component with staggered animation.
+Use Stagger Text for a short label that responds when someone hovers it. The staggered treatment is best used as a small expressive detail, not for essential reading.
 
-## Features
+## Install
 
-- Interactive stagger effect on mouse hover.
-- Customizable styles and colors.
-- Lightweight and reusable.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/stagger-text`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="stagger-label.tsx" code={`import StaggerText from "@/components/ui/stagger-text/stagger-text";
+
+export function StaggerLabel() {
+  return <StaggerText>View details</StaggerText>;
+}`} />
+
+## Examples
+
+Use the styling options to match the surrounding text. Keep the phrase short enough that the hover response remains readable.
+
+## Usage
+
+<ComponentUsage component="stagger-text" />
+
+## API
+
+<PropTable component="stagger-text" />
+
+## Accessibility
+
+The text should communicate the same meaning without the hover effect. Avoid using it as the sole indicator of a state change.
+
+## Styling
+
+Use className and color options to fit the component into a label, link, or compact call to action.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

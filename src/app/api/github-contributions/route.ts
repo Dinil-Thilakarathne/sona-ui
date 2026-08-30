@@ -1,3 +1,4 @@
+import { apiError } from "@/lib/api-error";
 import { getGitHubProfileContributions } from "@/lib/github-contributions";
 
 const githubLogin = "Dinil-Thilakarathne";
@@ -20,14 +21,14 @@ export async function GET(request: Request) {
         ? "GitHub contribution data is not configured."
         : "GitHub contribution data is temporarily unavailable.";
 
-    return Response.json(
-      { message },
-      {
-        status: 503,
-        headers: {
-          "Cache-Control": "private, no-store",
-        },
-      },
-    );
+    const response = apiError({
+      code: "SERVICE_UNAVAILABLE",
+      message,
+      resolution:
+        "Retry later. This endpoint depends on GitHub contribution data.",
+      status: 503,
+    });
+    response.headers.set("Cache-Control", "private, no-store");
+    return response;
   }
 }

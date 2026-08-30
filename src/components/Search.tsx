@@ -75,7 +75,7 @@ export function Search({ compact = false }: { compact?: boolean }) {
           "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
           compact
             ? "inline-flex size-9 justify-center"
-            : "hidden lg:inline-flex gap-2 px-3 py-1.5 smooth-shadow-ring-sm",
+            : "hidden lg:inline-flex gap-2 px-3 py-1.5",
         )}
       >
         <SearchIcon className="size-4" />

@@ -10,6 +10,10 @@ export const siteMetaData: Metadata = {
 
   metadataBase: new URL(SITE_METADATA.siteLink),
 
+  alternates: {
+    canonical: SITE_METADATA.siteLink,
+  },
+
   openGraph: {
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
@@ -17,6 +21,14 @@ export const siteMetaData: Metadata = {
     siteName: SITE_METADATA.siteName,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Sona UI component library",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",

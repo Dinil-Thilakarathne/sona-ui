@@ -1,27 +1,25 @@
 ---
 title: "Installation"
 slug: installation
-description: "How to install and configure Sona UI in your project."
+description: "Install and configure Sona UI in a React project."
 searchable: true
 ---
 
 # Installation
 
-Sona UI is designed to be integrated into React applications through the shadcn CLI. Components are installed as source code, so they live in your project and can be customized like any other local component.
+Sona UI components are installed as source code through the shadcn CLI. The files live in your project, so you can adapt them to your tokens, layout, and product requirements.
 
-## Installation via CLI
+## Install with the CLI
 
-The easiest way to use Sona UI components in your project is via the shadcn CLI. You can install components directly from our registry.
+Start by initializing shadcn if your project does not already include a components configuration file.
 
-### 1. Initialize shadcn
-
-If you haven't already, initialize shadcn in your project:
+### Initialize shadcn
 
 <CodeBlockWrapper code={`npx shadcn@latest init`} language="bash" />
 
-### 2. Add the Sona UI registry
+### Add the Sona UI registry
 
-Add the Sona UI registry alias to your `components.json` file:
+Add the Sona UI registry to the components configuration file.
 
 <CodeBlockWrapper
   code={`{
@@ -35,52 +33,43 @@ Add the Sona UI registry alias to your `components.json` file:
   filename="components.json"
 />
 
-### 3. Add Components
+### Add a component
 
-You can now add Sona UI components using the `@sona-ui` alias:
+Install the component you need from the Sona UI namespace.
 
-<CodeBlockWrapper code={`# Add Magnetic Button
-npx shadcn@latest add @sona-ui/magnetic-button
+<CodeBlockWrapper code={`npx shadcn@latest add @sona-ui/magnetic-button`} language="bash" />
 
-# Add Accordion
+The CLI places the component in your configured directory and installs the dependencies it declares.
 
-npx shadcn@latest add @sona-ui/accordion
+## Shared foundations
 
-# Add Marquee
+Some components include small shared foundations. The CLI resolves them automatically when they are declared by a component.
 
-npx shadcn@latest add @sona-ui/marquee`} language="bash" />
+- sona-utils provides the shared class-name helper.
+- sona-motion provides shared motion transitions and easing values.
+- sona-theme adds the small Sona-specific token set, including radius and danger-state values.
 
-The CLI downloads the component source code into your configured component directory and installs the package dependencies declared by that component.
+You do not need to install every foundation manually. Simple components may use only sona-utils, while components with physical motion or dedicated tokens install the foundations they need.
 
-### Shared foundations
+## Manual installation
 
-Registry components declare only the Sona foundations they use. The shadcn CLI resolves these automatically when you install from the registry:
+You can also copy a component into your project manually.
 
-- **sona-utils** installs `lib/sona-utils.ts`, which exports the shared `cn` helper.
-- **sona-motion** installs `lib/sona-motion.ts`, which exports the shared `motionTransition` and `motionEasing` values.
-- **sona-theme** applies the `sona-theme.json` registry theme, which merges optional Sona-specific tokens such as the Sona radius and danger-state colors.
+1. Open the component documentation page.
+2. Open the Source panel and copy the component file.
+3. Copy each required foundation file listed by the component.
+4. Install the dependencies declared by the registry item.
 
-Simple effects may install only `sona-utils`. Components with shared physical motion also install `sona-motion`, while components using custom Sona tokens additionally install `sona-theme`. You do not need to install the entire foundation set manually.
+Manual installation gives you the same source ownership, but the CLI is the quickest way to keep files and dependencies aligned.
 
-## Manual Installation
+## Project requirements
 
-If you prefer not to use the CLI, you can manually copy the source code of the components from the documentation into your project.
+Sona UI is built for modern React projects using TypeScript and Tailwind CSS 4. Motion and icon packages are installed only when a component requires them.
 
-1.  Navigate to the component documentation page (e.g., [Accordion](/docs/accordion)).
-2.  Click on the "Code" tab to view the source.
-3.  Copy the code into a file in your project (e.g., `components/ui/Accordion.tsx`).
-4.  Copy any shared Sona foundations imported by the component, such as `lib/sona-utils.ts`, `lib/sona-motion.ts`, or the `sona-theme` tokens.
-5.  Install the package dependencies listed in the component registry item.
+## Contact
 
-## Dependencies
+Found a bug or need help installing a component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
 
-Sona UI relies on modern web technologies. Ensure your project meets the following requirements:
+## License & Usage
 
-- **React 19** or later
-- **TypeScript** (recommended)
-- **Tailwind CSS 4**
-- **Motion** (installed only for components that use it)
-- An icon package only when required by the selected component
-- **clsx** and **tailwind-merge** when the selected component uses the `sona-utils` foundation
-
-Most of these will be handled automatically if you use the CLI.
+Sona UI is available under the MIT license. You may use, modify, and distribute components in personal and commercial projects.

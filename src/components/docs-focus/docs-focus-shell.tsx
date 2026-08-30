@@ -4,8 +4,6 @@ import { Switch } from "@base-ui/react/switch";
 import {
   BookOpenText,
   Check,
-  ChevronLeft,
-  ChevronRight,
   Code2,
   Copy,
   Home,
@@ -16,12 +14,6 @@ import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useId, useMemo, useState } from "react";
-import {
-  CodeBlock,
-  CodeBlockCode,
-  CodeBlockHeader,
-  CodeBlockPre,
-} from "@/components/code-block/code-block";
 import {
   Drawer,
   DrawerContent,
@@ -39,12 +31,12 @@ import {
 } from "@/components/common/sheet";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import { DocsCopyPage } from "@/components/docs-copy-page/docs-copy-page";
+import { useDocsFocusPanelState } from "@/components/docs-layout-shell";
 import { Search } from "@/components/Search";
 import { BunIcon } from "@/components/svgs/bun-logo";
 import { NpmIcon } from "@/components/svgs/npm-logo";
 import { PnpmIcon } from "@/components/svgs/pnpm-logo";
 import { YarnIcon } from "@/components/svgs/yarn-logo";
-import { ComponentUsage } from "@/components/usage/component-usage";
 import { groupedComponents } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -59,23 +51,12 @@ import {
   AnimatedDropdownTriggerIndicator,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
-import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
-import PropTable from "../common/prop-table";
+import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
 import type { ComponentDocumentationData } from "./component-doc-data";
-
-type DocsPanel = "description" | "source" | "controls" | null;
-
-type FocusDoc = {
-  title: string;
-  slug: string;
-  body: { code: string; raw: string };
-  sourceFiles?: Record<string, string>;
-};
-
-type Navigation = {
-  previous?: { title: string; href: string };
-  next?: { title: string; href: string };
-};
+import { DescriptionPanel } from "./description-panel";
+import { DesktopDocsSidebar } from "./desktop-docs-sidebar";
+import type { FocusDoc, Navigation } from "./docs-focus-types";
+import { SourcePanel } from "./source-panel";
 
 type Heading = { id: string; text: string; level: number };
 
@@ -100,7 +81,7 @@ function IconButton({
       aria-pressed={active}
       title={label}
       className={cn(
-        "grid size-9 shrink-0 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        "grid size-9 shrink-0 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-35",
         active && "bg-accent text-foreground",
         className,
       )}
@@ -111,14 +92,31 @@ function IconButton({
   );
 }
 
+function FocusActionTooltip({
+  id,
+  label,
+  children,
+}: {
+  id: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <FluidTooltip.Root id={id} side="bottom">
+      <FluidTooltip.Trigger>
+        <span className="inline-flex">{children}</span>
+      </FluidTooltip.Trigger>
+      <FluidTooltip.Content>{label}</FluidTooltip.Content>
+    </FluidTooltip.Root>
+  );
+}
+
 function DocsNavigation({
   open,
   onOpenChange,
-  navigation,
 }: {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  navigation: Navigation;
 }) {
   const pathname = usePathname();
   const [query, setQuery] = useState("");
@@ -129,98 +127,86 @@ function DocsNavigation({
       <SheetContent
         side="left"
         showCloseButton={false}
-        className="top-16! bottom-2! left-4! z-70! h-auto! w-[min(22rem,calc(100vw-1rem))] rounded-2xl p-0 smooth-shadow-ring-xl! data-[side=left]:border-r-0"
+        className="top-2! bottom-2! left-2! z-70! h-auto! w-[min(22rem,calc(100vw-1rem))] rounded-[22px] border-0! bg-focus-canvas p-0 smooth-shadow-ring-xl! data-[side=left]:border-r-0 gap-0!"
       >
-        <SheetHeader className="border-b border-border p-5">
+        <SheetHeader className="pt-20 px-5">
           <SheetTitle>Documentation</SheetTitle>
           <SheetDescription>Browse guides and components</SheetDescription>
         </SheetHeader>
-        <div className="flex min-h-0 flex-1 flex-col p-4 pt-0">
-          <label className="mb-4">
+        <div className="flex min-h-0 flex-1 flex-col px-5  ">
+          <label className="mb-4 shrink-0">
             <span className="sr-only">Filter documentation</span>
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Filter documentation..."
-              className="h-10 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+              className="h-10 w-full rounded-lg border border-transparent bg-focus-panel px-3 text-sm outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
             />
           </label>
-          <nav
-            className="min-h-0 flex-1 overflow-y-auto pr-1"
-            aria-label="Documentation pages"
-          >
-            {Object.entries(groupedComponents).map(([group, items]) => {
-              const visible = items.filter((item) =>
-                [item.name, item.href, group]
-                  .join(" ")
-                  .toLowerCase()
-                  .includes(normalized),
-              );
-              if (!visible.length) return null;
-              return (
-                <section key={group} className="mb-5">
-                  <h3 className="mb-1.5 px-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                    {group}
-                  </h3>
-                  <div className="grid gap-0.5">
-                    {visible.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        aria-current={
-                          pathname === item.href ? "page" : undefined
-                        }
-                        onClick={() => onOpenChange(false)}
-                        className={cn(
-                          "group flex items-center justify-between rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
-                          pathname === item.href && "bg-accent text-foreground",
-                        )}
-                      >
-                        {item.name}
-                        {item.tag && (
-                          <span
-                            className={cn(
-                              "font-mono text-[9px] uppercase transition-colors",
-                              item.tag === "new" && "text-success",
-                              item.tag === "updated" && "text-info",
-                              !["new", "updated"].includes(item.tag) &&
-                                "text-muted-foreground/70 group-hover:text-foreground/80",
-                              pathname === item.href &&
-                                !["new", "updated"].includes(item.tag) &&
-                                "text-foreground/80",
-                            )}
-                          >
-                            {item.tag}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              );
-            })}
-          </nav>
-          <div className="grid grid-cols-2 gap-2 border-t border-border pt-4">
-            {navigation.previous ? (
-              <Link
-                href={navigation.previous.href}
-                onClick={() => onOpenChange(false)}
-                className="flex items-center gap-2 rounded-lg px-2 py-2 text-xs text-muted-foreground hover:bg-accent hover:text-foreground"
-              >
-                <ChevronLeft className="size-4" /> {navigation.previous.title}
-              </Link>
-            ) : (
-              <span />
-            )}
-            {navigation.next && (
-              <Link
-                href={navigation.next.href}
-                onClick={() => onOpenChange(false)}
-                className="flex items-center justify-end gap-2 rounded-lg px-2 py-2 text-right text-xs text-muted-foreground hover:bg-accent hover:text-foreground"
-              >
-                {navigation.next.title} <ChevronRight className="size-4" />
-              </Link>
-            )}
+          <div className="relative min-h-0 flex-1 overflow-hidden pt-2">
+            <nav
+              className="h-full overflow-y-auto [scrollbar-color:var(--color-scrollbar)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1"
+              aria-label="Documentation pages"
+            >
+              {Object.entries(groupedComponents).map(([group, items]) => {
+                const visible = items.filter((item) =>
+                  [item.name, item.href, group]
+                    .join(" ")
+                    .toLowerCase()
+                    .includes(normalized),
+                );
+                if (!visible.length) return null;
+                return (
+                  <section key={group} className="mb-5">
+                    <h3 className="mb-1.5 text-sm text-muted-foreground">
+                      {group}
+                    </h3>
+                    <div className="grid gap-0.5">
+                      {visible.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          aria-current={
+                            pathname === item.href ? "page" : undefined
+                          }
+                          onClick={() => onOpenChange(false)}
+                          className={cn(
+                            "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-xs text-muted-foreground transition-colors hover:text-foreground before:absolute before:top-1/2 before:left-0 before:h-4 before:w-px before:-translate-y-1/2 before:rounded-full before:bg-primary before:opacity-0 before:transition-opacity",
+                            pathname === item.href &&
+                              "font-medium text-foreground before:opacity-100",
+                          )}
+                        >
+                          {item.name}
+                          {item.tag && (
+                            <>
+                              <span className="sr-only">{item.tag}</span>
+                              <span
+                                aria-hidden="true"
+                                className={cn(
+                                  "size-1.5 shrink-0 rounded-full",
+                                  item.tag === "new" && "bg-success",
+                                  item.tag === "updated" && "bg-info",
+                                  !["new", "updated"].includes(item.tag) &&
+                                    "bg-muted-foreground",
+                                )}
+                              />
+                            </>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+            </nav>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-gradient-to-b from-focus-canvas to-transparent"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-gradient-to-t from-focus-canvas to-transparent"
+            />
           </div>
         </div>
       </SheetContent>
@@ -256,54 +242,97 @@ function ContentsSheet({
   onOpenChange: (open: boolean) => void;
   headings: Heading[];
 }) {
+  const [activeHeadingId, setActiveHeadingId] = useState<string>();
+
+  useEffect(() => {
+    if (!open || headings.length === 0) return;
+
+    setActiveHeadingId(headings[0]?.id);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          )[0];
+
+        if (activeEntry) setActiveHeadingId(activeEntry.target.id);
+      },
+      { rootMargin: "-18% 0px -68% 0px", threshold: 0 },
+    );
+
+    for (const heading of headings) {
+      const element = document.getElementById(heading.id);
+      if (element) observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  }, [headings, open]);
+
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent
-        side="right"
-        className="w-[min(22rem,calc(100vw-1rem))] p-0 smooth-shadow-ring-lg! data-[side=right]:border-l-0"
+        side="left"
+        className="z-[110]! w-[min(22rem,calc(100vw-1rem))] gap-0 border-0! bg-focus-canvas p-0 smooth-shadow-ring-lg! data-[side=left]:border-r-0"
       >
-        <SheetHeader className="border-b border-border p-5">
-          <SheetTitle>Contents</SheetTitle>
+        <SheetHeader className="relative px-6 pt-7 pr-16 pb-5">
+          <SheetTitle className="text-lg font-semibold tracking-tight">
+            On this page
+          </SheetTitle>
           <SheetDescription>Jump to a section on this page</SheetDescription>
         </SheetHeader>
-        <nav className="grid gap-1 overflow-y-auto p-4">
-          {headings.map((heading) => (
-            <button
-              type="button"
-              key={heading.id}
-              onClick={() => {
-                onOpenChange(false);
-                requestAnimationFrame(() =>
-                  document.getElementById(heading.id)?.scrollIntoView({
-                    block: "start",
-                  }),
-                );
-              }}
-              className={cn(
-                "rounded-lg px-3 py-2 text-left text-sm text-muted-foreground hover:bg-accent hover:text-foreground",
-                heading.level > 2 && "pl-6",
-              )}
-            >
-              {heading.text}
-            </button>
-          ))}
-        </nav>
+        <div className="relative min-h-0 flex-1">
+          <nav
+            aria-label="Table of contents"
+            className="grid h-full gap-1 overflow-y-auto px-3 py-3 scrollbar-thin"
+          >
+            {headings.map((heading) => {
+              const active = activeHeadingId === heading.id;
+              return (
+                <button
+                  type="button"
+                  key={heading.id}
+                  aria-current={active ? "location" : undefined}
+                  onClick={() => {
+                    onOpenChange(false);
+                    requestAnimationFrame(() =>
+                      document.getElementById(heading.id)?.scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
+                      }),
+                    );
+                  }}
+                  className={cn(
+                    "relative rounded-lg px-3 py-2 text-left text-sm text-muted-foreground transition-colors duration-150 hover:bg-accent/70 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                    heading.level > 2 && "pl-6",
+                    active &&
+                      "font-medium text-foreground before:absolute before:inset-y-2 before:left-0 before:w-px before:rounded-full before:bg-primary",
+                  )}
+                >
+                  {heading.text}
+                </button>
+              );
+            })}
+          </nav>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-focus-canvas to-transparent"
+          />
+        </div>
       </SheetContent>
     </Sheet>
   );
 }
 
 function FocusNavigationBar({
-  title,
   open,
   onNavigate,
 }: {
-  title: string;
   open: boolean;
   onNavigate: () => void;
 }) {
   return (
-    <div className="pointer-events-auto relative z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-background/90 p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl">
+    <div className="pointer-events-auto fixed top-5 left-6 z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-focus-chrome p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl lg:top-8 lg:left-10">
       <IconButton
         label={
           open
@@ -312,17 +341,18 @@ function FocusNavigationBar({
         }
         aria-expanded={open}
         onClick={onNavigate}
+        className="hover:cursor-pointer"
       >
         <SidebarToggleIcon open={open} />
       </IconButton>
-      <nav
+      {/*<nav
         aria-label="Breadcrumb"
         className="hidden min-w-0 items-center gap-2 pr-2 sm:flex"
       >
         <span className="text-muted-foreground">Docs</span>
         <span className="text-border">/</span>
         <strong className="max-w-44 truncate font-medium">{title}</strong>
-      </nav>
+      </nav>*/}
     </div>
   );
 }
@@ -386,73 +416,111 @@ function SidebarToggleIcon({ open }: { open: boolean }) {
 
 function FocusActionsBar({ children }: { children: ReactNode }) {
   return (
-    <div className="pointer-events-auto relative z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-background/90 p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw]">
-      {children}
-    </div>
+    <FluidTooltip.Group orientation="horizontal">
+      <div className="pointer-events-auto fixed top-6 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8">
+        {children}
+      </div>
+    </FluidTooltip.Group>
   );
 }
 
 function GuidePage({
   doc,
-  navigation,
   copyActions,
 }: {
   doc: FocusDoc;
   navigation: Navigation;
   copyActions: ReactNode;
 }) {
-  const [navOpen, setNavOpen] = useState(false);
+  const { navOpen, setNavOpen } = useDocsFocusPanelState();
   const [contentsOpen, setContentsOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 899px)");
+  const reduceMotion = useReducedMotion();
+  const desktopNavOpen = navOpen && !isMobile;
   const headings = useDocumentHeadings("[data-guide-document]");
   return (
-    <div className="relative flex h-svh overflow-hidden flex-col bg-background">
-      <header className="relative z-[70] flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
+    <div className="relative h-svh overflow-hidden bg-focus-canvas">
+      <header className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4">
         <FocusNavigationBar
-          title={doc.title}
           open={navOpen}
           onNavigate={() => setNavOpen(!navOpen)}
         />
-        <FocusActionsBar>
-          <Link
-            href="/"
-            aria-label="Home"
-            title="Home"
-            className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
-          >
-            <Home className="size-4" />
-          </Link>
-          <Search compact />
-          <IconButton
-            label="Open contents"
-            onClick={() => setContentsOpen(true)}
-          >
-            <BookOpenText className="size-4" />
-          </IconButton>
-          <ModeToggle />
-        </FocusActionsBar>
+        {!contentsOpen && (
+          <FocusActionsBar>
+            <Link
+              href="/"
+              aria-label="Home"
+              title="Home"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
+            >
+              <Home className="size-4" />
+            </Link>
+            <Search compact />
+            {isMobile && (
+              <IconButton
+                label="Open contents"
+                onClick={() => setContentsOpen(true)}
+              >
+                <BookOpenText className="size-4" />
+              </IconButton>
+            )}
+            <ModeToggle />
+          </FocusActionsBar>
+        )}
       </header>
-      <main className="min-h-0 flex-1 overflow-y-auto p-2 pt-0 md:p-4 md:pt-0">
-        <article
-          data-guide-document
-          className="mx-auto min-h-full max-w-[82ch] rounded-2xl bg-card p-5 smooth-shadow-ring-sm md:p-10 lg:p-14"
-        >
-          <Mdx
-            code={doc.body.code}
-            headerActions={copyActions}
-            sourceFiles={doc.sourceFiles}
-          />
-        </article>
+      <main
+        className={cn(
+          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] md:p-4",
+          desktopNavOpen &&
+            "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)]",
+        )}
+      >
+        {!isMobile && (
+          <div className="min-w-0 overflow-hidden bg-focus-canvas">
+            <motion.div
+              initial={false}
+              animate={{ x: desktopNavOpen ? 0 : -340 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: reduceMotion ? 0 : 0.48,
+              }}
+              aria-hidden={!desktopNavOpen}
+              inert={!desktopNavOpen}
+              className="h-full w-[clamp(16rem,24vw,18rem)] bg-focus-canvas will-change-transform"
+            >
+              <DesktopDocsSidebar />
+            </motion.div>
+          </div>
+        )}
+        <div className="min-h-0 min-w-0 flex-1 overflow-y-auto smooth-shadow-ring-sm rounded-[22px]">
+          <section
+            data-guide-document
+            className="min-h-full w-full rounded-2xl bg-card p-5 pt-22 smooth-shadow-ring-sm md:p-10 md:pt-16 lg:p-14 lg:pt-16"
+          >
+            <div className="mx-auto max-w-[82ch]">
+              <Mdx
+                code={doc.body.code}
+                className="docs-guide-prose"
+                headerActions={copyActions}
+                sourceFiles={doc.sourceFiles}
+              />
+            </div>
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-focus-panel lg:from-background to-transparent"
+            />
+          </section>
+        </div>
       </main>
-      <DocsNavigation
-        open={navOpen}
-        onOpenChange={setNavOpen}
-        navigation={navigation}
-      />
-      <ContentsSheet
-        open={contentsOpen}
-        onOpenChange={setContentsOpen}
-        headings={headings}
-      />
+      {isMobile && <DocsNavigation open={navOpen} onOpenChange={setNavOpen} />}
+      {isMobile && (
+        <ContentsSheet
+          open={contentsOpen}
+          onOpenChange={setContentsOpen}
+          headings={headings}
+        />
+      )}
     </div>
   );
 }
@@ -464,6 +532,7 @@ function defaultsFor(controls: Control[]) {
 }
 
 type DropdownOption = { value: string; label: string; icon?: ReactNode };
+type DropdownAppearance = "compact" | "control";
 
 function AnimatedSelectDropdown({
   label,
@@ -473,6 +542,7 @@ function AnimatedSelectDropdown({
   onValueChange,
   triggerClassName,
   align = "end",
+  appearance = "compact",
 }: {
   label: string;
   labelledBy?: string;
@@ -481,6 +551,7 @@ function AnimatedSelectDropdown({
   onValueChange: (value: string) => void;
   triggerClassName?: string;
   align?: "start" | "center" | "end";
+  appearance?: DropdownAppearance;
 }) {
   const generatedLabelId = useId();
   const labelId = labelledBy ?? generatedLabelId;
@@ -506,6 +577,8 @@ function AnimatedSelectDropdown({
           aria-labelledby={labelId}
           className={cn(
             "h-9 max-w-32 justify-between gap-2 bg-muted px-2.5 py-1 text-xs font-normal capitalize text-foreground",
+            appearance === "control" &&
+              "h-10 max-w-none rounded-lg border border-border bg-focus-panel px-3 text-sm normal-case hover:bg-muted data-[popup-open]:bg-muted",
             triggerClassName,
           )}
         >
@@ -515,7 +588,11 @@ function AnimatedSelectDropdown({
         </AnimatedDropdownTrigger>
         <AnimatedDropdownContent
           align={align}
-          className="z-60 min-w-[var(--anchor-width)]"
+          className={cn(
+            "z-60 min-w-[var(--anchor-width)]",
+            appearance === "control" &&
+              "rounded-xl border-border bg-focus-overlay p-1",
+          )}
         >
           {options.map((option) => (
             <AnimatedDropdownItem
@@ -529,7 +606,10 @@ function AnimatedSelectDropdown({
                   <span className="block size-3.5" />
                 ))
               }
-              className="text-xs"
+              className={cn(
+                "text-xs",
+                appearance === "control" && "px-2.5 py-2 text-sm",
+              )}
             >
               <span className="flex min-w-0 flex-1 items-center justify-between gap-3">
                 <span className="truncate">{option.label}</span>
@@ -580,6 +660,7 @@ function ExampleSelector({
       onValueChange={onValueChange}
       triggerClassName={panel ? "w-full max-w-none" : undefined}
       align={panel ? "start" : "end"}
+      appearance={panel ? "control" : "compact"}
     />
   );
 }
@@ -613,7 +694,7 @@ function ControlField({
       <label
         id={labelId}
         htmlFor={id}
-        className="flex items-center justify-between text-xs font-medium text-muted-foreground"
+        className="flex items-center justify-between text-sm text-muted-foreground"
       >
         <span>{control.label}</span>
       </label>
@@ -622,7 +703,7 @@ function ControlField({
           id={id}
           checked={value as boolean}
           onCheckedChange={(next) => onChange(next)}
-          className="flex h-6 w-10 rounded-full bg-muted p-0.5 data-[checked]:bg-foreground"
+          className="flex h-6 w-10 rounded-full bg-focus-panel p-0.5 data-[checked]:bg-foreground"
         >
           <Switch.Thumb className="size-5 rounded-full bg-background transition-transform duration-150 ease-out data-[checked]:translate-x-4 motion-reduce:transition-none" />
         </Switch.Root>
@@ -634,8 +715,9 @@ function ControlField({
           value={value as string}
           options={control.options}
           onValueChange={onChange}
-          triggerClassName="w-full max-w-none border border-border bg-background text-sm"
+          triggerClassName="w-full"
           align="start"
+          appearance="control"
         />
       )}
       {(control.type === "text" || control.type === "color") && (
@@ -644,169 +726,9 @@ function ControlField({
           type={control.type === "color" ? "color" : "text"}
           value={value as string}
           onChange={(event) => onChange(event.target.value)}
-          className="h-9 rounded-lg border border-border bg-background px-2 text-sm"
+          className="h-10 rounded-lg border border-border bg-focus-panel px-3 text-sm"
         />
       )}
-    </div>
-  );
-}
-
-function DescriptionPanel({
-  doc,
-  data,
-  copyActions,
-}: {
-  doc: FocusDoc;
-  data: ComponentDocumentationData;
-  copyActions: ReactNode;
-}) {
-  const sections = ["overview", "features", "usage", "props"];
-  const [activeSection, setActiveSection] = useState(sections[0]);
-
-  return (
-    <div className="h-full overflow-y-auto overscroll-contain p-5 md:p-7">
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            Component details
-          </span>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight">
-            {doc.title}
-          </h2>
-        </div>
-        {copyActions}
-      </div>
-      <FluidTabs
-        tabs={sections.map((section) => ({
-          value: section,
-          title: section[0]?.toUpperCase() + section.slice(1),
-        }))}
-        value={activeSection}
-        onValueChange={(section) => {
-          setActiveSection(section);
-          document.getElementById(section)?.scrollIntoView({
-            block: "start",
-          });
-        }}
-        size="sm"
-        ariaLabel="Component description sections"
-        className="mb-6"
-      />
-      <section id="overview">
-        <Mdx
-          code={doc.body.code}
-          className="max-w-none"
-          sourceFiles={doc.sourceFiles}
-        />
-      </section>
-      <section id="usage" className="scroll-mt-16">
-        <h2 className="docs-heading docs-heading-h2">Usage</h2>
-        <ComponentUsage component={data.component} anatomy={data.usage} />
-      </section>
-      <section id="props" className="scroll-mt-16">
-        <h2 className="docs-heading docs-heading-h2">Props</h2>
-        <PropTable data={data.props} />
-      </section>
-    </div>
-  );
-}
-
-function sourceFileName(path: string) {
-  return path.split("/").pop() ?? path;
-}
-
-function sourceHeaderPath(path: string) {
-  return path.replace(/^components\/sonaui\//, "");
-}
-
-function SourcePanel({
-  data,
-  selectedFileId,
-  activeExampleName,
-  onFileChange,
-}: {
-  data: ComponentDocumentationData;
-  selectedFileId: string;
-  activeExampleName?: string;
-  onFileChange: (id: string | null) => void;
-}) {
-  const group =
-    data.sourceFiles.find((file) => file.id === selectedFileId)?.group ??
-    "component";
-  const files = data.sourceFiles.filter((file) => file.group === group);
-  const selected = files.find((file) => file.id === selectedFileId) ?? files[0];
-  const selectGroup = (value: string) => {
-    const nextFile =
-      value === "example"
-        ? data.sourceFiles.find(
-            (file) =>
-              file.group === value && file.path === `${activeExampleName}.tsx`,
-          )
-        : undefined;
-    const firstFile =
-      nextFile ?? data.sourceFiles.find((file) => file.group === value);
-    if (firstFile) {
-      onFileChange(
-        firstFile.id === data.sourceFiles[0]?.id ? null : firstFile.id,
-      );
-    }
-  };
-  if (!selected)
-    return (
-      <div className="p-6 text-sm text-muted-foreground">
-        No source files are available.
-      </div>
-    );
-  return (
-    <div className="flex h-full min-h-0 flex-col p-4 md:p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-            Source code
-          </span>
-        </div>
-        <FluidTabs
-          tabs={(["component", "example"] as const).map((value) => ({
-            value,
-            title: value[0].toUpperCase() + value.slice(1),
-            disabled: !data.sourceFiles.some((file) => file.group === value),
-          }))}
-          value={group}
-          onValueChange={selectGroup}
-          size="sm"
-          ariaLabel="Source groups"
-        />
-      </div>
-      <FluidTabs
-        tabs={files.map((file) => ({
-          value: file.id,
-          title: (
-            <span className="font-mono text-[11px]">
-              {sourceFileName(file.path)}
-            </span>
-          ),
-        }))}
-        value={selected.id}
-        onValueChange={(fileId) =>
-          onFileChange(fileId === data.sourceFiles[0]?.id ? null : fileId)
-        }
-        variant="underline"
-        size="sm"
-        ariaLabel={`${group} source files`}
-        className="mb-3 w-full"
-        listClassName="p-0"
-      />
-      <CodeBlock
-        key={selected.id}
-        code={selected.content}
-        language={selected.language}
-        className="min-h-0 flex-1"
-      >
-        <CodeBlockHeader filename={sourceHeaderPath(selected.target)} />
-        <CodeBlockPre className=" max-h-none">
-          <CodeBlockCode />
-        </CodeBlockPre>
-      </CodeBlock>
     </div>
   );
 }
@@ -831,8 +753,8 @@ function ControlsPanel({
   dirty: boolean;
 }) {
   return (
-    <div className="h-full overflow-y-auto p-5 md:p-7">
-      <div className="mb-7 flex items-start justify-between">
+    <div className="h-full overflow-y-auto px-4">
+      <div className="mb-7 flex items-start justify-between pt-4 md:pt-32">
         <div>
           <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
             Live controls
@@ -851,9 +773,7 @@ function ControlsPanel({
       <div className="grid gap-6">
         {examples.length > 1 && (
           <div className="grid gap-2 border-b border-border pb-6">
-            <span className="text-xs font-medium text-muted-foreground">
-              Demo
-            </span>
+            <span className="text-sm text-muted-foreground">Demo</span>
             <ExampleSelector
               examples={examples}
               value={activeExampleName}
@@ -898,7 +818,7 @@ function InstallBar({ component }: { component: string }) {
     window.setTimeout(() => setCopied(false), 1600);
   };
   return (
-    <div className="absolute bottom-3 left-1/2 z-3 flex max-w-[calc(100%-1.5rem)] -translate-x-1/2 items-center rounded-xl bg-background/90 p-1 smooth-shadow-ring-sm backdrop-blur md:bottom-5">
+    <div className="absolute bottom-3 left-1/2 z-3 flex max-w-[calc(100%-1.5rem)] -translate-x-1/2 items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur md:bottom-5">
       <AnimatedSelectDropdown
         label="Package manager"
         value={manager}
@@ -933,7 +853,6 @@ function InstallBar({ component }: { component: string }) {
 
 function ComponentPage({
   doc,
-  navigation,
   data,
   copyActions,
 }: {
@@ -942,10 +861,15 @@ function ComponentPage({
   data: ComponentDocumentationData;
   copyActions: ReactNode;
 }) {
-  const [navOpen, setNavOpen] = useState(false);
-  const [panel, setPanel] = useState<DocsPanel>(null);
-  const [renderedPanel, setRenderedPanel] =
-    useState<Exclude<DocsPanel, null>>("description");
+  const {
+    navOpen,
+    setNavOpen,
+    documentOpen,
+    setDocumentOpen,
+    toolDrawer,
+    setToolDrawer,
+  } = useDocsFocusPanelState();
+  const [hasMounted, setHasMounted] = useState(false);
   const isMobile = useMediaQuery("(max-width: 899px)");
   const reduceMotion = useReducedMotion();
   const registryExamples = exampleRegistry[data.component] ?? [];
@@ -973,34 +897,36 @@ function ComponentPage({
     setControlValues(defaults);
     setUsingPlayground(false);
   }, [defaults]);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
   const selectedFile =
     data.sourceFiles.find((file) => file.id === selectedFileId) ??
     data.sourceFiles[0];
-  const panelForContent = panel ?? renderedPanel;
   const selectExample = (value: string) => {
     setUsingPlayground(false);
     setActiveExampleName(value);
   };
-  const openPanel = (requestedPanel: DocsPanel) => {
-    setPanel((current) => {
-      const nextPanel = current === requestedPanel ? null : requestedPanel;
-      if (nextPanel) setRenderedPanel(nextPanel);
-      return nextPanel;
-    });
+  const desktopDocumentOpen = documentOpen && !isMobile;
+  const desktopNavOpen = navOpen && !isMobile;
+  const toggleControls = () => {
+    if (toolDrawer === "controls") {
+      setToolDrawer(null);
+      return;
+    }
+    if (!documentOpen) setDocumentOpen(true);
+    setToolDrawer("controls");
   };
-  const panelContent =
-    panelForContent === "description" ? (
-      <DescriptionPanel doc={doc} data={data} copyActions={copyActions} />
-    ) : panelForContent === "source" ? (
-      <SourcePanel
-        data={data}
-        selectedFileId={selectedFile?.id ?? ""}
-        activeExampleName={activeExample?.name}
-        onFileChange={(file) =>
-          setSelectedFileId(file ?? data.sourceFiles[0]?.id ?? "")
-        }
-      />
-    ) : panelForContent === "controls" && playground ? (
+  const toggleSource = () => {
+    if (toolDrawer === "source") {
+      setToolDrawer(null);
+      return;
+    }
+    if (!documentOpen) setDocumentOpen(true);
+    setToolDrawer("source");
+  };
+  const toolPanelContent =
+    toolDrawer === "controls" && playground ? (
       <ControlsPanel
         controls={playground.controls}
         values={controlValues}
@@ -1019,6 +945,15 @@ function ComponentPage({
           (control) => controlValues[control.prop] !== defaults[control.prop],
         )}
       />
+    ) : toolDrawer === "source" ? (
+      <SourcePanel
+        data={data}
+        selectedFileId={selectedFile?.id ?? ""}
+        activeExampleName={activeExample?.name}
+        onFileChange={(file) =>
+          setSelectedFileId(file ?? data.sourceFiles[0]?.id ?? "")
+        }
+      />
     ) : null;
   const preview =
     usingPlayground && playground ? (
@@ -1030,57 +965,101 @@ function ComponentPage({
     );
 
   return (
-    <div className="relative flex h-svh overflow-hidden flex-col bg-background">
-      <header className="relative z-[70] flex h-16 shrink-0 items-center gap-2 px-2 md:px-4">
+    <div className="relative h-svh overflow-hidden bg-focus-canvas">
+      <header className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4">
         <FocusNavigationBar
-          title={doc.title}
           open={navOpen}
           onNavigate={() => setNavOpen(!navOpen)}
         />
         <FocusActionsBar>
-          <Link
-            href="/"
-            aria-label="Home"
-            title="Home"
-            className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
-          >
-            <Home className="size-4" />
-          </Link>
-          <Search compact />
-          <IconButton
-            label="Description"
-            active={panel === "description"}
-            onClick={() => openPanel("description")}
-          >
-            <BookOpenText className="size-4" />
-          </IconButton>
-          {data.hasPlayground && (
-            <IconButton
-              label="Controls"
-              active={panel === "controls"}
-              onClick={() => openPanel("controls")}
+          <FocusActionTooltip id="focus-home" label="Home">
+            <Link
+              href="/"
+              aria-label="Home"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
             >
-              <Settings2 className="size-4" />
+              <Home className="size-4" />
+            </Link>
+          </FocusActionTooltip>
+          <FocusActionTooltip id="focus-search" label="Search">
+            <Search compact />
+          </FocusActionTooltip>
+          <FocusActionTooltip id="focus-description" label="Description">
+            <IconButton
+              label="Description"
+              active={documentOpen}
+              onClick={() => {
+                if (documentOpen) {
+                  setToolDrawer(null);
+                }
+                setDocumentOpen(!documentOpen);
+              }}
+            >
+              <BookOpenText className="size-4" />
             </IconButton>
+          </FocusActionTooltip>
+          {data.hasPlayground && (
+            <FocusActionTooltip id="focus-controls" label="Controls">
+              <IconButton
+                label="Controls"
+                active={toolDrawer === "controls"}
+                onClick={toggleControls}
+              >
+                <Settings2 className="size-4" />
+              </IconButton>
+            </FocusActionTooltip>
           )}
-          <IconButton
-            label="Source"
-            active={panel === "source"}
-            onClick={() => openPanel("source")}
-          >
-            <Code2 className="size-4" />
-          </IconButton>
-          <ModeToggle />
+          <FocusActionTooltip id="focus-source" label="Source">
+            <IconButton
+              label="Source"
+              active={toolDrawer === "source"}
+              onClick={toggleSource}
+            >
+              <Code2 className="size-4" />
+            </IconButton>
+          </FocusActionTooltip>
+          <FocusActionTooltip id="focus-theme" label="Toggle theme">
+            <ModeToggle />
+          </FocusActionTooltip>
         </FocusActionsBar>
       </header>
-      <main className="flex min-h-0 flex-1 p-2 pt-0 md:p-4 md:pt-0">
+      <main
+        className={cn(
+          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)_0px] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] md:p-4",
+          desktopNavOpen &&
+            "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)_0px]",
+          desktopDocumentOpen &&
+            "min-[900px]:grid-cols-[0px_minmax(0,1fr)_calc(clamp(20rem,34vw,28rem)+0.75rem)]",
+          desktopNavOpen &&
+            desktopDocumentOpen &&
+            "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)_calc(clamp(20rem,34vw,28rem)+0.75rem)]",
+        )}
+      >
+        {!isMobile && (
+          <div className="min-w-0 overflow-hidden bg-focus-canvas">
+            <motion.div
+              initial={false}
+              animate={{ x: desktopNavOpen ? 0 : -340 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: reduceMotion ? 0 : 0.48,
+              }}
+              aria-hidden={!navOpen}
+              inert={!navOpen}
+              className="h-full w-[clamp(16rem,24vw,18rem)] bg-focus-canvas will-change-transform"
+            >
+              <DesktopDocsSidebar />
+            </motion.div>
+          </div>
+        )}
         <motion.section
-          layout={!reduceMotion}
+          layout={hasMounted && !reduceMotion && !isMobile}
           transition={{
             duration: reduceMotion ? 0 : 0.24,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="relative grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-2xl bg-card smooth-shadow-ring-md"
+          className="relative grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-[22px] bg-focus-panel smooth-shadow-ring-md"
         >
           <div className="flex min-h-0 w-full items-center justify-center">
             {preview}
@@ -1088,60 +1067,86 @@ function ComponentPage({
           <InstallBar component={data.component} />
         </motion.section>
         {!isMobile && (
-          <motion.aside
-            initial={false}
-            animate={
-              panel
-                ? {
-                    x: 0,
-                    width: "clamp(22rem, 42vw, 34rem)",
-                    marginLeft: "0.75rem",
-                  }
-                : { x: 16, width: 0, marginLeft: 0 }
-            }
-            transition={{
-              duration: reduceMotion ? 0 : 0.2,
-              ease: "easeOut",
-            }}
-            aria-hidden={!panel}
-            inert={!panel}
-            className="h-full min-h-0 shrink-0 overflow-hidden rounded-2xl bg-card smooth-shadow-ring-md"
-          >
-            {panelContent}
-          </motion.aside>
+          <div className="min-w-0 overflow-hidden pl-3">
+            <motion.aside
+              initial={false}
+              animate={{ x: desktopDocumentOpen ? 0 : 600 }}
+              transition={{
+                type: "spring",
+                bounce: 0,
+                duration: reduceMotion ? 0 : 0.48,
+              }}
+              aria-hidden={!documentOpen}
+              inert={!documentOpen}
+              className="relative h-full w-[clamp(20rem,34vw,28rem)] overflow-hidden  will-change-transform"
+            >
+              <DescriptionPanel
+                doc={doc}
+                data={data}
+                copyActions={copyActions}
+              />
+              <motion.div
+                initial={false}
+                animate={{ y: toolDrawer ? 0 : "110%" }}
+                transition={{
+                  type: "spring",
+                  bounce: 0,
+                  duration: reduceMotion ? 0 : 0.32,
+                }}
+                aria-hidden={!toolDrawer}
+                inert={!toolDrawer}
+                className="absolute inset-0 z-10 overflow-y-auto bg-focus-overlay smooth-shadow-ring-md border"
+              >
+                {toolPanelContent}
+              </motion.div>
+            </motion.aside>
+          </div>
         )}
       </main>
       <Drawer
-        open={Boolean(panel && isMobile)}
+        open={documentOpen && isMobile}
         onOpenChange={(open) => {
-          if (!open) setPanel(null);
+          if (!open) setDocumentOpen(false);
         }}
         showSwipeHandle
         swipeDirection="down"
       >
-        <DrawerContent className="inset-x-2! bottom-2! h-[min(82svh,46rem)]! max-h-[calc(100dvh-1rem)]! rounded-2xl border-0! bg-card p-0 smooth-shadow-ring-md! sm:inset-x-4! sm:bottom-4!">
+        <DrawerContent className="inset-x-2! bottom-2! h-[min(82svh,46rem)]! max-h-[calc(100dvh-1rem)]! rounded-[22px] border-0! bg-focus-panel p-0 smooth-shadow-ring-md! sm:inset-x-4! sm:bottom-4!">
+          <DrawerHeader className="sr-only">
+            <DrawerTitle>Component description</DrawerTitle>
+            <DrawerDescription>
+              Documentation panel for {doc.title}
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+            <DescriptionPanel doc={doc} data={data} copyActions={copyActions} />
+          </div>
+        </DrawerContent>
+      </Drawer>
+      <Drawer
+        modal={false}
+        open={Boolean(toolDrawer && isMobile)}
+        onOpenChange={(open) => {
+          if (!open) setToolDrawer(null);
+        }}
+        showSwipeHandle
+        swipeDirection="down"
+      >
+        <DrawerContent className="inset-x-2! bottom-2! z-[60]! h-[min(82svh,46rem)]! max-h-[calc(100dvh-1rem)]! rounded-[22px] border-0! bg-focus-overlay p-0 smooth-shadow-ring-lg! sm:inset-x-4! sm:bottom-4!">
           <DrawerHeader className="sr-only">
             <DrawerTitle>
-              {panelForContent === "source"
-                ? "Source code"
-                : panelForContent === "controls"
-                  ? "Component controls"
-                  : "Component description"}
+              {toolDrawer === "source" ? "Source code" : "Component controls"}
             </DrawerTitle>
             <DrawerDescription>
               Documentation panel for {doc.title}
             </DrawerDescription>
           </DrawerHeader>
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-            {panelContent}
+            {toolPanelContent}
           </div>
         </DrawerContent>
       </Drawer>
-      <DocsNavigation
-        open={navOpen}
-        onOpenChange={setNavOpen}
-        navigation={navigation}
-      />
+      {isMobile && <DocsNavigation open={navOpen} onOpenChange={setNavOpen} />}
     </div>
   );
 }

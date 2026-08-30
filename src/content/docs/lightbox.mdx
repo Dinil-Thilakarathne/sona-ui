@@ -5,13 +5,44 @@ component: lightbox
 tags: ["UI", "Image", "Preview", "Component"]
 ---
 
-An accessible image preview that expands directly from its thumbnail and returns to the same spatial origin when dismissed.
+Use Lightbox when an image needs an inspectable full-size view. It expands from the thumbnail and returns to that same origin when dismissed.
 
-## Features
+## Install
 
-- Shared spatial expansion without clipping the image transition.
-- Controlled and uncontrolled open state.
-- Focus management, Escape dismissal, and scroll locking through Base UI.
-- Unique animation identity for every lightbox on a page.
-- Reduced-motion cross-fade for motion-sensitive users.
-- Optional caption and styling hooks for thumbnail, preview, and backdrop.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/lightbox`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="project-image.tsx" code={`import Lightbox from "@/components/ui/lightbox/lightbox";
+
+export function ProjectImage() {
+  return <Lightbox src="/project.jpg" alt="Project overview" />;
+}`} />
+
+## Examples
+
+Use controlled open state when the selected image is managed by a gallery. Add a caption when it provides information that is not visible in the image itself.
+
+## Usage
+
+<ComponentUsage component="lightbox" />
+
+## API
+
+<PropTable component="lightbox" />
+
+## Accessibility
+
+Lightbox manages focus, Escape dismissal, and scroll locking through Base UI. Always provide useful alternative text for the image.
+
+## Styling
+
+Use the thumbnail, preview, and backdrop class options to match the gallery. Reduced-motion preferences use a cross-fade.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

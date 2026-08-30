@@ -5,29 +5,58 @@ component: button
 tags: ["UI", "Button", "Interaction", "Animation", "Component"]
 ---
 
-A simple interactive button with subtle press feedback. It renders children directly and keeps content and state management in your application.
+Use Button for an immediate action. It renders your content directly and adds a small press response without taking ownership of your action state or navigation.
 
-## Features
+## Install
 
-- **Fluid press feedback** — Scales down slightly while pressed for a tactile response.
-- **Simple composition** — Accepts text, icons, or any React content without built-in content transitions.
-- **Visual variants** — Includes default, outlined, and secondary styles in three sizes.
-- **Reduced motion** — Removes press motion when reduced motion is preferred.
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/button`}
+/>
 
-## Code Example
+## Basic usage
 
 <CodeBlockWrapper
   language="tsx"
-  filename="call-to-action.tsx"
-  code={`import { ArrowRight } from "lucide-react";
-import Button from "@/components/ui/button";
+  filename="save-button.tsx"
+  code={`import Button from "@/components/ui/button/button";
 
-export function CallToAction() {
-  return (
-    <Button>
-      Get started
-      <ArrowRight className="size-4" />
-    </Button>
-  );
+export function SaveButton() {
+  return <Button>Save changes</Button>;
 }`}
 />
+
+## Examples
+
+### Variants
+
+Use the default variant for the primary action in a local context. Use outlined or secondary for supporting actions.
+
+### Icon content
+
+Pass icons and text as children. Keep the visible label clear enough to describe the action.
+
+## Usage
+
+<ComponentUsage component="button" />
+
+## API
+
+<PropTable component="button" />
+
+## Accessibility
+
+Use a button label that describes the resulting action. When an icon is the only visible content, add an accessible name with aria-label.
+
+## Styling
+
+Use variant, size, and class name options to match the context. Reduced-motion preferences remove the press transform while preserving the interaction state.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

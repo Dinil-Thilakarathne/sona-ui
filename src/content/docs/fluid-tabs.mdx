@@ -5,12 +5,49 @@ component: fluid-tabs
 tags: ["UI", "Tabs", "Motion", "Component"]
 ---
 
-A Base UI tab selector where one active surface travels between tabs, giving selection a clear sense of spatial continuity.
+Use Fluid Tabs to switch between related views while keeping the selected surface visually connected. The active capsule or underline moves between items for pointer input and updates immediately for keyboard input.
 
-## Features
+## Install
 
-- Capsule and restrained underline variants.
-- Controlled and uncontrolled state with Base UI keyboard semantics.
-- Interruptible pointer motion with instant keyboard and reduced-motion updates.
-- Horizontal overflow handling that keeps the active tab visible.
-- Semantic `--fluid-tabs-*` tokens for consumer theme customization.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/fluid-tabs`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="settings-tabs.tsx" code={`import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+const tabs = [
+  { value: "general", title: "General" },
+  { value: "security", title: "Security" },
+];
+
+export function SettingsTabs() {
+  return <FluidTabs tabs={tabs} defaultValue="general" />;
+}`} />
+
+## Examples
+
+Use the capsule variant for compact segmented navigation and the underline variant for editorial navigation. Controlled state works well when the selected view is reflected in the URL.
+
+## Usage
+
+<ComponentUsage component="fluid-tabs" />
+
+## API
+
+<PropTable component="fluid-tabs" />
+
+## Accessibility
+
+Fluid Tabs uses Base UI tab semantics and keyboard navigation. Horizontal overflow keeps the active item available in narrow containers.
+
+## Styling
+
+The fluid-tabs token set controls the surface and indicator treatment. Reduced-motion preferences keep selection feedback without the travelling transition.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

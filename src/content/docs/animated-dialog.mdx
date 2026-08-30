@@ -5,63 +5,89 @@ component: animated-dialog
 tags: ["UI", "Dialog", "Modal", "Animation", "Component"]
 ---
 
-A composable, highly accessible dialog modal built on **Base UI** Dialog primitives and styled with **Motion**. It supports directional slide transitions (animating from the top, bottom, left, right, or center).
+Use Animated Dialog for a modal task that needs an accessible dialog foundation and a short directional entrance. It provides the dialog structure, focus management, and close behavior while leaving the content and actions to your application.
 
-## Features
+## Install
 
-- **Directional Entrance & Exit** — Configure modal transitions (`from` / `exitTo`) to slide from different vector origins.
-- **Responsive Motion** — Uses short, interruptible transitions for the surface and backdrop, without overshoot on modal entrance.
-- **Standard Composable API** — Compose layouts with `AnimatedDialog`, `Trigger`, `Content`, `Title`, `Description`, and `Close`.
-- **Portal & Accessibility** — Handles focus locking, scroll trapping, screen-readers, and rendering overlays cleanly via Base UI.
-- **Controlled or uncontrolled** — Use `open`/`onOpenChange` or `defaultOpen` as needed.
-- **RTL & SSR Safe** — Hydrates styles without layout shifting.
-- **Reduced Motion** — Seamlessly bypasses physical slide translations to fade in/out instantly.
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/animated-dialog`}
+/>
 
-## Code Examples
-
-### Directional Slide
-
-Choose how the content surfaces by setting the `from` and `exitTo` options.
+## Basic usage
 
 <CodeBlockWrapper
   language="tsx"
-  filename="directional-modal.tsx"
+  filename="confirm-dialog.tsx"
   code={`import {
   AnimatedDialog,
+  AnimatedDialogClose,
   AnimatedDialogContent,
-  AnimatedDialogTrigger,
-  AnimatedDialogTitle,
   AnimatedDialogDescription,
-} from "@/components/ui/animated-dialog";
+  AnimatedDialogTitle,
+  AnimatedDialogTrigger,
+} from "@/components/ui/animated-dialog/animated-dialog";
 
-export function Modal() {
+export function ConfirmDialog() {
   return (
     <AnimatedDialog>
-      <AnimatedDialogTrigger>Trigger</AnimatedDialogTrigger>
-      {/* Slides in from the left, exits sliding up towards the top */}
-      <AnimatedDialogContent from="left" exitTo="top">
-        <AnimatedDialogTitle>Info</AnimatedDialogTitle>
+      <AnimatedDialogTrigger>Delete project</AnimatedDialogTrigger>
+      <AnimatedDialogContent from="bottom">
+        <AnimatedDialogTitle>Delete this project?</AnimatedDialogTitle>
         <AnimatedDialogDescription>
-          Detailed descriptions here.
+          This action cannot be undone.
         </AnimatedDialogDescription>
+        <div className="mt-6 flex justify-end gap-3">
+          <AnimatedDialogClose>Cancel</AnimatedDialogClose>
+          <AnimatedDialogClose className="bg-danger text-danger-foreground">
+            Delete
+          </AnimatedDialogClose>
+        </div>
       </AnimatedDialogContent>
     </AnimatedDialog>
   );
 }`}
 />
 
-### Center Scale
+## Examples
 
-Configure `from="center"` for standard modal zoom-fade effects.
+### Direction
+
+Set from and exitTo when the dialog should enter and leave in a particular direction. Use the center direction for a scale and fade treatment.
 
 <CodeBlockWrapper
   language="tsx"
-  filename="center-modal.tsx"
-  code={`<AnimatedDialogContent from="center">
-  <AnimatedDialogTitle>Static Centered Modal</AnimatedDialogTitle>
+  filename="direction.tsx"
+  code={`<AnimatedDialogContent from="left" exitTo="top">
+  <AnimatedDialogTitle>Details</AnimatedDialogTitle>
 </AnimatedDialogContent>`}
 />
 
-### Action Toasts
+### Controlled state
 
-Trigger notifications on confirmation or cancellation actions.
+Use open and onOpenChange when another part of the interface needs to control the dialog state.
+
+## Usage
+
+<ComponentUsage component="animated-dialog" />
+
+## API
+
+<PropTable component="animated-dialog" />
+
+## Accessibility
+
+The component uses Base UI dialog semantics, including focus management, Escape dismissal, and accessible labels. Include a title and description that clearly explain the task before asking someone to act.
+
+## Styling
+
+Style the content and action controls with class name options. Reduced-motion preferences replace directional movement with a simpler transition.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

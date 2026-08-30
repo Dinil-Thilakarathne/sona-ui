@@ -5,33 +5,17 @@ component: animated-dropdown
 tags: ["UI", "Dropdown", "Menu", "Animation", "Component"]
 ---
 
-A composable, fully accessible dropdown menu built on **Base UI** with a spring-driven shared hover highlight and origin-aware scale/fade animations. No hardcoded items — compose your own content.
+Use Animated Dropdown when an action list needs keyboard-accessible menu behavior with a small, origin-aware entrance. Compose its trigger, content, items, and optional separators to match your product's actions.
 
-## Features
+## Install
 
-- **Composable API** — `AnimatedDropdown` / `Trigger` / `Content` / `Item` / `Separator`, shadcn-style.
-- **Spring hover highlight** — shared `layoutId` glides between items as you move the mouse.
-- **Per-instance isolation** — `useId()` scopes the layout group so multiple dropdowns on the same page never conflict.
-- **Origin-aware animation** — popup scales in from the trigger position using Base UI's `--transform-origin`.
-- **Icon-agnostic** — pass any `ReactNode` as the `icon` prop.
-- **Danger variant** — red-tinted destructive items.
-- **Controlled or uncontrolled** — use `open`/`onOpenChange` or `defaultOpen` as needed.
-- **Full accessibility** — keyboard nav, typeahead, focus trap, and portal via Base UI.
-- **Reduced-motion safe** — instant transitions when the OS prefers reduced motion.
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/animated-dropdown`}
+/>
 
-## Examples
-
-### Danger variant
-
-Use `variant="danger"` on destructive items — they get a red tint and are visually separated.
-
-### Controlled open state
-
-Pass `open` and `onOpenChange` to fully control the dropdown from external state.
-
-## Code Examples
-
-### Basic usage
+## Basic usage
 
 <CodeBlockWrapper
   language="tsx"
@@ -66,7 +50,15 @@ export function MyDropdown() {
 }`}
 />
 
+## Examples
+
+### Destructive action
+
+Use the danger variant for an action that needs a destructive visual treatment. Add a separator when the destructive action belongs in its own group.
+
 ### Controlled state
+
+Use controlled open state when another part of the interface needs to control the menu.
 
 <CodeBlockWrapper
   language="tsx"
@@ -83,7 +75,9 @@ export function MyDropdown() {
 </AnimatedDropdown>`}
 />
 
-### Side and alignment
+### Positioning
+
+Use the side, alignment, and offset options to position the popup relative to its trigger.
 
 <CodeBlockWrapper
   language="tsx"
@@ -93,3 +87,29 @@ export function MyDropdown() {
   ...
 </AnimatedDropdownContent>`}
 />
+
+## Usage
+
+<ComponentUsage component="animated-dropdown" />
+
+## API
+
+<PropTable component="animated-dropdown" />
+
+## Accessibility
+
+The component uses Base UI menu semantics. It supports keyboard navigation, typeahead, focus management, and a modal menu by default. Keep item labels clear, and disable an item only when its action cannot be performed.
+
+Use a non-modal menu only when people must continue interacting with surrounding content while it is open.
+
+## Styling
+
+Use the component class name options on the trigger, content, items, or separator to adapt the component to its context. The popup positions and scales from Base UI's transform origin, and reduced-motion preferences remove the entrance transition.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

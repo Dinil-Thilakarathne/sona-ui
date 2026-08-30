@@ -8,7 +8,7 @@ const cardClass =
 export function OpenSourceSection() {
   return (
     <section
-      className="mx-auto w-full max-w-[76rem] border-t border-border px-4 py-[clamp(5rem,10vw,9rem)]"
+      className="mx-auto w-full max-w-[76rem] border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)]"
       aria-labelledby="open-title"
     >
       <p className="text-xs font-semibold tracking-[0.08em] text-muted-foreground uppercase">
@@ -27,21 +27,21 @@ export function OpenSourceSection() {
           target="_blank"
           rel="noreferrer"
         >
-          <FaGithub className="size-5 text-primary" aria-hidden="true" />
+          <FaGithub className="size-5 text-site-brand" aria-hidden="true" />
           <strong className="text-[0.95rem]">Open source</strong>
           <span className="text-[0.8125rem] leading-relaxed text-muted-foreground">
             Inspect the implementation and contribute.
           </span>
         </a>
         <Link href="/docs/changelog" className={cardClass}>
-          <Terminal className="size-5 text-primary" aria-hidden="true" />
+          <Terminal className="size-5 text-site-brand" aria-hidden="true" />
           <strong className="text-[0.95rem]">Release history</strong>
           <span className="text-[0.8125rem] leading-relaxed text-muted-foreground">
             See what has changed and why.
           </span>
         </Link>
         <Link href="/docs/ai-agents" className={cardClass}>
-          <Code2 className="size-5 text-primary" aria-hidden="true" />
+          <Code2 className="size-5 text-site-brand" aria-hidden="true" />
           <strong className="text-[0.95rem]">Validated workflow</strong>
           <span className="text-[0.8125rem] leading-relaxed text-muted-foreground">
             Registry and agent resources designed to work together.

@@ -5,13 +5,49 @@ component: expanding-action
 tags: ["UI", "Action", "Motion", "Component"]
 ---
 
-A compact action that transforms in place into a short set of related choices without opening a separate menu.
+Use Expanding Action when one compact control reveals a short set of related choices in the same place. The trigger and choices share one surface, so the interaction remains connected to its source.
 
-## Features
+## Install
 
-- Shared-surface motion preserves context between the trigger and its choices.
-- Controlled and uncontrolled expanded state.
-- Native button semantics with visible keyboard focus states.
-- User-configured reduced-motion behavior through Motion.
-- Disabled actions and individual disabled choices.
-- Horizontal overflow for narrow containers and longer labels.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/expanding-action`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="share-action.tsx" code={`import ExpandingAction from "@/components/ui/expanding-action/expanding-action";
+
+export function ShareAction() {
+  return (
+    <ExpandingAction
+      trigger="Share"
+      items={[{ label: "Copy link" }, { label: "Send email" }]}
+    />
+  );
+}`} />
+
+## Examples
+
+Use controlled open state when another control needs to manage the expanded choices. Keep labels short, and use disabled items only when an option cannot be performed.
+
+## Usage
+
+<ComponentUsage component="expanding-action" />
+
+## API
+
+<PropTable component="expanding-action" />
+
+## Accessibility
+
+The trigger and choices use button semantics with keyboard focus states. Make each choice label specific enough to describe the resulting action.
+
+## Styling
+
+The component supports narrow containers and long labels through horizontal overflow. Reduced-motion preferences remove the expansion travel.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

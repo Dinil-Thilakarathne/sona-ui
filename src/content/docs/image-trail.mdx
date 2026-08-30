@@ -5,21 +5,44 @@ component: image-trail
 tags: ["UI", "Effect", "Cursor", "Component"]
 ---
 
-A cursor-driven effect that spawns a trail of images as the pointer moves across a scoped area — the editorial, portfolio-site look, built to stay out of the way of your interactive UI.
+Use Image Trail for a decorative cursor effect inside a bounded editorial or portfolio area. Images appear only while a fine pointer moves, and the trail never intercepts links or buttons beneath it.
 
-## Features
+## Install
 
-- Scoped to its own container — nothing spawns outside it, and the trail layer is `pointer-events: none`, so links and buttons underneath stay fully clickable.
-- Distance-based spawning: a still cursor emits nothing, fast movement reads as a trail.
-- Suppresses over interactive elements via a configurable `ignoreSelector`.
-- Five appearance styles — `scale`, `fade`, `blur`, `rise`, and `tilt`.
-- Fixed image budget (`maxImages`) with automatic recycling — no unbounded DOM growth.
-- Respects `prefers-reduced-motion` and only runs for a fine (mouse) pointer.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/image-trail`} />
 
-## Interactive content underneath
+## Basic usage
 
-The trail layer is `pointer-events: none`, so images can visually sit on top of buttons and links without ever intercepting clicks or hover. The effect also skips spawning while the cursor is over anything matching `ignoreSelector` (default `a, button, input, [data-image-trail-ignore]`), keeping interactive UI unobstructed. Sweep across the area below, then click the button or hover the link.
+<CodeBlockWrapper language="tsx" filename="gallery-trail.tsx" code={`import ImageTrail from "@/components/ui/image-trail/image-trail";
 
-## Variants
+export function GalleryTrail() {
+  return <ImageTrail images={["/one.jpg", "/two.jpg"]}>Explore</ImageTrail>;
+}`} />
 
-Each appearance style has its own enter/exit motion. Set it via the `variant` prop.
+## Examples
+
+Choose scale, fade, blur, rise, or tilt for the image treatment. Use maxImages and ignoreSelector to keep the effect bounded around interactive content.
+
+## Usage
+
+<ComponentUsage component="image-trail" />
+
+## API
+
+<PropTable component="image-trail" />
+
+## Accessibility
+
+The effect is decorative, ignores interactive elements, and runs only for a fine pointer. Reduced-motion preferences disable the trail.
+
+## Styling
+
+Use className to define the effect area and place meaningful content in the normal document flow.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

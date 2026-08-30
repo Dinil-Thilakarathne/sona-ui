@@ -2,17 +2,51 @@
 title: Magnetic Button
 slug: magnetic-button
 component: magnetic-button
-tags: ["UI", "button", "Component"]
+tags: ["UI", "Button", "Component"]
 ---
 
-The `MagneticButton` component is an interactive UI element that creates a magnetic effect, pulling the cursor towards the button when it is within a certain range. This component is highly customizable and provides a unique user experience.
+Use Magnetic Button for a playful pointer interaction around a focused call to action. The element shifts toward the pointer within the configured range, then returns to its resting position.
 
-## Features
+## Install
 
-- **Magnetic Effect**: Attracts the cursor when it is within a defined range.
-- **Customizable Intensity**: Adjust the magnetic pull strength.
-- **Flexible Interaction Area**: Choose between the component itself or its parent.
-- **Consistent wrapper API**: Use `className` for styling (`customClassName` remains supported).
-- **Smooth Animations**: Uses spring-based animations for smooth transitions.
-- **Lightweight**: Pointer tracking is scoped to the active interaction and cleaned up automatically.
-- **Reduced-motion safe**: Returns to its resting position when motion is reduced.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/magnetic-button`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="magnetic-action.tsx" code={`import Magnetic from "@/components/ui/magnetic-button/magnetic-button";
+
+export function MagneticAction() {
+  return (
+    <Magnetic>
+      <button type="button">Explore work</button>
+    </Magnetic>
+  );
+}`} />
+
+## Examples
+
+Adjust the range and intensity to keep the response subtle. Use the parent interaction area when the surrounding surface should control the effect.
+
+## Usage
+
+<ComponentUsage component="magnetic-button" />
+
+## API
+
+<PropTable component="magnetic-button" />
+
+## Accessibility
+
+Keep a real interactive element inside the wrapper and provide a clear action label. The pointer response is optional, so the content remains usable with keyboard input.
+
+## Styling
+
+Use className on the wrapper and style the child control for the visual treatment. Reduced-motion preferences keep the button at rest.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

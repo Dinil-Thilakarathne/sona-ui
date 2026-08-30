@@ -1,66 +1,28 @@
+import { allDocs, type Doc } from "content-collections";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const siteUrl = "https://sona-ui.vercel.app";
+  const staticPages: MetadataRoute.Sitemap = [
     {
-      url: "https://sona-ui.vercel.app",
-      lastModified: new Date(),
-      changeFrequency: "daily",
+      url: siteUrl,
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://sona-ui.vercel.app/docs/accordion",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/expandableTabs",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/linkPreview",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/magneticButton",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/rippleButton",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/spinningText",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/staggerText",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/animated-tabs",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
-    },
-    {
-      url: "https://sona-ui.vercel.app/docs/marquee",
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.8,
+      url: `${siteUrl}/components`,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
   ];
+
+  const docPages = allDocs
+    .filter((doc: Doc) => doc.slug !== "home")
+    .map((doc: Doc) => ({
+      url: `${siteUrl}/docs/${doc.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: doc.searchable ? 0.8 : 0.6,
+    }));
+
+  return [...staticPages, ...docPages];
 }

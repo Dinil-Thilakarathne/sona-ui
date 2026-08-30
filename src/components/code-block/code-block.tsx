@@ -296,7 +296,7 @@ function CodeBlockFilename({
 }: CodeBlockFilenameProps) {
   const defaultProps = {
     "data-slot": "code-block-filename",
-    className: cn("text-sm font-medium", className),
+    className: cn("text-xs", className),
     children,
   };
 

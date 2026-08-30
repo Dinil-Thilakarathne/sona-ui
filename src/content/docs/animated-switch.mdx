@@ -5,27 +5,79 @@ component: animated-switch
 tags: ["UI", "Switch", "Toggle", "Animation", "Component"]
 ---
 
-An interactive, iOS-style "squish" switch built on **Base UI** Switch primitives. Press feedback stretches the thumb toward its travel direction, then releases into a short spring transition.
+Use Animated Switch for a binary setting that changes immediately. It uses Base UI switch behavior with a brief thumb stretch on press and a short state transition on release.
 
-## Features
+## Install
 
-- **Purposeful Press Feedback** — The thumb subtly stretches on pointer-down and resets on release, cancellation, or lost capture.
-- **Responsive Motion** — Uses Sona's shared feedback spring, so its timing stays consistent with other interactive components.
-- **Standard Sizes** — Out-of-the-box support for `sm`, `md`, and `lg` sizes.
-- **Base UI Integration** — Fully keyboard-navigable and accessible with standard button attributes.
-- **RSC Safe** — Renders cleanly as a static element on the server and hydrates client-side animations.
-- **Reduced Motion** — Uses an immediate state change when the user requests less motion.
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/animated-switch`}
+/>
+
+## Basic usage
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="notifications-switch.tsx"
+  code={`import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
+
+export function NotificationsSwitch() {
+  return <AnimatedSwitch defaultChecked aria-label="Enable notifications" />;
+}`}
+/>
 
 ## Examples
 
-### Sizes
+### Controlled state
 
-Animated Switch supports three pre-configured sizes: `sm`, `md`, and `lg`.
+Use checked and onCheckedChange when the switch reflects application state.
 
-### Controlled State
+<CodeBlockWrapper
+  language="tsx"
+  filename="controlled-switch.tsx"
+  code={`"use client";
 
-Wire up the switch using the `checked` and `onCheckedChange` props to control it via external react state.
+import { useState } from "react";
+import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 
-### Disabled
+export function ControlledSwitch() {
+  const [checked, setChecked] = useState(false);
 
-Toggle the `disabled` prop to deactivate interaction while preserving styles.
+  return (
+    <AnimatedSwitch
+      checked={checked}
+      onCheckedChange={setChecked}
+      aria-label="Enable notifications"
+    />
+  );
+}`}
+/>
+
+### Size and availability
+
+Choose sm, md, or lg for the control size. Use disabled only when the setting cannot currently be changed.
+
+## Usage
+
+<ComponentUsage component="animated-switch" />
+
+## API
+
+<PropTable component="animated-switch" />
+
+## Accessibility
+
+Provide an accessible name with a visible label or aria-label. The switch supports keyboard interaction and exposes its checked state to assistive technology.
+
+## Styling
+
+Use the size and class name options to fit the control into a settings row or compact toolbar. Reduced-motion preferences remove the animated state change.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

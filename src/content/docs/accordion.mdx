@@ -5,13 +5,84 @@ component: accordion
 tags: ["UI", "Accordion", "Component"]
 ---
 
-The `Accordion` component is an accessible disclosure group built on Base UI. It supports controlled or uncontrolled state, single or multiple open items, and four existing visual variants.
+Use Accordion when a short list of related sections needs to expand in place. It supports one or many open items, controlled state, and four visual variants.
 
-## Features
+## Install
 
-- Base UI semantics and trigger/panel relationships.
-- Controlled and uncontrolled open values.
-- Single or multiple open items with `allowMultiple`.
-- Interruptible height and opacity transitions without manual measurement.
-- Reduced-motion handling for both panels and the plus/minus icon.
-- Four variants: `default`, `outlined`, `splitted`, and `animated`.
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/accordion`}
+/>
+
+## Basic usage
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="faq.tsx"
+  code={`import {
+  AccordionItem,
+  AccordionItemContent,
+  AccordionItemHeader,
+  AccordionItemTrigger,
+  AccordionRoot,
+} from "@/components/ui/accordion/accordion";
+
+export function Faq() {
+  return (
+    <AccordionRoot>
+      <AccordionItem value="shipping">
+        <AccordionItemTrigger>
+          <AccordionItemHeader>When will my order arrive?</AccordionItemHeader>
+        </AccordionItemTrigger>
+        <AccordionItemContent>
+          Orders usually arrive within three to five business days.
+        </AccordionItemContent>
+      </AccordionItem>
+    </AccordionRoot>
+  );
+}`}
+/>
+
+## Examples
+
+### Multiple open items
+
+Set allowMultiple when people should be able to compare more than one section at a time.
+
+<CodeBlockWrapper
+  language="tsx"
+  filename="multiple-items.tsx"
+  code={`<AccordionRoot allowMultiple>
+  <AccordionItem value="first">...</AccordionItem>
+  <AccordionItem value="second">...</AccordionItem>
+</AccordionRoot>`}
+/>
+
+### Variants
+
+Choose default, outlined, splitted, or animated to match the density and separation of the surrounding layout.
+
+## Usage
+
+<ComponentUsage component="accordion" />
+
+## API
+
+<PropTable component="accordion" />
+
+## Accessibility
+
+Accordion uses Base UI disclosure semantics with connected triggers and panels. Triggers can be reached by keyboard and expose their expanded state. Keep each trigger label specific enough to describe the panel it reveals.
+
+## Styling
+
+Use the root variant and class name options to adapt spacing and surfaces to the surrounding page. The panel transition respects reduced-motion preferences.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

@@ -5,15 +5,49 @@ component: section-rail
 tags: ["UI", "Navigation", "Scroll", "Component"]
 ---
 
-A compact navigation rail for long pages, case studies, and multi-step flows. Each section is a single line; the active line tracks how far you have read, and hovering or focusing a line reveals its label and an optional editorial context card.
+Use Section Rail to navigate a long page, case study, or multi-step flow. The active line reflects the section in view and can reveal labels or a context card for nearby sections.
 
-## Features
+## Install
 
-- Active section resolved with `IntersectionObserver`, with continuous scroll progress on the active line.
-- One shared motion value drives progress, so scrolling never animates every item.
-- Hover proximity widens the nearest lines, making 2px targets easy to hit.
-- Lines animate inside a fixed-width track, so the rail never reflows the page around it.
-- Optional context card with description and thumbnail, anchored to one shared edge and collision-aware at viewport edges.
-- Coarse pointers get labelled lines instead — never a hover-only affordance.
-- Real `<a href="#id">` anchors in scroll mode, buttons with `aria-current` when controlled.
-- Respects `prefers-reduced-motion` for both the rail and its scroll behavior.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/section-rail`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="article-rail.tsx" code={`import SectionRail from "@/components/ui/section-rail/section-rail";
+
+const sections = [
+  { id: "overview", label: "Overview" },
+  { id: "details", label: "Details" },
+];
+
+export function ArticleRail() {
+  return <SectionRail sections={sections} />;
+}`} />
+
+## Examples
+
+Use scroll mode for heading anchors in a document. Use controlled mode when the active section is managed outside the rail.
+
+## Usage
+
+<ComponentUsage component="section-rail" />
+
+## API
+
+<PropTable component="section-rail" />
+
+## Accessibility
+
+Scroll mode uses real anchor links, while controlled mode uses buttons with the current section exposed to assistive technology. Coarse pointers receive visible labels instead of hover-only targets.
+
+## Styling
+
+Use the context-card options for additional editorial detail. Reduced-motion preferences simplify the rail and scroll behavior.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

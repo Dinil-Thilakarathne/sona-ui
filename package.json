@@ -18,6 +18,7 @@
     "check:agent-resources": "bun scripts/validate-agent-resources.ts",
     "check:agent-skill": "bun scripts/validate-agent-skill.ts",
     "check:agent-contracts": "bun scripts/check-agent-contracts.ts",
+    "check:agent-readiness": "bun scripts/check-agent-readiness.ts",
     "check:registry-consumers": "bun run scripts/check-registry-consumers.ts",
     "check:registry-production": "bun run scripts/check-production-registry-install.ts",
     "check:a11y": "bun run scripts/check-accessibility.mjs",
@@ -46,6 +47,8 @@
     "@radix-ui/react-dialog": "^1.1.23",
     "@types/mdx": "^2.0.14",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "arktype": "^2.2.3",
     "caniuse-lite": "^1.0.30001809",
     "class-variance-authority": "^0.7.1",
@@ -72,7 +75,8 @@
     "sonner": "^2.0.8",
     "tailwind-merge": "^3.6.0",
     "torph": "^0.1.0",
-    "usehooks-ts": "^3.1.1"
+    "usehooks-ts": "^3.1.1",
+    "vgpu": "^0.3.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

@@ -5,12 +5,44 @@ component: hold-to-delete-button
 tags: ["UI", "Button", "Interaction", "Component"]
 ---
 
-A button that fills with a destructive color while held down, triggering the action only after the full hold duration completes. Releases cleanly if the user lets go early.
+Use Hold To Delete Button for a destructive action that needs a deliberate confirmation gesture. The destructive fill reaches completion only when the control is held for the configured duration.
 
-## Features
+## Install
 
-- CSS clip-path fill animation driven by hold duration — no jank.
-- Configurable hold and success display durations.
-- `onDelete` callback fires only on full completion.
-- Automatically resets after the success state.
-- Keyboard activation, pointer capture, disabled state, and reduced-motion support are built in.
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/hold-to-delete-button`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="delete-project.tsx" code={`import HoldToDeleteButton from "@/components/ui/hold-to-delete-button/hold-to-delete-button";
+
+export function DeleteProject() {
+  return <HoldToDeleteButton onDelete={() => console.log("Deleted")} />;
+}`} />
+
+## Examples
+
+Adjust the hold duration to reflect the impact of the action. Release before completion to cancel, and use disabled when deletion is unavailable.
+
+## Usage
+
+<ComponentUsage component="hold-to-delete-button" />
+
+## API
+
+<PropTable component="hold-to-delete-button" />
+
+## Accessibility
+
+The control supports pointer capture and keyboard activation. Make the destructive result clear in the visible label and surrounding explanation.
+
+## Styling
+
+Use the duration and class name options to match the context. Reduced-motion preferences retain the confirmation state without the animated fill.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

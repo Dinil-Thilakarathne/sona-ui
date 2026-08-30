@@ -1,16 +1,20 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "./theme-provider";
 
 export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [motionReady, setMotionReady] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const frame = window.requestAnimationFrame(() => setMotionReady(true));
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const isDark = mounted && resolvedTheme === "dark";
@@ -35,7 +39,10 @@ export function ModeToggle() {
         strokeWidth="2"
         aria-hidden="true"
         className={cn(
-          "size-4 transition-transform duration-300 motion-reduce:transition-none",
+          "size-4",
+          motionReady
+            ? "transition-transform duration-300 motion-reduce:transition-none"
+            : "transition-none",
           isDark ? "-rotate-45" : "rotate-[135deg]",
         )}
       >

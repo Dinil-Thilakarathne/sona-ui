@@ -27,13 +27,16 @@ html {
     --background: light-dark(oklch(0.98 0 0), oklch(14.5% 0 0));
     --foreground: light-dark(oklch(0.18 0 0), oklch(0.94 0 0));
 
-    --card: light-dark(oklch(0.9 0 0), oklch(0.31 0 0));
+    --card: light-dark(oklch(0.9 0 0), oklch(0.21 0 0));
     --card-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
     --popover: light-dark(oklch(1 0 0), oklch(0.21 0 0));
     --popover-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
-    /* Calm indigo brand accent */
-    --primary: light-dark(oklch(0.52 0.12 255), oklch(0.76 0.1 255));
-    --primary-foreground: light-dark(oklch(0.98 0 0), oklch(0.18 0.02 255));
+
+    --primary: light-dark(oklch(0.18 0 0), oklch(0.94 0 0));
+    --primary-foreground: light-dark(oklch(0.98 0 0), oklch(0.19 0 0));
+    /* Site-only brand accent. Registry components keep their own tokens. */
+    --site-brand: oklch(53% 0.261 267.7);
+    --site-brand-foreground: oklch(91.6% 0 0);
     --neutral: light-dark(oklch(0.22 0 0), oklch(0.95 0 0));
     --neutral-foreground: light-dark(oklch(0.98 0 0), oklch(0.13 0 0));
     --secondary: light-dark(oklch(0.95 0 0), oklch(0.28 0 0));
@@ -45,6 +48,12 @@ html {
     --border: light-dark(oklch(0 0 0 / 8%), oklch(1 0 0 / 10%));
     --input: light-dark(oklch(0.95 0 0), oklch(1 0 0 / 15%));
     --scrollbar: light-dark(oklch(0.87 0 0), oklch(0.7 0 0));
+
+    /* Docs Focus workspace surfaces */
+    --focus-canvas: var(--background);
+    --focus-panel: var(--card);
+    --focus-chrome: light-dark(oklch(0.97 0 0 / 0.92), oklch(0.235 0 0 / 0.92));
+    --focus-overlay: light-dark(oklch(1 0 0), oklch(0.24 0 0));
 
     /* Tab colors */
     --tabs-surface: light-dark(oklch(0.92 0 250), oklch(0.28 0 0));
@@ -119,6 +128,8 @@ html {
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-site-brand: var(--site-brand);
+    --color-site-brand-foreground: var(--site-brand-foreground);
     --color-neutral-foreground: var(--neutral-foreground);
     --color-neutral: var(--neutral);
     --color-popover-foreground: var(--popover-foreground);
@@ -126,6 +137,10 @@ html {
     --color-card-foreground: var(--card-foreground);
     --color-card: var(--card);
     --color-scrollbar: var(--scrollbar);
+    --color-focus-canvas: var(--focus-canvas);
+    --color-focus-panel: var(--focus-panel);
+    --color-focus-chrome: var(--focus-chrome);
+    --color-focus-overlay: var(--focus-overlay);
     --color-tabs-surface: var(--tabs-surface);
     --color-tabs-indicator: var(--tabs-indicator);
     --color-tabs-indicator-border: var(--tabs-indicator-border);
@@ -192,12 +207,12 @@ html {
     .bg-gradient {
         background: linear-gradient(
             -290deg,
-            #00a6f4,
-            #30b1ed 10%,
+            color-mix(in oklab, var(--site-brand) 82%, transparent),
+            color-mix(in oklab, var(--site-brand) 58%, transparent) 10%,
             transparent 25%,
             transparent 50%,
-            #00a6f4 105%,
-            #00a6f4 50%
+            color-mix(in oklab, var(--site-brand) 82%, transparent) 105%,
+            color-mix(in oklab, var(--site-brand) 82%, transparent) 50%
         );
         background-size: 150% 150%;
         animation: gradientShift 14s ease-in-out infinite;
@@ -215,6 +230,98 @@ html {
 }
 
 @layer components {
+    .fire-frame {
+        position: absolute;
+        inset: auto 0 0;
+        height: min(28rem, 70vw);
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(
+            ellipse at 50% 100%,
+            color-mix(in oklab, var(--site-brand) 16%, transparent),
+            transparent 68%
+        );
+        mask-image: linear-gradient(to top, black, transparent 92%);
+    }
+
+    .fire-frame__glow,
+    .fire-frame__flame,
+    .fire-frame__edge {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 100%;
+    }
+
+    .fire-frame__glow {
+        background: radial-gradient(
+            ellipse at 50% 100%,
+            color-mix(in oklab, var(--site-brand) 28%, transparent),
+            transparent 62%
+        );
+        filter: blur(2rem);
+    }
+
+    .fire-frame__flame {
+        bottom: -35%;
+        background: linear-gradient(
+            180deg,
+            transparent 20%,
+            color-mix(in oklab, var(--site-brand) 12%, transparent) 54%,
+            color-mix(in oklab, var(--site-brand) 30%, transparent)
+        );
+        filter: blur(1.5rem);
+        clip-path: polygon(
+            0 100%,
+            0 58%,
+            12% 63%,
+            24% 38%,
+            37% 58%,
+            52% 25%,
+            67% 55%,
+            79% 35%,
+            91% 60%,
+            100% 48%,
+            100% 100%
+        );
+        animation: fire-frame-drift 9s ease-in-out infinite alternate;
+    }
+
+    .fire-frame__flame--two {
+        opacity: 0.55;
+        transform: scaleX(-1) translateY(8%);
+        animation-duration: 12s;
+        animation-delay: -3s;
+    }
+
+    .fire-frame__edge {
+        inset: auto 0 0;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            color-mix(in oklab, var(--site-brand) 40%, transparent),
+            transparent
+        );
+        box-shadow: 0 -1rem 3rem
+            color-mix(in oklab, var(--site-brand) 18%, transparent);
+    }
+
+    @keyframes fire-frame-drift {
+        from {
+            transform: translateX(-2%) scaleY(0.9);
+        }
+        to {
+            transform: translateX(2%) scaleY(1.08);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .fire-frame__flame {
+            animation: none;
+        }
+    }
+
     code:not(:has(span)) {
         background-color: var(--secondary);
         padding: 2px;
@@ -290,6 +397,7 @@ html {
     & .docs-heading-h2 {
         margin-block: var(--docs-h2-space-before) var(--docs-h2-space-after);
         font-size: var(--docs-h2-size);
+        font-weight: 600;
     }
 
     & .docs-heading-h3 {
@@ -336,17 +444,14 @@ html {
 
     & .docs-list {
         margin-block: var(--docs-flow);
-        padding-inline-start: var(--docs-list-indent);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
-    & .docs-list-unordered {
-        list-style-type: disc;
+    & .docs-list-item {
+        line-height: 1.1;
     }
-
-    & .docs-list-ordered {
-        list-style-type: decimal;
-    }
-
     & .docs-list-item + .docs-list-item {
         margin-block-start: var(--docs-list-item-gap);
     }
@@ -420,8 +525,72 @@ html {
         background: var(--docs-inline-code-surface);
         border: 1px solid var(--docs-rule);
         border-radius: var(--docs-radius);
-        padding: 0.225rem 0.375rem;
+        padding: 0.125rem 0.275rem;
         font-family: var(--font-geist-mono), monospace;
         font-size: 0.675em;
+        margin-bottom: 0.25rem;
+        display: inline-block;
     }
+}
+
+[data-context="component-article"].docs-focus-prose {
+    --_fs: 0.875rem;
+    --docs-body-size: var(--_fs);
+    --docs-body-leading: 1.6;
+    --docs-h1-size: var(--_fs);
+    --docs-h2-size: var(--_fs);
+    --docs-h3-size: var(--_fs);
+    --docs-h4-size: var(--_fs);
+    --docs-lead-size: var(--_fs);
+    --docs-heading-leading: 1.6;
+    --docs-heading-tracking: 0;
+
+    & .docs-heading {
+        font-weight: 400;
+    }
+
+    & .docs-link {
+        font-weight: 400;
+    }
+
+    & strong {
+        font-weight: 400;
+    }
+}
+
+[data-context="component-article"].docs-guide-prose {
+    --_fs: 0.875rem;
+    --docs-body-size: var(--_fs);
+    --docs-body-leading: 1.6;
+    --docs-h1-size: 1.25rem;
+    --docs-h2-size: var(--_fs);
+    --docs-h3-size: var(--_fs);
+    --docs-h4-size: var(--_fs);
+    --docs-lead-size: var(--_fs);
+    --docs-heading-leading: 1.6;
+    --docs-heading-tracking: 0;
+
+    & .docs-heading,
+    & .docs-link,
+    & strong,
+    & .docs-table-heading {
+        font-weight: 400;
+    }
+
+    & .docs-heading-h1 {
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+    }
+
+    & .docs-list-item {
+        line-height: 1.6;
+    }
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-size: 0.775rem;
 }

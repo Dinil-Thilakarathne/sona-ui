@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import FeaturedBar from "@/components/common/featured-bar";
@@ -12,6 +14,24 @@ import { clashDisplay, HelveticaNeue } from "@/fonts";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { PostHogProvider } from "./providers";
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: siteMetaData.title,
+  description: siteMetaData.description,
+  url: "https://sona-ui.vercel.app",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Web",
+  author: {
+    "@type": "Person",
+    name: "Dinil Thilakarathne",
+    url: "https://github.com/Dinil-Thilakarathne",
+  },
+};
+const structuredDataJson = JSON.stringify(structuredData).replace(
+  /</g,
+  "\\u003c",
+);
 export const metadata: Metadata = siteMetaData;
 
 const geistSans = Geist({
@@ -34,6 +54,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script type="application/ld+json">{structuredDataJson}</script>
+      </head>
       <body
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased relative`}
       >
@@ -43,7 +66,6 @@ export default function RootLayout({
             <Header />
             {children}
             <Toaster position="bottom-right" richColors />
-            <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0 select-none z-0"></div>
             <GuideframeGrid
               panel={true}
               rulers={true}
@@ -53,6 +75,8 @@ export default function RootLayout({
               gutter={8}
               defaultVisible={false}
             />
+            <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
         </PostHogProvider>
       </body>

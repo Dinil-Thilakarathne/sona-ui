@@ -7,27 +7,15 @@ searchable: true
 
 # Skills
 
-The Sona UI skill teaches a coding agent how to use the library with judgment. It does not copy component source into prompts; it points the agent to the registry and agent-readable component resources.
+The Sona UI skill helps coding agents choose, install, and validate components with context. It directs the agent to the registry and focused resources instead of copying component source into a prompt.
 
-## What the skill adds
+## Install
 
-- Intent-based component selection.
-- Consumer-project inspection before editing.
-- Registry-first installation.
-- Accessibility and reduced-motion expectations.
-- Sona's restrained motion and semantic token principles.
-- Clean-consumer validation and failure classification.
+Initialize shadcn if the project does not already include a components configuration file.
 
-## Install from the registry
+<CodeBlockWrapper code="bunx shadcn@latest init" language="bash" />
 
-Initialize shadcn when the project does not already have `components.json`:
-
-<CodeBlockWrapper
-  code="bunx shadcn@latest init"
-  language="bash"
-/>
-
-Add the Sona UI registry to `components.json`:
+Add the Sona UI registry to the components configuration file.
 
 <CodeBlockWrapper
   code={`{
@@ -36,48 +24,64 @@ Add the Sona UI registry to `components.json`:
   }
 }`}
   language="json"
+  filename="components.json"
 />
 
-Then install the skill into `.agents/skills/sona-ui/`:
+Install the skill into the shared agent-skills directory.
 
 <CodeBlockWrapper
   code="bunx shadcn@latest add @sona-ui/agent-skill"
   language="bash"
 />
 
-The item contains the skill entry point and focused references for selection, consumer validation, design principles, and provider setup. It does not require a custom Sona MCP server.
+## What the skill provides
 
-## Client support
+- Component selection based on intent and interaction requirements.
+- Consumer-project inspection before an agent edits files.
+- Registry-first installation and dependency checks.
+- Accessibility and reduced-motion expectations.
+- Sona UI motion and semantic-token guidance.
+- Clear validation results and failure classification.
 
-The skill uses the open `SKILL.md` package structure. Automatic discovery of the shared `.agents/skills` directory depends on the agent client and its configuration. Codex, Claude Code, and Cursor have configuration fixtures in this repository; live client discovery and installation remain separate release checks.
+## Use the skill
 
-## Verify the skill
-
-Ask your agent:
+Ask an agent to consider the interaction first, then explain its choice before installation.
 
 <CodeBlockWrapper
-  code={`Find a Sona UI component for switching between related settings. 
-  Explain the selection, accessibility behavior, reduced-motion behavior, and dependencies before installing anything.`}
-  language="bash"
+  code={`Find a Sona UI component for switching between related settings.
+Explain the selection, accessibility behavior, reduced-motion behavior, and dependencies before installing anything.`}
+  language="text"
 />
 
-The agent should inspect the consumer project and Sona catalog, recommend a relevant component, explain the decision, and wait because the prompt explicitly says not to install.
+The agent should inspect the consumer project and the Sona catalog, recommend a component, explain the trade-offs, and wait because the request explicitly says not to install.
 
-## Skill boundary
+## Validate an installation
 
-The skill is procedural guidance. The registry is the installation authority. Component details and source remain versioned in the registry and documentation resources, so the skill can stay concise and avoid stale copies of implementation code.
-
-## Validation workflow
-
-After installation, ask the agent to record a pass, failure, or not-run status for every applicable check:
+After installation, the agent should record a pass, failure, or not-run result for each relevant check.
 
 1. Confirm registry dependencies and foundation files resolve.
-2. Run the consumer's typecheck or build command.
+2. Run the consumer typecheck or build command.
 3. Exercise the primary keyboard interaction.
 4. Check narrow and wide layouts.
 5. Check light and dark themes when supported.
 6. Check reduced-motion behavior.
 
-If installation fails, the agent should classify the issue as consumer configuration, registry metadata, generated payload, agent resource, MCP/client, or deployment before changing source.
+Static checks confirm source health, but they do not prove interaction or visual quality.
 
-Static checks do not prove interaction or rendered visual quality. Keep typecheck/build results separate from keyboard, reduced-motion, responsive, theme, and browser-review results.
+## Client support
+
+The skill uses the open SKILL.md package structure. Discovery of the shared agent-skills directory depends on the coding client and its configuration. Codex, Claude Code, and Cursor each have configuration fixtures in this repository.
+
+## Troubleshooting
+
+When installation fails, identify the boundary before changing source. The issue may be consumer configuration, registry metadata, generated payloads, agent resources, client configuration, or deployment availability.
+
+If a client does not detect the skill, confirm that it was installed to the directory expected by that client, then restart or reload the client.
+
+## Contact
+
+Found a bug or need help using this skill? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this skill in personal and commercial projects.

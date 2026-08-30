@@ -7,11 +7,9 @@ searchable: true
 
 # AI agents
 
-Ask your coding agent to discover, inspect, and install Sona UI components directly in your project.
+Use Sona UI with coding agents that can inspect a project, select a suitable component, and install its source through the registry. The agent should adapt the component to the project rather than treating it as an isolated snippet.
 
-Sona UI is designed for source-owned installation. Your agent can use the registry to bring the component into your codebase, then adapt it to your existing tokens and layout.
-
-## How the pieces fit
+## How it works
 
 <AgentTable
   rows={[
@@ -38,51 +36,17 @@ Sona UI is designed for source-owned installation. Your agent can use the regist
   ]}
 />
 
-The registry namespace is:
+## Recommended workflow
 
-<CodeBlockWrapper code="@sona-ui" language="text" />
+1. Connect the registry to the project where the agent will work.
+2. Install the Sona UI skill.
+3. Describe the interaction you need, not just a component name.
+4. Review the agent's selection and explanation.
+5. Install the component and validate the consumer project.
 
-## Recommended path
+## Configure the registry
 
-1. [Connect your agent](/docs/ai-agents#connect-your-agent).
-2. [Install the Sona UI skill](/docs/skills).
-3. Ask the agent to find a component by the interaction you need.
-4. Review its detail resource before installation.
-5. Install it through the registry and validate the consumer project.
-
-## Example requests
-
-<CodeBlockWrapper
-  code="Find an accessible tab component for switching between related settings. Do not install anything yet."
-  language="text"
-/>
-
-<CodeBlockWrapper
-  code="Inspect @sona-ui/animated-dialog, explain its accessibility and motion behavior, then install it without changing the existing page layout."
-  language="text"
-/>
-
-<CodeBlockWrapper
-  code="Find a decorative animated background for a hero section. Check contrast, WebGL support, and reduced motion before recommending an item."
-  language="text"
-/>
-
-## Direct resources
-
-- [Agent catalog](/agent/catalog.json)
-- [Full agent guidance](/llms-full.txt)
-- [Registry index](/r/registry.json)
-- [Raw Markdown documentation](/docs/installation/raw.md)
-
-The official shadcn MCP server is the supported MCP path. Sona UI does not require a custom MCP server for registry discovery or installation.
-
-## Connect your agent
-
-Configure the Sona UI registry in the project where your agent will work. Then connect the official shadcn MCP server for natural-language discovery and installation.
-
-Add this entry to the components configuration file:
-
-<CodeBlockWrapper code="components.json" language="text" />
+Add the Sona UI registry to the components configuration file.
 
 <CodeBlockWrapper
   code={`{
@@ -96,7 +60,9 @@ Add this entry to the components configuration file:
   filename="components.json"
 />
 
-### MCP configuration
+## Connect MCP
+
+The official shadcn MCP server is the supported path for natural-language registry discovery and installation. Sona UI does not require a custom MCP server.
 
 <NewTabs defaultValue="codex">
   <TabsList>
@@ -143,33 +109,39 @@ args = ["shadcn@latest", "mcp"]`}
   </TabsContent>
 </NewTabs>
 
-### Verify the connection
+## Ask for a component
 
-Ask your agent:
+Use a request that states the interaction, expected behavior, and any constraints.
 
 <CodeBlockWrapper
-  code="List the components available from the Sona UI registry and identify the best option for switching between related settings. Do not install anything yet."
+  code="Find an accessible tab component for switching between related settings. Do not install anything yet."
   language="text"
 />
 
-The agent should identify this component:
+<CodeBlockWrapper
+  code="Inspect @sona-ui/animated-dialog, explain its accessibility and motion behavior, then install it without changing the existing page layout."
+  language="text"
+/>
 
-<CodeBlockWrapper code="fluid-tabs" language="text" />
+## Verify the connection
 
-Explain why it fits and link to its documentation or registry item.
+Ask the agent to list the components available from the Sona UI registry and recommend the best choice for switching between related settings. It should explain the choice and link to the relevant documentation or registry item before it installs anything.
 
-### Troubleshooting
+## Troubleshooting
 
-If the registry is not found, check that the components configuration contains the Sona namespace and the item URL placeholder shown below. If MCP is not connected, check the client configuration, restart the client, and verify that the official shadcn MCP server appears as connected.
+If the registry is unavailable, confirm the components configuration, item URL placeholder, client configuration, and network access. When installation fails, first identify whether the issue belongs to consumer configuration, the registry payload, agent resources, or deployment.
 
-<CodeBlockWrapper code="{name}" language="text" />
+## Resources
 
-When installation fails, classify the boundary first:
+- [Agent catalog](/agent/catalog.json)
+- [Full agent guidance](/llms-full.txt)
+- [Registry index](/r/registry.json)
+- [Raw Markdown documentation](/docs/installation/raw.md)
 
-- **Consumer configuration:** aliases, CSS entry point, framework version, or permissions.
-- **Registry payload:** missing file, dependency, target, or foundation.
-- **Deployment:** a public registry or documentation URL is unreachable.
+## Contact
 
-If the skill is not detected, confirm it was installed to the directory expected by the client, then restart or reload the client. For local registry testing, use:
+Found a bug or need help using Sona UI with an agent? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
 
-<CodeBlockWrapper code="REGISTRY_BASE_URL" language="text" />
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute components in personal and commercial projects.
