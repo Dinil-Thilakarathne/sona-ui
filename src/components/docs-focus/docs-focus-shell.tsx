@@ -1081,7 +1081,7 @@ function ComponentPage({
               }}
               aria-hidden={!documentOpen}
               inert={!documentOpen}
-              className="relative h-full w-[clamp(20rem,34vw,28rem)] overflow-hidden  will-change-transform"
+              className="relative h-full w-[clamp(20rem,34vw,28rem)] overflow-hidden rounded-[22px]    will-change-transform"
             >
               <DescriptionPanel
                 doc={doc}
@@ -1098,7 +1098,7 @@ function ComponentPage({
                 }}
                 aria-hidden={!toolDrawer}
                 inert={!toolDrawer}
-                className="absolute inset-0 z-10 overflow-y-auto bg-focus-overlay smooth-shadow-ring-md border"
+                className="absolute inset-0 z-10 overflow-y-auto bg-focus-overlay smooth-shadow-ring-md rounded-[22px]"
               >
                 {toolPanelContent}
               </motion.div>
