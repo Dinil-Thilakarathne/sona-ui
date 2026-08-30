@@ -1,3 +1,10 @@
+## [2.19.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.2...v2.19.3) (2026-08-30)
+
+
+### Bug Fixes
+
+* preview container height in docs shell ([a1edf1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a1edf1f790dd507a21a90d667a5b58cad1ca78a0))
+
 ## [2.19.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.1...v2.19.2) (2026-08-30)
 
 
