@@ -1,3 +1,22 @@
+# [2.19.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.18.0...v2.19.0) (2026-08-30)
+
+
+### Bug Fixes
+
+* Add border radius to docs focus panels ([4885b90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4885b9001f4ba59297b06abf954c3d9a8dd7ad5d))
+* Add data-component-preview attribute to preview container ([9bf9051](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bf9051801f98570c5499320a0c7f5bfe8c0580e))
+* Increase font size for sidebar navigation items ([2a80485](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2a80485d1963d2947789c7639fbbf25ab2eefd8d))
+
+
+### Features
+
+* Add component showcase page ([b6012be](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b6012bebdec0080ca71c34d1f6e637ac2c680a38))
+* Add LandingFooter to components page ([6e9c264](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6e9c264df1125efc6a099772f7ce77e365d57b23))
+* Add smooth-shadow-ring utility and component documentation shell ([da82f5c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/da82f5c2482ceaf7c22f2c6231266b494325eaa5))
+* Refactor docs and site infrastructure ([fdddacc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fdddacc397f9a03cee92ffc1af05af4ed9f59e3a))
+* Refactor landing page and update dependencies ([44cbd14](https://github.com/Dinil-Thilakarathne/sona-ui/commit/44cbd146f0b2a5f05e8962abecc9b1a6388a9def))
+* Refine theme colors and UI component styles ([3c97c76](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3c97c76bc6d71642cabba77f12769e6814da5aca))
+
 # [2.18.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.17.0...v2.18.0) (2026-08-02)
 
 
