@@ -14,6 +14,7 @@ import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useId, useMemo, useState } from "react";
+import { FaGithub } from "react-icons/fa";
 import {
   Drawer,
   DrawerContent,
@@ -40,6 +41,7 @@ import { YarnIcon } from "@/components/svgs/yarn-logo";
 import { groupedComponents } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { GIT_REP_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { exampleRegistry } from "@/registry/index";
 import { type Control, playgroundRegistry } from "@/registry/playground";
@@ -501,7 +503,10 @@ function GuidePage({
             <div className="mx-auto max-w-[82ch]">
               <Mdx
                 code={doc.body.code}
-                className="docs-guide-prose"
+                className={cn(
+                  "docs-guide-prose",
+                  doc.slug === "changelog" && "docs-changelog-prose",
+                )}
                 headerActions={copyActions}
                 sourceFiles={doc.sourceFiles}
               />
@@ -983,6 +988,17 @@ function ComponentPage({
           </FocusActionTooltip>
           <FocusActionTooltip id="focus-search" label="Search">
             <Search compact />
+          </FocusActionTooltip>
+          <FocusActionTooltip id="focus-github" label="View on GitHub">
+            <a
+              href={GIT_REP_LINK}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View Sona UI on GitHub"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <FaGithub className="size-4" aria-hidden="true" />
+            </a>
           </FocusActionTooltip>
           <FocusActionTooltip id="focus-description" label="Description">
             <IconButton

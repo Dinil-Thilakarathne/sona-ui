@@ -1,6 +1,7 @@
 import { useMDXComponent } from "@content-collections/mdx/react";
 import Image from "next/image";
 import Link from "next/link";
+import { Children } from "react";
 import {
   CodeBlock,
   CodeBlockCode,
@@ -34,6 +35,69 @@ function getHeadingId(children: React.ReactNode) {
     .replace(/[^a-z0-9\s-]/g, "")
     .trim()
     .replace(/\s+/g, "-");
+}
+
+function ChangelogReleaseHeading({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  const releaseDate = Children.toArray(children)
+    .filter((child): child is string => typeof child === "string")
+    .map((child) => child.match(/\((\d{4}-\d{2}-\d{2})\)/)?.[1])
+    .find(Boolean);
+
+  return (
+    <h2
+      data-doc-heading
+      className={cn(
+        "docs-heading docs-heading-h2 changelog-release",
+        className,
+      )}
+      {...props}
+    >
+      <span className="changelog-release-version">
+        {Children.map(children, (child) =>
+          typeof child === "string"
+            ? child.replace(/\s*\(\d{4}-\d{2}-\d{2}\)/, "")
+            : child,
+        )}
+      </span>
+      {releaseDate && (
+        <time className="changelog-release-date" dateTime={releaseDate}>
+          {releaseDate}
+        </time>
+      )}
+    </h2>
+  );
+}
+
+function ChangelogHeading({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLHeadingElement>) {
+  const isRelease = Children.toArray(children).some(
+    (child) => typeof child === "string" && /\(\d{4}-\d{2}-\d{2}\)/.test(child),
+  );
+
+  if (isRelease) {
+    return (
+      <ChangelogReleaseHeading className={className} {...props}>
+        {children}
+      </ChangelogReleaseHeading>
+    );
+  }
+
+  return (
+    <h1
+      data-doc-heading
+      className={cn("docs-heading docs-heading-h1", className)}
+      {...props}
+    >
+      {children}
+    </h1>
+  );
 }
 
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -141,7 +205,7 @@ const components = {
   }: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
     <blockquote className={cn("docs-blockquote", className)} {...props} />
   ),
-  Divider: () => <div className="docs-divider" />,
+  Divider: () => <div className="docs-divider h-0!" />,
   CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,
@@ -181,8 +245,12 @@ export function Mdx({
   sourceFiles,
 }: MDXProps) {
   const Component = useMDXComponent(code);
+  const isChangelog = className?.includes("docs-changelog-prose");
   const mdxComponents = {
     ...components,
+    ...(isChangelog
+      ? { h1: ChangelogHeading, h2: ChangelogReleaseHeading }
+      : {}),
     SourceCode: ({
       source,
       filename,
@@ -205,22 +273,49 @@ export function Mdx({
       ? {
           h1: ({
             className: headingClassName,
-            ...props
-          }: React.HTMLAttributes<HTMLHeadingElement>) => (
-            <>
-              <h1
-                data-doc-heading
-                className={cn("docs-heading docs-heading-h1", headingClassName)}
-                {...props}
-              />
-              <div className="flex flex-col gap-4 md:pt-4 mobile:mb-2 lg:absolute lg:top-0 lg:right-0 lg:block lg:pt-0">
-                {headerActions}
-                {mobileHeaderContent && (
-                  <div className="lg:hidden">{mobileHeaderContent}</div>
-                )}
-              </div>
-            </>
-          ),
+            children,
+            ...headingProps
+          }: React.HTMLAttributes<HTMLHeadingElement>) => {
+            const isRelease =
+              isChangelog &&
+              Children.toArray(children).some(
+                (child) =>
+                  typeof child === "string" &&
+                  /\(\d{4}-\d{2}-\d{2}\)/.test(child),
+              );
+
+            if (isRelease) {
+              return (
+                <ChangelogReleaseHeading
+                  className={headingClassName}
+                  {...headingProps}
+                >
+                  {children}
+                </ChangelogReleaseHeading>
+              );
+            }
+
+            return (
+              <>
+                <h1
+                  data-doc-heading
+                  className={cn(
+                    "docs-heading docs-heading-h1",
+                    headingClassName,
+                  )}
+                  {...headingProps}
+                >
+                  {children}
+                </h1>
+                <div className="flex flex-col gap-4 md:pt-4 mobile:mb-2 lg:absolute lg:top-0 lg:right-0 lg:block lg:pt-0">
+                  {headerActions}
+                  {mobileHeaderContent && (
+                    <div className="lg:hidden">{mobileHeaderContent}</div>
+                  )}
+                </div>
+              </>
+            );
+          },
         }
       : {}),
   };
