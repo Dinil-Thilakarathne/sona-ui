@@ -27,7 +27,7 @@ const Header = () => {
             <Logo />
           </Link>
           <div className="mx-1 hidden h-5 w-px bg-border lg:block" />
-          <nav className="hidden items-center gap-5 pr-3 lg:flex">
+          <nav className="hidden items-center gap-5 px-3 lg:flex">
             {navLinks.map((link, i) => (
               <FadeInComp
                 key={link.name}
