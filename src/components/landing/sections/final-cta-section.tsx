@@ -18,7 +18,7 @@ export function FinalCtaSection() {
       </h2>
       <div className="mt-8 flex flex-wrap justify-center gap-2.5">
         <LandingButtonLink
-          href="/docs"
+          href="/components"
           className="rounded-full bg-primary pr-4 pl-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 active:bg-primary/80"
         >
           Browse components <ArrowRight className="size-4" aria-hidden="true" />
