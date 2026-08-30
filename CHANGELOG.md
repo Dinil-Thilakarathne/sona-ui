@@ -1,3 +1,10 @@
+## [2.19.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.1...v2.19.2) (2026-08-30)
+
+
+### Bug Fixes
+
+* Update CTA link to point to components page ([46d9985](https://github.com/Dinil-Thilakarathne/sona-ui/commit/46d9985ea5233b9bd299fa9fa3bade7776878f3a))
+
 ## [2.19.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.0...v2.19.1) (2026-08-30)
 
 
