@@ -171,7 +171,7 @@ function DocsNavigation({
                           }
                           onClick={() => onOpenChange(false)}
                           className={cn(
-                            "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-xs text-muted-foreground transition-colors hover:text-foreground before:absolute before:top-1/2 before:left-0 before:h-4 before:w-px before:-translate-y-1/2 before:rounded-full before:bg-primary before:opacity-0 before:transition-opacity",
+                            "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-sm text-muted-foreground transition-colors hover:text-foreground before:absolute before:top-1/2 before:left-0 before:h-4 before:w-px before:-translate-y-1/2 before:rounded-full before:bg-primary before:opacity-0 before:transition-opacity",
                             pathname === item.href &&
                               "font-medium text-foreground before:opacity-100",
                           )}
