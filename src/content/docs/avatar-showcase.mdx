@@ -1,39 +1,57 @@
 ---
 title: Avatar Showcase
 slug: avatar-showcase
+component: avatar-showcase
 tags: ["UI", "Avatar", "Community", "Motion"]
 ---
 
-# Avatar Showcase Component
+Use Avatar Showcase to present an ordered group of people with a moving avatar strip. It accepts a recent subset and a total count, so the visual can represent a larger community without loading every profile.
 
-A recording-friendly avatar strip that adapts its pacing to the size of a community without coupling presentation to a data provider.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/avatar-showcase`} />
 
-- Presents ordered avatars in one, two, or three staggered lanes.
-- Uses a bounded duration and deterministic sampling for large collections.
-- Accepts a total count when only a recent subset is available.
-- Reveals the final count with an optional custom message.
-- Falls back to a static, readable avatar group when reduced motion is preferred.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper
+  language="tsx"
+  filename="community.tsx"
+  code={`import AvatarShowcase from "@/components/ui/avatar-showcase/avatar-showcase";
 
-<ComponentPreview component="avatar-showcase" name="default" />
+const people = [
+  { name: "Maya Chen", imageUrl: "/maya.jpg" },
+  { name: "Noah Patel", imageUrl: "/noah.jpg" },
+];
 
-## Playground
+export function Community() {
+  return <AvatarShowcase items={people} totalCount={1240} />;
+}`}
+/>
 
-Adjust the lane count, community size, message, and avatar size.
+## Examples
 
-<ComponentPlayground component="avatar-showcase" />
-
-## Installation
-
-<ComponentInstallation component="avatar-showcase" />
+Use lanes to adjust the density, and pass a totalCount when the displayed people are only a recent sample.
 
 ## Usage
 
 <ComponentUsage component="avatar-showcase" />
 
-## Props
+## API
 
 <PropTable component="avatar-showcase" />
+
+## Accessibility
+
+Provide names for people whenever they are available. Reduced-motion preferences show a static, readable avatar group.
+
+## Styling
+
+Use className and the component options to fit the strip into a community, activity, or social-proof section.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

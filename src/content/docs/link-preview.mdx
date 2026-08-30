@@ -1,30 +1,48 @@
 ---
 title: Link Preview
 slug: link-preview
-tags: ["UI", "link", "Component"]
+component: link-preview
+tags: ["UI", "Link", "Component"]
 ---
 
-# Link Preview Component
+Use Link Preview when a link needs a little extra context before someone leaves the current page. The preview appears on hover or focus without changing the destination of the link.
 
-The `LinkPreview` component is an interactive UI element that displays a preview of a link when hovered over. It enhances user experience by providing additional context about the link.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/link-preview`} />
 
-- **Hover Preview**: Displays a preview of the link when hovered.
-- **Customizable Icon**: Optionally show an icon next to the link text.
-- **Interactive Design**: Smooth animations and responsive behavior.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="preview-link.tsx" code={`import LinkPreview from "@/components/ui/link-preview/link-preview";
 
-<ComponentPreview component="link-preview" name="default" />
+export function PreviewLink() {
+  return <LinkPreview href="https://example.com">Read the reference</LinkPreview>;
+}`} />
 
+## Examples
 
-## Installation
-<ComponentInstallation component="link-preview" />
+Add an icon when it helps identify the destination. Keep the preview brief and ensure the link label still makes sense without it.
 
 ## Usage
+
 <ComponentUsage component="link-preview" />
 
-## Props
+## API
 
 <PropTable component="link-preview" />
+
+## Accessibility
+
+The original link remains the primary control. Ensure its visible text describes the destination on its own.
+
+## Styling
+
+Use className and the preview options to match the surrounding text and link treatment.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

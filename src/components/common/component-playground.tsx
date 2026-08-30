@@ -118,7 +118,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
       </ComponentWrapper>
 
       {controlsOpen && (
-        <fieldset className="flex flex-col gap-5 rounded-xl border bg-secondary p-4 shadow-sm">
+        <fieldset className="flex flex-col gap-5 rounded-xl bg-secondary p-4 smooth-shadow-ring-sm">
           <legend className="sr-only">Controls</legend>
           <div className="flex items-center justify-between">
             <span className="font-semibold text-foreground text-sm">
@@ -219,7 +219,7 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
           <Slider.Control className="flex items-center h-5 w-full">
             <Slider.Track className="relative h-1.5 w-full bg-accent rounded-full">
               <Slider.Indicator className="bg-foreground rounded-full" />
-              <Slider.Thumb className="size-4 bg-background border-2 border-foreground outline-none rounded-full shadow-sm" />
+              <Slider.Thumb className="size-4 bg-background outline-none rounded-full smooth-shadow-ring-sm" />
             </Slider.Track>
           </Slider.Control>
         </Slider.Root>

@@ -69,7 +69,7 @@ export default function RippleButton({
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-4 py-2 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
+        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
         className,
       )}
       disabled={disabled}

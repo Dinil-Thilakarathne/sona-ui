@@ -279,7 +279,7 @@ function TokenRow({
     <div className="grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-3 border-b border-border py-3 last:border-b-0">
       {token.kind === "color" ? (
         <div
-          className="size-10 rounded-md border border-black/10 shadow-xs dark:border-white/10"
+          className="size-10 rounded-md smooth-shadow-ring-xs"
           style={{
             backgroundColor: `var(${cssVariable(token.aliasOf ?? token.name)})`,
           }}
@@ -317,7 +317,7 @@ function TokenGroupPanel({
   previewIndex?: 0 | 1;
 }) {
   return (
-    <section className="rounded-xl border border-border bg-card p-4 text-card-foreground shadow-xs">
+    <section className="rounded-xl bg-card p-4 text-card-foreground smooth-shadow-ring-xs">
       <h3 className="text-sm font-semibold tracking-tight">{group.name}</h3>
       <p className="mt-1 text-xs leading-5 text-muted-foreground">
         {group.description}
@@ -348,7 +348,7 @@ function ThemeColumn({ theme }: { theme: "light" | "dark" }) {
     <div
       data-theme={theme}
       style={localThemeValues}
-      className="rounded-2xl border border-border bg-background p-4 text-foreground shadow-sm sm:p-5"
+      className="rounded-2xl bg-background p-4 text-foreground smooth-shadow-ring-sm sm:p-5"
     >
       <div className="mb-5 flex items-center gap-2">
         <span className="size-2 rounded-full bg-primary" aria-hidden="true" />
@@ -407,7 +407,7 @@ export function DesignTokenReference() {
             sizes.
           </p>
         </div>
-        <div className="rounded-xl border border-border bg-card p-5 text-card-foreground shadow-xs sm:p-7">
+        <div className="rounded-xl bg-card p-5 text-card-foreground smooth-shadow-ring-xs sm:p-7">
           <p className="text-[0.525rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
             --text-tiny · 0.525rem
           </p>

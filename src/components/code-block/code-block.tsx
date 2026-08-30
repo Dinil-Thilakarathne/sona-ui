@@ -18,7 +18,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import type { BundledLanguage } from "shiki/langs";
+import type { BundledLanguage } from "shiki";
 import {
   type FadeEdges,
   ScrollArea,
@@ -239,7 +239,7 @@ function CodeBlockHeader({
   const defaultProps = {
     "data-slot": "code-block-header",
     className: cn(
-      "flex items-center justify-between bg-transparent px-3 py-3",
+      "flex items-center justify-between bg-transparent px-3 py-3 max-h-[45px] h-full",
       className,
     ),
     children: content,
@@ -296,7 +296,7 @@ function CodeBlockFilename({
 }: CodeBlockFilenameProps) {
   const defaultProps = {
     "data-slot": "code-block-filename",
-    className: cn("text-sm font-medium", className),
+    className: cn("text-xs", className),
     children,
   };
 
@@ -338,7 +338,7 @@ function CodeBlockTabsMobileDropDown({
   return (
     <div className="md:hidden w-full">
       <Menu.Root>
-        <Menu.Trigger className="flex items-center justify-between px-3 py-2 h-9 w-full text-sm placeholder:text-muted-foreground bg-transparent border border-input ring-offset-background rounded-md data-[state=open]:border-ring focus:outline-none focus:ring-1 focus:ring-ring shadow-sm disabled:opacity-50 disabled:cursor-not-allowed">
+        <Menu.Trigger className="flex items-center justify-between px-3 py-2 h-9 w-full text-sm placeholder:text-muted-foreground bg-transparent ring-offset-background rounded-md data-[state=open]:border-ring focus:outline-none focus:ring-1 focus:ring-ring smooth-shadow-ring-sm disabled:opacity-50 disabled:cursor-not-allowed">
           <span>{activeLabel}</span>
           <ChevronDown className="h-4 w-4 opacity-50" />
         </Menu.Trigger>
@@ -348,7 +348,7 @@ function CodeBlockTabsMobileDropDown({
             sideOffset={4}
             className="z-50 w-(--anchor-width)"
           >
-            <Menu.Popup className="overflow-hidden p-1 w-(--anchor-width) text-popover-foreground bg-popover border rounded-md shadow-md data-ending-style:opacity-0 data-starting-style:opacity-0 duration-150 ease-out transition-[opacity,scale] data-ending-style:duration-100 motion-reduce:transition-none origin-(--transform-origin) data-ending-style:scale-95 data-starting-style:scale-95">
+            <Menu.Popup className="overflow-hidden p-1 w-(--anchor-width) text-popover-foreground bg-popover rounded-md smooth-shadow-ring-md data-ending-style:opacity-0 data-starting-style:opacity-0 duration-150 ease-out transition-[opacity,scale] data-ending-style:duration-100 motion-reduce:transition-none origin-(--transform-origin) data-ending-style:scale-95 data-starting-style:scale-95">
               {tabs.map((tab) => (
                 <Menu.Item
                   key={tab.value}
@@ -496,7 +496,7 @@ function CodeBlockPre({
     "data-slot": "code-block-pre",
     "data-has-focus": hasFocus ? "true" : undefined,
     className: cn(
-      "relative bg-card border border-border/60 rounded-lg whitespace-pre overflow-hidden max-h-96 flex flex-col",
+      "relative bg-card border border-border/60 rounded-lg whitespace-pre overflow-hidden max-h-96 h-[calc(100%-45px)] flex flex-col",
       // Focus mode: blur and dim non-focused lines
       "[&[data-has-focus]_.line:not([data-focused])]:opacity-50 [&[data-has-focus]_.line:not([data-focused])]:blur-[1px] [&[data-has-focus]_.line:not([data-focused])]:transition-all",
       className,

@@ -10,7 +10,7 @@ const ComponentCard: React.FC<ComponentItemsPropsType> = ({
   href,
 }) => {
   return (
-    <div className="flex overflow-clip flex-col p-2 bg-white border rounded-lg shadow-md">
+    <div className="flex overflow-clip flex-col p-2 bg-white rounded-lg smooth-shadow-ring-md">
       {/* Image Section */}
       <div className="flex relative grow items-center justify-center m-auto w-fit">
         {imgSrc && (

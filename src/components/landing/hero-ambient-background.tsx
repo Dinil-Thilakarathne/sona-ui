@@ -45,10 +45,10 @@ export function HeroAmbientBackground({
 
       <div className="absolute right-[12%] bottom-[17%] hidden size-16 rounded-2xl border border-foreground/[0.08] opacity-70 md:block" />
 
-      <div className="absolute top-1/2 left-1/2 size-[min(42rem,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.035] blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 size-[min(42rem,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-site-brand/[0.035] blur-3xl" />
 
       <motion.div
-        className="absolute top-0 left-0 size-[36rem] rounded-full bg-primary blur-3xl will-change-transform"
+        className="absolute top-0 left-0 size-[36rem] rounded-full bg-site-brand blur-3xl will-change-transform"
         style={{
           x: lightX,
           y: lightY,

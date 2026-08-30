@@ -122,7 +122,7 @@ export function DocsCopyPage({
 
   return (
     <div className={cn("relative flex w-fit", className)}>
-      <div className="flex items-stretch rounded-lg bg-secondary text-sm">
+      <div className="flex items-stretch rounded-lg bg-secondary text-xs lg:text-sm">
         <button
           type="button"
           onClick={() => copy(page)}
@@ -131,7 +131,7 @@ export function DocsCopyPage({
           <HugeiconsIcon
             icon={copied ? Tick02Icon : Copy01Icon}
             strokeWidth={2}
-            className={cn("size-4", copied && "text-green-500")}
+            className={cn("size-3.5 lg:size-4", copied && "text-green-500")}
           />
           Copy Page
         </button>
@@ -163,6 +163,7 @@ export function DocsCopyPage({
                   );
                   setOpen(false);
                 }}
+                className="text-xs lg:text-sm"
               >
                 {item.label}
               </AnimatedDropdownItem>

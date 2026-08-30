@@ -18,28 +18,31 @@ import {
 } from "motion/react";
 import { useRouter } from "next/navigation";
 import * as React from "react";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useSearch } from "@/hooks/useSearch";
 import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
-export function Search() {
+export function Search({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = React.useState(false);
   const { query, setQuery, results } = useSearch();
   const router = useRouter();
   const inputRef = React.useRef<HTMLInputElement>(null);
   const layoutId = React.useId();
   const shouldReduceMotion = useReducedMotion();
+  const [shortcutModifier, setShortcutModifier] = React.useState("⌘");
   const [hoveredResult, setHoveredResult] = React.useState<string | null>(null);
   const [selectedResult, setSelectedResult] = React.useState<string | null>(
     null,
   );
 
-  const isDesktop = useMediaQuery("(min-width: 1024px) and (pointer: fine)");
+  React.useEffect(() => {
+    const isApplePlatform = /Mac|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    setShortcutModifier(isApplePlatform ? "⌘" : "Ctrl");
+  }, []);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey) && isDesktop) {
+      if (e.code === "KeyK" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((prev) => !prev);
       }
@@ -47,7 +50,7 @@ export function Search() {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [isDesktop]);
+  }, []);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -66,13 +69,24 @@ export function Search() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         type="button"
-        className="hidden lg:inline-flex gap-2 items-center px-3 py-1.5 font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent border border-input rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring shadow-sm transition-colors"
+        aria-label={compact ? "Search documentation" : undefined}
+        title={compact ? "Search documentation" : undefined}
+        className={cn(
+          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
+          compact
+            ? "inline-flex size-9 justify-center"
+            : "hidden lg:inline-flex gap-2 px-3 py-1.5",
+        )}
       >
         <SearchIcon className="size-4" />
-        <span>Search documentation...</span>
-        <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted border rounded pointer-events-none select-none">
-          <span className="text-xs">⌘</span>K
-        </kbd>
+        {!compact && (
+          <>
+            <span>Search documentation...</span>
+            <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted rounded pointer-events-none select-none">
+              <span className="text-xs">{shortcutModifier}</span>K
+            </kbd>
+          </>
+        )}
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -80,7 +94,7 @@ export function Search() {
         <Dialog.Popup
           initialFocus={inputRef}
           aria-describedby={undefined}
-          className="fixed left-1/2 top-[15vh] z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 origin-top overflow-hidden rounded-xl border border-border bg-popover text-popover-foreground shadow-lg transition duration-150 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none"
+          className="fixed left-1/2 top-[15vh] z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 origin-top overflow-hidden rounded-xl bg-popover text-popover-foreground smooth-shadow-ring-lg transition duration-150 ease-out data-ending-style:scale-95 data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none"
         >
           <Dialog.Title className="sr-only">Search documentation</Dialog.Title>
           <Command

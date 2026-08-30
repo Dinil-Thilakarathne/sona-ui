@@ -1,17 +1,48 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { createContext, useContext, useState } from "react";
+import type { ToolDrawer } from "./docs-focus/docs-focus-types";
 
-import Sidebar from "@/components/component-sidebar";
+type DocsFocusPanelState = {
+  navOpen: boolean;
+  setNavOpen: (open: boolean) => void;
+  documentOpen: boolean;
+  setDocumentOpen: (open: boolean) => void;
+  toolDrawer: ToolDrawer;
+  setToolDrawer: (panel: ToolDrawer) => void;
+};
+
+const DocsFocusPanelContext = createContext<DocsFocusPanelState | null>(null);
+
+export function useDocsFocusPanelState() {
+  const state = useContext(DocsFocusPanelContext);
+  if (!state) {
+    throw new Error(
+      "useDocsFocusPanelState must be used within DocsLayoutShell.",
+    );
+  }
+  return state;
+}
 
 const DocsLayoutShell: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [navOpen, setNavOpen] = useState(false);
+  const [documentOpen, setDocumentOpen] = useState(false);
+  const [toolDrawer, setToolDrawer] = useState<ToolDrawer>(null);
+
   return (
-    <main className="flex mt-header-height min-h-[calc(100vh-75px)]">
-      <Sidebar />
-      <section className="flex-1 p-2 md:p-6 xl:ml-sidebar-width w-full xl:max-w-[calc(100%-var(--sidebar-width))] duration-300 transition-[margin]">
-        {children}
-      </section>
-    </main>
+    <DocsFocusPanelContext
+      value={{
+        navOpen,
+        setNavOpen,
+        documentOpen,
+        setDocumentOpen,
+        toolDrawer,
+        setToolDrawer,
+      }}
+    >
+      <main className="relative min-h-svh w-full">{children}</main>
+    </DocsFocusPanelContext>
   );
 };
 

@@ -1,37 +1,48 @@
 ---
 title: Ripple Button
 slug: ripple-button
+component: ripple-button
 tags: ["UI", "Button", "Component"]
 ---
 
-# Ripple Button Component
+Use Ripple Button when an action benefits from a pointer-originating visual response. The ripple begins where the person points or presses, while the button keeps standard button behavior.
 
-An interactive button with a ripple effect for modern UIs.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/ripple-button`} />
 
-- **Pointer-aware feedback** — Mouse hover and touch/pen press start the effect at the pointer location.
-- **Customizable motion** — Adjust the ripple scale, duration, and styling.
-- **Reduced-motion safe** — Keeps the interaction state without animated expansion.
-- **Native button behavior** — Forwards button props, including disabled and event handlers.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="ripple-button.tsx" code={`import RippleButton from "@/components/ui/ripple-button/ripple-button";
 
-<ComponentPreview component="ripple-button" name="default" />
+export function RippleAction() {
+  return <RippleButton>Explore</RippleButton>;
+}`} />
 
-## Playground
+## Examples
 
-Tweak the props live and hover the button to see the ripple react.
-
-<ComponentPlayground component="ripple-button" />
-
-
-## Installation
-<ComponentInstallation component="ripple-button" />
+Adjust the ripple scale, duration, and classes to fit the action. Use the text helper when the label needs its own treatment inside the button.
 
 ## Usage
+
 <ComponentUsage component="ripple-button" />
 
-## Props
+## API
 
 <PropTable component="ripple-button" />
+
+## Accessibility
+
+Use a clear visible label or aria-label for icon-only actions. The ripple is supplementary feedback and does not replace focus or pressed states.
+
+## Styling
+
+The component forwards native button props, including disabled and event handlers. Reduced-motion preferences retain the interaction state without animated expansion.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

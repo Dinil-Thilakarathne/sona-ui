@@ -32,8 +32,8 @@ const PropTable = ({ component, data }: PropTableProps) => {
 
   return (
     <div className="py-3">
-      <div className="overflow-x-auto border border-border rounded-lg shadow-sm">
-        <table className="w-full text-left text-sm border-collapse">
+      <div className="overflow-x-auto rounded-lg smooth-shadow-ring-sm">
+        <table className="w-full text-left text-xs border-collapse">
           <thead className="bg-secondary">
             <tr>
               {["Property", "Type", "Default", "Description"].map((h) => (
@@ -65,7 +65,7 @@ const PropTable = ({ component, data }: PropTableProps) => {
                     {prop.default?.length ? prop.default : "—"}
                   </code>
                 </td>
-                <td className="px-4 py-2 align-top text-foreground">
+                <td className="px-4 py-2 align-top text-foreground text-nowrap">
                   {prop.description}
                 </td>
               </tr>

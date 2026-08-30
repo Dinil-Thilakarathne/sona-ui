@@ -9,12 +9,13 @@ import { OwnershipSection } from "./sections/ownership-section";
 
 export default function LandingPage() {
   return (
-    <main className="overflow-x-clip pt-header-height">
+    <main className="overflow-x-clip pt-header-height relative z-10">
+      <div className="bg-[radial-gradient(120%_75%_at_50%_-5%,#ffffff12,#0000_60%)] fixed min-h-svh w-full top-0 left-0 select-none z-0"></div>
       <LandingHero />
       <FeaturedSection />
-      <OwnershipSection />
+      {/*<OwnershipSection />*/}
       {/*<AiSection />*/}
-      <OpenSourceSection />
+      {/*<OpenSourceSection />*/}
       <FinalCtaSection />
       <LandingFooter />
     </main>

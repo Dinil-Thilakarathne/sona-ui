@@ -1,58 +1,48 @@
 ---
 title: Mesh Gradient Shader
 slug: mesh-gradient-shader
+component: mesh-gradient-shader
 tags: ["Shader", "Background", "Effect", "Animation"]
 ---
 
-# Mesh Gradient Shader
+Use Mesh Gradient Shader for a decorative background built from moving color spots, distortion, and vortex effects. It can provide subtle ambient motion or remain static behind content.
 
-A flowing composition of animated color spots, shaped by organic distortion and vortex effects. Powered by [Paper Design Shaders](https://shaders.paper.design/).
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/mesh-gradient-shader`} />
 
-- Up to 10 customizable color spots in any CSS color format.
-- Independent distortion and swirl controls for organic or structured looks.
-- Optional grain effects for added texture.
-- Animatable with speed control — set to `0` for a static gradient.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="mesh-background.tsx" code={`import MeshGradientShader from "@/components/ui/mesh-gradient-shader/mesh-gradient-shader";
 
-<ComponentPreview component="mesh-gradient-shader" name="default" />
+export function MeshBackground() {
+  return <MeshGradientShader className="absolute inset-0" speed={0.2} />;
+}`} />
 
 ## Examples
 
-### Ocean
-
-<ComponentPreview component="mesh-gradient-shader" name="ocean" />
-
-### Sunset
-
-<ComponentPreview component="mesh-gradient-shader" name="sunset" />
-
-### Monochrome
-
-<ComponentPreview component="mesh-gradient-shader" name="monochrome" />
-
-### Static
-
-Set `speed={0}` to freeze the gradient — useful as a decorative background.
-
-<ComponentPreview component="mesh-gradient-shader" name="static" />
-
-## Playground
-
-Adjust distortion, swirl, speed, and grain to explore the full range of the shader.
-
-<ComponentPlayground component="mesh-gradient-shader" />
-
-## Installation
-
-<ComponentInstallation component="mesh-gradient-shader" />
+Adjust colors, distortion, swirl, and grain to fit the surface. Set speed to zero when the background should remain still.
 
 ## Usage
 
 <ComponentUsage component="mesh-gradient-shader" />
 
-## Props
+## API
 
 <PropTable component="mesh-gradient-shader" />
+
+## Accessibility
+
+Treat the shader as decorative. Check text contrast against the final color field and provide a reduced-motion alternative for meaningful content.
+
+## Styling
+
+Use className to constrain the shader to its background layer. The color controls accept standard CSS color values.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

@@ -1,6 +1,7 @@
-import fs from "fs";
+import fs from "node:fs";
+import path from "node:path";
 import { NextResponse } from "next/server";
-import path from "path";
+import { apiError } from "@/lib/api-error";
 
 // API: /api/read-file?folder=accordion&file=accordion
 export async function GET(request: Request) {
@@ -10,15 +11,23 @@ export async function GET(request: Request) {
     const file = searchParams.get("file");
 
     if (!folder || !file) {
-      return NextResponse.json(
-        { error: "Missing 'folder' or 'file' query parameter." },
-        { status: 400 },
-      );
+      return apiError({
+        code: "INVALID_REQUEST",
+        message: "Missing 'folder' or 'file' query parameter.",
+        resolution: "Provide both the registry folder and file name.",
+        status: 400,
+      });
     }
 
     // Basic sanitization
     if (folder.includes("..") || file.includes("..")) {
-      return NextResponse.json({ error: "Invalid path." }, { status: 400 });
+      return apiError({
+        code: "INVALID_REQUEST",
+        message: "Path traversal is not allowed.",
+        resolution:
+          "Use a registry folder and file name without path separators.",
+        status: 400,
+      });
     }
 
     // 🔄 Correct path to public/sonaui/folder/file.txt
@@ -32,10 +41,13 @@ export async function GET(request: Request) {
     );
 
     if (!fs.existsSync(txtFilePath)) {
-      return NextResponse.json(
-        { error: `File not found: ${txtFilePath}` },
-        { status: 404 },
-      );
+      return apiError({
+        code: "NOT_FOUND",
+        message: "The requested registry source file was not found.",
+        resolution:
+          "Read /r/registry.json to discover available registry items.",
+        status: 404,
+      });
     }
 
     const content = fs.readFileSync(txtFilePath, "utf-8");
@@ -43,9 +55,12 @@ export async function GET(request: Request) {
     return NextResponse.json({ content });
   } catch (err) {
     console.error("Error reading component source file:", err);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 },
-    );
+    return apiError({
+      code: "INTERNAL_ERROR",
+      message: "The registry source file could not be read.",
+      resolution:
+        "Retry the request. If it continues, report the issue on GitHub.",
+      status: 500,
+    });
   }
 }

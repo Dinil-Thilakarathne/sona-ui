@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import FeaturedBar from "@/components/common/featured-bar";
@@ -12,6 +14,24 @@ import { clashDisplay, HelveticaNeue } from "@/fonts";
 import { FEATURE_FLAG } from "@/lib/constants";
 import { PostHogProvider } from "./providers";
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: siteMetaData.title,
+  description: siteMetaData.description,
+  url: "https://sona-ui.vercel.app",
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "Web",
+  author: {
+    "@type": "Person",
+    name: "Dinil Thilakarathne",
+    url: "https://github.com/Dinil-Thilakarathne",
+  },
+};
+const structuredDataJson = JSON.stringify(structuredData).replace(
+  /</g,
+  "\\u003c",
+);
 export const metadata: Metadata = siteMetaData;
 
 const geistSans = Geist({
@@ -24,6 +44,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { GuideframeGrid } from "@guideframe/react";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
@@ -33,8 +54,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script type="application/ld+json">{structuredDataJson}</script>
+      </head>
       <body
-        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased`}
+        className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased relative`}
       >
         <PostHogProvider>
           <ThemeProvider>
@@ -42,6 +66,17 @@ export default function RootLayout({
             <Header />
             {children}
             <Toaster position="bottom-right" richColors />
+            <GuideframeGrid
+              panel={true}
+              rulers={true}
+              maxWidth={768}
+              margin={8}
+              columns={{ desktop: 6, tablet: 4, mobile: 3 }}
+              gutter={8}
+              defaultVisible={false}
+            />
+            <Analytics />
+            <SpeedInsights />
           </ThemeProvider>
         </PostHogProvider>
       </body>

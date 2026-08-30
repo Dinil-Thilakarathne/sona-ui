@@ -1,0 +1,74 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Sona UI Read API",
+    "version": "1.0.0",
+    "description": "Read-only endpoints for Sona UI documentation, registry source, and GitHub contribution data."
+  },
+  "servers": [{ "url": "https://sona-ui.vercel.app" }],
+  "paths": {
+    "/api/md": {
+      "get": {
+        "operationId": "getDocumentationMarkdown",
+        "summary": "Get raw documentation Markdown",
+        "parameters": [{ "name": "slug", "in": "query", "required": true, "schema": { "type": "string" }, "description": "Documentation slug from the agent catalog." }],
+        "responses": {
+          "200": { "description": "Raw Markdown documentation", "content": { "text/markdown": { "schema": { "type": "string" } } } },
+          "400": { "$ref": "#/components/responses/InvalidRequest" },
+          "404": { "$ref": "#/components/responses/NotFound" }
+        }
+      }
+    },
+    "/api/read-file": {
+      "get": {
+        "operationId": "getRegistrySourceFile",
+        "summary": "Get a registry source text file",
+        "parameters": [
+          { "name": "folder", "in": "query", "required": true, "schema": { "type": "string" } },
+          { "name": "file", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Registry source", "content": { "application/json": { "schema": { "type": "object", "required": ["content"], "properties": { "content": { "type": "string" } } } } } },
+          "400": { "$ref": "#/components/responses/InvalidRequest" },
+          "404": { "$ref": "#/components/responses/NotFound" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/api/github-contributions": {
+      "get": {
+        "operationId": "getGitHubContributions",
+        "summary": "Get the Sona UI author's GitHub contribution calendar",
+        "responses": {
+          "200": { "description": "Contribution calendar data" },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiError": {
+        "type": "object",
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": ["code", "message", "resolution"],
+            "properties": {
+              "code": { "type": "string" },
+              "message": { "type": "string" },
+              "resolution": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "InvalidRequest": { "description": "Invalid request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ApiError" } } } },
+      "NotFound": { "description": "Resource not found", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ApiError" } } } },
+      "InternalError": { "description": "Internal service error", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ApiError" } } } },
+      "ServiceUnavailable": { "description": "Temporarily unavailable", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ApiError" } } } }
+    }
+  }
+}

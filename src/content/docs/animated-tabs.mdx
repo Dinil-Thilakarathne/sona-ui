@@ -1,38 +1,68 @@
 ---
 title: Animated Tabs
 slug: animated-tabs
-tags: ["UI", "tabs", "Component"]
+component: animated-tabs
+tags: ["UI", "Tabs", "Component"]
 ---
 
-# Animated Tabs Component
+Use Animated Tabs to switch between related views in the same part of a page. It provides keyboard navigation, disabled items, controlled state, and a shared hover indicator for pointer input.
 
-`AnimatedTabs` is an accessible horizontal tab selector built on Base UI, with controlled and uncontrolled state, keyboard navigation, disabled items, and a pointer-only shared hover indicator.
+## Install
 
-## Features
+<CodeBlockWrapper
+  language="bash"
+  filename="terminal"
+  code={`npx shadcn@latest add @sona-ui/animated-tabs`}
+/>
 
-- **Accessible foundation**: Base UI provides roving focus and horizontal keyboard navigation.
-- **Controlled or uncontrolled**: Use `value` or `defaultValue` depending on your state model.
-- **Pointer-aware motion**: The shared hover indicator does not animate keyboard-initiated navigation.
-- **Customizable**: Override active, indicator, root, and list classes.
-- **Reduced motion**: Uses the shared Sona reduced-motion transition.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper
+  language="tsx"
+  filename="account-tabs.tsx"
+  code={`import AnimatedTabs from "@/components/ui/animated-tabs/animated-tabs";
 
-<ComponentPreview component="animated-tabs" name="default" />
+const tabs = [
+  { value: "profile", title: "Profile" },
+  { value: "security", title: "Security" },
+  { value: "billing", title: "Billing" },
+];
 
-## Playground
+export function AccountTabs() {
+  return <AnimatedTabs tabs={tabs} defaultValue="profile" />;
+}`}
+/>
 
-<ComponentPlayground component="animated-tabs" />
+## Examples
 
-## Installation
+### Controlled state
 
-<ComponentInstallation component="animated-tabs" />
+Use value and onValueChange when the selected view is also represented in page state or the URL.
+
+### Disabled tabs
+
+Disable a tab only when its destination is unavailable. Keep the label visible so people understand what will become available.
 
 ## Usage
 
 <ComponentUsage component="animated-tabs" />
 
-
-## Props
+## API
 
 <PropTable component="animated-tabs" />
+
+## Accessibility
+
+Animated Tabs uses Base UI tab semantics and roving keyboard focus. The hover indicator is limited to pointer input, so keyboard navigation does not imply a hover state.
+
+## Styling
+
+Override the root, list, active item, and indicator classes to match the surrounding navigation. Reduced-motion preferences simplify the indicator transition.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

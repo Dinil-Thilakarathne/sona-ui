@@ -1,38 +1,53 @@
 ---
 title: Fan View
 slug: fan-view
+component: fan-view
 tags: ["UI", "Menu", "Animation", "Component"]
 ---
 
-# Fan View
+Use Fan View for a short set of visual choices that can open from one trigger. Its cards spread into a fanned layout and collapse after selection, outside interaction, or Escape.
 
-A trigger button that spreads labeled cards into a fanned arc layout on click, with staggered spring animations and outside-click collapse.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/fan-view`} />
 
-- Cards fan out with rotation and blur-to-clear spring transitions.
-- Staggered entry and exit for a natural cascade feel.
-- Collapses on outside pointer interaction or item click.
-- Item widths are individually configurable.
-- Supports controlled or uncontrolled state and item selection callbacks.
-- Escape restores focus to the trigger, and reduced motion removes movement.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="fan-menu.tsx" code={`import FanView from "@/components/ui/fan-view/fan-view";
 
-<ComponentPreview component="fan-view" name="default" />
+const items = [
+  { label: "Library", onSelect: () => console.log("Library") },
+  { label: "Profile", onSelect: () => console.log("Profile") },
+];
 
-## Playground
+export function FanMenu() {
+  return <FanView items={items} />;
+}`} />
 
-<ComponentPlayground component="fan-view" />
+## Examples
 
-## Installation
-
-<ComponentInstallation component="fan-view" />
+Pass controlled open state when the menu is coordinated with another view. Keep the item count small so each card remains readable in the fan.
 
 ## Usage
 
 <ComponentUsage component="fan-view" />
 
-## Props
+## API
 
 <PropTable component="fan-view" />
+
+## Accessibility
+
+Escape closes the view and restores focus to the trigger. Give each card a short label and ensure its action is available without relying on the animation.
+
+## Styling
+
+Adjust card content, widths, and motion options to fit the context. Reduced-motion preferences remove the fanning movement.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

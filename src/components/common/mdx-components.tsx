@@ -27,6 +27,15 @@ import ComponentWrapper from "./component-wrapper";
 import PropTable from "./prop-table";
 import Tabs from "./tabs";
 
+function getHeadingId(children: React.ReactNode) {
+  if (typeof children !== "string") return undefined;
+  return children
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
 const CustomLink = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const href = props.href;
 
@@ -54,19 +63,35 @@ const components = {
       {...props}
     />
   ),
-  h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  h2: ({
+    className,
+    id,
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       data-doc-heading
+      id={id ?? getHeadingId(children)}
       className={cn("docs-heading docs-heading-h2", className)}
       {...props}
-    />
+    >
+      {children}
+    </h2>
   ),
-  h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  h3: ({
+    className,
+    id,
+    children,
+    ...props
+  }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       data-doc-heading
+      id={id ?? getHeadingId(children)}
       className={cn("docs-heading docs-heading-h3", className)}
       {...props}
-    />
+    >
+      {children}
+    </h3>
   ),
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4

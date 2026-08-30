@@ -9,6 +9,7 @@
 - [Agent component catalog](https://sona-ui.vercel.app/agent/catalog.json)
 - [Full agent guidance](https://sona-ui.vercel.app/llms-full.txt)
 - [Registry index](https://sona-ui.vercel.app/r/registry.json)
+- [OpenAPI description](https://sona-ui.vercel.app/openapi.json)
 
 ## Components
 

@@ -1,40 +1,48 @@
 ---
 title: Marquee
 slug: marquee
-tags: ["UI", "animation", "Component"]
+component: marquee
+tags: ["UI", "Animation", "Component"]
 ---
 
-# Marquee Component
+Use Marquee for repeated content that can move through a bounded row, such as partner names or selected work. Keep the content understandable even when motion is disabled.
 
-The `Marquee` component is a versatile UI element that creates a scrolling marquee effect. It is highly customizable and can adapt to various use cases, such as displaying text or other content in a continuous loop.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/marquee`} />
 
-- **Customizable Speed**: Adjust the scrolling speed dynamically.
-- **Responsive Design**: Automatically adapts to the container's dimensions.
-- **Interactive**: Supports hover and scroll-based interactions.
-- **Smooth Animations**: Uses spring-based animations for fluid transitions.
-- **Lightweight**: Optimized for performance with minimal dependencies.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="logo-marquee.tsx" code={`import Marquee from "@/components/ui/marquee/marquee";
 
-<ComponentPreview component="marquee" name="default" />
+export function LogoMarquee() {
+  return <Marquee>Selected clients</Marquee>;
+}`} />
 
-## Playground
+## Examples
 
-Toggle direction, hover-pause, and scroll reactivity.
-
-<ComponentPlayground component="marquee" />
-
-## Installation
-
-<ComponentInstallation component="marquee" />
+Adjust speed and direction to suit the row. Pause or reduce movement when the content needs close reading.
 
 ## Usage
 
 <ComponentUsage component="marquee" />
 
-## Props
+## API
 
 <PropTable component="marquee" />
 
+## Accessibility
+
+Do not make movement the only way to access information. Provide readable static content when reduced motion is preferred.
+
+## Styling
+
+Use className to control the row width, spacing, and visual treatment of its children.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { navLinks } from "@/lib/data";
 import FadeInComp from "../common/fade-in";
@@ -9,14 +12,22 @@ import { ModeToggle } from "../common/theme-toggle";
 import { Search } from "../Search";
 
 const Header = () => {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/docs")) return null;
+
   return (
-    <header className="fixed left-0 top-0 z-49 lg:px-2 min-h-header-height w-full">
-      <div className="flex items-center justify-between px-2 py-4 w-full  backdrop-blur-md">
-        <div className="flex gap-x-6 items-center">
-          <Link href="/" className="flex items-center">
+    <header className="pointer-events-none fixed inset-x-0 top-4 z-49 sm:top-6">
+      <div className="mx-auto flex w-full max-w-[76rem] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="pointer-events-auto flex items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl">
+          <Link
+            href="/"
+            className="flex h-9 items-center rounded-lg px-3 hover:bg-accent"
+          >
             <Logo />
           </Link>
-          <nav className="hidden lg:flex items-center space-x-6">
+          <div className="mx-1 hidden h-5 w-px bg-border lg:block" />
+          <nav className="hidden items-center gap-5 pr-3 lg:flex">
             {navLinks.map((link, i) => (
               <FadeInComp
                 key={link.name}
@@ -28,18 +39,12 @@ const Header = () => {
                   filter: "blur(4px)",
                 }}
               >
-                <div className="flex items-start space-x-0.5">
-                  <SidebarLink
-                    name={link.name}
-                    href={link.href}
-                    tag={link.tag}
-                  />
-                </div>
+                <SidebarLink name={link.name} href={link.href} tag={link.tag} />
               </FadeInComp>
             ))}
           </nav>
         </div>
-        <div className="flex gap-2 items-center lg:space-x-6">
+        <div className="pointer-events-auto flex items-center gap-1 rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl">
           <Search />
           <FadeInComp
             animationProps={{
@@ -49,7 +54,10 @@ const Header = () => {
               filter: "blur(4px)",
             }}
           >
-            <Link href={GIT_REP_LINK} className="">
+            <Link
+              href={GIT_REP_LINK}
+              className="flex h-9 items-center rounded-lg px-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground lg:px-3"
+            >
               <StartCount />
             </Link>
           </FadeInComp>

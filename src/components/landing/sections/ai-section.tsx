@@ -4,7 +4,7 @@ import { LandingButtonLink } from "../button-link";
 export function AiSection() {
   return (
     <section
-      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,1fr)_minmax(18rem,.92fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
+      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,1fr)_minmax(18rem,.92fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
       aria-labelledby="ai-title"
     >
       <div>
@@ -25,7 +25,7 @@ export function AiSection() {
         <div className="mt-8 flex flex-wrap gap-2.5">
           <LandingButtonLink
             href="/docs/ai-agents"
-            className="rounded-full px-4 text-sm font-semibold"
+            className="rounded-full bg-site-brand px-4 text-sm font-semibold text-site-brand-foreground hover:bg-site-brand/90 active:bg-site-brand/80"
           >
             AI agents <Bot className="size-4" aria-hidden="true" />
           </LandingButtonLink>
@@ -39,7 +39,7 @@ export function AiSection() {
         </div>
       </div>
       <div
-        className="overflow-hidden rounded-2xl border border-border bg-card p-5 font-mono text-xs leading-[1.8] text-card-foreground shadow-lg"
+        className="overflow-hidden rounded-2xl bg-card p-5 font-mono text-xs leading-[1.8] text-card-foreground smooth-shadow-ring-lg"
         role="img"
         aria-label="AI workflow example"
       >
@@ -49,14 +49,14 @@ export function AiSection() {
           <span className="size-2 rounded-full bg-muted-foreground/40" />
         </div>
         <p>
-          <span className="text-primary">$</span> discover sona components for
+          <span className="text-site-brand">$</span> discover sona components for
           tabs
         </p>
         <p className="text-muted-foreground">
           → Fluid Tabs · accessible · motion-aware
         </p>
         <p>
-          <span className="text-primary">$</span> install @sona-ui/fluid-tabs
+          <span className="text-site-brand">$</span> install @sona-ui/fluid-tabs
         </p>
         <p className="text-success-foreground">
           ✓ source added to your project

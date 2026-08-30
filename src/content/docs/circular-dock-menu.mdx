@@ -1,39 +1,57 @@
 ---
 title: Circular Dock Menu
 slug: circular-dock-menu
+component: circular-dock-menu
 tags: ["UI", "Menu", "Animation", "Component"]
 ---
 
-# Circular Dock Menu
+Use Circular Dock Menu for a compact set of related actions that can expand from one trigger. Items fan into a radial arc and the menu closes on outside interaction, Escape, or item selection.
 
-A circular trigger button that fans a set of items out in a radial arc on click, with staggered spring enter/exit animations and outside-click dismissal.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/circular-dock-menu`} />
 
-- Items animate out in a radial arc with configurable spring physics.
-- Staggered entry and exit delays for a fluid cascade effect.
-- Closes automatically on outside pointer interaction.
-- Escape closes the menu and restores focus to the trigger.
-- Supports controlled or uncontrolled open state and item selection callbacks.
-- Fully customizable item list and spring parameters.
-- Respects reduced-motion preferences.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper
+  language="tsx"
+  filename="dock-menu.tsx"
+  code={`import CircularDockMenu from "@/components/ui/circular-dock-menu/circular-dock-menu";
 
-<ComponentPreview component="circular-dock-menu" name="default" />
+const items = [
+  { label: "Search", onSelect: () => console.log("Search") },
+  { label: "Settings", onSelect: () => console.log("Settings") },
+];
 
-## Playground
+export function DockMenu() {
+  return <CircularDockMenu items={items} />;
+}`}
+/>
 
-<ComponentPlayground component="circular-dock-menu" />
+## Examples
 
-## Installation
-
-<ComponentInstallation component="circular-dock-menu" />
+Use controlled open state when another control needs to open or close the menu. Keep the item count short so the radial layout remains easy to scan.
 
 ## Usage
 
 <ComponentUsage component="circular-dock-menu" />
 
-## Props
+## API
 
 <PropTable component="circular-dock-menu" />
+
+## Accessibility
+
+The trigger can be reached by keyboard, Escape closes the menu, and focus returns to the trigger after dismissal. Give every item a short, specific label.
+
+## Styling
+
+Adjust item content and the motion configuration to match the action group. Reduced-motion preferences remove the radial travel.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

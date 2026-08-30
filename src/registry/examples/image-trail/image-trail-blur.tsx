@@ -11,7 +11,7 @@ const images = [
 
 export default function ImageTrailBlurExample() {
   return (
-    <ImageTrail images={images} variant="blur" className="h-80 w-full">
+    <ImageTrail images={images} variant="blur" className="h-full w-full">
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Blur trail

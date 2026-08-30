@@ -73,7 +73,7 @@ export function LandingHero() {
       onPointerMove={moveLight}
       onPointerLeave={hideLight}
     >
-      <HeroMeshBackground meshX={springMeshX} meshY={springMeshY} />
+      {/*<HeroMeshBackground meshX={springMeshX} meshY={springMeshY} />*/}
       <motion.div
         className="relative z-10 grid gap-4 lg:gap-8 w-full _max-w-3xl justify-items-center"
         variants={container}
@@ -102,7 +102,7 @@ export function LandingHero() {
         >
           <LandingButtonLink
             href={groupedComponents[Object.keys(groupedComponents)[1]][0].href}
-            className="rounded-full px-4 text-sm font-semibold"
+            className="rounded-full bg-primary pr-4 pl-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90 active:bg-primary/80"
           >
             Browse components
             <ArrowRight className="size-4" aria-hidden="true" />

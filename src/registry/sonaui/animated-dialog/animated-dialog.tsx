@@ -101,7 +101,7 @@ export function AnimatedDialogTrigger({
       className={cn(
         "inline-flex items-center justify-center rounded-lg px-4 py-2",
         "bg-foreground text-background text-sm font-medium",
-        "hover:bg-foreground/90 transition-colors duration-150",
+        "hover:bg-foreground/90 hover:cursor-pointer transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
         className,
       )}

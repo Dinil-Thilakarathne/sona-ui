@@ -25,7 +25,7 @@ const steps = [
 export function OwnershipSection() {
   return (
     <section
-      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,.88fr)_minmax(20rem,1.12fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
+      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,.88fr)_minmax(20rem,1.12fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
       aria-labelledby="ownership-title"
     >
       <div>
@@ -53,13 +53,13 @@ export function OwnershipSection() {
       <ol className="grid gap-3">
         {steps.map(([number, Icon, title, description]) => (
           <li
-            className="grid grid-cols-[auto_auto_1fr] items-start gap-3.5 rounded-xl border border-border bg-card p-4 shadow-sm"
+            className="grid grid-cols-[auto_auto_1fr] items-start gap-3.5 rounded-xl bg-card p-4 smooth-shadow-ring-sm"
             key={number}
           >
             <span className="font-mono text-[0.6875rem] leading-6 text-muted-foreground">
               {number}
             </span>
-            <Icon className="mt-1 size-5 text-primary" aria-hidden="true" />
+            <Icon className="mt-1 size-5 text-site-brand" aria-hidden="true" />
             <div>
               <strong className="text-sm">{title}</strong>
               <p className="mt-1 text-[0.8125rem] leading-relaxed text-muted-foreground">

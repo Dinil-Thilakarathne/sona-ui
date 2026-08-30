@@ -3,6 +3,7 @@ import path from "node:path";
 import { allDocs, type Doc } from "content-collections";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
+import { getComponentDocumentationData } from "@/components/docs-focus/component-doc-data";
 import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-navigation";
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
@@ -58,6 +59,9 @@ export async function generateMetadata({
   return {
     title: doc.title,
     description: doc.description,
+    alternates: {
+      canonical: `${SITE_METADATA.siteLink}/docs/${doc.slug}`,
+    },
     openGraph: {
       title: doc.title,
       description: doc.description,
@@ -100,11 +104,12 @@ export default async function DocPage({
     title: nextItem.name,
     href: nextItem.href,
   };
+  const componentData = doc.component
+    ? getComponentDocumentationData(doc.component)
+    : null;
   const sourceFiles =
     doc.slug === "activity-graph"
-      ? {
-          "github-contributions": await readGitHubContributionsSource(),
-        }
+      ? { "github-contributions": await readGitHubContributionsSource() }
       : undefined;
 
   return (
@@ -112,10 +117,14 @@ export default async function DocPage({
       doc={{
         title: doc.title,
         slug: doc.slug,
-        body: { code: doc.body.code, raw: doc.body.raw },
+        body: {
+          code: doc.body.code,
+          raw: doc.body.raw,
+        },
+        sourceFiles,
       }}
       navigation={{ previous, next }}
-      sourceFiles={sourceFiles}
+      componentData={componentData}
     />
   );
 }

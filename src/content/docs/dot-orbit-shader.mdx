@@ -1,56 +1,52 @@
 ---
 title: Dot Orbit Shader
 slug: dot-orbit-shader
+component: dot-orbit-shader
 tags: ["Shader", "Background", "Effect", "Animation", "Pattern"]
 ---
 
-# Dot Orbit Shader
+Use Dot Orbit Shader as a decorative background or texture. It renders colored dots that orbit inside a repeated grid and can run continuously or remain still.
 
-Animated multi-color dots, each orbiting around its cell center. Great for playful backgrounds, textures, and UI accents. Powered by [Paper Design Shaders](https://shaders.paper.design/).
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/dot-orbit-shader`} />
 
-- Up to 10 dot colors with automatic interpolation between them.
-- Controls for dot size, size variation, and orbit spread.
-- `stepsPerColor` multiplies the color count for richer gradients.
-- Animatable with speed control — set to `0` for a static pattern.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper
+  language="tsx"
+  filename="hero-background.tsx"
+  code={`import DotOrbitShader from "@/components/ui/dot-orbit-shader/dot-orbit-shader";
 
-<ComponentPreview component="dot-orbit-shader" name="default" />
+export function HeroBackground() {
+  return <DotOrbitShader className="absolute inset-0" speed={0.25} />;
+}`}
+/>
 
 ## Examples
 
-### Pastel
-
-<ComponentPreview component="dot-orbit-shader" name="pastel" />
-
-### Dense
-
-Tight uniform dots with high color step count for a neon pixel effect.
-
-<ComponentPreview component="dot-orbit-shader" name="dense" />
-
-### Slow drift
-
-Low speed with wide spread for a subtle ambient motion.
-
-<ComponentPreview component="dot-orbit-shader" name="slow" />
-
-## Playground
-
-Adjust dot size, spread, and speed to explore the shader.
-
-<ComponentPlayground component="dot-orbit-shader" />
-
-## Installation
-
-<ComponentInstallation component="dot-orbit-shader" />
+Use a lower speed for ambient movement. Set speed to zero when the pattern should be static, and adjust colors, size, and spread to suit the background.
 
 ## Usage
 
 <ComponentUsage component="dot-orbit-shader" />
 
-## Props
+## API
 
 <PropTable component="dot-orbit-shader" />
+
+## Accessibility
+
+Treat the shader as decorative and keep meaningful content outside it. Check text contrast against the final background and provide a reduced-motion alternative when needed.
+
+## Styling
+
+Use className to place the shader in a bounded layer. The component accepts color and motion options without requiring changes to its source.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

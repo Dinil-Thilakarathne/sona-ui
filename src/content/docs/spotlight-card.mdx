@@ -1,38 +1,48 @@
 ---
 title: Spotlight Card
 slug: spotlight-card
+component: spotlight-card
 tags: ["UI", "Card", "Effect", "Component"]
 ---
 
-# Spotlight Card Component
+Use Spotlight Card to add a subtle pointer-following highlight to a bounded card. It works with any child content and can be disabled when the surrounding context needs a static surface.
 
-A card with a radial spotlight glow that smoothly follows the cursor, adding depth and interactivity to any content.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/spotlight-card`} />
 
-- Cursor-following radial spotlight built on `motion` values for jank-free updates.
-- Fully customizable glow color and size.
-- Works with any content via `children`.
-- Can be disabled for static contexts.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="project-card.tsx" code={`import SpotlightCard from "@/components/ui/spotlight-card/spotlight-card";
 
-<ComponentPreview component="spotlight-card" name="default" />
+export function ProjectCard() {
+  return <SpotlightCard>Project details</SpotlightCard>;
+}`} />
 
-## Playground
+## Examples
 
-Adjust the spotlight size and color, then move your cursor across the card.
-
-<ComponentPlayground component="spotlight-card" />
-
-## Installation
-
-<ComponentInstallation component="spotlight-card" />
+Adjust the glow color and size to fit the card surface. Disable the effect in static or dense contexts where it would compete with the content.
 
 ## Usage
 
 <ComponentUsage component="spotlight-card" />
 
-## Props
+## API
 
 <PropTable component="spotlight-card" />
+
+## Accessibility
+
+The spotlight is decorative. Ensure the card content has its own clear hierarchy and interaction states.
+
+## Styling
+
+Use className for the card surface and its children. The effect follows pointer movement without changing the layout.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

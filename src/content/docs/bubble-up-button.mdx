@@ -1,43 +1,52 @@
 ---
-title: BubbleUpButton
+title: Bubble Up Button
 slug: bubble-up-button
+component: bubble-up-button
 tags: ["UI", "Button", "Animation", "Component"]
 ---
 
-# BubbleUpButton Component
+Use Bubble Up Button for a small action that benefits from a visible hover response. The text remains readable while the background surface moves through the button.
 
-The `BubbleUpButton` component provides an interactive button with a fluid "bubble-up" animation effect when hovered. It creates an engaging user experience with minimal effort.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/bubble-up-button`} />
 
-- Engaging hover animation with bubble-up effect.
-- Customizable animation controls through motion props.
-- Lightweight and reusable.
-- Preserves text legibility during animation using mix-blend-difference.
-- Built with Framer Motion for smooth animations.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper
+  language="tsx"
+  filename="bubble-button.tsx"
+  code={`import BubbleUpButton from "@/components/ui/bubble-up-button/bubble-up-button";
 
-<ComponentPreview component="bubble-up-button" name="default" />
+export function BubbleButton() {
+  return <BubbleUpButton>View project</BubbleUpButton>;
+}`}
+/>
 
+## Examples
 
-## Installation
-<ComponentInstallation component="bubble-up-button" />
+Pass button props for form behavior, disabled state, and event handlers. Use motionControls only when the default response does not fit the surrounding interaction.
 
 ## Usage
+
 <ComponentUsage component="bubble-up-button" />
 
-## Props
+## API
 
 <PropTable component="bubble-up-button" />
 
-{/* ## Customization
+## Accessibility
 
-You can customize the BubbleUpButton in several ways:
+Use a visible label that states the action. The hover effect is supplemental, so the button remains usable with keyboard and touch input.
 
-1. **Animation Behavior**: Adjust the `motionControls` prop to change the speed and feel of the animation
-2. **Styling**: Use the `className` prop to modify the button's appearance
-3. **Content**: Add text, icons, or any other content as children
-4. **Button Behavior**: All standard button props like `onClick`, `disabled`, etc. are supported
+## Styling
 
-For best results, maintain the overflow and positioning properties as they're essential for the animation effect. */}
+Apply className to match the surrounding surface and text treatment. Reduced-motion preferences remove the animated response.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

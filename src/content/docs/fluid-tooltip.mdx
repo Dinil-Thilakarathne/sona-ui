@@ -1,41 +1,55 @@
 ---
 title: Fluid Tooltip
 slug: fluid-tooltip
+component: fluid-tooltip
 tags: ["UI", "Tooltip", "Navigation", "Motion"]
 ---
 
-# Fluid Tooltip Component
+Use Fluid Tooltip for a related group of compact controls. One tooltip surface follows the active trigger, so labels remain oriented as someone scans a toolbar or navigation group.
 
-A grouped tooltip system that preserves spatial orientation while people scan related icon controls.
+## Install
 
-## Features
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/fluid-tooltip`} />
 
-- Uses a deliberate first pointer delay, then opens sibling tooltips immediately.
-- Moves new labels eight pixels from left or right in horizontal groups and from top or bottom in vertical groups.
-- Keeps the tooltip surface continuous while its anchor and content change.
-- Places horizontal tooltips above their triggers and vertical tooltips to the right by default, with collision-aware flipping.
-- Shows keyboard tooltips immediately without directional travel.
-- Removes travel for reduced-motion preferences and leaves coarse-pointer controls usable.
-- Built on Base UI for tooltip semantics, positioning, collision handling, and accessible descriptions.
+## Basic usage
 
-<Divider />
+<CodeBlockWrapper language="tsx" filename="toolbar-tooltips.tsx" code={`import FluidTooltip from "@/components/ui/fluid-tooltip/fluid-tooltip";
 
-<ComponentPreview component="fluid-tooltip" name="default" />
+export function ToolbarTooltips() {
+  return (
+    <FluidTooltip.Group orientation="horizontal">
+      <FluidTooltip.Root>
+        <FluidTooltip.Trigger>Search</FluidTooltip.Trigger>
+        <FluidTooltip.Content>Search this page</FluidTooltip.Content>
+      </FluidTooltip.Root>
+    </FluidTooltip.Group>
+  );
+}`} />
 
-## Playground
+## Examples
 
-Adjust the group delay and orientation, then move between the controls.
-
-<ComponentPlayground component="fluid-tooltip" />
-
-## Installation
-
-<ComponentInstallation component="fluid-tooltip" />
+Use a horizontal group for toolbars and a vertical group for stacked controls. The first pointer tooltip observes the configured delay, while adjacent tooltips open immediately.
 
 ## Usage
 
 <ComponentUsage component="fluid-tooltip" />
 
-## Props
+## API
 
 <PropTable component="fluid-tooltip" />
+
+## Accessibility
+
+Fluid Tooltip uses Base UI tooltip semantics, collision-aware positioning, and accessible descriptions. Keyboard focus opens the relevant label immediately without directional travel.
+
+## Styling
+
+Use the group orientation and component class names to fit the control group. Reduced-motion preferences remove content travel while preserving the label.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.
