@@ -1,3 +1,10 @@
+## [2.19.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.3...v2.19.4) (2026-08-30)
+
+
+### Bug Fixes
+
+* Implement editorial changelog layout and GitHub link ([4022cc1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4022cc119e06d14ff30291b6372973d69c9f1443))
+
 ## [2.19.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.2...v2.19.3) (2026-08-30)
 
 
