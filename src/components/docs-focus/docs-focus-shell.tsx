@@ -1063,7 +1063,7 @@ function ComponentPage({
         >
           <div
             data-component-preview
-            className="flex min-h-0 w-full items-center justify-center"
+            className="flex min-h-0 w-full items-center justify-center h-full"
           >
             {preview}
           </div>
