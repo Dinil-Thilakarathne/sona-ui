@@ -1061,7 +1061,10 @@ function ComponentPage({
           }}
           className="relative grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-[22px] bg-focus-panel smooth-shadow-ring-md"
         >
-          <div className="flex min-h-0 w-full items-center justify-center">
+          <div
+            data-component-preview
+            className="flex min-h-0 w-full items-center justify-center"
+          >
             {preview}
           </div>
           <InstallBar component={data.component} />
