@@ -32,6 +32,23 @@ const structuredDataJson = JSON.stringify(structuredData).replace(
   /</g,
   "\\u003c",
 );
+
+const themeInitializationScript = `
+  (() => {
+    try {
+      const savedTheme = window.localStorage.getItem("theme");
+      const theme =
+        savedTheme === "light" || savedTheme === "dark"
+          ? savedTheme
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      const root = document.documentElement;
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    } catch {}
+  })();
+`;
 export const metadata: Metadata = siteMetaData;
 
 const geistSans = Geist({
@@ -55,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script>{themeInitializationScript}</script>
         <script type="application/ld+json">{structuredDataJson}</script>
       </head>
       <body

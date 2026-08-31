@@ -40,7 +40,6 @@ import { PnpmIcon } from "@/components/svgs/pnpm-logo";
 import { YarnIcon } from "@/components/svgs/yarn-logo";
 import { groupedComponents } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { exampleRegistry } from "@/registry/index";
@@ -434,11 +433,12 @@ function GuidePage({
   navigation: Navigation;
   copyActions: ReactNode;
 }) {
-  const { navOpen, setNavOpen } = useDocsFocusPanelState();
+  const { navOpen, setNavOpen, mobileMatch } = useDocsFocusPanelState();
   const [contentsOpen, setContentsOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 899px)");
+  const isMobile = mobileMatch === true;
+  const isDesktop = mobileMatch === false;
   const reduceMotion = useReducedMotion();
-  const desktopNavOpen = navOpen && !isMobile;
+  const desktopNavOpen = navOpen && isDesktop;
   const headings = useDocumentHeadings("[data-guide-document]");
   return (
     <div className="relative h-svh overflow-hidden bg-focus-canvas">
@@ -477,7 +477,7 @@ function GuidePage({
             "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)]",
         )}
       >
-        {!isMobile && (
+        {isDesktop && (
           <div className="min-w-0 overflow-hidden bg-focus-canvas">
             <motion.div
               initial={false}
@@ -873,9 +873,10 @@ function ComponentPage({
     setDocumentOpen,
     toolDrawer,
     setToolDrawer,
+    mobileMatch,
   } = useDocsFocusPanelState();
-  const [hasMounted, setHasMounted] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 899px)");
+  const isMobile = mobileMatch === true;
+  const isDesktop = mobileMatch === false;
   const reduceMotion = useReducedMotion();
   const registryExamples = exampleRegistry[data.component] ?? [];
   const defaultExample =
@@ -902,9 +903,6 @@ function ComponentPage({
     setControlValues(defaults);
     setUsingPlayground(false);
   }, [defaults]);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
   const selectedFile =
     data.sourceFiles.find((file) => file.id === selectedFileId) ??
     data.sourceFiles[0];
@@ -912,15 +910,15 @@ function ComponentPage({
     setUsingPlayground(false);
     setActiveExampleName(value);
   };
-  const desktopDocumentOpen = documentOpen && !isMobile;
-  const desktopNavOpen = navOpen && !isMobile;
+  const desktopDocumentOpen = documentOpen && isDesktop;
+  const desktopNavOpen = navOpen && isDesktop;
   const toggleControls = () => {
     if (toolDrawer === "controls") {
       setToolDrawer(null);
       return;
     }
     if (isMobile) setDocumentOpen(false);
-    if (!isMobile && !documentOpen) setDocumentOpen(true);
+    if (isDesktop && !documentOpen) setDocumentOpen(true);
     setToolDrawer("controls");
   };
   const toggleSource = () => {
@@ -929,7 +927,7 @@ function ComponentPage({
       return;
     }
     if (isMobile) setDocumentOpen(false);
-    if (!isMobile && !documentOpen) setDocumentOpen(true);
+    if (isDesktop && !documentOpen) setDocumentOpen(true);
     setToolDrawer("source");
   };
   const toolPanelContent =
@@ -1058,7 +1056,7 @@ function ComponentPage({
             "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)_calc(clamp(20rem,34vw,28rem)+0.75rem)]",
         )}
       >
-        {!isMobile && (
+        {isDesktop && (
           <div className="min-w-0 overflow-hidden bg-focus-canvas">
             <motion.div
               initial={false}
@@ -1077,7 +1075,7 @@ function ComponentPage({
           </div>
         )}
         <motion.section
-          layout={hasMounted && !reduceMotion && !isMobile}
+          layout={isDesktop && !reduceMotion}
           transition={{
             duration: reduceMotion ? 0 : 0.24,
             ease: [0.22, 1, 0.36, 1],
@@ -1092,7 +1090,7 @@ function ComponentPage({
           </div>
           <InstallBar component={data.component} />
         </motion.section>
-        {!isMobile && (
+        {isDesktop && (
           <div className="min-w-0 overflow-hidden pl-3">
             <motion.aside
               initial={false}
