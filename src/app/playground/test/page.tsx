@@ -1,43 +1,90 @@
-import { Slider } from "@base-ui/react";
-import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
+"use client";
+
+import { BookOpenText, Code2, Home, Settings2 } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import { ModeToggle } from "@/components/common/theme-toggle";
+import {
+  FocusActionsBar,
+  FocusActionTooltip,
+  IconButton,
+} from "@/components/docs-focus/docs-focus-shell";
+import { Search } from "@/components/Search";
+import { GIT_REP_LINK } from "@/lib/constants";
 
 export default function Page() {
+  const [activePanel, setActivePanel] = useState<
+    "description" | "controls" | "source" | null
+  >(null);
+
   return (
-    <main className="min-h-svh w-full flex items-center justify-center flex-col ">
-      <div className=" bg-secondary h-full flex-1 items-center justify-center flex w-screen flex-col gap-12">
-        <div className="">
-          Before
-          <Slider.Root defaultValue={25}>
-            <Slider.Control className="flex w-[500px]! touch-none items-center py-3 select-none">
-              <Slider.Track className="h-1 w-full bg-neutral-200 select-none dark:bg-neutral-800">
-                <Slider.Indicator
-                  className="bg-neutral-950 select-none dark:bg-white "
-                  style={{
-                    backgroundColor:
-                      "color-mix(in oklab, var(--primary) 80%, var(--background))",
-                  }}
-                />
-                <Slider.Thumb
-                  aria-label="Volume"
-                  className="size-4 border border-neutral-950 bg-white select-none has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-neutral-950 dark:has-[:focus-visible]:outline-white dark:border-white dark:bg-neutral-950 rounded-full! cursor-pointer"
-                />
-              </Slider.Track>
-            </Slider.Control>
-          </Slider.Root>
-        </div>
-        <div className="w-full flex items-center justify-center flex-col">
-          <div>
-            After
-            <FluidSlider
-              label="Resonance"
-              defaultValue={6}
-              max={10}
-              // marks={[2, 4, 6, 8]}
-              className="min-w-[500px]"
-            />
-          </div>
-        </div>
-      </div>
+    <main className="min-h-svh bg-focus-overlay">
+      <FocusActionsBar>
+        <FocusActionTooltip id="test-home" label="Home">
+          <Link
+            href="/"
+            aria-label="Home"
+            className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:cursor-pointer hover:bg-accent hover:text-foreground"
+          >
+            <Home className="size-4" />
+          </Link>
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-search" label="Search">
+          <Search compact />
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-github" label="View on GitHub">
+          <a
+            href={GIT_REP_LINK}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View Sona UI on GitHub"
+            className="grid size-9 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <FaGithub className="size-4" aria-hidden="true" />
+          </a>
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-description" label="Description">
+          <IconButton
+            label="Description"
+            active={activePanel === "description"}
+            onClick={() =>
+              setActivePanel((panel) =>
+                panel === "description" ? null : "description",
+              )
+            }
+          >
+            <BookOpenText className="size-4" />
+          </IconButton>
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-controls" label="Controls">
+          <IconButton
+            label="Controls"
+            active={activePanel === "controls"}
+            onClick={() =>
+              setActivePanel((panel) =>
+                panel === "controls" ? null : "controls",
+              )
+            }
+          >
+            <Settings2 className="size-4" />
+          </IconButton>
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-source" label="Source">
+          <IconButton
+            label="Source"
+            active={activePanel === "source"}
+            onClick={() =>
+              setActivePanel((panel) => (panel === "source" ? null : "source"))
+            }
+          >
+            <Code2 className="size-4" />
+          </IconButton>
+        </FocusActionTooltip>
+        <FocusActionTooltip id="test-theme" label="Toggle theme">
+          <ModeToggle />
+        </FocusActionTooltip>
+      </FocusActionsBar>
     </main>
   );
 }

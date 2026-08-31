@@ -72,7 +72,7 @@ export function Search({ compact = false }: { compact?: boolean }) {
         aria-label={compact ? "Search documentation" : undefined}
         title={compact ? "Search documentation" : undefined}
         className={cn(
-          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
+          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:cursor-pointer hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
           compact
             ? "inline-flex size-9 justify-center"
             : "hidden lg:inline-flex gap-2 px-3 py-1.5",

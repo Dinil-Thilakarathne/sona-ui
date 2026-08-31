@@ -65,7 +65,7 @@ type Heading = { id: string; text: string; level: number };
 const packageManagers = ["npm", "pnpm", "yarn", "bun"] as const;
 type PackageManager = (typeof packageManagers)[number];
 
-function IconButton({
+export function IconButton({
   label,
   active,
   children,
@@ -83,7 +83,7 @@ function IconButton({
       aria-pressed={active}
       title={label}
       className={cn(
-        "grid size-9 shrink-0 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-35",
+        "grid size-9 shrink-0 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-35",
         active && "bg-accent text-foreground",
         className,
       )}
@@ -94,7 +94,7 @@ function IconButton({
   );
 }
 
-function FocusActionTooltip({
+export function FocusActionTooltip({
   id,
   label,
   children,
@@ -416,10 +416,10 @@ function SidebarToggleIcon({ open }: { open: boolean }) {
   );
 }
 
-function FocusActionsBar({ children }: { children: ReactNode }) {
+export function FocusActionsBar({ children }: { children: ReactNode }) {
   return (
     <FluidTooltip.Group orientation="horizontal">
-      <div className="pointer-events-auto fixed top-6 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8">
+      <div className="pointer-events-auto fixed top-5 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8">
         {children}
       </div>
     </FluidTooltip.Group>
@@ -453,7 +453,7 @@ function GuidePage({
               href="/"
               aria-label="Home"
               title="Home"
-              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:cursor-pointer hover:bg-accent hover:text-foreground"
             >
               <Home className="size-4" />
             </Link>
@@ -919,7 +919,8 @@ function ComponentPage({
       setToolDrawer(null);
       return;
     }
-    if (!documentOpen) setDocumentOpen(true);
+    if (isMobile) setDocumentOpen(false);
+    if (!isMobile && !documentOpen) setDocumentOpen(true);
     setToolDrawer("controls");
   };
   const toggleSource = () => {
@@ -927,7 +928,8 @@ function ComponentPage({
       setToolDrawer(null);
       return;
     }
-    if (!documentOpen) setDocumentOpen(true);
+    if (isMobile) setDocumentOpen(false);
+    if (!isMobile && !documentOpen) setDocumentOpen(true);
     setToolDrawer("source");
   };
   const toolPanelContent =
@@ -981,7 +983,7 @@ function ComponentPage({
             <Link
               href="/"
               aria-label="Home"
-              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:bg-accent hover:text-foreground"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground hover:cursor-pointer hover:bg-accent hover:text-foreground"
             >
               <Home className="size-4" />
             </Link>
@@ -995,7 +997,7 @@ function ComponentPage({
               target="_blank"
               rel="noreferrer"
               aria-label="View Sona UI on GitHub"
-              className="grid size-9 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="grid size-9 place-items-center rounded-lg text-muted-foreground transition-colors duration-150 ease-out hover:cursor-pointer hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <FaGithub className="size-4" aria-hidden="true" />
             </a>
@@ -1003,8 +1005,13 @@ function ComponentPage({
           <FocusActionTooltip id="focus-description" label="Description">
             <IconButton
               label="Description"
-              active={documentOpen}
+              active={documentOpen && !toolDrawer}
               onClick={() => {
+                if (isMobile) {
+                  setToolDrawer(null);
+                  setDocumentOpen(!documentOpen);
+                  return;
+                }
                 if (documentOpen) {
                   setToolDrawer(null);
                 }
