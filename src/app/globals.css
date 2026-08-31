@@ -355,7 +355,7 @@ html {
     --docs-h1-space-before: 0.5rem;
     --docs-h1-space-after: 0.5rem;
     --docs-h2-space-before: 1rem;
-    --docs-h2-space-after: 0.75rem;
+    --docs-h2-space-after: 0.5rem;
     --docs-h3-space-before: 1.75rem;
     --docs-h3-space-after: 0.5rem;
     --docs-h4-space-before: 1.5rem;
@@ -416,6 +416,7 @@ html {
 
     & .docs-paragraph {
         text-wrap: pretty;
+        color: var(--muted-foreground);
     }
 
     & .docs-link {
@@ -451,14 +452,17 @@ html {
 
     & .docs-list-item {
         line-height: 1.1;
+        color: var(--muted-foreground);
     }
+    /*
     & .docs-list-item + .docs-list-item {
-        /*margin-block-start: var(--docs-list-item-gap);*/
+    margin-block-start: var(--docs-list-item-gap);
     }
 
     & .docs-list .docs-list {
-        /*margin-block: var(--docs-list-item-gap) 0;*/
+        margin-block: var(--docs-list-item-gap) 0;
     }
+    */
 
     & .docs-blockquote {
         margin-block: calc(var(--docs-flow) * 1.25);
@@ -538,7 +542,7 @@ html {
     --docs-body-size: var(--_fs);
     --docs-body-leading: 1.6;
     --docs-h1-size: var(--_fs);
-    --docs-h2-size: var(--_fs);
+    --docs-h2-size: calc(var(--_fs) * 1.125);
     --docs-h3-size: var(--_fs);
     --docs-h4-size: var(--_fs);
     --docs-lead-size: var(--_fs);
@@ -563,7 +567,7 @@ html {
     --docs-body-size: var(--_fs);
     --docs-body-leading: 1.6;
     --docs-h1-size: 1.25rem;
-    --docs-h2-size: var(--_fs);
+    --docs-h2-size: calc(var(--_fs) * 1.125);
     --docs-h3-size: var(--_fs);
     --docs-h4-size: var(--_fs);
     --docs-lead-size: var(--_fs);
@@ -574,7 +578,7 @@ html {
     & .docs-link,
     & strong,
     & .docs-table-heading {
-        font-weight: 400;
+        font-weight: 500;
     }
 
     & .docs-heading-h1 {
@@ -679,11 +683,7 @@ html {
     & .docs-list-item {
         position: relative;
         padding-inline-start: 1rem;
-        color: color-mix(
-            in oklch,
-            var(--foreground) 84%,
-            var(--muted-foreground)
-        );
+        color: var(--muted-foreground);
         line-height: 1.55;
     }
 
