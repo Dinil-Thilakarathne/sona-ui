@@ -48,8 +48,14 @@ function saveTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system");
-  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>("light");
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "system";
+    return getStoredTheme() ?? "system";
+  });
+  const [systemTheme, setSystemTheme] = useState<ResolvedTheme>(() => {
+    if (typeof window === "undefined") return "light";
+    return getSystemTheme();
+  });
   const resolvedTheme = theme === "system" ? systemTheme : theme;
 
   useEffect(() => {
