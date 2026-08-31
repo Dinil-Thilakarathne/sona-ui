@@ -1,3 +1,10 @@
+## [2.19.6](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.5...v2.19.6) (2026-08-31)
+
+
+### Bug Fixes
+
+* Update documentation styles ([1e97d40](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1e97d4026db8593bf6007f0cb81a832efcc2ed0b))
+
 ## [2.19.5](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.4...v2.19.5) (2026-08-31)
 
 
