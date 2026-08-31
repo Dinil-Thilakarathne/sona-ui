@@ -1,3 +1,10 @@
+## [2.19.5](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.4...v2.19.5) (2026-08-31)
+
+
+### Bug Fixes
+
+* hydration and improve responsive state management ([d69bc37](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d69bc375a4a770c6e87d6cd0ff157a2a2102d2e5))
+
 ## [2.19.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.3...v2.19.4) (2026-08-30)
 
 
