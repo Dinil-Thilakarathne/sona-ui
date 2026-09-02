@@ -57,12 +57,17 @@ function readDocTitle(slug: string) {
 }
 
 function readDirectoryFiles(directory: string): string[] {
-  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
-    const filePath = path.join(directory, entry.name);
-    return entry.isDirectory()
-      ? readDirectoryFiles(filePath)
-      : [fs.readFileSync(filePath, "utf8")];
-  });
+  return fs
+    .readdirSync(directory, { withFileTypes: true })
+    .sort((left, right) =>
+      left.name === right.name ? 0 : left.name < right.name ? -1 : 1,
+    )
+    .flatMap((entry) => {
+      const filePath = path.join(directory, entry.name);
+      return entry.isDirectory()
+        ? readDirectoryFiles(filePath)
+        : [fs.readFileSync(filePath, "utf8")];
+    });
 }
 
 function buildResources() {

@@ -5,7 +5,7 @@
 ## Freshness protocol
 
 - Manifest: https://sona-ui.vercel.app/agent/manifest.json
-- Source digest: `a63232cc34ec73e415e9a72f8f8c17db39ce491c2018651cb295af41989c8f7a`
+- Source digest: `54ce599915ede995d0bbdb73d33bafcd2b8aa32ea616abddd8092f050f9d4727`
 - This is a generated fallback snapshot. Fetch the manifest and then the selected component detail before relying on component guidance when network access is available.
 - If the manifest is unavailable, state that the guidance may not match the deployed registry before continuing.
 
