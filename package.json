@@ -16,6 +16,7 @@
     "build:registry:local": "REGISTRY_BASE_URL=http://127.0.0.1:3000/r bun run build:registry",
     "check:registry": "bun run scripts/validate-registry.ts",
     "check:agent-resources": "bun scripts/validate-agent-resources.ts",
+    "check:agent-resource-drift": "bun run build:agent-resources && git diff --exit-code -- public/agent public/llms.txt public/llms-full.txt",
     "check:agent-skill": "bun scripts/validate-agent-skill.ts",
     "check:agent-contracts": "bun scripts/check-agent-contracts.ts",
     "check:agent-readiness": "bun scripts/check-agent-readiness.ts",

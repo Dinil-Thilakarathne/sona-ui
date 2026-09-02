@@ -5,6 +5,7 @@ const root = process.cwd();
 const catalogPath = path.join(root, "public/agent/catalog.json");
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8")) as {
   registry: string;
+  manifest?: string;
   items: Array<{
     name: string;
     detail: string;
@@ -18,6 +19,7 @@ const productionOrigin = "https://sona-ui.vercel.app";
 const requiredPublicFiles = [
   "public/llms.txt",
   "public/llms-full.txt",
+  "public/agent/manifest.json",
   "public/r/registry.json",
   "public/r/agent-skill.json",
 ];
@@ -66,6 +68,9 @@ for (const item of catalog.items) {
 
 if (catalog.registry !== `${productionOrigin}/r/{name}.json`) {
   errors.push("catalog: registry URL is not the production alias");
+}
+if (catalog.manifest !== `${productionOrigin}/agent/manifest.json`) {
+  errors.push("catalog: manifest URL is not the production alias");
 }
 
 for (const fileName of fs.readdirSync(path.join(root, "public/r"))) {

@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "manifest": "https://sona-ui.vercel.app/agent/manifest.json",
   "registry": "https://sona-ui.vercel.app/r/{name}.json",
   "items": [
     {

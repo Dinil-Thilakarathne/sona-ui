@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { agentResourceMetadata } from "../src/registry/agent-metadata";
@@ -19,9 +20,14 @@ const root = process.cwd();
 const sourceRegistryPath = path.join(root, "src/registry/registry.json");
 const resolvedRegistryPath = path.join(root, "public/r");
 const docsPath = path.join(root, "src/content/docs");
+const skillPath = path.join(root, "src/registry/sonaui/agent-skill");
 const outputPath = path.join(root, "public/agent");
 const catalogPath = path.join(outputPath, "catalog.json");
 const detailsPath = path.join(outputPath, "components");
+
+function sha256(value: string) {
+  return crypto.createHash("sha256").update(value).digest("hex");
+}
 function getSiteBaseUrl() {
   const configuredUrl = process.env.AGENT_SITE_URL?.trim();
   if (configuredUrl) return configuredUrl.replace(/\/$/, "");
@@ -48,6 +54,15 @@ function readDocTitle(slug: string) {
   const source = fs.readFileSync(filePath, "utf8");
   const title = source.match(/^title:\s*["'](.+?)["']\s*$/m)?.[1];
   return { filePath, title: title ?? slug };
+}
+
+function readDirectoryFiles(directory: string): string[] {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const filePath = path.join(directory, entry.name);
+    return entry.isDirectory()
+      ? readDirectoryFiles(filePath)
+      : [fs.readFileSync(filePath, "utf8")];
+  });
 }
 
 function buildResources() {
@@ -116,8 +131,27 @@ function buildResources() {
     };
   });
 
+  const sourceDigest = sha256(
+    [
+      fs.readFileSync(sourceRegistryPath, "utf8"),
+      fs.readFileSync(
+        path.join(root, "src/registry/agent-metadata.ts"),
+        "utf8",
+      ),
+      ...readDirectoryFiles(skillPath),
+      ...metadata.flatMap((item) => {
+        const doc = readDocTitle(item.docsSlug);
+        return [
+          doc ? fs.readFileSync(doc.filePath, "utf8") : "",
+          JSON.stringify(getResolvedRegistryItem(item.name)),
+        ];
+      }),
+    ].join("\n"),
+  );
+
   const catalog = {
     schemaVersion: 1,
+    manifest: `${siteBaseUrl}/agent/manifest.json`,
     registry: `${registryBaseUrl}/{name}.json`,
     items: catalogItems,
   };
@@ -154,20 +188,21 @@ function buildResources() {
     "",
     "> Source-owned React components with purposeful motion and accessible interaction.",
     "",
+    "## Freshness protocol",
+    "",
+    `Before selecting or installing a component, fetch the [agent manifest](${siteBaseUrl}/agent/manifest.json) and follow its catalog URL. The manifest is the current authority when network access is available.`,
+    "",
+    `This file is an offline bootstrap snapshot with source digest \`${sourceDigest}\`. If the manifest cannot be reached, disclose that the installed or downloaded snapshot may be older than production.`,
+    "",
     "## Start here",
     "",
+    `- [Agent manifest](${siteBaseUrl}/agent/manifest.json)`,
     `- [Installation](${siteBaseUrl}/docs/installation)`,
     `- [Theming](${siteBaseUrl}/docs/theming)`,
     `- [Agent component catalog](${siteBaseUrl}/agent/catalog.json)`,
     `- [Full agent guidance](${siteBaseUrl}/llms-full.txt)`,
     `- [Registry index](${siteBaseUrl}/r/registry.json)`,
     `- [OpenAPI description](${siteBaseUrl}/openapi.json)`,
-    "",
-    "## Components",
-    "",
-    ...catalogItems.map(
-      (item) => `- [${item.title}](${item.docs}): ${item.summary}`,
-    ),
     "",
     "## Integration principles",
     "",
@@ -183,6 +218,13 @@ function buildResources() {
     "# Sona UI Agent Resources (Full)",
     "",
     "> Detailed, machine-readable guidance for selecting and integrating Sona UI components.",
+    "",
+    "## Freshness protocol",
+    "",
+    `- Manifest: ${siteBaseUrl}/agent/manifest.json`,
+    `- Source digest: \`${sourceDigest}\``,
+    "- This is a generated fallback snapshot. Fetch the manifest and then the selected component detail before relying on component guidance when network access is available.",
+    "- If the manifest is unavailable, state that the guidance may not match the deployed registry before continuing.",
     "",
     "## Installation",
     "",
@@ -250,6 +292,19 @@ function buildResources() {
   fs.writeFileSync(
     path.join(root, "public/llms-full.txt"),
     fullLines.join("\n"),
+  );
+  const manifest = {
+    schemaVersion: 1,
+    sourceDigest,
+    catalog: `${siteBaseUrl}/agent/catalog.json`,
+    fullGuidance: `${siteBaseUrl}/llms-full.txt`,
+    skill: `${registryBaseUrl}/agent-skill.json`,
+    updatePolicy:
+      "Fetch this manifest before selecting or installing a component. Installed skill files and full guidance are snapshots; this manifest and its catalog are authoritative when reachable.",
+  };
+  fs.writeFileSync(
+    path.join(outputPath, "manifest.json"),
+    `${JSON.stringify(manifest, null, 2)}\n`,
   );
   console.log(`Built agent resources for ${metadata.length} registry items.`);
 }

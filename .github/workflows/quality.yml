@@ -37,6 +37,9 @@ jobs:
       - name: Build agent resources from resolved registry artifacts
         run: bun run build:agent-resources
 
+      - name: Reject stale generated agent resources
+        run: bun run check:agent-resource-drift
+
       - name: Validate agent resources
         run: bun run check:agent-resources
 

@@ -54,6 +54,8 @@ if (!notFoundMarkdown("/missing").includes("# Not found")) {
 const llms = fs.readFileSync(path.join(root, "public/llms.txt"), "utf8");
 if (!llms.includes("/openapi.json"))
   errors.push("llms.txt does not link to OpenAPI");
+if (!llms.includes("/agent/manifest.json"))
+  errors.push("llms.txt does not link to the agent manifest");
 
 if (errors.length > 0) {
   console.error("Agent readiness check failed:");
