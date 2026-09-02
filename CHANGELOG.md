@@ -1,3 +1,221 @@
+# [2.20.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.6...v2.20.0) (2026-09-02)
+
+
+### Features
+
+* Refactor landing hero, enhance layout components, and implement agent protocol ([#89](https://github.com/Dinil-Thilakarathne/sona-ui/issues/89)) ([7a2f38d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7a2f38d3b7e0eec40d43e7fc03cfbc31e4b8f115))
+
+## [2.19.6](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.5...v2.19.6) (2026-08-31)
+
+
+### Bug Fixes
+
+* Update documentation styles ([1e97d40](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1e97d4026db8593bf6007f0cb81a832efcc2ed0b))
+
+## [2.19.5](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.4...v2.19.5) (2026-08-31)
+
+
+### Bug Fixes
+
+* hydration and improve responsive state management ([d69bc37](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d69bc375a4a770c6e87d6cd0ff157a2a2102d2e5))
+
+## [2.19.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.3...v2.19.4) (2026-08-30)
+
+
+### Bug Fixes
+
+* Implement editorial changelog layout and GitHub link ([4022cc1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4022cc119e06d14ff30291b6372973d69c9f1443))
+
+## [2.19.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.2...v2.19.3) (2026-08-30)
+
+
+### Bug Fixes
+
+* preview container height in docs shell ([a1edf1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a1edf1f790dd507a21a90d667a5b58cad1ca78a0))
+
+## [2.19.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.1...v2.19.2) (2026-08-30)
+
+
+### Bug Fixes
+
+* Update CTA link to point to components page ([46d9985](https://github.com/Dinil-Thilakarathne/sona-ui/commit/46d9985ea5233b9bd299fa9fa3bade7776878f3a))
+
+## [2.19.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.0...v2.19.1) (2026-08-30)
+
+
+### Bug Fixes
+
+* Update header navigation padding and changelog ([045bae7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/045bae70b12248125278dbd8e5530909cc9d4829))
+* Update hero button link to components page ([3c7ab63](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3c7ab633ee35d32644eb5151ad5414d07532a265))
+
+# [2.19.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.18.0...v2.19.0) (2026-08-30)
+
+
+### Bug Fixes
+
+* Add border radius to docs focus panels ([4885b90](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4885b9001f4ba59297b06abf954c3d9a8dd7ad5d))
+* Add data-component-preview attribute to preview container ([9bf9051](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bf9051801f98570c5499320a0c7f5bfe8c0580e))
+* Increase font size for sidebar navigation items ([2a80485](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2a80485d1963d2947789c7639fbbf25ab2eefd8d))
+
+
+### Features
+
+* Add component showcase page ([b6012be](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b6012bebdec0080ca71c34d1f6e637ac2c680a38))
+* Add LandingFooter to components page ([6e9c264](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6e9c264df1125efc6a099772f7ce77e365d57b23))
+* Add smooth-shadow-ring utility and component documentation shell ([da82f5c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/da82f5c2482ceaf7c22f2c6231266b494325eaa5))
+* Refactor docs and site infrastructure ([fdddacc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fdddacc397f9a03cee92ffc1af05af4ed9f59e3a))
+* Refactor landing page and update dependencies ([44cbd14](https://github.com/Dinil-Thilakarathne/sona-ui/commit/44cbd146f0b2a5f05e8962abecc9b1a6388a9def))
+* Refine theme colors and UI component styles ([3c97c76](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3c97c76bc6d71642cabba77f12769e6814da5aca))
+
+# [2.18.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.17.0...v2.18.0) (2026-08-02)
+
+
+### Features
+
+* Add Avatar Showcase and Lightbox components ([2cae817](https://github.com/Dinil-Thilakarathne/sona-ui/commit/2cae8171ff0384cb7b0ab4cebbada026a3397483))
+* Add Expanding Action and Fluid Tooltip components ([84cdba6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/84cdba697449f70654f19a71056028f196bf0b55))
+* Disable Lightbox and Avatar Showcase components ([9a1493d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9a1493d7e329052a57cfe75964bfd93da028bea6))
+* Update Sona UI agent skill content and documentation ([818d036](https://github.com/Dinil-Thilakarathne/sona-ui/commit/818d036c4be9cc8d535d341aca3ac14823f301fe))
+
+# [2.17.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.1...v2.17.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* Refactor HoldToDeleteButton with improved animations ([c940962](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c94096238f5d2158a4017e5ad0b0c01a93553e16))
+
+
+### Features
+
+* Add animation audit and prototyping agent skills ([06aa237](https://github.com/Dinil-Thilakarathne/sona-ui/commit/06aa23772fc3ec1013e839c6da17195896e0e519))
+
+## [2.16.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.16.0...v2.16.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* Remove InteractionPreview from social image component ([f2a1796](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f2a179672c0f94157d396f410a70a8d61677dc90))
+
+# [2.16.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.15.1...v2.16.0) (2026-07-27)
+
+
+### Features
+
+* Implement dynamic OpenGraph and Twitter images ([374e68b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/374e68bb806b06c0e2c001979400af414386753c))
+
+## [2.15.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.15.0...v2.15.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* Refactor registry to use package-based dependencies ([74799ef](https://github.com/Dinil-Thilakarathne/sona-ui/commit/74799efec32591d6d137f609621f475476bc0100))
+
+# [2.15.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.14.0...v2.15.0) (2026-07-27)
+
+
+### Bug Fixes
+
+* Add content collections build step to typecheck ([b3bd00a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b3bd00aed7a5fa0c824d1eaaf4da5d731d8fca18))
+* Add hover cursor pointer to dialog buttons ([01d3daf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/01d3dafd64ffadbcfd622994a0d812bb1d7eeab5))
+* Enhance search UI animations and update mobile components ([ae1fd09](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ae1fd094ee4240ba1ca3f505fee784afd1997b46))
+* Refactor landing page and update component navigation ([be76c02](https://github.com/Dinil-Thilakarathne/sona-ui/commit/be76c02af1e5023e7555e8f687a1fc34b60c5fba))
+* Refine SectionRail animation and layout ([d055669](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d05566975207c8b557188d0369d88e365243de37))
+* Remove component audit document ([76c626f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/76c626f87e2020a72d53d4dcb4b7c8d2dcd6066d))
+* Rename animated-button to button in accessibility script ([3bcf5c3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3bcf5c37940598e285e22146fa4d940563f838c6))
+* Update primary foreground color to support light-dark mode ([8204e46](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8204e4678e03d0c7624bfac44d7e2f305cb72188))
+* Update project description in package.json ([101e7a3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/101e7a33d9de21f0f33407b56cf77eb5402e103f))
+
+
+### Features
+
+* Add ActivityGraph component and GitHub contribution integration ([69b9bcd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/69b9bcd087b243a68e0fb1914002a0425b2f525f))
+* Add agent documentation and skills ([b630f4a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b630f4a5ff1ec446ede746198d06d27b6578e55f))
+* Add documentation navigation and table of contents ([f878900](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f87890010bdce3635f0024eefc59b42dd1223ff0))
+* Add Fluid Slider component ([66c8cec](https://github.com/Dinil-Thilakarathne/sona-ui/commit/66c8cec0b6ca03162e089088db4050090d1e623e))
+* Add hover scale animation to Button and remove volume control ([3f08612](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3f086123f32e848bf8104b50fc170d28bb0ead1c))
+* Add Image Trail and Split Text components ([9f5641b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9f5641b2ed65dede4de9ddc8e833ee69fb2c26fd))
+* Improve AnimatedDropdown and internal component styling ([f1b16f9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/f1b16f9e90648c567195ba76630c42863a922dd6))
+* Refactor codebase and update dependencies ([5530910](https://github.com/Dinil-Thilakarathne/sona-ui/commit/55309109176d3cbe5ea983464233357e5a819490))
+* Refactor components and add new UI suite ([77d4cc7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/77d4cc79f5d60d97a9e66deb99cdfd440cb8bcb4))
+* Refactor landing page and UI components ([fae1ae9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fae1ae9e507e9181e9c706077aaddc8b945cf9dc))
+* Refactor registry path aliases and add local build script ([22f1fc9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/22f1fc900edc8e3e15105b371b3b1a25160f30f1))
+* Refactor registry to Sona UI standard ([4697f62](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4697f62a8617541d989ed81b76b5f81bdc52f14e))
+
+# [2.14.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.13.0...v2.14.0) (2026-07-06)
+
+
+### Features
+
+* **comp:** Add Dot Orbit and Mesh Gradient shader components ([e3041e2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e3041e2156e4e631d8cebf05658fd33cf95f0ee5))
+* Refactor codebase for consistent import formatting and style ([29fb151](https://github.com/Dinil-Thilakarathne/sona-ui/commit/29fb151d324aff28d557c36fedb4ee98ac43cd9a))
+
+# [2.13.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.12.1...v2.13.0) (2026-07-03)
+
+
+### Features
+
+* add animated accordion variant and preview example ([28104ee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/28104ee59a8647cb3b4c3e3abd749fe6eba6a1bb))
+* Add playground registry and auto-generate component prop types ([84da3fb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/84da3fbc1956c16368b75792d895757f2904a0bf))
+* Add Spotlight Card component and skill documentation ([02f1ef9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/02f1ef91bedc42ded26ecf068d8aaacf0981817b))
+* **comp:** Add circular dock menu, fan view, and hold-to-delete ([e70fff8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e70fff83f990f84dc2d806175a4080dafc8af6d0))
+
+## [2.12.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.12.0...v2.12.1) (2026-02-09)
+
+
+### Bug Fixes
+
+* update simili bot configurations ([a8c1a01](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a8c1a0171444a4ccfdcac9a99291ccdbd26cb328))
+
+# [2.12.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.11.0...v2.12.0) (2026-02-07)
+
+
+### Features
+
+* Add apple-touch-icon and update Open Graph image. ([228e73a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/228e73a911537fab0ddf91d42efc856e77e74fc8))
+* Implement chat history display and management with feature flag control ([59ea2b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/59ea2b8d28df27c6d86155c852afa105366c1565))
+
+# [2.11.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.10.0...v2.11.0) (2026-02-07)
+
+
+### Features
+
+* Add Simili bot configuration and workflow for automated issue triage. ([1bba8f8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1bba8f8f19be791a46314eb35667781bfe454e7e))
+
+# [2.10.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.1...v2.10.0) (2026-02-04)
+
+
+### Bug Fixes
+
+* add theme provider ([#50](https://github.com/Dinil-Thilakarathne/sona-ui/issues/50)) ([654ac1c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/654ac1c734179f4a605cffb18c99b72549f6c871))
+* duplicate files property ([8c59432](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8c594327405f39bd59eaee5f343fa95e1270be62))
+* file naming issue ([6320a1a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6320a1a823ed9b41309dc364b3e1cc85bea36004))
+* file naming issues ([fb56b6b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fb56b6b87b1301f1c67f00758ee71398c620f7e0))
+* improve sidebar layout ([#46](https://github.com/Dinil-Thilakarathne/sona-ui/issues/46)) ([c99249b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c99249b1b687ba9e966d7de1449f519f2a0b12a4))
+* update core dependencies (fix CVE-2025-55182 issues). ([5a11917](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5a119171ec6ac4ccdd183f4bb6b358dc673860e6))
+* update sidebar ui ([a15250d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a15250d57d19c30f9da5ad61588d9f6f812eca77))
+* update site header ui ([#52](https://github.com/Dinil-Thilakarathne/sona-ui/issues/52)) ([d1fe0b0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d1fe0b0b02e4d77f6fda2752c254a40718d8f9b1))
+
+
+### Features
+
+* add component registry json files ([54af9a5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/54af9a5bcdeaff3b72a0492f08e799cf50fc4cb5))
+* Add shadcn/ui registry integration with a new build script ([02788b0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/02788b06e9ca78141a8744f3b0a1f844cd6d2465))
+* add site get started pages ([6b84ae8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6b84ae866847400328c330835a396e267869333d))
+* add variants to `ScrollUpButton`, introduce a "Get started" button to the Hero section with updated text animations, and remove the "Documentation" navigation link. ([9bd21f8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9bd21f8661e4b6af684cd7ef2e3f1a09338d8fc1))
+* Enhance theming with centralized CSS variables, update component installation to use named components, and remove CLI documentation. ([227989e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/227989e72df8e9e4ac34826dcca69595ce1d6670))
+* implement global documentation search with command palette functionality ([6f0e601](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6f0e60164f6da9397438fbedcb9c141428719f25))
+* impllment internal code block component ([b18f5b5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b18f5b5a7ddee000a151761cf8a07aa1561aefbe))
+* migare camel case file names to the kebab case file naming ([b89c17f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b89c17f69958be226f4680b798bc297bbb7090c6))
+* refactor code block styling. ([11fb8fd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/11fb8fde072b7cd61e9d5f20e3f7aca3729d1511))
+* update accordion comp ([e0f33a3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e0f33a3ff39c0542691f43c1885961a4e7e68a7a))
+* update internal layout and style ([a2e31a1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a2e31a131a4aeb1ccd3f7c6ee3a094224584956e))
+* update library registry ([8e7779a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8e7779a04d59d5a85917b0d2a355acd355f71c56))
+* update mdx content ([6912db9](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6912db99843ce4ac8a7df0afcb96695d16b04268))
+* update registry prebuild command ([9e642ee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9e642ee89d9dd7a75756f16f75ac69826141f8df))
+* update site core ui components ([8c55932](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8c5593232b77671658022b79943159c4a9bbda88))
+* update site styles ([a3efc0e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a3efc0ef98530f16434804c4a5482cbf3e5ebab3))
+* update system config ([b39038c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b39038cd0a42bbc5b50c3b59cfe5caccd0474909))
+
 ## [2.9.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.9.0...v2.9.1) (2025-12-03)
 
 

@@ -1,5 +1,6 @@
 {
   "schemaVersion": 1,
+  "sourceDigest": "54ce599915ede995d0bbdb73d33bafcd2b8aa32ea616abddd8092f050f9d4727",
   "catalog": "https://sona-ui.vercel.app/agent/catalog.json",
   "fullGuidance": "https://sona-ui.vercel.app/llms-full.txt",
   "skill": "https://sona-ui.vercel.app/r/agent-skill.json",

@@ -6,7 +6,7 @@
 
 Before selecting or installing a component, fetch the [agent manifest](https://sona-ui.vercel.app/agent/manifest.json) and follow its catalog URL. The manifest is the current authority when network access is available.
 
-If the manifest cannot be reached, disclose that the installed or downloaded snapshot may be older than production.
+This file is an offline bootstrap snapshot with source digest `54ce599915ede995d0bbdb73d33bafcd2b8aa32ea616abddd8092f050f9d4727`. If the manifest cannot be reached, disclose that the installed or downloaded snapshot may be older than production.
 
 ## Start here
 
