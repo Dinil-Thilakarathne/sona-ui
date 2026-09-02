@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.6...v2.20.0) (2026-09-02)
+
+
+### Features
+
+* Refactor landing hero, enhance layout components, and implement agent protocol ([#89](https://github.com/Dinil-Thilakarathne/sona-ui/issues/89)) ([7a2f38d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7a2f38d3b7e0eec40d43e7fc03cfbc31e4b8f115))
+
 ## [2.19.6](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.5...v2.19.6) (2026-08-31)
 
 
