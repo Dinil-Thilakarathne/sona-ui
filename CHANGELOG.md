@@ -1,3 +1,10 @@
+## [2.20.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.0...v2.20.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* remove source digest ([#90](https://github.com/Dinil-Thilakarathne/sona-ui/issues/90)) ([30a168c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/30a168c59a111b340b08156e90a3ded34d01d256))
+
 # [2.20.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.6...v2.20.0) (2026-09-02)
 
 
