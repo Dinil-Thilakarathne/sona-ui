@@ -1,3 +1,19 @@
+# [2.21.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.1...v2.21.0) (2026-09-02)
+
+
+### Bug Fixes
+
+* Add className support to focus layout components ([b9cb2d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b9cb2d62fac6b267883054f41c025e8ec3c4bcf6))
+* Refactor landing hero and update documentation ([9279fd8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9279fd82e0b8d09d59b7af44eb49e4b96065f958))
+* Remove source digest from agent manifest and resources ([d912801](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d9128010f61667e8b45a35f22fe01cad28a9ed93))
+* Remove source digest from agent manifests and documentation ([585fee3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/585fee3f34e623b74ef03e714c04e9b376ff1b5d))
+* Update source digest and sort directory files ([396444a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/396444aeae49e7ffc9934a82d6f9cc6b67d79582))
+
+
+### Features
+
+* Implement agent resource freshness protocol ([24644fb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/24644fb9eb8a7db048bc17602120f286613542ef))
+
 ## [2.20.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.0...v2.20.1) (2026-09-02)
 
 
