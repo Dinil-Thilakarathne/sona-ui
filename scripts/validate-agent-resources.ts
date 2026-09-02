@@ -3,6 +3,7 @@ import path from "node:path";
 import { agentResourceMetadata } from "../src/registry/agent-metadata";
 
 const root = process.cwd();
+const registryPath = path.join(root, "src/registry/registry.json");
 const catalogPath = path.join(root, "public/agent/catalog.json");
 const detailsPath = path.join(root, "public/agent/components");
 const metadataNames = Object.keys(agentResourceMetadata);
@@ -18,6 +19,18 @@ const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8")) as {
 };
 const catalogNames = new Set((catalog.items ?? []).map((item) => item.name));
 const errors: string[] = [];
+const registry = JSON.parse(fs.readFileSync(registryPath, "utf8")) as Array<{
+  name: string;
+  type: string;
+}>;
+
+for (const item of registry) {
+  if (item.type === "registry:ui" && !metadataNames.includes(item.name)) {
+    errors.push(
+      `${item.name}: published registry item is missing agent metadata`,
+    );
+  }
+}
 
 if (catalog.schemaVersion !== 1) {
   errors.push("catalog: unsupported or missing schemaVersion");

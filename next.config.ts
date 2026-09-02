@@ -14,7 +14,16 @@ const nextConfig = {
         ],
       },
       {
-        source: "/llms/:file(llms|llms-full).txt",
+        source: "/llms.txt",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/llms-full.txt",
         headers: [
           {
             key: "Cache-Control",

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "fluid-slider",
+  "title": "Fluid Slider",
+  "category": "components",
+  "status": "stable",
+  "summary": "A labeled Base UI range control with direct surface selection, a draggable indicator, and restrained boundary resistance.",
+  "docsSlug": "fluid-slider",
+  "keywords": [
+    "slider",
+    "range",
+    "numeric value",
+    "input"
+  ],
+  "useWhen": [
+    "A numeric value benefits from direct continuous adjustment.",
+    "Reference marks or formatted values help explain meaningful thresholds."
+  ],
+  "avoidWhen": [
+    "The value must be entered with exact precision more efficiently as text.",
+    "The options are discrete named choices rather than a numeric range."
+  ],
+  "capabilities": [
+    "Controlled and uncontrolled values",
+    "Drag and direct track selection",
+    "Reference marks and formatted values",
+    "Form integration through Base UI"
+  ],
+  "accessibility": [
+    "Uses Base UI range semantics and keyboard controls.",
+    "Keeps the semantic value within constraints while visual resistance remains decorative."
+  ],
+  "motion": {
+    "purpose": "Provide tactile feedback during direct manipulation and at range boundaries.",
+    "reducedMotion": "Keep keyboard and value updates immediate and remove nonessential resistance motion."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/fluid-slider.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/fluid-slider",
+    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-slider/raw.md",
+    "sourceTitle": "fluid-slider"
+  }
+}

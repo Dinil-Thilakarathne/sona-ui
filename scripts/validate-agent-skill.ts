@@ -21,6 +21,7 @@ const requiredFixtures = [
   "tests/agent-integrations/clients/claude-code.md",
   "tests/agent-integrations/clients/cursor.md",
   "tests/agent-integrations/scenarios/discover-tabs.md",
+  "tests/agent-integrations/scenarios/discover-exact-name-fallback.md",
   "tests/agent-integrations/scenarios/install-component.md",
   "tests/agent-integrations/scenarios/reduced-motion.md",
   "tests/agent-integrations/scenarios/troubleshoot-alias.md",
@@ -100,6 +101,13 @@ if (!fs.existsSync(skillPath)) {
 
   if (!skill.includes("work is complete only when")) {
     errors.push("workflow is missing its exhaustive completion criterion");
+  }
+
+  if (
+    !skill.includes("/r/{name}.json") ||
+    !skill.includes("absent from the catalog")
+  ) {
+    errors.push("workflow is missing the exact-name registry fallback");
   }
 }
 
