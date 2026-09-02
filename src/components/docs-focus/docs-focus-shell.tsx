@@ -328,12 +328,19 @@ function ContentsSheet({
 function FocusNavigationBar({
   open,
   onNavigate,
+  className,
 }: {
   open: boolean;
   onNavigate: () => void;
+  className?: string;
 }) {
   return (
-    <div className="pointer-events-auto fixed top-5 left-6 z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-focus-chrome p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl lg:top-8 lg:left-10">
+    <div
+      className={cn(
+        "pointer-events-auto fixed top-5 left-6 z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-focus-chrome p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl lg:top-8 lg:left-10",
+        className,
+      )}
+    >
       <IconButton
         label={
           open
@@ -415,10 +422,21 @@ function SidebarToggleIcon({ open }: { open: boolean }) {
   );
 }
 
-export function FocusActionsBar({ children }: { children: ReactNode }) {
+export function FocusActionsBar({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <FluidTooltip.Group orientation="horizontal">
-      <div className="pointer-events-auto fixed top-5 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8">
+      <div
+        className={cn(
+          "pointer-events-auto fixed top-5 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8",
+          className,
+        )}
+      >
         {children}
       </div>
     </FluidTooltip.Group>
@@ -823,7 +841,7 @@ function InstallBar({ component }: { component: string }) {
     window.setTimeout(() => setCopied(false), 1600);
   };
   return (
-    <div className="absolute bottom-3 left-1/2 z-3 flex max-w-[calc(100%-1.5rem)] -translate-x-1/2 items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur md:bottom-5">
+    <div className="docs-zen-install-command absolute bottom-3 left-1/2 z-3 flex max-w-[calc(100%-1.5rem)] -translate-x-1/2 items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur md:bottom-5">
       <AnimatedSelectDropdown
         label="Package manager"
         value={manager}
@@ -975,8 +993,9 @@ function ComponentPage({
         <FocusNavigationBar
           open={navOpen}
           onNavigate={() => setNavOpen(!navOpen)}
+          className="docs-zen-sidebar-toggle"
         />
-        <FocusActionsBar>
+        <FocusActionsBar className="docs-zen-controls">
           <FocusActionTooltip id="focus-home" label="Home">
             <Link
               href="/"
