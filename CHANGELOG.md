@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.21.0...v2.22.0) (2026-09-02)
+
+
+### Features
+
+* update agent registry ([e92402e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e92402eb5a5298e230e9cb148e3122836d424da7))
+
 # [2.21.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.1...v2.21.0) (2026-09-02)
 
 
