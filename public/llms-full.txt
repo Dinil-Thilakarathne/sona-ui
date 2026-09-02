@@ -2,6 +2,13 @@
 
 > Detailed, machine-readable guidance for selecting and integrating Sona UI components.
 
+## Freshness protocol
+
+- Manifest: https://sona-ui.vercel.app/agent/manifest.json
+- Source digest: `54ce599915ede995d0bbdb73d33bafcd2b8aa32ea616abddd8092f050f9d4727`
+- This is a generated fallback snapshot. Fetch the manifest and then the selected component detail before relying on component guidance when network access is available.
+- If the manifest is unavailable, state that the guidance may not match the deployed registry before continuing.
+
 ## Installation
 
 Configure the Sona UI registry in the consumer project's components.json:
