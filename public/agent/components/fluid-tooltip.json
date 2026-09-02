@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "fluid-tooltip",
+  "title": "Fluid Tooltip",
+  "category": "components",
+  "status": "stable",
+  "summary": "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+  "docsSlug": "fluid-tooltip",
+  "keywords": [
+    "tooltip",
+    "toolbar",
+    "labels",
+    "grouped controls"
+  ],
+  "useWhen": [
+    "A group of compact controls needs accessible supplementary labels.",
+    "One tooltip surface should follow focus or pointer movement across related triggers."
+  ],
+  "avoidWhen": [
+    "The information is essential and should remain visible without interaction.",
+    "The content requires interactive controls or a persistent popover."
+  ],
+  "capabilities": [
+    "Horizontal and vertical trigger groups",
+    "Delayed first pointer appearance",
+    "Immediate adjacent-trigger handoff",
+    "Collision-aware Base UI positioning"
+  ],
+  "accessibility": [
+    "Uses Base UI tooltip semantics and accessible descriptions.",
+    "Keyboard focus opens the relevant label immediately without directional travel."
+  ],
+  "motion": {
+    "purpose": "Preserve orientation as one tooltip surface moves between related controls.",
+    "reducedMotion": "Remove directional content travel while preserving the tooltip label."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/fluid-tooltip.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/fluid-tooltip",
+    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-tooltip/raw.md",
+    "sourceTitle": "fluid-tooltip"
+  }
+}

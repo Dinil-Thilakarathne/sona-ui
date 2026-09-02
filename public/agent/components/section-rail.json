@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "name": "section-rail",
+  "title": "Section Rail",
+  "category": "components",
+  "status": "stable",
+  "summary": "A compact navigation rail that tracks progress through a long page and reveals labels or editorial context.",
+  "docsSlug": "section-rail",
+  "keywords": [
+    "navigation",
+    "sections",
+    "progress",
+    "long page"
+  ],
+  "useWhen": [
+    "A long page, case study, or multi-step flow needs compact section navigation.",
+    "Readers benefit from seeing the active section and nearby context."
+  ],
+  "avoidWhen": [
+    "The page is too short to need persistent section navigation.",
+    "The destinations lead to separate pages rather than sections in one experience."
+  ],
+  "capabilities": [
+    "Anchor-based scroll mode",
+    "Externally controlled active section",
+    "Optional labels and context cards",
+    "Coarse-pointer presentation"
+  ],
+  "accessibility": [
+    "Uses anchor links in scroll mode and buttons with current-state semantics in controlled mode.",
+    "Shows visible labels for coarse pointers instead of relying on hover-only targets."
+  ],
+  "motion": {
+    "purpose": "Connect the active indicator and contextual details to the reader's current section.",
+    "reducedMotion": "Simplify indicator transitions and scrolling while preserving active-section feedback."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/section-rail.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/section-rail",
+    "rawUrl": "https://sona-ui.vercel.app/docs/section-rail/raw.md",
+    "sourceTitle": "section-rail"
+  }
+}

@@ -258,6 +258,209 @@ Accessibility:
 Motion: Communicate state, continuity, or feedback at the point of interaction.
 Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
 
+### Expanding Action
+
+- Category: components
+- Status: stable
+- Summary: A compact action that transforms in place to reveal two to four related choices while preserving context.
+- Documentation: https://sona-ui.vercel.app/docs/expanding-action
+- Registry item: https://sona-ui.vercel.app/r/expanding-action.json
+
+Use when:
+- A compact trigger should reveal two to four closely related choices in place.
+- The choices should remain visually connected to the action that revealed them.
+
+Avoid when:
+- The choices perform navigation or require a long menu.
+- The interaction contains a destructive action that needs deliberate confirmation.
+
+Capabilities:
+- Controlled and uncontrolled expanded state
+- Disabled trigger and choice support
+- Keyboard-accessible button semantics
+- Shared-surface transition between trigger and choices
+
+Accessibility:
+- Uses button semantics and visible keyboard focus states for the trigger, back control, and choices.
+- Keep choice labels specific enough to describe the resulting action.
+
+Motion: Preserve spatial continuity as one compact action transforms into its related choices.
+Reduced motion: Respect the user's reduced-motion preference while preserving the expanded and collapsed state change.
+
+### Activity Graph
+
+- Category: components
+- Status: stable
+- Summary: A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.
+- Documentation: https://sona-ui.vercel.app/docs/activity-graph
+- Registry item: https://sona-ui.vercel.app/r/activity-graph.json
+
+Use when:
+- Daily activity needs to be compared across a calendar range.
+- People need keyboard access to individual days and their values.
+
+Avoid when:
+- The data does not have a meaningful daily time dimension.
+- Precise trend comparison would be clearer in a chart or table.
+
+Capabilities:
+- Normalized intensity levels
+- Controlled day selection
+- Custom metadata and tooltip content
+- Roving keyboard focus
+
+Accessibility:
+- Supports visual-direction arrow keys, Home, End, Enter, and Space.
+- Provides a range summary and larger targets for coarse pointers.
+
+Motion: Move a shared focus surface between days without obscuring the selected value.
+Reduced motion: Update the focus state immediately without spatial interpolation.
+
+### Avatar Showcase
+
+- Category: effects
+- Status: stable
+- Summary: A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.
+- Documentation: https://sona-ui.vercel.app/docs/avatar-showcase
+- Registry item: https://sona-ui.vercel.app/r/avatar-showcase.json
+
+Use when:
+- An ordered group of people should be presented as a moving visual strip.
+- A recent sample needs to represent a larger community count.
+
+Avoid when:
+- Every person must remain individually readable or directly actionable.
+- Motion would distract from the page's primary task.
+
+Capabilities:
+- Count-aware pacing
+- Deterministic avatar sampling
+- Configurable staggered lanes
+- Static reduced-motion presentation
+
+Accessibility:
+- Provide a name for each person whenever it is available.
+- Reduced-motion preferences show a static readable avatar group.
+
+Motion: Convey the scale and activity of a community with restrained lane movement.
+Reduced motion: Replace the moving lanes with a static readable avatar group.
+
+### Fluid Slider
+
+- Category: components
+- Status: stable
+- Summary: A labeled Base UI range control with direct surface selection, a draggable indicator, and restrained boundary resistance.
+- Documentation: https://sona-ui.vercel.app/docs/fluid-slider
+- Registry item: https://sona-ui.vercel.app/r/fluid-slider.json
+
+Use when:
+- A numeric value benefits from direct continuous adjustment.
+- Reference marks or formatted values help explain meaningful thresholds.
+
+Avoid when:
+- The value must be entered with exact precision more efficiently as text.
+- The options are discrete named choices rather than a numeric range.
+
+Capabilities:
+- Controlled and uncontrolled values
+- Drag and direct track selection
+- Reference marks and formatted values
+- Form integration through Base UI
+
+Accessibility:
+- Uses Base UI range semantics and keyboard controls.
+- Keeps the semantic value within constraints while visual resistance remains decorative.
+
+Motion: Provide tactile feedback during direct manipulation and at range boundaries.
+Reduced motion: Keep keyboard and value updates immediate and remove nonessential resistance motion.
+
+### Fluid Tooltip
+
+- Category: components
+- Status: stable
+- Summary: A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.
+- Documentation: https://sona-ui.vercel.app/docs/fluid-tooltip
+- Registry item: https://sona-ui.vercel.app/r/fluid-tooltip.json
+
+Use when:
+- A group of compact controls needs accessible supplementary labels.
+- One tooltip surface should follow focus or pointer movement across related triggers.
+
+Avoid when:
+- The information is essential and should remain visible without interaction.
+- The content requires interactive controls or a persistent popover.
+
+Capabilities:
+- Horizontal and vertical trigger groups
+- Delayed first pointer appearance
+- Immediate adjacent-trigger handoff
+- Collision-aware Base UI positioning
+
+Accessibility:
+- Uses Base UI tooltip semantics and accessible descriptions.
+- Keyboard focus opens the relevant label immediately without directional travel.
+
+Motion: Preserve orientation as one tooltip surface moves between related controls.
+Reduced motion: Remove directional content travel while preserving the tooltip label.
+
+### Lightbox
+
+- Category: components
+- Status: stable
+- Summary: An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.
+- Documentation: https://sona-ui.vercel.app/docs/lightbox
+- Registry item: https://sona-ui.vercel.app/r/lightbox.json
+
+Use when:
+- An image needs an inspectable full-size view without leaving the current page.
+- The preview should retain a visible relationship to its thumbnail.
+
+Avoid when:
+- The full image is primary page content and should remain visible.
+- The experience needs gallery navigation that the component does not provide.
+
+Capabilities:
+- Controlled and uncontrolled open state
+- Thumbnail-to-preview spatial transition
+- Optional caption
+- Backdrop and preview styling hooks
+
+Accessibility:
+- Uses Base UI for focus management, Escape dismissal, and scroll locking.
+- Requires useful alternative text for the image.
+
+Motion: Explain that the full-size preview originates from and returns to its thumbnail.
+Reduced motion: Use a cross-fade instead of the thumbnail-to-preview spatial transition.
+
+### Section Rail
+
+- Category: components
+- Status: stable
+- Summary: A compact navigation rail that tracks progress through a long page and reveals labels or editorial context.
+- Documentation: https://sona-ui.vercel.app/docs/section-rail
+- Registry item: https://sona-ui.vercel.app/r/section-rail.json
+
+Use when:
+- A long page, case study, or multi-step flow needs compact section navigation.
+- Readers benefit from seeing the active section and nearby context.
+
+Avoid when:
+- The page is too short to need persistent section navigation.
+- The destinations lead to separate pages rather than sections in one experience.
+
+Capabilities:
+- Anchor-based scroll mode
+- Externally controlled active section
+- Optional labels and context cards
+- Coarse-pointer presentation
+
+Accessibility:
+- Uses anchor links in scroll mode and buttons with current-state semantics in controlled mode.
+- Shows visible labels for coarse pointers instead of relying on hover-only targets.
+
+Motion: Connect the active indicator and contextual details to the reader's current section.
+Reduced motion: Simplify indicator transitions and scrolling while preserving active-section feedback.
+
 ### Accordion
 
 - Category: components

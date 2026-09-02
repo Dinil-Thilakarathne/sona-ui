@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "lightbox",
+  "title": "Lightbox",
+  "category": "components",
+  "status": "stable",
+  "summary": "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+  "docsSlug": "lightbox",
+  "keywords": [
+    "image",
+    "preview",
+    "gallery",
+    "dialog"
+  ],
+  "useWhen": [
+    "An image needs an inspectable full-size view without leaving the current page.",
+    "The preview should retain a visible relationship to its thumbnail."
+  ],
+  "avoidWhen": [
+    "The full image is primary page content and should remain visible.",
+    "The experience needs gallery navigation that the component does not provide."
+  ],
+  "capabilities": [
+    "Controlled and uncontrolled open state",
+    "Thumbnail-to-preview spatial transition",
+    "Optional caption",
+    "Backdrop and preview styling hooks"
+  ],
+  "accessibility": [
+    "Uses Base UI for focus management, Escape dismissal, and scroll locking.",
+    "Requires useful alternative text for the image."
+  ],
+  "motion": {
+    "purpose": "Explain that the full-size preview originates from and returns to its thumbnail.",
+    "reducedMotion": "Use a cross-fade instead of the thumbnail-to-preview spatial transition."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/lightbox.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/lightbox",
+    "rawUrl": "https://sona-ui.vercel.app/docs/lightbox/raw.md",
+    "sourceTitle": "lightbox"
+  }
+}

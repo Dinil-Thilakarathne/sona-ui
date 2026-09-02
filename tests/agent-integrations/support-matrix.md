@@ -11,6 +11,7 @@ This matrix records evidence, not aspirations. A client is `verified` only after
 ## Verification scenarios
 
 - [Discover by intent](./scenarios/discover-tabs.md)
+- [Resolve an exact name missing from the catalog](./scenarios/discover-exact-name-fallback.md)
 - [Install through the registry](./scenarios/install-component.md)
 - [Preserve reduced motion](./scenarios/reduced-motion.md)
 - [Classify an alias failure](./scenarios/troubleshoot-alias.md)

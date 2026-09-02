@@ -216,6 +216,244 @@ Object.assign(agentResourceMetadata, {
     "A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.",
     ["tabs", "navigation", "hover"],
   ),
+  "expanding-action": {
+    name: "expanding-action",
+    title: "Expanding Action",
+    category: "components",
+    status: "stable",
+    summary:
+      "A compact action that transforms in place to reveal two to four related choices while preserving context.",
+    docsSlug: "expanding-action",
+    keywords: ["action", "choices", "compact", "expanding"],
+    useWhen: [
+      "A compact trigger should reveal two to four closely related choices in place.",
+      "The choices should remain visually connected to the action that revealed them.",
+    ],
+    avoidWhen: [
+      "The choices perform navigation or require a long menu.",
+      "The interaction contains a destructive action that needs deliberate confirmation.",
+    ],
+    capabilities: [
+      "Controlled and uncontrolled expanded state",
+      "Disabled trigger and choice support",
+      "Keyboard-accessible button semantics",
+      "Shared-surface transition between trigger and choices",
+    ],
+    accessibility: [
+      "Uses button semantics and visible keyboard focus states for the trigger, back control, and choices.",
+      "Keep choice labels specific enough to describe the resulting action.",
+    ],
+    motion: {
+      purpose:
+        "Preserve spatial continuity as one compact action transforms into its related choices.",
+      reducedMotion:
+        "Respect the user's reduced-motion preference while preserving the expanded and collapsed state change.",
+    },
+  },
+  "activity-graph": {
+    name: "activity-graph",
+    title: "Activity Graph",
+    category: "components",
+    status: "stable",
+    summary:
+      "A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.",
+    docsSlug: "activity-graph",
+    keywords: ["activity", "calendar", "heatmap", "contributions"],
+    useWhen: [
+      "Daily activity needs to be compared across a calendar range.",
+      "People need keyboard access to individual days and their values.",
+    ],
+    avoidWhen: [
+      "The data does not have a meaningful daily time dimension.",
+      "Precise trend comparison would be clearer in a chart or table.",
+    ],
+    capabilities: [
+      "Normalized intensity levels",
+      "Controlled day selection",
+      "Custom metadata and tooltip content",
+      "Roving keyboard focus",
+    ],
+    accessibility: [
+      "Supports visual-direction arrow keys, Home, End, Enter, and Space.",
+      "Provides a range summary and larger targets for coarse pointers.",
+    ],
+    motion: {
+      purpose:
+        "Move a shared focus surface between days without obscuring the selected value.",
+      reducedMotion:
+        "Update the focus state immediately without spatial interpolation.",
+    },
+  },
+  "avatar-showcase": {
+    name: "avatar-showcase",
+    title: "Avatar Showcase",
+    category: "effects",
+    status: "stable",
+    summary:
+      "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+    docsSlug: "avatar-showcase",
+    keywords: ["avatars", "community", "people", "social proof"],
+    useWhen: [
+      "An ordered group of people should be presented as a moving visual strip.",
+      "A recent sample needs to represent a larger community count.",
+    ],
+    avoidWhen: [
+      "Every person must remain individually readable or directly actionable.",
+      "Motion would distract from the page's primary task.",
+    ],
+    capabilities: [
+      "Count-aware pacing",
+      "Deterministic avatar sampling",
+      "Configurable staggered lanes",
+      "Static reduced-motion presentation",
+    ],
+    accessibility: [
+      "Provide a name for each person whenever it is available.",
+      "Reduced-motion preferences show a static readable avatar group.",
+    ],
+    motion: {
+      purpose:
+        "Convey the scale and activity of a community with restrained lane movement.",
+      reducedMotion:
+        "Replace the moving lanes with a static readable avatar group.",
+    },
+  },
+  "fluid-slider": {
+    name: "fluid-slider",
+    title: "Fluid Slider",
+    category: "components",
+    status: "stable",
+    summary:
+      "A labeled Base UI range control with direct surface selection, a draggable indicator, and restrained boundary resistance.",
+    docsSlug: "fluid-slider",
+    keywords: ["slider", "range", "numeric value", "input"],
+    useWhen: [
+      "A numeric value benefits from direct continuous adjustment.",
+      "Reference marks or formatted values help explain meaningful thresholds.",
+    ],
+    avoidWhen: [
+      "The value must be entered with exact precision more efficiently as text.",
+      "The options are discrete named choices rather than a numeric range.",
+    ],
+    capabilities: [
+      "Controlled and uncontrolled values",
+      "Drag and direct track selection",
+      "Reference marks and formatted values",
+      "Form integration through Base UI",
+    ],
+    accessibility: [
+      "Uses Base UI range semantics and keyboard controls.",
+      "Keeps the semantic value within constraints while visual resistance remains decorative.",
+    ],
+    motion: {
+      purpose:
+        "Provide tactile feedback during direct manipulation and at range boundaries.",
+      reducedMotion:
+        "Keep keyboard and value updates immediate and remove nonessential resistance motion.",
+    },
+  },
+  "fluid-tooltip": {
+    name: "fluid-tooltip",
+    title: "Fluid Tooltip",
+    category: "components",
+    status: "stable",
+    summary:
+      "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+    docsSlug: "fluid-tooltip",
+    keywords: ["tooltip", "toolbar", "labels", "grouped controls"],
+    useWhen: [
+      "A group of compact controls needs accessible supplementary labels.",
+      "One tooltip surface should follow focus or pointer movement across related triggers.",
+    ],
+    avoidWhen: [
+      "The information is essential and should remain visible without interaction.",
+      "The content requires interactive controls or a persistent popover.",
+    ],
+    capabilities: [
+      "Horizontal and vertical trigger groups",
+      "Delayed first pointer appearance",
+      "Immediate adjacent-trigger handoff",
+      "Collision-aware Base UI positioning",
+    ],
+    accessibility: [
+      "Uses Base UI tooltip semantics and accessible descriptions.",
+      "Keyboard focus opens the relevant label immediately without directional travel.",
+    ],
+    motion: {
+      purpose:
+        "Preserve orientation as one tooltip surface moves between related controls.",
+      reducedMotion:
+        "Remove directional content travel while preserving the tooltip label.",
+    },
+  },
+  lightbox: {
+    name: "lightbox",
+    title: "Lightbox",
+    category: "components",
+    status: "stable",
+    summary:
+      "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+    docsSlug: "lightbox",
+    keywords: ["image", "preview", "gallery", "dialog"],
+    useWhen: [
+      "An image needs an inspectable full-size view without leaving the current page.",
+      "The preview should retain a visible relationship to its thumbnail.",
+    ],
+    avoidWhen: [
+      "The full image is primary page content and should remain visible.",
+      "The experience needs gallery navigation that the component does not provide.",
+    ],
+    capabilities: [
+      "Controlled and uncontrolled open state",
+      "Thumbnail-to-preview spatial transition",
+      "Optional caption",
+      "Backdrop and preview styling hooks",
+    ],
+    accessibility: [
+      "Uses Base UI for focus management, Escape dismissal, and scroll locking.",
+      "Requires useful alternative text for the image.",
+    ],
+    motion: {
+      purpose:
+        "Explain that the full-size preview originates from and returns to its thumbnail.",
+      reducedMotion:
+        "Use a cross-fade instead of the thumbnail-to-preview spatial transition.",
+    },
+  },
+  "section-rail": {
+    name: "section-rail",
+    title: "Section Rail",
+    category: "components",
+    status: "stable",
+    summary:
+      "A compact navigation rail that tracks progress through a long page and reveals labels or editorial context.",
+    docsSlug: "section-rail",
+    keywords: ["navigation", "sections", "progress", "long page"],
+    useWhen: [
+      "A long page, case study, or multi-step flow needs compact section navigation.",
+      "Readers benefit from seeing the active section and nearby context.",
+    ],
+    avoidWhen: [
+      "The page is too short to need persistent section navigation.",
+      "The destinations lead to separate pages rather than sections in one experience.",
+    ],
+    capabilities: [
+      "Anchor-based scroll mode",
+      "Externally controlled active section",
+      "Optional labels and context cards",
+      "Coarse-pointer presentation",
+    ],
+    accessibility: [
+      "Uses anchor links in scroll mode and buttons with current-state semantics in controlled mode.",
+      "Shows visible labels for coarse pointers instead of relying on hover-only targets.",
+    ],
+    motion: {
+      purpose:
+        "Connect the active indicator and contextual details to the reader's current section.",
+      reducedMotion:
+        "Simplify indicator transitions and scrolling while preserving active-section feedback.",
+    },
+  },
   accordion: catalogEntry(
     "accordion",
     "Accordion",

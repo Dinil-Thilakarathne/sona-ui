@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "name": "avatar-showcase",
+  "title": "Avatar Showcase",
+  "category": "effects",
+  "status": "stable",
+  "summary": "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+  "docsSlug": "avatar-showcase",
+  "keywords": [
+    "avatars",
+    "community",
+    "people",
+    "social proof"
+  ],
+  "useWhen": [
+    "An ordered group of people should be presented as a moving visual strip.",
+    "A recent sample needs to represent a larger community count."
+  ],
+  "avoidWhen": [
+    "Every person must remain individually readable or directly actionable.",
+    "Motion would distract from the page's primary task."
+  ],
+  "capabilities": [
+    "Count-aware pacing",
+    "Deterministic avatar sampling",
+    "Configurable staggered lanes",
+    "Static reduced-motion presentation"
+  ],
+  "accessibility": [
+    "Provide a name for each person whenever it is available.",
+    "Reduced-motion preferences show a static readable avatar group."
+  ],
+  "motion": {
+    "purpose": "Convey the scale and activity of a community with restrained lane movement.",
+    "reducedMotion": "Replace the moving lanes with a static readable avatar group."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/avatar-showcase.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/avatar-showcase",
+    "rawUrl": "https://sona-ui.vercel.app/docs/avatar-showcase/raw.md",
+    "sourceTitle": "avatar-showcase"
+  }
+}

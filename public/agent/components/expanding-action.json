@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "expanding-action",
+  "title": "Expanding Action",
+  "category": "components",
+  "status": "stable",
+  "summary": "A compact action that transforms in place to reveal two to four related choices while preserving context.",
+  "docsSlug": "expanding-action",
+  "keywords": [
+    "action",
+    "choices",
+    "compact",
+    "expanding"
+  ],
+  "useWhen": [
+    "A compact trigger should reveal two to four closely related choices in place.",
+    "The choices should remain visually connected to the action that revealed them."
+  ],
+  "avoidWhen": [
+    "The choices perform navigation or require a long menu.",
+    "The interaction contains a destructive action that needs deliberate confirmation."
+  ],
+  "capabilities": [
+    "Controlled and uncontrolled expanded state",
+    "Disabled trigger and choice support",
+    "Keyboard-accessible button semantics",
+    "Shared-surface transition between trigger and choices"
+  ],
+  "accessibility": [
+    "Uses button semantics and visible keyboard focus states for the trigger, back control, and choices.",
+    "Keep choice labels specific enough to describe the resulting action."
+  ],
+  "motion": {
+    "purpose": "Preserve spatial continuity as one compact action transforms into its related choices.",
+    "reducedMotion": "Respect the user's reduced-motion preference while preserving the expanded and collapsed state change."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/expanding-action.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/expanding-action",
+    "rawUrl": "https://sona-ui.vercel.app/docs/expanding-action/raw.md",
+    "sourceTitle": "expanding-action"
+  }
+}

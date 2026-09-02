@@ -179,6 +179,144 @@
       ]
     },
     {
+      "name": "expanding-action",
+      "title": "Expanding Action",
+      "category": "components",
+      "status": "stable",
+      "summary": "A compact action that transforms in place to reveal two to four related choices while preserving context.",
+      "keywords": [
+        "action",
+        "choices",
+        "compact",
+        "expanding"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/expanding-action",
+      "registryItem": "https://sona-ui.vercel.app/r/expanding-action.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/expanding-action.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "activity-graph",
+      "title": "Activity Graph",
+      "category": "components",
+      "status": "stable",
+      "summary": "A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.",
+      "keywords": [
+        "activity",
+        "calendar",
+        "heatmap",
+        "contributions"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/activity-graph",
+      "registryItem": "https://sona-ui.vercel.app/r/activity-graph.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/activity-graph.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "avatar-showcase",
+      "title": "Avatar Showcase",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.",
+      "keywords": [
+        "avatars",
+        "community",
+        "people",
+        "social proof"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/avatar-showcase",
+      "registryItem": "https://sona-ui.vercel.app/r/avatar-showcase.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/avatar-showcase.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "fluid-slider",
+      "title": "Fluid Slider",
+      "category": "components",
+      "status": "stable",
+      "summary": "A labeled Base UI range control with direct surface selection, a draggable indicator, and restrained boundary resistance.",
+      "keywords": [
+        "slider",
+        "range",
+        "numeric value",
+        "input"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/fluid-slider",
+      "registryItem": "https://sona-ui.vercel.app/r/fluid-slider.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/fluid-slider.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "fluid-tooltip",
+      "title": "Fluid Tooltip",
+      "category": "components",
+      "status": "stable",
+      "summary": "A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.",
+      "keywords": [
+        "tooltip",
+        "toolbar",
+        "labels",
+        "grouped controls"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/fluid-tooltip",
+      "registryItem": "https://sona-ui.vercel.app/r/fluid-tooltip.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/fluid-tooltip.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "lightbox",
+      "title": "Lightbox",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.",
+      "keywords": [
+        "image",
+        "preview",
+        "gallery",
+        "dialog"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/lightbox",
+      "registryItem": "https://sona-ui.vercel.app/r/lightbox.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/lightbox.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "section-rail",
+      "title": "Section Rail",
+      "category": "components",
+      "status": "stable",
+      "summary": "A compact navigation rail that tracks progress through a long page and reveals labels or editorial context.",
+      "keywords": [
+        "navigation",
+        "sections",
+        "progress",
+        "long page"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/section-rail",
+      "registryItem": "https://sona-ui.vercel.app/r/section-rail.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/section-rail.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
       "name": "accordion",
       "title": "Accordion",
       "category": "components",

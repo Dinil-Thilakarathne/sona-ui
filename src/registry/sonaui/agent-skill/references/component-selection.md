@@ -7,6 +7,7 @@ Start with the user's job:
 - Local view switching → tabs.
 - Focused confirmation or short task → dialog.
 - Progressive disclosure → accordion or dropdown.
+- Compact action revealing 2 to 4 related choices in place → Expanding Action. Avoid it for navigation, long menus, or destructive actions.
 - Deliberate destructive action → hold-to-delete.
 - Atmospheric visual depth → shader or spotlight effect.
 - Short decorative typography → text motion resource.

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "name": "activity-graph",
+  "title": "Activity Graph",
+  "category": "components",
+  "status": "stable",
+  "summary": "A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.",
+  "docsSlug": "activity-graph",
+  "keywords": [
+    "activity",
+    "calendar",
+    "heatmap",
+    "contributions"
+  ],
+  "useWhen": [
+    "Daily activity needs to be compared across a calendar range.",
+    "People need keyboard access to individual days and their values."
+  ],
+  "avoidWhen": [
+    "The data does not have a meaningful daily time dimension.",
+    "Precise trend comparison would be clearer in a chart or table."
+  ],
+  "capabilities": [
+    "Normalized intensity levels",
+    "Controlled day selection",
+    "Custom metadata and tooltip content",
+    "Roving keyboard focus"
+  ],
+  "accessibility": [
+    "Supports visual-direction arrow keys, Home, End, Enter, and Space.",
+    "Provides a range summary and larger targets for coarse pointers."
+  ],
+  "motion": {
+    "purpose": "Move a shared focus surface between days without obscuring the selected value.",
+    "reducedMotion": "Update the focus state immediately without spatial interpolation."
+  },
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/activity-graph.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/activity-graph",
+    "rawUrl": "https://sona-ui.vercel.app/docs/activity-graph/raw.md",
+    "sourceTitle": "activity-graph"
+  }
+}
