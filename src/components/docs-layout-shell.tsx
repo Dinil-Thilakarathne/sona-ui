@@ -53,7 +53,9 @@ const DocsLayoutShell: React.FC<{ children: ReactNode }> = ({ children }) => {
         mobileMatch,
       }}
     >
-      <main className="relative min-h-svh w-full">{children}</main>
+      <main className="relative min-h-svh w-full [&.zen-mode_.docs-zen-sidebar-toggle]:hidden [&.zen-mode_.docs-zen-controls]:hidden [&.zen-mode_.docs-zen-install-command]:hidden">
+        {children}
+      </main>
     </DocsFocusPanelContext>
   );
 };

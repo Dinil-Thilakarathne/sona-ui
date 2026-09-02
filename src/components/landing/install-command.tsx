@@ -107,7 +107,7 @@ export function InstallCommand() {
       >
         <div
           ref={measureRef}
-          className="flex min-h-16 w-max items-center gap-3 py-2 pr-2 pl-6 text-left"
+          className="flex min-h-12 w-max items-center gap-3 py-2 pr-2 pl-5 text-left"
         >
           <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
             {commandPrefix}
@@ -127,7 +127,7 @@ export function InstallCommand() {
             content={command}
             componentName={`landing-install-${selectedComponent}`}
             language="shell"
-            className="size-11 shrink-0 rounded-full p-0 text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+            className="size-8 shrink-0 rounded-full p-0 text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           />
         </div>
       </motion.div>

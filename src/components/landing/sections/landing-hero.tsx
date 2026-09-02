@@ -5,13 +5,10 @@ import {
   motion,
   useMotionValue,
   useReducedMotion,
-  useSpring,
   type Variants,
 } from "motion/react";
 import type { PointerEvent } from "react";
-import { groupedComponents } from "@/config/components";
 import { LandingButtonLink } from "../button-link";
-import { HeroMeshBackground } from "../hero-mesh-background";
 import { InstallCommand } from "../install-command";
 
 export function LandingHero() {
@@ -21,17 +18,6 @@ export function LandingHero() {
   const lightOpacity = useMotionValue(0);
   const meshX = useMotionValue(0);
   const meshY = useMotionValue(0);
-
-  const springMeshX = useSpring(meshX, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.8,
-  });
-  const springMeshY = useSpring(meshY, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.8,
-  });
 
   const moveLight = (event: PointerEvent<HTMLElement>) => {
     if (reduce || event.pointerType !== "mouse") return;
@@ -73,7 +59,6 @@ export function LandingHero() {
       onPointerMove={moveLight}
       onPointerLeave={hideLight}
     >
-      {/*<HeroMeshBackground meshX={springMeshX} meshY={springMeshY} />*/}
       <motion.div
         className="relative z-10 grid gap-4 lg:gap-8 w-full _max-w-3xl justify-items-center"
         variants={container}
