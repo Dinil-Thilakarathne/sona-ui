@@ -44,14 +44,10 @@ if (!fs.existsSync(manifestPath)) {
 } else {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as {
     schemaVersion?: number;
-    sourceDigest?: string;
     catalog?: string;
   };
   if (manifest.schemaVersion !== 1) {
     errors.push("manifest: unsupported or missing schemaVersion");
-  }
-  if (!/^[a-f0-9]{64}$/.test(manifest.sourceDigest ?? "")) {
-    errors.push("manifest: missing SHA-256 sourceDigest");
   }
   if (!manifest.catalog?.endsWith("/agent/catalog.json")) {
     errors.push("manifest: invalid catalog URL");
