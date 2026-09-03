@@ -1,3 +1,11 @@
+## [2.22.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.1...v2.22.2) (2026-09-03)
+
+
+### Bug Fixes
+
+* Add Smart Overflow component to registry ([c210ebb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c210ebb419e949f4724d03e5cf6a60d18cd30491))
+* request-optimization ([d491492](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d491492f2a80d24dee518fcbaf036c7e815779a3))
+
 ## [2.22.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.0...v2.22.1) (2026-09-03)
 
 
