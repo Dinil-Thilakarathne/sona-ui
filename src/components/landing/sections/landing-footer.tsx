@@ -46,7 +46,11 @@ export function LandingFooter() {
                   <ul className="m-0 grid list-none content-start gap-2 p-0">
                     {group.links.map((link) => (
                       <li key={link.href} className="group">
-                        <Link href={link.href} className={footerLinkClassName}>
+                        <Link
+                          href={link.href}
+                          className={footerLinkClassName}
+                          prefetch={!link.href.endsWith(".txt")}
+                        >
                           {link.label}
                         </Link>
                       </li>

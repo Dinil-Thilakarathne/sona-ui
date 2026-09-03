@@ -41,7 +41,7 @@ export function ComponentShowcaseVideoPlayer({
       onError={onError}
       playsInline
       poster={video.poster}
-      preload="metadata"
+      preload={isActive ? "metadata" : "none"}
     >
       <source src={video.src} />
     </video>

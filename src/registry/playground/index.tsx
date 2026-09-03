@@ -13,6 +13,7 @@ import {
   User,
 } from "lucide-react";
 import type * as React from "react";
+import { cn } from "@/lib/sona-utils";
 import SectionRailPlayground from "@/registry/playground/section-rail-playground";
 import {
   AccordionItem,
@@ -63,6 +64,9 @@ import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-grad
 import RippleButton, {
   RippleButtonText,
 } from "@/registry/sonaui/ripple-button/ripple-button";
+import SmartOverflow, {
+  SmartOverflowAction,
+} from "@/registry/sonaui/smart-overflow/smart-overflow";
 import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
 import SplitText from "@/registry/sonaui/split-text/split-text";
 import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
@@ -141,6 +145,42 @@ const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
 );
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "smart-overflow": {
+    controls: [
+      {
+        type: "select",
+        prop: "width",
+        label: "Available width",
+        options: [
+          { label: "Wide", value: "max-w-xl" },
+          { label: "Medium", value: "max-w-sm" },
+          { label: "Narrow", value: "max-w-56" },
+        ],
+        default: "max-w-sm",
+      },
+    ],
+    render: (v) => (
+      <div className={cn("w-full", v.width as string)}>
+        <SmartOverflow>
+          <SmartOverflowAction id="edit" priority="primary">
+            Edit
+          </SmartOverflowAction>
+          <SmartOverflowAction id="preview" priority="primary">
+            Preview
+          </SmartOverflowAction>
+          <SmartOverflowAction id="share" priority="secondary">
+            Share
+          </SmartOverflowAction>
+          <SmartOverflowAction id="duplicate" priority="secondary">
+            Duplicate
+          </SmartOverflowAction>
+          <SmartOverflowAction id="archive" priority="overflow" destructive>
+            Archive
+          </SmartOverflowAction>
+        </SmartOverflow>
+      </div>
+    ),
+  },
   "avatar-showcase": {
     controls: [
       {

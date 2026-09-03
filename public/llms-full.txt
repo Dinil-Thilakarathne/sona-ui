@@ -797,6 +797,37 @@ Accessibility:
 Motion: Add restrained visual depth without competing with the primary task.
 Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
 
+### Smart Overflow
+
+- Category: components
+- Status: preview
+- Summary: A priority-first responsive action group that keeps important actions visible and moves lower-priority actions into an accessible three-dot menu.
+- Documentation: https://sona-ui.vercel.app/docs/smart-overflow
+- Registry item: https://sona-ui.vercel.app/r/smart-overflow.json
+
+Use when:
+- A compact action group has one or more actions that should stay visible as available width decreases.
+- Secondary management actions can remain available in a three-dot menu without harming the main task.
+
+Avoid when:
+- Every item has equal importance and needs to be scanned or compared, such as date ranges or tabs.
+- The content is navigation, a long command list, or a full application toolbar.
+
+Capabilities:
+- Composable SmartOverflowAction children
+- Primary, secondary, and always-overflow priorities
+- Responsive action measurement and focus recovery
+- Base UI menu keyboard navigation
+- Destructive action separation
+
+Accessibility:
+- Visible actions retain button semantics and visible focus states.
+- Hidden actions remain reachable through a labelled three-dot menu with Base UI focus management.
+- Focus returns to the three-dot trigger when a focused action moves into overflow after resize.
+
+Motion: Preserve spatial continuity as actions reflow and the overflow trigger appears or disappears.
+Reduced motion: Update visible actions and the overflow trigger without layout travel or scale transitions.
+
 ## Integration principles
 
 - Inspect the consumer project before changing aliases, tokens, layout, or global styles.

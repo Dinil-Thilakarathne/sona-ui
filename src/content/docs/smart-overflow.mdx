@@ -1,0 +1,58 @@
+---
+title: Smart Overflow
+slug: smart-overflow
+component: smart-overflow
+tags: ["UI", "Actions", "Responsive", "Component"]
+---
+
+Use Smart Overflow when a compact product action group needs to preserve its most important actions as available width decreases. Lower-priority actions move into an accessible three-dot menu instead of wrapping or requiring horizontal scrolling.
+
+## Install
+
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/smart-overflow`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="document-actions.tsx" code={`import SmartOverflow, { SmartOverflowAction } from "@/components/ui/smart-overflow/smart-overflow";
+import { Archive, Eye, Pencil, Share2 } from "lucide-react";
+
+export function DocumentActions() {
+  return (
+    <SmartOverflow>
+      <SmartOverflowAction id="edit" icon={<Pencil />} priority="primary">Edit</SmartOverflowAction>
+      <SmartOverflowAction id="preview" icon={<Eye />} priority="primary">Preview</SmartOverflowAction>
+      <SmartOverflowAction id="share" icon={<Share2 />} priority="secondary">Share</SmartOverflowAction>
+      <SmartOverflowAction id="archive" icon={<Archive />} priority="overflow" destructive>Archive</SmartOverflowAction>
+    </SmartOverflow>
+  );
+}`} />
+
+## Examples
+
+Assign `primary` to actions that should remain visible longest. `secondary` actions move into the menu before primary actions, starting from the end of the child order. Use `overflow` for actions that should always live in the three-dot menu.
+
+Use `destructive` for actions such as Archive or Delete. They retain their own visual treatment in the menu. Keep destructive actions in overflow unless they are genuinely the user's main next step.
+
+## Usage
+
+<ComponentUsage component="smart-overflow" />
+
+## API
+
+<PropTable component="smart-overflow" />
+
+## Accessibility
+
+The visible controls use button semantics. Hidden actions remain available through an accessible three-dot menu with Base UI menu keyboard navigation and focus management. If a focused action moves into overflow after a resize, focus returns to the three-dot trigger. Layout motion is disabled for people who prefer reduced motion.
+
+## Styling
+
+The component uses the consumer's semantic tokens for surfaces, text, focus, and destructive menu actions. Use the class name props to adapt the action buttons, trigger, or menu surface without changing its responsive priority behavior.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

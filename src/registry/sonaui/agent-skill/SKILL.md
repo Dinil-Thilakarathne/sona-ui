@@ -65,6 +65,19 @@ When skill discovery or the optional shadcn MCP setup needs troubleshooting, rea
 7. Confirm the generated paths and imports match the inspected consumer conventions before composing the component into the requested experience.
 8. Read `references/design-principles.md` when the component is interactive or visually integrated, then apply every validation tier required by `references/consumer-validation.md`. The work is complete only when each applicable check has a recorded result and static, interaction, and visual verification are reported separately.
 
+## Publishing a new Sona component
+
+Every published `registry:ui` item must also have a matching entry in `src/registry/agent-metadata.ts`. Add accurate `useWhen`, `avoidWhen`, capabilities, accessibility, motion, reduced-motion, and related-component guidance, then regenerate and validate both publishing surfaces:
+
+```bash
+bun run build:registry
+bun run build:agent-resources
+bun run check:registry
+bun run check:agent-resources
+```
+
+Do not treat an item as published until both registry and agent-resource checks pass. The public component navigation is independent from registry and agent publication; an intentionally hidden documentation link still needs the full metadata contract.
+
 ## Scope discipline
 
 Inspect before editing. Ask the user before making a material layout decision that was not requested. Do not rewrite a consumer's styling system to match Sona UI.

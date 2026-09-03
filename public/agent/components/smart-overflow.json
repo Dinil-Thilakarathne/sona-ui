@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "name": "smart-overflow",
+  "title": "Smart Overflow",
+  "category": "components",
+  "status": "preview",
+  "summary": "A priority-first responsive action group that keeps important actions visible and moves lower-priority actions into an accessible three-dot menu.",
+  "docsSlug": "smart-overflow",
+  "keywords": [
+    "actions",
+    "toolbar",
+    "overflow menu",
+    "responsive",
+    "priority"
+  ],
+  "useWhen": [
+    "A compact action group has one or more actions that should stay visible as available width decreases.",
+    "Secondary management actions can remain available in a three-dot menu without harming the main task."
+  ],
+  "avoidWhen": [
+    "Every item has equal importance and needs to be scanned or compared, such as date ranges or tabs.",
+    "The content is navigation, a long command list, or a full application toolbar."
+  ],
+  "capabilities": [
+    "Composable SmartOverflowAction children",
+    "Primary, secondary, and always-overflow priorities",
+    "Responsive action measurement and focus recovery",
+    "Base UI menu keyboard navigation",
+    "Destructive action separation"
+  ],
+  "accessibility": [
+    "Visible actions retain button semantics and visible focus states.",
+    "Hidden actions remain reachable through a labelled three-dot menu with Base UI focus management.",
+    "Focus returns to the three-dot trigger when a focused action moves into overflow after resize."
+  ],
+  "motion": {
+    "purpose": "Preserve spatial continuity as actions reflow and the overflow trigger appears or disappears.",
+    "reducedMotion": "Update visible actions and the overflow trigger without layout travel or scale transitions."
+  },
+  "related": [
+    "animated-dropdown",
+    "expanding-action",
+    "hold-to-delete-button"
+  ],
+  "registry": {
+    "url": "https://sona-ui.vercel.app/r/smart-overflow.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "lucide-react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-theme",
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sona-ui.vercel.app/docs/smart-overflow",
+    "rawUrl": "https://sona-ui.vercel.app/docs/smart-overflow/raw.md",
+    "sourceTitle": "smart-overflow"
+  }
+}

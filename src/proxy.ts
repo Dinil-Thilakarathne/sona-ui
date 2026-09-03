@@ -43,5 +43,8 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|favicon.ico|sitemap.xml|robots.txt).*)"],
+  // Markdown negotiation only applies to the homepage and documentation.
+  // Keep static media, analytics traffic, and other public assets out of the
+  // Proxy so they do not consume a Function invocation before being served.
+  matcher: ["/", "/docs/:path*"],
 };
