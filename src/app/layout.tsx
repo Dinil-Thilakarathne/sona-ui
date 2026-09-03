@@ -12,7 +12,6 @@ import Header from "@/components/header";
 import { siteMetaData } from "@/config/metadata";
 import { clashDisplay, HelveticaNeue } from "@/fonts";
 import { FEATURE_FLAG } from "@/lib/constants";
-import { PostHogProvider } from "./providers";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -78,25 +77,23 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased relative`}
       >
-        <PostHogProvider>
-          <ThemeProvider>
-            {FEATURE_FLAG && <FeaturedBar />}
-            <Header />
-            {children}
-            <Toaster position="bottom-right" richColors />
-            <GuideframeGrid
-              panel={true}
-              rulers={true}
-              maxWidth={768}
-              margin={8}
-              columns={{ desktop: 6, tablet: 4, mobile: 3 }}
-              gutter={8}
-              defaultVisible={false}
-            />
-            <Analytics />
-            <SpeedInsights />
-          </ThemeProvider>
-        </PostHogProvider>
+        <ThemeProvider>
+          {FEATURE_FLAG && <FeaturedBar />}
+          <Header />
+          {children}
+          <Toaster position="bottom-right" richColors />
+          <GuideframeGrid
+            panel={true}
+            rulers={true}
+            maxWidth={768}
+            margin={8}
+            columns={{ desktop: 6, tablet: 4, mobile: 3 }}
+            gutter={8}
+            defaultVisible={false}
+          />
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

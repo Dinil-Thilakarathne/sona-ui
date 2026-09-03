@@ -1470,6 +1470,56 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the context card surface."
     }
   ],
+  "smart-overflow": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Priority-aware action declarations. Only direct SmartOverflowAction children are rendered."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Actions\"",
+      "description": "Accessible label for the action group."
+    },
+    {
+      "name": "moreLabel",
+      "type": "string",
+      "default": "\"More actions\"",
+      "description": "Accessible label for the three-dot trigger."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether every action is unavailable."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the group container."
+    },
+    {
+      "name": "actionClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes applied to each visible action."
+    },
+    {
+      "name": "moreButtonClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes applied to the three-dot trigger."
+    },
+    {
+      "name": "menuClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the overflow menu."
+    }
+  ],
   "spinning-text": [
     {
       "name": "children",

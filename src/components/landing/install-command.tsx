@@ -125,8 +125,6 @@ export function InstallCommand() {
           <CopyButton
             key={`${target}-${selectedComponent}`}
             content={command}
-            componentName={`landing-install-${selectedComponent}`}
-            language="shell"
             className="size-8 shrink-0 rounded-full p-0 text-foreground hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
           />
         </div>

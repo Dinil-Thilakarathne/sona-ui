@@ -19,7 +19,6 @@ import {
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { useSearch } from "@/hooks/useSearch";
-import { analytics } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function Search({ compact = false }: { compact?: boolean }) {
@@ -135,11 +134,6 @@ export function Search({ compact = false }: { compact?: boolean }) {
                         onMouseLeave={() => setHoveredResult(null)}
                         onBlur={() => setHoveredResult(null)}
                         onSelect={() => {
-                          analytics.searchUsed({
-                            query,
-                            result_count: results.length,
-                            selected: doc.slug,
-                          });
                           runCommand(() => router.push(`/docs/${doc.slug}`));
                         }}
                         className={cn(

@@ -198,6 +198,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Motion",
     tag: "new",
   },
+  // {
+  //   name: "Smart Overflow",
+  //   slug: "smart-overflow",
+  //   href: "/docs/smart-overflow",
+  //   type: "Actions & Inputs",
+  //   tag: "new",
+  // },
   {
     name: "Hold To Delete Button",
     slug: "hold-to-delete-button",

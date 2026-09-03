@@ -104,6 +104,7 @@ export const ComponentShowcaseCard = forwardRef<
 
       <Link
         href={item.href}
+        prefetch={false}
         aria-label={`View ${item.name} documentation`}
         className="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-foreground"
       >

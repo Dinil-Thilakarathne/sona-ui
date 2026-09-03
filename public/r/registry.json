@@ -722,6 +722,29 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "smart-overflow",
+      "type": "registry:ui",
+      "title": "Smart Overflow",
+      "description": "A priority-first responsive action group that moves lower-priority actions into an accessible three-dot menu as available width decreases.",
+      "files": [
+        {
+          "path": "registry/sonaui/smart-overflow/smart-overflow.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/smart-overflow/smart-overflow.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-theme",
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "section-rail",
       "type": "registry:ui",
       "title": "Section Rail",
