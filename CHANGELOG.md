@@ -1,3 +1,11 @@
+## [2.22.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.0...v2.22.1) (2026-09-03)
+
+
+### Bug Fixes
+
+* Refactor ExpandingAction component layout animations ([362f8b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/362f8b7e4446f8bdc48377d978eb010acf86b66e))
+* Update changelog with recent release history ([89ae317](https://github.com/Dinil-Thilakarathne/sona-ui/commit/89ae317da136b05e2e5edc87b9dddbe34505e1ae))
+
 # [2.22.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.21.0...v2.22.0) (2026-09-02)
 
 
