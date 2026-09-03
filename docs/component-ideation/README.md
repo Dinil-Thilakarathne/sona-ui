@@ -44,6 +44,19 @@ New work should bias toward these product-facing interaction systems over decora
 | 7 | Save Status | Communicate saved, saving, offline, and error states for autosaving content. | Makes async persistence trustworthy without distracting the user. | Status and retry only, not collaborative editing. |
 | 8 | Review Queue | Move through a small set of approval, moderation, or inbox decisions. | Preserves progress, orientation, and reversible decisions in a high-frequency workflow. | A focused decision surface, not a kanban system. |
 
+## Raw ideas to validate
+
+These are early interaction directions. They have not passed the admission test or been prioritized for prototyping.
+
+| Idea | Core interaction | Possible product use cases | Questions to validate |
+| --- | --- | --- | --- |
+| Refined Circular Menu | Improve the circular menu pattern around a clearer, recurring product task. | Compact contextual actions, creative tools, map or canvas controls. | What job is faster or clearer than a conventional action menu, and can it remain discoverable and keyboard accessible? |
+| Expanding Details | A compact "Details" action expands in place into its related content. | Order summaries, activity metadata, settings explanations, compact profile information. | What content can safely be disclosed inline without becoming an uncontrolled layout shift? |
+| Morphing Input | A labelled action, such as "Email" or "Search", shifts within an expanded field and hands focus to the revealed input. | Quick search, invite-by-email, add tag, command or quick-entry fields. | How should focus, validation, submit, Escape, and reduced motion work? |
+| Discrete Tabs | Selecting a tab gives it additional horizontal space, such as a two-column width, to reveal more context or controls. | Dashboard modes, segmented settings, media controls, workspace views. | Does the added width improve comprehension enough to justify reflow, especially on smaller screens? |
+| Inline Scroller View | A bounded content area scrolls independently, with smooth scrolling, a subtle scrollbar, and edge fades that signal overflow. | Activity feeds, compact tables, code or log previews, horizontally dense filters. | What makes this distinct from the existing Scroll Overflow component, and how are keyboard and touch scrolling communicated? |
+| List Stack | Multiple related items collapse into a visible stack; hover or focus expands it into a normal list, then returns to the stack when appropriate. | Toast groups, notification bursts, queued uploads, background-task updates. | What is the correct interaction on touch devices, and how are unread, dismiss, and focus states preserved? |
+
 ## Next validation loop
 
 For each candidate, write a one-page brief before code:

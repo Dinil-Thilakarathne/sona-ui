@@ -195,7 +195,8 @@
       "detail": "https://sona-ui.vercel.app/agent/components/expanding-action.json",
       "dependencies": [
         "lucide-react",
-        "motion"
+        "motion",
+        "react-use-measure"
       ]
     },
     {

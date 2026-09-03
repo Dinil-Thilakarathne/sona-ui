@@ -1,8 +1,9 @@
 "use client";
 
 import { ChevronLeft } from "lucide-react";
-import { MotionConfig, motion } from "motion/react";
-import { type CSSProperties, type ReactNode, useEffect, useState } from "react";
+import { MotionConfig, motion, useReducedMotion } from "motion/react";
+import { type CSSProperties, type ReactNode, useState } from "react";
+import useMeasure from "react-use-measure";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -45,7 +46,7 @@ export interface ExpandingActionProps {
 const surfaceTransition = {
   type: "spring",
   stiffness: 260,
-  damping: 32,
+  damping: 22,
   mass: 0.9,
 } as const;
 
@@ -73,103 +74,104 @@ export default function ExpandingAction({
   triggerClassName,
   optionClassName,
 }: ExpandingActionProps) {
-  const [layoutReady, setLayoutReady] = useState(false);
+  const [contentRef, contentBounds] = useMeasure();
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const shouldReduceMotion = useReducedMotion();
   const isOpen = open ?? internalOpen;
   const hasEnabledItem = items.some((item) => !item.disabled);
+  const motionTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : surfaceTransition;
 
   const setOpen = (nextOpen: boolean) => {
     if (open === undefined) setInternalOpen(nextOpen);
     onOpenChange?.(nextOpen);
   };
 
-  useEffect(() => {
-    setLayoutReady(true);
-  }, []);
-
   return (
     <MotionConfig reducedMotion="user">
       <motion.div
-        layout={layoutReady}
+        initial={false}
+        animate={
+          contentBounds.width ? { width: contentBounds.width } : undefined
+        }
         className={cn(
           "relative inline-flex max-w-full items-center overflow-x-auto rounded-full",
-          isOpen && "p-1",
           className,
         )}
         style={tokenStyle}
-        transition={surfaceTransition}
+        transition={motionTransition}
       >
         <span
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 rounded-full border border-(--expanding-action-border) bg-(--expanding-action-surface)/70 shadow-sm"
         />
-        {!isOpen ? (
-          <motion.button
-            layout={layoutReady}
-            transition={surfaceTransition}
-            type="button"
-            disabled={disabled || !hasEnabledItem}
-            onClick={() => setOpen(true)}
-            className={cn(
-              "relative flex h-12 cursor-pointer items-center gap-2 rounded-full px-5 text-sm font-medium text-(--expanding-action-foreground) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring)",
-              triggerClassName,
-            )}
-          >
-            {triggerIcon ? (
-              <span
-                aria-hidden="true"
-                className="grid size-4 shrink-0 place-items-center"
-              >
-                {triggerIcon}
-              </span>
-            ) : null}
-            <span className="whitespace-nowrap">{trigger}</span>
-          </motion.button>
-        ) : (
-          <motion.div
-            layout={layoutReady}
-            transition={surfaceTransition}
-            className="relative flex items-center gap-1"
-          >
+        <div
+          ref={contentRef}
+          className={cn("relative inline-flex shrink-0", isOpen && "p-1")}
+        >
+          {!isOpen ? (
             <button
               type="button"
-              disabled={disabled}
-              onClick={() => setOpen(false)}
-              aria-label={backLabel}
+              disabled={disabled || !hasEnabledItem}
+              onClick={() => setOpen(true)}
               className={cn(
-                "grid size-10 shrink-0 cursor-pointer place-items-center rounded-full text-(--expanding-action-muted) transition-colors hover:bg-(--expanding-action-hover) hover:text-(--expanding-action-foreground) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
+                "relative flex h-12 cursor-pointer items-center gap-2 rounded-full px-5 text-sm font-medium text-(--expanding-action-foreground) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring)",
+                triggerClassName,
               )}
             >
-              <ChevronLeft
-                aria-hidden="true"
-                className="size-4"
-                strokeWidth={1.75}
-              />
+              {triggerIcon ? (
+                <span
+                  aria-hidden="true"
+                  className="grid size-4 shrink-0 place-items-center"
+                >
+                  {triggerIcon}
+                </span>
+              ) : null}
+              <span className="whitespace-nowrap">{trigger}</span>
             </button>
-            <span
-              aria-hidden="true"
-              className="h-5 w-px shrink-0 bg-(--expanding-action-border)"
-            />
-            {items.map((item) => (
+          ) : (
+            <div className="relative flex items-center gap-1">
               <button
-                key={item.value}
                 type="button"
-                disabled={disabled || item.disabled}
-                onClick={() => {
-                  onValueSelect?.(item.value);
-                  setOpen(false);
-                }}
+                disabled={disabled}
+                onClick={() => setOpen(false)}
+                aria-label={backLabel}
                 className={cn(
-                  "h-10 shrink-0 cursor-pointer whitespace-nowrap rounded-full px-3 text-sm text-(--expanding-action-foreground) transition-colors hover:bg-(--expanding-action-hover) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
-                  optionClassName,
+                  "grid size-10 shrink-0 cursor-pointer place-items-center rounded-full text-(--expanding-action-muted) transition-colors hover:bg-(--expanding-action-hover) hover:text-(--expanding-action-foreground) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
                 )}
               >
-                {item.label}
+                <ChevronLeft
+                  aria-hidden="true"
+                  className="size-4"
+                  strokeWidth={1.75}
+                />
               </button>
-            ))}
-          </motion.div>
-        )}
+              <span
+                aria-hidden="true"
+                className="h-5 w-px shrink-0 bg-(--expanding-action-border)"
+              />
+              {items.map((item) => (
+                <button
+                  key={item.value}
+                  type="button"
+                  disabled={disabled || item.disabled}
+                  onClick={() => {
+                    onValueSelect?.(item.value);
+                    setOpen(false);
+                  }}
+                  className={cn(
+                    "h-10 shrink-0 cursor-pointer whitespace-nowrap rounded-full px-3 text-sm text-(--expanding-action-foreground) transition-colors hover:bg-(--expanding-action-hover) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--expanding-action-ring) active:scale-[0.97] disabled:pointer-events-none disabled:opacity-45",
+                    optionClassName,
+                  )}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </motion.div>
     </MotionConfig>
   );
