@@ -302,7 +302,8 @@
     ],
     "dependencies": [
       "lucide-react",
-      "motion"
+      "motion",
+      "react-use-measure"
     ],
     "registryDependencies": [
       "@sona-ui/sona-utils"
