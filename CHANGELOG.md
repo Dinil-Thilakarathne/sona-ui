@@ -1,3 +1,10 @@
+## [2.22.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.2...v2.22.3) (2026-09-03)
+
+
+### Bug Fixes
+
+* expanding actions animation ([5aeb1e1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5aeb1e1e5e5bf0f0e1a6b9c4652f5c592be3ef96))
+
 ## [2.22.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.1...v2.22.2) (2026-09-03)
 
 
