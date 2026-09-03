@@ -44,7 +44,7 @@
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "16.2.10",
     "@number-flow/react": "^0.6.2",
-    "@paper-design/shaders-react": "^0.0.77",
+    "@paper-design/shaders-react": "^0.0.80",
     "@radix-ui/react-dialog": "^1.1.23",
     "@types/mdx": "^2.0.14",
     "@types/react-syntax-highlighter": "^15.5.13",
