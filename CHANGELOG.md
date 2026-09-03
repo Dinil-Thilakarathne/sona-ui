@@ -1,3 +1,10 @@
+## [2.22.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.3...v2.22.4) (2026-09-03)
+
+
+### Bug Fixes
+
+* dependabot actions ([6a88e07](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6a88e07af2da69b1631ae9d2538c3771536e6e65))
+
 ## [2.22.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.2...v2.22.3) (2026-09-03)
 
 
