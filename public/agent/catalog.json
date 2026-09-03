@@ -575,6 +575,28 @@
       "dependencies": [
         "motion"
       ]
+    },
+    {
+      "name": "smart-overflow",
+      "title": "Smart Overflow",
+      "category": "components",
+      "status": "preview",
+      "summary": "A priority-first responsive action group that keeps important actions visible and moves lower-priority actions into an accessible three-dot menu.",
+      "keywords": [
+        "actions",
+        "toolbar",
+        "overflow menu",
+        "responsive",
+        "priority"
+      ],
+      "docs": "https://sona-ui.vercel.app/docs/smart-overflow",
+      "registryItem": "https://sona-ui.vercel.app/r/smart-overflow.json",
+      "detail": "https://sona-ui.vercel.app/agent/components/smart-overflow.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react",
+        "motion"
+      ]
     }
   ]
 }

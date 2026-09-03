@@ -8,6 +8,7 @@ Start with the user's job:
 - Focused confirmation or short task → dialog.
 - Progressive disclosure → accordion or dropdown.
 - Compact action revealing 2 to 4 related choices in place → Expanding Action. Avoid it for navigation, long menus, or destructive actions.
+- Responsive action group with clear action priority → Smart Overflow. Avoid it when every item must remain visible for scanning or comparison.
 - Deliberate destructive action → hold-to-delete.
 - Atmospheric visual depth → shader or spotlight effect.
 - Short decorative typography → text motion resource.
