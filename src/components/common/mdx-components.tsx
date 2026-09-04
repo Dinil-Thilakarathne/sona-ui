@@ -20,7 +20,6 @@ import { cn } from "@/lib/utils";
 import { DesignTokenReference } from "../design-token/design-token-reference";
 import { ComponentUsageServer } from "../usage/component-usage-server";
 import { AgentTable } from "./agent-table";
-import { CodeSyntaxHighlighter } from "./code-syntax-highlighter";
 import { ComponentInstallationServer } from "./component-installation-server";
 import ComponentPlayground from "./component-playground";
 import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
@@ -206,7 +205,6 @@ const components = {
     <blockquote className={cn("docs-blockquote", className)} {...props} />
   ),
   Divider: () => <div className="docs-divider h-0!" />,
-  CodeSyntaxHighlighter,
   ComponentWrapper,
   Tabs,
   NewTabs,
