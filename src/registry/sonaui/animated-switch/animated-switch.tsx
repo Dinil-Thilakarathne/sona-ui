@@ -232,7 +232,7 @@ export default function AnimatedSwitch({
         resetPointerState();
       }}
       className={cn(
-        "relative inline-flex shrink-0 cursor-pointer items-center rounded-full border-none",
+        "relative inline-flex shrink-0 touch-pan-y cursor-pointer items-center rounded-full border-none",
         "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
         "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         sizes.track,
