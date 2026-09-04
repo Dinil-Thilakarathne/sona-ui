@@ -3,7 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import type { ReactNode } from "react";
 import {
   NextjsIcon,

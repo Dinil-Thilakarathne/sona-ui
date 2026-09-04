@@ -1,4 +1,4 @@
-import Link, { type LinkProps } from "next/link";
+import Link, { type LinkProps } from "@/components/common/link";
 import type { NavLinksPropsType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Tag from "./tag";

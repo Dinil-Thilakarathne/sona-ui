@@ -43,8 +43,17 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Markdown negotiation only applies to the homepage and documentation.
-  // Keep static media, analytics traffic, and other public assets out of the
-  // Proxy so they do not consume a Function invocation before being served.
-  matcher: ["/", "/docs/:path*"],
+  // Only run the Proxy for Markdown content negotiation. Matching ordinary
+  // document and RSC requests here would turn otherwise static CDN hits into
+  // Proxy invocations before they can be served.
+  matcher: [
+    {
+      source: "/",
+      has: [{ type: "header", key: "accept", value: ".*text/markdown.*" }],
+    },
+    {
+      source: "/docs/:path*",
+      has: [{ type: "header", key: "accept", value: ".*text/markdown.*" }],
+    },
+  ],
 };

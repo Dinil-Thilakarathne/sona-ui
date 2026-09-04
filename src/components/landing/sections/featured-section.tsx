@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { ComponentShowcaseCard } from "@/components/component-showcase/component-showcase-card";
 import { ComponentShowcaseRegistryPreview } from "@/components/component-showcase/component-showcase-registry-preview";
 import type { ComponentShowcaseItem } from "@/components/component-showcase/types";

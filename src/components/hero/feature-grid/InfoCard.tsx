@@ -2,7 +2,7 @@
 
 import NumberFlow from "@number-flow/react";
 import { Copy } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { useEffect, useState } from "react";
 import Button from "@/components/button";
 import {
@@ -32,7 +32,9 @@ export default function InfoCard() {
           </span>
         </Button>
         <Button className="w-fit text-black">
-          <Link href={"/docs/accordion"}>Try it!</Link>
+          <Link href={"/docs/accordion"}>
+            Try it!
+          </Link>
         </Button>
       </div>
       <ul className="ml-auto text-2xl text-right lg:text-4xl">

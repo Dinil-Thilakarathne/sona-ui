@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { cn } from "@/lib/utils";
 
 export interface DocsPageLink {
@@ -28,6 +28,7 @@ export function DocsPageNavigation({
       {previous ? (
         <Link
           href={previous.href}
+          prefetch
           className="group flex min-h-16 flex-col justify-center rounded-xl border border-border bg-background/60 px-4 py-3 text-left transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <span className="flex items-center gap-1.5 text-muted-foreground text-xs">
@@ -45,6 +46,7 @@ export function DocsPageNavigation({
       {next ? (
         <Link
           href={next.href}
+          prefetch
           className="group flex min-h-16 flex-col items-end justify-center rounded-xl border border-border bg-background/60 px-4 py-3 text-right transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <span className="flex items-center gap-1.5 text-muted-foreground text-xs">

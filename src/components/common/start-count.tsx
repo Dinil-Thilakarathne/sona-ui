@@ -7,7 +7,7 @@ import { useGitStars } from "@/hooks/useGitStars";
 
 const StartCount = () => {
   const [starCount, setStarCount] = useState<number>(0o0);
-  const { stars } = useGitStars("Dinil-Thilakarathne", "sona-ui");
+  const { stars } = useGitStars();
 
   useEffect(() => {
     if (stars) {

@@ -2,7 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import {
   type FocusEvent,
   forwardRef,
@@ -104,7 +104,6 @@ export const ComponentShowcaseCard = forwardRef<
 
       <Link
         href={item.href}
-        prefetch={false}
         aria-label={`View ${item.name} documentation`}
         className="absolute inset-0 z-10 rounded-[inherit] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-foreground"
       >

@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { FireFrame } from "../fire-frame";
 
 const footerLinkGroups = [
@@ -49,7 +49,6 @@ export function LandingFooter() {
                         <Link
                           href={link.href}
                           className={footerLinkClassName}
-                          prefetch={!link.href.endsWith(".txt")}
                         >
                           {link.label}
                         </Link>

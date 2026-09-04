@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { usePathname } from "next/navigation";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { navLinks } from "@/lib/data";
@@ -22,6 +22,7 @@ const Header = () => {
         <div className="pointer-events-auto flex items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl">
           <Link
             href="/"
+            prefetch
             className="flex h-9 items-center rounded-lg px-3 hover:bg-accent"
           >
             <Logo />
@@ -39,7 +40,12 @@ const Header = () => {
                   filter: "blur(4px)",
                 }}
               >
-                <SidebarLink name={link.name} href={link.href} tag={link.tag} />
+                <SidebarLink
+                  name={link.name}
+                  href={link.href}
+                  prefetch
+                  tag={link.tag}
+                />
               </FadeInComp>
             ))}
           </nav>

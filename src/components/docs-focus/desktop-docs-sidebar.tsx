@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef } from "react";
 import { groupedComponents } from "@/config/components";
@@ -70,7 +70,6 @@ export function DesktopDocsSidebar({
                   <Link
                     key={item.href}
                     href={item.href}
-                    prefetch={false}
                     aria-current={pathname === item.href ? "page" : undefined}
                     onClick={(event) => {
                       if (pathname === item.href) {

@@ -50,6 +50,8 @@ export interface GetGitHubFollowersOptions {
    * @default "no-store"
    */
   cache?: RequestCache;
+  /** Revalidation interval forwarded to Next.js `fetch` caching. */
+  revalidate?: number | false;
   /** Cancels the profile and pagination requests. */
   signal?: AbortSignal;
   /** Custom fetch implementation, primarily for tests and non-browser runtimes.
@@ -121,6 +123,7 @@ export async function getGitHubFollowers({
   token = process.env.GITHUB_TOKEN,
   limit,
   cache = "no-store",
+  revalidate,
   signal,
   fetcher = fetch,
 }: GetGitHubFollowersOptions): Promise<GitHubFollowersResult> {
@@ -139,6 +142,7 @@ export async function getGitHubFollowers({
   const profileResponse = await fetcher(profileUrl, {
     cache,
     headers,
+    ...(revalidate === undefined ? {} : { next: { revalidate } }),
     signal,
   });
 
@@ -168,6 +172,7 @@ export async function getGitHubFollowers({
       const response = await fetcher(nextPageUrl, {
         cache,
         headers,
+        ...(revalidate === undefined ? {} : { next: { revalidate } }),
         signal,
       });
 

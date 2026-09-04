@@ -11,7 +11,7 @@ import {
   Settings2,
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useId, useMemo, useState } from "react";
 import { FaGithub } from "react-icons/fa";
@@ -167,7 +167,6 @@ function DocsNavigation({
                         <Link
                           key={item.href}
                           href={item.href}
-                          prefetch={false}
                           aria-current={
                             pathname === item.href ? "page" : undefined
                           }
