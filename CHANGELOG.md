@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.23.0...v2.24.0) (2026-09-04)
+
+
+### Features
+
+* refine interactive registry components ([52936dc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/52936dc1c4bf465d731760a51c15afa3fd48f9b6))
+
 # [2.23.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.4...v2.23.0) (2026-09-04)
 
 
