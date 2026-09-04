@@ -430,7 +430,7 @@ export default function FluidSlider({
       }}
       onValueCommitted={onValueCommitted}
       className={cn(
-        "group/fluid-slider w-full max-w-xl select-none rounded-xl",
+        "group/fluid-slider w-full min-h-12 max-w-xl select-none rounded-xl",
         disabled &&
           "pointer-events-none opacity-(--fluid-slider-disabled-opacity)",
         className,
@@ -441,12 +441,12 @@ export default function FluidSlider({
         ref={controlRef}
         data-fluid-slider-control=""
         className={cn(
-          "group/fluid-slider-control relative min-h-12 h-full w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
+          "group/fluid-slider-control relative h-12 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
           "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
           trackClassName,
         )}
       >
-        <Slider.Track className="relative h-full w-full [container-type:inline-size]">
+        <Slider.Track className="relative h-12 w-full [container-type:inline-size]">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]"

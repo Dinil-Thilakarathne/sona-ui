@@ -330,6 +330,12 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "The size of the switch."
     },
     {
+      "name": "enableDrag",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the thumb can be dragged between states."
+    },
+    {
       "name": "className",
       "type": "string",
       "default": "—",

@@ -1,6 +1,9 @@
 import { allDocs, type Doc } from "content-collections";
 import { NextResponse } from "next/server";
 
+const DOCUMENTATION_CACHE_CONTROL =
+  "public, max-age=60, s-maxage=3600, stale-while-revalidate=86400";
+
 export function generateStaticParams() {
   return allDocs.map((doc: Doc) => ({ slug: doc.slug }));
 }
@@ -19,7 +22,7 @@ export async function GET(
   return new NextResponse(doc.body.raw, {
     status: 200,
     headers: {
-      "Cache-Control": "public, max-age=0, s-maxage=31536000, immutable",
+      "Cache-Control": DOCUMENTATION_CACHE_CONTROL,
       "Content-Type": "text/markdown; charset=utf-8",
     },
   });

@@ -185,8 +185,8 @@ Object.assign(agentResourceMetadata, {
     "animated-switch",
     "Animated Switch",
     "components",
-    "An iOS-style switch for immediate binary settings with tactile press feedback.",
-    ["switch", "toggle", "boolean setting"],
+    "An iOS-inspired switch for immediate binary settings with tactile press feedback and optional thumb drag.",
+    ["switch", "toggle", "boolean setting", "drag interaction"],
   ),
   button: catalogEntry(
     "button",
