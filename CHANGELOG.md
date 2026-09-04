@@ -1,3 +1,15 @@
+## [2.24.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.1...v2.24.2) (2026-09-04)
+
+
+### Bug Fixes
+
+* layout padding ([c90be1e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c90be1e81d28d53c8aa608860c1bba6e64d4ec86))
+
+
+### Performance Improvements
+
+* reduce request overhead ([eddaa9a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/eddaa9a03728723e1bb62c82d5b7154336f44b20))
+
 ## [2.24.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.0...v2.24.1) (2026-09-04)
 
 
