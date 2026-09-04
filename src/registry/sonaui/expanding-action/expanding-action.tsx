@@ -2,7 +2,13 @@
 
 import { ChevronLeft } from "lucide-react";
 import { MotionConfig, motion, useReducedMotion } from "motion/react";
-import { type CSSProperties, type ReactNode, useState } from "react";
+import {
+  type CSSProperties,
+  type ReactNode,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import useMeasure from "react-use-measure";
 
 import { cn } from "@/lib/sona-utils";
@@ -76,8 +82,10 @@ export default function ExpandingAction({
 }: ExpandingActionProps) {
   const [contentRef, contentBounds] = useMeasure();
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [isSurfaceAnimating, setIsSurfaceAnimating] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const isOpen = open ?? internalOpen;
+  const previousIsOpen = useRef(isOpen);
   const hasEnabledItem = items.some((item) => !item.disabled);
   const motionTransition = shouldReduceMotion
     ? { duration: 0 }
@@ -88,6 +96,13 @@ export default function ExpandingAction({
     onOpenChange?.(nextOpen);
   };
 
+  useLayoutEffect(() => {
+    if (previousIsOpen.current === isOpen) return;
+
+    previousIsOpen.current = isOpen;
+    setIsSurfaceAnimating(true);
+  }, [isOpen]);
+
   return (
     <MotionConfig reducedMotion="user">
       <motion.div
@@ -95,8 +110,11 @@ export default function ExpandingAction({
         animate={
           contentBounds.width ? { width: contentBounds.width } : undefined
         }
+        onAnimationStart={() => setIsSurfaceAnimating(true)}
+        onAnimationComplete={() => setIsSurfaceAnimating(false)}
         className={cn(
-          "relative inline-flex max-w-full items-center overflow-x-auto rounded-full",
+          "relative inline-flex max-w-full items-center rounded-full",
+          isSurfaceAnimating ? "overflow-x-hidden" : "overflow-x-auto",
           className,
         )}
         style={tokenStyle}
