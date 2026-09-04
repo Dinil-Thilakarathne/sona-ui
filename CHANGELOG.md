@@ -1,3 +1,15 @@
+# [2.23.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.4...v2.23.0) (2026-09-04)
+
+
+### Bug Fixes
+
+* remove legacy cli-tool ([59c2eee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/59c2eee56e50cc4156c9cd7ad821a6a53100b7ce))
+
+
+### Features
+
+* add circular context menu and migrate domain ([7b36d0d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7b36d0d0428de5acefb07ca061dd0898863d2908))
+
 ## [2.22.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.3...v2.22.4) (2026-09-03)
 
 
