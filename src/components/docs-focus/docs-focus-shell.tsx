@@ -11,7 +11,6 @@ import {
   Settings2,
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "@/components/common/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useId, useMemo, useState } from "react";
 import { FaGithub } from "react-icons/fa";
@@ -22,6 +21,7 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/common/drawer";
+import Link from "@/components/common/link";
 import { Mdx } from "@/components/common/mdx-components";
 import {
   Sheet,
@@ -343,7 +343,7 @@ function FocusNavigationBar({
   return (
     <div
       className={cn(
-        "pointer-events-auto fixed top-5 left-6 z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-focus-chrome p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl lg:top-8 lg:left-10",
+        "pointer-events-auto fixed top-5 left-6 z-[80] flex min-w-0 items-center gap-1 rounded-xl bg-focus-chrome p-1 text-sm smooth-shadow-ring-sm backdrop-blur-xl min-[900px]:top-8 min-[900px]:left-10",
         className,
       )}
     >
@@ -439,7 +439,7 @@ export function FocusActionsBar({
     <FluidTooltip.Group orientation="horizontal">
       <div
         className={cn(
-          "pointer-events-auto fixed top-5 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] lg:top-8 lg:right-8",
+          "pointer-events-auto fixed top-5 right-4 z-[60] ml-auto flex max-w-[calc(100vw-4.75rem)] shrink-0 items-center gap-1 overflow-x-auto rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl sm:max-w-[72vw] min-[900px]:top-8 min-[900px]:right-8",
           className,
         )}
       >
@@ -496,7 +496,7 @@ function GuidePage({
       </header>
       <main
         className={cn(
-          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] md:p-4",
+          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] min-[900px]:p-4",
           desktopNavOpen &&
             "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)]",
         )}
@@ -1071,7 +1071,7 @@ function ComponentPage({
       </header>
       <main
         className={cn(
-          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)_0px] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] md:p-4",
+          "flex h-full min-h-0 p-2 min-[900px]:grid min-[900px]:grid-cols-[0px_minmax(0,1fr)_0px] min-[900px]:transition-[grid-template-columns] min-[900px]:duration-500 min-[900px]:ease-[cubic-bezier(0.22,1,0.36,1)] min-[900px]:p-4",
           desktopNavOpen &&
             "min-[900px]:grid-cols-[calc(clamp(16rem,24vw,18rem)+0.75rem)_minmax(0,1fr)_0px]",
           desktopDocumentOpen &&
