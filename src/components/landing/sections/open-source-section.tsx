@@ -1,5 +1,5 @@
 import { Code2, Terminal } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { FaGithub } from "react-icons/fa";
 
 const cardClass =

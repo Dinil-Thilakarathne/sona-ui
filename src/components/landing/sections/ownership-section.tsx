@@ -1,5 +1,5 @@
 import { ArrowRight, Code2, Layers3, Sparkles } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 
 const steps = [
   [

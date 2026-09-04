@@ -1,7 +1,7 @@
-import { getGitHubFollowers } from "@/lib/github-followers";
 import AvatarShowcase from "@/registry/sonaui/avatar-showcase/avatar-showcase";
+import { getGitHubFollowers } from "@/lib/github-followers";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 const githubUsername = "Dinil-Thilakarathne";
 
@@ -10,6 +10,8 @@ export default async function AvatarShowcasePrototypePage() {
     const result = await getGitHubFollowers({
       username: githubUsername,
       limit: 320,
+      cache: "force-cache",
+      revalidate,
     });
 
     const items = result.followers.map((follower) => ({

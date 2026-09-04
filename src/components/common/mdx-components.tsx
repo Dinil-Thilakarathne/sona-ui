@@ -1,6 +1,6 @@
 import { useMDXComponent } from "@content-collections/mdx/react";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { Children } from "react";
 import {
   CodeBlock,

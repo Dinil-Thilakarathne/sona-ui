@@ -2,7 +2,7 @@
 
 import type { VariantProps } from "class-variance-authority";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import type { ComponentProps } from "react";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/utils";

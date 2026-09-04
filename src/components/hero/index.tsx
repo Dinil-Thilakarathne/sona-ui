@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/common/link";
 import FadeInComp from "../common/fade-in";
 import ScrollUpButton from "../common/scroll-up-button";
 import SplitTextComp from "../common/splil-text-comp";
@@ -38,7 +38,7 @@ export default function Hero() {
                   opacity: 0,
                 }}
               >
-                <Link href="/docs/installation" className="block">
+                <Link href="/docs/installation" prefetch className="block">
                   <ScrollUpButton text="Get started" variant="secondary" />
                 </Link>
               </FadeInComp>
@@ -53,7 +53,7 @@ export default function Hero() {
                   opacity: 0,
                 }}
               >
-                <Link href="/docs/accordion" className="block">
+                <Link href="/docs/accordion" prefetch className="block">
                   <ScrollUpButton text="Browse components" />
                 </Link>
               </FadeInComp>

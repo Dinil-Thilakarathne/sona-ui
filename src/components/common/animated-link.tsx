@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/common/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 

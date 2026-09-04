@@ -1,7 +1,7 @@
 "use client";
 
 import { BookOpenText, Code2, Home, Settings2 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/common/link";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { ModeToggle } from "@/components/common/theme-toggle";

@@ -1,9 +1,39 @@
 import { withContentCollections } from "@content-collections/next";
 
+const STATIC_PAGE_CACHE_CONTROL =
+  "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
     return [
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: STATIC_PAGE_CACHE_CONTROL,
+          },
+        ],
+      },
+      {
+        source: "/components",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: STATIC_PAGE_CACHE_CONTROL,
+          },
+        ],
+      },
+      {
+        source: "/docs/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: STATIC_PAGE_CACHE_CONTROL,
+          },
+        ],
+      },
       {
         source: "/agent/manifest.json",
         headers: [
