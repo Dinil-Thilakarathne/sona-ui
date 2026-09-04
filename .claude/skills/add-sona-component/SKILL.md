@@ -20,9 +20,9 @@ components live in `src/registry/`, are described in a hand-authored registry
 JSON, surfaced in docs (MDX) and a live playground, and then compiled by a build
 script into generated artifacts that the app and the `shadcn` CLI consume.
 
-The golden rule: **you hand-author six things, then run one build that
-regenerates everything else.** Editing a generated file directly is wasted work —
-the next build overwrites it.
+The golden rule: **you hand-author seven things, then run the registry and
+agent-resource builds that regenerate everything else.** Editing a generated
+file directly is wasted work — the next build overwrites it.
 
 ## The canonical reference
 
@@ -51,7 +51,7 @@ Pin these down before editing (ask the user only for what you can't infer):
   the generated prop table, so get them right at the source.
 - **npm dependencies**: runtime packages the component imports (e.g. `motion`).
 
-## The six hand-authored edits
+## The seven hand-authored edits
 
 Do these in order. Match formatting, the `cn` import, `"use client"`, and the
 `export default` convention from the reference.
@@ -108,13 +108,26 @@ instantiates the real component with the live values cast to their types. This
 file is intentionally hand-authored and decoupled from the generated example
 registry.
 
+### 7. Agent metadata — `src/registry/agent-metadata.ts`
+
+Add a `<slug>` entry so the agent catalog and `llms-full.txt` snapshot pick up the
+new component. See `src/registry/agent-metadata.ts` for the two forms it accepts:
+the `catalogEntry(slug, title, category, summary, keywords)` helper (generic
+defaults for the intent fields) for simple cases, or a full `AgentResourceMetadata`
+object literal with `useWhen`, `avoidWhen`, `capabilities`, `accessibility`,
+`motion.purpose`, `motion.reducedMotion`, and optional `related` for richer intent.
+`bun run check:agent-resources` fails any `registry:ui` item in
+`src/registry/registry.json` that lacks this entry, so add it before building
+agent resources.
+
 ## Then build — regenerate everything else
 
 ```bash
 bun run build:registry
+bun run build:agent-resources
 ```
 
-This runs three scripts in sequence and regenerates:
+`build:registry` runs three scripts in sequence and regenerates:
 
 - `src/registry/index.ts` (the example registry + code strings)
 - root `registry.json` and `public/r/*.json` (shadcn CLI registry)
@@ -123,8 +136,14 @@ This runs three scripts in sequence and regenerates:
 All three are **generated — never edit them by hand.** If a prop is missing or a
 description is wrong in the output, fix the JSDoc in step 1 and rebuild.
 
+`build:agent-resources` regenerates the agent catalog and snapshots from
+`agent-metadata.ts`: `public/agent/catalog.json`, `public/agent/components/<slug>.json`,
+`public/llms.txt`, `public/llms-full.txt`, and `public/agent/manifest.json`. These
+are generated — never edit them by hand.
+
 After building, sanity-check that the new slug appears in `src/registry/prop-types.ts`
-with all expected props, and that `public/r/<slug>.json` was created.
+with all expected props, that `public/r/<slug>.json` was created, and that
+`<slug>` appears in `public/agent/catalog.json`.
 
 ## Finally — verify live in the preview
 
@@ -150,5 +169,7 @@ user still needs to decide (e.g. extra variants, copy tweaks).
 - [ ] `src/content/docs/<slug>.mdx` — Preview · Playground · Installation · Usage · PropTable
 - [ ] `src/config/components.ts` — nav entry under the right category
 - [ ] `src/registry/playground/index.tsx` — import + controls/render entry
+- [ ] `src/registry/agent-metadata.ts` — entry for `<slug>` (useWhen, avoidWhen, capabilities, accessibility, motion, related)
 - [ ] `bun run build:registry` — regenerates index.ts, public/r/*.json, prop-types.ts
+- [ ] `bun run build:agent-resources` — regenerates public/agent/*, public/llms.txt, public/llms-full.txt
 - [ ] Verified live in preview (DOM + interaction)

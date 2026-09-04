@@ -1,3 +1,89 @@
+## [2.24.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.0...v2.24.1) (2026-09-04)
+
+
+### Bug Fixes
+
+* opimize cache ([06ee4ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/06ee4cad33bdf22ff58f303e4e6abefc6b39f47c))
+
+# [2.24.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.23.0...v2.24.0) (2026-09-04)
+
+
+### Features
+
+* refine interactive registry components ([52936dc](https://github.com/Dinil-Thilakarathne/sona-ui/commit/52936dc1c4bf465d731760a51c15afa3fd48f9b6))
+
+# [2.23.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.4...v2.23.0) (2026-09-04)
+
+
+### Bug Fixes
+
+* remove legacy cli-tool ([59c2eee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/59c2eee56e50cc4156c9cd7ad821a6a53100b7ce))
+
+
+### Features
+
+* add circular context menu and migrate domain ([7b36d0d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7b36d0d0428de5acefb07ca061dd0898863d2908))
+
+## [2.22.4](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.3...v2.22.4) (2026-09-03)
+
+
+### Bug Fixes
+
+* dependabot actions ([6a88e07](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6a88e07af2da69b1631ae9d2538c3771536e6e65))
+
+## [2.22.3](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.2...v2.22.3) (2026-09-03)
+
+
+### Bug Fixes
+
+* expanding actions animation ([5aeb1e1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/5aeb1e1e5e5bf0f0e1a6b9c4652f5c592be3ef96))
+
+## [2.22.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.1...v2.22.2) (2026-09-03)
+
+
+### Bug Fixes
+
+* Add Smart Overflow component to registry ([c210ebb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/c210ebb419e949f4724d03e5cf6a60d18cd30491))
+* request-optimization ([d491492](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d491492f2a80d24dee518fcbaf036c7e815779a3))
+
+## [2.22.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.22.0...v2.22.1) (2026-09-03)
+
+
+### Bug Fixes
+
+* Refactor ExpandingAction component layout animations ([362f8b7](https://github.com/Dinil-Thilakarathne/sona-ui/commit/362f8b7e4446f8bdc48377d978eb010acf86b66e))
+* Update changelog with recent release history ([89ae317](https://github.com/Dinil-Thilakarathne/sona-ui/commit/89ae317da136b05e2e5edc87b9dddbe34505e1ae))
+
+# [2.22.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.21.0...v2.22.0) (2026-09-02)
+
+
+### Features
+
+* update agent registry ([e92402e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e92402eb5a5298e230e9cb148e3122836d424da7))
+
+# [2.21.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.1...v2.21.0) (2026-09-02)
+
+
+### Bug Fixes
+
+* Add className support to focus layout components ([b9cb2d6](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b9cb2d62fac6b267883054f41c025e8ec3c4bcf6))
+* Refactor landing hero and update documentation ([9279fd8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9279fd82e0b8d09d59b7af44eb49e4b96065f958))
+* Remove source digest from agent manifest and resources ([d912801](https://github.com/Dinil-Thilakarathne/sona-ui/commit/d9128010f61667e8b45a35f22fe01cad28a9ed93))
+* Remove source digest from agent manifests and documentation ([585fee3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/585fee3f34e623b74ef03e714c04e9b376ff1b5d))
+* Update source digest and sort directory files ([396444a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/396444aeae49e7ffc9934a82d6f9cc6b67d79582))
+
+
+### Features
+
+* Implement agent resource freshness protocol ([24644fb](https://github.com/Dinil-Thilakarathne/sona-ui/commit/24644fb9eb8a7db048bc17602120f286613542ef))
+
+## [2.20.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.20.0...v2.20.1) (2026-09-02)
+
+
+### Bug Fixes
+
+* remove source digest ([#90](https://github.com/Dinil-Thilakarathne/sona-ui/issues/90)) ([30a168c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/30a168c59a111b340b08156e90a3ded34d01d256))
+
 # [2.20.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.19.6...v2.20.0) (2026-09-02)
 
 
