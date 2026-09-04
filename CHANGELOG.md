@@ -1,3 +1,10 @@
+## [2.24.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.0...v2.24.1) (2026-09-04)
+
+
+### Bug Fixes
+
+* opimize cache ([06ee4ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/06ee4cad33bdf22ff58f303e4e6abefc6b39f47c))
+
 # [2.24.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.23.0...v2.24.0) (2026-09-04)
 
 
