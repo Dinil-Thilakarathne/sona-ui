@@ -2,6 +2,9 @@ import { allDocs, type Doc } from "content-collections";
 import { NextResponse } from "next/server";
 import { apiError } from "@/lib/api-error";
 
+const DOCUMENTATION_CACHE_CONTROL =
+  "public, max-age=60, s-maxage=3600, stale-while-revalidate=86400";
+
 // API: /api/md?slug=accordion -> raw MDX/markdown of the doc as text/markdown
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -31,6 +34,7 @@ export async function GET(request: Request) {
     status: 200,
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
+      "Cache-Control": DOCUMENTATION_CACHE_CONTROL,
     },
   });
 }

@@ -2,6 +2,8 @@ import { apiError } from "@/lib/api-error";
 import { getGitHubProfileContributions } from "@/lib/github-contributions";
 
 const githubLogin = "Dinil-Thilakarathne";
+const CONTRIBUTIONS_CACHE_CONTROL =
+  "public, max-age=60, s-maxage=900, stale-while-revalidate=86400";
 
 export async function GET(request: Request) {
   try {
@@ -12,7 +14,7 @@ export async function GET(request: Request) {
 
     return Response.json(calendar, {
       headers: {
-        "Cache-Control": "private, no-store",
+        "Cache-Control": CONTRIBUTIONS_CACHE_CONTROL,
       },
     });
   } catch (error) {

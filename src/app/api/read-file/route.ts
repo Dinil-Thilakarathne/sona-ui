@@ -3,6 +3,9 @@ import path from "node:path";
 import { NextResponse } from "next/server";
 import { apiError } from "@/lib/api-error";
 
+const REGISTRY_SOURCE_CACHE_CONTROL =
+  "public, max-age=60, s-maxage=3600, stale-while-revalidate=86400";
+
 // API: /api/read-file?folder=accordion&file=accordion
 export async function GET(request: Request) {
   try {
@@ -52,7 +55,10 @@ export async function GET(request: Request) {
 
     const content = fs.readFileSync(txtFilePath, "utf-8");
 
-    return NextResponse.json({ content });
+    return NextResponse.json(
+      { content },
+      { headers: { "Cache-Control": REGISTRY_SOURCE_CACHE_CONTROL } },
+    );
   } catch (err) {
     console.error("Error reading component source file:", err);
     return apiError({
