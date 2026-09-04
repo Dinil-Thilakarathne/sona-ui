@@ -10,6 +10,10 @@ import { SITE_METADATA } from "@/config/site";
 import { FIRST_COMP_LINK } from "@/lib/constants";
 import DocClient from "./DocClient";
 
+export function generateStaticParams() {
+  return allDocs.map((doc: Doc) => ({ slug: doc.slug.split("/") }));
+}
+
 async function readGitHubContributionsSource() {
   const sourcePath = path.join(
     process.cwd(),
