@@ -20,8 +20,8 @@ components live in `src/registry/`, are described in a hand-authored registry
 JSON, surfaced in docs (MDX) and a live playground, and then compiled by a build
 script into generated artifacts that the app and the `shadcn` CLI consume.
 
-The golden rule: **you hand-author six things, then run one build that
-regenerates everything else.** Editing a generated file directly is wasted work —
+The golden rule: **you hand-author seven things, then run the build commands that
+regenerate everything else.** Editing a generated file directly is wasted work —
 the next build overwrites it.
 
 ## The canonical reference
@@ -33,7 +33,8 @@ Before writing anything, read these to match the house style exactly:
 - `src/registry/examples/spotlight-card/spotlight-card-demo.tsx`
 - `src/content/docs/spotlight-card.mdx`
 - the `spotlight-card` entries in `src/registry/registry.json`,
-  `src/config/components.ts`, and `src/registry/playground/index.tsx`
+  `src/registry/agent-metadata.ts`, `src/config/components.ts`, and
+  `src/registry/playground/index.tsx`
 
 Mirror its structure for the new component rather than inventing a layout.
 
@@ -51,7 +52,7 @@ Pin these down before editing (ask the user only for what you can't infer):
   the generated prop table, so get them right at the source.
 - **npm dependencies**: runtime packages the component imports (e.g. `motion`).
 
-## The six hand-authored edits
+## The seven hand-authored edits
 
 Do these in order. Match formatting, the `cn` import, `"use client"`, and the
 `export default` convention from the reference.
@@ -108,23 +109,42 @@ instantiates the real component with the live values cast to their types. This
 file is intentionally hand-authored and decoupled from the generated example
 registry.
 
+### 7. Agent metadata — `src/registry/agent-metadata.ts`
+
+Add a `"<slug>"` entry to the `agentResourceMetadata` object with `useWhen`,
+`avoidWhen`, `capabilities`, `accessibility`, `motion` (`purpose` +
+`reducedMotion`), and a `related` array of sibling slugs. Mirror the
+spotlight-card entry's shape. Without it, `bun run check:agent-resources`
+rejects the publish — every `registry:ui` item must have a matching entry.
+
 ## Then build — regenerate everything else
 
 ```bash
 bun run build:registry
+bun run build:agent-resources
+bun run check:registry
+bun run check:agent-resources
 ```
 
-This runs three scripts in sequence and regenerates:
+`build:registry` runs three scripts in sequence and regenerates:
 
 - `src/registry/index.ts` (the example registry + code strings)
 - root `registry.json` and `public/r/*.json` (shadcn CLI registry)
 - `src/registry/prop-types.ts` (the props table data, parsed from your JSDoc)
 
-All three are **generated — never edit them by hand.** If a prop is missing or a
-description is wrong in the output, fix the JSDoc in step 1 and rebuild.
+`build:agent-resources` regenerates `public/agent/catalog.json`, the
+per-component detail JSON at `public/agent/components/<slug>.json`, and
+`public/llms.txt` / `public/llms-full.txt` from the `agent-metadata.ts` entry
+added in step 7.
 
-After building, sanity-check that the new slug appears in `src/registry/prop-types.ts`
-with all expected props, and that `public/r/<slug>.json` was created.
+All of these are **generated — never edit them by hand.** If a prop is missing
+or a description is wrong in the output, fix the JSDoc in step 1 (or the
+metadata in step 7) and rebuild. Do not treat the component as published
+until both `check:registry` and `check:agent-resources` pass.
+
+After building, sanity-check that the new slug appears in
+`src/registry/prop-types.ts` with all expected props, and that
+`public/r/<slug>.json` and `public/agent/components/<slug>.json` were created.
 
 ## Finally — verify live in the preview
 
@@ -150,5 +170,8 @@ user still needs to decide (e.g. extra variants, copy tweaks).
 - [ ] `src/content/docs/<slug>.mdx` — Preview · Playground · Installation · Usage · PropTable
 - [ ] `src/config/components.ts` — nav entry under the right category
 - [ ] `src/registry/playground/index.tsx` — import + controls/render entry
+- [ ] `src/registry/agent-metadata.ts` — `<slug>` entry with useWhen/avoidWhen/capabilities/accessibility/motion
 - [ ] `bun run build:registry` — regenerates index.ts, public/r/*.json, prop-types.ts
+- [ ] `bun run build:agent-resources` — regenerates public/agent/*, public/llms*.txt
+- [ ] `bun run check:registry` and `bun run check:agent-resources` — both pass
 - [ ] Verified live in preview (DOM + interaction)
