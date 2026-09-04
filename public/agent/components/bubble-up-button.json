@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/bubble-up-button.json",
+    "url": "https://sonaui.com/r/bubble-up-button.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -39,8 +39,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/bubble-up-button",
-    "rawUrl": "https://sona-ui.vercel.app/docs/bubble-up-button/raw.md",
+    "url": "https://sonaui.com/docs/bubble-up-button",
+    "rawUrl": "https://sonaui.com/docs/bubble-up-button/raw.md",
     "sourceTitle": "bubble-up-button"
   }
 }

@@ -441,7 +441,7 @@ export default function FluidSlider({
         ref={controlRef}
         data-fluid-slider-control=""
         className={cn(
-          "group/fluid-slider-control relative h-16 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
+          "group/fluid-slider-control relative min-h-12 h-full w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
           "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
           trackClassName,
         )}

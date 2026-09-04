@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/hold-to-delete-button.json",
+    "url": "https://sonaui.com/r/hold-to-delete-button.json",
     "type": "registry:ui",
     "dependencies": [
       "lucide-react",
@@ -40,8 +40,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/hold-to-delete-button",
-    "rawUrl": "https://sona-ui.vercel.app/docs/hold-to-delete-button/raw.md",
+    "url": "https://sonaui.com/docs/hold-to-delete-button",
+    "rawUrl": "https://sonaui.com/docs/hold-to-delete-button/raw.md",
     "sourceTitle": "hold-to-delete-button"
   }
 }

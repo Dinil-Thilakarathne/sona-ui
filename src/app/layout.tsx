@@ -18,7 +18,7 @@ const structuredData = {
   "@type": "SoftwareApplication",
   name: siteMetaData.title,
   description: siteMetaData.description,
-  url: "https://sona-ui.vercel.app",
+  url: "https://sonaui.com",
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Web",
   author: {

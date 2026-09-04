@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "catalog": "https://sona-ui.vercel.app/agent/catalog.json",
-  "fullGuidance": "https://sona-ui.vercel.app/llms-full.txt",
-  "skill": "https://sona-ui.vercel.app/r/agent-skill.json",
+  "catalog": "https://sonaui.com/agent/catalog.json",
+  "fullGuidance": "https://sonaui.com/llms-full.txt",
+  "skill": "https://sonaui.com/r/agent-skill.json",
   "updatePolicy": "Fetch this manifest before selecting or installing a component. Installed skill files and full guidance are snapshots; this manifest and its catalog are authoritative when reachable."
 }

@@ -1,0 +1,36 @@
+---
+title: Circular Context Menu
+slug: circular-context-menu
+component: circular-context-menu
+tags: ["UI", "Menu", "Actions", "Component"]
+---
+
+Use Circular Context Menu for three to five direct actions on a selected spatial object. Its edge-aware arc keeps actions visible while preserving a clear relationship with the selected object.
+
+## Install
+
+<CodeBlockWrapper language="bash" filename="terminal" code={`npx shadcn@latest add @sona-ui/circular-context-menu`} />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="canvas-actions.tsx" code={`import CircularContextMenu from "@/components/ui/circular-context-menu/circular-context-menu";
+
+<CircularContextMenu.Root>
+  <CircularContextMenu.Anchor>Selected layer</CircularContextMenu.Anchor>
+  <CircularContextMenu.Content placement="right">
+    <CircularContextMenu.Item aria-label="Duplicate layer"><Copy /></CircularContextMenu.Item>
+    <CircularContextMenu.Item aria-label="Delete layer" destructive><Trash2 /></CircularContextMenu.Item>
+  </CircularContextMenu.Content>
+</CircularContextMenu.Root>`} />
+
+## Usage
+
+<ComponentUsage component="circular-context-menu" />
+
+## API
+
+<PropTable component="circular-context-menu" />
+
+## Accessibility
+
+The anchor is a button with expanded state. Arrow keys move through items, Escape returns focus to the anchor, and outside interaction closes the menu. Choose `placement="top"`, `"right"`, `"bottom"`, or `"left"` based on the safe space in the consumer layout. Use concise accessible labels for icon-only actions.

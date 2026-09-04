@@ -35,7 +35,7 @@
     "reducedMotion": "Keep keyboard and value updates immediate and remove nonessential resistance motion."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/fluid-slider.json",
+    "url": "https://sonaui.com/r/fluid-slider.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -46,8 +46,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/fluid-slider",
-    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-slider/raw.md",
+    "url": "https://sonaui.com/docs/fluid-slider",
+    "rawUrl": "https://sonaui.com/docs/fluid-slider/raw.md",
     "sourceTitle": "fluid-slider"
   }
 }

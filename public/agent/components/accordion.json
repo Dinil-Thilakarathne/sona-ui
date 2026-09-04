@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/accordion.json",
+    "url": "https://sonaui.com/r/accordion.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -40,8 +40,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/accordion",
-    "rawUrl": "https://sona-ui.vercel.app/docs/accordion/raw.md",
+    "url": "https://sonaui.com/docs/accordion",
+    "rawUrl": "https://sonaui.com/docs/accordion/raw.md",
     "sourceTitle": "accordion"
   }
 }

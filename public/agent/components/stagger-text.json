@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/stagger-text.json",
+    "url": "https://sonaui.com/r/stagger-text.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -39,8 +39,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/stagger-text",
-    "rawUrl": "https://sona-ui.vercel.app/docs/stagger-text/raw.md",
+    "url": "https://sonaui.com/docs/stagger-text",
+    "rawUrl": "https://sonaui.com/docs/stagger-text/raw.md",
     "sourceTitle": "stagger-text"
   }
 }

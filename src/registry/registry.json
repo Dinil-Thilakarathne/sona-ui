@@ -506,6 +506,19 @@
     ]
   },
   {
+    "name": "circular-context-menu",
+    "type": "registry:ui",
+    "title": "Circular Context Menu",
+    "description": "An edge-aware compound context menu that fans a small set of direct actions away from a selected object.",
+    "files": [
+      {
+        "path": "registry/sonaui/circular-context-menu/circular-context-menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
     "name": "spotlight-card",
     "type": "registry:ui",
     "title": "Spotlight Card",

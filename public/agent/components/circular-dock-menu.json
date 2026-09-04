@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/circular-dock-menu.json",
+    "url": "https://sonaui.com/r/circular-dock-menu.json",
     "type": "registry:ui",
     "dependencies": [
       "motion",
@@ -40,8 +40,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/circular-dock-menu",
-    "rawUrl": "https://sona-ui.vercel.app/docs/circular-dock-menu/raw.md",
+    "url": "https://sonaui.com/docs/circular-dock-menu",
+    "rawUrl": "https://sonaui.com/docs/circular-dock-menu/raw.md",
     "sourceTitle": "circular-dock-menu"
   }
 }

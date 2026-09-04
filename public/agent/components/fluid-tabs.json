@@ -39,7 +39,7 @@
     "expandable-tabs"
   ],
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/fluid-tabs.json",
+    "url": "https://sonaui.com/r/fluid-tabs.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -50,8 +50,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/fluid-tabs",
-    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-tabs/raw.md",
+    "url": "https://sonaui.com/docs/fluid-tabs",
+    "rawUrl": "https://sonaui.com/docs/fluid-tabs/raw.md",
     "sourceTitle": "fluid-tabs"
   }
 }

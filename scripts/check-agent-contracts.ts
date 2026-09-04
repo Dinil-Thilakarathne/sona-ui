@@ -15,7 +15,7 @@ const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8")) as {
 };
 
 const errors: string[] = [];
-const productionOrigin = "https://sona-ui.vercel.app";
+const productionOrigin = "https://sonaui.com";
 const requiredPublicFiles = [
   "public/llms.txt",
   "public/llms-full.txt",

@@ -2,7 +2,7 @@ import { allDocs, type Doc } from "content-collections";
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://sona-ui.vercel.app";
+  const siteUrl = "https://sonaui.com";
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: siteUrl,

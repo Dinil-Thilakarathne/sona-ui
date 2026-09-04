@@ -35,7 +35,7 @@
     "reducedMotion": "Remove directional content travel while preserving the tooltip label."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/fluid-tooltip.json",
+    "url": "https://sonaui.com/r/fluid-tooltip.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -46,8 +46,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/fluid-tooltip",
-    "rawUrl": "https://sona-ui.vercel.app/docs/fluid-tooltip/raw.md",
+    "url": "https://sonaui.com/docs/fluid-tooltip",
+    "rawUrl": "https://sonaui.com/docs/fluid-tooltip/raw.md",
     "sourceTitle": "fluid-tooltip"
   }
 }

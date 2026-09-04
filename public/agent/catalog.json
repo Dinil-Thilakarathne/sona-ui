@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "manifest": "https://sona-ui.vercel.app/agent/manifest.json",
-  "registry": "https://sona-ui.vercel.app/r/{name}.json",
+  "manifest": "https://sonaui.com/agent/manifest.json",
+  "registry": "https://sonaui.com/r/{name}.json",
   "items": [
     {
       "name": "fluid-tabs",
@@ -15,9 +15,9 @@
         "segmented content",
         "settings"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/fluid-tabs",
-      "registryItem": "https://sona-ui.vercel.app/r/fluid-tabs.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/fluid-tabs.json",
+      "docs": "https://sonaui.com/docs/fluid-tabs",
+      "registryItem": "https://sonaui.com/r/fluid-tabs.json",
+      "detail": "https://sonaui.com/agent/components/fluid-tabs.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -36,9 +36,9 @@
         "focused task",
         "overlay"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/animated-dialog",
-      "registryItem": "https://sona-ui.vercel.app/r/animated-dialog.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/animated-dialog.json",
+      "docs": "https://sonaui.com/docs/animated-dialog",
+      "registryItem": "https://sonaui.com/r/animated-dialog.json",
+      "detail": "https://sonaui.com/agent/components/animated-dialog.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -57,9 +57,9 @@
         "hero",
         "decorative motion"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/mesh-gradient-shader",
-      "registryItem": "https://sona-ui.vercel.app/r/mesh-gradient-shader.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/mesh-gradient-shader.json",
+      "docs": "https://sonaui.com/docs/mesh-gradient-shader",
+      "registryItem": "https://sonaui.com/r/mesh-gradient-shader.json",
+      "detail": "https://sonaui.com/agent/components/mesh-gradient-shader.json",
       "dependencies": [
         "@paper-design/shaders-react",
         "motion"
@@ -76,9 +76,9 @@
         "menu",
         "actions"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/animated-dropdown",
-      "registryItem": "https://sona-ui.vercel.app/r/animated-dropdown.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/animated-dropdown.json",
+      "docs": "https://sonaui.com/docs/animated-dropdown",
+      "registryItem": "https://sonaui.com/r/animated-dropdown.json",
+      "detail": "https://sonaui.com/agent/components/animated-dropdown.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -95,9 +95,9 @@
         "toggle",
         "boolean setting"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/animated-switch",
-      "registryItem": "https://sona-ui.vercel.app/r/animated-switch.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/animated-switch.json",
+      "docs": "https://sonaui.com/docs/animated-switch",
+      "registryItem": "https://sonaui.com/r/animated-switch.json",
+      "detail": "https://sonaui.com/agent/components/animated-switch.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -114,9 +114,9 @@
         "cta",
         "action"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/button",
-      "registryItem": "https://sona-ui.vercel.app/r/button.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/button.json",
+      "docs": "https://sonaui.com/docs/button",
+      "registryItem": "https://sonaui.com/r/button.json",
+      "detail": "https://sonaui.com/agent/components/button.json",
       "dependencies": [
         "class-variance-authority",
         "motion"
@@ -133,9 +133,9 @@
         "dots",
         "background"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/dot-orbit-shader",
-      "registryItem": "https://sona-ui.vercel.app/r/dot-orbit-shader.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/dot-orbit-shader.json",
+      "docs": "https://sonaui.com/docs/dot-orbit-shader",
+      "registryItem": "https://sonaui.com/r/dot-orbit-shader.json",
+      "detail": "https://sonaui.com/agent/components/dot-orbit-shader.json",
       "dependencies": [
         "@paper-design/shaders-react",
         "motion"
@@ -152,9 +152,9 @@
         "pointer",
         "hover"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/magnetic-button",
-      "registryItem": "https://sona-ui.vercel.app/r/magnetic-button.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/magnetic-button.json",
+      "docs": "https://sonaui.com/docs/magnetic-button",
+      "registryItem": "https://sonaui.com/r/magnetic-button.json",
+      "detail": "https://sonaui.com/agent/components/magnetic-button.json",
       "dependencies": [
         "motion"
       ]
@@ -170,9 +170,9 @@
         "navigation",
         "hover"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/animated-tabs",
-      "registryItem": "https://sona-ui.vercel.app/r/animated-tabs.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/animated-tabs.json",
+      "docs": "https://sonaui.com/docs/animated-tabs",
+      "registryItem": "https://sonaui.com/r/animated-tabs.json",
+      "detail": "https://sonaui.com/agent/components/animated-tabs.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -190,9 +190,9 @@
         "compact",
         "expanding"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/expanding-action",
-      "registryItem": "https://sona-ui.vercel.app/r/expanding-action.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/expanding-action.json",
+      "docs": "https://sonaui.com/docs/expanding-action",
+      "registryItem": "https://sonaui.com/r/expanding-action.json",
+      "detail": "https://sonaui.com/agent/components/expanding-action.json",
       "dependencies": [
         "lucide-react",
         "motion",
@@ -211,9 +211,9 @@
         "heatmap",
         "contributions"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/activity-graph",
-      "registryItem": "https://sona-ui.vercel.app/r/activity-graph.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/activity-graph.json",
+      "docs": "https://sonaui.com/docs/activity-graph",
+      "registryItem": "https://sonaui.com/r/activity-graph.json",
+      "detail": "https://sonaui.com/agent/components/activity-graph.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -231,9 +231,9 @@
         "people",
         "social proof"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/avatar-showcase",
-      "registryItem": "https://sona-ui.vercel.app/r/avatar-showcase.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/avatar-showcase.json",
+      "docs": "https://sonaui.com/docs/avatar-showcase",
+      "registryItem": "https://sonaui.com/r/avatar-showcase.json",
+      "detail": "https://sonaui.com/agent/components/avatar-showcase.json",
       "dependencies": [
         "motion"
       ]
@@ -250,9 +250,9 @@
         "numeric value",
         "input"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/fluid-slider",
-      "registryItem": "https://sona-ui.vercel.app/r/fluid-slider.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/fluid-slider.json",
+      "docs": "https://sonaui.com/docs/fluid-slider",
+      "registryItem": "https://sonaui.com/r/fluid-slider.json",
+      "detail": "https://sonaui.com/agent/components/fluid-slider.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -270,9 +270,9 @@
         "labels",
         "grouped controls"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/fluid-tooltip",
-      "registryItem": "https://sona-ui.vercel.app/r/fluid-tooltip.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/fluid-tooltip.json",
+      "docs": "https://sonaui.com/docs/fluid-tooltip",
+      "registryItem": "https://sonaui.com/r/fluid-tooltip.json",
+      "detail": "https://sonaui.com/agent/components/fluid-tooltip.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -290,9 +290,9 @@
         "gallery",
         "dialog"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/lightbox",
-      "registryItem": "https://sona-ui.vercel.app/r/lightbox.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/lightbox.json",
+      "docs": "https://sonaui.com/docs/lightbox",
+      "registryItem": "https://sonaui.com/r/lightbox.json",
+      "detail": "https://sonaui.com/agent/components/lightbox.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -310,9 +310,9 @@
         "progress",
         "long page"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/section-rail",
-      "registryItem": "https://sona-ui.vercel.app/r/section-rail.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/section-rail.json",
+      "docs": "https://sonaui.com/docs/section-rail",
+      "registryItem": "https://sonaui.com/r/section-rail.json",
+      "detail": "https://sonaui.com/agent/components/section-rail.json",
       "dependencies": [
         "motion"
       ]
@@ -328,9 +328,9 @@
         "disclosure",
         "collapsible"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/accordion",
-      "registryItem": "https://sona-ui.vercel.app/r/accordion.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/accordion.json",
+      "docs": "https://sonaui.com/docs/accordion",
+      "registryItem": "https://sonaui.com/r/accordion.json",
+      "detail": "https://sonaui.com/agent/components/accordion.json",
       "dependencies": [
         "@base-ui/react",
         "class-variance-authority"
@@ -347,9 +347,9 @@
         "ripple",
         "press feedback"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/ripple-button",
-      "registryItem": "https://sona-ui.vercel.app/r/ripple-button.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/ripple-button.json",
+      "docs": "https://sonaui.com/docs/ripple-button",
+      "registryItem": "https://sonaui.com/r/ripple-button.json",
+      "detail": "https://sonaui.com/agent/components/ripple-button.json",
       "dependencies": [
         "motion"
       ]
@@ -365,9 +365,9 @@
         "loop",
         "scrolling content"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/marquee",
-      "registryItem": "https://sona-ui.vercel.app/r/marquee.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/marquee.json",
+      "docs": "https://sonaui.com/docs/marquee",
+      "registryItem": "https://sonaui.com/r/marquee.json",
+      "detail": "https://sonaui.com/agent/components/marquee.json",
       "dependencies": [
         "motion"
       ]
@@ -383,9 +383,9 @@
         "circular text",
         "typography"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/spinning-text",
-      "registryItem": "https://sona-ui.vercel.app/r/spinning-text.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/spinning-text.json",
+      "docs": "https://sonaui.com/docs/spinning-text",
+      "registryItem": "https://sonaui.com/r/spinning-text.json",
+      "detail": "https://sonaui.com/agent/components/spinning-text.json",
       "dependencies": [
         "motion"
       ]
@@ -401,9 +401,9 @@
         "entrance",
         "stagger"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/stagger-text",
-      "registryItem": "https://sona-ui.vercel.app/r/stagger-text.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/stagger-text.json",
+      "docs": "https://sonaui.com/docs/stagger-text",
+      "registryItem": "https://sonaui.com/r/stagger-text.json",
+      "detail": "https://sonaui.com/agent/components/stagger-text.json",
       "dependencies": [
         "motion"
       ]
@@ -419,9 +419,9 @@
         "preview",
         "metadata"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/link-preview",
-      "registryItem": "https://sona-ui.vercel.app/r/link-preview.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/link-preview.json",
+      "docs": "https://sonaui.com/docs/link-preview",
+      "registryItem": "https://sonaui.com/r/link-preview.json",
+      "detail": "https://sonaui.com/agent/components/link-preview.json",
       "dependencies": [
         "motion",
         "react-icons",
@@ -439,9 +439,9 @@
         "label transition",
         "action"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/bubble-up-button",
-      "registryItem": "https://sona-ui.vercel.app/r/bubble-up-button.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/bubble-up-button.json",
+      "docs": "https://sonaui.com/docs/bubble-up-button",
+      "registryItem": "https://sonaui.com/r/bubble-up-button.json",
+      "detail": "https://sonaui.com/agent/components/bubble-up-button.json",
       "dependencies": [
         "motion"
       ]
@@ -457,9 +457,9 @@
         "navigation",
         "expandable"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/expandable-tabs",
-      "registryItem": "https://sona-ui.vercel.app/r/expandable-tabs.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/expandable-tabs.json",
+      "docs": "https://sonaui.com/docs/expandable-tabs",
+      "registryItem": "https://sonaui.com/r/expandable-tabs.json",
+      "detail": "https://sonaui.com/agent/components/expandable-tabs.json",
       "dependencies": [
         "@base-ui/react",
         "motion",
@@ -477,9 +477,9 @@
         "split",
         "typography"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/split-text",
-      "registryItem": "https://sona-ui.vercel.app/r/split-text.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/split-text.json",
+      "docs": "https://sonaui.com/docs/split-text",
+      "registryItem": "https://sonaui.com/r/split-text.json",
+      "detail": "https://sonaui.com/agent/components/split-text.json",
       "dependencies": [
         "gsap",
         "@gsap/react"
@@ -496,9 +496,9 @@
         "cursor",
         "trail"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/image-trail",
-      "registryItem": "https://sona-ui.vercel.app/r/image-trail.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/image-trail.json",
+      "docs": "https://sonaui.com/docs/image-trail",
+      "registryItem": "https://sonaui.com/r/image-trail.json",
+      "detail": "https://sonaui.com/agent/components/image-trail.json",
       "dependencies": [
         "motion"
       ]
@@ -514,9 +514,9 @@
         "spotlight",
         "hover"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/spotlight-card",
-      "registryItem": "https://sona-ui.vercel.app/r/spotlight-card.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/spotlight-card.json",
+      "docs": "https://sonaui.com/docs/spotlight-card",
+      "registryItem": "https://sonaui.com/r/spotlight-card.json",
+      "detail": "https://sonaui.com/agent/components/spotlight-card.json",
       "dependencies": [
         "motion"
       ]
@@ -532,9 +532,9 @@
         "destructive action",
         "hold"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/hold-to-delete-button",
-      "registryItem": "https://sona-ui.vercel.app/r/hold-to-delete-button.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/hold-to-delete-button.json",
+      "docs": "https://sonaui.com/docs/hold-to-delete-button",
+      "registryItem": "https://sonaui.com/r/hold-to-delete-button.json",
+      "detail": "https://sonaui.com/agent/components/hold-to-delete-button.json",
       "dependencies": [
         "lucide-react",
         "motion"
@@ -551,9 +551,9 @@
         "radial",
         "dock"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/circular-dock-menu",
-      "registryItem": "https://sona-ui.vercel.app/r/circular-dock-menu.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/circular-dock-menu.json",
+      "docs": "https://sonaui.com/docs/circular-dock-menu",
+      "registryItem": "https://sonaui.com/r/circular-dock-menu.json",
+      "detail": "https://sonaui.com/agent/components/circular-dock-menu.json",
       "dependencies": [
         "motion",
         "lucide-react"
@@ -570,9 +570,9 @@
         "fan",
         "cards"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/fan-view",
-      "registryItem": "https://sona-ui.vercel.app/r/fan-view.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/fan-view.json",
+      "docs": "https://sonaui.com/docs/fan-view",
+      "registryItem": "https://sonaui.com/r/fan-view.json",
+      "detail": "https://sonaui.com/agent/components/fan-view.json",
       "dependencies": [
         "motion"
       ]
@@ -590,12 +590,32 @@
         "responsive",
         "priority"
       ],
-      "docs": "https://sona-ui.vercel.app/docs/smart-overflow",
-      "registryItem": "https://sona-ui.vercel.app/r/smart-overflow.json",
-      "detail": "https://sona-ui.vercel.app/agent/components/smart-overflow.json",
+      "docs": "https://sonaui.com/docs/smart-overflow",
+      "registryItem": "https://sonaui.com/r/smart-overflow.json",
+      "detail": "https://sonaui.com/agent/components/smart-overflow.json",
       "dependencies": [
         "@base-ui/react",
         "lucide-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "circular-context-menu",
+      "title": "Circular Context Menu",
+      "category": "components",
+      "status": "preview",
+      "summary": "An edge-aware contextual action menu that fans a small, focused set of actions out from a selected object.",
+      "keywords": [
+        "context menu",
+        "radial menu",
+        "actions",
+        "canvas",
+        "selection"
+      ],
+      "docs": "https://sonaui.com/docs/circular-context-menu",
+      "registryItem": "https://sonaui.com/r/circular-context-menu.json",
+      "detail": "https://sonaui.com/agent/components/circular-context-menu.json",
+      "dependencies": [
         "motion"
       ]
     }

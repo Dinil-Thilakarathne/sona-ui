@@ -7,7 +7,7 @@ In the consumer project's `components.json`:
 ```json
 {
   "registries": {
-    "@sona-ui": "https://sona-ui.vercel.app/r/{name}.json"
+    "@sona-ui": "https://sonaui.com/r/{name}.json"
   }
 }
 ```

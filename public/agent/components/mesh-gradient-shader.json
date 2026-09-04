@@ -35,7 +35,7 @@
     "reducedMotion": "Use a static composition or disable the animated shader for reduced-motion users."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/mesh-gradient-shader.json",
+    "url": "https://sonaui.com/r/mesh-gradient-shader.json",
     "type": "registry:ui",
     "dependencies": [
       "@paper-design/shaders-react",
@@ -46,8 +46,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/mesh-gradient-shader",
-    "rawUrl": "https://sona-ui.vercel.app/docs/mesh-gradient-shader/raw.md",
+    "url": "https://sonaui.com/docs/mesh-gradient-shader",
+    "rawUrl": "https://sonaui.com/docs/mesh-gradient-shader/raw.md",
     "sourceTitle": "mesh-gradient-shader"
   }
 }

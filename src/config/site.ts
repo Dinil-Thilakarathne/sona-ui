@@ -14,7 +14,7 @@ export const SITE_METADATA = {
   author: "Dinil Thilakarathne",
   authorGithub: "https://github.com/Dinil-Thilakarathne",
   authorTwitter: "@codebydinil",
-  siteLink: "https://sona-ui.vercel.app",
+  siteLink: "https://sonaui.com",
   siteName: "Sona UI",
   currentVersion: "v2.0",
 };

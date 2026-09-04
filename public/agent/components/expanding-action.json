@@ -35,7 +35,7 @@
     "reducedMotion": "Respect the user's reduced-motion preference while preserving the expanded and collapsed state change."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/expanding-action.json",
+    "url": "https://sonaui.com/r/expanding-action.json",
     "type": "registry:ui",
     "dependencies": [
       "lucide-react",
@@ -47,8 +47,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/expanding-action",
-    "rawUrl": "https://sona-ui.vercel.app/docs/expanding-action/raw.md",
+    "url": "https://sonaui.com/docs/expanding-action",
+    "rawUrl": "https://sonaui.com/docs/expanding-action/raw.md",
     "sourceTitle": "expanding-action"
   }
 }

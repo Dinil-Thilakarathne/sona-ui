@@ -147,7 +147,7 @@ function buildRegistryJson() {
   const registry = {
     $schema: "https://ui.shadcn.com/schema/registry.json",
     name: "sona-ui",
-    homepage: "https://sona-ui.vercel.app",
+    homepage: "https://sonaui.com",
     items: registryItems,
   };
   const registryContent = JSON.stringify(registry, null, 2);

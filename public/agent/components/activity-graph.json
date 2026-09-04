@@ -35,7 +35,7 @@
     "reducedMotion": "Update the focus state immediately without spatial interpolation."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/activity-graph.json",
+    "url": "https://sonaui.com/r/activity-graph.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -46,8 +46,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/activity-graph",
-    "rawUrl": "https://sona-ui.vercel.app/docs/activity-graph/raw.md",
+    "url": "https://sonaui.com/docs/activity-graph",
+    "rawUrl": "https://sonaui.com/docs/activity-graph/raw.md",
     "sourceTitle": "activity-graph"
   }
 }

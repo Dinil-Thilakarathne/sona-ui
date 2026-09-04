@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/button.json",
+    "url": "https://sonaui.com/r/button.json",
     "type": "registry:ui",
     "dependencies": [
       "class-variance-authority",
@@ -41,8 +41,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/button",
-    "rawUrl": "https://sona-ui.vercel.app/docs/button/raw.md",
+    "url": "https://sonaui.com/docs/button",
+    "rawUrl": "https://sonaui.com/docs/button/raw.md",
     "sourceTitle": "button"
   }
 }

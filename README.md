@@ -10,7 +10,7 @@ Beautifully animated, accessible, and fully typed components built on React 19, 
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-[**Website**](https://sona-ui.vercel.app) · [**Documentation**](https://sona-ui.vercel.app/docs/home) · [**Components**](https://sona-ui.vercel.app/docs/accordion)
+[**Website**](https://sonaui.com) · [**Documentation**](https://sonaui.com/docs/home) · [**Components**](https://sonaui.com/docs/accordion)
 
 </div>
 
@@ -21,10 +21,10 @@ Beautifully animated, accessible, and fully typed components built on React 19, 
 Add any component to your project with the [shadcn](https://ui.shadcn.com/docs/cli) CLI — it copies the source and installs required dependencies:
 
 ```bash
-npx shadcn@latest add https://sona-ui.vercel.app/r/accordion.json
+npx shadcn@latest add https://sonaui.com/r/accordion.json
 ```
 
-Browse the full catalog and live previews in the [documentation](https://sona-ui.vercel.app/docs/home), where each component page has its own install command.
+Browse the full catalog and live previews in the [documentation](https://sonaui.com/docs/home), where each component page has its own install command.
 
 ## Why Sona UI
 
@@ -45,7 +45,7 @@ Organized into **Components**, **Text**, **Effects**, and **Shaders**. Highlight
 | Effects | Magnetic Button, Marquee |
 | Shaders | Mesh Gradient, Dot Orbit |
 
-See every component with props and live demos in the [docs](https://sona-ui.vercel.app/docs/home).
+See every component with props and live demos in the [docs](https://sonaui.com/docs/home).
 
 ## Tech Stack
 

@@ -29,7 +29,7 @@
     "reducedMotion": "Use a static or reduced visual treatment when motion is not preferred."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/magnetic-button.json",
+    "url": "https://sonaui.com/r/magnetic-button.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -39,8 +39,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/magnetic-button",
-    "rawUrl": "https://sona-ui.vercel.app/docs/magnetic-button/raw.md",
+    "url": "https://sonaui.com/docs/magnetic-button",
+    "rawUrl": "https://sonaui.com/docs/magnetic-button/raw.md",
     "sourceTitle": "magnetic-button"
   }
 }

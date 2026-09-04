@@ -24,6 +24,7 @@ import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
 import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import lightbox_lightbox_demo from "@/registry/examples/lightbox/lightbox-demo";
+import circular_context_menu_circular_context_menu_demo from "@/registry/examples/circular-context-menu/circular-context-menu-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
 import ripple_button_ripple_button_demo from "@/registry/examples/ripple-button/ripple-button-demo";
 import spotlight_card_spotlight_card_demo from "@/registry/examples/spotlight-card/spotlight-card-demo";
@@ -1609,6 +1610,254 @@ export default function LightboxDemo() {
       className="aspect-[16/10] w-full max-w-xl"
       src="/og/accordion-og.png"
     />
+  );
+}`,
+    }
+  ],
+  "circular-context-menu": [
+    {
+      name: "default",
+      component: circular_context_menu_circular_context_menu_demo,
+      code: `"use client";
+
+import { useState } from "react";
+
+import CircularContextMenu from "@/components/ui/circular-context-menu/circular-context-menu";
+
+function PlusIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 12 12"
+      className="size-4"
+      fill="currentColor"
+    >
+      <title>Add</title>
+      <path d="m10.75,6.75H1.25c-.414,0-.75-.336-.75-.75s.336-.75.75-.75h9.5c.414,0,.75.336.75.75s-.336.75-.75.75Z" />
+      <path d="m6,11.5c-.414,0-.75-.336-.75-.75V1.25c0-.414.336-.75.75-.75s.75.336.75.75v9.5c0,.414-.336.75-.75.75Z" />
+    </svg>
+  );
+}
+
+function EditIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="currentColor"
+    >
+      <title>Edit</title>
+      <path d="m15.478,3.358-.835-.835c-.66-.662-1.813-.661-2.475,0L2.513,12.177c-.331,.331-.513,.77-.513,1.237s.182,.907,.513,1.237l.835,.835c.331,.331,.77,.513,1.238,.513s.907-.182,1.237-.513l9.656-9.653c.331-.331.513-.77.513-1.237s-.182-.907-.513-1.237Zm-1.061,1.414-1.78,1.78-1.189-1.189,1.78-1.78c.064-.063.138-.073.177-.073s.113.009.177.073l.836.836c.063.063.073.138.073.176s-.01.113-.073.177Z" />
+      <path d="m7.243,3.492-.946-.315-.316-.947c-.102-.306-.609-.306-.711,0l-.316.947-.946.315c-.153.051-.257.194-.257.356s.104.305.257.356l.946.315.316.947c.051.153.194.256.355.256s.305-.104.355-.256l.316-.947.946-.315c.153-.051.257-.194.257-.356s-.104-.305-.257-.356Z" />
+      <path d="m16.658,11.99-1.263-.421-.421-1.263c-.137-.408-.812-.408-.949,0l-.421,1.263-1.263.421c-.204.068-.342.259-.342.474s.138.406.342.474l1.263.421.421,1.263c.068.204.26.342.475.342s.406-.138.475-.342l.421-1.263 1.263-.421c.204-.068.342-.259.342-.474s-.138-.406-.342-.474Z" />
+      <circle cx="9.25" cy="1.75" r=".75" />
+    </svg>
+  );
+}
+
+function MessageIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="none"
+    >
+      <title>Message</title>
+      <path
+        d="M9,1.75C4.996,1.75,1.75,4.996,1.75,9c0,1.319,.358,2.552,.973,3.617,.43,.806-.053,2.712-.973,3.633,1.25,.068,2.897-.497,3.633-.973,.489,.282,1.264,.656,2.279,.848,.433,.082,.881,.125,1.338,.125,4.004,0,7.25-3.246,7.25-7.25S13.004,1.75,9,1.75Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <circle cx="5.5" cy="9" r="1" fill="currentColor" />
+      <circle cx="9" cy="9" r="1" fill="currentColor" opacity=".75" />
+      <circle cx="12.5" cy="9" r="1" fill="currentColor" opacity=".5" />
+    </svg>
+  );
+}
+
+function DeleteIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="none"
+    >
+      <title>Delete</title>
+      <path
+        d="M13.6977 7.75 13.35 14.35c-.056 1.0701-.934 1.9-1.997 1.9H6.64804c-1.064 0-1.94101-.83-1.99701-1.9L4.30334 7.75M2.75 4.75h12.5M6.75 4.75v-2c0-.55.448-1 1-1h2.5c.552 0 1 .45 1 1v2"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
+
+export default function CircularContextMenuDemo() {
+  const [message, setMessage] = useState("Select the concept card");
+  return (
+    <div>
+      <CircularContextMenu.Root>
+        <CircularContextMenu.Anchor
+          aria-label="Open checkout flow actions"
+          className="flex size-10 items-center justify-center rounded-full border border-border bg-background shadow-sm"
+        >
+          <PlusIcon />
+        </CircularContextMenu.Anchor>
+        <CircularContextMenu.Content placement="right" radius={100}>
+          <CircularContextMenu.Item
+            aria-label="Edit checkout flow"
+            onSelect={() => setMessage("Edit selected")}
+          >
+            <EditIcon />
+          </CircularContextMenu.Item>
+          <CircularContextMenu.Item
+            aria-label="Message checkout flow"
+            onSelect={() => setMessage("Message selected")}
+          >
+            <MessageIcon />
+          </CircularContextMenu.Item>
+          <CircularContextMenu.Item
+            aria-label="Delete checkout flow"
+            destructive
+            onSelect={() => setMessage("Delete selected")}
+          >
+            <DeleteIcon />
+          </CircularContextMenu.Item>
+        </CircularContextMenu.Content>
+      </CircularContextMenu.Root>
+      <p aria-live="polite" className="sr-only">
+        {message}
+      </p>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+
+import CircularContextMenu from "@/components/ui/circular-context-menu/circular-context-menu";
+
+function PlusIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 12 12"
+      className="size-4"
+      fill="currentColor"
+    >
+      <title>Add</title>
+      <path d="m10.75,6.75H1.25c-.414,0-.75-.336-.75-.75s.336-.75.75-.75h9.5c.414,0,.75.336.75.75s-.336.75-.75.75Z" />
+      <path d="m6,11.5c-.414,0-.75-.336-.75-.75V1.25c0-.414.336-.75.75-.75s.75.336.75.75v9.5c0,.414-.336.75-.75.75Z" />
+    </svg>
+  );
+}
+
+function EditIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="currentColor"
+    >
+      <title>Edit</title>
+      <path d="m15.478,3.358-.835-.835c-.66-.662-1.813-.661-2.475,0L2.513,12.177c-.331,.331-.513,.77-.513,1.237s.182,.907,.513,1.237l.835,.835c.331,.331,.77,.513,1.238,.513s.907-.182,1.237-.513l9.656-9.653c.331-.331.513-.77.513-1.237s-.182-.907-.513-1.237Zm-1.061,1.414-1.78,1.78-1.189-1.189,1.78-1.78c.064-.063.138-.073.177-.073s.113.009.177.073l.836.836c.063.063.073.138.073.176s-.01.113-.073.177Z" />
+      <path d="m7.243,3.492-.946-.315-.316-.947c-.102-.306-.609-.306-.711,0l-.316.947-.946.315c-.153.051-.257.194-.257.356s.104.305.257.356l.946.315.316.947c.051.153.194.256.355.256s.305-.104.355-.256l.316-.947.946-.315c.153-.051.257-.194.257-.356s-.104-.305-.257-.356Z" />
+      <path d="m16.658,11.99-1.263-.421-.421-1.263c-.137-.408-.812-.408-.949,0l-.421,1.263-1.263.421c-.204.068-.342.259-.342.474s.138.406.342.474l1.263.421.421,1.263c.068.204.26.342.475.342s.406-.138.475-.342l.421-1.263 1.263-.421c.204-.068.342-.259.342-.474s-.138-.406-.342-.474Z" />
+      <circle cx="9.25" cy="1.75" r=".75" />
+    </svg>
+  );
+}
+
+function MessageIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="none"
+    >
+      <title>Message</title>
+      <path
+        d="M9,1.75C4.996,1.75,1.75,4.996,1.75,9c0,1.319,.358,2.552,.973,3.617,.43,.806-.053,2.712-.973,3.633,1.25,.068,2.897-.497,3.633-.973,.489,.282,1.264,.656,2.279,.848,.433,.082,.881,.125,1.338,.125,4.004,0,7.25-3.246,7.25-7.25S13.004,1.75,9,1.75Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <circle cx="5.5" cy="9" r="1" fill="currentColor" />
+      <circle cx="9" cy="9" r="1" fill="currentColor" opacity=".75" />
+      <circle cx="12.5" cy="9" r="1" fill="currentColor" opacity=".5" />
+    </svg>
+  );
+}
+
+function DeleteIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 18 18"
+      className="size-[18px]"
+      fill="none"
+    >
+      <title>Delete</title>
+      <path
+        d="M13.6977 7.75 13.35 14.35c-.056 1.0701-.934 1.9-1.997 1.9H6.64804c-1.064 0-1.94101-.83-1.99701-1.9L4.30334 7.75M2.75 4.75h12.5M6.75 4.75v-2c0-.55.448-1 1-1h2.5c.552 0 1 .45 1 1v2"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
+
+export default function CircularContextMenuDemo() {
+  const [message, setMessage] = useState("Select the concept card");
+  return (
+    <div>
+      <CircularContextMenu.Root>
+        <CircularContextMenu.Anchor
+          aria-label="Open checkout flow actions"
+          className="flex size-10 items-center justify-center rounded-full border border-border bg-background shadow-sm"
+        >
+          <PlusIcon />
+        </CircularContextMenu.Anchor>
+        <CircularContextMenu.Content placement="right" radius={100}>
+          <CircularContextMenu.Item
+            aria-label="Edit checkout flow"
+            onSelect={() => setMessage("Edit selected")}
+          >
+            <EditIcon />
+          </CircularContextMenu.Item>
+          <CircularContextMenu.Item
+            aria-label="Message checkout flow"
+            onSelect={() => setMessage("Message selected")}
+          >
+            <MessageIcon />
+          </CircularContextMenu.Item>
+          <CircularContextMenu.Item
+            aria-label="Delete checkout flow"
+            destructive
+            onSelect={() => setMessage("Delete selected")}
+          >
+            <DeleteIcon />
+          </CircularContextMenu.Item>
+        </CircularContextMenu.Content>
+      </CircularContextMenu.Root>
+      <p aria-live="polite" className="sr-only">
+        {message}
+      </p>
+    </div>
   );
 }`,
     }
@@ -3213,7 +3462,7 @@ export default function LinkPreviewExample() {
         <li>
           Sona UI - Open Source UI Component Library :{" "}
           <LinkPreview
-            link="https://sona-ui.vercel.app/"
+            link="https://sonaui.com/"
             text="Sona UI"
             className="flex items-center justify-center h-full w-full"
           />
@@ -3232,7 +3481,7 @@ export default function LinkPreviewExample() {
         <li>
           Sona UI - Open Source UI Component Library :{" "}
           <LinkPreview
-            link="https://sona-ui.vercel.app/"
+            link="https://sonaui.com/"
             text="Sona UI"
             className="flex items-center justify-center h-full w-full"
           />
@@ -5765,6 +6014,399 @@ export default function Lightbox({
 `,
       path: "lightbox/lightbox.tsx",
       target: "components/sonaui/lightbox/lightbox.tsx"
+    }
+  ],
+  "circular-context-menu": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  Children,
+  cloneElement,
+  createContext,
+  type ReactElement,
+  type ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { createPortal } from "react-dom";
+
+import { cn } from "@/lib/sona-utils";
+
+type Point = { x: number; y: number };
+export type CircularContextMenuPlacement = "top" | "right" | "bottom" | "left";
+
+const PLACEMENT_ANGLES: Record<CircularContextMenuPlacement, number> = {
+  top: -Math.PI / 2,
+  right: 0,
+  bottom: Math.PI / 2,
+  left: Math.PI,
+};
+
+type ContextValue = {
+  anchorRef: React.RefObject<HTMLButtonElement | null>;
+  contentRef: React.RefObject<HTMLDivElement | null>;
+  contentId: string;
+  disabled: boolean;
+  itemRefs: React.MutableRefObject<Array<HTMLButtonElement | null>>;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+};
+
+const CircularContext = createContext<ContextValue | null>(null);
+
+function useCircularContext() {
+  const context = useContext(CircularContext);
+  if (!context) {
+    throw new Error(
+      "CircularContextMenu subcomponents must be used within Root.",
+    );
+  }
+  return context;
+}
+
+function pointsFor(
+  placement: CircularContextMenuPlacement,
+  count: number,
+  radius: number,
+  spread: number,
+) {
+  const direction = PLACEMENT_ANGLES[placement];
+  return Array.from({ length: count }, (_, index) => {
+    const progress = count <= 1 ? 0.5 : index / (count - 1);
+    const angle = direction + (progress - 0.5) * ((spread * Math.PI) / 180);
+    return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+  });
+}
+
+/** Owns the selected anchor, open state, dismissal, and focus recovery. */
+export interface CircularContextMenuRootProps {
+  /** The Anchor and Content subcomponents. */
+  children: ReactNode;
+  /** Controlled open state. */
+  open?: boolean;
+  /** Initial uncontrolled open state. @default false */
+  defaultOpen?: boolean;
+  /** Called whenever the menu opens or closes. */
+  onOpenChange?: (open: boolean) => void;
+  /** Prevents opening the menu. @default false */
+  disabled?: boolean;
+}
+
+function Root({
+  children,
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  disabled = false,
+}: CircularContextMenuRootProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const rootRef = useRef<HTMLSpanElement>(null);
+  const anchorRef = useRef<HTMLButtonElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const contentId = useId();
+  const isOpen = open ?? internalOpen;
+  const setOpen = useCallback(
+    (nextOpen: boolean) => {
+      if (disabled) return;
+      if (open === undefined) setInternalOpen(nextOpen);
+      onOpenChange?.(nextOpen);
+    },
+    [disabled, onOpenChange, open],
+  );
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const dismiss = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (
+        !rootRef.current?.contains(target) &&
+        !contentRef.current?.contains(target)
+      )
+        setOpen(false);
+    };
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      anchorRef.current?.focus();
+    };
+    document.addEventListener("pointerdown", dismiss);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("pointerdown", dismiss);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen, setOpen]);
+
+  return (
+    <CircularContext.Provider
+      value={{
+        anchorRef,
+        contentRef,
+        contentId,
+        disabled,
+        itemRefs,
+        open: isOpen,
+        setOpen,
+      }}
+    >
+      <span ref={rootRef} className="inline-flex">
+        {children}
+      </span>
+    </CircularContext.Provider>
+  );
+}
+
+/** The selected object that opens the contextual action arc. */
+export interface CircularContextMenuAnchorProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Anchor content. */ children: ReactNode;
+}
+function Anchor({
+  children,
+  className,
+  onClick,
+  onKeyDown,
+  ...props
+}: CircularContextMenuAnchorProps) {
+  const { anchorRef, contentId, disabled, itemRefs, open, setOpen } =
+    useCircularContext();
+  return (
+    <button
+      ref={anchorRef}
+      type="button"
+      aria-controls={contentId}
+      aria-expanded={open}
+      className={cn(
+        "cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        className,
+      )}
+      disabled={disabled}
+      onClick={(event) => {
+        onClick?.(event);
+        if (!event.defaultPrevented) setOpen(!open);
+      }}
+      onKeyDown={(event) => {
+        onKeyDown?.(event);
+        if (
+          (event.key === "ArrowDown" || event.key === "ArrowRight") &&
+          !event.defaultPrevented
+        ) {
+          event.preventDefault();
+          setOpen(true);
+          requestAnimationFrame(() => itemRefs.current[0]?.focus());
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+/** Positions a small action arc from a consumer-selected anchor direction. */
+export interface CircularContextMenuContentProps {
+  /** Action items. */ children: ReactNode /** Arc radius in pixels. @default 92 */;
+  radius?: number /** Arc angle in degrees. @default 68 */;
+  spread?: number /** Accessible menu label. @default "Context actions" */;
+  /** Direction the action arc opens from its anchor. @default "right" */
+  placement?: CircularContextMenuPlacement;
+  "aria-label"?: string /** Additional CSS classes. */;
+  className?: string;
+}
+function Content({
+  children,
+  radius = 92,
+  spread = 68,
+  placement = "right",
+  "aria-label": ariaLabel = "Context actions",
+  className,
+}: CircularContextMenuContentProps) {
+  const { anchorRef, contentId, contentRef, open } = useCircularContext();
+  const [anchor, setAnchor] = useState<Point | null>(null);
+  const reduce = useReducedMotion();
+  const items = Children.toArray(children) as ReactElement[];
+  const measure = useCallback(() => {
+    const rect = anchorRef.current?.getBoundingClientRect();
+    if (rect)
+      setAnchor({
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2,
+      });
+  }, [anchorRef]);
+  useLayoutEffect(() => {
+    if (!open) return;
+    measure();
+    const observer = new ResizeObserver(measure);
+    if (anchorRef.current) observer.observe(anchorRef.current);
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, true);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure, true);
+    };
+  }, [measure, open, anchorRef]);
+  const points = pointsFor(placement, items.length, radius, spread);
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
+    <AnimatePresence initial={false}>
+      {open && anchor && (
+        <motion.div
+          ref={contentRef}
+          id={contentId}
+          role="menu"
+          aria-label={ariaLabel}
+          className={cn("pointer-events-none fixed inset-0 z-50", className)}
+        >
+          {items.map((item, index) =>
+            cloneElement(item, {
+              __anchor: anchor,
+              __index: index,
+              __point: points[index],
+              __reduce: reduce,
+            } as never),
+          )}
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
+}
+
+/** One icon or compact action in the contextual arc. */
+export interface CircularContextMenuItemProps
+  extends Omit<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    | "onAnimationEnd"
+    | "onAnimationIteration"
+    | "onAnimationStart"
+    | "onDrag"
+    | "onDragEnd"
+    | "onDragStart"
+  > {
+  /** Icon or concise action content. */ children: ReactNode /** Called before the menu closes. */;
+  onSelect?: () => void /** Marks the action destructive. @default false */;
+  destructive?: boolean;
+}
+function Item({
+  children,
+  className,
+  destructive = false,
+  onClick,
+  onKeyDown,
+  onSelect,
+  __index = 0,
+  __anchor = { x: 0, y: 0 },
+  __point = { x: 0, y: 0 },
+  __reduce = false,
+  ...props
+}: CircularContextMenuItemProps & {
+  __anchor?: Point;
+  __index?: number;
+  __point?: Point;
+  __reduce?: boolean;
+}) {
+  const { anchorRef, itemRefs, setOpen } = useCircularContext();
+  const index = __index;
+  const point = __point;
+  const reduce = __reduce;
+  return (
+    <motion.button
+      ref={(node) => {
+        itemRefs.current[index] = node;
+      }}
+      type="button"
+      role="menuitem"
+      className={cn(
+        "pointer-events-auto absolute top-0 left-0 flex size-11 cursor-pointer items-center justify-center rounded-full border border-border bg-popover text-popover-foreground shadow-lg outline-none focus-visible:ring-1.5 focus-visible:ring-ring focus-visible:ring-offset-2",
+        destructive && "text-destructive hover:border-destructive/45",
+        className,
+      )}
+      initial={{
+        opacity: 0,
+        scale: 0.72,
+        filter: "blur(4px)",
+        x: __anchor.x - 22,
+        y: __anchor.y - 22,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        filter: "blur(0px)",
+        x: __anchor.x - 22 + point.x,
+        y: __anchor.y - 22 + point.y,
+        transition: reduce
+          ? { duration: 0 }
+          : {
+              type: "spring",
+              stiffness: 480,
+              damping: 34,
+              mass: 0.7,
+              delay: index * 0.035,
+            },
+      }}
+      exit={{
+        opacity: 0,
+        scale: 0.72,
+        filter: "blur(4px)",
+        x: __anchor.x - 22,
+        y: __anchor.y - 22,
+        transition: reduce ? { duration: 0 } : { duration: 0.16 },
+      }}
+      whileHover={reduce ? undefined : { scale: 1.06 }}
+      whileTap={reduce ? undefined : { scale: 0.94 }}
+      onClick={(event) => {
+        onClick?.(event);
+        if (!event.defaultPrevented) {
+          onSelect?.();
+          setOpen(false);
+          anchorRef.current?.focus();
+        }
+      }}
+      onKeyDown={(event) => {
+        onKeyDown?.(event);
+        if (
+          ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft"].includes(
+            event.key,
+          )
+        ) {
+          event.preventDefault();
+          const delta =
+            event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
+          itemRefs.current[
+            (index + delta + itemRefs.current.length) % itemRefs.current.length
+          ]?.focus();
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </motion.button>
+  );
+}
+
+const CircularContextMenu = { Root, Anchor, Content, Item };
+
+export {
+  Anchor as CircularContextMenuAnchor,
+  Content as CircularContextMenuContent,
+  Item as CircularContextMenuItem,
+  Root as CircularContextMenuRoot,
+};
+export default CircularContextMenu;
+`,
+      path: "circular-context-menu/circular-context-menu.tsx",
+      target: "components/sonaui/circular-context-menu/circular-context-menu.tsx"
     }
   ],
   "marquee": [
@@ -8629,7 +9271,7 @@ export default function FluidSlider({
         ref={controlRef}
         data-fluid-slider-control=""
         className={cn(
-          "group/fluid-slider-control relative h-16 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
+          "group/fluid-slider-control relative min-h-12 h-full w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
           "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
           trackClassName,
         )}
@@ -11978,6 +12620,21 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/avatar-showcase/avatar-showcase.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "circular-context-menu": {
+    "name": "circular-context-menu",
+    "type": "registry:ui",
+    "title": "Circular Context Menu",
+    "description": "An edge-aware compound context menu that fans a small set of direct actions away from a selected object.",
+    "files": [
+      {
+        "path": "registry/sonaui/circular-context-menu/circular-context-menu.tsx",
         "type": "registry:ui"
       }
     ],
