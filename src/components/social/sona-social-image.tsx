@@ -326,7 +326,7 @@ export function SonaSocialImage() {
             fontWeight: 500,
           }}
         >
-          sona-ui.vercel.app
+          sonaui.com
         </div>
       </div>
 

@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "description": "Read-only endpoints for Sona UI documentation, registry source, and GitHub contribution data."
   },
-  "servers": [{ "url": "https://sona-ui.vercel.app" }],
+  "servers": [{ "url": "https://sonaui.com" }],
   "paths": {
     "/api/md": {
       "get": {

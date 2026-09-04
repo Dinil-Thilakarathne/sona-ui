@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "sona-ui",
-  "homepage": "https://sona-ui.vercel.app",
+  "homepage": "https://sonaui.com",
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -630,6 +630,26 @@
           "path": "registry/sonaui/avatar-showcase/avatar-showcase.tsx",
           "type": "registry:ui",
           "target": "components/ui/avatar-showcase/avatar-showcase.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "circular-context-menu",
+      "type": "registry:ui",
+      "title": "Circular Context Menu",
+      "description": "An edge-aware compound context menu that fans a small set of direct actions away from a selected object.",
+      "files": [
+        {
+          "path": "registry/sonaui/circular-context-menu/circular-context-menu.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/circular-context-menu/circular-context-menu.tsx"
         }
       ],
       "dependencies": [

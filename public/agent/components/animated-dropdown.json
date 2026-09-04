@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/animated-dropdown.json",
+    "url": "https://sonaui.com/r/animated-dropdown.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -42,8 +42,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/animated-dropdown",
-    "rawUrl": "https://sona-ui.vercel.app/docs/animated-dropdown/raw.md",
+    "url": "https://sonaui.com/docs/animated-dropdown",
+    "rawUrl": "https://sonaui.com/docs/animated-dropdown/raw.md",
     "sourceTitle": "animated-dropdown"
   }
 }

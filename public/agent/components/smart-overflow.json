@@ -43,7 +43,7 @@
     "hold-to-delete-button"
   ],
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/smart-overflow.json",
+    "url": "https://sonaui.com/r/smart-overflow.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -56,8 +56,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/smart-overflow",
-    "rawUrl": "https://sona-ui.vercel.app/docs/smart-overflow/raw.md",
+    "url": "https://sonaui.com/docs/smart-overflow",
+    "rawUrl": "https://sonaui.com/docs/smart-overflow/raw.md",
     "sourceTitle": "smart-overflow"
   }
 }

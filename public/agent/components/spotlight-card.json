@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/spotlight-card.json",
+    "url": "https://sonaui.com/r/spotlight-card.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -39,8 +39,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/spotlight-card",
-    "rawUrl": "https://sona-ui.vercel.app/docs/spotlight-card/raw.md",
+    "url": "https://sonaui.com/docs/spotlight-card",
+    "rawUrl": "https://sonaui.com/docs/spotlight-card/raw.md",
     "sourceTitle": "spotlight-card"
   }
 }

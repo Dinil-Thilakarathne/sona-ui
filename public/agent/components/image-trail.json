@@ -29,7 +29,7 @@
     "reducedMotion": "Use a static or reduced visual treatment when motion is not preferred."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/image-trail.json",
+    "url": "https://sonaui.com/r/image-trail.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -40,8 +40,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/image-trail",
-    "rawUrl": "https://sona-ui.vercel.app/docs/image-trail/raw.md",
+    "url": "https://sonaui.com/docs/image-trail",
+    "rawUrl": "https://sonaui.com/docs/image-trail/raw.md",
     "sourceTitle": "image-trail"
   }
 }

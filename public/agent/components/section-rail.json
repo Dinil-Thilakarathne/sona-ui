@@ -35,7 +35,7 @@
     "reducedMotion": "Simplify indicator transitions and scrolling while preserving active-section feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/section-rail.json",
+    "url": "https://sonaui.com/r/section-rail.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -45,8 +45,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/section-rail",
-    "rawUrl": "https://sona-ui.vercel.app/docs/section-rail/raw.md",
+    "url": "https://sonaui.com/docs/section-rail",
+    "rawUrl": "https://sonaui.com/docs/section-rail/raw.md",
     "sourceTitle": "section-rail"
   }
 }

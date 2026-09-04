@@ -20,7 +20,7 @@
   "iconLibrary": "lucide",
   "registries": {
     "@sona-ui": {
-      "url": "https://sona-ui.vercel.app/r/{name}.json",
+      "url": "https://sonaui.com/r/{name}.json",
       "description": "Sona UI - Modern React components"
     }
   }

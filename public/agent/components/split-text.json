@@ -29,7 +29,7 @@
     "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/split-text.json",
+    "url": "https://sonaui.com/r/split-text.json",
     "type": "registry:ui",
     "dependencies": [
       "gsap",
@@ -40,8 +40,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/split-text",
-    "rawUrl": "https://sona-ui.vercel.app/docs/split-text/raw.md",
+    "url": "https://sonaui.com/docs/split-text",
+    "rawUrl": "https://sonaui.com/docs/split-text/raw.md",
     "sourceTitle": "split-text"
   }
 }

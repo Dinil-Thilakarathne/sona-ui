@@ -27,7 +27,7 @@ function getSiteBaseUrl() {
   const configuredUrl = process.env.AGENT_SITE_URL?.trim();
   if (configuredUrl) return configuredUrl.replace(/\/$/, "");
 
-  return "https://sona-ui.vercel.app";
+  return "https://sonaui.com";
 }
 
 const siteBaseUrl = getSiteBaseUrl();

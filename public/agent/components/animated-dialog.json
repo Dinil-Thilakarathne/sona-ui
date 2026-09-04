@@ -40,7 +40,7 @@
     "accordion"
   ],
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/animated-dialog.json",
+    "url": "https://sonaui.com/r/animated-dialog.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -52,8 +52,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/animated-dialog",
-    "rawUrl": "https://sona-ui.vercel.app/docs/animated-dialog/raw.md",
+    "url": "https://sonaui.com/docs/animated-dialog",
+    "rawUrl": "https://sonaui.com/docs/animated-dialog/raw.md",
     "sourceTitle": "animated-dialog"
   }
 }

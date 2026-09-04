@@ -482,6 +482,38 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Controls the button height, padding, and text size."
     }
   ],
+  "circular-context-menu": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The Anchor and Content subcomponents."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial uncontrolled open state."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Called whenever the menu opens or closes."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Prevents opening the menu."
+    }
+  ],
   "circular-dock-menu": [
     {
       "name": "items",

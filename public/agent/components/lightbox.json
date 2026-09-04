@@ -35,7 +35,7 @@
     "reducedMotion": "Use a cross-fade instead of the thumbnail-to-preview spatial transition."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/lightbox.json",
+    "url": "https://sonaui.com/r/lightbox.json",
     "type": "registry:ui",
     "dependencies": [
       "@base-ui/react",
@@ -46,8 +46,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/lightbox",
-    "rawUrl": "https://sona-ui.vercel.app/docs/lightbox/raw.md",
+    "url": "https://sonaui.com/docs/lightbox",
+    "rawUrl": "https://sonaui.com/docs/lightbox/raw.md",
     "sourceTitle": "lightbox"
   }
 }

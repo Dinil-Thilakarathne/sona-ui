@@ -68,7 +68,7 @@ export function InstallCommand() {
 
   return (
     <div
-      className="mt-8 flex w-fit flex-col items-center gap-5"
+      className="mt-8 flex w-full flex-col items-center gap-5"
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
     >
@@ -109,11 +109,11 @@ export function InstallCommand() {
           ref={measureRef}
           className="flex min-h-12 w-max items-center gap-3 py-2 pr-2 pl-5 text-left"
         >
-          <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden mobile:max-w-[20ch] mobile:text-ellipsis text-foreground sm:text-base">
+          <code className="bg-transparent p-0 font-mono text-sm whitespace-nowrap overflow-hidden max-sm:max-w-[24ch] mobile:text-ellipsis text-foreground sm:text-base">
             {commandPrefix}
             <TextMorph
               as="span"
-              className="min-w-[16ch]"
+              className="min-w-[24ch]"
               duration={260}
               ease="cubic-bezier(0.22, 1, 0.36, 1)"
               scale={false}

@@ -35,7 +35,7 @@
     "reducedMotion": "Replace the moving lanes with a static readable avatar group."
   },
   "registry": {
-    "url": "https://sona-ui.vercel.app/r/avatar-showcase.json",
+    "url": "https://sonaui.com/r/avatar-showcase.json",
     "type": "registry:ui",
     "dependencies": [
       "motion"
@@ -45,8 +45,8 @@
     ]
   },
   "docs": {
-    "url": "https://sona-ui.vercel.app/docs/avatar-showcase",
-    "rawUrl": "https://sona-ui.vercel.app/docs/avatar-showcase/raw.md",
+    "url": "https://sonaui.com/docs/avatar-showcase",
+    "rawUrl": "https://sonaui.com/docs/avatar-showcase/raw.md",
     "sourceTitle": "avatar-showcase"
   }
 }

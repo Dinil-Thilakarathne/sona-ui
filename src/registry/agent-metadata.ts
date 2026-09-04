@@ -589,4 +589,41 @@ Object.assign(agentResourceMetadata, {
     },
     related: ["animated-dropdown", "expanding-action", "hold-to-delete-button"],
   },
+  "circular-context-menu": {
+    name: "circular-context-menu",
+    title: "Circular Context Menu",
+    category: "components",
+    status: "preview",
+    summary:
+      "An edge-aware contextual action menu that fans a small, focused set of actions out from a selected object.",
+    docsSlug: "circular-context-menu",
+    keywords: ["context menu", "radial menu", "actions", "canvas", "selection"],
+    useWhen: [
+      "A selected canvas object, media item, or compact control needs a few immediate contextual actions.",
+      "The actions are spatially related to one anchor and can be represented by concise icons or labels.",
+    ],
+    avoidWhen: [
+      "The user needs to scan, compare, or search a long list of commands.",
+      "A conventional toolbar, dropdown, or keyboard command palette would make the actions clearer.",
+    ],
+    capabilities: [
+      "Composable Root, Anchor, Content, and Item API",
+      "Controlled and uncontrolled open state",
+      "Top, right, bottom, and left placements",
+      "Configurable arc radius and spread",
+      "Destructive action styling",
+    ],
+    accessibility: [
+      "Uses a button anchor with expanded state and a labelled menu with menuitem actions.",
+      "Arrow keys move between actions, Escape closes the menu, and focus returns to the anchor.",
+      "Use concise accessible labels for icon-only actions and keep the action count small.",
+    ],
+    motion: {
+      purpose:
+        "Show that contextual actions originate from the selected object while preserving the selection's spatial relationship.",
+      reducedMotion:
+        "Open and close actions without spring travel, blur, hover scaling, or press scaling.",
+    },
+    related: ["circular-dock-menu", "animated-dropdown", "smart-overflow"],
+  },
 });

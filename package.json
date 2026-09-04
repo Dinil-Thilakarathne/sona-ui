@@ -5,7 +5,7 @@
   "description": "Sona UI",
   "author": "sonacode",
   "license": "MIT",
-  "homepage": "https://sona-ui.vercel.app",
+  "homepage": "https://sonaui.com",
   "type": "module",
   "scripts": {
     "predev": "bun run sync:releases",

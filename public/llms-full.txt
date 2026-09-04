@@ -4,7 +4,7 @@
 
 ## Freshness protocol
 
-- Manifest: https://sona-ui.vercel.app/agent/manifest.json
+- Manifest: https://sonaui.com/agent/manifest.json
 - This is a generated fallback snapshot. Fetch the manifest and then the selected component detail before relying on component guidance when network access is available.
 - If the manifest is unavailable, state that the guidance may not match the deployed registry before continuing.
 
@@ -15,7 +15,7 @@ Configure the Sona UI registry in the consumer project's components.json:
 ```json
 {
   "registries": {
-    "@sona-ui": "https://sona-ui.vercel.app/r/{name}.json"
+    "@sona-ui": "https://sonaui.com/r/{name}.json"
   }
 }
 ```
@@ -33,8 +33,8 @@ bunx shadcn@latest add @sona-ui/<component>
 - Category: components
 - Status: stable
 - Summary: An accessible tab selector for switching related views while preserving spatial continuity with a shared active surface.
-- Documentation: https://sona-ui.vercel.app/docs/fluid-tabs
-- Registry item: https://sona-ui.vercel.app/r/fluid-tabs.json
+- Documentation: https://sonaui.com/docs/fluid-tabs
+- Registry item: https://sonaui.com/r/fluid-tabs.json
 
 Use when:
 - The interface switches between a small set of related views.
@@ -62,8 +62,8 @@ Reduced motion: The active surface should switch without spatial animation.
 - Category: components
 - Status: stable
 - Summary: A composable dialog for focused decisions or short tasks, with direction-aware enter and exit motion.
-- Documentation: https://sona-ui.vercel.app/docs/animated-dialog
-- Registry item: https://sona-ui.vercel.app/r/animated-dialog.json
+- Documentation: https://sonaui.com/docs/animated-dialog
+- Registry item: https://sonaui.com/r/animated-dialog.json
 
 Use when:
 - The user must complete or confirm a focused task without leaving the current page.
@@ -91,8 +91,8 @@ Reduced motion: Remove transform and opacity choreography while preserving the m
 - Category: shaders
 - Status: stable
 - Summary: A decorative animated color field for expressive backgrounds, powered by Paper Design Shaders.
-- Documentation: https://sona-ui.vercel.app/docs/mesh-gradient-shader
-- Registry item: https://sona-ui.vercel.app/r/mesh-gradient-shader.json
+- Documentation: https://sonaui.com/docs/mesh-gradient-shader
+- Registry item: https://sonaui.com/r/mesh-gradient-shader.json
 
 Use when:
 - A visual surface needs atmospheric depth behind readable foreground content.
@@ -119,8 +119,8 @@ Reduced motion: Use a static composition or disable the animated shader for redu
 - Category: components
 - Status: stable
 - Summary: An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.
-- Documentation: https://sona-ui.vercel.app/docs/animated-dropdown
-- Registry item: https://sona-ui.vercel.app/r/animated-dropdown.json
+- Documentation: https://sonaui.com/docs/animated-dropdown
+- Registry item: https://sonaui.com/r/animated-dropdown.json
 
 Use when:
 - An accessible dropdown menu for choosing or revealing related actions with origin-aware enter motion.
@@ -143,8 +143,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: An iOS-style switch for immediate binary settings with tactile press feedback.
-- Documentation: https://sona-ui.vercel.app/docs/animated-switch
-- Registry item: https://sona-ui.vercel.app/r/animated-switch.json
+- Documentation: https://sonaui.com/docs/animated-switch
+- Registry item: https://sonaui.com/r/animated-switch.json
 
 Use when:
 - An iOS-style switch for immediate binary settings with tactile press feedback.
@@ -167,8 +167,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A simple action button with subtle press feedback and reduced-motion support.
-- Documentation: https://sona-ui.vercel.app/docs/button
-- Registry item: https://sona-ui.vercel.app/r/button.json
+- Documentation: https://sonaui.com/docs/button
+- Registry item: https://sonaui.com/r/button.json
 
 Use when:
 - A simple action button with subtle press feedback and reduced-motion support.
@@ -191,8 +191,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: shaders
 - Status: stable
 - Summary: An animated field of orbiting dots for decorative surfaces and expressive backgrounds.
-- Documentation: https://sona-ui.vercel.app/docs/dot-orbit-shader
-- Registry item: https://sona-ui.vercel.app/r/dot-orbit-shader.json
+- Documentation: https://sonaui.com/docs/dot-orbit-shader
+- Registry item: https://sonaui.com/r/dot-orbit-shader.json
 
 Use when:
 - An animated field of orbiting dots for decorative surfaces and expressive backgrounds.
@@ -215,8 +215,8 @@ Reduced motion: Use a static or reduced visual treatment when motion is not pref
 - Category: effects
 - Status: stable
 - Summary: A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.
-- Documentation: https://sona-ui.vercel.app/docs/magnetic-button
-- Registry item: https://sona-ui.vercel.app/r/magnetic-button.json
+- Documentation: https://sonaui.com/docs/magnetic-button
+- Registry item: https://sonaui.com/r/magnetic-button.json
 
 Use when:
 - A bounded pointer-aware wrapper that adds restrained magnetic pull around an interactive element.
@@ -239,8 +239,8 @@ Reduced motion: Use a static or reduced visual treatment when motion is not pref
 - Category: components
 - Status: stable
 - Summary: A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.
-- Documentation: https://sona-ui.vercel.app/docs/animated-tabs
-- Registry item: https://sona-ui.vercel.app/r/animated-tabs.json
+- Documentation: https://sonaui.com/docs/animated-tabs
+- Registry item: https://sonaui.com/r/animated-tabs.json
 
 Use when:
 - A keyboard-accessible tab selector with controlled state, disabled items, and a shared hover indicator.
@@ -263,8 +263,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A compact action that transforms in place to reveal two to four related choices while preserving context.
-- Documentation: https://sona-ui.vercel.app/docs/expanding-action
-- Registry item: https://sona-ui.vercel.app/r/expanding-action.json
+- Documentation: https://sonaui.com/docs/expanding-action
+- Registry item: https://sonaui.com/r/expanding-action.json
 
 Use when:
 - A compact trigger should reveal two to four closely related choices in place.
@@ -292,8 +292,8 @@ Reduced motion: Respect the user's reduced-motion preference while preserving th
 - Category: components
 - Status: stable
 - Summary: A keyboard-accessible calendar heatmap with normalized intensity levels and an interruptible shared focus surface.
-- Documentation: https://sona-ui.vercel.app/docs/activity-graph
-- Registry item: https://sona-ui.vercel.app/r/activity-graph.json
+- Documentation: https://sonaui.com/docs/activity-graph
+- Registry item: https://sonaui.com/r/activity-graph.json
 
 Use when:
 - Daily activity needs to be compared across a calendar range.
@@ -321,8 +321,8 @@ Reduced motion: Update the focus state immediately without spatial interpolation
 - Category: effects
 - Status: stable
 - Summary: A recording-friendly avatar strip with count-aware pacing, deterministic sampling, staggered lanes, and reduced-motion support.
-- Documentation: https://sona-ui.vercel.app/docs/avatar-showcase
-- Registry item: https://sona-ui.vercel.app/r/avatar-showcase.json
+- Documentation: https://sonaui.com/docs/avatar-showcase
+- Registry item: https://sonaui.com/r/avatar-showcase.json
 
 Use when:
 - An ordered group of people should be presented as a moving visual strip.
@@ -350,8 +350,8 @@ Reduced motion: Replace the moving lanes with a static readable avatar group.
 - Category: components
 - Status: stable
 - Summary: A labeled Base UI range control with direct surface selection, a draggable indicator, and restrained boundary resistance.
-- Documentation: https://sona-ui.vercel.app/docs/fluid-slider
-- Registry item: https://sona-ui.vercel.app/r/fluid-slider.json
+- Documentation: https://sonaui.com/docs/fluid-slider
+- Registry item: https://sonaui.com/r/fluid-slider.json
 
 Use when:
 - A numeric value benefits from direct continuous adjustment.
@@ -379,8 +379,8 @@ Reduced motion: Keep keyboard and value updates immediate and remove nonessentia
 - Category: components
 - Status: stable
 - Summary: A grouped Base UI tooltip system with a deliberate first appearance and fast directional handoffs between related controls.
-- Documentation: https://sona-ui.vercel.app/docs/fluid-tooltip
-- Registry item: https://sona-ui.vercel.app/r/fluid-tooltip.json
+- Documentation: https://sonaui.com/docs/fluid-tooltip
+- Registry item: https://sonaui.com/r/fluid-tooltip.json
 
 Use when:
 - A group of compact controls needs accessible supplementary labels.
@@ -408,8 +408,8 @@ Reduced motion: Remove directional content travel while preserving the tooltip l
 - Category: components
 - Status: stable
 - Summary: An accessible image preview that expands from its thumbnail and returns to the same spatial origin when dismissed.
-- Documentation: https://sona-ui.vercel.app/docs/lightbox
-- Registry item: https://sona-ui.vercel.app/r/lightbox.json
+- Documentation: https://sonaui.com/docs/lightbox
+- Registry item: https://sonaui.com/r/lightbox.json
 
 Use when:
 - An image needs an inspectable full-size view without leaving the current page.
@@ -437,8 +437,8 @@ Reduced motion: Use a cross-fade instead of the thumbnail-to-preview spatial tra
 - Category: components
 - Status: stable
 - Summary: A compact navigation rail that tracks progress through a long page and reveals labels or editorial context.
-- Documentation: https://sona-ui.vercel.app/docs/section-rail
-- Registry item: https://sona-ui.vercel.app/r/section-rail.json
+- Documentation: https://sonaui.com/docs/section-rail
+- Registry item: https://sonaui.com/r/section-rail.json
 
 Use when:
 - A long page, case study, or multi-step flow needs compact section navigation.
@@ -466,8 +466,8 @@ Reduced motion: Simplify indicator transitions and scrolling while preserving ac
 - Category: components
 - Status: stable
 - Summary: An accessible disclosure group for progressively revealing related content.
-- Documentation: https://sona-ui.vercel.app/docs/accordion
-- Registry item: https://sona-ui.vercel.app/r/accordion.json
+- Documentation: https://sonaui.com/docs/accordion
+- Registry item: https://sonaui.com/r/accordion.json
 
 Use when:
 - An accessible disclosure group for progressively revealing related content.
@@ -490,8 +490,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A button with localized press feedback that makes activation visible without changing the action's meaning.
-- Documentation: https://sona-ui.vercel.app/docs/ripple-button
-- Registry item: https://sona-ui.vercel.app/r/ripple-button.json
+- Documentation: https://sonaui.com/docs/ripple-button
+- Registry item: https://sonaui.com/r/ripple-button.json
 
 Use when:
 - A button with localized press feedback that makes activation visible without changing the action's meaning.
@@ -514,8 +514,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: effects
 - Status: stable
 - Summary: A continuously moving content rail for decorative or low-priority repeated content.
-- Documentation: https://sona-ui.vercel.app/docs/marquee
-- Registry item: https://sona-ui.vercel.app/r/marquee.json
+- Documentation: https://sonaui.com/docs/marquee
+- Registry item: https://sonaui.com/r/marquee.json
 
 Use when:
 - A continuously moving content rail for decorative or low-priority repeated content.
@@ -538,8 +538,8 @@ Reduced motion: Use a static or reduced visual treatment when motion is not pref
 - Category: text
 - Status: stable
 - Summary: A circular text treatment for short decorative labels and editorial accents.
-- Documentation: https://sona-ui.vercel.app/docs/spinning-text
-- Registry item: https://sona-ui.vercel.app/r/spinning-text.json
+- Documentation: https://sonaui.com/docs/spinning-text
+- Registry item: https://sonaui.com/r/spinning-text.json
 
 Use when:
 - A circular text treatment for short decorative labels and editorial accents.
@@ -562,8 +562,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: text
 - Status: stable
 - Summary: A text entrance treatment that reveals short content progressively while preserving readability.
-- Documentation: https://sona-ui.vercel.app/docs/stagger-text
-- Registry item: https://sona-ui.vercel.app/r/stagger-text.json
+- Documentation: https://sonaui.com/docs/stagger-text
+- Registry item: https://sonaui.com/r/stagger-text.json
 
 Use when:
 - A text entrance treatment that reveals short content progressively while preserving readability.
@@ -586,8 +586,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A contextual preview surface for supplied link metadata without relying on client-side scraping.
-- Documentation: https://sona-ui.vercel.app/docs/link-preview
-- Registry item: https://sona-ui.vercel.app/r/link-preview.json
+- Documentation: https://sonaui.com/docs/link-preview
+- Registry item: https://sonaui.com/r/link-preview.json
 
 Use when:
 - A contextual preview surface for supplied link metadata without relying on client-side scraping.
@@ -610,8 +610,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: An expressive button treatment that changes label or content with a contained upward transition.
-- Documentation: https://sona-ui.vercel.app/docs/bubble-up-button
-- Registry item: https://sona-ui.vercel.app/r/bubble-up-button.json
+- Documentation: https://sonaui.com/docs/bubble-up-button
+- Registry item: https://sonaui.com/r/bubble-up-button.json
 
 Use when:
 - An expressive button treatment that changes label or content with a contained upward transition.
@@ -634,8 +634,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A compact tab control that expands its selected item to expose more context.
-- Documentation: https://sona-ui.vercel.app/docs/expandable-tabs
-- Registry item: https://sona-ui.vercel.app/r/expandable-tabs.json
+- Documentation: https://sonaui.com/docs/expandable-tabs
+- Registry item: https://sonaui.com/r/expandable-tabs.json
 
 Use when:
 - A compact tab control that expands its selected item to expose more context.
@@ -658,8 +658,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: text
 - Status: stable
 - Summary: A text animation primitive that treats words or characters as individually addressable visual units.
-- Documentation: https://sona-ui.vercel.app/docs/split-text
-- Registry item: https://sona-ui.vercel.app/r/split-text.json
+- Documentation: https://sonaui.com/docs/split-text
+- Registry item: https://sonaui.com/r/split-text.json
 
 Use when:
 - A text animation primitive that treats words or characters as individually addressable visual units.
@@ -682,8 +682,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: effects
 - Status: stable
 - Summary: A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.
-- Documentation: https://sona-ui.vercel.app/docs/image-trail
-- Registry item: https://sona-ui.vercel.app/r/image-trail.json
+- Documentation: https://sonaui.com/docs/image-trail
+- Registry item: https://sonaui.com/r/image-trail.json
 
 Use when:
 - A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.
@@ -706,8 +706,8 @@ Reduced motion: Use a static or reduced visual treatment when motion is not pref
 - Category: components
 - Status: stable
 - Summary: A card that reveals localized pointer lighting while keeping content and hierarchy stable.
-- Documentation: https://sona-ui.vercel.app/docs/spotlight-card
-- Registry item: https://sona-ui.vercel.app/r/spotlight-card.json
+- Documentation: https://sonaui.com/docs/spotlight-card
+- Registry item: https://sonaui.com/r/spotlight-card.json
 
 Use when:
 - A card that reveals localized pointer lighting while keeping content and hierarchy stable.
@@ -730,8 +730,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A deliberate destructive action that requires sustained input before completing deletion.
-- Documentation: https://sona-ui.vercel.app/docs/hold-to-delete-button
-- Registry item: https://sona-ui.vercel.app/r/hold-to-delete-button.json
+- Documentation: https://sonaui.com/docs/hold-to-delete-button
+- Registry item: https://sonaui.com/r/hold-to-delete-button.json
 
 Use when:
 - A deliberate destructive action that requires sustained input before completing deletion.
@@ -754,8 +754,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: components
 - Status: stable
 - Summary: A radial action menu for a small set of spatially related actions.
-- Documentation: https://sona-ui.vercel.app/docs/circular-dock-menu
-- Registry item: https://sona-ui.vercel.app/r/circular-dock-menu.json
+- Documentation: https://sonaui.com/docs/circular-dock-menu
+- Registry item: https://sonaui.com/r/circular-dock-menu.json
 
 Use when:
 - A radial action menu for a small set of spatially related actions.
@@ -778,8 +778,8 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 - Category: effects
 - Status: stable
 - Summary: A fan-like arrangement for browsing a small set of layered visual items.
-- Documentation: https://sona-ui.vercel.app/docs/fan-view
-- Registry item: https://sona-ui.vercel.app/r/fan-view.json
+- Documentation: https://sonaui.com/docs/fan-view
+- Registry item: https://sonaui.com/r/fan-view.json
 
 Use when:
 - A fan-like arrangement for browsing a small set of layered visual items.
@@ -802,8 +802,8 @@ Reduced motion: Use a static or reduced visual treatment when motion is not pref
 - Category: components
 - Status: preview
 - Summary: A priority-first responsive action group that keeps important actions visible and moves lower-priority actions into an accessible three-dot menu.
-- Documentation: https://sona-ui.vercel.app/docs/smart-overflow
-- Registry item: https://sona-ui.vercel.app/r/smart-overflow.json
+- Documentation: https://sonaui.com/docs/smart-overflow
+- Registry item: https://sonaui.com/r/smart-overflow.json
 
 Use when:
 - A compact action group has one or more actions that should stay visible as available width decreases.
@@ -827,6 +827,37 @@ Accessibility:
 
 Motion: Preserve spatial continuity as actions reflow and the overflow trigger appears or disappears.
 Reduced motion: Update visible actions and the overflow trigger without layout travel or scale transitions.
+
+### Circular Context Menu
+
+- Category: components
+- Status: preview
+- Summary: An edge-aware contextual action menu that fans a small, focused set of actions out from a selected object.
+- Documentation: https://sonaui.com/docs/circular-context-menu
+- Registry item: https://sonaui.com/r/circular-context-menu.json
+
+Use when:
+- A selected canvas object, media item, or compact control needs a few immediate contextual actions.
+- The actions are spatially related to one anchor and can be represented by concise icons or labels.
+
+Avoid when:
+- The user needs to scan, compare, or search a long list of commands.
+- A conventional toolbar, dropdown, or keyboard command palette would make the actions clearer.
+
+Capabilities:
+- Composable Root, Anchor, Content, and Item API
+- Controlled and uncontrolled open state
+- Top, right, bottom, and left placements
+- Configurable arc radius and spread
+- Destructive action styling
+
+Accessibility:
+- Uses a button anchor with expanded state and a labelled menu with menuitem actions.
+- Arrow keys move between actions, Escape closes the menu, and focus returns to the anchor.
+- Use concise accessible labels for icon-only actions and keep the action count small.
+
+Motion: Show that contextual actions originate from the selected object while preserving the selection's spatial relationship.
+Reduced motion: Open and close actions without spring travel, blur, hover scaling, or press scaling.
 
 ## Integration principles
 

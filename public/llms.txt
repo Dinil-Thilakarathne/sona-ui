@@ -4,19 +4,19 @@
 
 ## Freshness protocol
 
-Before selecting or installing a component, fetch the [agent manifest](https://sona-ui.vercel.app/agent/manifest.json) and follow its catalog URL. The manifest is the current authority when network access is available.
+Before selecting or installing a component, fetch the [agent manifest](https://sonaui.com/agent/manifest.json) and follow its catalog URL. The manifest is the current authority when network access is available.
 
 If the manifest cannot be reached, disclose that the installed or downloaded snapshot may be older than production.
 
 ## Start here
 
-- [Agent manifest](https://sona-ui.vercel.app/agent/manifest.json)
-- [Installation](https://sona-ui.vercel.app/docs/installation)
-- [Theming](https://sona-ui.vercel.app/docs/theming)
-- [Agent component catalog](https://sona-ui.vercel.app/agent/catalog.json)
-- [Full agent guidance](https://sona-ui.vercel.app/llms-full.txt)
-- [Registry index](https://sona-ui.vercel.app/r/registry.json)
-- [OpenAPI description](https://sona-ui.vercel.app/openapi.json)
+- [Agent manifest](https://sonaui.com/agent/manifest.json)
+- [Installation](https://sonaui.com/docs/installation)
+- [Theming](https://sonaui.com/docs/theming)
+- [Agent component catalog](https://sonaui.com/agent/catalog.json)
+- [Full agent guidance](https://sonaui.com/llms-full.txt)
+- [Registry index](https://sonaui.com/r/registry.json)
+- [OpenAPI description](https://sonaui.com/openapi.json)
 
 ## Integration principles
 

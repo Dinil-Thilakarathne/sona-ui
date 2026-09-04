@@ -8,7 +8,7 @@ export default function LinkPreviewExample() {
         <li>
           Sona UI - Open Source UI Component Library :{" "}
           <LinkPreview
-            link="https://sona-ui.vercel.app/"
+            link="https://sonaui.com/"
             text="Sona UI"
             className="flex items-center justify-center h-full w-full"
           />

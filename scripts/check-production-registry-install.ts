@@ -26,7 +26,7 @@ const components = {
     hooks: "@/hooks",
   },
   registries: {
-    "@sona-ui": "https://sona-ui.vercel.app/r/{name}.json",
+    "@sona-ui": "https://sonaui.com/r/{name}.json",
   },
 };
 

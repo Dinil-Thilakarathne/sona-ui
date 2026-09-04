@@ -47,6 +47,7 @@ import AvatarShowcase, {
   type AvatarShowcaseItem,
 } from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 import Button from "@/registry/sonaui/button/button";
+import CircularContextMenu from "@/registry/sonaui/circular-context-menu/circular-context-menu";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
@@ -145,6 +146,64 @@ const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
 );
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "circular-context-menu": {
+    controls: [
+      {
+        type: "slider",
+        prop: "radius",
+        label: "Arc radius (px)",
+        min: 64,
+        max: 160,
+        step: 4,
+        default: 92,
+      },
+      {
+        type: "slider",
+        prop: "spread",
+        label: "Arc angle",
+        min: 30,
+        max: 120,
+        step: 2,
+        default: 68,
+      },
+      {
+        type: "select",
+        prop: "placement",
+        label: "Arc placement",
+        options: [
+          { label: "Top", value: "top" },
+          { label: "Right", value: "right" },
+          { label: "Bottom", value: "bottom" },
+          { label: "Left", value: "left" },
+        ],
+        default: "right",
+      },
+    ],
+    render: (v) => (
+      <div className="flex min-h-64 items-center justify-center rounded-2xl border border-border bg-muted/35 p-8">
+        <CircularContextMenu.Root>
+          <CircularContextMenu.Anchor className="rounded-xl border border-border bg-background px-4 py-3 font-medium text-sm shadow-sm">
+            Selected layer
+          </CircularContextMenu.Anchor>
+          <CircularContextMenu.Content
+            radius={v.radius as number}
+            placement={v.placement as "top" | "right" | "bottom" | "left"}
+            spread={v.spread as number}
+          >
+            <CircularContextMenu.Item aria-label="Focus layer">
+              ◉
+            </CircularContextMenu.Item>
+            <CircularContextMenu.Item aria-label="Duplicate layer">
+              ⧉
+            </CircularContextMenu.Item>
+            <CircularContextMenu.Item aria-label="Delete layer" destructive>
+              ×
+            </CircularContextMenu.Item>
+          </CircularContextMenu.Content>
+        </CircularContextMenu.Root>
+      </div>
+    ),
+  },
   "smart-overflow": {
     controls: [
       {
