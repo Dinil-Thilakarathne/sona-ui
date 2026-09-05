@@ -6,6 +6,13 @@ import { apiError } from "@/lib/api-error";
 const REGISTRY_SOURCE_CACHE_CONTROL =
   "public, max-age=60, s-maxage=3600, stale-while-revalidate=86400";
 
+const REGISTRY_SOURCE_ROOT = path.join(
+  process.cwd(),
+  "src",
+  "registry",
+  "sonaui",
+);
+
 // API: /api/read-file?folder=accordion&file=accordion
 export async function GET(request: Request) {
   try {
@@ -33,27 +40,30 @@ export async function GET(request: Request) {
       });
     }
 
-    // 🔄 Correct path to public/sonaui/folder/file.txt
-    const txtFilePath = path.join(
-      process.cwd(),
-      "public",
-      "__registry__",
-      "sonaui",
+    // Resolve the in-repo registry source. The documented contract passes the
+    // file stem without an extension (e.g. `file=accordion`), so `.tsx` is
+    // appended to match the real source at src/registry/sonaui/<folder>/<file>.tsx.
+    const sourceFilePath = path.join(
+      REGISTRY_SOURCE_ROOT,
       folder,
-      `${file}.txt`,
+      `${file}.tsx`,
     );
 
-    if (!fs.existsSync(txtFilePath)) {
-      return apiError({
-        code: "NOT_FOUND",
-        message: "The requested registry source file was not found.",
-        resolution:
-          "Read /r/registry.json to discover available registry items.",
-        status: 404,
-      });
+    let content: string;
+    try {
+      content = await fs.promises.readFile(sourceFilePath, "utf-8");
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code === "ENOENT") {
+        return apiError({
+          code: "NOT_FOUND",
+          message: "The requested registry source file was not found.",
+          resolution:
+            "Read /r/registry.json to discover available registry items.",
+          status: 404,
+        });
+      }
+      throw err;
     }
-
-    const content = fs.readFileSync(txtFilePath, "utf-8");
 
     return NextResponse.json(
       { content },
