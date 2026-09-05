@@ -44,7 +44,10 @@ function languageFor(path: string) {
 }
 
 function getRegistryDependencyName(dependency: string) {
-  return dependency.match(/\/([^/]+)\.json$/)?.[1] ?? dependency;
+  return (
+    dependency.match(/\/([^/]+)\.json$/)?.[1] ??
+    dependency.replace(/^@sona-ui\//, "")
+  );
 }
 
 function getImportedFoundations(files: (typeof registry)[string]) {
