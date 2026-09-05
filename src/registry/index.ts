@@ -6870,7 +6870,7 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
       content: `"use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -6910,11 +6910,23 @@ export default function SpotlightCard({
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
 
+  const [hasMoved, setHasMoved] = useState(false);
+  const [prevDisabled, setPrevDisabled] = useState(disabled);
+  if (prevDisabled !== disabled) {
+    setPrevDisabled(disabled);
+    if (!disabled) {
+      mouseX.set(-spotlightSize);
+      mouseY.set(-spotlightSize);
+      setHasMoved(false);
+    }
+  }
+
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
     mouseY.set(event.clientY - rect.top);
+    if (!hasMoved) setHasMoved(true);
   };
 
   const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
@@ -6934,7 +6946,10 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
+          className={cn(
+            "absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-200 ease-out",
+            hasMoved && "group-hover:opacity-100",
+          )}
           style={{ background }}
         />
       )}
