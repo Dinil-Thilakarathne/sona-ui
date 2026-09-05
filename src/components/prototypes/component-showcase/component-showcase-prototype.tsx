@@ -47,7 +47,7 @@ function ShowcaseCard({ item, index }: { item: GalleryItem; index: number }) {
       }}
       className="group flex min-w-0 flex-col overflow-hidden p-2 rounded-2xl bg-card smooth-shadow-ring-sm"
     >
-      <div className="relative flex aspect-[16/10] border-red-300 border rounded-xl items-center justify-center overflow-hidden border-border border-b bg-secondary/40 p-5">
+      <div className="relative flex aspect-[16/10] border rounded-xl items-center justify-center overflow-hidden border-border border-b bg-secondary/40 p-5">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(var(--foreground)/0.08),transparent_55%)] " />
         <div className="relative flex min-h-0 max-w-full items-center justify-center ">
           <ComponentPreview item={item} />
