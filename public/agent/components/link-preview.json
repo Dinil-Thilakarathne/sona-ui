@@ -37,6 +37,7 @@
       "react-use-measure"
     ],
     "registryDependencies": [
+      "@sona-ui/sona-utils",
       "@sona-ui/sona-motion"
     ]
   },
