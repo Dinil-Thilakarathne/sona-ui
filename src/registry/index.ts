@@ -12261,6 +12261,7 @@ export default function HoldToDeleteButton({
       onKeyUp={(e) => {
         if (e.key === " " || e.key === "Enter") cancelHold();
       }}
+      onBlur={cancelHold}
     >
       <span className="relative flex items-center justify-center gap-2">
         {renderVisualContent()}
