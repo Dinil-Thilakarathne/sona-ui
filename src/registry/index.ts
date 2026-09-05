@@ -11612,6 +11612,10 @@ export default function StaggerText({
     );
   }
 
+  const characters = [...new Intl.Segmenter().segment(text)].map(
+    (segment) => segment.segment,
+  );
+
   return (
     <Tag
       className={cn("overflow-clip tracking-wide select-text", className)}
@@ -11622,7 +11626,7 @@ export default function StaggerText({
       }}
       {...props}
     >
-      {text.split("").map((char, i) => {
+      {characters.map((char, i) => {
         const delay = Math.abs(activeIndex - i);
         return (
           <StaggerTextItem
