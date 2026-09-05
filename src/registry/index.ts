@@ -10120,6 +10120,7 @@ const ActivityGraph = forwardRef<HTMLDivElement, ActivityGraphProps>(
         weekIndex,
       }));
       const months = monthCandidates.filter((month, index) => {
+        if (index === 0) return true;
         const nextMonth = monthCandidates[index + 1];
         return !nextMonth || nextMonth.weekIndex - month.weekIndex >= 2;
       });
