@@ -10715,7 +10715,7 @@ export default function ExpandableTabs({
       }}
       className={className}
     >
-      <MotionConfig transition={transition}>
+      <MotionConfig {...motionConfig} transition={transition}>
         <Tabs.List
           aria-label={ariaLabel}
           className={cn(
