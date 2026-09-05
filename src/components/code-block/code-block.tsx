@@ -32,6 +32,7 @@ import { stripDiffMarker } from "./lib/transformers/utils";
 // Context for sharing code block state
 interface CodeBlockContextValue {
   code: string;
+  copyCode: string;
   language: string;
   nodes: React.ReactElement | undefined;
   lines: string[];
@@ -124,6 +125,11 @@ function CodeBlock({
   // Memoize line calculations
   const lines = useMemo(() => code.split("\n"), [code]);
 
+  const copyCode = useMemo(
+    () => (showDiff ? lines.map(stripDiffMarker).join("\n") : code),
+    [code, lines, showDiff],
+  );
+
   useLayoutEffect(() => {
     // Only run async highlighting when no pre-rendered content
     if (!initial) {
@@ -141,13 +147,23 @@ function CodeBlock({
     () => ({
       language,
       code,
+      copyCode,
       nodes,
       lines,
       hasFocus: !!focusLines,
       showDiff: !!showDiff,
       floatingCopy,
     }),
-    [language, code, nodes, lines, focusLines, showDiff, floatingCopy],
+    [
+      language,
+      code,
+      copyCode,
+      nodes,
+      lines,
+      focusLines,
+      showDiff,
+      floatingCopy,
+    ],
   );
 
   // Wrap children with context
@@ -202,7 +218,7 @@ function CodeBlockHeader({
 }: CodeBlockHeaderProps) {
   const context = useCodeBlock();
   const language = context.language;
-  const code = context.code;
+  const copyCode = context.copyCode;
 
   // Auto-layout content (only used when children not provided)
   const startContent = (
@@ -222,9 +238,9 @@ function CodeBlockHeader({
     </div>
   );
 
-  const endContent = showCopy && code && (
+  const endContent = showCopy && copyCode && (
     <div className="flex gap-2 items-center">
-      <CopyButton data-slot="code-block-copy-button" content={code} />
+      <CopyButton data-slot="code-block-copy-button" content={copyCode} />
     </div>
   );
 
@@ -431,7 +447,7 @@ function CodeBlockFloatingCopy({
   ...props
 }: CodeBlockFloatingCopyProps) {
   const context = useCodeBlock();
-  const code = context.code;
+  const copyCode = context.copyCode;
 
   const defaultProps = {
     "data-slot": "code-block-floating-copy",
@@ -439,7 +455,7 @@ function CodeBlockFloatingCopy({
     children: (
       <CopyButton
         data-slot="code-block-floating-copy"
-        content={code}
+        content={copyCode}
         className="pointer-events-auto backdrop-blur-sm"
       />
     ),
