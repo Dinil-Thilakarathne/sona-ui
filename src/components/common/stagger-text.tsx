@@ -22,6 +22,9 @@ export default function StaggerText({
   const Tag = as; // Explicitly type as a React component
   const [activeIndex, setActiveIndex] = useState(5);
   const [isActive, setIsActive] = useState(false);
+  const characters = [...new Intl.Segmenter().segment(text)].map(
+    (segment) => segment.segment,
+  );
   return (
     <>
       <h1 className="sr-only">{text}</h1>
@@ -33,11 +36,12 @@ export default function StaggerText({
           e.clipboardData.setData("text/plain", text);
         }}
       >
-        {text.split("").map((char, i) => {
+        {characters.map((char, i) => {
           const delay = Math.abs(activeIndex - i);
           return (
             <StaggerTextItem
               char={char}
+              // biome-ignore lint/suspicious/noArrayIndexKey: chars repeat; position is the identity
               key={i}
               onMouseEnter={() => {
                 setActiveIndex(i);
