@@ -49,6 +49,7 @@ export default function Magnetic({
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
+  const hoveredRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
@@ -63,6 +64,11 @@ export default function Magnetic({
     if (!isMouseHovered || shouldReduceMotion) return;
 
     const calculateMouseDistance = (event: MouseEvent) => {
+      if (!hoveredRef.current) {
+        motionX.set(0);
+        motionY.set(0);
+        return;
+      }
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -88,6 +94,8 @@ export default function Magnetic({
 
     return () => {
       document.removeEventListener("mousemove", calculateMouseDistance);
+      motionX.set(0);
+      motionY.set(0);
     };
   }, [
     isMouseHovered,
@@ -110,8 +118,12 @@ export default function Magnetic({
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
       const parentElement = magneticRef.current.parentElement;
 
-      const handleParentMouseEnter = () => setMouseHovered(true);
+      const handleParentMouseEnter = () => {
+        hoveredRef.current = true;
+        setMouseHovered(true);
+      };
       const handleParentMouseLeave = () => {
+        hoveredRef.current = false;
         setMouseHovered(false);
         motionX.set(0);
         motionY.set(0);
@@ -129,12 +141,14 @@ export default function Magnetic({
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = true;
       setMouseHovered(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = false;
       setMouseHovered(false);
       motionX.set(0);
       motionY.set(0);
