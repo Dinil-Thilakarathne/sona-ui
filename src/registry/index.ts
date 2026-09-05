@@ -11447,6 +11447,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
+import { cn } from "@/lib/sona-utils";
 import { motionTransition } from "@/lib/sona-motion";
 
 function useMediaQuery(query: string) {
@@ -11482,6 +11483,11 @@ export default function LinkPreview({
   link,
   text,
   showIcon = true,
+  className,
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
   ...linkProps
 }: LinkPreviewProps) {
   // scroll: true keeps viewport coordinates fresh while the page scrolls
@@ -11495,15 +11501,26 @@ export default function LinkPreview({
     <>
       <a
         href={link}
-        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
-        onMouseEnter={() => {
+        className={cn(
+          "inline-flex relative items-center underline underline-offset-3 cursor-pointer",
+          className,
+        )}
+        onMouseEnter={(e) => {
+          onMouseEnter?.(e);
           if (desktop) setIsHover(true);
         }}
-        onMouseLeave={() => setIsHover(false)}
-        onFocus={() => {
+        onMouseLeave={(e) => {
+          onMouseLeave?.(e);
+          setIsHover(false);
+        }}
+        onFocus={(e) => {
+          onFocus?.(e);
           if (desktop) setIsHover(true);
         }}
-        onBlur={() => setIsHover(false)}
+        onBlur={(e) => {
+          onBlur?.(e);
+          setIsHover(false);
+        }}
         ref={containerRef}
         {...linkProps}
       >
