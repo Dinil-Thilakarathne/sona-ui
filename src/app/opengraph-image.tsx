@@ -11,22 +11,19 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function OpenGraphImage() {
-  const helveticaNeue = await readFile(
-    path.join(
-      process.cwd(),
-      "src/fonts/helvetica-neue/HelveticaNeue-Medium.ttf",
-    ),
-  );
+  const fontDir = path.join(process.cwd(), "src/fonts/helvetica-neue");
+  const [regular, medium, bold] = await Promise.all([
+    readFile(path.join(fontDir, "HelveticaNeue-Regular.ttf")),
+    readFile(path.join(fontDir, "HelveticaNeue-Medium.ttf")),
+    readFile(path.join(fontDir, "HelveticaNeue-Bold.ttf")),
+  ]);
 
   return new ImageResponse(<SonaSocialImage />, {
     ...size,
     fonts: [
-      {
-        name: "Helvetica Neue",
-        data: helveticaNeue,
-        style: "normal",
-        weight: 500,
-      },
+      { name: "Helvetica Neue", data: regular, style: "normal", weight: 400 },
+      { name: "Helvetica Neue", data: medium, style: "normal", weight: 500 },
+      { name: "Helvetica Neue", data: bold, style: "normal", weight: 700 },
     ],
   });
 }
