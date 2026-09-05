@@ -459,94 +459,98 @@ function ProjectList({
         })}
       </div>
 
-      {placed && visibleId && (
-        <motion.div
-          initial={{ y: mobile ? 0 : railY }}
-          animate={{ y: mobile ? 0 : railY }}
-          transition={
-            reducedMotion
-              ? { duration: 0 }
-              : { type: "spring", bounce: 0, duration: 0.38 }
-          }
-          className={cn(
-            "z-20",
-            mobile
-              ? "fixed right-4 bottom-5 left-4"
-              : cn(
-                  "absolute top-0",
-                  variant === "dock" ? "right-3" : "right-4",
-                ),
-          )}
-          onPointerEnter={cancelHide}
-          onPointerLeave={scheduleHoverHide}
-        >
-          <div className={mobile ? undefined : "-translate-y-1/2"}>
-            <motion.div
-              ref={railRef}
-              id="prototype-action-rail"
-              role="toolbar"
-              aria-label={`Actions for ${projects.find((project) => project.id === visibleId)?.name ?? "selected project"}`}
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={
-                reducedMotion
-                  ? { duration: 0 }
-                  : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
-              }
-              className={cn(
-                "flex items-center bg-popover/82 text-popover-foreground smooth-shadow-ring-md shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--foreground)_30%,transparent)] backdrop-blur-xl",
-                variant === "floating" && "gap-0.5 rounded-xl p-1",
-                variant === "dock" &&
-                  cn(
-                    "gap-0.5 rounded-xl p-1",
-                    mobile ? "flex-row" : "flex-col",
+      <AnimatePresence>
+        {placed && visibleId && (
+          <motion.div
+            key="prototype-action-rail"
+            initial={{ y: mobile ? 0 : railY }}
+            animate={{ y: mobile ? 0 : railY }}
+            transition={
+              reducedMotion
+                ? { duration: 0 }
+                : { type: "spring", bounce: 0, duration: 0.38 }
+            }
+            className={cn(
+              "z-20",
+              mobile
+                ? "fixed right-4 bottom-5 left-4"
+                : cn(
+                    "absolute top-0",
+                    variant === "dock" ? "right-3" : "right-4",
                   ),
-                variant === "labelled" && "gap-1 rounded-xl p-1",
-                mobile && "justify-center rounded-2xl",
-              )}
-            >
-              <ActionButton
-                ref={firstActionRef}
-                icon={<Pencil aria-hidden="true" size={15} />}
-                label="Edit"
-                labelled={variant === "labelled"}
-                onClick={() => onEdit(visibleId)}
-              />
-              <ActionButton
-                icon={<Copy aria-hidden="true" size={15} />}
-                label="Duplicate"
-                labelled={variant === "labelled"}
-                onClick={() => onDuplicate(visibleId)}
-              />
-              {variant === "labelled" ? (
+            )}
+            onPointerEnter={cancelHide}
+            onPointerLeave={scheduleHoverHide}
+          >
+            <div className={mobile ? undefined : "-translate-y-1/2"}>
+              <motion.div
+                ref={railRef}
+                id="prototype-action-rail"
+                role="toolbar"
+                aria-label={`Actions for ${projects.find((project) => project.id === visibleId)?.name ?? "selected project"}`}
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.92 }}
+                transition={
+                  reducedMotion
+                    ? { duration: 0 }
+                    : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
+                }
+                className={cn(
+                  "flex items-center bg-popover/82 text-popover-foreground smooth-shadow-ring-md shadow-[0_10px_28px_-12px_color-mix(in_oklab,var(--foreground)_30%,transparent)] backdrop-blur-xl",
+                  variant === "floating" && "gap-0.5 rounded-xl p-1",
+                  variant === "dock" &&
+                    cn(
+                      "gap-0.5 rounded-xl p-1",
+                      mobile ? "flex-row" : "flex-col",
+                    ),
+                  variant === "labelled" && "gap-1 rounded-xl p-1",
+                  mobile && "justify-center rounded-2xl",
+                )}
+              >
                 <ActionButton
-                  icon={<Archive aria-hidden="true" size={15} />}
-                  label="Archive"
-                  labelled
-                  onClick={() => {
-                    setHoverPreviewSuppressed(true);
-                    setHoveredId(null);
-                    setFocusedId(null);
-                    onArchive(visibleId);
-                  }}
+                  ref={firstActionRef}
+                  icon={<Pencil aria-hidden="true" size={15} />}
+                  label="Edit"
+                  labelled={variant === "labelled"}
+                  onClick={() => onEdit(visibleId)}
                 />
-              ) : (
                 <ActionButton
-                  icon={<Archive aria-hidden="true" size={15} />}
-                  label="Archive"
-                  labelled={false}
-                  onClick={() => {
-                    setHoverPreviewSuppressed(true);
-                    setHoveredId(null);
-                    setFocusedId(null);
-                    onArchive(visibleId);
-                  }}
+                  icon={<Copy aria-hidden="true" size={15} />}
+                  label="Duplicate"
+                  labelled={variant === "labelled"}
+                  onClick={() => onDuplicate(visibleId)}
                 />
-              )}
-            </motion.div>
-          </div>
-        </motion.div>
-      )}
+                {variant === "labelled" ? (
+                  <ActionButton
+                    icon={<Archive aria-hidden="true" size={15} />}
+                    label="Archive"
+                    labelled
+                    onClick={() => {
+                      setHoverPreviewSuppressed(true);
+                      setHoveredId(null);
+                      setFocusedId(null);
+                      onArchive(visibleId);
+                    }}
+                  />
+                ) : (
+                  <ActionButton
+                    icon={<Archive aria-hidden="true" size={15} />}
+                    label="Archive"
+                    labelled={false}
+                    onClick={() => {
+                      setHoverPreviewSuppressed(true);
+                      setHoveredId(null);
+                      setFocusedId(null);
+                      onArchive(visibleId);
+                    }}
+                  />
+                )}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
