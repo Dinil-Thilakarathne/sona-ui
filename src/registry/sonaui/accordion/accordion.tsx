@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { createContext, type ReactNode, useContext } from "react";
 
 import { cn } from "@/lib/sona-utils";
@@ -102,8 +102,7 @@ export function AccordionRoot({
 }
 
 export interface AccordionItemProps
-  extends Omit<Accordion.Item.Props, "className">,
-    VariantProps<typeof accordionItemVariants> {
+  extends Omit<Accordion.Item.Props, "className"> {
   /** Stable value used to identify the item. */
   value?: string;
   /** Additional classes for the accordion item. */
