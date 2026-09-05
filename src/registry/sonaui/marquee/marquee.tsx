@@ -169,7 +169,8 @@ export default function Marquee({
 
     // Wrap: keep translation within [-segmentSize, 0)
     if (directionSign > 0) {
-      // moving left/up — translate goes negative
+      // moving left/up — translate goes negative (scroll-up flip can drive positive)
+      if (next >= 0) next -= segmentSize;
       if (next <= -segmentSize) next += segmentSize;
     } else {
       // moving right/down — translate goes positive
