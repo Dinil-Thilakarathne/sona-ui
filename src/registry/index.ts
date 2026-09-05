@@ -8610,7 +8610,7 @@ export default function SplitText({
 
 import { Tabs } from "@base-ui/react/tabs";
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useEffect, useId, useState } from "react";
+import { type ReactNode, useId, useState } from "react";
 
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
@@ -8659,15 +8659,12 @@ export default function AnimatedTabs({
   listClassName,
 }: AnimatedTabsProps) {
   const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
-  const [activeValue, setActiveValue] = useState(
-    value ?? defaultValue ?? fallbackValue,
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
   );
+  const activeValue = value ?? internalValue;
   const layoutId = useId();
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (value !== undefined) setActiveValue(value);
-  }, [value]);
 
   return (
     <Tabs.Root
@@ -8676,7 +8673,7 @@ export default function AnimatedTabs({
       orientation="horizontal"
       onValueChange={(nextValue) => {
         if (typeof nextValue !== "string") return;
-        setActiveValue(nextValue);
+        if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
       }}
       className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
