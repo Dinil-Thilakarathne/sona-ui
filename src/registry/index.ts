@@ -4669,6 +4669,7 @@ import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   type ReactNode,
+  useEffect,
   useId,
   useRef,
   useState,
@@ -4754,6 +4755,10 @@ export default function FluidTabs({
   );
   const activeValue = value ?? internalValue;
 
+  useEffect(() => {
+    keyboardSelectionRef.current = false;
+  });
+
   return (
     <Tabs.Root
       value={value}
@@ -4763,7 +4768,6 @@ export default function FluidTabs({
         if (typeof nextValue !== "string") return;
         if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
-        keyboardSelectionRef.current = false;
       }}
       className={cn("relative w-fit max-w-full overflow-x-auto", className)}
       style={tokenStyle}
@@ -4785,6 +4789,9 @@ export default function FluidTabs({
               aria-controls={tab.ariaControls}
               onKeyDown={() => {
                 keyboardSelectionRef.current = true;
+              }}
+              onPointerDown={() => {
+                keyboardSelectionRef.current = false;
               }}
               className={(state) =>
                 cn(
