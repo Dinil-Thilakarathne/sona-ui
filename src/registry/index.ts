@@ -9177,9 +9177,11 @@ export default function FluidSlider({
   const handlePointerMove = (event: PointerEvent) => {
     if (!pointerActiveRef.current || disabled) return;
 
-    // Once handle movement passes the threshold, stop any pending tap glide so
-    // the boundary remains locked 1:1 to the pointer.
+    // Once the indicator crosses the drag threshold, stop any pending tap
+    // glide so the boundary stays locked 1:1 to the pointer. A surface press
+    // is a positional command, so its glide must run to completion.
     if (
+      !trackPressRef.current &&
       !dragMovedRef.current &&
       Math.abs(event.clientX - pointerStartXRef.current) > 8
     ) {
