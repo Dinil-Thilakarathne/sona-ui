@@ -1222,6 +1222,56 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Whether to show an icon next to the link text."
     }
   ],
+  "live-activity": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The composed activity surface and views."
+    },
+    {
+      "name": "expanded",
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Controlled expansion state."
+    },
+    {
+      "name": "defaultExpanded",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial uncontrolled expansion state."
+    },
+    {
+      "name": "onExpandedChange",
+      "type": "(expanded: boolean) => void",
+      "default": "undefined",
+      "description": "Called when a control or gesture requests a state change."
+    },
+    {
+      "name": "direction",
+      "type": "\"down\" | \"up\"",
+      "default": "\"down\"",
+      "description": "Direction of growth and the opening touch gesture."
+    },
+    {
+      "name": "align",
+      "type": "\"start\" | \"center\" | \"end\"",
+      "default": "\"center\"",
+      "description": "Horizontal edge or center kept anchored during resizing."
+    },
+    {
+      "name": "gestures",
+      "type": "\"touch\" | false",
+      "default": "\"touch\"",
+      "description": "Enable touch dragging on Trigger and Handle, or disable gestures."
+    },
+    {
+      "name": "motion",
+      "type": "\"auto\" | \"none\"",
+      "default": "\"auto\"",
+      "description": "Respect reduced motion automatically, or disable all transitions."
+    }
+  ],
   "magnetic-button": [
     {
       "name": "children",

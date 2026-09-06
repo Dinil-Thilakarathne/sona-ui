@@ -3,6 +3,7 @@ import * as React from "react";
 import animated_dropdown_animated_dropdown_danger from "@/registry/examples/animated-dropdown/animated-dropdown-danger";
 import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
 import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
+import live_activity_live_activity_demo from "@/registry/examples/live-activity/live-activity-demo";
 import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
 import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
 import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
@@ -319,6 +320,284 @@ export default function AnimatedDropdownDemo() {
       </AnimatedDropdownContent>
     </AnimatedDropdown>
   );
+}`,
+    }
+  ],
+  "live-activity": [
+    {
+      name: "default",
+      component: live_activity_live_activity_demo,
+      code: `"use client";
+
+import { ArrowDownToLine, Check, FileText } from "lucide-react";
+import { useState } from "react";
+import LiveActivity, {
+  type LiveActivityProps,
+} from "@/components/ui/live-activity/live-activity";
+
+export function LiveActivityExample({
+  direction = "down",
+  align = "center",
+  gestures = "touch",
+  motion = "auto",
+}: Pick<LiveActivityProps, "direction" | "align" | "gestures" | "motion">) {
+  const [status, setStatus] = useState<"exporting" | "ready" | "cancelled">(
+    "exporting",
+  );
+  const title =
+    status === "ready"
+      ? "Report ready"
+      : status === "cancelled"
+        ? "Export cancelled"
+        : "Exporting report";
+  const icon =
+    status === "ready" ? (
+      <Check aria-hidden="true" className="size-4" />
+    ) : (
+      <FileText aria-hidden="true" className="size-4" />
+    );
+  return (
+    <div className="flex min-h-96 w-full max-w-lg flex-col justify-between gap-6 py-8">
+      {direction === "up" && <div className="flex-1" />}
+      <LiveActivity.Root
+        direction={direction}
+        align={align}
+        gestures={gestures}
+        motion={motion}
+      >
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-3xl bg-background">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex min-h-14 items-center gap-3 rounded-3xl px-5 text-sm">
+              <LiveActivity.Shared id="icon" className="text-muted-foreground">
+                {icon}
+              </LiveActivity.Shared>
+              <LiveActivity.Shared id="title" className="font-medium">
+                {title}
+              </LiveActivity.Shared>
+              <span className="text-muted-foreground tabular-nums">
+                {status === "exporting"
+                  ? "64%"
+                  : status === "ready"
+                    ? "CSV"
+                    : ""}
+              </span>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+          <LiveActivity.Expanded className="w-80 p-5 pb-0">
+            <div className="flex items-center gap-3 text-sm">
+              <LiveActivity.Shared id="icon" className="text-muted-foreground">
+                {icon}
+              </LiveActivity.Shared>
+              <LiveActivity.Shared id="title" className="font-medium">
+                {title}
+              </LiveActivity.Shared>
+              <LiveActivity.Close className="ml-auto flex size-9 shrink-0 items-center justify-center text-lg text-muted-foreground" />
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              September overview.csv
+            </p>
+            {status === "exporting" ? (
+              <>
+                <div
+                  role="progressbar"
+                  aria-label="Report export"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={64}
+                  className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted"
+                >
+                  <div className="h-full w-[64%] rounded-full bg-foreground" />
+                </div>
+                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
+                  <span>Preparing your report</span>
+                  <span className="tabular-nums">64%</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setStatus("cancelled")}
+                  className="mt-5 rounded-md px-2 py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                  Cancel export
+                </button>
+              </>
+            ) : status === "ready" ? (
+              <a
+                download="september-overview.csv"
+                href="data:text/csv;charset=utf-8,Month%2CReports%0ASeptember%2C24"
+                className="mt-5 flex min-h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                <ArrowDownToLine aria-hidden="true" className="size-4" />
+                Download sample
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setStatus("exporting")}
+                className="mt-5 min-h-10 w-full rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-ring"
+              >
+                Try again
+              </button>
+            )}
+            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+      <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+        <span>Demo controls</span>
+        <button
+          type="button"
+          onClick={() => setStatus(status === "ready" ? "exporting" : "ready")}
+          className="rounded-md border border-border px-3 py-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+        >
+          {status === "ready" ? "Reset export" : "Simulate completion"}
+        </button>
+      </div>
+      <span role="status" className="sr-only">
+        {title}
+      </span>
+    </div>
+  );
+}
+
+export default function LiveActivityDemo() {
+  return <LiveActivityExample />;
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { ArrowDownToLine, Check, FileText } from "lucide-react";
+import { useState } from "react";
+import LiveActivity, {
+  type LiveActivityProps,
+} from "@/components/ui/live-activity/live-activity";
+
+export function LiveActivityExample({
+  direction = "down",
+  align = "center",
+  gestures = "touch",
+  motion = "auto",
+}: Pick<LiveActivityProps, "direction" | "align" | "gestures" | "motion">) {
+  const [status, setStatus] = useState<"exporting" | "ready" | "cancelled">(
+    "exporting",
+  );
+  const title =
+    status === "ready"
+      ? "Report ready"
+      : status === "cancelled"
+        ? "Export cancelled"
+        : "Exporting report";
+  const icon =
+    status === "ready" ? (
+      <Check aria-hidden="true" className="size-4" />
+    ) : (
+      <FileText aria-hidden="true" className="size-4" />
+    );
+  return (
+    <div className="flex min-h-96 w-full max-w-lg flex-col justify-between gap-6 py-8">
+      {direction === "up" && <div className="flex-1" />}
+      <LiveActivity.Root
+        direction={direction}
+        align={align}
+        gestures={gestures}
+        motion={motion}
+      >
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-3xl bg-background">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex min-h-14 items-center gap-3 rounded-3xl px-5 text-sm">
+              <LiveActivity.Shared id="icon" className="text-muted-foreground">
+                {icon}
+              </LiveActivity.Shared>
+              <LiveActivity.Shared id="title" className="font-medium">
+                {title}
+              </LiveActivity.Shared>
+              <span className="text-muted-foreground tabular-nums">
+                {status === "exporting"
+                  ? "64%"
+                  : status === "ready"
+                    ? "CSV"
+                    : ""}
+              </span>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+          <LiveActivity.Expanded className="w-80 p-5 pb-0">
+            <div className="flex items-center gap-3 text-sm">
+              <LiveActivity.Shared id="icon" className="text-muted-foreground">
+                {icon}
+              </LiveActivity.Shared>
+              <LiveActivity.Shared id="title" className="font-medium">
+                {title}
+              </LiveActivity.Shared>
+              <LiveActivity.Close className="ml-auto flex size-9 shrink-0 items-center justify-center text-lg text-muted-foreground" />
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              September overview.csv
+            </p>
+            {status === "exporting" ? (
+              <>
+                <div
+                  role="progressbar"
+                  aria-label="Report export"
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={64}
+                  className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted"
+                >
+                  <div className="h-full w-[64%] rounded-full bg-foreground" />
+                </div>
+                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
+                  <span>Preparing your report</span>
+                  <span className="tabular-nums">64%</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setStatus("cancelled")}
+                  className="mt-5 rounded-md px-2 py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+                >
+                  Cancel export
+                </button>
+              </>
+            ) : status === "ready" ? (
+              <a
+                download="september-overview.csv"
+                href="data:text/csv;charset=utf-8,Month%2CReports%0ASeptember%2C24"
+                className="mt-5 flex min-h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
+                <ArrowDownToLine aria-hidden="true" className="size-4" />
+                Download sample
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setStatus("exporting")}
+                className="mt-5 min-h-10 w-full rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-ring"
+              >
+                Try again
+              </button>
+            )}
+            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+      <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+        <span>Demo controls</span>
+        <button
+          type="button"
+          onClick={() => setStatus(status === "ready" ? "exporting" : "ready")}
+          className="rounded-md border border-border px-3 py-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+        >
+          {status === "ready" ? "Reset export" : "Simulate completion"}
+        </button>
+      </div>
+      <span role="status" className="sr-only">
+        {title}
+      </span>
+    </div>
+  );
+}
+
+export default function LiveActivityDemo() {
+  return <LiveActivityExample />;
 }`,
     }
   ],
@@ -4012,6 +4291,685 @@ export function AnimatedDropdownSeparator({
       target: "components/sonaui/animated-dropdown/animated-dropdown.tsx"
     }
   ],
+  "live-activity": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  animate,
+  type MotionValue,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  createContext,
+  type ReactNode,
+  type PointerEvent as ReactPointerEvent,
+  useCallback,
+  useContext,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import { cn } from "@/lib/sona-utils";
+
+type View = "compact" | "expanded";
+type Size = { width: number; height: number };
+type Point = { x: number; y: number };
+const emptySize: Size = { width: 0, height: 0 };
+const spring = {
+  type: "spring",
+  stiffness: 380,
+  damping: 38,
+  mass: 1,
+} as const;
+const clamp = (value: number) => Math.min(1, Math.max(0, value));
+
+export interface LiveActivityProps extends ComponentPropsWithoutRef<"div"> {
+  /** The composed activity surface and views. */
+  children: ReactNode;
+  /** Controlled expansion state. @default undefined */
+  expanded?: boolean;
+  /** Initial uncontrolled expansion state. @default false */
+  defaultExpanded?: boolean;
+  /** Called when a control or gesture requests a state change. @default undefined */
+  onExpandedChange?: (expanded: boolean) => void;
+  /** Direction of growth and the opening touch gesture. @default "down" */
+  direction?: "down" | "up";
+  /** Horizontal edge or center kept anchored during resizing. @default "center" */
+  align?: "start" | "center" | "end";
+  /** Enable touch dragging on Trigger and Handle, or disable gestures. @default "touch" */
+  gestures?: "touch" | false;
+  /** Respect reduced motion automatically, or disable all transitions. @default "auto" */
+  motion?: "auto" | "none";
+}
+
+type ActivityContext = {
+  expanded: boolean;
+  direction: "down" | "up";
+  align: "start" | "center" | "end";
+  gestures: "touch" | false;
+  reduced: boolean;
+  progress: MotionValue<number>;
+  width: number;
+  sizes: Record<View, Size>;
+  offsets: Record<string, Partial<Record<View, Point>>>;
+  panelId: string;
+  rootRef: React.RefObject<HTMLDivElement | null>;
+  views: React.RefObject<Record<View, HTMLDivElement | null>>;
+  register: (id: string, view: View, node: HTMLSpanElement | null) => void;
+  measure: () => void;
+  request: (next: boolean, immediate?: boolean) => void;
+  settle: (next: boolean, velocity?: number) => void;
+};
+const Context = createContext<ActivityContext | null>(null);
+const ViewContext = createContext<View | null>(null);
+function useActivity() {
+  const value = useContext(Context);
+  if (!value)
+    throw new Error("LiveActivity parts must be inside LiveActivity.Root.");
+  return value;
+}
+
+// offset coordinates exclude animated transforms, so measurement never feeds
+// the current animation back into its own destination.
+function position(node: HTMLElement, boundary: HTMLElement): Point {
+  let x = 0;
+  let y = 0;
+  let current: HTMLElement | null = node;
+  while (current && current !== boundary) {
+    x += current.offsetLeft;
+    y += current.offsetTop;
+    current = current.offsetParent as HTMLElement | null;
+  }
+  return { x, y };
+}
+
+export function LiveActivityRoot({
+  children,
+  expanded: controlled,
+  defaultExpanded = false,
+  onExpandedChange,
+  direction = "down",
+  align = "center",
+  gestures = "touch",
+  motion: motionPreference = "auto",
+  className,
+  style,
+  ...props
+}: LiveActivityProps) {
+  const [internal, setInternal] = useState(defaultExpanded);
+  const expanded = controlled ?? internal;
+  const prefersReducedMotion = useReducedMotion();
+  const reduced = Boolean(prefersReducedMotion) || motionPreference === "none";
+  const progress = useMotionValue(expanded ? 1 : 0);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const views = useRef<Record<View, HTMLDivElement | null>>({
+    compact: null,
+    expanded: null,
+  });
+  const shared = useRef(
+    new Map<string, Partial<Record<View, HTMLSpanElement>>>(),
+  );
+  const observer = useRef<ResizeObserver | null>(null);
+  const [width, setWidth] = useState(0);
+  const [sizes, setSizes] = useState<Record<View, Size>>({
+    compact: emptySize,
+    expanded: emptySize,
+  });
+  const [offsets, setOffsets] = useState<ActivityContext["offsets"]>({});
+  const panelId = useId();
+  const immediate = useRef(false);
+  const previous = useRef(expanded);
+
+  const measure = useCallback(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    setWidth(root.clientWidth);
+    const nextSizes = { compact: emptySize, expanded: emptySize };
+    for (const view of ["compact", "expanded"] as const) {
+      const node = views.current[view];
+      if (node)
+        nextSizes[view] = {
+          width: node.offsetWidth,
+          height: node.offsetHeight,
+        };
+    }
+    setSizes((old) =>
+      JSON.stringify(old) === JSON.stringify(nextSizes) ? old : nextSizes,
+    );
+    const nextOffsets: ActivityContext["offsets"] = {};
+    shared.current.forEach((pair, id) => {
+      nextOffsets[id] = {};
+      for (const view of ["compact", "expanded"] as const) {
+        const node = pair[view];
+        const boundary = views.current[view];
+        if (node && boundary) nextOffsets[id][view] = position(node, boundary);
+      }
+    });
+    setOffsets((old) =>
+      JSON.stringify(old) === JSON.stringify(nextOffsets) ? old : nextOffsets,
+    );
+  }, []);
+
+  const register = useCallback(
+    (id: string, view: View, node: HTMLSpanElement | null) => {
+      const pair = shared.current.get(id) ?? {};
+      if (pair[view]) observer.current?.unobserve(pair[view]);
+      if (node) {
+        pair[view] = node;
+        observer.current?.observe(node);
+      } else delete pair[view];
+      if (pair.compact || pair.expanded) shared.current.set(id, pair);
+      else shared.current.delete(id);
+    },
+    [],
+  );
+
+  useLayoutEffect(() => {
+    const resize = new ResizeObserver(measure);
+    observer.current = resize;
+    if (rootRef.current) resize.observe(rootRef.current);
+    for (const node of Object.values(views.current))
+      if (node) resize.observe(node);
+    shared.current.forEach((pair) => {
+      for (const node of Object.values(pair)) resize.observe(node);
+    });
+    measure();
+    return () => {
+      resize.disconnect();
+      observer.current = null;
+      progress.stop();
+    };
+  }, [measure, progress]);
+
+  const settle = useCallback(
+    (next: boolean, velocity = 0) => {
+      progress.stop();
+      if (reduced || immediate.current) progress.jump(next ? 1 : 0);
+      else animate(progress, next ? 1 : 0, { ...spring, velocity });
+      immediate.current = false;
+    },
+    [progress, reduced],
+  );
+
+  useLayoutEffect(() => {
+    settle(expanded);
+    if (previous.current !== expanded) {
+      const outgoing = views.current[expanded ? "compact" : "expanded"];
+      if (outgoing?.contains(document.activeElement)) {
+        const incoming = views.current[expanded ? "expanded" : "compact"];
+        const target = incoming?.querySelector<HTMLElement>(
+          'button:not(:disabled), a[href], input:not(:disabled), [tabindex="0"]',
+        );
+        (target ?? incoming)?.focus({ preventScroll: true });
+      }
+    }
+    previous.current = expanded;
+  }, [expanded, settle]);
+
+  const request = (next: boolean, instantly = false) => {
+    immediate.current = instantly;
+    if (next !== expanded) {
+      if (controlled === undefined) setInternal(next);
+      onExpandedChange?.(next);
+    }
+    // Controlled consumers may decline the request. Settle to the accepted
+    // state; a subsequent prop change retargets the same motion value.
+    settle(controlled === undefined ? next : expanded);
+  };
+
+  return (
+    <Context.Provider
+      value={{
+        expanded,
+        direction,
+        align,
+        gestures,
+        reduced,
+        progress,
+        width,
+        sizes,
+        offsets,
+        panelId,
+        rootRef,
+        views,
+        register,
+        measure,
+        request,
+        settle,
+      }}
+    >
+      <div
+        {...props}
+        ref={rootRef}
+        data-slot="live-activity"
+        data-state={expanded ? "expanded" : "compact"}
+        data-direction={direction}
+        className={cn("relative w-full", className)}
+        style={{ ...style, height: sizes.compact.height || undefined }}
+      >
+        {children}
+      </div>
+    </Context.Provider>
+  );
+}
+
+export interface LiveActivitySurfaceProps
+  extends ComponentPropsWithoutRef<"div"> {
+  /** Composed compact and expanded views. */
+  children: ReactNode;
+}
+
+export function LiveActivitySurface({
+  children,
+  className,
+  style,
+  onKeyDown,
+  ...props
+}: LiveActivitySurfaceProps) {
+  const ctx = useActivity();
+  const width = useTransform(
+    ctx.progress,
+    (p) =>
+      ctx.sizes.compact.width +
+      (ctx.sizes.expanded.width - ctx.sizes.compact.width) * clamp(p),
+  );
+  const height = useTransform(
+    ctx.progress,
+    (p) =>
+      ctx.sizes.compact.height +
+      (ctx.sizes.expanded.height - ctx.sizes.compact.height) * clamp(p),
+  );
+  return (
+    <div
+      {...props}
+      data-slot="live-activity-anchor"
+      className="absolute inset-x-0"
+      style={{
+        [ctx.direction === "down" ? "top" : "bottom"]: 0,
+        display: "flex",
+        justifyContent:
+          ctx.align === "center"
+            ? "center"
+            : ctx.align === "start"
+              ? "flex-start"
+              : "flex-end",
+      }}
+      onKeyDown={(event) => {
+        onKeyDown?.(event);
+        if (!event.defaultPrevented && event.key === "Escape" && ctx.expanded) {
+          event.preventDefault();
+          event.stopPropagation();
+          ctx.request(false, true);
+        }
+      }}
+    >
+      <motion.div
+        data-slot="live-activity-surface"
+        data-state={ctx.expanded ? "expanded" : "compact"}
+        className={cn(
+          "relative isolate overflow-hidden rounded-3xl bg-background text-foreground",
+          className,
+        )}
+        style={{ ...style, width, height, maxWidth: "100%" }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+function ActivityView({
+  view,
+  className,
+  style,
+  children,
+  ...props
+}: ComponentPropsWithoutRef<"div"> & { view: View }) {
+  const ctx = useActivity();
+  const active = ctx.expanded === (view === "expanded");
+  const opacity = useTransform(ctx.progress, (p) =>
+    view === "expanded" ? clamp(p) : 1 - clamp(p),
+  );
+  const attach = useCallback(
+    (node: HTMLDivElement | null) => {
+      ctx.views.current[view] = node;
+    },
+    [ctx.views, view],
+  );
+  useLayoutEffect(ctx.measure);
+  return (
+    <ViewContext.Provider value={view}>
+      <motion.div
+        {...(props as ComponentPropsWithoutRef<typeof motion.div>)}
+        ref={attach}
+        id={view === "expanded" ? ctx.panelId : props.id}
+        data-slot={\`live-activity-\${view}\`}
+        inert={!active}
+        aria-hidden={!active}
+        tabIndex={-1}
+        className={cn("absolute flow-root w-max", className)}
+        style={{
+          ...style,
+          opacity,
+          maxWidth: ctx.width || "100vw",
+          [ctx.direction === "down" ? "top" : "bottom"]: 0,
+          insetInlineStart:
+            ctx.align === "end"
+              ? undefined
+              : ctx.align === "center"
+                ? "50%"
+                : 0,
+          insetInlineEnd: ctx.align === "end" ? 0 : undefined,
+          x: ctx.align === "center" ? "-50%" : 0,
+          pointerEvents: active ? "auto" : "none",
+        }}
+      >
+        {children}
+      </motion.div>
+    </ViewContext.Provider>
+  );
+}
+
+export function LiveActivityCompact(props: ComponentPropsWithoutRef<"div">) {
+  return <ActivityView {...props} view="compact" />;
+}
+export function LiveActivityExpanded(props: ComponentPropsWithoutRef<"div">) {
+  return <ActivityView {...props} view="expanded" />;
+}
+
+export interface LiveActivitySharedProps
+  extends Omit<ComponentPropsWithoutRef<"span">, "id"> {
+  /** Matching visual identity, unique within each view of this Root. */
+  id: string;
+}
+
+export function LiveActivityShared({
+  id,
+  className,
+  style,
+  ...props
+}: LiveActivitySharedProps) {
+  const ctx = useActivity();
+  const view = useContext(ViewContext);
+  if (!view)
+    throw new Error("LiveActivity.Shared must be inside Compact or Expanded.");
+  const pair = ctx.offsets[id];
+  const factor = ctx.align === "center" ? 0.5 : ctx.align === "end" ? 1 : 0;
+  const rtl = ctx.rootRef.current
+    ? getComputedStyle(ctx.rootRef.current).direction === "rtl"
+    : false;
+  const horizontalAnchor = rtl ? 1 - factor : factor;
+  const dx =
+    pair?.compact && pair.expanded
+      ? pair.expanded.x -
+        pair.compact.x +
+        (ctx.sizes.compact.width - ctx.sizes.expanded.width) * horizontalAnchor
+      : 0;
+  const dy =
+    pair?.compact && pair.expanded
+      ? pair.expanded.y -
+        pair.compact.y +
+        (ctx.direction === "up"
+          ? ctx.sizes.compact.height - ctx.sizes.expanded.height
+          : 0)
+      : 0;
+  const x = useTransform(
+    ctx.progress,
+    (p) => dx * (clamp(p) - (view === "expanded" ? 1 : 0)),
+  );
+  const y = useTransform(
+    ctx.progress,
+    (p) => dy * (clamp(p) - (view === "expanded" ? 1 : 0)),
+  );
+  const attach = useCallback(
+    (node: HTMLSpanElement | null) => ctx.register(id, view, node),
+    [ctx.register, id, view],
+  );
+  return (
+    <motion.span
+      {...(props as ComponentPropsWithoutRef<typeof motion.span>)}
+      ref={attach}
+      data-slot="live-activity-shared"
+      data-shared-id={id}
+      className={cn("relative inline-block", className)}
+      style={{ ...style, x, y }}
+    />
+  );
+}
+
+function useGesture() {
+  const ctx = useActivity();
+  const drag = useRef<{
+    id: number;
+    y: number;
+    start: number;
+    lastY: number;
+    time: number;
+    velocity: number;
+    moved: boolean;
+  } | null>(null);
+  const suppressClick = useRef(false);
+  const distance = Math.max(
+    80,
+    Math.abs(ctx.sizes.expanded.height - ctx.sizes.compact.height),
+  );
+  const sign = ctx.direction === "down" ? 1 : -1;
+  const finish = (
+    event: ReactPointerEvent<HTMLButtonElement>,
+    cancelled: boolean,
+  ) => {
+    const current = drag.current;
+    if (!current || current.id !== event.pointerId) return;
+    drag.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId))
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    if (!current.moved) {
+      ctx.settle(ctx.expanded);
+      return;
+    }
+    suppressClick.current = true;
+    if (cancelled) {
+      ctx.settle(ctx.expanded);
+      return;
+    }
+    const velocity =
+      event.timeStamp - current.time > 100 ? 0 : current.velocity;
+    const next = clamp(ctx.progress.get() + velocity * 0.15) > 0.5;
+    ctx.request(next);
+  };
+  return {
+    onPointerDown(event: ReactPointerEvent<HTMLButtonElement>) {
+      suppressClick.current = false;
+      if (
+        !ctx.gestures ||
+        event.pointerType !== "touch" ||
+        !event.isPrimary ||
+        event.currentTarget.disabled ||
+        drag.current
+      )
+        return;
+      ctx.progress.stop();
+      drag.current = {
+        id: event.pointerId,
+        y: event.clientY,
+        start: ctx.progress.get(),
+        lastY: event.clientY,
+        time: event.timeStamp,
+        velocity: 0,
+        moved: false,
+      };
+      event.currentTarget.setPointerCapture(event.pointerId);
+    },
+    onPointerMove(event: ReactPointerEvent<HTMLButtonElement>) {
+      const current = drag.current;
+      if (!current || current.id !== event.pointerId) return;
+      const delta = (event.clientY - current.y) * sign;
+      if (Math.abs(delta) > 5) current.moved = true;
+      const elapsed = event.timeStamp - current.time;
+      if (elapsed > 0)
+        current.velocity =
+          ((event.clientY - current.lastY) * sign) /
+          distance /
+          (elapsed / 1000);
+      current.lastY = event.clientY;
+      current.time = event.timeStamp;
+      if (current.moved && !ctx.reduced)
+        ctx.progress.set(clamp(current.start + delta / distance));
+      // Reduced motion keeps the visual state still but preserves swipe input.
+      if (current.moved && ctx.reduced) current.start = ctx.expanded ? 1 : 0;
+    },
+    onPointerUp(event: ReactPointerEvent<HTMLButtonElement>) {
+      if (ctx.reduced && drag.current?.moved) {
+        const delta = (event.clientY - drag.current.y) * sign;
+        if (Math.abs(delta) > 24) {
+          drag.current = null;
+          suppressClick.current = true;
+          if (event.currentTarget.hasPointerCapture(event.pointerId))
+            event.currentTarget.releasePointerCapture(event.pointerId);
+          ctx.request(delta > 0, true);
+          return;
+        }
+      }
+      finish(event, false);
+    },
+    onPointerCancel(event: ReactPointerEvent<HTMLButtonElement>) {
+      finish(event, true);
+    },
+    onLostPointerCapture(event: ReactPointerEvent<HTMLButtonElement>) {
+      finish(event, true);
+    },
+    consumeClick() {
+      const value = suppressClick.current;
+      suppressClick.current = false;
+      return value;
+    },
+  };
+}
+
+const focusClass =
+  "cursor-pointer rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50";
+function ActivityButton({
+  kind,
+  className,
+  style,
+  children,
+  onClick,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onPointerCancel,
+  onLostPointerCapture,
+  ...props
+}: ComponentPropsWithoutRef<"button"> & {
+  kind: "trigger" | "close" | "handle";
+}) {
+  const ctx = useActivity();
+  const gesture = useGesture();
+  const draggable = kind !== "close" && ctx.gestures;
+  return (
+    <button
+      {...props}
+      type="button"
+      data-slot={\`live-activity-\${kind}\`}
+      aria-expanded={ctx.expanded}
+      aria-controls={ctx.panelId}
+      aria-label={
+        props["aria-label"] ??
+        (kind === "close"
+          ? "Collapse activity"
+          : kind === "handle"
+            ? "Toggle activity details"
+            : undefined)
+      }
+      className={cn(
+        focusClass,
+        kind === "handle" && "flex h-11 w-full items-center justify-center",
+        className,
+      )}
+      style={{
+        ...style,
+        touchAction: draggable ? "pan-x pinch-zoom" : style?.touchAction,
+      }}
+      onClick={(event) => {
+        if (gesture.consumeClick()) {
+          event.preventDefault();
+          return;
+        }
+        onClick?.(event);
+        if (!event.defaultPrevented)
+          ctx.request(
+            kind === "close" ? false : !ctx.expanded,
+            event.detail === 0,
+          );
+      }}
+      onPointerDown={(event) => {
+        onPointerDown?.(event);
+        if (!event.defaultPrevented && draggable) gesture.onPointerDown(event);
+      }}
+      onPointerMove={(event) => {
+        onPointerMove?.(event);
+        if (!event.defaultPrevented && draggable) gesture.onPointerMove(event);
+      }}
+      onPointerUp={(event) => {
+        onPointerUp?.(event);
+        if (draggable) gesture.onPointerUp(event);
+      }}
+      onPointerCancel={(event) => {
+        onPointerCancel?.(event);
+        gesture.onPointerCancel(event);
+      }}
+      onLostPointerCapture={(event) => {
+        onLostPointerCapture?.(event);
+        gesture.onLostPointerCapture(event);
+      }}
+    >
+      {children ??
+        (kind === "handle" ? (
+          <span
+            aria-hidden="true"
+            className="h-1 w-8 rounded-full bg-current opacity-25"
+          />
+        ) : kind === "close" ? (
+          <span aria-hidden="true">×</span>
+        ) : null)}
+    </button>
+  );
+}
+
+export function LiveActivityTrigger(props: ComponentPropsWithoutRef<"button">) {
+  return <ActivityButton {...props} kind="trigger" />;
+}
+export function LiveActivityClose(props: ComponentPropsWithoutRef<"button">) {
+  return <ActivityButton {...props} kind="close" />;
+}
+export function LiveActivityHandle(props: ComponentPropsWithoutRef<"button">) {
+  return <ActivityButton {...props} kind="handle" />;
+}
+
+const LiveActivity = {
+  Root: LiveActivityRoot,
+  Surface: LiveActivitySurface,
+  Compact: LiveActivityCompact,
+  Expanded: LiveActivityExpanded,
+  Shared: LiveActivityShared,
+  Trigger: LiveActivityTrigger,
+  Close: LiveActivityClose,
+  Handle: LiveActivityHandle,
+};
+export default LiveActivity;
+`,
+      path: "live-activity/live-activity.tsx",
+      target: "components/sonaui/live-activity/live-activity.tsx"
+    }
+  ],
   "circular-dock-menu": [
     {
       type: "registry:ui",
@@ -4546,6 +5504,7 @@ export default function Magnetic({
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
+  const hoveredRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
@@ -4560,6 +5519,11 @@ export default function Magnetic({
     if (!isMouseHovered || shouldReduceMotion) return;
 
     const calculateMouseDistance = (event: MouseEvent) => {
+      if (!hoveredRef.current) {
+        motionX.set(0);
+        motionY.set(0);
+        return;
+      }
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -4585,6 +5549,8 @@ export default function Magnetic({
 
     return () => {
       document.removeEventListener("mousemove", calculateMouseDistance);
+      motionX.set(0);
+      motionY.set(0);
     };
   }, [
     isMouseHovered,
@@ -4607,8 +5573,12 @@ export default function Magnetic({
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
       const parentElement = magneticRef.current.parentElement;
 
-      const handleParentMouseEnter = () => setMouseHovered(true);
+      const handleParentMouseEnter = () => {
+        hoveredRef.current = true;
+        setMouseHovered(true);
+      };
       const handleParentMouseLeave = () => {
+        hoveredRef.current = false;
         setMouseHovered(false);
         motionX.set(0);
         motionY.set(0);
@@ -4626,12 +5596,14 @@ export default function Magnetic({
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = true;
       setMouseHovered(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = false;
       setMouseHovered(false);
       motionX.set(0);
       motionY.set(0);
@@ -4669,6 +5641,7 @@ import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   type ReactNode,
+  useEffect,
   useId,
   useRef,
   useState,
@@ -4754,6 +5727,10 @@ export default function FluidTabs({
   );
   const activeValue = value ?? internalValue;
 
+  useEffect(() => {
+    keyboardSelectionRef.current = false;
+  });
+
   return (
     <Tabs.Root
       value={value}
@@ -4763,7 +5740,6 @@ export default function FluidTabs({
         if (typeof nextValue !== "string") return;
         if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
-        keyboardSelectionRef.current = false;
       }}
       className={cn("relative w-fit max-w-full overflow-x-auto", className)}
       style={tokenStyle}
@@ -4785,6 +5761,9 @@ export default function FluidTabs({
               aria-controls={tab.ariaControls}
               onKeyDown={() => {
                 keyboardSelectionRef.current = true;
+              }}
+              onPointerDown={() => {
+                keyboardSelectionRef.current = false;
               }}
               className={(state) =>
                 cn(
@@ -5016,7 +5995,7 @@ export default function DotOrbitShader({
       content: `"use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { createContext, type ReactNode, useContext } from "react";
 
 import { cn } from "@/lib/sona-utils";
@@ -5117,8 +6096,7 @@ export function AccordionRoot({
 }
 
 export interface AccordionItemProps
-  extends Omit<Accordion.Item.Props, "className">,
-    VariantProps<typeof accordionItemVariants> {
+  extends Omit<Accordion.Item.Props, "className"> {
   /** Stable value used to identify the item. */
   value?: string;
   /** Additional classes for the accordion item. */
@@ -6583,7 +7561,8 @@ export default function Marquee({
 
     // Wrap: keep translation within [-segmentSize, 0)
     if (directionSign > 0) {
-      // moving left/up — translate goes negative
+      // moving left/up — translate goes negative (scroll-up flip can drive positive)
+      if (next >= 0) next -= segmentSize;
       if (next <= -segmentSize) next += segmentSize;
     } else {
       // moving right/down — translate goes positive
@@ -6782,7 +7761,7 @@ export default function RippleButton({
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
+        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100 disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
       disabled={disabled}
@@ -6870,7 +7849,7 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
       content: `"use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -6910,11 +7889,23 @@ export default function SpotlightCard({
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
 
+  const [hasMoved, setHasMoved] = useState(false);
+  const [prevDisabled, setPrevDisabled] = useState(disabled);
+  if (prevDisabled !== disabled) {
+    setPrevDisabled(disabled);
+    if (!disabled) {
+      mouseX.set(-spotlightSize);
+      mouseY.set(-spotlightSize);
+      setHasMoved(false);
+    }
+  }
+
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
     mouseY.set(event.clientY - rect.top);
+    if (!hasMoved) setHasMoved(true);
   };
 
   const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
@@ -6934,7 +7925,10 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
+          className={cn(
+            "absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-200 ease-out",
+            hasMoved && "group-hover:opacity-100",
+          )}
           style={{ background }}
         />
       )}
@@ -8448,7 +9442,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
-import { type ReactNode, useRef } from "react";
+import { type ReactNode, useMemo, useRef } from "react";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -8501,6 +9495,13 @@ export interface SplitTextProps {
   markers?: boolean;
 }
 
+const defaultAnimationProps: gsap.TweenVars = {
+  yPercent: 120,
+  rotate: 5,
+  stagger: 0.2,
+  duration: 0.4,
+};
+
 export default function SplitText({
   children,
   className,
@@ -8514,14 +9515,10 @@ export default function SplitText({
 }: SplitTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const defaultAnimationProps: gsap.TweenVars = {
-    yPercent: 120,
-    rotate: 5,
-    stagger: 0.2,
-    duration: 0.4,
-  };
-
-  const mergedAnimationProps = { ...defaultAnimationProps, ...animationProps };
+  const mergedAnimationProps = useMemo(
+    () => ({ ...defaultAnimationProps, ...animationProps }),
+    [animationProps],
+  );
 
   useGSAP(
     () => {
@@ -8586,7 +9583,12 @@ export default function SplitText({
       };
     },
     {
-      dependencies: [{ ...mergedAnimationProps }, variant, mask, scrollTrigger],
+      dependencies: [
+        JSON.stringify(mergedAnimationProps),
+        variant,
+        mask,
+        scrollTrigger,
+      ],
       scope: containerRef,
       revertOnUpdate: true,
     },
@@ -8610,7 +9612,7 @@ export default function SplitText({
 
 import { Tabs } from "@base-ui/react/tabs";
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useEffect, useId, useState } from "react";
+import { type ReactNode, useId, useState } from "react";
 
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
@@ -8659,15 +9661,12 @@ export default function AnimatedTabs({
   listClassName,
 }: AnimatedTabsProps) {
   const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
-  const [activeValue, setActiveValue] = useState(
-    value ?? defaultValue ?? fallbackValue,
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
   );
+  const activeValue = value ?? internalValue;
   const layoutId = useId();
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (value !== undefined) setActiveValue(value);
-  }, [value]);
 
   return (
     <Tabs.Root
@@ -8676,7 +9675,7 @@ export default function AnimatedTabs({
       orientation="horizontal"
       onValueChange={(nextValue) => {
         if (typeof nextValue !== "string") return;
-        setActiveValue(nextValue);
+        if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
       }}
       className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
@@ -9177,9 +10176,11 @@ export default function FluidSlider({
   const handlePointerMove = (event: PointerEvent) => {
     if (!pointerActiveRef.current || disabled) return;
 
-    // Once handle movement passes the threshold, stop any pending tap glide so
-    // the boundary remains locked 1:1 to the pointer.
+    // Once the indicator crosses the drag threshold, stop any pending tap
+    // glide so the boundary stays locked 1:1 to the pointer. A surface press
+    // is a positional command, so its glide must run to completion.
     if (
+      !trackPressRef.current &&
       !dragMovedRef.current &&
       Math.abs(event.clientX - pointerStartXRef.current) > 8
     ) {
@@ -10120,6 +11121,7 @@ const ActivityGraph = forwardRef<HTMLDivElement, ActivityGraphProps>(
         weekIndex,
       }));
       const months = monthCandidates.filter((month, index) => {
+        if (index === 0) return true;
         const nextMonth = monthCandidates[index + 1];
         return !nextMonth || nextMonth.weekIndex - month.weekIndex >= 2;
       });
@@ -10715,7 +11717,7 @@ export default function ExpandableTabs({
       }}
       className={className}
     >
-      <MotionConfig transition={transition}>
+      <MotionConfig {...motionConfig} transition={transition}>
         <Tabs.List
           aria-label={ariaLabel}
           className={cn(
@@ -10829,10 +11831,10 @@ export interface ExpandingActionProps {
   optionClassName?: string;
 }
 
-const surfaceTransition = {
+const widthSpring = {
   type: "spring",
   stiffness: 260,
-  damping: 22,
+  damping: 48,
   mass: 0.9,
 } as const;
 
@@ -10867,9 +11869,7 @@ export default function ExpandingAction({
   const isOpen = open ?? internalOpen;
   const previousIsOpen = useRef(isOpen);
   const hasEnabledItem = items.some((item) => !item.disabled);
-  const motionTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : surfaceTransition;
+  const widthTransition = shouldReduceMotion ? { duration: 0 } : widthSpring;
 
   const setOpen = (nextOpen: boolean) => {
     if (open === undefined) setInternalOpen(nextOpen);
@@ -10898,7 +11898,7 @@ export default function ExpandingAction({
           className,
         )}
         style={tokenStyle}
-        transition={motionTransition}
+        transition={widthTransition}
       >
         <span
           aria-hidden="true"
@@ -11447,6 +12447,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
+import { cn } from "@/lib/sona-utils";
 import { motionTransition } from "@/lib/sona-motion";
 
 function useMediaQuery(query: string) {
@@ -11482,6 +12483,11 @@ export default function LinkPreview({
   link,
   text,
   showIcon = true,
+  className,
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
   ...linkProps
 }: LinkPreviewProps) {
   // scroll: true keeps viewport coordinates fresh while the page scrolls
@@ -11495,15 +12501,26 @@ export default function LinkPreview({
     <>
       <a
         href={link}
-        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
-        onMouseEnter={() => {
+        className={cn(
+          "inline-flex relative items-center underline underline-offset-3 cursor-pointer",
+          className,
+        )}
+        onMouseEnter={(e) => {
+          onMouseEnter?.(e);
           if (desktop) setIsHover(true);
         }}
-        onMouseLeave={() => setIsHover(false)}
-        onFocus={() => {
+        onMouseLeave={(e) => {
+          onMouseLeave?.(e);
+          setIsHover(false);
+        }}
+        onFocus={(e) => {
+          onFocus?.(e);
           if (desktop) setIsHover(true);
         }}
-        onBlur={() => setIsHover(false)}
+        onBlur={(e) => {
+          onBlur?.(e);
+          setIsHover(false);
+        }}
         ref={containerRef}
         {...linkProps}
       >
@@ -11612,6 +12629,10 @@ export default function StaggerText({
     );
   }
 
+  const characters = [...new Intl.Segmenter().segment(text)].map(
+    (segment) => segment.segment,
+  );
+
   return (
     <Tag
       className={cn("overflow-clip tracking-wide select-text", className)}
@@ -11622,7 +12643,7 @@ export default function StaggerText({
       }}
       {...props}
     >
-      {text.split("").map((char, i) => {
+      {characters.map((char, i) => {
         const delay = Math.abs(activeIndex - i);
         return (
           <StaggerTextItem
@@ -12261,6 +13282,7 @@ export default function HoldToDeleteButton({
       onKeyUp={(e) => {
         if (e.key === " " || e.key === "Enter") cancelHold();
       }}
+      onBlur={cancelHold}
     >
       <span className="relative flex items-center justify-center gap-2">
         {renderVisualContent()}
@@ -12803,6 +13825,21 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/circular-context-menu/circular-context-menu.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "live-activity": {
+    "name": "live-activity",
+    "type": "registry:ui",
+    "title": "Live Activity",
+    "description": "A composable activity surface with shared-element transitions, consumer-defined views, and touch expansion gestures.",
+    "files": [
+      {
+        "path": "registry/sonaui/live-activity/live-activity.tsx",
         "type": "registry:ui"
       }
     ],

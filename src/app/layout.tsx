@@ -12,6 +12,7 @@ import Header from "@/components/header";
 import { siteMetaData } from "@/config/metadata";
 import { clashDisplay, HelveticaNeue } from "@/fonts";
 import { FEATURE_FLAG } from "@/lib/constants";
+import { DevelopmentGuideframe } from "./development-guideframe";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -60,7 +61,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import { GuideframeGrid } from "@guideframe/react";
 import { Toaster } from "sonner";
 
 export default function RootLayout({
@@ -82,15 +82,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Toaster position="bottom-right" richColors />
-          <GuideframeGrid
-            panel={true}
-            rulers={true}
-            maxWidth={768}
-            margin={8}
-            columns={{ desktop: 6, tablet: 4, mobile: 3 }}
-            gutter={8}
-            defaultVisible={false}
-          />
+          <DevelopmentGuideframe />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

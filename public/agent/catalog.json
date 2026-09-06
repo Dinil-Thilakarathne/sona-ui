@@ -4,6 +4,28 @@
   "registry": "https://sonaui.com/r/{name}.json",
   "items": [
     {
+      "name": "live-activity",
+      "title": "Live Activity",
+      "category": "components",
+      "status": "preview",
+      "summary": "A composable ongoing activity surface with compact and expanded views, shared visual identities, and touch gestures.",
+      "keywords": [
+        "activity",
+        "progress",
+        "upload",
+        "export",
+        "recording",
+        "shared element",
+        "touch"
+      ],
+      "docs": "https://sonaui.com/docs/live-activity",
+      "registryItem": "https://sonaui.com/r/live-activity.json",
+      "detail": "https://sonaui.com/agent/components/live-activity.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
       "name": "fluid-tabs",
       "title": "Fluid Tabs",
       "category": "components",

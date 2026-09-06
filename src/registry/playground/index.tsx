@@ -15,6 +15,7 @@ import {
 import type * as React from "react";
 import { cn } from "@/lib/sona-utils";
 import SectionRailPlayground from "@/registry/playground/section-rail-playground";
+import { LiveActivityExample } from "@/registry/examples/live-activity/live-activity-demo";
 import {
   AccordionItem,
   AccordionItemContent,
@@ -146,6 +147,15 @@ const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
 );
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "live-activity": {
+    controls: [
+      { type: "select", prop: "direction", label: "Expansion direction", options: [{ label: "Down", value: "down" }, { label: "Up", value: "up" }], default: "down" },
+      { type: "select", prop: "align", label: "Horizontal anchor", options: [{ label: "Start", value: "start" }, { label: "Center", value: "center" }, { label: "End", value: "end" }], default: "center" },
+      { type: "toggle", prop: "gestures", label: "Touch gestures", default: true },
+      { type: "toggle", prop: "reduceMotion", label: "Disable motion", default: false },
+    ],
+    render: (values) => <LiveActivityExample direction={values.direction as "up" | "down"} align={values.align as "start" | "center" | "end"} gestures={values.gestures ? "touch" : false} motion={values.reduceMotion ? "none" : "auto"} />,
+  },
   "circular-context-menu": {
     controls: [
       {
@@ -715,7 +725,8 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     ],
     render: (v) => (
       <ExpandableTabs
-        value={v.value as string}
+        key={v.value as string}
+        defaultValue={v.value as string}
         tabs={[
           { value: "library", title: "Library", icon: BookOpen },
           { value: "profile", title: "Profile", icon: User },
@@ -1385,7 +1396,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         threshold={v.threshold as number}
         maxImages={v.maxImages as number}
         lifetime={v.lifetime as number}
-        className="h-72 w-full"
+        className="h-full min-h-[280px] w-full"
       >
         <div className="flex h-full w-full items-center justify-center">
           <span className="pointer-events-none font-medium text-lg text-muted-foreground">

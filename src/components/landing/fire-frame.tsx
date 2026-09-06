@@ -145,6 +145,7 @@ export function FireFrame() {
 
     let disposed = false;
     let loop: FrameLoopHandle | undefined;
+    let resizeObserver: ResizeObserver | undefined;
     let gpu: Awaited<ReturnType<typeof init>> | undefined;
 
     void (async () => {
@@ -193,9 +194,19 @@ export function FireFrame() {
         const animationClock = clock(gpu);
 
         if (prefersReducedMotion) {
-          frame(gpu, (currentFrame) => {
-            currentFrame.pass(canvasSurface, fire);
+          const kernel = gpu;
+          const renderStatic = () => {
+            if (disposed) return;
+            frame(kernel, (currentFrame) => {
+              currentFrame.pass(canvasSurface, fire);
+            });
+          };
+          renderStatic();
+          const ro = new ResizeObserver(() => {
+            requestAnimationFrame(renderStatic);
           });
+          ro.observe(canvas);
+          resizeObserver = ro;
         } else {
           loop = frameLoop(gpu, (currentFrame) => {
             fire.set({ params: { time: animationClock.time } });
@@ -212,6 +223,7 @@ export function FireFrame() {
     return () => {
       disposed = true;
       updateColors.current = () => undefined;
+      resizeObserver?.disconnect();
       loop?.stop();
       gpu?.dispose();
     };

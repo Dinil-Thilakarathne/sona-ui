@@ -519,6 +519,14 @@
     "dependencies": ["motion"]
   },
   {
+    "name": "live-activity",
+    "type": "registry:ui",
+    "title": "Live Activity",
+    "description": "A composable activity surface with shared-element transitions, consumer-defined views, and touch expansion gestures.",
+    "files": [{ "path": "registry/sonaui/live-activity/live-activity.tsx", "type": "registry:ui" }],
+    "dependencies": ["motion"]
+  },
+  {
     "name": "spotlight-card",
     "type": "registry:ui",
     "title": "Spotlight Card",
