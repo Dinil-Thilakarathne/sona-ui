@@ -15,7 +15,7 @@ const featured: ComponentShowcaseItem[] = [
   },
   {
     name: "Expanding Action",
-    slug: "exapnding-action",
+    slug: "expanding-action",
     href: "/docs/expanding-action",
     category: "Actions & Inputs",
     video: componentShowcaseVideos["expanding-action"],

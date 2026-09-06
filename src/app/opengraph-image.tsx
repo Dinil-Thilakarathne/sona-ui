@@ -3,7 +3,7 @@ import path from "node:path";
 import { ImageResponse } from "next/og";
 import { SonaSocialImage } from "@/components/social/sona-social-image";
 
-export const alt = "Sona UI — Beautiful interactions, owned by your codebase.";
+export const alt = "Sona UI | Well-crafted animated React components.";
 export const size = {
   width: 1200,
   height: 630,

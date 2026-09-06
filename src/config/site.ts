@@ -1,14 +1,14 @@
 export const SITE_METADATA = {
-  title: "Sona UI - Modern React Component Library",
+  title: "Sona UI | Animated React Components",
   description:
-    "A modern UI component library built with React and TailwindCSS to help you build beautiful and accessible web applications faster.",
+    "Well-crafted animated React components. Thoughtful interactions and visual effects for apps, landing pages, and showcases, with source code you own.",
   keywords: [
     "React",
     "UI Components",
     "TailwindCSS",
     "Component Library",
     "Sona UI",
-    "Modern UI",
+    "Animated React Components",
     "Accessible Web",
   ],
   author: "Dinil Thilakarathne",

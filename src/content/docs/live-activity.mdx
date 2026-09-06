@@ -1,0 +1,64 @@
+---
+title: Live Activity
+slug: live-activity
+component: live-activity
+tags: ["UI", "Activity", "Motion", "Component"]
+---
+
+Keep an ongoing task visible in a compact surface that expands into consumer-defined details and actions. Use it for exports, uploads, or recording sessions.
+
+## Features
+
+- Compose independent compact and expanded views with your own content and styling.
+- Connect corresponding visual elements with matching `Shared` IDs.
+- Expand downward or upward with a start, center, or end anchor.
+- Open and collapse with touch dragging, buttons, or the keyboard.
+- Control expansion externally or use internal state.
+
+## Preview
+
+<ComponentPreview component="live-activity" name="default" />
+
+## Playground
+
+<ComponentPlayground component="live-activity" />
+
+## Installation
+
+<ComponentInstallation component="live-activity" />
+
+## Usage
+
+<ComponentUsage component="live-activity" />
+
+## Composition
+
+`Root` owns expansion and touch interaction. Place one `Surface` inside it, containing one `Compact` and one `Expanded` view. Put a `Trigger` in the compact view and a `Close` or `Handle` in the expanded view. These controls render native buttons; do not nest other buttons or links inside a trigger.
+
+`Shared` renders an inline-block span. Give corresponding visual elements the same `id` in each view. IDs are scoped to their Root. Use one occurrence of an ID per view and avoid nested Shared elements. The component translates each pair between its measured positions and cross-fades the two representations without scaling text. Unmatched elements cross-fade with their view.
+
+Both views remain mounted for measurement. The inactive view is inert and hidden from assistive technology. Each view has its own React subtree, so two copies of an input or video do not share an instance. Lift shared state to the consumer and use unique DOM IDs in each view. Avoid auto-playing media and side effects in hidden content.
+
+## Layout and styling
+
+Size each view with `className` or `style`, such as `className="w-80 p-5"` on Expanded. Keep padding on the views and apply background, radius, and elevation to Surface. Avoid percentage-based view widths: use a fixed or intrinsic width, which is capped to the Root's available width.
+
+Root reserves the compact height. The surface overlays the surrounding layout as it expands. Give its parent enough clear space, or position Root in your application's floating layer. This component does not provide a portal, viewport collision detection, or automatic placement. Avoid clipping ancestors.
+
+`direction="down"` preserves the top edge; `direction="up"` preserves the bottom edge. `align="start"`, `"center"`, or `"end"` sets the horizontal anchor. Direction also reverses the opening and closing touch gestures. Choose a direction with enough room for the expanded content.
+
+## Touch and keyboard
+
+Touch dragging starts on Trigger or Handle. Drag toward the expansion direction to open and in the opposite direction to collapse. The surface follows the finger and settles after release. Cancellation restores the accepted state. Mouse input uses buttons; expanded content retains its normal scrolling and interactions.
+
+Enter and Space activate the buttons. Escape collapses when focus is inside the activity. If focus was inside the outgoing view, it moves into the incoming view; external updates do not pull focus from elsewhere. Keep an explicit collapse control even when gestures are enabled.
+
+## API
+
+<PropTable component="live-activity" />
+
+## Accessibility and motion
+
+Native controls expose expansion state and reference the expanded panel. Consumers provide meaningful activity labels, progress semantics, and polite announcements for meaningful status changes. Avoid announcing every percentage tick. The demo deliberately uses manual lifecycle controls rather than implying a real export is running.
+
+Reduced motion and `motion="none"` apply state changes immediately while preserving gestures and controls. Keyboard activation also switches immediately. One interruptible progress value coordinates the shell, view opacity, and shared positions. The shell animates measured dimensions to preserve text shape; content itself is not scaled.

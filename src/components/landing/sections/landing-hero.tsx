@@ -70,16 +70,15 @@ export function LandingHero() {
           id="landing-title"
           className=" text-balance font-helvetica-neue text-[clamp(2rem,7.2vw,6.75rem)] leading-[.92] font-medium tracking-tight"
         >
-          Beautiful interactions,
+          Well-crafted animated
           <br />
-          owned by your codebase.
+          React components.
         </motion.h1>
         <motion.p
           variants={item}
           className=" max-w-[39rem] text-pretty text-[clamp(1rem,0.94rem+0.35vw,1.2rem)] leading-relaxed text-muted-foreground"
         >
-          Carefully engineered React components, motion primitives, and visual
-          effects installed directly into your project.
+          Thoughtful interactions and visual effects, with source code you own.
         </motion.p>
         <motion.div
           variants={item}

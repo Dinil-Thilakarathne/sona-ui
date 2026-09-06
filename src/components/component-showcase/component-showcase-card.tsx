@@ -2,14 +2,17 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "@/components/common/link";
 import {
   type FocusEvent,
   forwardRef,
   type PointerEvent,
   type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
   useState,
 } from "react";
+import Link from "@/components/common/link";
 import { ComponentShowcaseVideoPlayer } from "./component-showcase-video";
 import type { ComponentShowcaseItem } from "./types";
 
@@ -27,9 +30,36 @@ export const ComponentShowcaseCard = forwardRef<
   ref,
 ) {
   const shouldReduceMotion = useReducedMotion();
+  const card = useRef<HTMLElement>(null);
   const [isActive, setIsActive] = useState(false);
+  const [isNearViewport, setIsNearViewport] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const isVideo = Boolean(item.video && !videoFailed);
+  const setCardRefs = useCallback(
+    (node: HTMLElement | null) => {
+      card.current = node;
+
+      if (typeof ref === "function") {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+    },
+    [ref],
+  );
+
+  useEffect(() => {
+    const currentCard = card.current;
+    if (!currentCard || !isVideo) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsNearViewport(entry.isIntersecting),
+      { rootMargin: "240px 0px" },
+    );
+
+    observer.observe(currentCard);
+    return () => observer.disconnect();
+  }, [isVideo]);
 
   const deactivateWhenLeaving = (event: FocusEvent<HTMLElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
@@ -45,7 +75,7 @@ export const ComponentShowcaseCard = forwardRef<
 
   return (
     <motion.article
-      ref={ref}
+      ref={setCardRefs}
       layout="position"
       initial={shouldReduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1, y: 0 }}
@@ -73,7 +103,7 @@ export const ComponentShowcaseCard = forwardRef<
       <div className="relative flex aspect-[5/3] items-center justify-center overflow-hidden rounded-xl">
         {isVideo && item.video ? (
           <ComponentShowcaseVideoPlayer
-            isActive={autoPlayVideo || isActive}
+            isActive={isNearViewport && (autoPlayVideo || isActive)}
             onError={() => setVideoFailed(true)}
             video={item.video}
           />

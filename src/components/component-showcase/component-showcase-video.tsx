@@ -1,7 +1,7 @@
 "use client";
 
 import { useReducedMotion } from "motion/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ComponentShowcaseVideo } from "./types";
 
 type ComponentShowcaseVideoProps = {
@@ -17,19 +17,33 @@ export function ComponentShowcaseVideoPlayer({
 }: ComponentShowcaseVideoProps) {
   const element = useRef<HTMLVideoElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  const [isDocumentVisible, setIsDocumentVisible] = useState(
+    () =>
+      typeof document === "undefined" || document.visibilityState === "visible",
+  );
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      setIsDocumentVisible(document.visibilityState === "visible");
+    };
+
+    document.addEventListener("visibilitychange", updateVisibility);
+    return () =>
+      document.removeEventListener("visibilitychange", updateVisibility);
+  }, []);
 
   useEffect(() => {
     const currentVideo = element.current;
     if (!currentVideo) return;
 
-    if (isActive && !shouldReduceMotion) {
+    if (isActive && isDocumentVisible && !shouldReduceMotion) {
       void currentVideo.play().catch(() => undefined);
       return;
     }
 
     currentVideo.pause();
     currentVideo.currentTime = 0;
-  }, [isActive, shouldReduceMotion]);
+  }, [isActive, isDocumentVisible, shouldReduceMotion]);
 
   return (
     <video

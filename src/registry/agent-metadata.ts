@@ -32,6 +32,21 @@ export type AgentResourceMetadata = {
  * expanded to the rest of the catalog.
  */
 export const agentResourceMetadata = {
+  "live-activity": {
+    name: "live-activity",
+    title: "Live Activity",
+    category: "components",
+    status: "preview",
+    summary: "A composable ongoing activity surface with compact and expanded views, shared visual identities, and touch gestures.",
+    docsSlug: "live-activity",
+    keywords: ["activity", "progress", "upload", "export", "recording", "shared element", "touch"],
+    useWhen: ["An ongoing upload, export, or recording needs a compact summary and optional details.", "Consumers need to compose both layouts and connect corresponding visual elements."],
+    avoidWhen: ["A toast or simple disclosure is sufficient.", "The surface requires modal focus trapping or automatic viewport collision detection."],
+    capabilities: ["Compound Root, Surface, Compact, Expanded, Shared, Trigger, Close, and Handle API", "Controlled or uncontrolled expansion", "Downward and upward expansion with logical horizontal alignment", "Continuous touch gestures on explicit controls", "Matching Shared IDs scoped to each Root"],
+    accessibility: ["Native buttons expose expanded state and panel association.", "Inactive views remain mounted but are inert and hidden from assistive technology.", "Escape collapses; focus transfers only when it was inside the outgoing view.", "Consumers provide activity announcements, progress semantics, and unique DOM IDs in each view."],
+    motion: { purpose: "Preserve activity identity while the measured shell and shared visual elements move between consumer layouts.", reducedMotion: "Immediately apply expansion changes while retaining touch gestures and explicit controls. Keyboard activation is immediate." },
+    related: ["expanding-action", "accordion", "animated-dialog"],
+  },
   "fluid-tabs": {
     name: "fluid-tabs",
     title: "Fluid Tabs",
