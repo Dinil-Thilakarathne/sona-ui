@@ -11,13 +11,13 @@ export const siteMetaData: Metadata = {
   metadataBase: new URL(SITE_METADATA.siteLink),
 
   alternates: {
-    canonical: SITE_METADATA.siteLink,
+    canonical: "./",
   },
 
   openGraph: {
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
-    url: SITE_METADATA.siteLink,
+    url: "./",
     siteName: SITE_METADATA.siteName,
     locale: "en_US",
     type: "website",
