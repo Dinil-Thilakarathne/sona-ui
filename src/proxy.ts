@@ -24,6 +24,7 @@ export function proxy(request: NextRequest) {
 
   if (pathname.startsWith("/docs/")) {
     const slug = pathname.slice("/docs/".length);
+    if (slug.includes("/")) return NextResponse.next();
     const doc = allDocs.find((item: Doc) => item.slug === slug);
     return doc
       ? markdownResponse(doc.body.raw)

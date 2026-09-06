@@ -725,7 +725,8 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     ],
     render: (v) => (
       <ExpandableTabs
-        value={v.value as string}
+        key={v.value as string}
+        defaultValue={v.value as string}
         tabs={[
           { value: "library", title: "Library", icon: BookOpen },
           { value: "profile", title: "Profile", icon: User },

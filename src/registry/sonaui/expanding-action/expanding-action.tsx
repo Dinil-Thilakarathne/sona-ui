@@ -49,10 +49,10 @@ export interface ExpandingActionProps {
   optionClassName?: string;
 }
 
-const surfaceTransition = {
+const widthSpring = {
   type: "spring",
   stiffness: 260,
-  damping: 22,
+  damping: 48,
   mass: 0.9,
 } as const;
 
@@ -87,9 +87,7 @@ export default function ExpandingAction({
   const isOpen = open ?? internalOpen;
   const previousIsOpen = useRef(isOpen);
   const hasEnabledItem = items.some((item) => !item.disabled);
-  const motionTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : surfaceTransition;
+  const widthTransition = shouldReduceMotion ? { duration: 0 } : widthSpring;
 
   const setOpen = (nextOpen: boolean) => {
     if (open === undefined) setInternalOpen(nextOpen);
@@ -118,7 +116,7 @@ export default function ExpandingAction({
           className,
         )}
         style={tokenStyle}
-        transition={motionTransition}
+        transition={widthTransition}
       >
         <span
           aria-hidden="true"

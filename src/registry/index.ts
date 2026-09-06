@@ -5504,6 +5504,7 @@ export default function Magnetic({
 }: MagneticProps) {
   const [isMouseHovered, setMouseHovered] = useState(false);
   const magneticRef = useRef<HTMLDivElement>(null);
+  const hoveredRef = useRef(false);
   const shouldReduceMotion = useReducedMotion();
 
   const motionX = useMotionValue(0);
@@ -5518,6 +5519,11 @@ export default function Magnetic({
     if (!isMouseHovered || shouldReduceMotion) return;
 
     const calculateMouseDistance = (event: MouseEvent) => {
+      if (!hoveredRef.current) {
+        motionX.set(0);
+        motionY.set(0);
+        return;
+      }
       if (magneticRef.current) {
         const rect = magneticRef.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
@@ -5543,6 +5549,8 @@ export default function Magnetic({
 
     return () => {
       document.removeEventListener("mousemove", calculateMouseDistance);
+      motionX.set(0);
+      motionY.set(0);
     };
   }, [
     isMouseHovered,
@@ -5565,8 +5573,12 @@ export default function Magnetic({
     if (interactionArea === "parent" && magneticRef.current?.parentElement) {
       const parentElement = magneticRef.current.parentElement;
 
-      const handleParentMouseEnter = () => setMouseHovered(true);
+      const handleParentMouseEnter = () => {
+        hoveredRef.current = true;
+        setMouseHovered(true);
+      };
       const handleParentMouseLeave = () => {
+        hoveredRef.current = false;
         setMouseHovered(false);
         motionX.set(0);
         motionY.set(0);
@@ -5584,12 +5596,14 @@ export default function Magnetic({
 
   const handleMouseEnter = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = true;
       setMouseHovered(true);
     }
   };
 
   const handleMouseLeave = () => {
     if (interactionArea === "self") {
+      hoveredRef.current = false;
       setMouseHovered(false);
       motionX.set(0);
       motionY.set(0);
@@ -5627,6 +5641,7 @@ import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   type ReactNode,
+  useEffect,
   useId,
   useRef,
   useState,
@@ -5712,6 +5727,10 @@ export default function FluidTabs({
   );
   const activeValue = value ?? internalValue;
 
+  useEffect(() => {
+    keyboardSelectionRef.current = false;
+  });
+
   return (
     <Tabs.Root
       value={value}
@@ -5721,7 +5740,6 @@ export default function FluidTabs({
         if (typeof nextValue !== "string") return;
         if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
-        keyboardSelectionRef.current = false;
       }}
       className={cn("relative w-fit max-w-full overflow-x-auto", className)}
       style={tokenStyle}
@@ -5743,6 +5761,9 @@ export default function FluidTabs({
               aria-controls={tab.ariaControls}
               onKeyDown={() => {
                 keyboardSelectionRef.current = true;
+              }}
+              onPointerDown={() => {
+                keyboardSelectionRef.current = false;
               }}
               className={(state) =>
                 cn(
@@ -5974,7 +5995,7 @@ export default function DotOrbitShader({
       content: `"use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { createContext, type ReactNode, useContext } from "react";
 
 import { cn } from "@/lib/sona-utils";
@@ -6075,8 +6096,7 @@ export function AccordionRoot({
 }
 
 export interface AccordionItemProps
-  extends Omit<Accordion.Item.Props, "className">,
-    VariantProps<typeof accordionItemVariants> {
+  extends Omit<Accordion.Item.Props, "className"> {
   /** Stable value used to identify the item. */
   value?: string;
   /** Additional classes for the accordion item. */
@@ -7541,7 +7561,8 @@ export default function Marquee({
 
     // Wrap: keep translation within [-segmentSize, 0)
     if (directionSign > 0) {
-      // moving left/up — translate goes negative
+      // moving left/up — translate goes negative (scroll-up flip can drive positive)
+      if (next >= 0) next -= segmentSize;
       if (next <= -segmentSize) next += segmentSize;
     } else {
       // moving right/down — translate goes positive
@@ -7740,7 +7761,7 @@ export default function RippleButton({
   return (
     <button
       className={cn(
-        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100",
+        "relative overflow-hidden rounded-full border border-border bg-background px-6 py-3 leading-[16px] transition-[transform,background-color,border-color] duration-200 ease-out hover:cursor-pointer active:scale-[0.97] motion-reduce:active:scale-100 disabled:pointer-events-none disabled:opacity-50",
         className,
       )}
       disabled={disabled}
@@ -7828,7 +7849,7 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
       content: `"use client";
 
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -7868,11 +7889,23 @@ export default function SpotlightCard({
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
 
+  const [hasMoved, setHasMoved] = useState(false);
+  const [prevDisabled, setPrevDisabled] = useState(disabled);
+  if (prevDisabled !== disabled) {
+    setPrevDisabled(disabled);
+    if (!disabled) {
+      mouseX.set(-spotlightSize);
+      mouseY.set(-spotlightSize);
+      setHasMoved(false);
+    }
+  }
+
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
     if (disabled) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
     mouseY.set(event.clientY - rect.top);
+    if (!hasMoved) setHasMoved(true);
   };
 
   const background = useMotionTemplate\`radial-gradient(\${spotlightSize}px circle at \${mouseX}px \${mouseY}px, \${spotlightColor}, transparent 80%)\`;
@@ -7892,7 +7925,10 @@ export default function SpotlightCard({
       {!disabled && (
         <motion.div
           aria-hidden="true"
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-200 ease-out transition-opacity pointer-events-none"
+          className={cn(
+            "absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-200 ease-out",
+            hasMoved && "group-hover:opacity-100",
+          )}
           style={{ background }}
         />
       )}
@@ -9406,7 +9442,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText as GSAPSplitText } from "gsap/SplitText";
-import { type ReactNode, useRef } from "react";
+import { type ReactNode, useMemo, useRef } from "react";
 
 import { cn } from "@/lib/sona-utils";
 
@@ -9459,6 +9495,13 @@ export interface SplitTextProps {
   markers?: boolean;
 }
 
+const defaultAnimationProps: gsap.TweenVars = {
+  yPercent: 120,
+  rotate: 5,
+  stagger: 0.2,
+  duration: 0.4,
+};
+
 export default function SplitText({
   children,
   className,
@@ -9472,14 +9515,10 @@ export default function SplitText({
 }: SplitTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const defaultAnimationProps: gsap.TweenVars = {
-    yPercent: 120,
-    rotate: 5,
-    stagger: 0.2,
-    duration: 0.4,
-  };
-
-  const mergedAnimationProps = { ...defaultAnimationProps, ...animationProps };
+  const mergedAnimationProps = useMemo(
+    () => ({ ...defaultAnimationProps, ...animationProps }),
+    [animationProps],
+  );
 
   useGSAP(
     () => {
@@ -9544,7 +9583,12 @@ export default function SplitText({
       };
     },
     {
-      dependencies: [{ ...mergedAnimationProps }, variant, mask, scrollTrigger],
+      dependencies: [
+        JSON.stringify(mergedAnimationProps),
+        variant,
+        mask,
+        scrollTrigger,
+      ],
       scope: containerRef,
       revertOnUpdate: true,
     },
@@ -9568,7 +9612,7 @@ export default function SplitText({
 
 import { Tabs } from "@base-ui/react/tabs";
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
-import { type ReactNode, useEffect, useId, useState } from "react";
+import { type ReactNode, useId, useState } from "react";
 
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
@@ -9617,15 +9661,12 @@ export default function AnimatedTabs({
   listClassName,
 }: AnimatedTabsProps) {
   const fallbackValue = tabs.find((tab) => !tab.disabled)?.value;
-  const [activeValue, setActiveValue] = useState(
-    value ?? defaultValue ?? fallbackValue,
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? fallbackValue,
   );
+  const activeValue = value ?? internalValue;
   const layoutId = useId();
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (value !== undefined) setActiveValue(value);
-  }, [value]);
 
   return (
     <Tabs.Root
@@ -9634,7 +9675,7 @@ export default function AnimatedTabs({
       orientation="horizontal"
       onValueChange={(nextValue) => {
         if (typeof nextValue !== "string") return;
-        setActiveValue(nextValue);
+        if (value === undefined) setInternalValue(nextValue);
         onValueChange?.(nextValue);
       }}
       className={cn("relative w-fit overflow-x-auto border-b p-2", className)}
@@ -10135,9 +10176,11 @@ export default function FluidSlider({
   const handlePointerMove = (event: PointerEvent) => {
     if (!pointerActiveRef.current || disabled) return;
 
-    // Once handle movement passes the threshold, stop any pending tap glide so
-    // the boundary remains locked 1:1 to the pointer.
+    // Once the indicator crosses the drag threshold, stop any pending tap
+    // glide so the boundary stays locked 1:1 to the pointer. A surface press
+    // is a positional command, so its glide must run to completion.
     if (
+      !trackPressRef.current &&
       !dragMovedRef.current &&
       Math.abs(event.clientX - pointerStartXRef.current) > 8
     ) {
@@ -11078,6 +11121,7 @@ const ActivityGraph = forwardRef<HTMLDivElement, ActivityGraphProps>(
         weekIndex,
       }));
       const months = monthCandidates.filter((month, index) => {
+        if (index === 0) return true;
         const nextMonth = monthCandidates[index + 1];
         return !nextMonth || nextMonth.weekIndex - month.weekIndex >= 2;
       });
@@ -11673,7 +11717,7 @@ export default function ExpandableTabs({
       }}
       className={className}
     >
-      <MotionConfig transition={transition}>
+      <MotionConfig {...motionConfig} transition={transition}>
         <Tabs.List
           aria-label={ariaLabel}
           className={cn(
@@ -11787,10 +11831,10 @@ export interface ExpandingActionProps {
   optionClassName?: string;
 }
 
-const surfaceTransition = {
+const widthSpring = {
   type: "spring",
   stiffness: 260,
-  damping: 22,
+  damping: 48,
   mass: 0.9,
 } as const;
 
@@ -11825,9 +11869,7 @@ export default function ExpandingAction({
   const isOpen = open ?? internalOpen;
   const previousIsOpen = useRef(isOpen);
   const hasEnabledItem = items.some((item) => !item.disabled);
-  const motionTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : surfaceTransition;
+  const widthTransition = shouldReduceMotion ? { duration: 0 } : widthSpring;
 
   const setOpen = (nextOpen: boolean) => {
     if (open === undefined) setInternalOpen(nextOpen);
@@ -11856,7 +11898,7 @@ export default function ExpandingAction({
           className,
         )}
         style={tokenStyle}
-        transition={motionTransition}
+        transition={widthTransition}
       >
         <span
           aria-hidden="true"
@@ -12405,6 +12447,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
+import { cn } from "@/lib/sona-utils";
 import { motionTransition } from "@/lib/sona-motion";
 
 function useMediaQuery(query: string) {
@@ -12440,6 +12483,11 @@ export default function LinkPreview({
   link,
   text,
   showIcon = true,
+  className,
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
   ...linkProps
 }: LinkPreviewProps) {
   // scroll: true keeps viewport coordinates fresh while the page scrolls
@@ -12453,15 +12501,26 @@ export default function LinkPreview({
     <>
       <a
         href={link}
-        className="inline-flex relative items-center underline underline-offset-3 cursor-pointer"
-        onMouseEnter={() => {
+        className={cn(
+          "inline-flex relative items-center underline underline-offset-3 cursor-pointer",
+          className,
+        )}
+        onMouseEnter={(e) => {
+          onMouseEnter?.(e);
           if (desktop) setIsHover(true);
         }}
-        onMouseLeave={() => setIsHover(false)}
-        onFocus={() => {
+        onMouseLeave={(e) => {
+          onMouseLeave?.(e);
+          setIsHover(false);
+        }}
+        onFocus={(e) => {
+          onFocus?.(e);
           if (desktop) setIsHover(true);
         }}
-        onBlur={() => setIsHover(false)}
+        onBlur={(e) => {
+          onBlur?.(e);
+          setIsHover(false);
+        }}
         ref={containerRef}
         {...linkProps}
       >
@@ -12570,6 +12629,10 @@ export default function StaggerText({
     );
   }
 
+  const characters = [...new Intl.Segmenter().segment(text)].map(
+    (segment) => segment.segment,
+  );
+
   return (
     <Tag
       className={cn("overflow-clip tracking-wide select-text", className)}
@@ -12580,7 +12643,7 @@ export default function StaggerText({
       }}
       {...props}
     >
-      {text.split("").map((char, i) => {
+      {characters.map((char, i) => {
         const delay = Math.abs(activeIndex - i);
         return (
           <StaggerTextItem
@@ -13219,6 +13282,7 @@ export default function HoldToDeleteButton({
       onKeyUp={(e) => {
         if (e.key === " " || e.key === "Enter") cancelHold();
       }}
+      onBlur={cancelHold}
     >
       <span className="relative flex items-center justify-center gap-2">
         {renderVisualContent()}
