@@ -10911,9 +10911,7 @@ export default function ExpandingAction({
   const isOpen = open ?? internalOpen;
   const previousIsOpen = useRef(isOpen);
   const hasEnabledItem = items.some((item) => !item.disabled);
-  const widthTransition = shouldReduceMotion
-    ? { duration: 0 }
-    : widthSpring;
+  const widthTransition = shouldReduceMotion ? { duration: 0 } : widthSpring;
 
   const setOpen = (nextOpen: boolean) => {
     if (open === undefined) setInternalOpen(nextOpen);
