@@ -6,6 +6,8 @@ import {
   Tick02Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { Share } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
 import { useCopyToClipboard } from "@/components/copy-button/copy-button";
 import { cn } from "@/lib/utils";
@@ -118,21 +120,110 @@ export function DocsCopyPage({
   className,
 }: DocsCopyPageProps) {
   const { copied, copy } = useCopyToClipboard();
+  const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const shareText = `Check out ${page.split("\n")[0]?.replace(/^#\s*/, "") ?? "this documentation"} on Sona UI`;
+  const shareItems = [
+    {
+      key: "link",
+      label: "Copy Link",
+      href: `javascript:navigator.clipboard.writeText('${url}')`,
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="lucide lucide-link size-4"
+          aria-hidden="true"
+        >
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+        </svg>
+      ),
+    },
+    {
+      key: "x",
+      label: "Share on X",
+      href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`,
+      icon: (
+        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-4">
+          <path
+            d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"
+            fill="currentColor"
+          />
+        </svg>
+      ),
+    },
+    {
+      key: "linkedin",
+      label: "Share on LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+      icon: (
+        <svg aria-hidden="true" viewBox="0 0 256 256" className="size-4">
+          <path
+            d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453"
+            fill="currentColor"
+          />
+        </svg>
+      ),
+    },
+    {
+      key: "native",
+      label: "More sharing options",
+      href: "",
+      icon: <Share aria-hidden="true" className="size-4" />,
+    },
+  ];
 
   return (
-    <div className={cn("relative flex w-fit", className)}>
+    <div className={cn("relative flex w-fit gap-2", className)}>
       <div className="flex items-stretch rounded-lg bg-secondary text-xs lg:text-sm">
         <button
           type="button"
           onClick={() => copy(page)}
-          className="flex h-8 items-center gap-1.5 rounded-l-lg px-2.5 text-muted-foreground transition-colors hover:text-foreground hover:cursor-pointer"
+          aria-label={copied ? "Copied to clipboard" : "Copy page"}
+          className="flex h-8 items-center gap-1.5 rounded-l-lg px-2.5 text-muted-foreground transition-colors hover:cursor-pointer hover:text-foreground"
         >
-          <HugeiconsIcon
-            icon={copied ? Tick02Icon : Copy01Icon}
-            strokeWidth={2}
-            className={cn("size-3.5 lg:size-4", copied && "text-green-500")}
-          />
+          <AnimatePresence initial={false} mode="sync">
+            <motion.span
+              key={copied ? "copied" : "copy"}
+              aria-hidden="true"
+              initial={
+                reduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
+              }
+              animate={
+                reduceMotion
+                  ? { opacity: 1 }
+                  : { opacity: 1, scale: 1, filter: "blur(0px)" }
+              }
+              exit={
+                reduceMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
+              }
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
+              }
+              className="flex items-center justify-center"
+            >
+              <HugeiconsIcon
+                icon={copied ? Tick02Icon : Copy01Icon}
+                strokeWidth={2}
+                className={cn("size-3.5 lg:size-4", copied && "text-green-500")}
+              />
+            </motion.span>
+          </AnimatePresence>
           Copy Page
         </button>
         <span
@@ -140,14 +231,11 @@ export function DocsCopyPage({
           className="my-1.5 w-px self-stretch bg-foreground/10"
         />
         <AnimatedDropdown open={open} onOpenChange={setOpen}>
-          <AnimatedDropdownTrigger className="flex h-8 items-center rounded-l-none rounded-r-lg px-1.5 text-muted-foreground bg-transparent hover:bg-transparent hover:text-foreground transition-colors hover:cursor-pointer data-[popup-open]:bg-transparent">
+          <AnimatedDropdownTrigger className="group flex h-8 items-center rounded-l-none rounded-r-lg px-1.5 text-muted-foreground bg-transparent hover:bg-transparent hover:text-foreground  hover:cursor-pointer data-[popup-open]:bg-transparent">
             <HugeiconsIcon
               icon={ArrowDown01Icon}
               strokeWidth={2}
-              className={cn(
-                "size-4 transition-transform duration-200",
-                open && "rotate-180",
-              )}
+              className={cn("size-4 ", open && "rotate-180")}
             />
           </AnimatedDropdownTrigger>
           <AnimatedDropdownContent align="end" className="w-52">
@@ -171,6 +259,39 @@ export function DocsCopyPage({
           </AnimatedDropdownContent>
         </AnimatedDropdown>
       </div>
+      <AnimatedDropdown open={shareOpen} onOpenChange={setShareOpen}>
+        <AnimatedDropdownTrigger
+          aria-label="Share this page"
+          className="flex size-8 items-center justify-center rounded-lg bg-secondary text-muted-foreground transition-none hover:bg-secondary hover:text-foreground data-[popup-open]:bg-secondary p-2"
+        >
+          <Share className="" aria-hidden="true" />
+        </AnimatedDropdownTrigger>
+        <AnimatedDropdownContent align="end" className="w-44">
+          {shareItems.map((item) => (
+            <AnimatedDropdownItem
+              key={item.key}
+              onClick={() => {
+                if (item.key === "native" && navigator.share) {
+                  void navigator.share({
+                    title: shareText,
+                    text: shareText,
+                    url,
+                  });
+                } else if (item.href) {
+                  window.open(item.href, "_blank", "noopener,noreferrer");
+                }
+                setShareOpen(false);
+              }}
+              className="text-xs lg:text-sm *:flex *:items-center *:gap-2"
+            >
+              {item.icon}
+              <span className="text-ellipsis text-nowrap whitespace-nowrap overflow-hidden max-w-[14ch]">
+                {item.label}
+              </span>
+            </AnimatedDropdownItem>
+          ))}
+        </AnimatedDropdownContent>
+      </AnimatedDropdown>
     </div>
   );
 }

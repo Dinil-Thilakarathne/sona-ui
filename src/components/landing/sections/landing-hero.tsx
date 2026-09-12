@@ -53,7 +53,8 @@ export function LandingHero() {
 
   return (
     <section
-      className="relative isolate grid min-h-[calc(100svh-var(--spacing-header-height))] place-items-center overflow-hidden px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
+      className="site-grid-section relative isolate grid min-h-[calc(100svh-var(--spacing-header-height))] place-items-center overflow-hidden px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
+      data-boundary="both"
       aria-labelledby="landing-title"
       onPointerEnter={moveLight}
       onPointerMove={moveLight}
@@ -68,7 +69,7 @@ export function LandingHero() {
         <motion.h1
           variants={item}
           id="landing-title"
-          className=" text-balance font-helvetica-neue text-[clamp(2rem,7.2vw,6.75rem)] leading-[.92] font-medium tracking-tight"
+          className=" text-balance font-helvetica-neue text-[clamp(2rem,7.2vw,5.75rem)] leading-[.92] font-medium tracking-tight"
         >
           Well-crafted animated
           <br />

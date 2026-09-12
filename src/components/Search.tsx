@@ -71,21 +71,17 @@ export function Search({ compact = false }: { compact?: boolean }) {
         aria-label={compact ? "Search documentation" : undefined}
         title={compact ? "Search documentation" : undefined}
         className={cn(
-          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:cursor-pointer hover:text-accent-foreground bg-transparent hover:bg-accent rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
+          "items-center font-medium text-muted-foreground text-sm whitespace-nowrap hover:cursor-pointer hover:text-accent-foreground bg-transparent hover:bg-secondary rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors",
           compact
-            ? "inline-flex size-9 justify-center"
+            ? "inline-flex gap-2 justify-center px-2 py-1.5 h-9"
             : "hidden lg:inline-flex gap-2 px-3 py-1.5",
         )}
       >
         <SearchIcon className="size-4" />
-        {!compact && (
-          <>
-            <span>Search documentation...</span>
-            <kbd className="flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted rounded pointer-events-none select-none">
-              <span className="text-xs">{shortcutModifier}</span>K
-            </kbd>
-          </>
-        )}
+        {!compact && <span>Search documentation...</span>}
+        <kbd className="hidden lg:flex gap-1 items-center px-1.5 h-5 font-medium font-mono text-[10px] text-muted-foreground bg-muted rounded pointer-events-none select-none">
+          <span className="text-xs">{shortcutModifier}</span>K
+        </kbd>
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -112,7 +108,7 @@ export function Search({ compact = false }: { compact?: boolean }) {
                 className="flex h-11 w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed"
               />
             </div>
-            <CommandList className="max-h-[320px] overflow-x-hidden overflow-y-auto p-2">
+            <CommandList className="apple-scrollbar max-h-[320px] overflow-x-hidden overflow-y-auto p-2">
               <CommandEmpty className="py-6 text-center text-muted-foreground text-sm">
                 No results found.
               </CommandEmpty>

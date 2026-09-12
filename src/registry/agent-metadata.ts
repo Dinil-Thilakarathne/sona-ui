@@ -32,19 +32,225 @@ export type AgentResourceMetadata = {
  * expanded to the rest of the catalog.
  */
 export const agentResourceMetadata = {
+  "morph-surface": {
+    name: "morph-surface",
+    title: "Morph Surface",
+    category: "foundations",
+    status: "preview",
+    summary:
+      "An unstyled layout primitive that preserves one surface while switching between differently sized consumer-owned views.",
+    docsSlug: "morph-surface",
+    keywords: [
+      "morph",
+      "surface",
+      "layout",
+      "resize",
+      "continuity",
+      "primitive",
+    ],
+    useWhen: [
+      "Two or more interface states should feel like one surface changing shape rather than separate panels appearing and disappearing.",
+      "The consumer needs to retain ownership of content, styling, state, focus behavior, and domain actions.",
+    ],
+    avoidWhen: [
+      "The states do not share a spatial identity, such as navigation between unrelated pages.",
+      "A semantic disclosure, dialog, tooltip, or menu primitive is required instead of layout continuity alone.",
+    ],
+    capabilities: [
+      "Single persistent surface API",
+      "Measured center-origin width and height transitions",
+      "One persistent content wrapper with state-driven consumer content",
+      "Consumer-owned content and visual treatment",
+      "Configurable surface transition, content transition, scale, and origin",
+      "System, forced, or disabled reduced-motion behavior",
+      "State exposed through data attributes",
+    ],
+    accessibility: [
+      "Follows prefers-reduced-motion by default.",
+      "Only the consumer's current content is rendered inside the surface.",
+      "Consumers remain responsible for focus restoration, labels, and meaningful state announcements.",
+    ],
+    motion: {
+      purpose:
+        "Preserve spatial continuity by growing and shrinking one surface and its changing content around a shared transform origin.",
+      reducedMotion:
+        "Apply the active view and its dimensions immediately without a layout transition.",
+    },
+    related: ["schedule-chip", "live-activity", "expanding-action"],
+  },
+  "floating-viewer": {
+    name: "floating-viewer",
+    title: "Floating Viewer",
+    category: "components",
+    status: "preview",
+    summary:
+      "A persistent in-page media surface that can detach into a bounded, corner-snapping floating viewer without restarting its content.",
+    docsSlug: "floating-viewer",
+    keywords: [
+      "media",
+      "video",
+      "picture in picture",
+      "floating",
+      "tutorial",
+      "reference",
+    ],
+    useWhen: [
+      "Reference media should remain visible while the user works elsewhere on the same page.",
+      "A single media instance must survive transitions between inline and floating positions.",
+    ],
+    avoidWhen: [
+      "The media should continue outside the current browser tab or page, which requires the browser Picture-in-Picture API.",
+      "The interface needs multiple independently managed floating windows.",
+    ],
+    capabilities: [
+      "Automatic viewport-based detachment",
+      "Explicit float, move, restore, and close controls",
+      "Pointer dragging with nearest-corner snapping",
+      "Viewport-bound positioning and resize handling",
+      "Persistent child content without remounting",
+    ],
+    accessibility: [
+      "Every drag outcome is available through visible buttons.",
+      "The floating surface is exposed as a labeled region.",
+      "Restore brings the inline origin back into view.",
+      "Consumers retain responsibility for accessible media controls and captions.",
+    ],
+    motion: {
+      purpose:
+        "Preserve the spatial relationship between inline media and its temporary floating position.",
+      reducedMotion:
+        "Apply detach, restore, and corner changes immediately without spring movement or smooth scrolling.",
+    },
+    related: ["lightbox", "live-activity", "animated-dialog"],
+  },
+  "schedule-chip": {
+    name: "schedule-chip",
+    title: "Schedule Chip",
+    category: "components",
+    status: "preview",
+    summary:
+      "A readable schedule summary that expands in place into a reversible date, time, and timezone editing transaction.",
+    docsSlug: "schedule-chip",
+    keywords: [
+      "schedule",
+      "date",
+      "time",
+      "timezone",
+      "reminder",
+      "publishing",
+    ],
+    useWhen: [
+      "A schedule should be editable directly from its readable summary.",
+      "People need to reschedule a reminder, post, or appointment without leaving the current context.",
+    ],
+    avoidWhen: [
+      "The workflow needs a full calendar engine or recurring schedule builder.",
+      "A static date label or a single native date input is sufficient.",
+    ],
+    capabilities: [
+      "In-place summary-to-editor morph",
+      "Separate committed and draft schedule values",
+      "Consumer-defined presets, formatting, validation, and async persistence",
+      "Explicit clear, cancel, and apply actions",
+    ],
+    accessibility: [
+      "The compact state is a native button with a descriptive accessible label.",
+      "The editor labels date, time, and timezone separately and announces validation or persistence errors.",
+      "Escape cancels the draft and focus returns to the compact trigger.",
+    ],
+    motion: {
+      purpose:
+        "Keep the readable schedule connected to its editing controls as one surface expands and contracts.",
+      reducedMotion:
+        "Replace geometry and content animation with immediate state changes while retaining focus management and feedback.",
+    },
+    related: ["expanding-action", "animated-dialog", "assignment-cluster"],
+  },
+  chip: {
+    name: "chip",
+    title: "Chip",
+    category: "foundations",
+    status: "stable",
+    summary:
+      "A compact, noninteractive annotation for labels, categories, and semantic status.",
+    docsSlug: "chip",
+    keywords: ["chip", "badge", "tag", "status", "label"],
+    useWhen: [
+      "A compact status, category, or metadata label needs a clear semantic tone.",
+      "A label needs optional icon content without becoming a button or filter control.",
+    ],
+    avoidWhen: [
+      "The label needs click, selection, removal, or keyboard interaction semantics.",
+      "A full alert, message, or progress indicator would better communicate the state.",
+    ],
+    capabilities: [
+      "Neutral, success, warning, and danger semantic tones",
+      "Soft, solid, and outline surface variants",
+      "Composable icon and label slots",
+    ],
+    accessibility: [
+      "Renders as a noninteractive span so it does not enter the tab order.",
+      "Semantic tone is paired with text or optional icon content rather than color alone.",
+    ],
+    motion: {
+      purpose:
+        "Remain stable metadata so repeated status labels do not compete with the surrounding content.",
+      reducedMotion:
+        "Uses no motion, so its meaning and layout remain unchanged when reduced motion is preferred.",
+    },
+    related: ["button", "schedule-chip", "animated-switch"],
+  },
+  "assignment-cluster": catalogEntry(
+    "assignment-cluster",
+    "Assignment Cluster",
+    "components",
+    "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
+    ["assignment", "people picker", "reviewers"],
+  ),
   "live-activity": {
     name: "live-activity",
     title: "Live Activity",
     category: "components",
     status: "preview",
-    summary: "A composable ongoing activity surface with compact and expanded views, shared visual identities, and touch gestures.",
+    summary:
+      "A composable ongoing activity surface with compact and expanded views, shared visual identities, and touch gestures.",
     docsSlug: "live-activity",
-    keywords: ["activity", "progress", "upload", "export", "recording", "shared element", "touch"],
-    useWhen: ["An ongoing upload, export, or recording needs a compact summary and optional details.", "Consumers need to compose both layouts and connect corresponding visual elements."],
-    avoidWhen: ["A toast or simple disclosure is sufficient.", "The surface requires modal focus trapping or automatic viewport collision detection."],
-    capabilities: ["Compound Root, Surface, Compact, Expanded, Shared, Trigger, Close, and Handle API", "Controlled or uncontrolled expansion", "Downward and upward expansion with logical horizontal alignment", "Continuous touch gestures on explicit controls", "Matching Shared IDs scoped to each Root"],
-    accessibility: ["Native buttons expose expanded state and panel association.", "Inactive views remain mounted but are inert and hidden from assistive technology.", "Escape collapses; focus transfers only when it was inside the outgoing view.", "Consumers provide activity announcements, progress semantics, and unique DOM IDs in each view."],
-    motion: { purpose: "Preserve activity identity while the measured shell and shared visual elements move between consumer layouts.", reducedMotion: "Immediately apply expansion changes while retaining touch gestures and explicit controls. Keyboard activation is immediate." },
+    keywords: [
+      "activity",
+      "progress",
+      "upload",
+      "export",
+      "recording",
+      "shared element",
+      "touch",
+    ],
+    useWhen: [
+      "An ongoing upload, export, or recording needs a compact summary and optional details.",
+      "Consumers need to compose both layouts and connect corresponding visual elements.",
+    ],
+    avoidWhen: [
+      "A toast or simple disclosure is sufficient.",
+      "The surface requires modal focus trapping or automatic viewport collision detection.",
+    ],
+    capabilities: [
+      "Compound Root, Surface, Compact, Expanded, Shared, Trigger, Close, and Handle API",
+      "Controlled or uncontrolled expansion",
+      "Downward and upward expansion with logical horizontal alignment",
+      "Continuous touch gestures on explicit controls",
+      "Matching Shared IDs scoped to each Root",
+    ],
+    accessibility: [
+      "Native buttons expose expanded state and panel association.",
+      "Inactive views remain mounted but are inert and hidden from assistive technology.",
+      "Escape collapses; focus transfers only when it was inside the outgoing view.",
+      "Consumers provide activity announcements, progress semantics, and unique DOM IDs in each view.",
+    ],
+    motion: {
+      purpose:
+        "Preserve activity identity while the measured shell and shared visual elements move between consumer layouts.",
+      reducedMotion:
+        "Immediately apply expansion changes while retaining touch gestures and explicit controls. Keyboard activation is immediate.",
+    },
     related: ["expanding-action", "accordion", "animated-dialog"],
   },
   "fluid-tabs": {
@@ -200,8 +406,8 @@ Object.assign(agentResourceMetadata, {
     "animated-switch",
     "Animated Switch",
     "components",
-    "An iOS-inspired switch for immediate binary settings with tactile press feedback and optional thumb drag.",
-    ["switch", "toggle", "boolean setting", "drag interaction"],
+    "An iOS-inspired switch for immediate binary settings with tactile press feedback, blocked-state cues, and optional thumb drag.",
+    ["switch", "toggle", "boolean setting", "drag interaction", "error state"],
   ),
   button: catalogEntry(
     "button",
@@ -435,6 +641,45 @@ Object.assign(agentResourceMetadata, {
         "Use a cross-fade instead of the thumbnail-to-preview spatial transition.",
     },
   },
+  "swipe-action-row": {
+    name: "swipe-action-row",
+    title: "Swipe Action Row",
+    category: "components",
+    status: "preview",
+    summary:
+      "A coordinated list interaction that reveals actions on either side through pointer, touch, or keyboard input.",
+    docsSlug: "swipe-action-row",
+    keywords: ["swipe", "row", "archive", "list action", "gesture"],
+    useWhen: [
+      "A list needs a fast contextual action while preserving the full row for primary content.",
+      "Touch and pointer users benefit from direct manipulation alongside a visible action alternative.",
+    ],
+    avoidWhen: [
+      "Swiping would be the only way to discover or activate the action.",
+      "The row needs list reordering in the same horizontal gesture region.",
+    ],
+    capabilities: [
+      "Compound Root, Item, Actions, Action, and Content API",
+      "Sibling coordination with one open row at a time",
+      "Simultaneous left and right action strips",
+      "Arrow-key opening plus Escape and outside-click dismissal",
+      "Optional full-swipe ownership on one action per side",
+      "Distance and projected-velocity settling",
+      "Consumer-owned action and list data",
+    ],
+    accessibility: [
+      "Closed strips are inert and do not expose hidden actions to keyboard or assistive technology.",
+      "Arrow keys open focused rows, while Escape and outside click close them.",
+      "Destructive actions require confirmation or a reversible undo flow.",
+    ],
+    motion: {
+      purpose:
+        "Keep the foreground attached to the pointer, project release velocity, and let an armed action take over its side.",
+      reducedMotion:
+        "Apply open, close, and commit states immediately while preserving direct pointer tracking and keyboard alternatives.",
+    },
+    related: ["smart-overflow", "hold-to-delete-button", "animated-dropdown"],
+  },
   "section-rail": {
     name: "section-rail",
     title: "Section Rail",
@@ -539,6 +784,13 @@ Object.assign(agentResourceMetadata, {
     "A pointer-driven sequence of images for decorative cursor-following moments on fine pointers.",
     ["image", "cursor", "trail"],
   ),
+  "code-block": catalogEntry(
+    "code-block",
+    "Code Block",
+    "components",
+    "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
+    ["code", "syntax highlighting", "developer tools"],
+  ),
   "spotlight-card": catalogEntry(
     "spotlight-card",
     "Spotlight Card",
@@ -641,4 +893,11 @@ Object.assign(agentResourceMetadata, {
     },
     related: ["circular-dock-menu", "animated-dropdown", "smart-overflow"],
   },
+  stepper: catalogEntry(
+    "stepper",
+    "Stepper",
+    "components",
+    "A composable, accessible progression control for a small ordered workflow with linked step navigation and content panels.",
+    ["stepper", "steps", "workflow", "progress", "installation"],
+  ),
 });

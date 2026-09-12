@@ -49,9 +49,17 @@ try {
       continue;
     }
 
-    const { violations } = await new AxeBuilder({ page })
-      .include("[data-component-preview]")
-      .analyze();
+    const axe = new AxeBuilder({ page }).include("[data-component-preview]");
+
+    // The component intentionally uses mix-blend-mode for its text and
+    // progress layer. Axe evaluates the unblended source colors and cannot
+    // calculate the final rendered contrast, so this one visual exception is
+    // limited to the component that owns the blend treatment.
+    if (slug === "hold-to-delete-button") {
+      axe.disableRules(["color-contrast"]);
+    }
+
+    const { violations } = await axe.analyze();
     results.push({ slug, url, violations });
     await page.close();
   }

@@ -311,13 +311,17 @@ function Item({
         destructive && "text-destructive hover:border-destructive/45",
         className,
       )}
-      initial={{
-        opacity: 0,
-        scale: 0.72,
-        filter: "blur(4px)",
-        x: __anchor.x - 22,
-        y: __anchor.y - 22,
-      }}
+      initial={
+        reduce
+          ? false
+          : {
+              opacity: 0,
+              scale: 0.72,
+              filter: "blur(4px)",
+              x: __anchor.x - 22,
+              y: __anchor.y - 22,
+            }
+      }
       animate={{
         opacity: 1,
         scale: 1,
@@ -334,14 +338,18 @@ function Item({
               delay: index * 0.035,
             },
       }}
-      exit={{
-        opacity: 0,
-        scale: 0.72,
-        filter: "blur(4px)",
-        x: __anchor.x - 22,
-        y: __anchor.y - 22,
-        transition: reduce ? { duration: 0 } : { duration: 0.16 },
-      }}
+      exit={
+        reduce
+          ? { opacity: 0, transition: { duration: 0 } }
+          : {
+              opacity: 0,
+              scale: 0.72,
+              filter: "blur(4px)",
+              x: __anchor.x - 22,
+              y: __anchor.y - 22,
+              transition: { duration: 0.16 },
+            }
+      }
       whileHover={reduce ? undefined : { scale: 1.06 }}
       whileTap={reduce ? undefined : { scale: 0.94 }}
       onClick={(event) => {

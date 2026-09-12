@@ -1,6 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
+import { useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   createContext,
@@ -106,6 +107,7 @@ export function FluidTooltipGroup({
   className,
 }: FluidTooltipGroupProps) {
   const handle = useMemo(() => Tooltip.createHandle<FluidTooltipPayload>(), []);
+  const shouldReduceMotion = useReducedMotion();
   const previousCenter = useRef<{ x: number; y: number } | null>(null);
   const [direction, setDirection] = useState<FluidTooltipDirection>(0);
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
@@ -178,7 +180,10 @@ export function FluidTooltipGroup({
               <Tooltip.Positioner
                 align={payload.align}
                 className={cn(
-                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
+                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)]",
+                  shouldReduceMotion
+                    ? "transition-none"
+                    : "transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none",
                 )}
                 collisionPadding={8}
                 side={payload.side}
@@ -187,7 +192,10 @@ export function FluidTooltipGroup({
                 <Tooltip.Popup
                   className={cn(
                     "relative origin-[var(--transform-origin)] rounded-lg bg-[var(--fluid-tooltip-surface)] text-[12px] font-medium leading-none text-[var(--fluid-tooltip-label)] shadow-[0_8px_24px_-8px_var(--fluid-tooltip-shadow)]",
-                    "h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-[var(--available-width)] transition-[width,height,transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0 data-instant:transition-none motion-reduce:transition-none",
+                    "h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-[var(--available-width)]",
+                    shouldReduceMotion
+                      ? "transition-none data-ending-style:opacity-0 data-starting-style:scale-100 data-starting-style:translate-y-0 data-starting-style:opacity-100"
+                      : "transition-[width,height,transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0 data-instant:transition-none",
                     className,
                     payload.contentClassNameRef.current,
                   )}
@@ -197,12 +205,9 @@ export function FluidTooltipGroup({
                     className={cn(
                       "relative box-border h-full w-full overflow-clip px-2 py-1",
                       "[&_[data-previous]]:w-[calc(var(--popup-width)-1rem)] [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-0 [&_[data-previous]]:pointer-events-none [&_[data-previous]]:transition-none",
-                      "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[200ms,120ms]",
-                      "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-2",
-                      "data-[activation-direction~='up']:[&_[data-current][data-starting-style]]:-translate-y-2 data-[activation-direction~='down']:[&_[data-current][data-starting-style]]:translate-y-2",
-                      "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-2",
-                      "data-[activation-direction~='up']:[&_[data-previous][data-ending-style]]:translate-y-2 data-[activation-direction~='down']:[&_[data-previous][data-ending-style]]:-translate-y-2",
-                      "[[data-instant]_&_[data-previous]]:transition-none [[data-instant]_&_[data-current]]:transition-none motion-reduce:[&_[data-current]]:transition-none motion-reduce:[&_[data-previous]]:transition-none",
+                      shouldReduceMotion
+                        ? "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:translate-y-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-none"
+                        : "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[200ms,120ms] data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-2 data-[activation-direction~='up']:[&_[data-current][data-starting-style]]:-translate-y-2 data-[activation-direction~='down']:[&_[data-current][data-starting-style]]:translate-y-2 data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-2 data-[activation-direction~='up']:[&_[data-previous][data-ending-style]]:translate-y-2 data-[activation-direction~='down']:[&_[data-previous][data-ending-style]]:-translate-y-2 [[data-instant]_&_[data-previous]]:transition-none [[data-instant]_&_[data-current]]:transition-none",
                     )}
                   >
                     {payload.contentRef.current}

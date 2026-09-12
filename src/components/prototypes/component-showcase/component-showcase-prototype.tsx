@@ -2,8 +2,8 @@
 
 import { ArrowUpRight, Play } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import Link from "@/components/common/link";
 import { useMemo, useState } from "react";
+import Link from "@/components/common/link";
 import { componentNavigationLinks } from "@/config/components";
 import { exampleRegistry } from "@/registry";
 

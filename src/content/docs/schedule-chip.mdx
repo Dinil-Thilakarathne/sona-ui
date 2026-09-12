@@ -1,0 +1,40 @@
+---
+title: Schedule Chip
+slug: schedule-chip
+component: schedule-chip
+tags: ["UI", "Forms", "Motion", "Component"]
+---
+
+Use Schedule Chip when a date and time should remain readable until someone chooses to edit it. The compact summary expands into one connected editor with presets, precise fields, validation, and async persistence.
+
+## Preview
+
+<ComponentPreview component="schedule-chip" name="default" />
+
+## Installation
+
+<ComponentInstallation component="schedule-chip" />
+
+## Usage
+
+<ComponentUsage component="schedule-chip" />
+
+## Props
+
+<PropTable component="schedule-chip" />
+
+## Interaction
+
+Opening the chip copies the committed value into a draft. Cancel, Escape, and outside interaction discard that draft. Apply validates the value, calls `onApply`, and commits through `onValueChange` only after persistence succeeds.
+
+## Accessibility
+
+The summary is a labeled native button. The editor exposes a dialog, native form fields, validation feedback, and explicit Clear, Cancel, and Apply actions. Focus returns to the summary when editing ends.
+
+## Motion
+
+The summary and editor share one surface so the change remains connected to its source. Reduced-motion preferences replace the size and content transition with an immediate state change.
+
+## Styling
+
+Use the formatting callbacks to match your product's date language. Keep the editor compact and provide only the timezone and preset options relevant to the task.

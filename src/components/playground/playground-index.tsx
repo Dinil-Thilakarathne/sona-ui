@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "@/components/common/link";
 import { useMemo, useState } from "react";
+import Link from "@/components/common/link";
 
 function formatName(value: string) {
   return value

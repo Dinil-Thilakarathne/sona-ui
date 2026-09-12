@@ -1,0 +1,75 @@
+---
+title: Swipe Action Row
+slug: swipe-action-row
+component: swipe-action-row
+tags: ["UI", "Gesture", "Action", "Component"]
+---
+
+Use Swipe Action Row to reveal contextual actions on either side of a list item. It coordinates sibling rows, supports pointer, touch, and keyboard input, and lets a safe action take over after a decisive full swipe.
+
+## Preview
+
+<ComponentPreview component="swipe-action-row" name="default" />
+
+## Installation
+
+<ComponentInstallation component="swipe-action-row" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="inbox-row.tsx" code={`import SwipeActionRow from "@/components/ui/swipe-action-row/swipe-action-row";
+
+export function Inbox() {
+  return (
+    <SwipeActionRow.Root render={<ul />}>
+      <SwipeActionRow.Item render={<li />}>
+        <SwipeActionRow.Actions side="left">
+          <SwipeActionRow.Action fullSwipe onClick={() => archiveMessage()}>
+            Archive
+          </SwipeActionRow.Action>
+        </SwipeActionRow.Actions>
+
+        <SwipeActionRow.Actions side="right">
+          <SwipeActionRow.Action onClick={() => flagMessage()}>
+            Flag
+          </SwipeActionRow.Action>
+          <SwipeActionRow.Action variant="destructive" onClick={() => deleteMessage()}>
+            Delete
+          </SwipeActionRow.Action>
+        </SwipeActionRow.Actions>
+
+        <SwipeActionRow.Content>Message content</SwipeActionRow.Content>
+      </SwipeActionRow.Item>
+    </SwipeActionRow.Root>
+  );
+}`} />
+
+## Examples
+
+Swipe right to reveal the left actions or left to reveal the right actions. A focused row also responds to the left and right arrow keys. Put `fullSwipe` on one safe action per side when a decisive gesture should run it immediately.
+
+## Usage
+
+<ComponentUsage component="swipe-action-row" />
+
+## API
+
+<PropTable component="swipe-action-row" />
+
+## Accessibility
+
+Closed action strips are inert, so their controls stay outside the tab order and accessibility tree. Focus the row content and use the left or right arrow key to expose a strip, then tab to its actions. Escape and outside click close the row. Give icon-only actions an accessible name, keep destructive actions explicit, and provide undo when removal is reversible. Reduced-motion preferences replace settling motion with immediate state changes.
+
+## Behavior
+
+`SwipeActionRow.Root` coordinates sibling items so only one stays open. Each `Item` owns its gesture and accepts open, velocity, full-swipe, disabled, and scroll-dismissal controls. Place one `Actions` strip on either or both physical sides, then assign `fullSwipe` to the action that should take over that side. Your application continues to own action effects and list data.
+
+The foreground tracks the pointer continuously. On release, velocity is projected into the resting decision, and the row either closes, reveals the measured strip, or arms the selected full-swipe action. Keyboard opening is immediate and does not add decorative motion.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

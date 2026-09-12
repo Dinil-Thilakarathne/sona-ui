@@ -119,9 +119,30 @@
         "motion"
       ],
       "registryDependencies": [
-        "@sona-ui/sona-theme",
         "@sona-ui/sona-utils",
         "@sona-ui/sona-motion"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "morph-surface",
+      "type": "registry:ui",
+      "title": "Morph Surface",
+      "description": "An unstyled layout primitive that grows, shrinks, clips, and updates the content of one persistent consumer-styled surface.",
+      "files": [
+        {
+          "path": "registry/sonaui/morph-surface/morph-surface.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/morph-surface/morph-surface.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-motion",
+        "@sona-ui/sona-utils"
       ]
     },
     {
@@ -682,6 +703,67 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "assignment-cluster",
+      "type": "registry:ui",
+      "title": "Assignment Cluster",
+      "description": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
+      "files": [
+        {
+          "path": "registry/sonaui/assignment-cluster/assignment-cluster.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/assignment-cluster/assignment-cluster.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "schedule-chip",
+      "type": "registry:ui",
+      "title": "Schedule Chip",
+      "description": "A readable schedule summary that expands in place into a focused date, time, and timezone editor.",
+      "files": [
+        {
+          "path": "registry/sonaui/schedule-chip/schedule-chip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/schedule-chip/schedule-chip.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@sona-ui/morph-surface",
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
+      "files": [
+        {
+          "path": "registry/sonaui/chip/chip.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/chip/chip.tsx"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "spotlight-card",
       "type": "registry:ui",
       "title": "Spotlight Card",
@@ -695,6 +777,28 @@
       ],
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "code-block",
+      "type": "registry:ui",
+      "title": "Code Block",
+      "description": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
+      "files": [
+        {
+          "path": "registry/sonaui/code-block/code-block.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/code-block/code-block.tsx"
+        }
+      ],
+      "dependencies": [
+        "shiki",
+        "lucide-react",
+        "@icons-pack/react-simple-icons"
       ],
       "registryDependencies": [
         "@sona-ui/sona-utils"
@@ -781,7 +885,6 @@
         "motion"
       ],
       "registryDependencies": [
-        "@sona-ui/sona-theme",
         "@sona-ui/sona-utils"
       ]
     },
@@ -801,6 +904,65 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "floating-viewer",
+      "type": "registry:ui",
+      "title": "Floating Viewer",
+      "description": "An in-page media surface that automatically or manually detaches, stays within viewport bounds, snaps to a corner, and restores without remounting its content.",
+      "files": [
+        {
+          "path": "registry/sonaui/floating-viewer/floating-viewer.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/floating-viewer/floating-viewer.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "swipe-action-row",
+      "type": "registry:ui",
+      "title": "Swipe Action Row",
+      "description": "A coordinated list-row interaction with two-sided actions, keyboard opening, outside dismissal, and action-owned full swipes.",
+      "files": [
+        {
+          "path": "registry/sonaui/swipe-action-row/swipe-action-row.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/swipe-action-row/swipe-action-row.tsx"
+        }
+      ],
+      "dependencies": [
+        "@ncdai/react-swipe-actions",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "stepper",
+      "type": "registry:ui",
+      "title": "Stepper",
+      "description": "A composable step navigation pattern for guiding people through a small, ordered workflow.",
+      "files": [
+        {
+          "path": "registry/sonaui/stepper/stepper.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/stepper/stepper.tsx"
+        }
+      ],
+      "dependencies": [],
       "registryDependencies": [
         "@sona-ui/sona-utils"
       ]

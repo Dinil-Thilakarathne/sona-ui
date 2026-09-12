@@ -128,14 +128,18 @@ export default function CircularDockMenu({
                   <m.div
                     key={label}
                     className="absolute bottom-12 left-1/2 z-10"
-                    initial={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.56,
-                      rotate: 8,
-                      filter: "blur(10px)",
-                    }}
+                    initial={
+                      shouldReduceMotion
+                        ? false
+                        : {
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.56,
+                            rotate: 8,
+                            filter: "blur(10px)",
+                          }
+                    }
                     animate={{
                       x,
                       y,
@@ -152,21 +156,23 @@ export default function CircularDockMenu({
                           : (items.length - index - 1) * 0.045,
                       },
                     }}
-                    exit={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.48,
-                      rotate: 10,
-                      filter: "blur(10px)",
-                      transition: shouldReduceMotion
-                        ? { duration: 0 }
+                    exit={
+                      shouldReduceMotion
+                        ? { opacity: 0, transition: { duration: 0 } }
                         : {
-                            duration: 0.2,
-                            ease: "easeInOut",
-                            delay: index * 0.025,
-                          },
-                    }}
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.48,
+                            rotate: 10,
+                            filter: "blur(10px)",
+                            transition: {
+                              duration: 0.2,
+                              ease: "easeInOut",
+                              delay: index * 0.025,
+                            },
+                          }
+                    }
                   >
                     <m.button
                       type="button"

@@ -4,12 +4,19 @@ import animated_dropdown_animated_dropdown_danger from "@/registry/examples/anim
 import animated_dropdown_animated_dropdown_controlled from "@/registry/examples/animated-dropdown/animated-dropdown-controlled";
 import animated_dropdown_animated_dropdown_demo from "@/registry/examples/animated-dropdown/animated-dropdown-demo";
 import live_activity_live_activity_demo from "@/registry/examples/live-activity/live-activity-demo";
+import live_activity_live_activity_music from "@/registry/examples/live-activity/live-activity-music";
+import live_activity_live_activity_recording from "@/registry/examples/live-activity/live-activity-recording";
 import circular_dock_menu_circular_dock_menu_demo from "@/registry/examples/circular-dock-menu/circular-dock-menu-demo";
 import image_trail_image_trail_interactive from "@/registry/examples/image-trail/image-trail-interactive";
 import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
 import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
 import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import code_block_code_block_demo from "@/registry/examples/code-block/code-block-demo";
+import code_block_code_block_diff from "@/registry/examples/code-block/code-block-diff";
+import code_block_code_block_highlight from "@/registry/examples/code-block/code-block-highlight";
+import code_block_code_block_focus from "@/registry/examples/code-block/code-block-focus";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import morph_surface_morph_surface_demo from "@/registry/examples/morph-surface/morph-surface-demo";
 import fluid_tabs_fluid_tabs_demo from "@/registry/examples/fluid-tabs/fluid-tabs-demo";
 import fluid_tabs_fluid_tabs_underline from "@/registry/examples/fluid-tabs/fluid-tabs-underline";
 import dot_orbit_shader_dot_orbit_shader_dense from "@/registry/examples/dot-orbit-shader/dot-orbit-shader-dense";
@@ -23,7 +30,10 @@ import accordion_accordion_multistep from "@/registry/examples/accordion/accordi
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
 import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
+import chip_chip_demo from "@/registry/examples/chip/chip-demo";
 import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
+import stepper_stepper_demo from "@/registry/examples/stepper/stepper-demo";
+import schedule_chip_schedule_chip_demo from "@/registry/examples/schedule-chip/schedule-chip-demo";
 import lightbox_lightbox_demo from "@/registry/examples/lightbox/lightbox-demo";
 import circular_context_menu_circular_context_menu_demo from "@/registry/examples/circular-context-menu/circular-context-menu-demo";
 import marquee_marquee_demo from "@/registry/examples/marquee/marquee-demo";
@@ -36,6 +46,7 @@ import smart_overflow_smart_overflow_demo from "@/registry/examples/smart-overfl
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
 import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
 import button_button_demo from "@/registry/examples/button/button-demo";
+import assignment_cluster_assignment_cluster_demo from "@/registry/examples/assignment-cluster/assignment-cluster-demo";
 import fluid_slider_fluid_slider_demo from "@/registry/examples/fluid-slider/fluid-slider-demo";
 import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
 import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
@@ -52,8 +63,10 @@ import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/example
 import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
 import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
+import swipe_action_row_swipe_action_row_demo from "@/registry/examples/swipe-action-row/swipe-action-row-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
 import avatar_showcase_avatar_showcase_demo from "@/registry/examples/avatar-showcase/avatar-showcase-demo";
+import floating_viewer_floating_viewer_demo from "@/registry/examples/floating-viewer/floating-viewer-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
 
 export type RegistryEntry = {
@@ -329,11 +342,44 @@ export default function AnimatedDropdownDemo() {
       component: live_activity_live_activity_demo,
       code: `"use client";
 
-import { ArrowDownToLine, Check, FileText } from "lucide-react";
+import {
+  Check,
+  MapPin,
+  MessageCircle,
+  Navigation,
+  PackageCheck,
+  Truck,
+} from "lucide-react";
 import { useState } from "react";
 import LiveActivity, {
   type LiveActivityProps,
 } from "@/components/ui/live-activity/live-activity";
+
+type DeliveryState = "moving" | "arriving" | "delivered";
+
+const deliveryCopy: Record<
+  DeliveryState,
+  { title: string; detail: string; eta: string; progress: string }
+> = {
+  moving: {
+    title: "On the way",
+    detail: "Maya picked up your order",
+    eta: "12 min",
+    progress: "72%",
+  },
+  arriving: {
+    title: "Almost there",
+    detail: "Maya is approaching your address",
+    eta: "2 min",
+    progress: "94%",
+  },
+  delivered: {
+    title: "Delivered",
+    detail: "Left safely at your front door",
+    eta: "Now",
+    progress: "100%",
+  },
+};
 
 export function LiveActivityExample({
   direction = "down",
@@ -341,23 +387,22 @@ export function LiveActivityExample({
   gestures = "touch",
   motion = "auto",
 }: Pick<LiveActivityProps, "direction" | "align" | "gestures" | "motion">) {
-  const [status, setStatus] = useState<"exporting" | "ready" | "cancelled">(
-    "exporting",
-  );
-  const title =
-    status === "ready"
-      ? "Report ready"
-      : status === "cancelled"
-        ? "Export cancelled"
-        : "Exporting report";
-  const icon =
-    status === "ready" ? (
-      <Check aria-hidden="true" className="size-4" />
-    ) : (
-      <FileText aria-hidden="true" className="size-4" />
+  const [deliveryState, setDeliveryState] = useState<DeliveryState>("moving");
+  const copy = deliveryCopy[deliveryState];
+  const delivered = deliveryState === "delivered";
+
+  const advanceDelivery = () => {
+    setDeliveryState((current) =>
+      current === "moving"
+        ? "arriving"
+        : current === "arriving"
+          ? "delivered"
+          : "moving",
     );
+  };
+
   return (
-    <div className="flex min-h-96 w-full max-w-lg flex-col justify-between gap-6 py-8">
+    <div className="flex min-h-[30rem] w-full max-w-xl flex-col items-center justify-between gap-8 px-3 py-10">
       {direction === "up" && <div className="flex-1" />}
       <LiveActivity.Root
         direction={direction}
@@ -365,95 +410,139 @@ export function LiveActivityExample({
         gestures={gestures}
         motion={motion}
       >
-        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-3xl bg-background">
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-zinc-950 text-white shadow-black/20">
           <LiveActivity.Compact>
-            <LiveActivity.Trigger className="flex min-h-14 items-center gap-3 rounded-3xl px-5 text-sm">
-              <LiveActivity.Shared id="icon" className="text-muted-foreground">
-                {icon}
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[19rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="courier">
+                <span className="flex size-11 items-center justify-center rounded-2xl bg-amber-300 text-zinc-950">
+                  {delivered ? (
+                    <PackageCheck aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Truck aria-hidden="true" className="size-5" />
+                  )}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Shared id="title" className="font-medium">
-                {title}
-              </LiveActivity.Shared>
-              <span className="text-muted-foreground tabular-nums">
-                {status === "exporting"
-                  ? "64%"
-                  : status === "ready"
-                    ? "CSV"
-                    : ""}
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="delivery-title"
+                  className="block font-medium tracking-[-0.01em]"
+                >
+                  {copy.title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block truncate text-xs text-zinc-400">
+                  Order #4821
+                </span>
               </span>
+              <LiveActivity.Shared id="delivery-eta" className="text-right">
+                <span className="block text-sm font-semibold tabular-nums">
+                  {copy.eta}
+                </span>
+                <span className="mt-0.5 block text-[0.625rem] font-medium uppercase tracking-[0.12em] text-zinc-500">
+                  {delivered ? "status" : "away"}
+                </span>
+              </LiveActivity.Shared>
             </LiveActivity.Trigger>
           </LiveActivity.Compact>
-          <LiveActivity.Expanded className="w-80 p-5 pb-0">
-            <div className="flex items-center gap-3 text-sm">
-              <LiveActivity.Shared id="icon" className="text-muted-foreground">
-                {icon}
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="courier">
+                <span className="flex size-11 items-center justify-center rounded-2xl bg-amber-300 text-zinc-950">
+                  {delivered ? (
+                    <PackageCheck aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Truck aria-hidden="true" className="size-5" />
+                  )}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Shared id="title" className="font-medium">
-                {title}
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="delivery-title"
+                  className="block font-medium tracking-[-0.01em]"
+                >
+                  {copy.title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-zinc-400">
+                  {copy.detail}
+                </span>
+              </span>
+              <LiveActivity.Shared id="delivery-eta" className="text-right">
+                <span className="block text-sm font-semibold tabular-nums">
+                  {copy.eta}
+                </span>
+                <span className="mt-0.5 block text-[0.625rem] font-medium uppercase tracking-[0.12em] text-zinc-500">
+                  {delivered ? "status" : "away"}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Close className="ml-auto flex size-9 shrink-0 items-center justify-center text-lg text-muted-foreground" />
+              <LiveActivity.Close className="flex size-9 shrink-0 items-center justify-center rounded-full text-lg text-zinc-500 hover:bg-white/10 hover:text-white" />
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              September overview.csv
-            </p>
-            {status === "exporting" ? (
-              <>
-                <div
-                  role="progressbar"
-                  aria-label="Report export"
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuenow={64}
-                  className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted"
-                >
-                  <div className="h-full w-[64%] rounded-full bg-foreground" />
-                </div>
-                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-                  <span>Preparing your report</span>
-                  <span className="tabular-nums">64%</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setStatus("cancelled")}
-                  className="mt-5 rounded-md px-2 py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
-                >
-                  Cancel export
-                </button>
-              </>
-            ) : status === "ready" ? (
-              <a
-                download="september-overview.csv"
-                href="data:text/csv;charset=utf-8,Month%2CReports%0ASeptember%2C24"
-                className="mt-5 flex min-h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                <ArrowDownToLine aria-hidden="true" className="size-4" />
-                Download sample
-              </a>
-            ) : (
+
+            <div className="relative mt-4 overflow-hidden rounded-2xl bg-zinc-900 px-4 py-5">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-25 [background-image:linear-gradient(to_right,theme(colors.zinc.700)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.zinc.700)_1px,transparent_1px)] [background-size:24px_24px]"
+              />
+              <div className="relative flex items-center gap-3">
+                <span className="flex size-9 items-center justify-center rounded-full bg-white text-zinc-950 shadow-lg shadow-black/30">
+                  <Truck aria-hidden="true" className="size-4" />
+                </span>
+                <span className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <span
+                    className="block h-full origin-left rounded-full bg-amber-300 transition-transform duration-300 motion-reduce:transition-none"
+                    style={{
+                      transform: \`scaleX(\${Number.parseInt(copy.progress, 10) / 100})\`,
+                    }}
+                  />
+                </span>
+                <span className="flex size-9 items-center justify-center rounded-full bg-amber-300 text-zinc-950 shadow-lg shadow-amber-300/10">
+                  {delivered ? (
+                    <Check aria-hidden="true" className="size-4" />
+                  ) : (
+                    <MapPin aria-hidden="true" className="size-4" />
+                  )}
+                </span>
+              </div>
+              <div className="relative mt-4 flex items-end justify-between text-xs">
+                <span className="text-zinc-400">Green Street Kitchen</span>
+                <span className="font-medium text-zinc-200">Home</span>
+              </div>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => setStatus("exporting")}
-                className="mt-5 min-h-10 w-full rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-ring"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-zinc-900 text-sm font-medium text-zinc-200 transition-colors hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300 active:scale-[0.98] motion-reduce:transform-none"
               >
-                Try again
+                <MessageCircle aria-hidden="true" className="size-4" />
+                Message
               </button>
-            )}
-            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+              <button
+                type="button"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-amber-300 text-sm font-semibold text-zinc-950 transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300 active:scale-[0.98] motion-reduce:transform-none"
+              >
+                <Navigation aria-hidden="true" className="size-4" />
+                Track order
+              </button>
+            </div>
+            <LiveActivity.Handle className="mt-1 text-zinc-500 hover:text-zinc-300" />
           </LiveActivity.Expanded>
         </LiveActivity.Surface>
       </LiveActivity.Root>
-      <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-        <span>Demo controls</span>
+
+      <div className="flex flex-col items-center gap-2 text-center">
         <button
           type="button"
-          onClick={() => setStatus(status === "ready" ? "exporting" : "ready")}
-          className="rounded-md border border-border px-3 py-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+          onClick={advanceDelivery}
+          className="rounded-full bg-muted px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
-          {status === "ready" ? "Reset export" : "Simulate completion"}
+          {delivered ? "Restart delivery" : "Advance delivery"}
         </button>
+        <p className="text-xs text-muted-foreground">
+          Tap to expand. On touch devices, drag down to open.
+        </p>
       </div>
       <span role="status" className="sr-only">
-        {title}
+        {copy.title}. {copy.detail}.
       </span>
     </div>
   );
@@ -466,11 +555,44 @@ export default function LiveActivityDemo() {
       imports: ``,
       anatomy: `"use client";
 
-import { ArrowDownToLine, Check, FileText } from "lucide-react";
+import {
+  Check,
+  MapPin,
+  MessageCircle,
+  Navigation,
+  PackageCheck,
+  Truck,
+} from "lucide-react";
 import { useState } from "react";
 import LiveActivity, {
   type LiveActivityProps,
 } from "@/components/ui/live-activity/live-activity";
+
+type DeliveryState = "moving" | "arriving" | "delivered";
+
+const deliveryCopy: Record<
+  DeliveryState,
+  { title: string; detail: string; eta: string; progress: string }
+> = {
+  moving: {
+    title: "On the way",
+    detail: "Maya picked up your order",
+    eta: "12 min",
+    progress: "72%",
+  },
+  arriving: {
+    title: "Almost there",
+    detail: "Maya is approaching your address",
+    eta: "2 min",
+    progress: "94%",
+  },
+  delivered: {
+    title: "Delivered",
+    detail: "Left safely at your front door",
+    eta: "Now",
+    progress: "100%",
+  },
+};
 
 export function LiveActivityExample({
   direction = "down",
@@ -478,23 +600,22 @@ export function LiveActivityExample({
   gestures = "touch",
   motion = "auto",
 }: Pick<LiveActivityProps, "direction" | "align" | "gestures" | "motion">) {
-  const [status, setStatus] = useState<"exporting" | "ready" | "cancelled">(
-    "exporting",
-  );
-  const title =
-    status === "ready"
-      ? "Report ready"
-      : status === "cancelled"
-        ? "Export cancelled"
-        : "Exporting report";
-  const icon =
-    status === "ready" ? (
-      <Check aria-hidden="true" className="size-4" />
-    ) : (
-      <FileText aria-hidden="true" className="size-4" />
+  const [deliveryState, setDeliveryState] = useState<DeliveryState>("moving");
+  const copy = deliveryCopy[deliveryState];
+  const delivered = deliveryState === "delivered";
+
+  const advanceDelivery = () => {
+    setDeliveryState((current) =>
+      current === "moving"
+        ? "arriving"
+        : current === "arriving"
+          ? "delivered"
+          : "moving",
     );
+  };
+
   return (
-    <div className="flex min-h-96 w-full max-w-lg flex-col justify-between gap-6 py-8">
+    <div className="flex min-h-[30rem] w-full max-w-xl flex-col items-center justify-between gap-8 px-3 py-10">
       {direction === "up" && <div className="flex-1" />}
       <LiveActivity.Root
         direction={direction}
@@ -502,95 +623,139 @@ export function LiveActivityExample({
         gestures={gestures}
         motion={motion}
       >
-        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-3xl bg-background">
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-zinc-950 text-white shadow-black/20">
           <LiveActivity.Compact>
-            <LiveActivity.Trigger className="flex min-h-14 items-center gap-3 rounded-3xl px-5 text-sm">
-              <LiveActivity.Shared id="icon" className="text-muted-foreground">
-                {icon}
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[19rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="courier">
+                <span className="flex size-11 items-center justify-center rounded-2xl bg-amber-300 text-zinc-950">
+                  {delivered ? (
+                    <PackageCheck aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Truck aria-hidden="true" className="size-5" />
+                  )}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Shared id="title" className="font-medium">
-                {title}
-              </LiveActivity.Shared>
-              <span className="text-muted-foreground tabular-nums">
-                {status === "exporting"
-                  ? "64%"
-                  : status === "ready"
-                    ? "CSV"
-                    : ""}
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="delivery-title"
+                  className="block font-medium tracking-[-0.01em]"
+                >
+                  {copy.title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block truncate text-xs text-zinc-400">
+                  Order #4821
+                </span>
               </span>
+              <LiveActivity.Shared id="delivery-eta" className="text-right">
+                <span className="block text-sm font-semibold tabular-nums">
+                  {copy.eta}
+                </span>
+                <span className="mt-0.5 block text-[0.625rem] font-medium uppercase tracking-[0.12em] text-zinc-500">
+                  {delivered ? "status" : "away"}
+                </span>
+              </LiveActivity.Shared>
             </LiveActivity.Trigger>
           </LiveActivity.Compact>
-          <LiveActivity.Expanded className="w-80 p-5 pb-0">
-            <div className="flex items-center gap-3 text-sm">
-              <LiveActivity.Shared id="icon" className="text-muted-foreground">
-                {icon}
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="courier">
+                <span className="flex size-11 items-center justify-center rounded-2xl bg-amber-300 text-zinc-950">
+                  {delivered ? (
+                    <PackageCheck aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Truck aria-hidden="true" className="size-5" />
+                  )}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Shared id="title" className="font-medium">
-                {title}
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="delivery-title"
+                  className="block font-medium tracking-[-0.01em]"
+                >
+                  {copy.title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-zinc-400">
+                  {copy.detail}
+                </span>
+              </span>
+              <LiveActivity.Shared id="delivery-eta" className="text-right">
+                <span className="block text-sm font-semibold tabular-nums">
+                  {copy.eta}
+                </span>
+                <span className="mt-0.5 block text-[0.625rem] font-medium uppercase tracking-[0.12em] text-zinc-500">
+                  {delivered ? "status" : "away"}
+                </span>
               </LiveActivity.Shared>
-              <LiveActivity.Close className="ml-auto flex size-9 shrink-0 items-center justify-center text-lg text-muted-foreground" />
+              <LiveActivity.Close className="flex size-9 shrink-0 items-center justify-center rounded-full text-lg text-zinc-500 hover:bg-white/10 hover:text-white" />
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              September overview.csv
-            </p>
-            {status === "exporting" ? (
-              <>
-                <div
-                  role="progressbar"
-                  aria-label="Report export"
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuenow={64}
-                  className="mt-4 h-1.5 overflow-hidden rounded-full bg-muted"
-                >
-                  <div className="h-full w-[64%] rounded-full bg-foreground" />
-                </div>
-                <div className="mt-2 flex justify-between text-xs text-muted-foreground">
-                  <span>Preparing your report</span>
-                  <span className="tabular-nums">64%</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setStatus("cancelled")}
-                  className="mt-5 rounded-md px-2 py-2 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
-                >
-                  Cancel export
-                </button>
-              </>
-            ) : status === "ready" ? (
-              <a
-                download="september-overview.csv"
-                href="data:text/csv;charset=utf-8,Month%2CReports%0ASeptember%2C24"
-                className="mt-5 flex min-h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
-                <ArrowDownToLine aria-hidden="true" className="size-4" />
-                Download sample
-              </a>
-            ) : (
+
+            <div className="relative mt-4 overflow-hidden rounded-2xl bg-zinc-900 px-4 py-5">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-25 [background-image:linear-gradient(to_right,theme(colors.zinc.700)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.zinc.700)_1px,transparent_1px)] [background-size:24px_24px]"
+              />
+              <div className="relative flex items-center gap-3">
+                <span className="flex size-9 items-center justify-center rounded-full bg-white text-zinc-950 shadow-lg shadow-black/30">
+                  <Truck aria-hidden="true" className="size-4" />
+                </span>
+                <span className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <span
+                    className="block h-full origin-left rounded-full bg-amber-300 transition-transform duration-300 motion-reduce:transition-none"
+                    style={{
+                      transform: \`scaleX(\${Number.parseInt(copy.progress, 10) / 100})\`,
+                    }}
+                  />
+                </span>
+                <span className="flex size-9 items-center justify-center rounded-full bg-amber-300 text-zinc-950 shadow-lg shadow-amber-300/10">
+                  {delivered ? (
+                    <Check aria-hidden="true" className="size-4" />
+                  ) : (
+                    <MapPin aria-hidden="true" className="size-4" />
+                  )}
+                </span>
+              </div>
+              <div className="relative mt-4 flex items-end justify-between text-xs">
+                <span className="text-zinc-400">Green Street Kitchen</span>
+                <span className="font-medium text-zinc-200">Home</span>
+              </div>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => setStatus("exporting")}
-                className="mt-5 min-h-10 w-full rounded-lg bg-foreground px-4 text-sm text-background focus-visible:outline-2 focus-visible:outline-ring"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-zinc-900 text-sm font-medium text-zinc-200 transition-colors hover:bg-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300 active:scale-[0.98] motion-reduce:transform-none"
               >
-                Try again
+                <MessageCircle aria-hidden="true" className="size-4" />
+                Message
               </button>
-            )}
-            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+              <button
+                type="button"
+                className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-amber-300 text-sm font-semibold text-zinc-950 transition-colors hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300 active:scale-[0.98] motion-reduce:transform-none"
+              >
+                <Navigation aria-hidden="true" className="size-4" />
+                Track order
+              </button>
+            </div>
+            <LiveActivity.Handle className="mt-1 text-zinc-500 hover:text-zinc-300" />
           </LiveActivity.Expanded>
         </LiveActivity.Surface>
       </LiveActivity.Root>
-      <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-        <span>Demo controls</span>
+
+      <div className="flex flex-col items-center gap-2 text-center">
         <button
           type="button"
-          onClick={() => setStatus(status === "ready" ? "exporting" : "ready")}
-          className="rounded-md border border-border px-3 py-2 hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+          onClick={advanceDelivery}
+          className="rounded-full bg-muted px-4 py-2 text-xs font-medium text-foreground transition-colors hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
-          {status === "ready" ? "Reset export" : "Simulate completion"}
+          {delivered ? "Restart delivery" : "Advance delivery"}
         </button>
+        <p className="text-xs text-muted-foreground">
+          Tap to expand. On touch devices, drag down to open.
+        </p>
       </div>
       <span role="status" className="sr-only">
-        {title}
+        {copy.title}. {copy.detail}.
       </span>
     </div>
   );
@@ -598,6 +763,696 @@ export function LiveActivityExample({
 
 export default function LiveActivityDemo() {
   return <LiveActivityExample />;
+}`,
+    },
+    {
+      name: "music",
+      component: live_activity_live_activity_music,
+      code: `"use client";
+
+import { Pause, Play, SkipBack, SkipForward, Volume2 } from "lucide-react";
+import { useState } from "react";
+import LiveActivity from "@/components/ui/live-activity/live-activity";
+
+function AlbumArtwork() {
+  return (
+    <span className="relative block size-12 overflow-hidden rounded-xl bg-[linear-gradient(145deg,#fb7185_0%,#7c3aed_52%,#172554_100%)] shadow-lg shadow-fuchsia-950/30">
+      <span className="absolute -bottom-3 -right-3 size-10 rounded-full border-[7px] border-white/25" />
+      <span className="absolute left-2 top-2 size-4 rounded-full bg-amber-200/80 blur-[1px]" />
+    </span>
+  );
+}
+
+export default function LiveActivityMusic() {
+  const [playing, setPlaying] = useState(true);
+
+  return (
+    <div className="flex min-h-[28rem] w-full max-w-xl items-start justify-center px-3 py-10">
+      <LiveActivity.Root>
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-[#17141c] text-white shadow-black/25">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[19rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="artwork">
+                <AlbumArtwork />
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="track"
+                  className="block truncate text-sm font-semibold tracking-[-0.01em]"
+                >
+                  Night Drive
+                </LiveActivity.Shared>
+                <LiveActivity.Shared
+                  id="artist"
+                  className="mt-0.5 block truncate text-xs text-white/50"
+                >
+                  Luna Avenue
+                </LiveActivity.Shared>
+              </span>
+              <span className="flex size-9 items-center justify-center rounded-full bg-white/10 text-white/80">
+                {playing ? (
+                  <Pause aria-hidden="true" className="size-4 fill-current" />
+                ) : (
+                  <Play
+                    aria-hidden="true"
+                    className="ml-0.5 size-4 fill-current"
+                  />
+                )}
+              </span>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="artwork">
+                <AlbumArtwork />
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="track"
+                  className="block truncate text-sm font-semibold tracking-[-0.01em]"
+                >
+                  Night Drive
+                </LiveActivity.Shared>
+                <LiveActivity.Shared
+                  id="artist"
+                  className="mt-0.5 block truncate text-xs text-white/50"
+                >
+                  Luna Avenue
+                </LiveActivity.Shared>
+              </span>
+              <LiveActivity.Close className="flex size-9 items-center justify-center rounded-full text-lg text-white/40 hover:bg-white/10 hover:text-white" />
+            </div>
+
+            <div className="mt-6">
+              <div
+                role="progressbar"
+                aria-label="Night Drive playback"
+                aria-valuemin={0}
+                aria-valuemax={214}
+                aria-valuenow={82}
+                className="h-1 overflow-hidden rounded-full bg-white/10"
+              >
+                <div className="h-full w-[38%] rounded-full bg-white/80" />
+              </div>
+              <div className="mt-2 flex justify-between text-[0.625rem] font-medium tabular-nums text-white/35">
+                <span>1:22</span>
+                <span>-2:12</span>
+              </div>
+            </div>
+
+            <div className="mt-1 flex items-center justify-center gap-7">
+              <button
+                type="button"
+                aria-label="Previous track"
+                className="flex size-11 items-center justify-center rounded-full text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-95 motion-reduce:transform-none"
+              >
+                <SkipBack aria-hidden="true" className="size-5 fill-current" />
+              </button>
+              <button
+                type="button"
+                aria-label={playing ? "Pause Night Drive" : "Play Night Drive"}
+                onClick={() => setPlaying((current) => !current)}
+                className="flex size-14 items-center justify-center rounded-full bg-white text-[#17141c] hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-[0.97] motion-reduce:transform-none"
+              >
+                {playing ? (
+                  <Pause aria-hidden="true" className="size-5 fill-current" />
+                ) : (
+                  <Play
+                    aria-hidden="true"
+                    className="ml-0.5 size-5 fill-current"
+                  />
+                )}
+              </button>
+              <button
+                type="button"
+                aria-label="Next track"
+                className="flex size-11 items-center justify-center rounded-full text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-95 motion-reduce:transform-none"
+              >
+                <SkipForward
+                  aria-hidden="true"
+                  className="size-5 fill-current"
+                />
+              </button>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 text-white/35">
+              <Volume2 aria-hidden="true" className="size-3.5" />
+              <span className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                <span className="block h-full w-[68%] rounded-full bg-white/45" />
+              </span>
+            </div>
+            <LiveActivity.Handle className="mt-1 text-white/35 hover:text-white/60" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Pause, Play, SkipBack, SkipForward, Volume2 } from "lucide-react";
+import { useState } from "react";
+import LiveActivity from "@/components/ui/live-activity/live-activity";
+
+function AlbumArtwork() {
+  return (
+    <span className="relative block size-12 overflow-hidden rounded-xl bg-[linear-gradient(145deg,#fb7185_0%,#7c3aed_52%,#172554_100%)] shadow-lg shadow-fuchsia-950/30">
+      <span className="absolute -bottom-3 -right-3 size-10 rounded-full border-[7px] border-white/25" />
+      <span className="absolute left-2 top-2 size-4 rounded-full bg-amber-200/80 blur-[1px]" />
+    </span>
+  );
+}
+
+export default function LiveActivityMusic() {
+  const [playing, setPlaying] = useState(true);
+
+  return (
+    <div className="flex min-h-[28rem] w-full max-w-xl items-start justify-center px-3 py-10">
+      <LiveActivity.Root>
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-[#17141c] text-white shadow-black/25">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[19rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="artwork">
+                <AlbumArtwork />
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="track"
+                  className="block truncate text-sm font-semibold tracking-[-0.01em]"
+                >
+                  Night Drive
+                </LiveActivity.Shared>
+                <LiveActivity.Shared
+                  id="artist"
+                  className="mt-0.5 block truncate text-xs text-white/50"
+                >
+                  Luna Avenue
+                </LiveActivity.Shared>
+              </span>
+              <span className="flex size-9 items-center justify-center rounded-full bg-white/10 text-white/80">
+                {playing ? (
+                  <Pause aria-hidden="true" className="size-4 fill-current" />
+                ) : (
+                  <Play
+                    aria-hidden="true"
+                    className="ml-0.5 size-4 fill-current"
+                  />
+                )}
+              </span>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="artwork">
+                <AlbumArtwork />
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="track"
+                  className="block truncate text-sm font-semibold tracking-[-0.01em]"
+                >
+                  Night Drive
+                </LiveActivity.Shared>
+                <LiveActivity.Shared
+                  id="artist"
+                  className="mt-0.5 block truncate text-xs text-white/50"
+                >
+                  Luna Avenue
+                </LiveActivity.Shared>
+              </span>
+              <LiveActivity.Close className="flex size-9 items-center justify-center rounded-full text-lg text-white/40 hover:bg-white/10 hover:text-white" />
+            </div>
+
+            <div className="mt-6">
+              <div
+                role="progressbar"
+                aria-label="Night Drive playback"
+                aria-valuemin={0}
+                aria-valuemax={214}
+                aria-valuenow={82}
+                className="h-1 overflow-hidden rounded-full bg-white/10"
+              >
+                <div className="h-full w-[38%] rounded-full bg-white/80" />
+              </div>
+              <div className="mt-2 flex justify-between text-[0.625rem] font-medium tabular-nums text-white/35">
+                <span>1:22</span>
+                <span>-2:12</span>
+              </div>
+            </div>
+
+            <div className="mt-1 flex items-center justify-center gap-7">
+              <button
+                type="button"
+                aria-label="Previous track"
+                className="flex size-11 items-center justify-center rounded-full text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-95 motion-reduce:transform-none"
+              >
+                <SkipBack aria-hidden="true" className="size-5 fill-current" />
+              </button>
+              <button
+                type="button"
+                aria-label={playing ? "Pause Night Drive" : "Play Night Drive"}
+                onClick={() => setPlaying((current) => !current)}
+                className="flex size-14 items-center justify-center rounded-full bg-white text-[#17141c] hover:bg-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-[0.97] motion-reduce:transform-none"
+              >
+                {playing ? (
+                  <Pause aria-hidden="true" className="size-5 fill-current" />
+                ) : (
+                  <Play
+                    aria-hidden="true"
+                    className="ml-0.5 size-5 fill-current"
+                  />
+                )}
+              </button>
+              <button
+                type="button"
+                aria-label="Next track"
+                className="flex size-11 items-center justify-center rounded-full text-white/75 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-fuchsia-300 active:scale-95 motion-reduce:transform-none"
+              >
+                <SkipForward
+                  aria-hidden="true"
+                  className="size-5 fill-current"
+                />
+              </button>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 text-white/35">
+              <Volume2 aria-hidden="true" className="size-3.5" />
+              <span className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
+                <span className="block h-full w-[68%] rounded-full bg-white/45" />
+              </span>
+            </div>
+            <LiveActivity.Handle className="mt-1 text-white/35 hover:text-white/60" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+    </div>
+  );
+}`,
+    },
+    {
+      name: "recording",
+      component: live_activity_live_activity_recording,
+      code: `"use client";
+
+import { Check, Mic, Pause, Play, Square } from "lucide-react";
+import { useState } from "react";
+import LiveActivity from "@/components/ui/live-activity/live-activity";
+
+const waveform = [
+  ["a", 18],
+  ["b", 34],
+  ["c", 22],
+  ["d", 48],
+  ["e", 30],
+  ["f", 56],
+  ["g", 40],
+  ["h", 24],
+  ["i", 50],
+  ["j", 64],
+  ["k", 34],
+  ["l", 44],
+  ["m", 20],
+  ["n", 38],
+  ["o", 28],
+  ["p", 52],
+  ["q", 32],
+  ["r", 18],
+] as const;
+
+export default function LiveActivityRecording() {
+  const [status, setStatus] = useState<"recording" | "paused" | "saved">(
+    "recording",
+  );
+  const saved = status === "saved";
+  const title = saved
+    ? "Recording saved"
+    : status === "paused"
+      ? "Recording paused"
+      : "Recording notes";
+
+  return (
+    <div className="flex min-h-[28rem] w-full max-w-xl items-start justify-center px-3 py-10">
+      <LiveActivity.Root align="start">
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-background">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[18rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="recording-icon">
+                <span
+                  className={\`flex size-11 items-center justify-center rounded-2xl \${
+                    saved
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                      : "bg-rose-500/15 text-rose-600 dark:text-rose-400"
+                  }\`}
+                >
+                  {saved ? (
+                    <Check aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Mic aria-hidden="true" className="size-5" />
+                  )}
+                </span>
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="recording-title"
+                  className="block truncate text-sm font-medium"
+                >
+                  {title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-muted-foreground">
+                  Design critique
+                </span>
+              </span>
+              <LiveActivity.Shared
+                id="recording-time"
+                className="text-sm font-medium tabular-nums"
+              >
+                {saved ? "18:42" : "12:48"}
+              </LiveActivity.Shared>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="recording-icon">
+                <span
+                  className={\`flex size-11 items-center justify-center rounded-2xl \${
+                    saved
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                      : "bg-rose-500/15 text-rose-600 dark:text-rose-400"
+                  }\`}
+                >
+                  {saved ? (
+                    <Check aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Mic aria-hidden="true" className="size-5" />
+                  )}
+                </span>
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="recording-title"
+                  className="block truncate text-sm font-medium"
+                >
+                  {title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-muted-foreground">
+                  Design critique
+                </span>
+              </span>
+              <LiveActivity.Shared
+                id="recording-time"
+                className="text-sm font-medium tabular-nums"
+              >
+                {saved ? "18:42" : "12:48"}
+              </LiveActivity.Shared>
+              <LiveActivity.Close className="flex size-9 items-center justify-center rounded-full text-lg text-muted-foreground hover:bg-muted hover:text-foreground" />
+            </div>
+
+            <div
+              aria-hidden="true"
+              className="mt-5 flex h-20 items-center justify-between gap-1 rounded-2xl bg-muted/60 px-4"
+            >
+              {waveform.map(([id, height]) => (
+                <span
+                  key={id}
+                  className={\`w-1 rounded-full \${
+                    saved
+                      ? "bg-emerald-500/55"
+                      : status === "paused"
+                        ? "bg-muted-foreground/35"
+                        : "bg-rose-500/65"
+                  }\`}
+                  style={{ height: \`\${height}%\` }}
+                />
+              ))}
+            </div>
+
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              {saved
+                ? "Your recording is ready to review and share."
+                : "Audio stays visible while you move through the rest of your workspace."}
+            </p>
+
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              {saved ? (
+                <button
+                  type="button"
+                  onClick={() => setStatus("recording")}
+                  className="col-span-2 min-h-11 rounded-xl bg-foreground text-sm font-medium text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.98] motion-reduce:transform-none"
+                >
+                  Start another recording
+                </button>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setStatus((current) =>
+                        current === "paused" ? "recording" : "paused",
+                      )
+                    }
+                    className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-muted text-sm font-medium hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    {status === "paused" ? (
+                      <Play
+                        aria-hidden="true"
+                        className="size-4 fill-current"
+                      />
+                    ) : (
+                      <Pause
+                        aria-hidden="true"
+                        className="size-4 fill-current"
+                      />
+                    )}
+                    {status === "paused" ? "Resume" : "Pause"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("saved")}
+                    className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-rose-600 text-sm font-medium text-white hover:bg-rose-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500 active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    <Square
+                      aria-hidden="true"
+                      className="size-3 fill-current"
+                    />
+                    Finish
+                  </button>
+                </>
+              )}
+            </div>
+            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+      <span role="status" className="sr-only">
+        {title}
+      </span>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Check, Mic, Pause, Play, Square } from "lucide-react";
+import { useState } from "react";
+import LiveActivity from "@/components/ui/live-activity/live-activity";
+
+const waveform = [
+  ["a", 18],
+  ["b", 34],
+  ["c", 22],
+  ["d", 48],
+  ["e", 30],
+  ["f", 56],
+  ["g", 40],
+  ["h", 24],
+  ["i", 50],
+  ["j", 64],
+  ["k", 34],
+  ["l", 44],
+  ["m", 20],
+  ["n", 38],
+  ["o", 28],
+  ["p", 52],
+  ["q", 32],
+  ["r", 18],
+] as const;
+
+export default function LiveActivityRecording() {
+  const [status, setStatus] = useState<"recording" | "paused" | "saved">(
+    "recording",
+  );
+  const saved = status === "saved";
+  const title = saved
+    ? "Recording saved"
+    : status === "paused"
+      ? "Recording paused"
+      : "Recording notes";
+
+  return (
+    <div className="flex min-h-[28rem] w-full max-w-xl items-start justify-center px-3 py-10">
+      <LiveActivity.Root align="start">
+        <LiveActivity.Surface className="smooth-shadow-ring-lg rounded-[1.75rem] bg-background">
+          <LiveActivity.Compact>
+            <LiveActivity.Trigger className="flex h-[4.5rem] w-[18rem] items-center gap-3 rounded-[1.75rem] px-3 text-left">
+              <LiveActivity.Shared id="recording-icon">
+                <span
+                  className={\`flex size-11 items-center justify-center rounded-2xl \${
+                    saved
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                      : "bg-rose-500/15 text-rose-600 dark:text-rose-400"
+                  }\`}
+                >
+                  {saved ? (
+                    <Check aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Mic aria-hidden="true" className="size-5" />
+                  )}
+                </span>
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="recording-title"
+                  className="block truncate text-sm font-medium"
+                >
+                  {title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-muted-foreground">
+                  Design critique
+                </span>
+              </span>
+              <LiveActivity.Shared
+                id="recording-time"
+                className="text-sm font-medium tabular-nums"
+              >
+                {saved ? "18:42" : "12:48"}
+              </LiveActivity.Shared>
+            </LiveActivity.Trigger>
+          </LiveActivity.Compact>
+
+          <LiveActivity.Expanded className="w-[22rem] p-4 pb-4 [@media(pointer:coarse)]:pb-0">
+            <div className="flex items-center gap-3">
+              <LiveActivity.Shared id="recording-icon">
+                <span
+                  className={\`flex size-11 items-center justify-center rounded-2xl \${
+                    saved
+                      ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400"
+                      : "bg-rose-500/15 text-rose-600 dark:text-rose-400"
+                  }\`}
+                >
+                  {saved ? (
+                    <Check aria-hidden="true" className="size-5" />
+                  ) : (
+                    <Mic aria-hidden="true" className="size-5" />
+                  )}
+                </span>
+              </LiveActivity.Shared>
+              <span className="min-w-0 flex-1">
+                <LiveActivity.Shared
+                  id="recording-title"
+                  className="block truncate text-sm font-medium"
+                >
+                  {title}
+                </LiveActivity.Shared>
+                <span className="mt-0.5 block text-xs text-muted-foreground">
+                  Design critique
+                </span>
+              </span>
+              <LiveActivity.Shared
+                id="recording-time"
+                className="text-sm font-medium tabular-nums"
+              >
+                {saved ? "18:42" : "12:48"}
+              </LiveActivity.Shared>
+              <LiveActivity.Close className="flex size-9 items-center justify-center rounded-full text-lg text-muted-foreground hover:bg-muted hover:text-foreground" />
+            </div>
+
+            <div
+              aria-hidden="true"
+              className="mt-5 flex h-20 items-center justify-between gap-1 rounded-2xl bg-muted/60 px-4"
+            >
+              {waveform.map(([id, height]) => (
+                <span
+                  key={id}
+                  className={\`w-1 rounded-full \${
+                    saved
+                      ? "bg-emerald-500/55"
+                      : status === "paused"
+                        ? "bg-muted-foreground/35"
+                        : "bg-rose-500/65"
+                  }\`}
+                  style={{ height: \`\${height}%\` }}
+                />
+              ))}
+            </div>
+
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+              {saved
+                ? "Your recording is ready to review and share."
+                : "Audio stays visible while you move through the rest of your workspace."}
+            </p>
+
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              {saved ? (
+                <button
+                  type="button"
+                  onClick={() => setStatus("recording")}
+                  className="col-span-2 min-h-11 rounded-xl bg-foreground text-sm font-medium text-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.98] motion-reduce:transform-none"
+                >
+                  Start another recording
+                </button>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setStatus((current) =>
+                        current === "paused" ? "recording" : "paused",
+                      )
+                    }
+                    className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-muted text-sm font-medium hover:bg-muted/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    {status === "paused" ? (
+                      <Play
+                        aria-hidden="true"
+                        className="size-4 fill-current"
+                      />
+                    ) : (
+                      <Pause
+                        aria-hidden="true"
+                        className="size-4 fill-current"
+                      />
+                    )}
+                    {status === "paused" ? "Resume" : "Pause"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("saved")}
+                    className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-rose-600 text-sm font-medium text-white hover:bg-rose-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500 active:scale-[0.98] motion-reduce:transform-none"
+                  >
+                    <Square
+                      aria-hidden="true"
+                      className="size-3 fill-current"
+                    />
+                    Finish
+                  </button>
+                </>
+              )}
+            </div>
+            <LiveActivity.Handle className="mt-1 text-muted-foreground" />
+          </LiveActivity.Expanded>
+        </LiveActivity.Surface>
+      </LiveActivity.Root>
+      <span role="status" className="sr-only">
+        {title}
+      </span>
+    </div>
+  );
 }`,
     }
   ],
@@ -893,6 +1748,78 @@ export default function ImageTrailTiltExample() {
 }`,
     }
   ],
+  "code-block": [
+    {
+      name: "default",
+      component: code_block_code_block_demo,
+      code: `import CodeBlock from "@/components/ui/code-block/code-block";
+
+export default function CodeBlockExample() {
+  return (
+    <CodeBlock
+      code={\`export function Greeting() {\n  return <h1>Hello, world!</h1>;\n}\`}
+      language="tsx"
+      filename="greeting.tsx"
+      showLineNumbers
+    />
+  );
+}
+`,
+      imports: `import CodeBlock from "@/components/ui/code-block/code-block";`,
+      anatomy: `export default function CodeBlockExample() {
+  return (
+    <CodeBlock
+      code={\`export function Greeting() {\n  return <h1>Hello, world!</h1>;\n}\`}
+      language="tsx"
+      filename="greeting.tsx"
+      showLineNumbers
+    />
+  );
+}`,
+    },
+    {
+      name: "diff",
+      component: code_block_code_block_diff,
+      code: `import CodeBlock from "@/components/ui/code-block/code-block";
+
+export default function CodeBlockDiffExample() {
+  return <CodeBlock language="ts" filename="config.ts" showDiff code={\`-const theme = "light";\n+const theme = "dark";\n export default theme;\`} />;
+}
+`,
+      imports: `import CodeBlock from "@/components/ui/code-block/code-block";`,
+      anatomy: `export default function CodeBlockDiffExample() {
+  return <CodeBlock language="ts" filename="config.ts" showDiff code={\`-const theme = "light";\n+const theme = "dark";\n export default theme;\`} />;
+}`,
+    },
+    {
+      name: "highlight",
+      component: code_block_code_block_highlight,
+      code: `import CodeBlock from "@/components/ui/code-block/code-block";
+
+export default function CodeBlockHighlightExample() {
+  return <CodeBlock language="tsx" filename="button.tsx" showLineNumbers highlightLines={[2, 3]} code={\`export function Button() {\n  return <button type="button">Save</button>;\n}\`} />;
+}
+`,
+      imports: `import CodeBlock from "@/components/ui/code-block/code-block";`,
+      anatomy: `export default function CodeBlockHighlightExample() {
+  return <CodeBlock language="tsx" filename="button.tsx" showLineNumbers highlightLines={[2, 3]} code={\`export function Button() {\n  return <button type="button">Save</button>;\n}\`} />;
+}`,
+    },
+    {
+      name: "focus",
+      component: code_block_code_block_focus,
+      code: `import CodeBlock from "@/components/ui/code-block/code-block";
+
+export default function CodeBlockFocusExample() {
+  return <CodeBlock language="tsx" filename="button.tsx" focusLines="2-3" code={\`export function Button() {\n  return <button type="button">\n    Save\n  </button>;\n}\`} />;
+}
+`,
+      imports: `import CodeBlock from "@/components/ui/code-block/code-block";`,
+      anatomy: `export default function CodeBlockFocusExample() {
+  return <CodeBlock language="tsx" filename="button.tsx" focusLines="2-3" code={\`export function Button() {\n  return <button type="button">\n    Save\n  </button>;\n}\`} />;
+}`,
+    }
+  ],
   "magnetic-button": [
     {
       name: "default",
@@ -927,6 +1854,120 @@ export default function MagneticButtonExample() {
         </button>
       </Magnetic>
     </div>
+  );
+}`,
+    }
+  ],
+  "morph-surface": [
+    {
+      name: "default",
+      component: morph_surface_morph_surface_demo,
+      code: `"use client";
+
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
+
+import MorphSurface from "@/components/ui/morph-surface/morph-surface";
+
+export default function MorphSurfaceDemo() {
+  const [view, setView] = useState("compact");
+
+  return (
+    <MorphSurface.Root
+      value={view}
+      className="rounded-2xl bg-card shadow-smooth-ring-lg"
+    >
+      {view === "compact" ? (
+        <div className="p-2">
+          <button
+            type="button"
+            onClick={() => setView("expanded")}
+            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="font-medium">Review changes</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="size-4 text-muted-foreground"
+            />
+          </button>
+        </div>
+      ) : (
+        <div className="w-80 p-4">
+          <div className="flex items-start gap-3">
+            <button
+              type="button"
+              aria-label="Return to summary"
+              onClick={() => setView("compact")}
+              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <ArrowLeft aria-hidden="true" className="size-4" />
+            </button>
+            <div>
+              <h3 className="font-medium text-sm">Three files changed</h3>
+              <p className="mt-1 text-muted-foreground text-sm leading-6">
+                The same surface grows around its center while its content
+                changes in place.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </MorphSurface.Root>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react";
+
+import MorphSurface from "@/components/ui/morph-surface/morph-surface";
+
+export default function MorphSurfaceDemo() {
+  const [view, setView] = useState("compact");
+
+  return (
+    <MorphSurface.Root
+      value={view}
+      className="rounded-2xl bg-card shadow-smooth-ring-lg"
+    >
+      {view === "compact" ? (
+        <div className="p-2">
+          <button
+            type="button"
+            onClick={() => setView("expanded")}
+            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="font-medium">Review changes</span>
+            <ArrowRight
+              aria-hidden="true"
+              className="size-4 text-muted-foreground"
+            />
+          </button>
+        </div>
+      ) : (
+        <div className="w-80 p-4">
+          <div className="flex items-start gap-3">
+            <button
+              type="button"
+              aria-label="Return to summary"
+              onClick={() => setView("compact")}
+              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <ArrowLeft aria-hidden="true" className="size-4" />
+            </button>
+            <div>
+              <h3 className="font-medium text-sm">Three files changed</h3>
+              <p className="mt-1 text-muted-foreground text-sm leading-6">
+                The same surface grows around its center while its content
+                changes in place.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </MorphSurface.Root>
   );
 }`,
     }
@@ -1825,6 +2866,60 @@ export default function BubbleUpButtonExample() {
 }`,
     }
   ],
+  "chip": [
+    {
+      name: "default",
+      component: chip_chip_demo,
+      code: `import { Check } from "lucide-react";
+import Chip from "@/components/ui/chip/chip";
+
+export default function ChipDemo() {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Chip>
+        <Chip.Label>Default</Chip.Label>
+      </Chip>
+      <Chip tone="success">
+        <Chip.Icon aria-hidden="true">
+          <Check />
+        </Chip.Icon>
+        <Chip.Label>Ready</Chip.Label>
+      </Chip>
+      <Chip tone="warning">
+        <Chip.Label>Beta</Chip.Label>
+      </Chip>
+      <Chip tone="danger">
+        <Chip.Label>Deprecated</Chip.Label>
+      </Chip>
+    </div>
+  );
+}
+`,
+      imports: `import { Check } from "lucide-react";
+import Chip from "@/components/ui/chip/chip";`,
+      anatomy: `export default function ChipDemo() {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <Chip>
+        <Chip.Label>Default</Chip.Label>
+      </Chip>
+      <Chip tone="success">
+        <Chip.Icon aria-hidden="true">
+          <Check />
+        </Chip.Icon>
+        <Chip.Label>Ready</Chip.Label>
+      </Chip>
+      <Chip tone="warning">
+        <Chip.Label>Beta</Chip.Label>
+      </Chip>
+      <Chip tone="danger">
+        <Chip.Label>Deprecated</Chip.Label>
+      </Chip>
+    </div>
+  );
+}`,
+    }
+  ],
   "fan-view": [
     {
       name: "default",
@@ -1860,6 +2955,218 @@ const ITEMS = [
 
 export default function FanViewDemo() {
   return <FanView items={ITEMS} />;
+}`,
+    }
+  ],
+  "stepper": [
+    {
+      name: "default",
+      component: stepper_stepper_demo,
+      code: `import {
+  Stepper,
+  StepperContent,
+  StepperIndicator,
+  StepperItem,
+  StepperNav,
+  StepperPanel,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper/stepper";
+
+export default function StepperDemo() {
+  return (
+    <Stepper defaultValue={1} orientation="vertical" className="max-w-xl">
+      <StepperNav>
+        <StepperItem step={1}>
+          <StepperTrigger>
+            <StepperIndicator>1</StepperIndicator>
+            <StepperTitle>Install dependencies</StepperTitle>
+          </StepperTrigger>
+        </StepperItem>
+        <StepperItem step={2}>
+          <StepperTrigger>
+            <StepperIndicator>2</StepperIndicator>
+            <StepperTitle>Copy the files</StepperTitle>
+          </StepperTrigger>
+        </StepperItem>
+      </StepperNav>
+      <StepperPanel>
+        <StepperContent value={1}>
+          Add the package dependencies before copying the component source.
+        </StepperContent>
+        <StepperContent value={2}>
+          Copy each component file into the matching location in your project.
+        </StepperContent>
+      </StepperPanel>
+    </Stepper>
+  );
+}
+`,
+      imports: `import {
+  Stepper,
+  StepperContent,
+  StepperIndicator,
+  StepperItem,
+  StepperNav,
+  StepperPanel,
+  StepperTitle,
+  StepperTrigger,
+} from "@/components/ui/stepper/stepper";`,
+      anatomy: `export default function StepperDemo() {
+  return (
+    <Stepper defaultValue={1} orientation="vertical" className="max-w-xl">
+      <StepperNav>
+        <StepperItem step={1}>
+          <StepperTrigger>
+            <StepperIndicator>1</StepperIndicator>
+            <StepperTitle>Install dependencies</StepperTitle>
+          </StepperTrigger>
+        </StepperItem>
+        <StepperItem step={2}>
+          <StepperTrigger>
+            <StepperIndicator>2</StepperIndicator>
+            <StepperTitle>Copy the files</StepperTitle>
+          </StepperTrigger>
+        </StepperItem>
+      </StepperNav>
+      <StepperPanel>
+        <StepperContent value={1}>
+          Add the package dependencies before copying the component source.
+        </StepperContent>
+        <StepperContent value={2}>
+          Copy each component file into the matching location in your project.
+        </StepperContent>
+      </StepperPanel>
+    </Stepper>
+  );
+}`,
+    }
+  ],
+  "schedule-chip": [
+    {
+      name: "default",
+      component: schedule_chip_schedule_chip_demo,
+      code: `"use client";
+
+import { useState } from "react";
+
+import ScheduleChip, {
+  type ScheduleValue,
+} from "@/components/ui/schedule-chip/schedule-chip";
+
+const initialSchedule: ScheduleValue = {
+  date: "2026-09-09",
+  time: "09:00",
+  timezone: "Asia/Colombo",
+};
+
+const presets = [
+  {
+    label: "Tomorrow morning",
+    value: initialSchedule,
+  },
+  {
+    label: "Friday afternoon",
+    value: {
+      date: "2026-09-11",
+      time: "15:00",
+      timezone: "Asia/Colombo",
+    },
+  },
+];
+
+function formatSchedule(value: ScheduleValue | null) {
+  if (!value) return "Add schedule";
+  if (value.date === "2026-09-09" && value.time === "09:00") {
+    return "Tomorrow, 9 AM";
+  }
+  if (value.date === "2026-09-11" && value.time === "15:00") {
+    return "Friday, 3 PM";
+  }
+  return \`\${value.date}, \${value.time}\`;
+}
+
+export default function ScheduleChipDemo() {
+  const [schedule, setSchedule] = useState<ScheduleValue | null>(
+    initialSchedule,
+  );
+
+  return (
+    <ScheduleChip
+      value={schedule}
+      onValueChange={setSchedule}
+      formatSummary={formatSchedule}
+      presets={presets}
+      timezones={["Asia/Colombo", "UTC", "America/New_York"]}
+      validate={(draft) => {
+        if (!draft) return null;
+        if (!draft.date || !draft.time) return "Choose both a date and time.";
+        return null;
+      }}
+    />
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+
+import ScheduleChip, {
+  type ScheduleValue,
+} from "@/components/ui/schedule-chip/schedule-chip";
+
+const initialSchedule: ScheduleValue = {
+  date: "2026-09-09",
+  time: "09:00",
+  timezone: "Asia/Colombo",
+};
+
+const presets = [
+  {
+    label: "Tomorrow morning",
+    value: initialSchedule,
+  },
+  {
+    label: "Friday afternoon",
+    value: {
+      date: "2026-09-11",
+      time: "15:00",
+      timezone: "Asia/Colombo",
+    },
+  },
+];
+
+function formatSchedule(value: ScheduleValue | null) {
+  if (!value) return "Add schedule";
+  if (value.date === "2026-09-09" && value.time === "09:00") {
+    return "Tomorrow, 9 AM";
+  }
+  if (value.date === "2026-09-11" && value.time === "15:00") {
+    return "Friday, 3 PM";
+  }
+  return \`\${value.date}, \${value.time}\`;
+}
+
+export default function ScheduleChipDemo() {
+  const [schedule, setSchedule] = useState<ScheduleValue | null>(
+    initialSchedule,
+  );
+
+  return (
+    <ScheduleChip
+      value={schedule}
+      onValueChange={setSchedule}
+      formatSummary={formatSchedule}
+      presets={presets}
+      timezones={["Asia/Colombo", "UTC", "America/New_York"]}
+      validate={(draft) => {
+        if (!draft) return null;
+        if (!draft.date || !draft.time) return "Choose both a date and time.";
+        return null;
+      }}
+    />
+  );
 }`,
     }
   ],
@@ -2531,7 +3838,7 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+            <AnimatedDialogClose className="bg-destructive/80 hover:bg-destructive hover:cursor-pointer">
               Cancel
             </AnimatedDialogClose>
             <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">
@@ -2571,7 +3878,7 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+            <AnimatedDialogClose className="bg-destructive/80 hover:bg-destructive hover:cursor-pointer">
               Cancel
             </AnimatedDialogClose>
             <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">
@@ -2617,7 +3924,7 @@ export default function AnimatedDialogToast() {
           </AnimatedDialogClose>
           <AnimatedDialogClose
             onClick={() => toast.success("Project deleted successfully!")}
-            className="bg-danger text-danger-foreground hover:bg-danger/90"
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
           >
             Delete
           </AnimatedDialogClose>
@@ -2658,7 +3965,7 @@ export default function AnimatedDialogToast() {
           </AnimatedDialogClose>
           <AnimatedDialogClose
             onClick={() => toast.success("Project deleted successfully!")}
-            className="bg-danger text-danger-foreground hover:bg-danger/90"
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
           >
             Delete
           </AnimatedDialogClose>
@@ -2913,6 +4220,44 @@ import Button from "@/components/ui/button/button";`,
 }`,
     }
   ],
+  "assignment-cluster": [
+    {
+      name: "default",
+      component: assignment_cluster_assignment_cluster_demo,
+      code: `"use client";
+import { useState } from "react";
+import AssignmentCluster from "@/components/ui/assignment-cluster/assignment-cluster";
+
+const people = [
+  "Maya Chen",
+  "Noah Williams",
+  "Ava Patel",
+  "Leo Martin",
+  "Sofia Kim",
+].map((name, index) => ({ id: String(index + 1), name }));
+export default function AssignmentClusterDemo() {
+  const [value, setValue] = useState(["1", "2"]);
+  return <AssignmentCluster items={people} value={value} onChange={setValue} />;
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+import { useState } from "react";
+import AssignmentCluster from "@/components/ui/assignment-cluster/assignment-cluster";
+
+const people = [
+  "Maya Chen",
+  "Noah Williams",
+  "Ava Patel",
+  "Leo Martin",
+  "Sofia Kim",
+].map((name, index) => ({ id: String(index + 1), name }));
+export default function AssignmentClusterDemo() {
+  const [value, setValue] = useState(["1", "2"]);
+  return <AssignmentCluster items={people} value={value} onChange={setValue} />;
+}`,
+    }
+  ],
   "fluid-slider": [
     {
       name: "default",
@@ -3126,13 +4471,17 @@ import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 export default function AnimatedSwitchDemo() {
   return (
     <div className="flex flex-col gap-6 items-start">
-      {/* Controlled & Disabled */}
+      {/* Blocked states */}
       <div className="flex gap-8 items-center pt-4 w-full border-t">
         <div className="flex gap-3 items-center">
           <AnimatedSwitch defaultChecked disabled />
           <span className="font-medium text-muted-foreground text-sm">
             Disabled
           </span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch error aria-label="Enable notifications" />
+          <span className="font-medium text-destructive text-sm">Error</span>
         </div>
       </div>
     </div>
@@ -3147,13 +4496,17 @@ import AnimatedSwitch from "@/components/ui/animated-switch/animated-switch";
 export default function AnimatedSwitchDemo() {
   return (
     <div className="flex flex-col gap-6 items-start">
-      {/* Controlled & Disabled */}
+      {/* Blocked states */}
       <div className="flex gap-8 items-center pt-4 w-full border-t">
         <div className="flex gap-3 items-center">
           <AnimatedSwitch defaultChecked disabled />
           <span className="font-medium text-muted-foreground text-sm">
             Disabled
           </span>
+        </div>
+        <div className="flex gap-3 items-center">
+          <AnimatedSwitch error aria-label="Enable notifications" />
+          <span className="font-medium text-destructive text-sm">Error</span>
         </div>
       </div>
     </div>
@@ -3771,6 +5124,284 @@ export default function LinkPreviewExample() {
 }`,
     }
   ],
+  "swipe-action-row": [
+    {
+      name: "default",
+      component: swipe_action_row_swipe_action_row_demo,
+      code: `"use client";
+
+import { Archive, Flag, RotateCcw, Trash2 } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+
+import SwipeActionRow from "@/components/ui/swipe-action-row/swipe-action-row";
+
+const initialMessages = [
+  {
+    id: 1,
+    sender: "Maya Chen",
+    subject: "Reviewing the motion pass",
+    preview: "The settling behavior feels much closer to the native pattern.",
+    flagged: false,
+  },
+  {
+    id: 2,
+    sender: "Noah Williams",
+    subject: "Updated project timeline",
+    preview: "I moved the interaction review to Friday afternoon.",
+    flagged: false,
+  },
+  {
+    id: 3,
+    sender: "Ava Patel",
+    subject: "Notes from yesterday",
+    preview: "Keyboard and touch behavior are ready for another pass.",
+    flagged: true,
+  },
+];
+
+export default function SwipeActionRowDemo() {
+  const [messages, setMessages] = useState(initialMessages);
+  const shouldReduceMotion = useReducedMotion();
+
+  const removeMessage = (id: number) =>
+    setMessages((current) => current.filter((message) => message.id !== id));
+
+  const toggleFlag = (id: number) =>
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === id ? { ...message, flagged: !message.flagged } : message,
+      ),
+    );
+
+  return (
+    <div className="w-full max-w-md overflow-clip rounded-2xl border border-border bg-background">
+      <SwipeActionRow.Root render={<ul className="divide-y divide-border" />}>
+        <AnimatePresence initial={false}>
+          {messages.map((message) => (
+            <SwipeActionRow.Item
+              key={message.id}
+              closeOnScroll
+              render={
+                <motion.li
+                  layout={!shouldReduceMotion}
+                  exit={{ opacity: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.18, ease: [0.32, 0.72, 0, 1] }
+                  }
+                />
+              }
+            >
+              <SwipeActionRow.Actions side="left">
+                <SwipeActionRow.Action
+                  fullSwipe
+                  className="bg-sky-600 text-white"
+                  onClick={() => removeMessage(message.id)}
+                >
+                  <Archive />
+                  Archive
+                </SwipeActionRow.Action>
+              </SwipeActionRow.Actions>
+
+              <SwipeActionRow.Actions side="right">
+                <SwipeActionRow.Action
+                  fullSwipe
+                  className="bg-amber-500 text-white"
+                  onClick={() => toggleFlag(message.id)}
+                >
+                  <Flag />
+                  {message.flagged ? "Unflag" : "Flag"}
+                </SwipeActionRow.Action>
+                <SwipeActionRow.Action
+                  variant="destructive"
+                  onClick={() => removeMessage(message.id)}
+                >
+                  <Trash2 />
+                  Delete
+                </SwipeActionRow.Action>
+              </SwipeActionRow.Actions>
+
+              <SwipeActionRow.Content>
+                <button
+                  type="button"
+                  className="flex min-h-24 w-full flex-col items-start justify-center gap-1 px-4 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
+                >
+                  <span className="flex items-center gap-1.5 font-medium text-sm">
+                    {message.sender}
+                    {message.flagged && (
+                      <Flag className="size-3.5 fill-amber-500 text-amber-500" />
+                    )}
+                  </span>
+                  <span className="text-foreground text-sm">
+                    {message.subject}
+                  </span>
+                  <span className="w-full truncate text-muted-foreground text-xs">
+                    {message.preview}
+                  </span>
+                </button>
+              </SwipeActionRow.Content>
+            </SwipeActionRow.Item>
+          ))}
+        </AnimatePresence>
+      </SwipeActionRow.Root>
+
+      {messages.length === 0 && (
+        <div className="flex flex-col items-center gap-3 px-4 py-8 text-center">
+          <p className="text-muted-foreground text-sm">No messages left.</p>
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-muted"
+            onClick={() => setMessages(initialMessages)}
+          >
+            <RotateCcw className="size-4" />
+            Restore messages
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Archive, Flag, RotateCcw, Trash2 } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useState } from "react";
+
+import SwipeActionRow from "@/components/ui/swipe-action-row/swipe-action-row";
+
+const initialMessages = [
+  {
+    id: 1,
+    sender: "Maya Chen",
+    subject: "Reviewing the motion pass",
+    preview: "The settling behavior feels much closer to the native pattern.",
+    flagged: false,
+  },
+  {
+    id: 2,
+    sender: "Noah Williams",
+    subject: "Updated project timeline",
+    preview: "I moved the interaction review to Friday afternoon.",
+    flagged: false,
+  },
+  {
+    id: 3,
+    sender: "Ava Patel",
+    subject: "Notes from yesterday",
+    preview: "Keyboard and touch behavior are ready for another pass.",
+    flagged: true,
+  },
+];
+
+export default function SwipeActionRowDemo() {
+  const [messages, setMessages] = useState(initialMessages);
+  const shouldReduceMotion = useReducedMotion();
+
+  const removeMessage = (id: number) =>
+    setMessages((current) => current.filter((message) => message.id !== id));
+
+  const toggleFlag = (id: number) =>
+    setMessages((current) =>
+      current.map((message) =>
+        message.id === id ? { ...message, flagged: !message.flagged } : message,
+      ),
+    );
+
+  return (
+    <div className="w-full max-w-md overflow-clip rounded-2xl border border-border bg-background">
+      <SwipeActionRow.Root render={<ul className="divide-y divide-border" />}>
+        <AnimatePresence initial={false}>
+          {messages.map((message) => (
+            <SwipeActionRow.Item
+              key={message.id}
+              closeOnScroll
+              render={
+                <motion.li
+                  layout={!shouldReduceMotion}
+                  exit={{ opacity: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.18, ease: [0.32, 0.72, 0, 1] }
+                  }
+                />
+              }
+            >
+              <SwipeActionRow.Actions side="left">
+                <SwipeActionRow.Action
+                  fullSwipe
+                  className="bg-sky-600 text-white"
+                  onClick={() => removeMessage(message.id)}
+                >
+                  <Archive />
+                  Archive
+                </SwipeActionRow.Action>
+              </SwipeActionRow.Actions>
+
+              <SwipeActionRow.Actions side="right">
+                <SwipeActionRow.Action
+                  fullSwipe
+                  className="bg-amber-500 text-white"
+                  onClick={() => toggleFlag(message.id)}
+                >
+                  <Flag />
+                  {message.flagged ? "Unflag" : "Flag"}
+                </SwipeActionRow.Action>
+                <SwipeActionRow.Action
+                  variant="destructive"
+                  onClick={() => removeMessage(message.id)}
+                >
+                  <Trash2 />
+                  Delete
+                </SwipeActionRow.Action>
+              </SwipeActionRow.Actions>
+
+              <SwipeActionRow.Content>
+                <button
+                  type="button"
+                  className="flex min-h-24 w-full flex-col items-start justify-center gap-1 px-4 text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
+                >
+                  <span className="flex items-center gap-1.5 font-medium text-sm">
+                    {message.sender}
+                    {message.flagged && (
+                      <Flag className="size-3.5 fill-amber-500 text-amber-500" />
+                    )}
+                  </span>
+                  <span className="text-foreground text-sm">
+                    {message.subject}
+                  </span>
+                  <span className="w-full truncate text-muted-foreground text-xs">
+                    {message.preview}
+                  </span>
+                </button>
+              </SwipeActionRow.Content>
+            </SwipeActionRow.Item>
+          ))}
+        </AnimatePresence>
+      </SwipeActionRow.Root>
+
+      {messages.length === 0 && (
+        <div className="flex flex-col items-center gap-3 px-4 py-8 text-center">
+          <p className="text-muted-foreground text-sm">No messages left.</p>
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-muted"
+            onClick={() => setMessages(initialMessages)}
+          >
+            <RotateCcw className="size-4" />
+            Restore messages
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}`,
+    }
+  ],
   "stagger-text": [
     {
       name: "default",
@@ -3901,6 +5532,118 @@ export default function AvatarShowcaseExample() {
 }`,
     }
   ],
+  "floating-viewer": [
+    {
+      name: "default",
+      component: floating_viewer_floating_viewer_demo,
+      code: `"use client";
+
+import FloatingViewer from "@/components/ui/floating-viewer/floating-viewer";
+
+export default function FloatingViewerDemo() {
+  return (
+    <div className="grid w-full max-w-4xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="space-y-3">
+        <p className="font-medium text-sm">Component walkthrough</p>
+        <FloatingViewer>
+          {/* biome-ignore lint/a11y/useMediaCaption: this demo video has no audio track */}
+          <video
+            aria-label="Sona UI animated dialog walkthrough"
+            className="size-full object-cover"
+            controls
+            playsInline
+            poster="/videos/posters/animated-dialog-poster.webp"
+            preload="metadata"
+            src="/videos/animated-dialog.mp4"
+          />
+        </FloatingViewer>
+      </div>
+
+      <form
+        className="space-y-4 rounded-2xl bg-muted/45 p-5"
+        onSubmit={(event) => event.preventDefault()}
+      >
+        <div>
+          <h3 className="font-medium text-sm">Try it alongside the tutorial</h3>
+          <p className="mt-1 text-muted-foreground text-xs leading-5">
+            Float the video, then complete these fields without losing your
+            place.
+          </p>
+        </div>
+        <label className="block space-y-1.5 text-xs">
+          <span className="font-medium">Project name</span>
+          <input
+            className="h-10 w-full rounded-xl bg-background px-3 outline-none ring-1 ring-border focus:ring-2 focus:ring-foreground/25"
+            placeholder="Motion study"
+          />
+        </label>
+        <label className="block space-y-1.5 text-xs">
+          <span className="font-medium">Notes</span>
+          <textarea
+            className="min-h-24 w-full resize-none rounded-xl bg-background p-3 outline-none ring-1 ring-border focus:ring-2 focus:ring-foreground/25"
+            placeholder="Capture what you notice..."
+          />
+        </label>
+      </form>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import FloatingViewer from "@/components/ui/floating-viewer/floating-viewer";
+
+export default function FloatingViewerDemo() {
+  return (
+    <div className="grid w-full max-w-4xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="space-y-3">
+        <p className="font-medium text-sm">Component walkthrough</p>
+        <FloatingViewer>
+          {/* biome-ignore lint/a11y/useMediaCaption: this demo video has no audio track */}
+          <video
+            aria-label="Sona UI animated dialog walkthrough"
+            className="size-full object-cover"
+            controls
+            playsInline
+            poster="/videos/posters/animated-dialog-poster.webp"
+            preload="metadata"
+            src="/videos/animated-dialog.mp4"
+          />
+        </FloatingViewer>
+      </div>
+
+      <form
+        className="space-y-4 rounded-2xl bg-muted/45 p-5"
+        onSubmit={(event) => event.preventDefault()}
+      >
+        <div>
+          <h3 className="font-medium text-sm">Try it alongside the tutorial</h3>
+          <p className="mt-1 text-muted-foreground text-xs leading-5">
+            Float the video, then complete these fields without losing your
+            place.
+          </p>
+        </div>
+        <label className="block space-y-1.5 text-xs">
+          <span className="font-medium">Project name</span>
+          <input
+            className="h-10 w-full rounded-xl bg-background px-3 outline-none ring-1 ring-border focus:ring-2 focus:ring-foreground/25"
+            placeholder="Motion study"
+          />
+        </label>
+        <label className="block space-y-1.5 text-xs">
+          <span className="font-medium">Notes</span>
+          <textarea
+            className="min-h-24 w-full resize-none rounded-xl bg-background p-3 outline-none ring-1 ring-border focus:ring-2 focus:ring-foreground/25"
+            placeholder="Capture what you notice..."
+          />
+        </label>
+      </form>
+    </div>
+  );
+}`,
+    }
+  ],
   "hold-to-delete-button": [
     {
       name: "default",
@@ -3970,6 +5713,8 @@ import {
 } from "react";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
+
+const MotionMenuPopup = motion.create(Menu.Popup);
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -4111,7 +5856,6 @@ export function AnimatedDropdownTrigger({
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:cursor-pointer hover:bg-popover transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        "data-[popup-open]:bg-popover",
         className,
       )}
     >
@@ -4171,7 +5915,13 @@ export function AnimatedDropdownContent({
         sideOffset={sideOffset}
         className="z-50"
       >
-        <Menu.Popup
+        <MotionMenuPopup
+          layout={!shouldReduceMotion}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { layout: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } }
+          }
           className={cn(
             // Layout
             "z-50 min-w-[160px] rounded-xl p-1",
@@ -4183,12 +5933,14 @@ export function AnimatedDropdownContent({
             // Enter animation (CSS @starting-style + transition)
             "transition-[opacity,transform]",
             "starting:scale-95 starting:opacity-0",
-            shouldReduceMotion ? "duration-0" : "duration-150",
+            shouldReduceMotion
+              ? "duration-0 starting:scale-100 starting:opacity-100"
+              : "duration-150",
             className,
           )}
         >
           {children}
-        </Menu.Popup>
+        </MotionMenuPopup>
       </Menu.Positioner>
     </Menu.Portal>
   );
@@ -4223,7 +5975,7 @@ export function AnimatedDropdownItem({
         "rounded-lg px-2.5 py-2 text-sm outline-none",
         "transition-colors duration-75",
         variant === "danger"
-          ? "text-danger-foreground focus:text-white"
+          ? "text-destructive focus:text-destructive-foreground"
           : "text-popover-foreground",
         disabled && "cursor-not-allowed opacity-50",
         className,
@@ -4240,7 +5992,7 @@ export function AnimatedDropdownItem({
             layoutId={shouldReduceMotion ? undefined : \`\${layoutId}-highlight\`}
             className={cn(
               "absolute inset-0 rounded-lg",
-              variant === "danger" ? "bg-danger" : "bg-accent",
+              variant === "danger" ? "bg-destructive" : "bg-accent",
             )}
             initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -4260,7 +6012,7 @@ export function AnimatedDropdownItem({
           className={cn(
             "relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground",
             variant === "danger"
-              ? "text-danger-foreground group-focus:text-white"
+              ? "text-destructive group-focus:text-destructive-foreground"
               : "text-popover-foreground",
           )}
         >
@@ -4306,7 +6058,6 @@ import {
 } from "motion/react";
 import {
   type ComponentPropsWithoutRef,
-  type CSSProperties,
   createContext,
   type ReactNode,
   type PointerEvent as ReactPointerEvent,
@@ -4330,6 +6081,8 @@ const spring = {
   mass: 1,
 } as const;
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
+const interpolate = (from: number, to: number, progress: number) =>
+  from + (to - from) * clamp(progress);
 
 export interface LiveActivityProps extends ComponentPropsWithoutRef<"div"> {
   /** The composed activity surface and views. */
@@ -4427,6 +6180,8 @@ export function LiveActivityRoot({
   const panelId = useId();
   const immediate = useRef(false);
   const previous = useRef(expanded);
+  const reservedHeight = useMotionValue(0);
+  const reservedHeightReady = useRef(false);
 
   const measure = useCallback(() => {
     const root = rootRef.current;
@@ -4514,6 +6269,18 @@ export function LiveActivityRoot({
     previous.current = expanded;
   }, [expanded, settle]);
 
+  useLayoutEffect(() => {
+    const next = sizes.compact.height;
+    if (!next) return;
+    if (!reservedHeightReady.current || reduced) {
+      reservedHeight.stop();
+      reservedHeight.jump(next);
+      reservedHeightReady.current = true;
+      return;
+    }
+    animate(reservedHeight, next, spring);
+  }, [reduced, reservedHeight, sizes.compact.height]);
+
   const request = (next: boolean, instantly = false) => {
     immediate.current = instantly;
     if (next !== expanded) {
@@ -4546,17 +6313,17 @@ export function LiveActivityRoot({
         settle,
       }}
     >
-      <div
-        {...props}
+      <motion.div
+        {...(props as ComponentPropsWithoutRef<typeof motion.div>)}
         ref={rootRef}
         data-slot="live-activity"
         data-state={expanded ? "expanded" : "compact"}
         data-direction={direction}
         className={cn("relative w-full", className)}
-        style={{ ...style, height: sizes.compact.height || undefined }}
+        style={{ ...style, height: reservedHeight }}
       >
         {children}
-      </div>
+      </motion.div>
     </Context.Provider>
   );
 }
@@ -4575,21 +6342,62 @@ export function LiveActivitySurface({
   ...props
 }: LiveActivitySurfaceProps) {
   const ctx = useActivity();
-  const width = useTransform(
+  const width = useMotionValue(0);
+  const height = useMotionValue(0);
+  const dimensionsReady = useRef(false);
+
+  useLayoutEffect(() => {
+    const updateDimensions = (progress: number, contentResize: boolean) => {
+      const nextWidth = interpolate(
+        ctx.sizes.compact.width,
+        ctx.sizes.expanded.width,
+        progress,
+      );
+      const nextHeight = interpolate(
+        ctx.sizes.compact.height,
+        ctx.sizes.expanded.height,
+        progress,
+      );
+      if (!nextWidth || !nextHeight) return;
+
+      const atRest = progress <= 0.001 || progress >= 0.999;
+      if (!dimensionsReady.current || ctx.reduced) {
+        width.stop();
+        height.stop();
+        width.jump(nextWidth);
+        height.jump(nextHeight);
+        dimensionsReady.current = true;
+      } else if (contentResize && atRest) {
+        animate(width, nextWidth, spring);
+        animate(height, nextHeight, spring);
+      } else {
+        // Expansion and touch dragging remain tied directly to the shared
+        // progress value. Any active resize spring is interrupted here.
+        width.stop();
+        height.stop();
+        width.jump(nextWidth);
+        height.jump(nextHeight);
+      }
+    };
+
+    const unsubscribe = ctx.progress.on("change", (progress) => {
+      updateDimensions(progress, false);
+    });
+    updateDimensions(ctx.progress.get(), true);
+    return unsubscribe;
+  }, [
     ctx.progress,
-    (p) =>
-      ctx.sizes.compact.width +
-      (ctx.sizes.expanded.width - ctx.sizes.compact.width) * clamp(p),
-  );
-  const height = useTransform(
-    ctx.progress,
-    (p) =>
-      ctx.sizes.compact.height +
-      (ctx.sizes.expanded.height - ctx.sizes.compact.height) * clamp(p),
-  );
+    ctx.reduced,
+    ctx.sizes.compact.height,
+    ctx.sizes.compact.width,
+    ctx.sizes.expanded.height,
+    ctx.sizes.expanded.width,
+    height,
+    width,
+  ]);
   return (
-    <div
-      {...props}
+    <motion.div
+      {...(props as ComponentPropsWithoutRef<typeof motion.div>)}
       data-slot="live-activity-anchor"
       className="absolute inset-x-0"
       style={{
@@ -4622,7 +6430,7 @@ export function LiveActivitySurface({
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -4891,7 +6699,8 @@ function ActivityButton({
       }
       className={cn(
         focusClass,
-        kind === "handle" && "flex h-11 w-full items-center justify-center",
+        kind === "handle" &&
+          "hidden h-11 w-full items-center justify-center [@media(pointer:coarse)]:flex",
         className,
       )}
       style={{
@@ -5103,14 +6912,18 @@ export default function CircularDockMenu({
                   <m.div
                     key={label}
                     className="absolute bottom-12 left-1/2 z-10"
-                    initial={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.56,
-                      rotate: 8,
-                      filter: "blur(10px)",
-                    }}
+                    initial={
+                      shouldReduceMotion
+                        ? false
+                        : {
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.56,
+                            rotate: 8,
+                            filter: "blur(10px)",
+                          }
+                    }
                     animate={{
                       x,
                       y,
@@ -5127,21 +6940,23 @@ export default function CircularDockMenu({
                           : (items.length - index - 1) * 0.045,
                       },
                     }}
-                    exit={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.48,
-                      rotate: 10,
-                      filter: "blur(10px)",
-                      transition: shouldReduceMotion
-                        ? { duration: 0 }
+                    exit={
+                      shouldReduceMotion
+                        ? { opacity: 0, transition: { duration: 0 } }
                         : {
-                            duration: 0.2,
-                            ease: "easeInOut",
-                            delay: index * 0.025,
-                          },
-                    }}
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.48,
+                            rotate: 10,
+                            filter: "blur(10px)",
+                            transition: {
+                              duration: 0.2,
+                              ease: "easeInOut",
+                              delay: index * 0.025,
+                            },
+                          }
+                    }
                   >
                     <m.button
                       type="button"
@@ -5450,6 +7265,189 @@ export function cn(...inputs: ClassValue[]) {
       target: "components/sonaui/sona-utils/sona-utils.ts"
     }
   ],
+  "code-block": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  SiJavascript,
+  SiPython,
+  SiTypescript,
+} from "@icons-pack/react-simple-icons";
+import { codeToHtml, type ShikiTransformer } from "shiki";
+import { Check, Copy, Terminal } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { cn } from "@/lib/sona-utils";
+
+export interface CodeBlockProps {
+  /** Source code to render. */
+  code: string;
+  /** Language identifier used for syntax highlighting. @default "tsx" */
+  language?: string;
+  /** Optional filename shown in the header. @default undefined */
+  filename?: string;
+  /** Shows a numbered gutter. @default false */
+  showLineNumbers?: boolean;
+  /** Lines to emphasize, as numbers or a comma-separated range. @default undefined */
+  highlightLines?: number[] | string;
+  /** Removes leading diff markers and styles added or removed lines. @default false */
+  showDiff?: boolean;
+  /** Lines to keep visually focused. @default undefined */
+  focusLines?: number[] | string;
+  /** Additional classes for the code block. @default undefined */
+  className?: string;
+}
+
+function parseLines(value: number[] | string | undefined) {
+  if (!value) return new Set<number>();
+  if (Array.isArray(value)) return new Set(value);
+  const lines = new Set<number>();
+  value.split(",").forEach((part) => {
+    const [start, end] = part.split("-").map(Number);
+    if (!Number.isFinite(start)) return;
+    for (let line = start; line <= (Number.isFinite(end) ? end : start); line++)
+      lines.add(line);
+  });
+  return lines;
+}
+
+function languageIcon(language: string) {
+  const normalized = language.toLowerCase();
+  if (["ts", "tsx", "typescript"].includes(normalized))
+    return <SiTypescript className="size-4" />;
+  if (["js", "jsx", "javascript"].includes(normalized))
+    return <SiJavascript className="size-4" />;
+  if (["py", "python"].includes(normalized))
+    return <SiPython className="size-4" />;
+  if (["bash", "sh", "shell"].includes(normalized))
+    return <Terminal className="size-4" />;
+  return null;
+}
+
+function createLineTransformers(
+  code: string,
+  options: Pick<CodeBlockProps, "highlightLines" | "focusLines" | "showDiff">,
+): ShikiTransformer[] {
+  const highlighted = parseLines(options.highlightLines);
+  const focused = parseLines(options.focusLines);
+  const originalLines = code.split("\n");
+  return [
+    {
+      name: "code-block-lines",
+      preprocess(source) {
+        return options.showDiff
+          ? source.split("\n").map((line) => line.replace(/^[-+ ]/, "")).join("\n")
+          : source;
+      },
+      line(node, lineNumber) {
+        node.properties["data-line-number"] = String(lineNumber);
+        if (highlighted.has(lineNumber)) node.properties["data-highlighted"] = "true";
+        if (focused.has(lineNumber)) node.properties["data-focused"] = "true";
+        if (options.showDiff) {
+          const original = originalLines[lineNumber - 1] ?? "";
+          if (original.startsWith("+")) node.properties["data-diff"] = "added";
+          if (original.startsWith("-")) node.properties["data-diff"] = "removed";
+        }
+      },
+    },
+  ];
+}
+
+export default function CodeBlock({
+  code,
+  language = "tsx",
+  filename,
+  showLineNumbers = false,
+  highlightLines,
+  showDiff = false,
+  focusLines,
+  className,
+}: CodeBlockProps) {
+  const [copied, setCopied] = useState(false);
+  const emphasized = parseLines(highlightLines);
+  const focused = parseLines(focusLines);
+  const lines = useMemo(() => code.split("\n"), [code]);
+  const source = useMemo(() => {
+    const source = showDiff
+      ? lines.map((line) => line.replace(/^[-+ ]/, "")).join("\n")
+      : code;
+    return source;
+  }, [code, lines, showDiff]);
+  const [html, setHtml] = useState("");
+  useEffect(() => {
+    let active = true;
+    void codeToHtml(source, { lang: language, themes: { light: "github-light", dark: "github-dark" }, defaultColor: "light-dark()", transformers: createLineTransformers(code, { highlightLines, focusLines, showDiff }) }).then((result) => {
+      if (active) setHtml(result.replace(/^<pre[^>]*><code>/, "").replace(/<\/code><\/pre>\$/, ""));
+    });
+    return () => { active = false; };
+  }, [code, focusLines, highlightLines, language, showDiff, source]);
+
+  async function copyCode() {
+    await navigator.clipboard.writeText(
+      showDiff
+        ? lines.map((line) => line.replace(/^[-+ ]/, "")).join("\n")
+        : code,
+    );
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1400);
+  }
+
+  return (
+    <div
+      className={cn(
+        "relative w-full overflow-hidden rounded-xl border border-border/60 bg-card",
+        className,
+      )}
+    >
+      {(filename || language) && (
+        <div className="flex h-11 items-center justify-between border-b border-border/60 px-4 text-xs text-muted-foreground">
+          <span className="flex items-center gap-2">
+            {languageIcon(language)}
+            {filename ?? language}
+          </span>
+          <button
+            type="button"
+            onClick={copyCode}
+            className="rounded-md p-1.5 hover:bg-accent"
+            aria-label="Copy code"
+          >
+            {copied ? (
+              <Check className="size-4" />
+            ) : (
+              <Copy className="size-4" />
+            )}
+          </button>
+        </div>
+      )}
+      <div className="overflow-x-auto p-4 text-[.8125rem] leading-normal">
+        <div
+          className={cn(
+            "flex min-w-max",
+            focusLines && "[&_.line:not([data-focused])]:opacity-45",
+          )}
+        >
+          {showLineNumbers && (
+            <div className="mr-4 select-none text-right text-muted-foreground">
+              {lines.map((_, i) => (
+                <div key={i}>{i + 1}</div>
+              ))}
+            </div>
+          )}
+          <div
+            className="th-code-content block w-full whitespace-pre [&_.line]:inline-block [&_.line]:w-full [&_.line]:min-w-full [&_.th-line]:inline-block [&_.th-line]:w-full [&_.th-line]:min-w-full [&_.line[data-highlighted]]:bg-primary/10 [&_.line[data-diff=added]]:bg-green-500/10 [&_.line[data-diff=removed]]:bg-red-500/10 [&_.line[data-focused]]:font-medium"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+`,
+      path: "code-block/code-block.tsx",
+      target: "components/sonaui/code-block/code-block.tsx"
+    }
+  ],
   "magnetic-button": [
     {
       type: "registry:ui",
@@ -5629,6 +7627,286 @@ export default function Magnetic({
 `,
       path: "magnetic-button/magnetic-button.tsx",
       target: "components/sonaui/magnetic-button/magnetic-button.tsx"
+    }
+  ],
+  "morph-surface": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  animate,
+  type HTMLMotionProps,
+  motion,
+  type Transition,
+  useAnimationControls,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import {
+  forwardRef,
+  type ReactNode,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+import useMeasure from "react-use-measure";
+
+import { usePreviewMotionMode } from "@/lib/preview-motion";
+import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
+
+export type MorphSurfaceReducedMotion = "user" | "always" | "never";
+export type MorphSurfaceOrigin =
+  | "center"
+  | "top"
+  | "right"
+  | "bottom"
+  | "left"
+  | "top-left"
+  | "top-right"
+  | "bottom-right"
+  | "bottom-left";
+
+const morphSurfaceOrigins: Record<
+  MorphSurfaceOrigin,
+  { originX: number; originY: number }
+> = {
+  center: { originX: 0.5, originY: 0.5 },
+  top: { originX: 0.5, originY: 0 },
+  right: { originX: 1, originY: 0.5 },
+  bottom: { originX: 0.5, originY: 1 },
+  left: { originX: 0, originY: 0.5 },
+  "top-left": { originX: 0, originY: 0 },
+  "top-right": { originX: 1, originY: 0 },
+  "bottom-right": { originX: 1, originY: 1 },
+  "bottom-left": { originX: 0, originY: 1 },
+};
+
+type SurfaceSize = { width: number; height: number };
+
+export interface MorphSurfaceRootProps
+  extends Omit<HTMLMotionProps<"div">, "children" | "transition"> {
+  /** A value that identifies the current content state and starts a new morph when it changes. */
+  value: string;
+  /** The current content rendered inside the persistent surface. */
+  children: ReactNode;
+  /** The transition used when the persistent surface changes size. @default motionTransition.spatial */
+  transition?: Transition;
+  /** The transition used when the content changes. @default motionTransition.enter */
+  contentTransition?: Transition;
+  /** The scale from which changed content resolves inside the surface. @default 0.96 */
+  contentScale?: number;
+  /** The shared origin used to grow, shrink, reveal, and scale the surface content. @default "center" */
+  origin?: MorphSurfaceOrigin;
+  /** Additional classes for the stable layout anchor around the surface. @default undefined */
+  anchorClassName?: string;
+  /** Additional classes for the internal clipping layer. @default undefined */
+  clipClassName?: string;
+  /** Additional classes for the persistent content wrapper. @default undefined */
+  contentClassName?: string;
+  /** Controls whether the surface follows, forces, or ignores reduced motion. @default "user" */
+  reducedMotion?: MorphSurfaceReducedMotion;
+}
+
+const MorphSurfaceRoot = forwardRef<HTMLDivElement, MorphSurfaceRootProps>(
+  function MorphSurfaceRoot(
+    {
+      value,
+      children,
+      className,
+      transition = motionTransition.spatial,
+      contentTransition = motionTransition.enter,
+      contentScale = 0.96,
+      origin = "center",
+      anchorClassName,
+      clipClassName,
+      contentClassName,
+      reducedMotion = "user",
+      style,
+      ...props
+    },
+    ref,
+  ) {
+    const [measureRef, bounds] = useMeasure({ offsetSize: true });
+    const [anchorSize, setAnchorSize] = useState<SurfaceSize | null>(null);
+    const renderedSize = useRef<SurfaceSize | null>(null);
+    const surfaceScaleX = useMotionValue(1);
+    const surfaceScaleY = useMotionValue(1);
+    const inverseSurfaceScaleX = useTransform(
+      surfaceScaleX,
+      (scale) => 1 / scale,
+    );
+    const inverseSurfaceScaleY = useTransform(
+      surfaceScaleY,
+      (scale) => 1 / scale,
+    );
+    const transitionRef = useRef(transition);
+    const previousValue = useRef(value);
+    const contentControls = useAnimationControls();
+    const userPrefersReducedMotion = useReducedMotion();
+    const previewMotionMode = usePreviewMotionMode();
+    const shouldReduceMotion =
+      previewMotionMode === "reduced" ||
+      reducedMotion === "always" ||
+      (reducedMotion === "user" && userPrefersReducedMotion === true);
+    const { originX, originY } = morphSurfaceOrigins[origin];
+    const width = bounds.width || undefined;
+    const height = bounds.height || undefined;
+
+    transitionRef.current = transition;
+
+    useLayoutEffect(() => {
+      if (anchorSize || !bounds.width || !bounds.height) return;
+      setAnchorSize({ width: bounds.width, height: bounds.height });
+    }, [anchorSize, bounds.height, bounds.width]);
+
+    useLayoutEffect(() => {
+      if (!bounds.width || !bounds.height) return;
+
+      const nextSize = { width: bounds.width, height: bounds.height };
+      const previousSize = renderedSize.current;
+
+      if (!previousSize || shouldReduceMotion) {
+        renderedSize.current = nextSize;
+        surfaceScaleX.set(1);
+        surfaceScaleY.set(1);
+        return;
+      }
+
+      const currentWidth = previousSize.width * surfaceScaleX.get();
+      const currentHeight = previousSize.height * surfaceScaleY.get();
+      const nextScaleX = currentWidth / nextSize.width;
+      const nextScaleY = currentHeight / nextSize.height;
+
+      renderedSize.current = nextSize;
+      surfaceScaleX.set(nextScaleX);
+      surfaceScaleY.set(nextScaleY);
+
+      const surfaceXAnimation = animate(
+        surfaceScaleX,
+        1,
+        transitionRef.current,
+      );
+      const surfaceYAnimation = animate(
+        surfaceScaleY,
+        1,
+        transitionRef.current,
+      );
+
+      return () => {
+        surfaceXAnimation.stop();
+        surfaceYAnimation.stop();
+      };
+    }, [
+      bounds.height,
+      bounds.width,
+      shouldReduceMotion,
+      surfaceScaleX,
+      surfaceScaleY,
+    ]);
+
+    useEffect(() => {
+      if (previousValue.current === value) return;
+      previousValue.current = value;
+
+      if (shouldReduceMotion) {
+        contentControls.set({ opacity: 1, scale: 1 });
+        return;
+      }
+
+      contentControls.set({ opacity: 0, scale: contentScale });
+      void contentControls.start({ opacity: 1, scale: 1 }, contentTransition);
+    }, [
+      contentControls,
+      contentScale,
+      contentTransition,
+      shouldReduceMotion,
+      value,
+    ]);
+
+    return (
+      <div
+        data-slot="morph-surface-anchor"
+        className={cn("relative inline-block align-top", anchorClassName)}
+        style={{
+          width: anchorSize?.width ?? width,
+          height: anchorSize?.height ?? height,
+        }}
+      >
+        <motion.div
+          ref={ref}
+          data-slot="morph-surface"
+          data-state={value}
+          data-reduced-motion={shouldReduceMotion ? "true" : "false"}
+          className={cn("absolute max-w-none", className)}
+          initial={false}
+          style={{
+            ...style,
+            width,
+            height,
+            left: \`\${originX * 100}%\`,
+            top: \`\${originY * 100}%\`,
+            x: \`\${originX * -100}%\`,
+            y: \`\${originY * -100}%\`,
+            scaleX: surfaceScaleX,
+            scaleY: surfaceScaleY,
+            originX,
+            originY,
+            willChange: "transform",
+          }}
+          {...props}
+        >
+          <div
+            data-slot="morph-surface-clip"
+            className={cn(
+              "absolute inset-0 overflow-hidden rounded-[inherit]",
+              clipClassName,
+            )}
+          >
+            <motion.div
+              data-slot="morph-surface-content-scale"
+              className="absolute w-max max-w-none"
+              style={{
+                left: \`\${originX * 100}%\`,
+                top: \`\${originY * 100}%\`,
+                x: \`\${originX * -100}%\`,
+                y: \`\${originY * -100}%\`,
+                scaleX: inverseSurfaceScaleX,
+                scaleY: inverseSurfaceScaleY,
+                originX,
+                originY,
+                willChange: "transform",
+              }}
+            >
+              <motion.div
+                ref={measureRef}
+                data-slot="morph-surface-content"
+                animate={contentControls}
+                initial={false}
+                className={cn("w-max max-w-none", contentClassName)}
+              >
+                {children}
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    );
+  },
+);
+
+const MorphSurface = {
+  Root: MorphSurfaceRoot,
+};
+
+export { MorphSurfaceRoot };
+export default MorphSurface;
+`,
+      path: "morph-surface/morph-surface.tsx",
+      target: "components/sonaui/morph-surface/morph-surface.tsx"
     }
   ],
   "fluid-tabs": [
@@ -6539,6 +8817,188 @@ export default function BubbleUpButton({
       target: "components/sonaui/bubble-up-button/bubble-up-button.tsx"
     }
   ],
+  "chip": [
+    {
+      type: "registry:ui",
+      content: `import * as React from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+type ChipTone = "neutral" | "success" | "warning" | "danger";
+type ChipVariant = "soft" | "solid" | "outline";
+type ChipSize = "sm" | "md";
+
+export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** The semantic color used to communicate the chip's status. @default "neutral" */
+  tone?: ChipTone;
+  /** The surface treatment applied to the chip. @default "soft" */
+  variant?: ChipVariant;
+  /** The compactness of the chip. @default "md" */
+  size?: ChipSize;
+}
+
+const toneClasses: Record<ChipVariant, Record<ChipTone, string>> = {
+  soft: {
+    neutral: "border-border bg-muted text-foreground",
+    success:
+      "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
+    warning:
+      "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-400",
+    danger: "border-destructive/30 bg-destructive/10 text-destructive",
+  },
+  solid: {
+    neutral: "border-foreground bg-foreground text-background",
+    success: "border-emerald-600 bg-emerald-600 text-white dark:bg-emerald-500",
+    warning: "border-amber-500 bg-amber-500 text-amber-950",
+    danger: "border-destructive bg-destructive text-destructive-foreground",
+  },
+  outline: {
+    neutral: "border-border bg-transparent text-foreground",
+    success:
+      "border-emerald-500/50 bg-transparent text-emerald-700 dark:text-emerald-400",
+    warning:
+      "border-amber-500/50 bg-transparent text-amber-700 dark:text-amber-400",
+    danger: "border-destructive/60 bg-transparent text-destructive",
+  },
+};
+
+const sizeClasses: Record<ChipSize, string> = {
+  sm: "min-h-5 gap-1 px-2 text-[0.5875rem]",
+  md: "min-h-6 gap-1.5 px-2.5 text-xs",
+};
+
+const ChipIcon = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement>
+>(function ChipIcon({ className, ...props }, ref) {
+  return (
+    <span
+      ref={ref}
+      data-slot="chip-icon"
+      className={cn(
+        "flex size-3 shrink-0 items-center justify-center [&_svg]:size-full",
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+
+const ChipLabel = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement>
+>(function ChipLabel({ className, ...props }, ref) {
+  return (
+    <span
+      ref={ref}
+      data-slot="chip-label"
+      className={cn("truncate", className)}
+      {...props}
+    />
+  );
+});
+
+const ChipRoot = React.forwardRef<HTMLSpanElement, ChipProps>(function ChipRoot(
+  { className, tone = "neutral", variant = "soft", size = "md", ...props },
+  ref,
+) {
+  return (
+    <span
+      ref={ref}
+      data-size={size}
+      data-slot="chip"
+      data-tone={tone}
+      data-variant={variant}
+      className={cn(
+        "inline-flex w-fit items-center justify-center rounded-xl border font-medium leading-none whitespace-nowrap",
+        sizeClasses[size],
+        toneClasses[variant][tone],
+        className,
+      )}
+      {...props}
+    />
+  );
+});
+
+ChipIcon.displayName = "Chip.Icon";
+ChipLabel.displayName = "Chip.Label";
+ChipRoot.displayName = "Chip";
+
+const Chip = Object.assign(ChipRoot, {
+  Icon: ChipIcon,
+  Label: ChipLabel,
+});
+
+export { ChipIcon, ChipLabel };
+export default Chip;
+`,
+      path: "chip/chip.tsx",
+      target: "components/sonaui/chip/chip.tsx"
+    }
+  ],
+  "animated-checkbox": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Checkbox } from "@base-ui/react/checkbox";
+import { motion, useReducedMotion } from "motion/react";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedCheckboxProps
+  extends React.ComponentPropsWithoutRef<typeof Checkbox.Root> {
+  /** Optional label rendered beside the control. */
+  label?: React.ReactNode;
+}
+
+/** An accessible Base UI checkbox with a drawn checkmark and shared motion states. */
+export default function AnimatedCheckbox({
+  label,
+  className,
+  ...props
+}: AnimatedCheckboxProps) {
+  const reduce = useReducedMotion();
+  return (
+    <label className="inline-flex cursor-pointer items-center gap-2 text-sm">
+      <Checkbox.Root
+        {...props}
+        className={cn(
+          "group relative grid size-5 shrink-0 place-items-center rounded-md border border-input bg-background outline-none transition-colors hover:cursor-pointer data-checked:border-foreground data-checked:bg-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          className,
+        )}
+      >
+        <Checkbox.Indicator keepMounted>
+          <motion.svg
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+            className="size-3.5 text-background"
+            initial={false}
+            animate={reduce ? { opacity: 1 } : { opacity: 1 }}
+          >
+            <motion.path
+              d="M6.75,15h-.002c-.227,0-.442-.104-.583-.281L2.165,9.719c-.259-.324-.207-.795,.117-1.054,.325-.259,.796-.206,1.054,.117l3.418,4.272L14.667,3.278c.261-.322,.732-.373,1.055-.111,.322,.261,.372,.733,.111,1.055L7.333,14.722c-.143,.176-.357,.278-.583,.278Z"
+              fill="currentColor"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={
+                reduce
+                  ? { duration: 0 }
+                  : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }
+              }
+            />
+          </motion.svg>
+        </Checkbox.Indicator>
+      </Checkbox.Root>
+      {label && <span>{label}</span>}
+    </label>
+  );
+}
+`,
+      path: "animated-checkbox/animated-checkbox.tsx",
+      target: "components/sonaui/animated-checkbox/animated-checkbox.tsx"
+    }
+  ],
   "fan-view": [
     {
       type: "registry:ui",
@@ -6678,14 +9138,18 @@ export default function FanView({
                     aria-label={label}
                     className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     style={{ width, zIndex }}
-                    initial={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.55,
-                      rotate: 0,
-                      filter: "blur(10px)",
-                    }}
+                    initial={
+                      shouldReduceMotion
+                        ? false
+                        : {
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.55,
+                            rotate: 0,
+                            filter: "blur(10px)",
+                          }
+                    }
                     animate={{
                       x,
                       y,
@@ -6700,21 +9164,23 @@ export default function FanView({
                         delay: shouldReduceMotion ? 0 : index * 0.04,
                       },
                     }}
-                    exit={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.45,
-                      rotate: 0,
-                      filter: "blur(10px)",
-                      transition: shouldReduceMotion
-                        ? { duration: 0 }
+                    exit={
+                      shouldReduceMotion
+                        ? { opacity: 0, transition: { duration: 0 } }
                         : {
-                            duration: 0.18,
-                            ease: "easeInOut",
-                            delay: (items.length - index - 1) * 0.025,
-                          },
-                    }}
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.45,
+                            rotate: 0,
+                            filter: "blur(10px)",
+                            transition: {
+                              duration: 0.18,
+                              ease: "easeInOut",
+                              delay: (items.length - index - 1) * 0.025,
+                            },
+                          }
+                    }
                     whileHover={
                       shouldReduceMotion ? {} : { scale: 1.05, zIndex: 30 }
                     }
@@ -6782,6 +9248,607 @@ export default function FanView({
 `,
       path: "fan-view/fan-view.tsx",
       target: "components/sonaui/fan-view/fan-view.tsx"
+    }
+  ],
+  "stepper": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  createContext,
+  type HTMLAttributes,
+  type ReactNode,
+  useContext,
+  useId,
+  useState,
+} from "react";
+import { cn } from "@/lib/sona-utils";
+
+type StepperContextValue = {
+  value: number;
+  setValue: (value: number) => void;
+  orientation: "horizontal" | "vertical";
+};
+
+type StepperItemContextValue = {
+  step: number;
+  active: boolean;
+  id: string;
+};
+
+const StepperContext = createContext<StepperContextValue | null>(null);
+const StepperItemContext = createContext<StepperItemContextValue | null>(null);
+
+function useStepper(component: string) {
+  const context = useContext(StepperContext);
+  if (!context) throw new Error(\`\${component} must be used within Stepper.\`);
+  return context;
+}
+
+function useStepperItem(component: string) {
+  const context = useContext(StepperItemContext);
+  if (!context)
+    throw new Error(\`\${component} must be used within StepperItem.\`);
+  return context;
+}
+
+export interface StepperProps extends HTMLAttributes<HTMLDivElement> {
+  /** Step navigation and panels. */
+  children: ReactNode;
+  /** The active step in controlled mode. */
+  value?: number;
+  /** The initially active step in uncontrolled mode. @default 1 */
+  defaultValue?: number;
+  /** Called when a user selects a different step. */
+  onValueChange?: (value: number) => void;
+  /** The direction of the step navigation. @default "horizontal" */
+  orientation?: "horizontal" | "vertical";
+}
+
+export function Stepper({
+  children,
+  value,
+  defaultValue = 1,
+  onValueChange,
+  orientation = "horizontal",
+  className,
+  ...props
+}: StepperProps) {
+  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
+  const activeValue = value ?? uncontrolledValue;
+  const setValue = (nextValue: number) => {
+    if (value === undefined) setUncontrolledValue(nextValue);
+    onValueChange?.(nextValue);
+  };
+
+  return (
+    <StepperContext.Provider
+      value={{ value: activeValue, setValue, orientation }}
+    >
+      <div
+        data-orientation={orientation}
+        className={cn(
+          "grid gap-6 data-[orientation=vertical]:md:grid-cols-[minmax(11rem,0.35fr)_minmax(0,1fr)]",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    </StepperContext.Provider>
+  );
+}
+
+export function StepperNav({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLElement>) {
+  const { orientation } = useStepper("StepperNav");
+  return (
+    <nav
+      aria-label="Steps"
+      className={cn(
+        "relative flex min-w-0 gap-2 data-[orientation=vertical]:flex-col data-[orientation=vertical]:before:absolute data-[orientation=vertical]:before:top-5 data-[orientation=vertical]:before:bottom-5 data-[orientation=vertical]:before:left-5 data-[orientation=vertical]:before:w-px data-[orientation=vertical]:before:bg-border",
+        className,
+      )}
+      data-orientation={orientation}
+      {...props}
+    >
+      {children}
+    </nav>
+  );
+}
+
+export interface StepperItemProps extends HTMLAttributes<HTMLDivElement> {
+  /** The one-based value that identifies this step. */
+  step: number;
+  /** Step trigger and optional separator. */
+  children: ReactNode;
+}
+
+export function StepperItem({
+  step,
+  children,
+  className,
+  ...props
+}: StepperItemProps) {
+  const { value } = useStepper("StepperItem");
+  const id = useId();
+  return (
+    <StepperItemContext.Provider value={{ step, active: value === step, id }}>
+      <div className={cn("flex min-w-0 items-center", className)} {...props}>
+        {children}
+      </div>
+    </StepperItemContext.Provider>
+  );
+}
+
+export function StepperTrigger({
+  children,
+  className,
+  onClick,
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
+  const { setValue } = useStepper("StepperTrigger");
+  const { step, active, id } = useStepperItem("StepperTrigger");
+  return (
+    <button
+      type="button"
+      aria-current={active ? "step" : undefined}
+      aria-pressed={active}
+      aria-describedby={\`\${id}-label\`}
+      onClick={(event) => {
+        setValue(step);
+        onClick?.(event);
+      }}
+      className={cn(
+        "group flex min-w-0 items-center gap-3 rounded-lg px-2 py-1.5 text-left text-sm text-muted-foreground transition-colors hover:text-foreground hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+        active && "text-foreground",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+}
+
+export function StepperIndicator({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLSpanElement>) {
+  const { active } = useStepperItem("StepperIndicator");
+  return (
+    <span
+      className={cn(
+        "grid size-6 shrink-0 place-items-center rounded-full border border-border bg-background font-mono text-[10px] text-muted-foreground transition-colors",
+        "relative z-1",
+        active && "border-primary bg-primary text-primary-foreground",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </span>
+  );
+}
+
+export function StepperTitle({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLSpanElement>) {
+  const { id } = useStepperItem("StepperTitle");
+  return (
+    <span id={\`\${id}-label\`} className={cn("truncate", className)} {...props}>
+      {children}
+    </span>
+  );
+}
+
+export function StepperSeparator({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cn("mx-1 h-px min-w-4 flex-1 bg-border", className)}
+    />
+  );
+}
+
+export function StepperPanel({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={cn("min-w-0", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+export interface StepperContentProps extends HTMLAttributes<HTMLDivElement> {
+  /** The step value associated with this panel. */
+  value: number;
+  /** Keeps inactive content mounted. @default false */
+  forceMount?: boolean;
+  /** Content shown for this step. */
+  children: ReactNode;
+}
+
+export function StepperContent({
+  value,
+  forceMount = false,
+  children,
+  className,
+  ...props
+}: StepperContentProps) {
+  const { value: activeValue } = useStepper("StepperContent");
+  const active = activeValue === value;
+  if (!active && !forceMount) return null;
+
+  return (
+    <div
+      hidden={!active && !forceMount}
+      aria-hidden={!active && !forceMount}
+      className={cn("min-w-0", className)}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+export default Stepper;
+`,
+      path: "stepper/stepper.tsx",
+      target: "components/sonaui/stepper/stepper.tsx"
+    }
+  ],
+  "schedule-chip": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { CalendarClock, ChevronRight, LoaderCircle } from "lucide-react";
+import type { HTMLMotionProps } from "motion/react";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+import MorphSurface from "../morph-surface/morph-surface";
+
+export interface ScheduleValue {
+  /** A calendar date formatted as YYYY-MM-DD. */
+  date: string;
+  /** A local time formatted as HH:mm. */
+  time: string;
+  /** An IANA timezone name such as America/New_York. */
+  timezone: string;
+}
+
+export interface SchedulePreset {
+  /** The readable label shown in the preset row. */
+  label: string;
+  /** The schedule copied into the draft when selected. */
+  value: ScheduleValue;
+}
+
+export interface ScheduleChipProps
+  extends Omit<HTMLMotionProps<"div">, "onChange"> {
+  /** The committed schedule. Use null when no schedule is set. */
+  value: ScheduleValue | null;
+  /** Called after a schedule is successfully applied or cleared. */
+  onValueChange?: (value: ScheduleValue | null) => void;
+  /** Persists the draft before it is committed. Throw or reject to keep the editor open. */
+  onApply?: (value: ScheduleValue | null) => void | Promise<void>;
+  /** Converts the committed or draft value into the readable summary. */
+  formatSummary?: (value: ScheduleValue | null) => string;
+  /** Returns an error message for an invalid draft, or null when it is valid. */
+  validate?: (value: ScheduleValue | null) => string | null;
+  /** Quick schedule choices displayed above the precise fields. @default [] */
+  presets?: SchedulePreset[];
+  /** Timezones available in the editor. @default ["UTC"] */
+  timezones?: string[];
+  /** Accessible label for the schedule control. @default "Edit schedule" */
+  label?: string;
+  /** Text shown while no schedule is committed. @default "Add schedule" */
+  emptyLabel?: string;
+  /** Message shown when persistence fails. @default "Could not update the schedule. Try again." */
+  errorMessage?: string;
+}
+
+const spring = { type: "spring", bounce: 0.2, duration: 0.34 } as const;
+
+function defaultFormatSummary(value: ScheduleValue | null) {
+  if (!value) return "Add schedule";
+  return \`\${value.date}, \${value.time}\`;
+}
+
+export default function ScheduleChip({
+  value,
+  onValueChange,
+  onApply,
+  formatSummary = defaultFormatSummary,
+  validate,
+  presets = [],
+  timezones = ["UTC"],
+  label = "Edit schedule",
+  emptyLabel = "Add schedule",
+  errorMessage = "Could not update the schedule. Try again.",
+  className,
+  ...props
+}: ScheduleChipProps) {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState<ScheduleValue | null>(value);
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [invalid, setInvalid] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dateRef = useRef<HTMLInputElement>(null);
+  const headingId = useId();
+  const errorId = useId();
+
+  useEffect(() => {
+    if (!open) setDraft(value);
+  }, [open, value]);
+
+  useEffect(() => {
+    if (open) dateRef.current?.focus();
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (pending || rootRef.current?.contains(event.target as Node)) return;
+      setDraft(value);
+      setError(null);
+      setInvalid(false);
+      setOpen(false);
+      requestAnimationFrame(() => triggerRef.current?.focus());
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [open, pending, value]);
+
+  const restoreTriggerFocus = () => {
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  };
+
+  const close = () => {
+    if (pending) return;
+    setDraft(value);
+    setError(null);
+    setInvalid(false);
+    setOpen(false);
+    restoreTriggerFocus();
+  };
+
+  const apply = async () => {
+    const validationError = validate?.(draft) ?? null;
+    if (validationError) {
+      setError(validationError);
+      setInvalid(true);
+      dateRef.current?.focus();
+      return;
+    }
+
+    setPending(true);
+    setError(null);
+    setInvalid(false);
+    try {
+      await onApply?.(draft);
+      onValueChange?.(draft);
+      setOpen(false);
+      restoreTriggerFocus();
+    } catch {
+      setError(errorMessage);
+    } finally {
+      setPending(false);
+    }
+  };
+
+  const updateDraft = (next: Partial<ScheduleValue>) => {
+    setDraft((current) => ({
+      date: current?.date ?? "",
+      time: current?.time ?? "",
+      timezone: current?.timezone ?? timezones[0] ?? "UTC",
+      ...next,
+    }));
+    setError(null);
+    setInvalid(false);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape" && open) {
+      event.preventDefault();
+      close();
+    }
+  };
+
+  const summary = value ? formatSummary(value) : emptyLabel;
+  const draftSummary =
+    draft?.date && draft.time ? formatSummary(draft) : "No schedule selected";
+
+  return (
+    <MorphSurface.Root
+      ref={rootRef}
+      value={open ? "editor" : "summary"}
+      origin="center"
+      transition={spring}
+      contentScale={1}
+      onKeyDown={handleKeyDown}
+      anchorClassName={cn("overflow-visible", className)}
+      className="smooth-shadow-ring-lg smooth-ring-black/8 overflow-hidden rounded-2xl bg-background dark:smooth-ring-white/14"
+      clipClassName="rounded-[inherit]"
+      {...props}
+    >
+      {!open ? (
+        <button
+          ref={triggerRef}
+          type="button"
+          aria-expanded="false"
+          aria-label={\`\${label}: \${summary}\`}
+          onClick={() => {
+            setDraft(value);
+            setError(null);
+            setInvalid(false);
+            setOpen(true);
+          }}
+          className="group flex h-10 cursor-pointer items-center gap-2 rounded-2xl bg-background px-3.5 text-sm font-medium text-foreground outline-none transition-colors hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          <CalendarClock className="size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+          <span className="whitespace-nowrap">{summary}</span>
+          <ChevronRight className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+        </button>
+      ) : (
+        <div
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby={headingId}
+          aria-describedby={error ? errorId : undefined}
+          className="w-[min(22rem,calc(100vw-2rem))] overflow-hidden rounded-2xl bg-background p-3.5 text-foreground"
+        >
+          <div className="flex items-start gap-3 px-1 pb-3">
+            <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-accent text-foreground">
+              <CalendarClock className="size-4" />
+            </span>
+            <div className="min-w-0">
+              <h2 id={headingId} className="text-sm font-semibold">
+                Schedule
+              </h2>
+              <p className="mt-0.5 truncate text-xs text-muted-foreground">
+                {draftSummary}
+              </p>
+            </div>
+          </div>
+
+          {presets.length > 0 && (
+            <fieldset
+              className="mb-3 flex flex-wrap gap-1.5"
+              aria-label="Schedule presets"
+            >
+              {presets.map((preset) => {
+                const selected =
+                  draft?.date === preset.value.date &&
+                  draft.time === preset.value.time &&
+                  draft.timezone === preset.value.timezone;
+                return (
+                  <button
+                    key={\`\${preset.label}-\${preset.value.date}-\${preset.value.time}\`}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => {
+                      setDraft(preset.value);
+                      setError(null);
+                      setInvalid(false);
+                    }}
+                    className="cursor-pointer rounded-full bg-secondary px-2.5 py-1.5 text-xs font-medium text-secondary-foreground outline-none transition-colors hover:bg-accent aria-pressed:bg-foreground aria-pressed:text-background focus-visible:ring-2 focus-visible:ring-ring"
+                  >
+                    {preset.label}
+                  </button>
+                );
+              })}
+            </fieldset>
+          )}
+
+          <div className="grid grid-cols-2 gap-2">
+            <label className="grid gap-1.5 text-xs font-medium text-muted-foreground">
+              Date
+              <input
+                ref={dateRef}
+                type="date"
+                value={draft?.date ?? ""}
+                aria-invalid={invalid}
+                aria-describedby={error ? errorId : undefined}
+                onChange={(event) => updateDraft({ date: event.target.value })}
+                className="h-10 min-w-0 rounded-lg border border-input bg-transparent px-2.5 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+            </label>
+            <label className="grid gap-1.5 text-xs font-medium text-muted-foreground">
+              Time
+              <input
+                type="time"
+                value={draft?.time ?? ""}
+                aria-invalid={invalid}
+                aria-describedby={error ? errorId : undefined}
+                onChange={(event) => updateDraft({ time: event.target.value })}
+                className="h-10 min-w-0 rounded-lg border border-input bg-transparent px-2.5 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
+            </label>
+          </div>
+
+          <label className="mt-2 grid gap-1.5 text-xs font-medium text-muted-foreground">
+            Timezone
+            <select
+              value={draft?.timezone ?? timezones[0] ?? "UTC"}
+              onChange={(event) =>
+                updateDraft({ timezone: event.target.value })
+              }
+              className="h-10 rounded-lg border border-input bg-transparent px-2.5 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {timezones.map((timezone) => (
+                <option key={timezone} value={timezone}>
+                  {timezone}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className="min-h-5 pt-1.5">
+            {error && (
+              <p id={errorId} role="alert" className="text-xs text-destructive">
+                {error}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <button
+              type="button"
+              disabled={pending}
+              onClick={() => {
+                setDraft(null);
+                setError(null);
+                setInvalid(false);
+              }}
+              className="cursor-pointer rounded-lg px-2 py-2 text-xs font-medium text-muted-foreground outline-none transition-colors hover:bg-destructive/10 hover:text-destructive disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              Clear
+            </button>
+            <div className="flex gap-1.5">
+              <button
+                type="button"
+                disabled={pending}
+                onClick={close}
+                className="cursor-pointer rounded-lg px-3 py-2 text-xs font-medium text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                disabled={pending}
+                onClick={apply}
+                className="flex min-w-20 cursor-pointer items-center justify-center gap-1.5 rounded-lg bg-foreground px-3 py-2 text-xs font-medium text-background outline-none transition-opacity disabled:cursor-not-allowed disabled:opacity-60 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              >
+                {pending && <LoaderCircle className="size-3.5 animate-spin" />}
+                {pending ? "Saving" : "Apply"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </MorphSurface.Root>
+  );
+}
+`,
+      path: "schedule-chip/schedule-chip.tsx",
+      target: "components/sonaui/schedule-chip/schedule-chip.tsx"
     }
   ],
   "lightbox": [
@@ -7310,13 +10377,17 @@ function Item({
         destructive && "text-destructive hover:border-destructive/45",
         className,
       )}
-      initial={{
-        opacity: 0,
-        scale: 0.72,
-        filter: "blur(4px)",
-        x: __anchor.x - 22,
-        y: __anchor.y - 22,
-      }}
+      initial={
+        reduce
+          ? false
+          : {
+              opacity: 0,
+              scale: 0.72,
+              filter: "blur(4px)",
+              x: __anchor.x - 22,
+              y: __anchor.y - 22,
+            }
+      }
       animate={{
         opacity: 1,
         scale: 1,
@@ -7333,14 +10404,18 @@ function Item({
               delay: index * 0.035,
             },
       }}
-      exit={{
-        opacity: 0,
-        scale: 0.72,
-        filter: "blur(4px)",
-        x: __anchor.x - 22,
-        y: __anchor.y - 22,
-        transition: reduce ? { duration: 0 } : { duration: 0.16 },
-      }}
+      exit={
+        reduce
+          ? { opacity: 0, transition: { duration: 0 } }
+          : {
+              opacity: 0,
+              scale: 0.72,
+              filter: "blur(4px)",
+              x: __anchor.x - 22,
+              y: __anchor.y - 22,
+              transition: { duration: 0.16 },
+            }
+      }
       whileHover={reduce ? undefined : { scale: 1.06 }}
       whileTap={reduce ? undefined : { scale: 0.94 }}
       onClick={(event) => {
@@ -7848,7 +10923,12 @@ export function RippleButtonText({ text, className }: RippleButtonTextProps) {
       type: "registry:ui",
       content: `"use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+} from "motion/react";
 import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/sona-utils";
@@ -7885,6 +10965,7 @@ export default function SpotlightCard({
   onMouseMove,
   ...props
 }: SpotlightCardProps) {
+  const shouldReduceMotion = useReducedMotion();
   // Start off-canvas so the first hover doesn't flash the glow at (0,0).
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
@@ -7901,7 +10982,7 @@ export default function SpotlightCard({
   }
 
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
-    if (disabled) return;
+    if (disabled || shouldReduceMotion) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
     mouseY.set(event.clientY - rect.top);
@@ -7922,7 +11003,7 @@ export default function SpotlightCard({
       )}
       {...props}
     >
-      {!disabled && (
+      {!disabled && !shouldReduceMotion && (
         <motion.div
           aria-hidden="true"
           className={cn(
@@ -9407,7 +12488,7 @@ export default function SmartOverflow({
                                   "flex cursor-pointer select-none items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm outline-none",
                                   "data-[highlighted]:bg-accent disabled:cursor-not-allowed disabled:opacity-45",
                                   action.destructive
-                                    ? "text-danger-foreground data-[highlighted]:bg-danger data-[highlighted]:text-white"
+                                    ? "text-destructive data-[highlighted]:bg-destructive data-[highlighted]:text-destructive-foreground"
                                     : "text-popover-foreground",
                                 )}
                               >
@@ -9822,6 +12903,413 @@ export default Button;
 `,
       path: "button/button.tsx",
       target: "components/sonaui/button/button.tsx"
+    }
+  ],
+  "assignment-cluster": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Popover } from "@base-ui/react/popover";
+import {
+  AnimatePresence,
+  LayoutGroup,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { cn } from "@/lib/sona-utils";
+
+export interface AssignmentClusterItem {
+  id: string;
+  name: string;
+  imageUrl?: string;
+}
+export interface AssignmentClusterProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+  /** People available for assignment. */
+  items: AssignmentClusterItem[];
+  /** Committed selected IDs. */
+  value: string[];
+  /** Called when the committed selection changes. */
+  onChange?: (ids: string[]) => void;
+  /** Called when Apply is pressed. Return a promise for async persistence. */
+  onApply?: (ids: string[]) => void | Promise<void>;
+  /** Label shown beside the summary. @default "Reviewers" */
+  label?: string;
+  /** Maximum avatars shown in the compact summary. @default 3 */
+  maxVisible?: number;
+}
+
+function initials(name: string) {
+  return name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+}
+
+export default function AssignmentCluster({
+  items,
+  value,
+  onChange,
+  onApply,
+  label = "Reviewers",
+  maxVisible = 3,
+  className,
+  ...props
+}: AssignmentClusterProps) {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState(value);
+  const [query, setQuery] = useState("");
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const searchId = useId();
+  const hoverLayoutId = useId();
+  const reduceMotion = useReducedMotion();
+  useEffect(() => {
+    if (!open) setDraft(value);
+  }, [value, open]);
+  const selected = useMemo(
+    () => items.filter((item) => draft.includes(item.id)),
+    [items, draft],
+  );
+  const filtered = items.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase()),
+  );
+  const avatarClusterWidth =
+    (Math.max(1, maxVisible) + 1) * 32 - Math.max(1, maxVisible) * 8;
+  const close = useCallback(() => {
+    setOpen(false);
+    setQuery("");
+    setError(null);
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (
+        popoverRef.current?.contains(target) ||
+        triggerRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      close();
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        close();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [close, open]);
+  const apply = async () => {
+    setPending(true);
+    setError(null);
+    try {
+      await onApply?.(draft);
+      onChange?.(draft);
+      close();
+    } catch {
+      setError("Could not save assignments. Try again.");
+    } finally {
+      setPending(false);
+    }
+  };
+  const toggle = (id: string) =>
+    setDraft((current) =>
+      current.includes(id)
+        ? current.filter((item) => item !== id)
+        : [...current, id],
+    );
+  return (
+    <Popover.Root open={open} onOpenChange={setOpen} modal={false}>
+      <div
+        className={cn("relative inline-flex items-center gap-3", className)}
+        {...props}
+      >
+        <span className="text-sm font-medium text-foreground">{label}</span>
+        <Popover.Trigger
+          ref={triggerRef}
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          aria-label={\`\${selected.length} assigned\`}
+          onClick={() => {
+            setDraft(value);
+            setQuery("");
+            setError(null);
+          }}
+          style={{ width: avatarClusterWidth }}
+          className="flex cursor-pointer items-center justify-end rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          <span className="flex w-full justify-end -space-x-2">
+            <AnimatePresence initial={false} mode="popLayout">
+              {selected.slice(0, maxVisible).map((item) => (
+                <motion.span
+                  key={item.id}
+                  layout="position"
+                  initial={reduceMotion ? false : { opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={
+                    reduceMotion
+                      ? undefined
+                      : {
+                          opacity: 0,
+                          scale: 0.7,
+                          transition: { duration: 0.14 },
+                        }
+                  }
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", bounce: 0.15, duration: 0.28 }
+                  }
+                  title={item.name}
+                  className="grid size-8 shrink-0 place-items-center overflow-hidden rounded-full border-2 border-background bg-muted text-[10px] font-semibold text-muted-foreground"
+                >
+                  {item.imageUrl ? (
+                    <img
+                      src={item.imageUrl}
+                      alt=""
+                      className="size-full object-cover"
+                    />
+                  ) : (
+                    initials(item.name)
+                  )}
+                </motion.span>
+              ))}
+              {selected.length > maxVisible && (
+                <motion.span
+                  layout="position"
+                  initial={reduceMotion ? false : { opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, scale: 0.7 }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", bounce: 0.15, duration: 0.28 }
+                  }
+                  className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-background bg-secondary text-xs font-medium"
+                >
+                  +{selected.length - maxVisible}
+                </motion.span>
+              )}
+              {selected.length === 0 && (
+                <motion.span
+                  layout="position"
+                  initial={reduceMotion ? false : { opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={reduceMotion ? undefined : { opacity: 0, scale: 0.7 }}
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: "spring", bounce: 0.15, duration: 0.28 }
+                  }
+                  className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-dashed border-border text-muted-foreground"
+                >
+                  +
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </span>
+        </Popover.Trigger>
+        <AnimatePresence>
+          {open && (
+            <Popover.Portal>
+              <Popover.Positioner side="bottom" align="end" sideOffset={8}>
+                <Popover.Popup initialFocus={false} finalFocus={triggerRef}>
+                  <motion.div
+                    ref={popoverRef}
+                    layout="size"
+                    initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduceMotion ? undefined : { opacity: 0, y: -2 }}
+                    transition={
+                      reduceMotion
+                        ? { duration: 0 }
+                        : {
+                            duration: 0.16,
+                            ease: [0.23, 1, 0.32, 1],
+                          }
+                    }
+                    role="dialog"
+                    aria-modal="false"
+                    aria-label={\`Edit \${label.toLowerCase()}\`}
+                    className="w-80 rounded-xl border border-border bg-background p-3 shadow-lg"
+                  >
+                    <motion.div
+                      layout="position"
+                      transition={
+                        reduceMotion
+                          ? { duration: 0 }
+                          : { type: "spring", bounce: 0, duration: 0.3 }
+                      }
+                      className="mb-2 flex items-center justify-between"
+                    >
+                      <strong className="text-sm">
+                        Assign {label.toLowerCase()}
+                      </strong>
+                      <button
+                        type="button"
+                        onClick={close}
+                        className="cursor-pointer rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-secondary"
+                      >
+                        Cancel
+                      </button>
+                    </motion.div>
+                    <label htmlFor={searchId} className="sr-only">
+                      Search people
+                    </label>
+                    <input
+                      id={searchId}
+                      value={query}
+                      onChange={(event) => setQuery(event.target.value)}
+                      placeholder="Search people"
+                      className="mb-2 h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    />
+                    <LayoutGroup id={hoverLayoutId}>
+                      <motion.div
+                        layout="size"
+                        transition={
+                          reduceMotion
+                            ? { duration: 0 }
+                            : { type: "spring", bounce: 0, duration: 0.3 }
+                        }
+                        className="max-h-56 overflow-y-auto"
+                      >
+                        <AnimatePresence initial={false} mode="popLayout">
+                          {filtered.map((item) => (
+                            <motion.label
+                              key={item.id}
+                              layout="position"
+                              initial={
+                                reduceMotion ? false : { opacity: 0, y: -4 }
+                              }
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={
+                                reduceMotion ? undefined : { opacity: 0, y: -4 }
+                              }
+                              transition={
+                                reduceMotion
+                                  ? { duration: 0 }
+                                  : {
+                                      type: "spring",
+                                      bounce: 0,
+                                      duration: 0.24,
+                                    }
+                              }
+                              onMouseEnter={() => setActiveId(item.id)}
+                              onMouseLeave={() => setActiveId(null)}
+                              onFocus={() => setActiveId(item.id)}
+                              onBlur={() => setActiveId(null)}
+                              className="relative flex cursor-pointer items-center gap-3 rounded-md px-2 py-2 text-sm"
+                            >
+                              <AnimatePresence initial={false}>
+                                {activeId === item.id && (
+                                  <motion.span
+                                    layoutId={
+                                      reduceMotion
+                                        ? undefined
+                                        : \`\${hoverLayoutId}-hover\`
+                                    }
+                                    initial={
+                                      reduceMotion ? false : { opacity: 0 }
+                                    }
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={
+                                      reduceMotion
+                                        ? { duration: 0 }
+                                        : { duration: 0.12 }
+                                    }
+                                    className="absolute inset-0 rounded-md bg-accent"
+                                  />
+                                )}
+                              </AnimatePresence>
+                              <input
+                                type="checkbox"
+                                checked={draft.includes(item.id)}
+                                onChange={() => toggle(item.id)}
+                                className="relative z-10 size-4 accent-foreground"
+                              />
+                              <span className="relative z-10 grid size-7 place-items-center overflow-hidden rounded-full bg-muted text-[10px] font-semibold">
+                                {item.imageUrl ? (
+                                  <img
+                                    src={item.imageUrl}
+                                    alt=""
+                                    className="size-full object-cover"
+                                  />
+                                ) : (
+                                  initials(item.name)
+                                )}
+                              </span>
+                              <span className="relative z-10">{item.name}</span>
+                            </motion.label>
+                          ))}
+                          {filtered.length === 0 && (
+                            <motion.p
+                              layout="position"
+                              initial={reduceMotion ? false : { opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={reduceMotion ? undefined : { opacity: 0 }}
+                              className="px-2 py-4 text-sm text-muted-foreground"
+                            >
+                              No people found.
+                            </motion.p>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    </LayoutGroup>
+                    {error && (
+                      <p role="alert" className="mt-2 text-xs text-destructive">
+                        {error}
+                      </p>
+                    )}
+                    <motion.button
+                      layout="position"
+                      type="button"
+                      disabled={pending}
+                      onClick={apply}
+                      className="mt-3 h-9 w-full cursor-pointer rounded-md bg-foreground text-sm font-medium text-background disabled:opacity-50"
+                    >
+                      {pending ? "Saving…" : "Apply assignments"}
+                    </motion.button>
+                  </motion.div>
+                </Popover.Popup>
+              </Popover.Positioner>
+            </Popover.Portal>
+          )}
+        </AnimatePresence>
+      </div>
+    </Popover.Root>
+  );
+}
+`,
+      path: "assignment-cluster/assignment-cluster.tsx",
+      target: "components/sonaui/assignment-cluster/assignment-cluster.tsx"
     }
   ],
   "fluid-slider": [
@@ -10393,6 +13881,11 @@ export interface AnimatedSwitchProps
   onCheckedChange?: (checked: boolean) => void;
   /** Whether the switch is disabled. @default false */
   disabled?: boolean;
+  /**
+   * Whether the switch is in an error state and cannot be changed. @default false
+   * The switch remains focusable so assistive technology can announce its invalid state.
+   */
+  error?: boolean;
   /** The size of the switch. @default "md" */
   size?: "sm" | "md" | "lg";
   /** Whether the thumb can be dragged between states. @default true */
@@ -10402,6 +13895,8 @@ export interface AnimatedSwitchProps
 }
 
 const PRESS_SCALE_X = 1.14;
+const BLOCKED_FEEDBACK = [0, -3, 3, -2, 2, 0];
+const BLOCKED_FEEDBACK_TIMES = [0, 0.2, 0.45, 0.65, 0.82, 1];
 
 const sizeTokens = {
   sm: {
@@ -10435,6 +13930,7 @@ export default function AnimatedSwitch({
   defaultChecked = false,
   onCheckedChange,
   disabled = false,
+  error = false,
   size = "md",
   enableDrag = true,
   className,
@@ -10444,6 +13940,7 @@ export default function AnimatedSwitch({
   onPointerCancelCapture,
   onLostPointerCapture,
   onPointerMoveCapture,
+  onKeyDownCapture,
   ...props
 }: AnimatedSwitchProps) {
   const sizes = sizeTokens[size];
@@ -10455,9 +13952,14 @@ export default function AnimatedSwitch({
   const dragXRef = useRef<number | null>(null);
   const didDragRef = useRef(false);
   const suppressClickRef = useRef(false);
+  const blockedInteractionRef = useRef<"pointer" | "keyboard" | null>(null);
   const thumbRef = useRef<HTMLSpanElement>(null);
   const thumbAnimationRef = useRef<ReturnType<typeof animate> | null>(null);
+  const blockedFeedbackAnimationRef = useRef<ReturnType<typeof animate> | null>(
+    null,
+  );
   const thumbX = useMotionValue(defaultChecked ? sizes.xTranslate : 0);
+  const blockedFeedbackX = useMotionValue(0);
   const resolvedChecked = checked ?? visualChecked;
   const restingX = resolvedChecked ? sizes.xTranslate : 0;
   const pressedInset = (sizes.indicatorWidth * (PRESS_SCALE_X - 1)) / 2;
@@ -10481,9 +13983,25 @@ export default function AnimatedSwitch({
   useEffect(
     () => () => {
       thumbAnimationRef.current?.stop();
+      blockedFeedbackAnimationRef.current?.stop();
     },
     [],
   );
+
+  const playBlockedFeedback = () => {
+    if (shouldReduceMotion) return;
+
+    blockedFeedbackAnimationRef.current?.stop();
+    blockedFeedbackAnimationRef.current = animate(
+      blockedFeedbackX,
+      BLOCKED_FEEDBACK,
+      {
+        duration: 0.22,
+        ease: [0.22, 1, 0.36, 1],
+        times: BLOCKED_FEEDBACK_TIMES,
+      },
+    );
+  };
 
   const resetPointerState = () => {
     dragStartRef.current = null;
@@ -10494,67 +14012,121 @@ export default function AnimatedSwitch({
   };
 
   return (
-    <Switch.Root
-      {...props}
-      checked={checked}
-      defaultChecked={defaultChecked}
-      disabled={disabled}
-      aria-label={accessibleLabel}
-      onCheckedChange={(nextChecked) => {
-        setVisualChecked(nextChecked);
-        onCheckedChange?.(nextChecked);
+    <motion.span
+      className="inline-flex"
+      style={{ x: blockedFeedbackX }}
+      onPointerDownCapture={() => {
+        if (disabled) playBlockedFeedback();
       }}
-      onClickCapture={(event) => {
-        onClickCapture?.(event);
-        if (!suppressClickRef.current) return;
+    >
+      <Switch.Root
+        {...props}
+        checked={resolvedChecked}
+        disabled={disabled}
+        aria-disabled={error || undefined}
+        aria-invalid={error || undefined}
+        aria-label={accessibleLabel}
+        onCheckedChange={(nextChecked) => {
+          if (error) {
+            if (blockedInteractionRef.current !== "keyboard") {
+              playBlockedFeedback();
+            }
+            blockedInteractionRef.current = null;
+            return;
+          }
+          setVisualChecked(nextChecked);
+          onCheckedChange?.(nextChecked);
+        }}
+        onClickCapture={(event) => {
+          onClickCapture?.(event);
+          if (!suppressClickRef.current) return;
 
-        suppressClickRef.current = false;
-        event.preventDefault();
-        event.stopPropagation();
-      }}
-      onPointerDownCapture={(event) => {
-        onPointerDownCapture?.(event);
-        if (event.button !== 0 || disabled) return;
-        event.currentTarget.setPointerCapture(event.pointerId);
-        setIsPressing(true);
+          suppressClickRef.current = false;
+          event.preventDefault();
+          event.stopPropagation();
+        }}
+        onPointerDownCapture={(event) => {
+          onPointerDownCapture?.(event);
+          if (event.button !== 0 || disabled) return;
+          if (error) {
+            blockedInteractionRef.current = "pointer";
+            playBlockedFeedback();
+            return;
+          }
+          event.currentTarget.setPointerCapture(event.pointerId);
+          setIsPressing(true);
 
-        if (!enableDrag || !thumbRef.current?.contains(event.target as Node)) {
-          return;
-        }
+          if (
+            !enableDrag ||
+            !thumbRef.current?.contains(event.target as Node)
+          ) {
+            return;
+          }
 
-        thumbAnimationRef.current?.stop();
-        dragStartRef.current = event.clientX;
-      }}
-      onPointerMoveCapture={(event) => {
-        onPointerMoveCapture?.(event);
-        if (dragStartRef.current === null) return;
+          thumbAnimationRef.current?.stop();
+          dragStartRef.current = event.clientX;
+        }}
+        onPointerMoveCapture={(event) => {
+          onPointerMoveCapture?.(event);
+          if (dragStartRef.current === null) return;
 
-        const offset = event.clientX - dragStartRef.current;
-        if (Math.abs(offset) > 3 && !didDragRef.current) {
-          didDragRef.current = true;
-          setIsDragging(true);
-        }
-        if (!didDragRef.current) return;
+          const offset = event.clientX - dragStartRef.current;
+          if (Math.abs(offset) > 3 && !didDragRef.current) {
+            didDragRef.current = true;
+            setIsDragging(true);
+          }
+          if (!didDragRef.current) return;
 
-        const rawDragX = Math.min(
-          sizes.xTranslate,
-          Math.max(0, restingX + offset),
-        );
-        const nextDragX = Math.min(
-          sizes.xTranslate - pressedInset,
-          Math.max(pressedInset, rawDragX),
-        );
+          const rawDragX = Math.min(
+            sizes.xTranslate,
+            Math.max(0, restingX + offset),
+          );
+          const nextDragX = Math.min(
+            sizes.xTranslate - pressedInset,
+            Math.max(pressedInset, rawDragX),
+          );
 
-        dragXRef.current = nextDragX;
-        thumbX.set(nextDragX);
-      }}
-      onPointerUpCapture={(event) => {
-        onPointerUpCapture?.(event);
-        if (didDragRef.current) {
-          const nextChecked =
-            (dragXRef.current ?? restingX) >= sizes.xTranslate / 2;
-          suppressClickRef.current = nextChecked === resolvedChecked;
-          if (nextChecked === resolvedChecked) {
+          dragXRef.current = nextDragX;
+          thumbX.set(nextDragX);
+        }}
+        onPointerUpCapture={(event) => {
+          onPointerUpCapture?.(event);
+          if (didDragRef.current) {
+            const nextChecked =
+              (dragXRef.current ?? restingX) >= sizes.xTranslate / 2;
+            suppressClickRef.current = nextChecked === resolvedChecked;
+            if (nextChecked === resolvedChecked) {
+              thumbAnimationRef.current?.stop();
+              if (shouldReduceMotion) {
+                thumbX.set(restingX);
+              } else {
+                thumbAnimationRef.current = animate(
+                  thumbX,
+                  restingX,
+                  motionTransition.feedback,
+                );
+              }
+            }
+          }
+          resetPointerState();
+        }}
+        onPointerCancelCapture={(event) => {
+          onPointerCancelCapture?.(event);
+          thumbAnimationRef.current?.stop();
+          if (shouldReduceMotion) {
+            thumbX.set(restingX);
+          } else {
+            thumbAnimationRef.current = animate(
+              thumbX,
+              restingX,
+              motionTransition.feedback,
+            );
+          }
+          resetPointerState();
+        }}
+        onLostPointerCapture={(event) => {
+          onLostPointerCapture?.(event);
+          if (dragStartRef.current !== null) {
             thumbAnimationRef.current?.stop();
             if (shouldReduceMotion) {
               thumbX.set(restingX);
@@ -10566,74 +14138,52 @@ export default function AnimatedSwitch({
               );
             }
           }
-        }
-        resetPointerState();
-      }}
-      onPointerCancelCapture={(event) => {
-        onPointerCancelCapture?.(event);
-        thumbAnimationRef.current?.stop();
-        if (shouldReduceMotion) {
-          thumbX.set(restingX);
-        } else {
-          thumbAnimationRef.current = animate(
-            thumbX,
-            restingX,
-            motionTransition.feedback,
-          );
-        }
-        resetPointerState();
-      }}
-      onLostPointerCapture={(event) => {
-        onLostPointerCapture?.(event);
-        if (dragStartRef.current !== null) {
-          thumbAnimationRef.current?.stop();
-          if (shouldReduceMotion) {
-            thumbX.set(restingX);
-          } else {
-            thumbAnimationRef.current = animate(
-              thumbX,
-              restingX,
-              motionTransition.feedback,
-            );
+          resetPointerState();
+        }}
+        onKeyDownCapture={(event) => {
+          onKeyDownCapture?.(event);
+          if (error && (event.key === " " || event.key === "Enter")) {
+            blockedInteractionRef.current = "keyboard";
           }
-        }
-        resetPointerState();
-      }}
-      className={cn(
-        "relative inline-flex shrink-0 touch-pan-y cursor-pointer items-center rounded-full border-none",
-        "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
-        "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-        sizes.track,
-        "data-[checked]:bg-foreground data-[unchecked]:bg-foreground/20",
-        "disabled:cursor-not-allowed disabled:opacity-50",
-        className,
-      )}
-    >
-      <Switch.Thumb
+        }}
         className={cn(
-          "block rounded-full bg-background shadow-lg ring-0",
-          sizes.thumb,
+          "relative inline-flex shrink-0 touch-pan-y cursor-pointer items-center rounded-full border-none",
+          "transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2",
+          "focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          sizes.track,
+          "data-[checked]:bg-foreground data-[unchecked]:bg-foreground/20",
+          "[&[aria-invalid=true]]:bg-destructive/20 [&[aria-invalid=true]]:ring-1 [&[aria-invalid=true]]:ring-destructive",
+          "[&[aria-disabled=true]]:cursor-not-allowed",
+          "disabled:cursor-not-allowed disabled:opacity-50",
+          className,
         )}
-        render={
-          <motion.span
-            ref={thumbRef}
-            style={{
-              x: thumbX,
-              transformOrigin: "center center",
-            }}
-            animate={{
-              scaleX: isDragging && !shouldReduceMotion ? PRESS_SCALE_X : 1,
-              scaleY: isPressing && !shouldReduceMotion ? 0.94 : 1,
-            }}
-            transition={
-              shouldReduceMotion
-                ? motionTransition.instant
-                : motionTransition.feedback
-            }
-          />
-        }
-      />
-    </Switch.Root>
+      >
+        <Switch.Thumb
+          className={cn(
+            "block rounded-full bg-background shadow-lg ring-0",
+            sizes.thumb,
+          )}
+          render={
+            <motion.span
+              ref={thumbRef}
+              style={{
+                x: thumbX,
+                transformOrigin: "center center",
+              }}
+              animate={{
+                scaleX: isDragging && !shouldReduceMotion ? PRESS_SCALE_X : 1,
+                scaleY: isPressing && !shouldReduceMotion ? 0.94 : 1,
+              }}
+              transition={
+                shouldReduceMotion
+                  ? motionTransition.instant
+                  : motionTransition.feedback
+              }
+            />
+          }
+        />
+      </Switch.Root>
+    </motion.span>
   );
 }
 `,
@@ -11985,6 +15535,7 @@ export default function ExpandingAction({
       content: `"use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
+import { useReducedMotion } from "motion/react";
 import {
   type CSSProperties,
   createContext,
@@ -12090,6 +15641,7 @@ export function FluidTooltipGroup({
   className,
 }: FluidTooltipGroupProps) {
   const handle = useMemo(() => Tooltip.createHandle<FluidTooltipPayload>(), []);
+  const shouldReduceMotion = useReducedMotion();
   const previousCenter = useRef<{ x: number; y: number } | null>(null);
   const [direction, setDirection] = useState<FluidTooltipDirection>(0);
   const [keyboardNavigation, setKeyboardNavigation] = useState(false);
@@ -12162,7 +15714,10 @@ export function FluidTooltipGroup({
               <Tooltip.Positioner
                 align={payload.align}
                 className={cn(
-                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)] transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none motion-reduce:transition-none",
+                  "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)]",
+                  shouldReduceMotion
+                    ? "transition-none"
+                    : "transition-[top,left,right,bottom,transform] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none",
                 )}
                 collisionPadding={8}
                 side={payload.side}
@@ -12171,7 +15726,10 @@ export function FluidTooltipGroup({
                 <Tooltip.Popup
                   className={cn(
                     "relative origin-[var(--transform-origin)] rounded-lg bg-[var(--fluid-tooltip-surface)] text-[12px] font-medium leading-none text-[var(--fluid-tooltip-label)] shadow-[0_8px_24px_-8px_var(--fluid-tooltip-shadow)]",
-                    "h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-[var(--available-width)] transition-[width,height,transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0 data-instant:transition-none motion-reduce:transition-none",
+                    "h-[var(--popup-height,auto)] w-[var(--popup-width,auto)] max-w-[var(--available-width)]",
+                    shouldReduceMotion
+                      ? "transition-none data-ending-style:opacity-0 data-starting-style:scale-100 data-starting-style:translate-y-0 data-starting-style:opacity-100"
+                      : "transition-[width,height,transform,opacity] duration-200 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-ending-style:scale-[0.98] data-ending-style:opacity-0 data-ending-style:duration-100 data-starting-style:scale-[0.96] data-starting-style:translate-y-1 data-starting-style:opacity-0 data-instant:transition-none",
                     className,
                     payload.contentClassNameRef.current,
                   )}
@@ -12181,12 +15739,9 @@ export function FluidTooltipGroup({
                     className={cn(
                       "relative box-border h-full w-full overflow-clip px-2 py-1",
                       "[&_[data-previous]]:w-[calc(var(--popup-width)-1rem)] [&_[data-previous]]:translate-x-0 [&_[data-previous]]:opacity-0 [&_[data-previous]]:pointer-events-none [&_[data-previous]]:transition-none",
-                      "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[200ms,120ms]",
-                      "data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-2",
-                      "data-[activation-direction~='up']:[&_[data-current][data-starting-style]]:-translate-y-2 data-[activation-direction~='down']:[&_[data-current][data-starting-style]]:translate-y-2",
-                      "data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-2",
-                      "data-[activation-direction~='up']:[&_[data-previous][data-ending-style]]:translate-y-2 data-[activation-direction~='down']:[&_[data-previous][data-ending-style]]:-translate-y-2",
-                      "[[data-instant]_&_[data-previous]]:transition-none [[data-instant]_&_[data-current]]:transition-none motion-reduce:[&_[data-current]]:transition-none motion-reduce:[&_[data-previous]]:transition-none",
+                      shouldReduceMotion
+                        ? "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:translate-y-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-none"
+                        : "[&_[data-current]]:w-[calc(var(--popup-width)-1rem)] [&_[data-current]]:translate-x-0 [&_[data-current]]:opacity-100 [&_[data-current]]:transition-[translate,opacity] [&_[data-current]]:duration-[200ms,120ms] data-[activation-direction~='left']:[&_[data-current][data-starting-style]]:-translate-x-2 data-[activation-direction~='right']:[&_[data-current][data-starting-style]]:translate-x-2 data-[activation-direction~='up']:[&_[data-current][data-starting-style]]:-translate-y-2 data-[activation-direction~='down']:[&_[data-current][data-starting-style]]:translate-y-2 data-[activation-direction~='left']:[&_[data-previous][data-ending-style]]:translate-x-2 data-[activation-direction~='right']:[&_[data-previous][data-ending-style]]:-translate-x-2 data-[activation-direction~='up']:[&_[data-previous][data-ending-style]]:translate-y-2 data-[activation-direction~='down']:[&_[data-previous][data-ending-style]]:-translate-y-2 [[data-instant]_&_[data-previous]]:transition-none [[data-instant]_&_[data-current]]:transition-none",
                     )}
                   >
                     {payload.contentRef.current}
@@ -12447,8 +16002,8 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { cn } from "@/lib/sona-utils";
 import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 function useMediaQuery(query: string) {
   const getSnapshot = useCallback(
@@ -12583,6 +16138,158 @@ export default function LinkPreview({
 `,
       path: "link-preview/link-preview.tsx",
       target: "components/sonaui/link-preview/link-preview.tsx"
+    }
+  ],
+  "swipe-action-row": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import * as SwipeActionsPrimitive from "@ncdai/react-swipe-actions";
+import type { ComponentProps, ReactNode } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export type SwipeActionRowSide = SwipeActionsPrimitive.SwipeSide;
+export type SwipeActionRowState = SwipeActionsPrimitive.SwipeState;
+
+export interface SwipeActionRowRootProps
+  extends ComponentProps<typeof SwipeActionsPrimitive.SwipeRoot> {
+  /** Rows coordinated so only one can remain open. */
+  children?: ReactNode;
+}
+
+export interface SwipeActionRowProps
+  extends ComponentProps<typeof SwipeActionsPrimitive.SwipeItem> {
+  /** Fraction of the action strip crossed before the row opens. @default 0.5 */
+  threshold?: number;
+  /** Seconds of release velocity projected onto the resting position. @default 0.2 */
+  velocityFactor?: number;
+  /** Fraction of row width crossed before a full-swipe action arms. @default 0.5 */
+  fullSwipeThreshold?: number;
+  /** Prevents pointer and keyboard gesture interaction. @default false */
+  disabled?: boolean;
+  /** Closes an open row when the page scrolls. @default false */
+  closeOnScroll?: boolean;
+  /** Called when the row becomes closed, left-open, or right-open. @default undefined */
+  onOpenChange?: (state: SwipeActionRowState) => void;
+}
+
+export type SwipeActionRowItemProps = SwipeActionRowProps;
+
+export interface SwipeActionRowActionsProps
+  extends ComponentProps<typeof SwipeActionsPrimitive.SwipeActions> {
+  /** Physical side where this action strip is revealed. */
+  side: SwipeActionRowSide;
+}
+
+export interface SwipeActionRowActionProps
+  extends ComponentProps<typeof SwipeActionsPrimitive.SwipeAction> {
+  /** Action label, icon, or composed button content. */
+  children?: ReactNode;
+  /** Closes the row after the click handler runs. @default true */
+  closeOnClick?: boolean;
+  /** Runs this action when the row crosses its full-swipe threshold. @default false */
+  fullSwipe?: boolean;
+  /** Semantic visual treatment for the action. @default "default" */
+  variant?: "default" | "destructive";
+}
+
+export interface SwipeActionRowContentProps
+  extends ComponentProps<typeof SwipeActionsPrimitive.SwipeContent> {
+  /** Opaque foreground content that moves to reveal the action strips. */
+  children?: ReactNode;
+}
+
+/** Coordinates sibling rows so opening one closes the previously open row. */
+export function SwipeActionRowRoot({
+  className,
+  ...props
+}: SwipeActionRowRootProps) {
+  return (
+    <SwipeActionsPrimitive.SwipeRoot
+      className={cn("relative", className)}
+      {...props}
+    />
+  );
+}
+
+/** Owns the gesture, open state, keyboard behavior, and dismissal lifecycle. */
+export function SwipeActionRowItem({
+  className,
+  ...props
+}: SwipeActionRowItemProps) {
+  return (
+    <SwipeActionsPrimitive.SwipeItem
+      className={cn("group/swipe-row", className)}
+      {...props}
+    />
+  );
+}
+
+/** Positions and measures a strip of actions behind the row content. */
+export function SwipeActionRowActions({
+  className,
+  ...props
+}: SwipeActionRowActionsProps) {
+  return (
+    <SwipeActionsPrimitive.SwipeActions
+      className={cn("items-stretch overflow-hidden", className)}
+      {...props}
+    />
+  );
+}
+
+/** A contextual action that can optionally own the side's full swipe. */
+export function SwipeActionRowAction({
+  children,
+  className,
+  variant = "default",
+  ...props
+}: SwipeActionRowActionProps) {
+  return (
+    <SwipeActionsPrimitive.SwipeAction
+      className={cn(
+        "flex min-w-20 select-none flex-col items-center justify-center gap-1.5 whitespace-nowrap px-4 font-medium text-xs",
+        "bg-secondary text-secondary-foreground transition-[filter] duration-150 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        "focus-visible:z-10 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-foreground",
+        "data-armed:brightness-90 disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        variant === "destructive" && "bg-destructive text-white",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </SwipeActionsPrimitive.SwipeAction>
+  );
+}
+
+/** The opaque foreground surface that tracks pointer and touch movement. */
+export function SwipeActionRowContent({
+  className,
+  ...props
+}: SwipeActionRowContentProps) {
+  return (
+    <SwipeActionsPrimitive.SwipeContent
+      className={cn("bg-background data-dragging:cursor-grabbing", className)}
+      {...props}
+    />
+  );
+}
+
+export const SwipeActionRow = {
+  Root: SwipeActionRowRoot,
+  Item: SwipeActionRowItem,
+  Actions: SwipeActionRowActions,
+  Action: SwipeActionRowAction,
+  Content: SwipeActionRowContent,
+};
+
+export default SwipeActionRow;
+`,
+      path: "swipe-action-row/swipe-action-row.tsx",
+      target: "components/sonaui/swipe-action-row/swipe-action-row.tsx"
     }
   ],
   "stagger-text": [
@@ -13049,6 +16756,354 @@ export default function AvatarShowcase({
       target: "components/sonaui/avatar-showcase/avatar-showcase.tsx"
     }
   ],
+  "floating-viewer": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  animate,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+} from "motion/react";
+import {
+  type HTMLAttributes,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export type FloatingViewerCorner =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right";
+
+export interface FloatingViewerProps
+  extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+  /** Media or reference content that remains mounted while the viewer moves. */
+  children: ReactNode;
+  /** Accessible name announced for the floating viewer. @default "Floating media viewer" */
+  ariaLabel?: string;
+  /** CSS aspect-ratio value used by both viewer states. @default "16 / 9" */
+  aspectRatio?: string;
+  /** Width of the floating surface in pixels. @default 320 */
+  floatingWidth?: number;
+  /** Gap between the floating surface and viewport edges in pixels. @default 16 */
+  viewportPadding?: number;
+  /** Corner used when the viewer first detaches. @default "bottom-right" */
+  defaultCorner?: FloatingViewerCorner;
+  /** Automatically detach when the inline viewer leaves the viewport. @default true */
+  floatOnExit?: boolean;
+  /** Shows the built-in Float button while the viewer is inline. @default true */
+  showFloatControl?: boolean;
+  /** Called whenever the viewer enters or leaves its floating state. @default undefined */
+  onFloatingChange?: (floating: boolean) => void;
+  /** Additional CSS classes for the media surface. @default undefined */
+  surfaceClassName?: string;
+}
+
+type Size = { width: number; height: number };
+type FloatingReason = "auto" | "manual" | null;
+
+const corners: FloatingViewerCorner[] = [
+  "top-left",
+  "top-right",
+  "bottom-right",
+  "bottom-left",
+];
+
+function getCornerPosition(
+  corner: FloatingViewerCorner,
+  viewport: Size,
+  viewer: Size,
+  padding: number,
+) {
+  return {
+    x: corner.endsWith("right")
+      ? Math.max(padding, viewport.width - viewer.width - padding)
+      : padding,
+    y: corner.startsWith("bottom")
+      ? Math.max(padding, viewport.height - viewer.height - padding)
+      : padding,
+  };
+}
+
+export default function FloatingViewer({
+  children,
+  ariaLabel = "Floating media viewer",
+  aspectRatio = "16 / 9",
+  floatingWidth = 320,
+  viewportPadding = 16,
+  defaultCorner = "bottom-right",
+  floatOnExit = true,
+  showFloatControl = true,
+  onFloatingChange,
+  className,
+  surfaceClassName,
+  ...props
+}: FloatingViewerProps) {
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const surfaceRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const [floatingReason, setFloatingReason] = useState<FloatingReason>(null);
+  const [corner, setCorner] = useState(defaultCorner);
+  const [dismissedUntilVisible, setDismissedUntilVisible] = useState(false);
+  const [viewport, setViewport] = useState<Size>({ width: 0, height: 0 });
+  const [viewer, setViewer] = useState<Size>({ width: 0, height: 0 });
+
+  const floating = floatingReason !== null;
+
+  const setFloatingState = useCallback(
+    (reason: FloatingReason) => {
+      setFloatingReason((current) => {
+        if ((current !== null) !== (reason !== null)) {
+          onFloatingChange?.(reason !== null);
+        }
+        return reason;
+      });
+    },
+    [onFloatingChange],
+  );
+
+  const moveToCorner = useCallback(
+    (nextCorner: FloatingViewerCorner, immediate = false) => {
+      const target = getCornerPosition(
+        nextCorner,
+        viewport,
+        viewer,
+        viewportPadding,
+      );
+      setCorner(nextCorner);
+
+      if (immediate || shouldReduceMotion) {
+        x.set(target.x);
+        y.set(target.y);
+        return;
+      }
+
+      const transition = { type: "spring" as const, bounce: 0, duration: 0.4 };
+      animate(x, target.x, transition);
+      animate(y, target.y, transition);
+    },
+    [shouldReduceMotion, viewport, viewer, viewportPadding, x, y],
+  );
+
+  useEffect(() => {
+    const updateViewport = () =>
+      setViewport({ width: window.innerWidth, height: window.innerHeight });
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
+  useEffect(() => {
+    const surface = surfaceRef.current;
+    if (!surface) return;
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return;
+      const borderSize = entry.borderBoxSize[0];
+      setViewer({
+        width: borderSize?.inlineSize ?? entry.contentRect.width,
+        height: borderSize?.blockSize ?? entry.contentRect.height,
+      });
+    });
+    observer.observe(surface);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!floating || viewport.width === 0 || viewer.width === 0) return;
+    moveToCorner(corner);
+  }, [corner, floating, moveToCorner, viewer.width, viewport.width]);
+
+  useEffect(() => {
+    const anchor = anchorRef.current;
+    if (!anchor || !floatOnExit) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          setDismissedUntilVisible(false);
+          if (floatingReason === "auto") setFloatingState(null);
+        } else if (!dismissedUntilVisible && floatingReason === null) {
+          setFloatingState("auto");
+        }
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(anchor);
+    return () => observer.disconnect();
+  }, [dismissedUntilVisible, floatOnExit, floatingReason, setFloatingState]);
+
+  const restore = () => {
+    anchorRef.current?.scrollIntoView({
+      behavior: shouldReduceMotion ? "auto" : "smooth",
+      block: "center",
+    });
+    setFloatingState(null);
+  };
+
+  const closeFloating = () => {
+    setDismissedUntilVisible(true);
+    setFloatingState(null);
+  };
+
+  const cycleCorner = () => {
+    const currentIndex = corners.indexOf(corner);
+    moveToCorner(corners[(currentIndex + 1) % corners.length]);
+  };
+
+  const surface = (
+    <motion.div
+      aria-label={floating ? ariaLabel : undefined}
+      className={cn(
+        "group/viewer relative isolate overflow-hidden rounded-2xl bg-black",
+        !floating && "absolute inset-0",
+        floating &&
+          "fixed top-0 left-0 z-50 cursor-grab touch-none shadow-black/20 shadow-xl active:cursor-grabbing",
+        surfaceClassName,
+      )}
+      drag={floating}
+      dragConstraints={
+        floating
+          ? {
+              left: viewportPadding,
+              right: Math.max(
+                viewportPadding,
+                viewport.width - viewer.width - viewportPadding,
+              ),
+              top: viewportPadding,
+              bottom: Math.max(
+                viewportPadding,
+                viewport.height - viewer.height - viewportPadding,
+              ),
+            }
+          : undefined
+      }
+      dragElastic={0.08}
+      dragMomentum={false}
+      layout={!shouldReduceMotion}
+      onDragEnd={(_, info) => {
+        const nextCorner: FloatingViewerCorner = \`\${
+          info.point.y < viewport.height / 2 ? "top" : "bottom"
+        }-\${info.point.x < viewport.width / 2 ? "left" : "right"}\`;
+        moveToCorner(nextCorner);
+      }}
+      ref={surfaceRef}
+      role={floating ? "region" : undefined}
+      style={{
+        aspectRatio,
+        width: floating
+          ? Math.min(floatingWidth, viewport.width - viewportPadding * 2)
+          : "100%",
+        x: floating ? x : 0,
+        y: floating ? y : 0,
+      }}
+      transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+    >
+      <div className="size-full">{children}</div>
+
+      {floating ? (
+        <div className="absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black/60 p-1 text-white backdrop-blur-md">
+          <ViewerButton
+            label={\`Move viewer from \${corner}\`}
+            onClick={cycleCorner}
+          >
+            <path d="M8 3H3v5M16 3h5v5M8 21H3v-5m13 5h5v-5" />
+          </ViewerButton>
+          <ViewerButton label="Restore viewer to the page" onClick={restore}>
+            <path d="M8 8h8v8H8zM5 12H3V5h7v2m9 5h2v7h-7v-2" />
+          </ViewerButton>
+          <ViewerButton label="Close floating viewer" onClick={closeFloating}>
+            <path d="m7 7 10 10M17 7 7 17" />
+          </ViewerButton>
+        </div>
+      ) : showFloatControl ? (
+        <button
+          className="absolute top-3 right-3 inline-flex cursor-pointer items-center gap-2 rounded-full bg-black/60 px-3 py-2 font-medium text-white text-xs opacity-0 backdrop-blur-md transition-[opacity,background-color] duration-150 group-hover/viewer:opacity-100 hover:bg-black/75 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+          onClick={() => setFloatingState("manual")}
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            className="size-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14 5h5v5m0-5-6 6M10 19H5v-5m0 5 6-6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.8"
+            />
+          </svg>
+          Float
+        </button>
+      ) : null}
+    </motion.div>
+  );
+
+  return (
+    <div className={cn("relative w-full", className)} {...props}>
+      <div aria-hidden="true" ref={anchorRef} style={{ aspectRatio }}>
+        {floating ? (
+          <div className="size-full rounded-2xl bg-muted/45" />
+        ) : null}
+      </div>
+      {surface}
+    </div>
+  );
+}
+
+function ViewerButton({
+  children,
+  label,
+  onClick,
+}: {
+  children: ReactNode;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      aria-label={label}
+      className="inline-flex size-8 cursor-pointer items-center justify-center rounded-full transition-colors duration-150 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+      onClick={onClick}
+      onPointerDown={(event) => event.stopPropagation()}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="size-4"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <g
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.8"
+        >
+          {children}
+        </g>
+      </svg>
+    </button>
+  );
+}
+`,
+      path: "floating-viewer/floating-viewer.tsx",
+      target: "components/sonaui/floating-viewer/floating-viewer.tsx"
+    }
+  ],
   "hold-to-delete-button": [
     {
       type: "registry:ui",
@@ -13417,9 +17472,26 @@ export const componentMetadata = {
     "dependencies": [
       "@base-ui/react",
       "motion"
+    ]
+  },
+  "morph-surface": {
+    "name": "morph-surface",
+    "type": "registry:ui",
+    "title": "Morph Surface",
+    "description": "An unstyled layout primitive that grows, shrinks, clips, and updates the content of one persistent consumer-styled surface.",
+    "files": [
+      {
+        "path": "registry/sonaui/morph-surface/morph-surface.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion",
+      "react-use-measure"
     ],
     "registryDependencies": [
-      "@sona-ui/sona-theme"
+      "@sona-ui/sona-motion",
+      "@sona-ui/sona-utils"
     ]
   },
   "animated-switch": {
@@ -13847,6 +17919,58 @@ export const componentMetadata = {
       "motion"
     ]
   },
+  "assignment-cluster": {
+    "name": "assignment-cluster",
+    "type": "registry:ui",
+    "title": "Assignment Cluster",
+    "description": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
+    "files": [
+      {
+        "path": "registry/sonaui/assignment-cluster/assignment-cluster.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
+  },
+  "schedule-chip": {
+    "name": "schedule-chip",
+    "type": "registry:ui",
+    "title": "Schedule Chip",
+    "description": "A readable schedule summary that expands in place into a focused date, time, and timezone editor.",
+    "files": [
+      {
+        "path": "registry/sonaui/schedule-chip/schedule-chip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "@sona-ui/morph-surface",
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "chip": {
+    "name": "chip",
+    "type": "registry:ui",
+    "title": "Chip",
+    "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
+    "files": [
+      {
+        "path": "registry/sonaui/chip/chip.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
   "spotlight-card": {
     "name": "spotlight-card",
     "type": "registry:ui",
@@ -13860,6 +17984,23 @@ export const componentMetadata = {
     ],
     "dependencies": [
       "motion"
+    ]
+  },
+  "code-block": {
+    "name": "code-block",
+    "type": "registry:ui",
+    "title": "Code Block",
+    "description": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
+    "files": [
+      {
+        "path": "registry/sonaui/code-block/code-block.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "shiki",
+      "lucide-react",
+      "@icons-pack/react-simple-icons"
     ]
   },
   "hold-to-delete-button": {
@@ -13924,9 +18065,6 @@ export const componentMetadata = {
       "@base-ui/react",
       "lucide-react",
       "motion"
-    ],
-    "registryDependencies": [
-      "@sona-ui/sona-theme"
     ]
   },
   "section-rail": {
@@ -13942,6 +18080,59 @@ export const componentMetadata = {
     ],
     "dependencies": [
       "motion"
+    ]
+  },
+  "floating-viewer": {
+    "name": "floating-viewer",
+    "type": "registry:ui",
+    "title": "Floating Viewer",
+    "description": "An in-page media surface that automatically or manually detaches, stays within viewport bounds, snaps to a corner, and restores without remounting its content.",
+    "files": [
+      {
+        "path": "registry/sonaui/floating-viewer/floating-viewer.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "swipe-action-row": {
+    "name": "swipe-action-row",
+    "type": "registry:ui",
+    "title": "Swipe Action Row",
+    "description": "A coordinated list-row interaction with two-sided actions, keyboard opening, outside dismissal, and action-owned full swipes.",
+    "files": [
+      {
+        "path": "registry/sonaui/swipe-action-row/swipe-action-row.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@ncdai/react-swipe-actions",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "stepper": {
+    "name": "stepper",
+    "type": "registry:ui",
+    "title": "Stepper",
+    "description": "A composable step navigation pattern for guiding people through a small, ordered workflow.",
+    "files": [
+      {
+        "path": "registry/sonaui/stepper/stepper.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
     ]
   }
 };

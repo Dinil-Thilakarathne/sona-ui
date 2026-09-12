@@ -5,27 +5,31 @@ component: live-activity
 tags: ["UI", "Activity", "Motion", "Component"]
 ---
 
-Keep an ongoing task visible in a compact surface that expands into consumer-defined details and actions. Use it for exports, uploads, or recording sessions.
-
-## Features
-
-- Compose independent compact and expanded views with your own content and styling.
-- Connect corresponding visual elements with matching `Shared` IDs.
-- Expand downward or upward with a start, center, or end anchor.
-- Open and collapse with touch dragging, buttons, or the keyboard.
-- Control expansion externally or use internal state.
+Keep an ongoing task visible in a compact surface that expands into consumer-defined details and actions. Use it for deliveries, media playback, recordings, exports, or any persistent process.
 
 ## Preview
 
 <ComponentPreview component="live-activity" name="default" />
 
-## Playground
-
-<ComponentPlayground component="live-activity" />
+The delivery example connects its identity, status, and ETA across both layouts while the surrounding content is completely consumer-defined.
 
 ## Installation
 
 <ComponentInstallation component="live-activity" />
+
+## More examples
+
+### Music playback
+
+Rich media, progress, and playback controls can occupy the same reusable surface without introducing media-specific props to the component.
+
+<ComponentPreview component="live-activity" name="music" />
+
+### Recording session
+
+The compact view preserves elapsed time and recording state. The expanded view adds a waveform and task-specific controls, with a start-aligned layout to demonstrate a different anchor.
+
+<ComponentPreview component="live-activity" name="recording" />
 
 ## Usage
 
@@ -51,6 +55,10 @@ Root reserves the compact height. The surface overlays the surrounding layout as
 
 Touch dragging starts on Trigger or Handle. Drag toward the expansion direction to open and in the opposite direction to collapse. The surface follows the finger and settles after release. Cancellation restores the accepted state. Mouse input uses buttons; expanded content retains its normal scrolling and interactions.
 
+The bottom `Handle` is rendered as a mobile touch affordance. It is hidden on fine-pointer devices, while `Close` remains available for desktop mouse and keyboard users.
+
+When using a mobile-only handle, keep the expanded view's bottom padding conditional: reserve it for fine-pointer layouts and let the handle provide the mobile inset.
+
 Enter and Space activate the buttons. Escape collapses when focus is inside the activity. If focus was inside the outgoing view, it moves into the incoming view; external updates do not pull focus from elsewhere. Keep an explicit collapse control even when gestures are enabled.
 
 ## API
@@ -62,3 +70,5 @@ Enter and Space activate the buttons. Escape collapses when focus is inside the 
 Native controls expose expansion state and reference the expanded panel. Consumers provide meaningful activity labels, progress semantics, and polite announcements for meaningful status changes. Avoid announcing every percentage tick. The demo deliberately uses manual lifecycle controls rather than implying a real export is running.
 
 Reduced motion and `motion="none"` apply state changes immediately while preserving gestures and controls. Keyboard activation also switches immediately. One interruptible progress value coordinates the shell, view opacity, and shared positions. The shell animates measured dimensions to preserve text shape; content itself is not scaled.
+
+When content changes the measured width or height of the active view, the shell retargets its spring from the current rendered size. A new gesture interrupts that resize animation and immediately restores direct touch tracking.

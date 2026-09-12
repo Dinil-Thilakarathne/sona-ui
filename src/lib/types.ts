@@ -1,8 +1,10 @@
 import { type } from "arktype";
 
-const tagVariants = type('"new" | "soon" | "updated" | "featured" | "default"');
+const tagVariants = type(
+  '"new" | "soon" | "updated" | "beta" | "featured" | "default"',
+);
 const typeVariants = type(
-  '"Components" | "Text" | "Effects" | "Getting Started" | "Actions & Inputs" | "Navigation & Disclosure" | "Motion" | "Shaders"',
+  '"Components" | "Text" | "Effects" | "Getting Started" | "Primitives" | "Actions & Inputs" | "Navigation & Disclosure" | "Motion" | "Shaders"',
 );
 
 export const navLinksProps = type({

@@ -10,7 +10,6 @@ import {
 } from "motion/react";
 import {
   type ComponentPropsWithoutRef,
-  type CSSProperties,
   createContext,
   type ReactNode,
   type PointerEvent as ReactPointerEvent,
@@ -34,6 +33,8 @@ const spring = {
   mass: 1,
 } as const;
 const clamp = (value: number) => Math.min(1, Math.max(0, value));
+const interpolate = (from: number, to: number, progress: number) =>
+  from + (to - from) * clamp(progress);
 
 export interface LiveActivityProps extends ComponentPropsWithoutRef<"div"> {
   /** The composed activity surface and views. */
@@ -131,6 +132,8 @@ export function LiveActivityRoot({
   const panelId = useId();
   const immediate = useRef(false);
   const previous = useRef(expanded);
+  const reservedHeight = useMotionValue(0);
+  const reservedHeightReady = useRef(false);
 
   const measure = useCallback(() => {
     const root = rootRef.current;
@@ -218,6 +221,18 @@ export function LiveActivityRoot({
     previous.current = expanded;
   }, [expanded, settle]);
 
+  useLayoutEffect(() => {
+    const next = sizes.compact.height;
+    if (!next) return;
+    if (!reservedHeightReady.current || reduced) {
+      reservedHeight.stop();
+      reservedHeight.jump(next);
+      reservedHeightReady.current = true;
+      return;
+    }
+    animate(reservedHeight, next, spring);
+  }, [reduced, reservedHeight, sizes.compact.height]);
+
   const request = (next: boolean, instantly = false) => {
     immediate.current = instantly;
     if (next !== expanded) {
@@ -250,17 +265,17 @@ export function LiveActivityRoot({
         settle,
       }}
     >
-      <div
-        {...props}
+      <motion.div
+        {...(props as ComponentPropsWithoutRef<typeof motion.div>)}
         ref={rootRef}
         data-slot="live-activity"
         data-state={expanded ? "expanded" : "compact"}
         data-direction={direction}
         className={cn("relative w-full", className)}
-        style={{ ...style, height: sizes.compact.height || undefined }}
+        style={{ ...style, height: reservedHeight }}
       >
         {children}
-      </div>
+      </motion.div>
     </Context.Provider>
   );
 }
@@ -279,21 +294,62 @@ export function LiveActivitySurface({
   ...props
 }: LiveActivitySurfaceProps) {
   const ctx = useActivity();
-  const width = useTransform(
+  const width = useMotionValue(0);
+  const height = useMotionValue(0);
+  const dimensionsReady = useRef(false);
+
+  useLayoutEffect(() => {
+    const updateDimensions = (progress: number, contentResize: boolean) => {
+      const nextWidth = interpolate(
+        ctx.sizes.compact.width,
+        ctx.sizes.expanded.width,
+        progress,
+      );
+      const nextHeight = interpolate(
+        ctx.sizes.compact.height,
+        ctx.sizes.expanded.height,
+        progress,
+      );
+      if (!nextWidth || !nextHeight) return;
+
+      const atRest = progress <= 0.001 || progress >= 0.999;
+      if (!dimensionsReady.current || ctx.reduced) {
+        width.stop();
+        height.stop();
+        width.jump(nextWidth);
+        height.jump(nextHeight);
+        dimensionsReady.current = true;
+      } else if (contentResize && atRest) {
+        animate(width, nextWidth, spring);
+        animate(height, nextHeight, spring);
+      } else {
+        // Expansion and touch dragging remain tied directly to the shared
+        // progress value. Any active resize spring is interrupted here.
+        width.stop();
+        height.stop();
+        width.jump(nextWidth);
+        height.jump(nextHeight);
+      }
+    };
+
+    const unsubscribe = ctx.progress.on("change", (progress) => {
+      updateDimensions(progress, false);
+    });
+    updateDimensions(ctx.progress.get(), true);
+    return unsubscribe;
+  }, [
     ctx.progress,
-    (p) =>
-      ctx.sizes.compact.width +
-      (ctx.sizes.expanded.width - ctx.sizes.compact.width) * clamp(p),
-  );
-  const height = useTransform(
-    ctx.progress,
-    (p) =>
-      ctx.sizes.compact.height +
-      (ctx.sizes.expanded.height - ctx.sizes.compact.height) * clamp(p),
-  );
+    ctx.reduced,
+    ctx.sizes.compact.height,
+    ctx.sizes.compact.width,
+    ctx.sizes.expanded.height,
+    ctx.sizes.expanded.width,
+    height,
+    width,
+  ]);
   return (
-    <div
-      {...props}
+    <motion.div
+      {...(props as ComponentPropsWithoutRef<typeof motion.div>)}
       data-slot="live-activity-anchor"
       className="absolute inset-x-0"
       style={{
@@ -326,7 +382,7 @@ export function LiveActivitySurface({
       >
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -595,7 +651,8 @@ function ActivityButton({
       }
       className={cn(
         focusClass,
-        kind === "handle" && "flex h-11 w-full items-center justify-center",
+        kind === "handle" &&
+          "hidden h-11 w-full items-center justify-center [@media(pointer:coarse)]:flex",
         className,
       )}
       style={{

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "chip",
+  "type": "registry:ui",
+  "title": "Chip",
+  "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
+  "files": [
+    {
+      "path": "registry/sonaui/chip/chip.tsx",
+      "type": "registry:ui",
+      "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/sona-utils\";\n\ntype ChipTone = \"neutral\" | \"success\" | \"warning\" | \"danger\";\ntype ChipVariant = \"soft\" | \"solid\" | \"outline\";\ntype ChipSize = \"sm\" | \"md\";\n\nexport interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {\n  /** The semantic color used to communicate the chip's status. @default \"neutral\" */\n  tone?: ChipTone;\n  /** The surface treatment applied to the chip. @default \"soft\" */\n  variant?: ChipVariant;\n  /** The compactness of the chip. @default \"md\" */\n  size?: ChipSize;\n}\n\nconst toneClasses: Record<ChipVariant, Record<ChipTone, string>> = {\n  soft: {\n    neutral: \"border-border bg-muted text-foreground\",\n    success:\n      \"border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400\",\n    warning:\n      \"border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-400\",\n    danger: \"border-destructive/30 bg-destructive/10 text-destructive\",\n  },\n  solid: {\n    neutral: \"border-foreground bg-foreground text-background\",\n    success: \"border-emerald-600 bg-emerald-600 text-white dark:bg-emerald-500\",\n    warning: \"border-amber-500 bg-amber-500 text-amber-950\",\n    danger: \"border-destructive bg-destructive text-destructive-foreground\",\n  },\n  outline: {\n    neutral: \"border-border bg-transparent text-foreground\",\n    success:\n      \"border-emerald-500/50 bg-transparent text-emerald-700 dark:text-emerald-400\",\n    warning:\n      \"border-amber-500/50 bg-transparent text-amber-700 dark:text-amber-400\",\n    danger: \"border-destructive/60 bg-transparent text-destructive\",\n  },\n};\n\nconst sizeClasses: Record<ChipSize, string> = {\n  sm: \"min-h-5 gap-1 px-2 text-[0.5875rem]\",\n  md: \"min-h-6 gap-1.5 px-2.5 text-xs\",\n};\n\nconst ChipIcon = React.forwardRef<\n  HTMLSpanElement,\n  React.HTMLAttributes<HTMLSpanElement>\n>(function ChipIcon({ className, ...props }, ref) {\n  return (\n    <span\n      ref={ref}\n      data-slot=\"chip-icon\"\n      className={cn(\n        \"flex size-3 shrink-0 items-center justify-center [&_svg]:size-full\",\n        className,\n      )}\n      {...props}\n    />\n  );\n});\n\nconst ChipLabel = React.forwardRef<\n  HTMLSpanElement,\n  React.HTMLAttributes<HTMLSpanElement>\n>(function ChipLabel({ className, ...props }, ref) {\n  return (\n    <span\n      ref={ref}\n      data-slot=\"chip-label\"\n      className={cn(\"truncate\", className)}\n      {...props}\n    />\n  );\n});\n\nconst ChipRoot = React.forwardRef<HTMLSpanElement, ChipProps>(function ChipRoot(\n  { className, tone = \"neutral\", variant = \"soft\", size = \"md\", ...props },\n  ref,\n) {\n  return (\n    <span\n      ref={ref}\n      data-size={size}\n      data-slot=\"chip\"\n      data-tone={tone}\n      data-variant={variant}\n      className={cn(\n        \"inline-flex w-fit items-center justify-center rounded-xl border font-medium leading-none whitespace-nowrap\",\n        sizeClasses[size],\n        toneClasses[variant][tone],\n        className,\n      )}\n      {...props}\n    />\n  );\n});\n\nChipIcon.displayName = \"Chip.Icon\";\nChipLabel.displayName = \"Chip.Label\";\nChipRoot.displayName = \"Chip\";\n\nconst Chip = Object.assign(ChipRoot, {\n  Icon: ChipIcon,\n  Label: ChipLabel,\n});\n\nexport { ChipIcon, ChipLabel };\nexport default Chip;\n",
+      "target": "components/ui/chip/chip.tsx"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [
+    "@sona-ui/sona-utils"
+  ]
+}

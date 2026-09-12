@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "name": "schedule-chip",
+  "title": "Schedule Chip",
+  "category": "components",
+  "status": "preview",
+  "summary": "A readable schedule summary that expands in place into a reversible date, time, and timezone editing transaction.",
+  "docsSlug": "schedule-chip",
+  "keywords": [
+    "schedule",
+    "date",
+    "time",
+    "timezone",
+    "reminder",
+    "publishing"
+  ],
+  "useWhen": [
+    "A schedule should be editable directly from its readable summary.",
+    "People need to reschedule a reminder, post, or appointment without leaving the current context."
+  ],
+  "avoidWhen": [
+    "The workflow needs a full calendar engine or recurring schedule builder.",
+    "A static date label or a single native date input is sufficient."
+  ],
+  "capabilities": [
+    "In-place summary-to-editor morph",
+    "Separate committed and draft schedule values",
+    "Consumer-defined presets, formatting, validation, and async persistence",
+    "Explicit clear, cancel, and apply actions"
+  ],
+  "accessibility": [
+    "The compact state is a native button with a descriptive accessible label.",
+    "The editor labels date, time, and timezone separately and announces validation or persistence errors.",
+    "Escape cancels the draft and focus returns to the compact trigger."
+  ],
+  "motion": {
+    "purpose": "Keep the readable schedule connected to its editing controls as one surface expands and contracts.",
+    "reducedMotion": "Replace geometry and content animation with immediate state changes while retaining focus management and feedback."
+  },
+  "related": [
+    "expanding-action",
+    "animated-dialog",
+    "assignment-cluster"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/schedule-chip.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ],
+    "registryDependencies": [
+      "@sona-ui/morph-surface",
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/schedule-chip",
+    "rawUrl": "https://sonaui.com/docs/schedule-chip/raw.md",
+    "sourceTitle": "schedule-chip"
+  }
+}

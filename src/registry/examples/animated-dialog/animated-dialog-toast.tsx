@@ -28,7 +28,7 @@ export default function AnimatedDialogToast() {
           </AnimatedDialogClose>
           <AnimatedDialogClose
             onClick={() => toast.success("Project deleted successfully!")}
-            className="bg-danger text-danger-foreground hover:bg-danger/90"
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
           >
             Delete
           </AnimatedDialogClose>
