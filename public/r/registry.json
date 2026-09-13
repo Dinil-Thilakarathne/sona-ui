@@ -125,6 +125,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "animated-checkbox",
+      "type": "registry:ui",
+      "title": "Animated Checkbox",
+      "description": "An accessible Base UI checkbox with a drawn checkmark and a restrained animated state change.",
+      "files": [
+        {
+          "path": "registry/sonaui/animated-checkbox/animated-checkbox.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/animated-checkbox/animated-checkbox.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "morph-surface",
       "type": "registry:ui",
       "title": "Morph Surface",

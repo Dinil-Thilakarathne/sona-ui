@@ -20,7 +20,6 @@ import {
 } from "react";
 import useMeasure from "react-use-measure";
 
-import { usePreviewMotionMode } from "@/lib/preview-motion";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
 
@@ -113,9 +112,7 @@ const MorphSurfaceRoot = forwardRef<HTMLDivElement, MorphSurfaceRootProps>(
     const previousValue = useRef(value);
     const contentControls = useAnimationControls();
     const userPrefersReducedMotion = useReducedMotion();
-    const previewMotionMode = usePreviewMotionMode();
     const shouldReduceMotion =
-      previewMotionMode === "reduced" ||
       reducedMotion === "always" ||
       (reducedMotion === "user" && userPrefersReducedMotion === true);
     const { originX, originY } = morphSurfaceOrigins[origin];

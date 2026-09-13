@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-checkbox",
+  "type": "registry:ui",
+  "title": "Animated Checkbox",
+  "description": "An accessible Base UI checkbox with a drawn checkmark and a restrained animated state change.",
+  "files": [
+    {
+      "path": "registry/sonaui/animated-checkbox/animated-checkbox.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { Checkbox } from \"@base-ui/react/checkbox\";\nimport { motion, useReducedMotion } from \"motion/react\";\nimport { cn } from \"@/lib/sona-utils\";\n\nexport interface AnimatedCheckboxProps\n  extends React.ComponentPropsWithoutRef<typeof Checkbox.Root> {\n  /** Optional label rendered beside the control. */\n  label?: React.ReactNode;\n}\n\n/** An accessible Base UI checkbox with a drawn checkmark and shared motion states. */\nexport default function AnimatedCheckbox({\n  label,\n  className,\n  ...props\n}: AnimatedCheckboxProps) {\n  const reduce = useReducedMotion();\n  return (\n    <label className=\"inline-flex cursor-pointer items-center gap-2 text-sm\">\n      <Checkbox.Root\n        {...props}\n        className={cn(\n          \"group relative grid size-5 shrink-0 place-items-center rounded-md border border-input bg-background outline-none transition-colors hover:cursor-pointer data-checked:border-foreground data-checked:bg-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2\",\n          className,\n        )}\n      >\n        <Checkbox.Indicator keepMounted>\n          <motion.svg\n            viewBox=\"0 0 16 16\"\n            fill=\"none\"\n            aria-hidden=\"true\"\n            className=\"size-3.5 text-background\"\n            initial={false}\n            animate={reduce ? { opacity: 1 } : { opacity: 1 }}\n          >\n            <motion.path\n              d=\"M6.75,15h-.002c-.227,0-.442-.104-.583-.281L2.165,9.719c-.259-.324-.207-.795,.117-1.054,.325-.259,.796-.206,1.054,.117l3.418,4.272L14.667,3.278c.261-.322,.732-.373,1.055-.111,.322,.261,.372,.733,.111,1.055L7.333,14.722c-.143,.176-.357,.278-.583,.278Z\"\n              fill=\"currentColor\"\n              initial={{ pathLength: 0, opacity: 0 }}\n              animate={{ pathLength: 1, opacity: 1 }}\n              transition={\n                reduce\n                  ? { duration: 0 }\n                  : { duration: 0.2, ease: [0.22, 1, 0.36, 1] }\n              }\n            />\n          </motion.svg>\n        </Checkbox.Indicator>\n      </Checkbox.Root>\n      {label && <span>{label}</span>}\n    </label>\n  );\n}\n",
+      "target": "components/ui/animated-checkbox/animated-checkbox.tsx"
+    }
+  ],
+  "dependencies": [
+    "@base-ui/react",
+    "motion"
+  ],
+  "registryDependencies": [
+    "@sona-ui/sona-utils"
+  ]
+}

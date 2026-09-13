@@ -7654,7 +7654,6 @@ import {
 } from "react";
 import useMeasure from "react-use-measure";
 
-import { usePreviewMotionMode } from "@/lib/preview-motion";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
 
@@ -7747,9 +7746,7 @@ const MorphSurfaceRoot = forwardRef<HTMLDivElement, MorphSurfaceRootProps>(
     const previousValue = useRef(value);
     const contentControls = useAnimationControls();
     const userPrefersReducedMotion = useReducedMotion();
-    const previewMotionMode = usePreviewMotionMode();
     const shouldReduceMotion =
-      previewMotionMode === "reduced" ||
       reducedMotion === "always" ||
       (reducedMotion === "user" && userPrefersReducedMotion === true);
     const { originX, originY } = morphSurfaceOrigins[origin];
@@ -17312,9 +17309,9 @@ export default function HoldToDeleteButton({
     <motion.button
       type="button"
       className={cn(
-        "relative flex h-12 min-w-48 touch-none cursor-pointer select-none items-center justify-center gap-2 overflow-clip rounded-full bg-danger/10 px-5 font-medium text-danger shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-danger)_40%,transparent),0_1px_2px_rgb(0_0_0/0.06)] outline-none transition-[background-color,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-danger/50 disabled:cursor-not-allowed disabled:opacity-50",
+        "relative flex h-12 min-w-48 touch-none cursor-pointer select-none items-center justify-center gap-2 overflow-clip rounded-full bg-destructive/10 px-5 font-medium text-destructive shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-destructive)_40%,transparent),0_1px_2px_rgb(0_0_0/0.06)] outline-none transition-[background-color,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-destructive/50 disabled:cursor-not-allowed disabled:opacity-50",
         isCompleted &&
-          "bg-success/10 text-success shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-success)_40%,transparent),0_1px_2px_rgb(0_0_0/0.06)] focus-visible:ring-success/50",
+          "bg-green-600/10 text-green-600 shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--color-green-600)_40%,transparent),0_1px_2px_rgb(0_0_0/0.06)] focus-visible:ring-green-600/50",
         className,
       )}
       disabled={disabled}
@@ -17345,8 +17342,8 @@ export default function HoldToDeleteButton({
       <motion.span
         aria-hidden="true"
         className={cn(
-          "absolute inset-0 flex items-center justify-center gap-2 bg-danger text-white",
-          isCompleted && "bg-success",
+          "absolute inset-0 flex items-center justify-center gap-2 bg-destructive text-white",
+          isCompleted && "bg-green-600",
         )}
         style={{ clipPath: progressClipPath }}
       >
@@ -17472,6 +17469,25 @@ export const componentMetadata = {
     "dependencies": [
       "@base-ui/react",
       "motion"
+    ]
+  },
+  "animated-checkbox": {
+    "name": "animated-checkbox",
+    "type": "registry:ui",
+    "title": "Animated Checkbox",
+    "description": "An accessible Base UI checkbox with a drawn checkmark and a restrained animated state change.",
+    "files": [
+      {
+        "path": "registry/sonaui/animated-checkbox/animated-checkbox.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
     ]
   },
   "morph-surface": {
