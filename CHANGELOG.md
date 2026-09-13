@@ -1,3 +1,20 @@
+# [2.26.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.25.0...v2.26.0) (2026-09-13)
+
+
+### Bug Fixes
+
+* Add animated checkbox and update component styling ([1226178](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1226178d2ad54bbd22bc25387cbba33139235d35))
+* Add animated checkbox documentation and metadata ([6a16183](https://github.com/Dinil-Thilakarathne/sona-ui/commit/6a16183e83effa28de0507ebacc46466e64d3d25))
+* link copy ([b1e82e0](https://github.com/Dinil-Thilakarathne/sona-ui/commit/b1e82e05ac50dac3483fb6ed6b8aa37c1674d169))
+* Refine documentation layout and sharing UI ([71b94fd](https://github.com/Dinil-Thilakarathne/sona-ui/commit/71b94fd69835a341698fc277878e454562d7e400))
+* Update MorphSurface demo backgrounds ([43dc428](https://github.com/Dinil-Thilakarathne/sona-ui/commit/43dc428e035f584488a36ee0306cb23413010608))
+
+
+### Features
+
+* Add component registry and documentation system updates ([61f67b5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/61f67b59bb2bc18f44ed0fb0b31b054dd70df015))
+* Refine site grid and component navigation ([98771d5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/98771d59f24d641e524f9f4c0788451fd03c3913))
+
 # [2.25.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.2...v2.25.0) (2026-09-06)
 
 
