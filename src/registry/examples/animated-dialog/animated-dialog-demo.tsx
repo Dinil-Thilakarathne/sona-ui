@@ -24,7 +24,7 @@ export default function AnimatedDialogDemo() {
             . You can test all entry vectors using the switcher above.
           </AnimatedDialogDescription>
           <div className="mt-6 flex justify-end gap-3">
-            <AnimatedDialogClose className="bg-danger/80 hover:bg-danger hover:cursor-pointer">
+            <AnimatedDialogClose className="bg-destructive/80 hover:bg-destructive hover:cursor-pointer">
               Cancel
             </AnimatedDialogClose>
             <AnimatedDialogClose className="bg-primary/80 hover:bg-primary text-primary-foreground hover:cursor-pointer">

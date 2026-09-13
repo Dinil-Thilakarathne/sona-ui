@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link, { type LinkProps } from "@/components/common/link";
 import type { NavLinksPropsType } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -8,6 +9,7 @@ interface NavLinkProps extends NavLinksPropsType, LinkProps {
   href: string;
   showIndicator?: boolean;
   textClassName?: string;
+  suffix?: ReactNode;
 }
 
 const SidebarLink = ({
@@ -17,6 +19,7 @@ const SidebarLink = ({
   className,
   showIndicator = true,
   textClassName,
+  suffix,
   ...props
 }: NavLinkProps) => {
   const isDisabled = tag === "soon";
@@ -29,6 +32,7 @@ const SidebarLink = ({
     >
       <h3 className={cn("text-muted-foreground text-sm", textClassName)}>
         {name}
+        {suffix}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0" />}
       {showIndicator && (
@@ -48,6 +52,7 @@ const SidebarLink = ({
         )}
       >
         {name}
+        {suffix}
       </h3>
       {tag && <Tag text={tag} type={tag} className="px-1 py-0 text-tiny" />}
       {showIndicator && (

@@ -1,5 +1,171 @@
 @import "tailwindcss";
+
 @import "shadow-plugin";
+
+/* TanStack Highlight's official GitHub light and dark themes. */
+:root {
+    --th-background: #ffffff;
+    --th-token: #24292f;
+    --th-attr: #0550ae;
+    --th-code-inline: #953800;
+    --th-command: #8250df;
+    --th-comment: #6e7781;
+    --th-deleted: #cf222e;
+    --th-function: #8250df;
+    --th-heading: #0550ae;
+    --th-inserted: #1a7f37;
+    --th-keyword: #7c3aed;
+    --th-link: #0969da;
+    --th-literal: #0550ae;
+    --th-meta: #57606a;
+    --th-number: #2563eb;
+    --th-operator: #7c3aed;
+    --th-property: #2563eb;
+    --th-selector: #116329;
+    --th-string: #0a7f64;
+    --th-tag: #116329;
+    --th-type: #953800;
+    --th-variable: #953800;
+}
+[data-theme="dark"] {
+    --th-background: #0d1117;
+    --th-token: #c9d1d9;
+    --th-attr: #79c0ff;
+    --th-code-inline: #ffa657;
+    --th-command: #d2a8ff;
+    --th-comment: #8b949e;
+    --th-deleted: #ff7b72;
+    --th-function: #d2a8ff;
+    --th-heading: #79c0ff;
+    --th-inserted: #7ee787;
+    --th-keyword: #c084fc;
+    --th-link: #58a6ff;
+    --th-literal: #79c0ff;
+    --th-meta: #8b949e;
+    --th-number: #93c5fd;
+    --th-operator: #c084fc;
+    --th-property: #93c5fd;
+    --th-selector: #7ee787;
+    --th-string: #a5d6ff;
+    --th-tag: #7ee787;
+    --th-type: #ffa657;
+    --th-variable: #ffa657;
+}
+.th-token {
+    color: var(--th-token);
+}
+.th-attr {
+    color: var(--th-attr);
+}
+.th-code-inline {
+    color: var(--th-code-inline);
+}
+.th-command {
+    color: var(--th-command);
+}
+.th-comment {
+    color: var(--th-comment);
+}
+.th-deleted {
+    color: var(--th-deleted);
+}
+.th-function {
+    color: var(--th-function);
+}
+.th-heading {
+    color: var(--th-heading);
+}
+.th-inserted {
+    color: var(--th-inserted);
+}
+.th-keyword {
+    color: var(--th-keyword);
+}
+.th-link {
+    color: var(--th-link);
+}
+.th-literal {
+    color: var(--th-literal);
+}
+.th-meta {
+    color: var(--th-meta);
+}
+.th-number {
+    color: var(--th-number);
+}
+.th-operator {
+    color: var(--th-operator);
+}
+.th-property {
+    color: var(--th-property);
+}
+.th-selector {
+    color: var(--th-selector);
+}
+.th-string {
+    color: var(--th-string);
+}
+.th-tag {
+    color: var(--th-tag);
+}
+.th-type {
+    color: var(--th-type);
+}
+.th-variable {
+    color: var(--th-variable);
+}
+
+/* Soft editorial line treatments used by the Code Block registry component. */
+.th-line[data-highlighted],
+.line[data-highlighted] {
+    background: color-mix(in oklab, #bfdbfe 34%, transparent);
+    border-left: 2px solid color-mix(in oklab, #60a5fa 72%, transparent);
+    padding-left: 0.625rem;
+}
+.th-line[data-diff="added"],
+.line[data-diff="added"] {
+    background: color-mix(in oklab, #bbf7d0 42%, transparent);
+    border-left: 2px solid color-mix(in oklab, #4ade80 72%, transparent);
+    padding-left: 0.625rem;
+}
+.th-line[data-diff="removed"],
+.line[data-diff="removed"] {
+    background: color-mix(in oklab, #fecdd3 42%, transparent);
+    border-left: 2px solid color-mix(in oklab, #fb7185 72%, transparent);
+    padding-left: 0.625rem;
+}
+.th-line[data-diff="added"]::before,
+.line[data-diff="added"]::before {
+    content: "+";
+    display: inline-block;
+    width: 1.25rem;
+    margin-left: -0.25rem;
+    color: #16a34a;
+    font-weight: 600;
+}
+.th-line[data-diff="removed"]::before,
+.line[data-diff="removed"]::before {
+    content: "−";
+    display: inline-block;
+    width: 1.25rem;
+    margin-left: -0.25rem;
+    color: #ef4444;
+    font-weight: 600;
+}
+.th-line[data-focused],
+.line[data-focused] {
+    font-weight: 500;
+}
+
+/* Component previews can opt into reduced motion without changing the site preference. */
+[data-motion-mode="reduced"] *,
+[data-motion-mode="reduced"] *::before,
+[data-motion-mode="reduced"] *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+}
 
 @custom-variant dark (&:is([data-theme="dark"] *));
 @custom-variant mobile (@media (max-width: 768px) and (pointer: coarse));
@@ -8,6 +174,31 @@
 html {
     color-scheme: light dark;
     background: var(--color-background);
+    scrollbar-color: color-mix(in oklab, var(--foreground) 28%, transparent)
+        transparent;
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+}
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    min-height: 2.5rem;
+    border: 0.1875rem solid transparent;
+    border-radius: 999px;
+    background-clip: padding-box;
+    background-color: color-mix(in oklab, var(--foreground) 28%, transparent);
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in oklab, var(--foreground) 44%, transparent);
 }
 [data-theme="light"] {
     color-scheme: light only;
@@ -27,7 +218,7 @@ html {
     --background: light-dark(oklch(0.98 0 0), oklch(14.5% 0 0));
     --foreground: light-dark(oklch(0.18 0 0), oklch(0.94 0 0));
 
-    --card: light-dark(oklch(0.9 0 0), oklch(0.21 0 0));
+    --card: light-dark(oklch(0.9 0 0), oklch(0.24 0 0));
     --card-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
     --popover: light-dark(oklch(1 0 0), oklch(0.32 0 0));
     --popover-foreground: light-dark(oklch(0.27 0 0), oklch(0.94 0 0));
@@ -48,6 +239,7 @@ html {
     --border: light-dark(oklch(0 0 0 / 8%), oklch(1 0 0 / 10%));
     --input: light-dark(oklch(0.95 0 0), oklch(1 0 0 / 15%));
     --scrollbar: light-dark(oklch(0.87 0 0), oklch(0.7 0 0));
+    --site-grid-line: color-mix(in oklab, var(--border) 88%, transparent);
 
     /* Docs Focus workspace surfaces */
     --focus-canvas: var(--background);
@@ -73,31 +265,34 @@ html {
     --sidebar-border: light-dark(oklch(0.9 0 0), oklch(0.28 0 0));
     --sidebar-ring: light-dark(oklch(0.65 0 0), oklch(0.83 0 0));
 
-    /* Status colors - derived from primary (hue 250) */
+    /* Status colors */
     --destructive: light-dark(
-        oklch(0.5892 0.2014 28.97),
-        oklch(0.58 0.1782 28.13)
-    ); /* new value */
+        oklch(0.6532 0.2328 25.89),
+        oklch(0.6623 0.2243 25.06)
+    );
     --destructive-foreground: light-dark(
         oklch(0.58 0.1782 28.13),
         oklch(0.98 0 0)
     );
-    --danger: var(--destructive); /* new value */
+    --danger: var(--destructive);
     --danger-foreground: var(--destructive-foreground);
     --danger-border: light-dark(oklch(0.49 0.17 28.97), oklch(0.7 0.14 28.13));
-    --warning: light-dark(oklch(0.98 0.02 85), oklch(0.28 0.06 85));
+    --warning: light-dark(
+        oklch(0.8652 0.1768 90.38),
+        oklch(0.8818 0.1808 94.24)
+    );
     --warning-foreground: light-dark(oklch(0.52 0.105 85), oklch(0.78 0.12 85));
     --warning-border: light-dark(oklch(0.92 0.08 85), oklch(0.38 0.09 85));
     --info: light-dark(
-        oklch(0.5635 0.2408 260.82),
-        oklch(0.5587 0.2213 260.15)
-    ); /* new value */
+        oklch(0.6321 0.2018 254.09),
+        oklch(0.6504 0.1925 251.63)
+    );
     --info-foreground: light-dark(oklch(0.98 0 0), oklch(0.98 0 0));
     --info-border: light-dark(oklch(0.46 0.19 260.82), oklch(0.68 0.16 260.15));
     --success: light-dark(
-        oklch(0.6922 0.2319 142.96),
-        oklch(0.667165 0.219713 143.1724)
-    ); /* new value */
+        oklch(0.7292 0.195 147.36),
+        oklch(0.7553 0.2099 146.91)
+    );
     --success-foreground: light-dark(oklch(0.2 0.03 143), oklch(0.18 0.03 143));
     --success-border: light-dark(
         oklch(0.57 0.19 142.96),
@@ -201,7 +396,19 @@ html {
 @theme inline {
     --font-clash-display: "ClashDisplay", sans-serif;
     --font-helvetica-neue: var(--font-helvetica-neue);
+    --_width: 58rem;
+    --site-grid-max-width: var(--_width);
+    --header-max-width: var(--_width);
 }
+
+/*@media (min-width: 1280) {
+    @theme inline {
+        --site-grid-max-width: min(
+            var(--_width),
+            calc((100vw - 17rem) - (100vw - var(--header-max-width)) / 2)
+        );
+    }
+}*/
 
 @layer utilities {
     .bg-gradient {
@@ -230,6 +437,307 @@ html {
 }
 
 @layer components {
+    .apple-scrollbar {
+        scrollbar-color: color-mix(in oklab, var(--foreground) 28%, transparent)
+            transparent;
+        scrollbar-width: thin;
+        scrollbar-gutter: stable both-edges;
+    }
+
+    .apple-scrollbar::-webkit-scrollbar {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    .apple-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .apple-scrollbar::-webkit-scrollbar-thumb {
+        min-height: 2.5rem;
+        border: 0.1875rem solid transparent;
+        border-radius: 999px;
+        background-clip: padding-box;
+        background-color: color-mix(
+            in oklab,
+            var(--foreground) 28%,
+            transparent
+        );
+    }
+
+    .apple-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: color-mix(
+            in oklab,
+            var(--foreground) 44%,
+            transparent
+        );
+    }
+
+    @media (prefers-contrast: more) {
+        .apple-scrollbar {
+            scrollbar-color: color-mix(
+                    in oklab,
+                    var(--foreground) 58%,
+                    transparent
+                )
+                transparent;
+        }
+
+        .apple-scrollbar::-webkit-scrollbar-thumb {
+            background-color: color-mix(
+                in oklab,
+                var(--foreground) 58%,
+                transparent
+            );
+        }
+    }
+
+    .site-grid-frame {
+        --site-grid-inline-space: 1rem;
+        --site-grid-column-gap: 0.75rem;
+        --site-grid-separator-height: 2rem;
+        --site-grid-line: color-mix(in oklab, var(--border) 88%, transparent);
+        --site-grid-hatch: color-mix(
+            in oklab,
+            var(--muted-foreground) 32%,
+            transparent
+        );
+        position: relative;
+        isolation: isolate;
+    }
+
+    .site-grid-frame__content {
+        width: min(
+            calc(100% - (var(--site-grid-inline-space) * 2)),
+            var(--site-grid-max-width)
+        );
+        margin-inline: auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    .site-grid-frame__content::before,
+    .site-grid-frame__content::after {
+        position: absolute;
+        inset-block: 0;
+        width: 1px;
+        content: "";
+        background: var(--site-grid-line);
+        pointer-events: none;
+    }
+
+    .site-grid-frame__content::before {
+        left: 0;
+    }
+
+    .site-grid-frame__content::after {
+        right: 0;
+    }
+
+    .site-grid-section {
+        position: relative;
+    }
+
+    .site-grid-section::before,
+    .site-grid-section::after {
+        position: absolute;
+        left: 50%;
+        display: none;
+        width: 100vw;
+        height: 1px;
+        pointer-events: none;
+        content: "";
+        background: var(--site-grid-line);
+        transform: translateX(-50%);
+    }
+
+    .site-grid-section::before {
+        top: 0;
+    }
+
+    .site-grid-section::after {
+        bottom: 0;
+    }
+
+    .site-grid-section[data-boundary="top"]::before,
+    .site-grid-section[data-boundary="both"]::before,
+    .site-grid-section[data-boundary="bottom"]::after,
+    .site-grid-section[data-boundary="both"]::after {
+        display: block;
+    }
+
+    .site-grid-container {
+        width: min(
+            calc(100% - (var(--site-grid-inline-space) * 2)),
+            var(--site-grid-max-width)
+        );
+        margin-inline: auto;
+    }
+
+    .site-grid-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--site-grid-column-gap);
+    }
+
+    .site-grid-gap {
+        background-color: var(--site-grid-hatch);
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M-3 3 3-3M-3 15 15-3M9 15 15 9' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+        mask-repeat: repeat;
+        mask-size: 12px 12px;
+        pointer-events: none;
+    }
+
+    .site-grid-gap[data-orientation="horizontal"] {
+        /*width: min(
+            calc(100% - (var(--site-grid-inline-space) * 2)),
+            var(--site-grid-max-width)
+        );*/
+        width: 100%;
+        min-height: var(--site-grid-separator-height);
+        margin-inline: auto;
+        border-block: 1px solid var(--site-grid-line);
+        border-inline: 1px solid var(--site-grid-line);
+    }
+
+    .site-grid-gap[data-orientation="vertical"] {
+        min-width: var(--site-grid-column-gap);
+        border-inline: 1px solid var(--site-grid-line);
+    }
+
+    .site-grid-category-gap {
+        position: relative;
+        overflow: visible;
+    }
+
+    .site-grid-category-gap::before,
+    .site-grid-category-gap::after {
+        position: absolute;
+        left: 50%;
+        width: 100vw;
+        height: 1px;
+        background: var(--site-grid-line);
+        pointer-events: none;
+        content: "";
+        transform: translateX(-50%);
+    }
+
+    .site-grid-category-gap::before {
+        top: 0;
+    }
+
+    .site-grid-category-gap::after {
+        bottom: 0;
+    }
+
+    .docs-prose.site-grid-frame {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-grid-doc-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-grid-doc-divider {
+        position: relative;
+        width: 100vw;
+        min-height: var(--site-grid-separator-height);
+        left: 50%;
+        transform: translateX(-50%);
+        border-block: 1px solid var(--site-grid-line);
+        pointer-events: none;
+    }
+
+    .site-grid-doc-divider span {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        background-color: var(--site-grid-hatch);
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M-3 3 3-3M-3 15 15-3M9 15 15 9' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+        mask-repeat: repeat;
+        mask-size: 12px 12px;
+    }
+
+    .site-grid-doc-section:last-of-type + .site-grid-doc-divider {
+        display: none;
+    }
+
+    .site-grid-doc-divider::before,
+    .site-grid-doc-divider::after {
+        position: absolute;
+        inset-inline: 0;
+        height: 1px;
+        content: "";
+        background: var(--site-grid-line);
+        z-index: 1;
+    }
+
+    .site-grid-doc-divider::before {
+        top: -1px;
+    }
+
+    .site-grid-doc-divider::after {
+        bottom: -1px;
+    }
+
+    .docs-prose.site-grid-frame .site-grid-doc-divider {
+        /* The article clips this full-bleed rule to the center column. */
+        max-width: none;
+    }
+
+    .docs-changelog-prose .site-grid-doc-divider {
+        display: none;
+    }
+
+    .docs-prose.site-grid-frame .site-grid-gap[data-orientation="horizontal"] {
+        width: 100%;
+    }
+
+    @media (min-width: 48rem) {
+        .site-grid-frame {
+            --site-grid-inline-space: 1.5rem;
+            --site-grid-column-gap: 1rem;
+        }
+
+        .site-grid-row {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 64rem) {
+        .site-grid-frame {
+            --site-grid-inline-space: 2rem;
+        }
+    }
+
+    @media (prefers-contrast: more) {
+        .site-grid-frame {
+            --site-grid-line: color-mix(
+                in oklab,
+                var(--foreground) 28%,
+                transparent
+            );
+            --site-grid-hatch: color-mix(
+                in oklab,
+                var(--foreground) 22%,
+                transparent
+            );
+        }
+    }
+
+    @media print {
+        .site-grid-frame__content::before,
+        .site-grid-frame__content::after,
+        .site-grid-section::before,
+        .site-grid-section::after,
+        .site-grid-gap,
+        .site-grid-doc-divider {
+            display: none;
+        }
+    }
+
     .fire-frame {
         position: absolute;
         inset: auto 0 0;
@@ -455,14 +963,14 @@ html {
         color: var(--muted-foreground);
     }
     /*
-    & .docs-list-item + .docs-list-item {
-    margin-block-start: var(--docs-list-item-gap);
-    }
+        & .docs-list-item + .docs-list-item {
+        margin-block-start: var(--docs-list-item-gap);
+        }
 
-    & .docs-list .docs-list {
-        margin-block: var(--docs-list-item-gap) 0;
-    }
-    */
+        & .docs-list .docs-list {
+                margin-block: var(--docs-list-item-gap) 0;
+        }
+        */
 
     & .docs-blockquote {
         margin-block: calc(var(--docs-flow) * 1.25);
@@ -515,7 +1023,7 @@ html {
         color: var(--docs-subtle-foreground);
         font-size: var(--docs-lead-size);
         line-height: var(--docs-lead-leading);
-        margin-bottom: calc(var(--docs-flow) * 1.5);
+        /*margin-bottom: calc(var(--docs-flow) * 1.5);*/
     }
 
     & > p + p,
@@ -531,14 +1039,14 @@ html {
         border-radius: var(--docs-radius);
         padding: 0.125rem 0.275rem;
         font-family: var(--font-geist-mono), monospace;
-        font-size: 0.675em;
+        font-size: 0.875em;
         margin-bottom: 0.25rem;
         display: inline-block;
     }
 }
 
 [data-context="component-article"].docs-focus-prose {
-    --_fs: 0.875rem;
+    --_fs: 0.975rem;
     --docs-body-size: var(--_fs);
     --docs-body-leading: 1.6;
     --docs-h1-size: var(--_fs);
@@ -563,10 +1071,10 @@ html {
 }
 
 [data-context="component-article"].docs-guide-prose {
-    --_fs: 0.875rem;
+    --_fs: 0.975rem;
     --docs-body-size: var(--_fs);
     --docs-body-leading: 1.6;
-    --docs-h1-size: 1.25rem;
+    --docs-h1-size: clamp(1.875rem, 1.5rem + 1vw, 2.25rem);
     --docs-h2-size: calc(var(--_fs) * 1.125);
     --docs-h3-size: var(--_fs);
     --docs-h4-size: var(--_fs);
@@ -740,4 +1248,22 @@ kbd,
 samp,
 pre {
     font-size: 0.775rem;
+}
+
+html,
+body {
+    overscroll-behavior: none;
+}
+
+body.zen-mode article[data-component-document] {
+    z-index: 99999999;
+}
+
+body.zen-mode [data-component-preview] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    height: 100vh;
+    border-radius: 0;
 }

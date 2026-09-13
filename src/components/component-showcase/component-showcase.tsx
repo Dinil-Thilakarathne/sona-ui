@@ -1,16 +1,19 @@
-"use client";
-
-import { AnimatePresence } from "motion/react";
-import { useMemo, useState } from "react";
+import { Fragment } from "react";
+import { SiteGridGap } from "@/components/landing/site-grid";
 import { componentShowcaseVideos } from "@/config/component-showcase";
 import { componentNavigationLinks } from "@/config/components";
-import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import { ComponentShowcaseCard } from "./component-showcase-card";
 import { ComponentShowcaseRegistryPreview } from "./component-showcase-registry-preview";
 import type { ComponentShowcaseItem } from "./types";
 
 const defaultItems: ComponentShowcaseItem[] = componentNavigationLinks
-  .filter((item) => item.type !== "Getting Started" && item.slug)
+  .filter(
+    (item) =>
+      item.type !== "Getting Started" &&
+      item.slug &&
+      item.slug !== "chip" &&
+      item.slug !== "assignment-cluster",
+  )
   .map((item) => ({
     name: item.name,
     slug: item.slug ?? item.name,
@@ -20,11 +23,6 @@ const defaultItems: ComponentShowcaseItem[] = componentNavigationLinks
     video: item.slug ? componentShowcaseVideos[item.slug] : undefined,
   }));
 
-const defaultCategories = [
-  "All",
-  ...Array.from(new Set(defaultItems.map((item) => item.category))),
-];
-
 type ComponentShowcaseProps = {
   items?: ComponentShowcaseItem[];
 };
@@ -32,68 +30,81 @@ type ComponentShowcaseProps = {
 export function ComponentShowcase({
   items = defaultItems,
 }: ComponentShowcaseProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories =
-    items === defaultItems
-      ? defaultCategories
-      : ["All", ...Array.from(new Set(items.map((item) => item.category)))];
-  const visibleItems = useMemo(
-    () =>
-      activeCategory === "All"
-        ? items
-        : items.filter((item) => item.category === activeCategory),
-    [activeCategory, items],
+  const groups = items.reduce<Map<string, ComponentShowcaseItem[]>>(
+    (categories, item) => {
+      const categoryItems = categories.get(item.category) ?? [];
+      categoryItems.push(item);
+      categories.set(item.category, categoryItems);
+      return categories;
+    },
+    new Map(),
   );
+  const categoryGroups = Array.from(groups);
 
   return (
-    <main className="mx-auto w-full  max-w-[76rem] px-4 pt-[calc(var(--spacing-header-height)+4rem)] pb-20 sm:px-6 lg:px-8 relative z-10">
-      <header className="mb-10 max-w-4xl flex flex-col gap-2">
-        <p className="font-mono text-[0.6875rem] text-muted-foreground uppercase tracking-[0.14em]">
-          Sona UI collection
+    <main
+      className="site-grid-section relative z-10 mx-auto w-full max-w-(--site-grid-max-width) px-4 pt-[calc(var(--spacing-header-height)+clamp(3rem,7vw,6rem))] pb-[clamp(4rem,8vw,7rem)] sm:px-6 lg:px-8"
+      data-boundary="both"
+      data-oreintation="vertical"
+    >
+      <header className="flex flex-col gap-4  pb-4 ">
+        <h1 className="text-balance font-helvetica-neue text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.04em] translate-x-[-4px]">
+          Components with behavior built in.
+        </h1>
+
+        <p className="max-w-[34ch] text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Browse production-ready interactions, then take the source and make it
+          your own.
         </p>
-        <div className=" flex flex-wrap items-end justify-between gap-4">
-          <div className="flex flex-col gap-2">
-            <h1 className="font-helvetica-neue text-balance text-4xl tracking-[-0.055em] sm:text-5xl">
-              Components in motion.
-            </h1>
-            <p className=" text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-              A collection of motion-led UI components. [Hover to see each in
-              action]
-            </p>
-          </div>
-        </div>
       </header>
 
-      <div className="mb-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <FluidTabs
-          ariaLabel="Component categories"
-          onValueChange={setActiveCategory}
-          size="sm"
-          tabs={categories.map((category) => ({
-            title: category,
-            value: category,
-          }))}
-          value={activeCategory}
-        />
-      </div>
+      <div className="mt-8 flex flex-col sm:mt-10">
+        {categoryGroups.map(([category, categoryItems], index) => (
+          <Fragment key={category}>
+            <section
+              className=" site-grid-section pb-4"
+              data-boundary="both"
+              aria-labelledby={`component-category-${category.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`}
+            >
+              <header
+                className="mb-5 flex gap-2 sm:mb-6 site-grid-section py-2"
+                data-boundary="both"
+              >
+                <h2
+                  id={`component-category-${category.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`}
+                  className="font-helvetica-neue text-2xl tracking-[-0.04em] sm:text-3xl"
+                >
+                  {category}
+                </h2>
+                <p className="shrink-0 font-mono text-[0.825rem] tracking-[0.14em] text-muted-foreground tabular-nums uppercase">
+                  [{categoryItems.length}]
+                </p>
+              </header>
 
-      <section aria-live="polite" aria-label={`${activeCategory} components`}>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence initial={false} mode="popLayout">
-            {visibleItems.map((item) => (
-              <ComponentShowcaseCard
-                key={item.slug}
-                item={item}
-                preview={
-                  item.preview ?? (
-                    <ComponentShowcaseRegistryPreview slug={item.slug} />
-                  )
-                }
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-2">
+                {categoryItems.map((item) => (
+                  <ComponentShowcaseCard
+                    key={item.slug}
+                    item={item}
+                    preview={
+                      item.preview ?? (
+                        <ComponentShowcaseRegistryPreview slug={item.slug} />
+                      )
+                    }
+                  />
+                ))}
+              </div>
+            </section>
+            {index < categoryGroups.length - 1 && (
+              <SiteGridGap
+                orientation="horizontal"
+                data-boundary="both"
+                className="site-grid-category-gap site-grid-section !min-h-4 !w-[calc(100%+64px)] -translate-x-[32px]"
               />
-            ))}
-          </AnimatePresence>
-        </div>
-      </section>
+            )}
+          </Fragment>
+        ))}
+      </div>
     </main>
   );
 }

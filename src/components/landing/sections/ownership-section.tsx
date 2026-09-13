@@ -25,7 +25,7 @@ const steps = [
 export function OwnershipSection() {
   return (
     <section
-      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,.88fr)_minmax(20rem,1.12fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
+      className="mx-auto grid w-full max-w-(--site-grid-max-width) items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,.88fr)_minmax(20rem,1.12fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
       aria-labelledby="ownership-title"
     >
       <div>

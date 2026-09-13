@@ -10,7 +10,7 @@ const proofs = [
 export function ProofSection() {
   return (
     <section
-      className="mx-auto w-full max-w-[76rem] border-y border-border px-4"
+      className="mx-auto w-full max-w-(--site-grid-max-width) border-y border-border px-4"
       aria-label="Sona UI at a glance"
     >
       <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-4">

@@ -6,7 +6,17 @@ const starImage = `data:image/svg+xml,${encodeURIComponent(
   `<svg width="770" height="980" viewBox="-40 -40 770 980" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter></defs><path d="${starPath}" fill="#D9D9D9" opacity="0.3" filter="url(#glow)"/><path d="${starPath}" fill="#D9D9D9"/></svg>`,
 )}`;
 
-export function SonaSocialImage() {
+type SonaSocialImageProps = {
+  description?: string;
+  eyebrow?: string;
+  title?: string;
+};
+
+export function SonaSocialImage({
+  description = "Thoughtful interactions and visual effects, with source code you own.",
+  eyebrow,
+  title = "Well-crafted animated React components.",
+}: SonaSocialImageProps = {}) {
   return (
     <div
       style={{
@@ -39,19 +49,27 @@ export function SonaSocialImage() {
           width: 650,
         }}
       >
-        <div style={{ fontSize: 76, letterSpacing: "-0.045em" }}>Sona UI</div>
+        <div
+          style={{
+            color: "#b5b5b5",
+            display: "flex",
+            fontSize: 22,
+            letterSpacing: "0.01em",
+          }}
+        >
+          {eyebrow ? `Sona UI  /  ${eyebrow}` : "Sona UI"}
+        </div>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            fontSize: 36,
-            letterSpacing: "-0.025em",
-            lineHeight: 1.2,
-            marginTop: 28,
+            fontSize: title.length > 34 ? 50 : 62,
+            letterSpacing: "-0.04em",
+            lineHeight: 1.08,
+            marginTop: 44,
           }}
         >
-          <span>Well-crafted animated</span>
-          <span>React components.</span>
+          {title}
         </div>
         <div
           style={{
@@ -60,11 +78,10 @@ export function SonaSocialImage() {
             flexDirection: "column",
             fontSize: 23,
             lineHeight: 1.45,
-            marginTop: 42,
+            marginTop: 36,
           }}
         >
-          <span>Thoughtful interactions and visual effects,</span>
-          <span>with source code you own.</span>
+          {description}
         </div>
       </div>
     </div>

@@ -134,14 +134,18 @@ export default function FanView({
                     aria-label={label}
                     className="absolute bottom-0 left-1/2 cursor-pointer -translate-x-1/2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     style={{ width, zIndex }}
-                    initial={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.55,
-                      rotate: 0,
-                      filter: "blur(10px)",
-                    }}
+                    initial={
+                      shouldReduceMotion
+                        ? false
+                        : {
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.55,
+                            rotate: 0,
+                            filter: "blur(10px)",
+                          }
+                    }
                     animate={{
                       x,
                       y,
@@ -156,21 +160,23 @@ export default function FanView({
                         delay: shouldReduceMotion ? 0 : index * 0.04,
                       },
                     }}
-                    exit={{
-                      x: 0,
-                      y: 0,
-                      opacity: 0,
-                      scale: 0.45,
-                      rotate: 0,
-                      filter: "blur(10px)",
-                      transition: shouldReduceMotion
-                        ? { duration: 0 }
+                    exit={
+                      shouldReduceMotion
+                        ? { opacity: 0, transition: { duration: 0 } }
                         : {
-                            duration: 0.18,
-                            ease: "easeInOut",
-                            delay: (items.length - index - 1) * 0.025,
-                          },
-                    }}
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.45,
+                            rotate: 0,
+                            filter: "blur(10px)",
+                            transition: {
+                              duration: 0.18,
+                              ease: "easeInOut",
+                              delay: (items.length - index - 1) * 0.025,
+                            },
+                          }
+                    }
                     whileHover={
                       shouldReduceMotion ? {} : { scale: 1.05, zIndex: 30 }
                     }

@@ -27,7 +27,10 @@ const footerLinkClassName =
 
 export function LandingFooter() {
   return (
-    <footer className="relative isolate mx-auto w-full  max-w-[76rem] gap-6 border-t border-border px-4 sm:px-6 lg:px-8 py-6 lg:py-16 pb-8 text-[0.8125rem] text-muted-foreground flex flex-col">
+    <footer
+      className="site-grid-section relative isolate mx-auto w-full max-w-(--site-grid-max-width) gap-6 px-4 sm:px-6 lg:px-8 py-6 lg:py-16 pb-8 text-[0.8125rem] text-muted-foreground flex flex-col"
+      data-boundary="both"
+    >
       <FireFrame />
       <div className="relative z-10 flex flex-col gap-6">
         <div className="flex flex-col lg:flex-row justify-between">
@@ -46,10 +49,7 @@ export function LandingFooter() {
                   <ul className="m-0 grid list-none content-start gap-2 p-0">
                     {group.links.map((link) => (
                       <li key={link.href} className="group">
-                        <Link
-                          href={link.href}
-                          className={footerLinkClassName}
-                        >
+                        <Link href={link.href} className={footerLinkClassName}>
                           {link.label}
                         </Link>
                       </li>
@@ -72,7 +72,7 @@ export function LandingFooter() {
           </div>
         </div>
         <div>
-          <p className="text-[12vw] leading-[80%] font-helvetica-neue text-foreground">
+          <p className="text-[9vw] leading-[80%] font-helvetica-neue text-foreground">
             Beautiful interactions
           </p>
         </div>

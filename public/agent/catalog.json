@@ -4,6 +4,108 @@
   "registry": "https://sonaui.com/r/{name}.json",
   "items": [
     {
+      "name": "morph-surface",
+      "title": "Morph Surface",
+      "category": "foundations",
+      "status": "preview",
+      "summary": "An unstyled layout primitive that preserves one surface while switching between differently sized consumer-owned views.",
+      "keywords": [
+        "morph",
+        "surface",
+        "layout",
+        "resize",
+        "continuity",
+        "primitive"
+      ],
+      "docs": "https://sonaui.com/docs/morph-surface",
+      "registryItem": "https://sonaui.com/r/morph-surface.json",
+      "detail": "https://sonaui.com/agent/components/morph-surface.json",
+      "dependencies": [
+        "motion",
+        "react-use-measure"
+      ]
+    },
+    {
+      "name": "floating-viewer",
+      "title": "Floating Viewer",
+      "category": "components",
+      "status": "preview",
+      "summary": "A persistent in-page media surface that can detach into a bounded, corner-snapping floating viewer without restarting its content.",
+      "keywords": [
+        "media",
+        "video",
+        "picture in picture",
+        "floating",
+        "tutorial",
+        "reference"
+      ],
+      "docs": "https://sonaui.com/docs/floating-viewer",
+      "registryItem": "https://sonaui.com/r/floating-viewer.json",
+      "detail": "https://sonaui.com/agent/components/floating-viewer.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "schedule-chip",
+      "title": "Schedule Chip",
+      "category": "components",
+      "status": "preview",
+      "summary": "A readable schedule summary that expands in place into a reversible date, time, and timezone editing transaction.",
+      "keywords": [
+        "schedule",
+        "date",
+        "time",
+        "timezone",
+        "reminder",
+        "publishing"
+      ],
+      "docs": "https://sonaui.com/docs/schedule-chip",
+      "registryItem": "https://sonaui.com/r/schedule-chip.json",
+      "detail": "https://sonaui.com/agent/components/schedule-chip.json",
+      "dependencies": [
+        "motion",
+        "lucide-react"
+      ]
+    },
+    {
+      "name": "chip",
+      "title": "Chip",
+      "category": "foundations",
+      "status": "stable",
+      "summary": "A compact, noninteractive annotation for labels, categories, and semantic status.",
+      "keywords": [
+        "chip",
+        "badge",
+        "tag",
+        "status",
+        "label"
+      ],
+      "docs": "https://sonaui.com/docs/chip",
+      "registryItem": "https://sonaui.com/r/chip.json",
+      "detail": "https://sonaui.com/agent/components/chip.json",
+      "dependencies": []
+    },
+    {
+      "name": "assignment-cluster",
+      "title": "Assignment Cluster",
+      "category": "components",
+      "status": "stable",
+      "summary": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
+      "keywords": [
+        "assignment",
+        "people picker",
+        "reviewers"
+      ],
+      "docs": "https://sonaui.com/docs/assignment-cluster",
+      "registryItem": "https://sonaui.com/r/assignment-cluster.json",
+      "detail": "https://sonaui.com/agent/components/assignment-cluster.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
       "name": "live-activity",
       "title": "Live Activity",
       "category": "components",
@@ -111,16 +213,37 @@
       "title": "Animated Switch",
       "category": "components",
       "status": "stable",
-      "summary": "An iOS-inspired switch for immediate binary settings with tactile press feedback and optional thumb drag.",
+      "summary": "An iOS-inspired switch for immediate binary settings with tactile press feedback, blocked-state cues, and optional thumb drag.",
       "keywords": [
         "switch",
         "toggle",
         "boolean setting",
-        "drag interaction"
+        "drag interaction",
+        "error state"
       ],
       "docs": "https://sonaui.com/docs/animated-switch",
       "registryItem": "https://sonaui.com/r/animated-switch.json",
       "detail": "https://sonaui.com/agent/components/animated-switch.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "animated-checkbox",
+      "title": "Animated Checkbox",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible checkbox with a restrained animated checkmark and clear checked state.",
+      "keywords": [
+        "checkbox",
+        "form control",
+        "boolean setting",
+        "checkmark"
+      ],
+      "docs": "https://sonaui.com/docs/animated-checkbox",
+      "registryItem": "https://sonaui.com/r/animated-checkbox.json",
+      "detail": "https://sonaui.com/agent/components/animated-checkbox.json",
       "dependencies": [
         "@base-ui/react",
         "motion"
@@ -318,6 +441,27 @@
       "detail": "https://sonaui.com/agent/components/lightbox.json",
       "dependencies": [
         "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
+      "name": "swipe-action-row",
+      "title": "Swipe Action Row",
+      "category": "components",
+      "status": "preview",
+      "summary": "A coordinated list interaction that reveals actions on either side through pointer, touch, or keyboard input.",
+      "keywords": [
+        "swipe",
+        "row",
+        "archive",
+        "list action",
+        "gesture"
+      ],
+      "docs": "https://sonaui.com/docs/swipe-action-row",
+      "registryItem": "https://sonaui.com/r/swipe-action-row.json",
+      "detail": "https://sonaui.com/agent/components/swipe-action-row.json",
+      "dependencies": [
+        "@ncdai/react-swipe-actions",
         "motion"
       ]
     },
@@ -527,6 +671,26 @@
       ]
     },
     {
+      "name": "code-block",
+      "title": "Code Block",
+      "category": "components",
+      "status": "stable",
+      "summary": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
+      "keywords": [
+        "code",
+        "syntax highlighting",
+        "developer tools"
+      ],
+      "docs": "https://sonaui.com/docs/code-block",
+      "registryItem": "https://sonaui.com/r/code-block.json",
+      "detail": "https://sonaui.com/agent/components/code-block.json",
+      "dependencies": [
+        "shiki",
+        "lucide-react",
+        "@icons-pack/react-simple-icons"
+      ]
+    },
+    {
       "name": "spotlight-card",
       "title": "Spotlight Card",
       "category": "components",
@@ -641,6 +805,24 @@
       "dependencies": [
         "motion"
       ]
+    },
+    {
+      "name": "stepper",
+      "title": "Stepper",
+      "category": "components",
+      "status": "stable",
+      "summary": "A composable, accessible progression control for a small ordered workflow with linked step navigation and content panels.",
+      "keywords": [
+        "stepper",
+        "steps",
+        "workflow",
+        "progress",
+        "installation"
+      ],
+      "docs": "https://sonaui.com/docs/stepper",
+      "registryItem": "https://sonaui.com/r/stepper.json",
+      "detail": "https://sonaui.com/agent/components/stepper.json",
+      "dependencies": []
     }
   ]
 }

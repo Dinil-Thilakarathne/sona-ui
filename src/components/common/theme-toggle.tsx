@@ -29,7 +29,7 @@ export function ModeToggle() {
       aria-pressed={isDark}
       title={`Switch to ${nextTheme} theme`}
       onClick={() => setTheme(nextTheme)}
-      className="grid size-9 shrink-0 cursor-pointer place-items-center rounded-lg text-neutral-700 transition-colors duration-150 ease-out hover:bg-accent hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none dark:text-neutral-300"
+      className="grid size-9 shrink-0 cursor-pointer place-items-center rounded-lg text-neutral-700 transition-colors duration-150 ease-out hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none dark:text-neutral-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

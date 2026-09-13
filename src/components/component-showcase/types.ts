@@ -10,7 +10,7 @@ export type ComponentShowcaseItem = {
   slug: string;
   href: string;
   category: string;
-  tag?: "new" | "soon" | "updated" | "featured" | "default";
+  tag?: "new" | "soon" | "updated" | "beta" | "featured" | "default";
   video?: ComponentShowcaseVideo;
   preview?: ReactNode;
 };

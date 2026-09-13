@@ -1,9 +1,9 @@
 "use client";
 
 import { BookOpenText, Code2, Home, Settings2 } from "lucide-react";
-import Link from "@/components/common/link";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import Link from "@/components/common/link";
 import { ModeToggle } from "@/components/common/theme-toggle";
 import {
   FocusActionsBar,

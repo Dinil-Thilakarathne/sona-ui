@@ -4,7 +4,7 @@ import { LandingButtonLink } from "../button-link";
 export function AiSection() {
   return (
     <section
-      className="mx-auto grid w-full max-w-[76rem] items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,1fr)_minmax(18rem,.92fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
+      className="mx-auto grid w-full max-w-(--site-grid-max-width) items-center gap-10 border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)] md:grid-cols-[minmax(0,1fr)_minmax(18rem,.92fr)] md:gap-[clamp(2.5rem,7vw,7rem)]"
       aria-labelledby="ai-title"
     >
       <div>
@@ -49,8 +49,8 @@ export function AiSection() {
           <span className="size-2 rounded-full bg-muted-foreground/40" />
         </div>
         <p>
-          <span className="text-site-brand">$</span> discover sona components for
-          tabs
+          <span className="text-site-brand">$</span> discover sona components
+          for tabs
         </p>
         <p className="text-muted-foreground">
           → Fluid Tabs · accessible · motion-aware

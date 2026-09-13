@@ -1,5 +1,5 @@
-import Link from "@/components/common/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import Link from "@/components/common/link";
 import { cn } from "@/lib/utils";
 
 interface AnimatedLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

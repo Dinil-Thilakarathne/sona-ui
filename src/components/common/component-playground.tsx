@@ -1,7 +1,6 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { Switch } from "@base-ui/react/switch";
 import { Check } from "lucide-react";
 import {
   Component,
@@ -22,6 +21,7 @@ import {
   AnimatedDropdownTrigger,
   AnimatedDropdownTriggerIndicator,
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
+import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 
 interface ComponentPlaygroundProps {
   component: string;
@@ -87,12 +87,7 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   );
 
   if (!entry) {
-    return (
-      <div className="text-muted-foreground text-sm">
-        No playground registered for component{" "}
-        <code className="px-1 py-0.5 bg-muted rounded">{component}</code>.
-      </div>
-    );
+    return null;
   }
 
   const set = (prop: string, value: unknown) =>
@@ -105,46 +100,54 @@ const ComponentPlayground: React.FC<ComponentPlaygroundProps> = ({
   const reset = () => setValues(defaults);
 
   return (
-    <div
-      className={cn(
-        "grid grid-cols-1 gap-4 my-3 max-w-screen w-full",
-        controlsOpen ? "lg:grid-cols-[75%_1fr]" : "grid-cols-1",
-      )}
-    >
-      <ComponentWrapper className="min-h-[280px]">
-        <PlaygroundErrorBoundary onReset={reset}>
-          {rendered}
-        </PlaygroundErrorBoundary>
-      </ComponentWrapper>
+    <section aria-labelledby={`playground-${component}`}>
+      <h2
+        id={`playground-${component}`}
+        className="mt-8 text-2xl font-semibold"
+      >
+        Playground
+      </h2>
+      <div
+        className={cn(
+          "grid grid-cols-1 gap-4 my-3 max-w-screen w-full",
+          controlsOpen ? "lg:grid-cols-[75%_1fr]" : "grid-cols-1",
+        )}
+      >
+        <ComponentWrapper className="min-h-[280px]">
+          <PlaygroundErrorBoundary onReset={reset}>
+            {rendered}
+          </PlaygroundErrorBoundary>
+        </ComponentWrapper>
 
-      {controlsOpen && (
-        <fieldset className="flex flex-col gap-5 rounded-xl bg-secondary p-4 smooth-shadow-ring-sm">
-          <legend className="sr-only">Controls</legend>
-          <div className="flex items-center justify-between">
-            <span className="font-semibold text-foreground text-sm">
-              Controls
-            </span>
-            <button
-              type="button"
-              onClick={reset}
-              disabled={!isDirty}
-              className="text-xs text-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              Reset
-            </button>
-          </div>
+        {controlsOpen && (
+          <fieldset className="flex flex-col gap-5 rounded-xl bg-secondary p-4 smooth-shadow-ring-sm">
+            <legend className="sr-only">Controls</legend>
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-foreground text-sm">
+                Controls
+              </span>
+              <button
+                type="button"
+                onClick={reset}
+                disabled={!isDirty}
+                className="text-xs text-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Reset
+              </button>
+            </div>
 
-          {entry.controls.map((control) => (
-            <ControlField
-              key={control.prop}
-              control={control}
-              value={values[control.prop]}
-              onChange={(v) => set(control.prop, v)}
-            />
-          ))}
-        </fieldset>
-      )}
-    </div>
+            {entry.controls.map((control) => (
+              <ControlField
+                key={control.prop}
+                control={control}
+                value={values[control.prop]}
+                onChange={(v) => set(control.prop, v)}
+              />
+            ))}
+          </fieldset>
+        )}
+      </div>
+    </section>
   );
 };
 
@@ -261,17 +264,12 @@ function ControlField({ control, value, onChange }: ControlFieldProps) {
       )}
 
       {control.type === "toggle" && (
-        <Switch.Root
+        <AnimatedSwitch
           aria-labelledby={labelId}
           checked={value as boolean}
           onCheckedChange={(checked) => onChange(checked)}
-          className={cn(
-            "relative flex h-6 w-10 cursor-pointer rounded-full p-0.5 transition-[background-color,scale] duration-200 ease-out active:scale-95 motion-reduce:transition-none",
-            value ? "bg-foreground" : "bg-accent",
-          )}
-        >
-          <Switch.Thumb className="size-5 bg-background rounded-full shadow-sm duration-200 ease-out transition-transform motion-reduce:transition-none data-[checked]:translate-x-4" />
-        </Switch.Root>
+          size="sm"
+        ></AnimatedSwitch>
       )}
 
       {control.type === "select" && (

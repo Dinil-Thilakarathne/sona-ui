@@ -1,6 +1,5 @@
 import { useMDXComponent } from "@content-collections/mdx/react";
 import Image from "next/image";
-import Link from "@/components/common/link";
 import { Children } from "react";
 import {
   CodeBlock,
@@ -10,6 +9,7 @@ import {
   CodeBlockPre,
 } from "@/components/code-block/code-block";
 import { InternalCodeBlock } from "@/components/code-block/internal-code-block";
+import Link from "@/components/common/link";
 import {
   Tabs as NewTabs,
   TabsContent,
@@ -21,7 +21,6 @@ import { DesignTokenReference } from "../design-token/design-token-reference";
 import { ComponentUsageServer } from "../usage/component-usage-server";
 import { AgentTable } from "./agent-table";
 import { ComponentInstallationServer } from "./component-installation-server";
-import ComponentPlayground from "./component-playground";
 import { ComponentPreviewServer as ComponentPreview } from "./component-preview-server";
 import ComponentWrapper from "./component-wrapper";
 import PropTable from "./prop-table";
@@ -34,6 +33,25 @@ function getHeadingId(children: React.ReactNode) {
     .replace(/[^a-z0-9\s-]/g, "")
     .trim()
     .replace(/\s+/g, "-");
+}
+
+function DocumentationSection({
+  id,
+  children,
+}: {
+  id?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      <section id={id} className="site-grid-doc-section scroll-mt-24">
+        <div className="site-grid-doc-section__content py-4">{children}</div>
+      </section>
+      <div className="site-grid-doc-divider" aria-hidden="true">
+        <span />
+      </div>
+    </>
+  );
 }
 
 function ChangelogReleaseHeading({
@@ -217,7 +235,7 @@ const components = {
   CodeBlockLineNumbers,
   CodeBlockPre,
   ComponentPreview,
-  ComponentPlayground,
+  ComponentPlayground: () => null,
   PropTable,
   AgentTable,
   ComponentInstallation: ComponentInstallationServer,
@@ -230,6 +248,7 @@ const components = {
 interface MDXProps {
   code: string;
   className?: string;
+  as?: "article" | "div";
   headerActions?: React.ReactNode;
   mobileHeaderContent?: React.ReactNode;
   sourceFiles?: Record<string, string>;
@@ -238,6 +257,7 @@ interface MDXProps {
 export function Mdx({
   code,
   className,
+  as: Container = "article",
   headerActions,
   mobileHeaderContent,
   sourceFiles,
@@ -316,18 +336,19 @@ export function Mdx({
           },
         }
       : {}),
+    DocumentationSection,
   };
 
   return (
-    <article
+    <Container
       className={cn(
-        "docs-prose",
+        "docs-prose ",
         headerActions && "lg:[&>h1]:pr-28",
         className,
       )}
       data-context="component-article"
     >
       <Component components={mdxComponents} />
-    </article>
+    </Container>
   );
 }

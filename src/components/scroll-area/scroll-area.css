@@ -75,3 +75,180 @@
     --scroll-fade-right: 0px;
   }
 }
+
+/* Public utility classes for native overflow containers. */
+.scroll-fade,
+.scroll-fade-y {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-top: 0px;
+  --scroll-fade-bottom: var(--scroll-fade-size);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--scroll-fade-top),
+    black calc(100% - var(--scroll-fade-bottom)),
+    transparent 100%
+  );
+  animation: scroll-fade-y linear both;
+  animation-timeline: scroll(self y);
+}
+
+.scroll-fade-x {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-left: 0px;
+  --scroll-fade-right: var(--scroll-fade-size);
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--scroll-fade-left),
+    black calc(100% - var(--scroll-fade-right)),
+    transparent 100%
+  );
+  animation: scroll-fade-x linear both;
+  animation-timeline: scroll(self x);
+}
+
+@keyframes scroll-fade-top {
+  0% {
+    --scroll-fade-top: 0px;
+  }
+  2%,
+  100% {
+    --scroll-fade-top: var(--scroll-fade-size);
+  }
+}
+
+@keyframes scroll-fade-bottom {
+  0%,
+  98% {
+    --scroll-fade-bottom: var(--scroll-fade-size);
+  }
+  100% {
+    --scroll-fade-bottom: 0px;
+  }
+}
+
+@keyframes scroll-fade-left {
+  0% {
+    --scroll-fade-left: 0px;
+  }
+  2%,
+  100% {
+    --scroll-fade-left: var(--scroll-fade-size);
+  }
+}
+
+@keyframes scroll-fade-right {
+  0%,
+  98% {
+    --scroll-fade-right: var(--scroll-fade-size);
+  }
+  100% {
+    --scroll-fade-right: 0px;
+  }
+}
+
+.scroll-fade-t {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-top: 0px;
+  --scroll-fade-bottom: 0px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--scroll-fade-top),
+    black 100%
+  );
+  animation: scroll-fade-top linear both;
+  animation-timeline: scroll(self y);
+}
+
+.scroll-fade-b {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-top: 0px;
+  --scroll-fade-bottom: var(--scroll-fade-size);
+  mask-image: linear-gradient(
+    to bottom,
+    black 0,
+    black calc(100% - var(--scroll-fade-bottom)),
+    transparent 100%
+  );
+  animation: scroll-fade-bottom linear both;
+  animation-timeline: scroll(self y);
+}
+
+.scroll-fade-l,
+.scroll-fade-s {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-left: 0px;
+  --scroll-fade-right: 0px;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--scroll-fade-left),
+    black 100%
+  );
+  animation: scroll-fade-left linear both;
+  animation-timeline: scroll(self x);
+}
+
+.scroll-fade-r,
+.scroll-fade-e {
+  --scroll-fade-size: min(12%, 40px);
+  --scroll-fade-left: 0px;
+  --scroll-fade-right: var(--scroll-fade-size);
+  mask-image: linear-gradient(
+    to right,
+    black 0,
+    black calc(100% - var(--scroll-fade-right)),
+    transparent 100%
+  );
+  animation: scroll-fade-right linear both;
+  animation-timeline: scroll(self x);
+}
+
+.scroll-fade-none {
+  --scroll-fade-mask: none;
+  mask-image: none;
+  animation: none;
+}
+
+/* Common fixed sizes. Arbitrary values can use [--scroll-fade-size:<value>]. */
+.scroll-fade-2,
+.scroll-fade-t-2,
+.scroll-fade-b-2,
+.scroll-fade-s-2,
+.scroll-fade-e-2 {
+  --scroll-fade-size: 0.5rem;
+}
+
+.scroll-fade-4,
+.scroll-fade-t-4,
+.scroll-fade-b-4,
+.scroll-fade-s-4,
+.scroll-fade-e-4 {
+  --scroll-fade-size: 1rem;
+}
+
+.scroll-fade-8,
+.scroll-fade-t-8,
+.scroll-fade-b-8,
+.scroll-fade-s-8,
+.scroll-fade-e-8 {
+  --scroll-fade-size: 2rem;
+}
+
+.scroll-fade-12,
+.scroll-fade-t-12,
+.scroll-fade-b-12,
+.scroll-fade-s-12,
+.scroll-fade-e-12 {
+  --scroll-fade-size: 3rem;
+}
+
+.scroll-fade-24,
+.scroll-fade-t-24,
+.scroll-fade-b-24,
+.scroll-fade-s-24,
+.scroll-fade-e-24 {
+  --scroll-fade-size: 6rem;
+}

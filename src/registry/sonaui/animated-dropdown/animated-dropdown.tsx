@@ -17,6 +17,8 @@ import {
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
 
+const MotionMenuPopup = motion.create(Menu.Popup);
+
 // ─── Context ─────────────────────────────────────────────────────────────────
 
 interface DropdownContextValue {
@@ -157,7 +159,6 @@ export function AnimatedDropdownTrigger({
         "bg-secondary text-secondary-foreground text-sm font-medium",
         "hover:cursor-pointer hover:bg-popover transition-colors duration-150",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
-        "data-[popup-open]:bg-popover",
         className,
       )}
     >
@@ -217,7 +218,13 @@ export function AnimatedDropdownContent({
         sideOffset={sideOffset}
         className="z-50"
       >
-        <Menu.Popup
+        <MotionMenuPopup
+          layout={!shouldReduceMotion}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { layout: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } }
+          }
           className={cn(
             // Layout
             "z-50 min-w-[160px] rounded-xl p-1",
@@ -229,12 +236,14 @@ export function AnimatedDropdownContent({
             // Enter animation (CSS @starting-style + transition)
             "transition-[opacity,transform]",
             "starting:scale-95 starting:opacity-0",
-            shouldReduceMotion ? "duration-0" : "duration-150",
+            shouldReduceMotion
+              ? "duration-0 starting:scale-100 starting:opacity-100"
+              : "duration-150",
             className,
           )}
         >
           {children}
-        </Menu.Popup>
+        </MotionMenuPopup>
       </Menu.Positioner>
     </Menu.Portal>
   );
@@ -269,7 +278,7 @@ export function AnimatedDropdownItem({
         "rounded-lg px-2.5 py-2 text-sm outline-none",
         "transition-colors duration-75",
         variant === "danger"
-          ? "text-danger-foreground focus:text-white"
+          ? "text-destructive focus:text-destructive-foreground"
           : "text-popover-foreground",
         disabled && "cursor-not-allowed opacity-50",
         className,
@@ -286,7 +295,7 @@ export function AnimatedDropdownItem({
             layoutId={shouldReduceMotion ? undefined : `${layoutId}-highlight`}
             className={cn(
               "absolute inset-0 rounded-lg",
-              variant === "danger" ? "bg-danger" : "bg-accent",
+              variant === "danger" ? "bg-destructive" : "bg-accent",
             )}
             initial={shouldReduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -306,7 +315,7 @@ export function AnimatedDropdownItem({
           className={cn(
             "relative z-10 shrink-0 [&_svg]:size-4 text-muted-foreground",
             variant === "danger"
-              ? "text-danger-foreground group-focus:text-white"
+              ? "text-destructive group-focus:text-destructive-foreground"
               : "text-popover-foreground",
           )}
         >

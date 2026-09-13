@@ -18,7 +18,6 @@ import {
   useMemo,
   useState,
 } from "react";
-import type { BundledLanguage } from "shiki";
 import {
   type FadeEdges,
   ScrollArea,
@@ -26,6 +25,7 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/tabs/tabs";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "../copy-button/copy-button";
+import type { BundledLanguage } from "shiki";
 import { highlight } from "./lib/shiki-shared";
 import { stripDiffMarker } from "./lib/transformers/utils";
 
@@ -140,7 +140,14 @@ function CodeBlock({
         focusLines,
       }).then(setNodes);
     }
-  }, [code, language, initial, highlightLines, showDiff, focusLines]);
+  }, [
+    code,
+    language,
+    initial,
+    highlightLines,
+    showDiff,
+    focusLines,
+  ]);
 
   // Memoize context value to prevent unnecessary re-renders
   const contextValue = useMemo(

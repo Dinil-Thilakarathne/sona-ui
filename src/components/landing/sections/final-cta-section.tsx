@@ -4,7 +4,8 @@ import { LandingButtonLink } from "../button-link";
 export function FinalCtaSection() {
   return (
     <section
-      className="mx-auto grid w-full max-w-3xl justify-items-center px-4 py-[clamp(5rem,12vw,9rem)] text-center"
+      className="site-grid-section mx-auto grid w-full max-w-3xl justify-items-center px-4 py-[clamp(5rem,12vw,9rem)] text-center"
+      data-boundary="both"
       aria-labelledby="final-title"
     >
       <p className="text-xs font-semibold tracking-[0.08em] text-muted-foreground uppercase">

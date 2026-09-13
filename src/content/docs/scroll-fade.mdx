@@ -1,0 +1,60 @@
+---
+title: Scroll Fade
+slug: scroll-fade
+tags: ["Utilities", "Scrolling", "CSS"]
+---
+
+Use Scroll Fade when an overflow container needs a quiet visual cue that more content continues beyond its visible edge. The utility applies a mask to the scrolling element without adding controls or changing its scroll behavior.
+
+It works for vertical, horizontal, physical-edge, and direction-aware inline layouts.
+
+## Installation
+
+The utilities are included with Sona UI. Add them to the element that owns `overflow-y-auto` or `overflow-x-auto`.
+
+```tsx
+<div className="scroll-fade overflow-y-auto">{children}</div>
+```
+
+## Usage
+
+Use `scroll-fade` or `scroll-fade-y` for vertical scrolling and `scroll-fade-x` for horizontal scrolling.
+
+```tsx
+<div className="scroll-fade-x flex overflow-x-auto">{children}</div>
+```
+
+## Edge utilities
+
+Use `scroll-fade-t`, `scroll-fade-b`, `scroll-fade-l`, and `scroll-fade-r` when only one physical edge should fade. The `scroll-fade-s` and `scroll-fade-e` variants describe logical inline edges and can be used for direction-aware horizontal layouts.
+
+## Fade size
+
+The default fade is capped at `40px`. Use the fixed size utilities or an arbitrary custom property for one-off values.
+
+```tsx
+<div className="scroll-fade scroll-fade-8 overflow-y-auto">{children}</div>
+<div className="scroll-fade overflow-y-auto [--scroll-fade-size:15%]">
+  {children}
+</div>
+```
+
+Use `scroll-fade-none` to disable the mask at a breakpoint or state.
+
+```tsx
+<div className="scroll-fade overflow-y-auto md:scroll-fade-none">
+  {children}
+</div>
+```
+
+## ScrollArea
+
+The existing `ScrollArea` component supports the same behavior through its `fadeEdges` prop. Use the utility classes directly for native overflow containers, and use `fadeEdges` when you need the composed ScrollArea primitives.
+
+## Accessibility
+
+The fade is decorative and does not replace scrolling controls, keyboard access, or visible content structure. Ensure the container remains scrollable with touch, pointer, and keyboard input.
+
+## Styling
+
+Apply the utility to the element that owns overflow. Adjust `--scroll-fade-size` when the default fade competes with compact content, and disable it where the complete content already fits.

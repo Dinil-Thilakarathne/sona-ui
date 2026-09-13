@@ -8,6 +8,7 @@ import type { DocsPageLink } from "@/components/docs-page-navigation/docs-page-n
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { FIRST_COMP_LINK } from "@/lib/constants";
+import { getDocDescription } from "@/lib/docs-metadata";
 import DocClient from "./DocClient";
 
 export function generateStaticParams() {
@@ -59,25 +60,36 @@ export async function generateMetadata({
   params: Promise<{ slug?: string[] }>;
 }): Promise<Metadata> {
   const doc = await getDocFromParams({ params });
+  const description = getDocDescription(doc);
+  const title = `${doc.title} | Sona UI`;
+  const socialImage = {
+    url: `${SITE_METADATA.siteLink}/og/docs/${doc.slug}`,
+    width: 1200,
+    height: 630,
+    alt: `${doc.title} documentation from Sona UI`,
+  };
 
   return {
     title: doc.title,
-    description: doc.description,
+    description,
     alternates: {
       canonical: `${SITE_METADATA.siteLink}/docs/${doc.slug}`,
     },
     openGraph: {
-      title: doc.title,
-      description: doc.description,
+      title,
+      description,
       url: `${SITE_METADATA.siteLink}/docs/${doc.slug}`,
-      images: [
-        {
-          url: `${SITE_METADATA.siteLink}/og/${doc.slug}-og.png`,
-          width: 1200,
-          height: 630,
-          alt: doc.title,
-        },
-      ],
+      siteName: SITE_METADATA.siteName,
+      locale: "en_US",
+      type: "article",
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: SITE_METADATA.authorTwitter,
+      images: [socialImage],
     },
   };
 }

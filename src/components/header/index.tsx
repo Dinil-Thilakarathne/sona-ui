@@ -1,72 +1,72 @@
 "use client";
 
 import Link from "@/components/common/link";
-import { usePathname } from "next/navigation";
+import Logo from "@/components/common/logo";
+import SidebarLink from "@/components/common/sidebar-link";
+import StartCount from "@/components/common/start-count";
+import { ModeToggle } from "@/components/common/theme-toggle";
+import { Search } from "@/components/Search";
+import { componentNavigationLinks } from "@/config/components";
 import { GIT_REP_LINK } from "@/lib/constants";
 import { navLinks } from "@/lib/data";
-import FadeInComp from "../common/fade-in";
-import Logo from "../common/logo";
-import SidebarLink from "../common/sidebar-link";
-import StartCount from "../common/start-count";
-import { ModeToggle } from "../common/theme-toggle";
-import { Search } from "../Search";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
-  const pathname = usePathname();
-
-  if (pathname.startsWith("/docs")) return null;
-
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-4 z-49 sm:top-6">
-      <div className="mx-auto flex w-full max-w-[76rem] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="pointer-events-auto flex items-center rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-49 h-header-height transition-[background-color,backdrop-filter] duration-200 motion-reduce:transition-none",
+        "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:z-20 after:h-px after:bg-[var(--site-grid-line)]",
+      )}
+    >
+      <div className=" absolute w-full h-full left-0 top-0 bg-background mx-0.5"></div>
+      <div className="relative z-10 mx-auto flex items-center justify-between h-full w-full max-w-(--header-max-width) border-x border-border px-4 bg-background">
+        <div className="flex gap-1 lg:gap-2 items-center">
           <Link
             href="/"
             prefetch
-            className="flex h-9 items-center rounded-lg px-3 hover:bg-accent"
+            className="-ml-2 flex h-9 items-center rounded-md px-2 transition-colors duration-150 hover:bg-secondary active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transition-none"
           >
             <Logo />
           </Link>
-          <div className="mx-1 hidden h-5 w-px bg-border lg:block" />
-          <nav className="hidden items-center gap-5 px-3 lg:flex">
-            {navLinks.map((link, i) => (
-              <FadeInComp
+          <Divider />
+
+          <nav
+            className="flex min-w-0 items-center justify-center"
+            aria-label="Primary navigation"
+          >
+            {navLinks.map((link) => (
+              <SidebarLink
+                className="rounded-md px-2 py-2 transition-colors duration-150 hover:bg-secondary motion-reduce:transition-none sm:px-3"
                 key={link.name}
-                animationProps={{
-                  duration: 0.4,
-                  opacity: 0,
-                  yPercent: 20,
-                  delay: i * 0.1,
-                  filter: "blur(4px)",
-                }}
-              >
-                <SidebarLink
-                  name={link.name}
-                  href={link.href}
-                  prefetch
-                  tag={link.tag}
-                />
-              </FadeInComp>
+                name={link.name}
+                href={link.href}
+                prefetch
+                tag={link.tag}
+                showIndicator={false}
+                suffix={
+                  link.name === "Components" ? (
+                    <sup className="ml-1 align-super font-mono text-[9px] leading-none text-muted-foreground">
+                      [{componentNavigationLinks.length}]
+                    </sup>
+                  ) : undefined
+                }
+              />
             ))}
           </nav>
         </div>
-        <div className="pointer-events-auto flex items-center gap-1 rounded-xl bg-focus-chrome p-1 smooth-shadow-ring-sm backdrop-blur-xl">
-          <Search />
-          <FadeInComp
-            animationProps={{
-              duration: 0.4,
-              opacity: 0,
-              yPercent: 20,
-              filter: "blur(4px)",
-            }}
+
+        <div className="h-fit flex items-center gap-1 lg:gap-2">
+          <Search compact />
+          <Divider />
+          <Link
+            href={GIT_REP_LINK}
+            className="flex h-9 min-w-9 items-center justify-center px-2 rounded-md text-muted-foreground transition-colors duration-150 hover:bg-secondary hover:text-foreground active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transition-none"
+            aria-label="Star Sona UI on GitHub"
           >
-            <Link
-              href={GIT_REP_LINK}
-              className="flex h-9 items-center rounded-lg px-2 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground lg:px-3"
-            >
-              <StartCount />
-            </Link>
-          </FadeInComp>
+            <StartCount />
+          </Link>
+          <Divider />
           <ModeToggle />
         </div>
       </div>
@@ -75,3 +75,7 @@ const Header = () => {
 };
 
 export default Header;
+
+const Divider = () => {
+  return <div className="h-4 w-[1px] bg-secondary"></div>;
+};

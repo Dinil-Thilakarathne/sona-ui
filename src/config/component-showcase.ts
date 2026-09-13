@@ -82,4 +82,12 @@ export const componentShowcaseVideos: Partial<
     src: "/videos/stagger-text.mp4",
     poster: "/videos/posters/stagger-text-poster.webp",
   },
+  "morph-surface": {
+    src: "/videos/morph-surface.mov",
+    poster: "/videos/posters/morph-surface-poster.webp",
+  },
+  "schedule-chip": {
+    src: "/videos/schedule-chip.mov",
+    poster: "/videos/posters/schedule-chip-poster.webp",
+  },
 };

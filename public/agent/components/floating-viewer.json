@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "name": "floating-viewer",
+  "title": "Floating Viewer",
+  "category": "components",
+  "status": "preview",
+  "summary": "A persistent in-page media surface that can detach into a bounded, corner-snapping floating viewer without restarting its content.",
+  "docsSlug": "floating-viewer",
+  "keywords": [
+    "media",
+    "video",
+    "picture in picture",
+    "floating",
+    "tutorial",
+    "reference"
+  ],
+  "useWhen": [
+    "Reference media should remain visible while the user works elsewhere on the same page.",
+    "A single media instance must survive transitions between inline and floating positions."
+  ],
+  "avoidWhen": [
+    "The media should continue outside the current browser tab or page, which requires the browser Picture-in-Picture API.",
+    "The interface needs multiple independently managed floating windows."
+  ],
+  "capabilities": [
+    "Automatic viewport-based detachment",
+    "Explicit float, move, restore, and close controls",
+    "Pointer dragging with nearest-corner snapping",
+    "Viewport-bound positioning and resize handling",
+    "Persistent child content without remounting"
+  ],
+  "accessibility": [
+    "Every drag outcome is available through visible buttons.",
+    "The floating surface is exposed as a labeled region.",
+    "Restore brings the inline origin back into view.",
+    "Consumers retain responsibility for accessible media controls and captions."
+  ],
+  "motion": {
+    "purpose": "Preserve the spatial relationship between inline media and its temporary floating position.",
+    "reducedMotion": "Apply detach, restore, and corner changes immediately without spring movement or smooth scrolling."
+  },
+  "related": [
+    "lightbox",
+    "live-activity",
+    "animated-dialog"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/floating-viewer.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/floating-viewer",
+    "rawUrl": "https://sonaui.com/docs/floating-viewer/raw.md",
+    "sourceTitle": "floating-viewer"
+  }
+}

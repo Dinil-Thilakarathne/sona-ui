@@ -1,5 +1,5 @@
-import AvatarShowcase from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 import { getGitHubFollowers } from "@/lib/github-followers";
+import AvatarShowcase from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 
 export const revalidate = 3600;
 

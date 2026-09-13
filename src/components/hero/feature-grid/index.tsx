@@ -3,7 +3,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ArrowUpRight, GitPullRequest, Layers } from "lucide-react";
-import Link from "@/components/common/link";
 import type { ReactNode } from "react";
 import {
   NextjsIcon,
@@ -12,6 +11,7 @@ import {
   TypescriptIcon,
 } from "@/assets/svgs";
 import Button from "@/components/button";
+import Link from "@/components/common/link";
 import StaggerText from "@/components/common/stagger-text";
 import { cn } from "@/lib/utils";
 import InfoCard from "./InfoCard";

@@ -1,6 +1,6 @@
 import { Code2, Terminal } from "lucide-react";
-import Link from "@/components/common/link";
 import { FaGithub } from "react-icons/fa";
+import Link from "@/components/common/link";
 
 const cardClass =
   "grid min-h-44 content-start gap-2.5 rounded-2xl bg-card p-5 smooth-shadow-ring-sm transition-[transform] duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none";
@@ -8,7 +8,7 @@ const cardClass =
 export function OpenSourceSection() {
   return (
     <section
-      className="mx-auto w-full max-w-[76rem] border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)]"
+      className="mx-auto w-full max-w-(--site-grid-max-width) border-t border-border px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)]"
       aria-labelledby="open-title"
     >
       <p className="text-xs font-semibold tracking-[0.08em] text-muted-foreground uppercase">

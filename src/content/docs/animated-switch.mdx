@@ -7,13 +7,13 @@ tags: ["UI", "Switch", "Toggle", "Animation", "Component"]
 
 Use Animated Switch for a binary setting that changes immediately. It uses Base UI switch behavior with a responsive thumb press, an interruptible state transition, and optional thumb drag interaction.
 
-## Install
+## Preview
 
-<CodeBlockWrapper
-  language="bash"
-  filename="terminal"
-  code={`npx shadcn@latest add @sona-ui/animated-switch`}
-/>
+<ComponentPreview component="animated-switch" name="default" />
+
+## Installation
+
+<ComponentInstallation component="animated-switch" />
 
 ## Basic usage
 
@@ -54,9 +54,11 @@ export function ControlledSwitch() {
 }`}
 />
 
-### Size and availability
+### Size, availability, and errors
 
 Choose sm, md, or lg for the control size. Use disabled only when the setting cannot currently be changed.
+
+Use error when a setting cannot be changed because it needs attention. Both disabled and error switches give a brief nudge on pointer interaction. Error remains focusable and exposes `aria-invalid` so its state is available to assistive technology.
 
 ### Drag interaction
 
@@ -72,11 +74,11 @@ The thumb can be dragged between states, while tapping the track continues to to
 
 ## Accessibility
 
-Provide an accessible name with a visible label or aria-label. The switch supports keyboard interaction, exposes its checked state to assistive technology, and keeps the same tap and keyboard behavior when drag interaction is disabled.
+Provide an accessible name with a visible label or aria-label. The switch supports keyboard interaction, exposes its checked state to assistive technology, and keeps the same tap and keyboard behavior when drag interaction is disabled. Error switches expose `aria-invalid` and `aria-disabled`; disabled switches use the native disabled state.
 
 ## Styling
 
-Use the size and class name options to fit the control into a settings row or compact toolbar. Reduced-motion preferences remove the press deformation and animated state transition while preserving direct drag, tap, and keyboard interaction.
+Use the size and class name options to fit the control into a settings row or compact toolbar. Reduced-motion preferences remove the press deformation, state transition, and blocked-state nudge while preserving static disabled and error cues.
 
 ## Contact
 

@@ -228,6 +228,14 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the intensity legend."
     }
   ],
+  "animated-checkbox": [
+    {
+      "name": "label",
+      "type": "React.ReactNode",
+      "default": "—",
+      "description": "Optional label rendered beside the control."
+    }
+  ],
   "animated-dialog": [
     {
       "name": "children",
@@ -324,6 +332,12 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Whether the switch is disabled."
     },
     {
+      "name": "error",
+      "type": "boolean",
+      "default": "false\nThe switch remains focusable so assistive technology can announce its invalid state.",
+      "description": "Whether the switch is in an error state and cannot be changed."
+    },
+    {
       "name": "size",
       "type": "\"sm\" | \"md\" | \"lg\"",
       "default": "\"md\"",
@@ -396,6 +410,44 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional classes for the tab list."
+    }
+  ],
+  "assignment-cluster": [
+    {
+      "name": "items",
+      "type": "AssignmentClusterItem[]",
+      "default": "required",
+      "description": "People available for assignment."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "default": "required",
+      "description": "Committed selected IDs."
+    },
+    {
+      "name": "onChange",
+      "type": "(ids: string[]) => void",
+      "default": "—",
+      "description": "Called when the committed selection changes."
+    },
+    {
+      "name": "onApply",
+      "type": "(ids: string[]) => void | Promise<void>",
+      "default": "—",
+      "description": "Called when Apply is pressed. Return a promise for async persistence."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "default": "\"Reviewers\"",
+      "description": "Label shown beside the summary."
+    },
+    {
+      "name": "maxVisible",
+      "type": "number",
+      "default": "3",
+      "description": "Maximum avatars shown in the compact summary."
     }
   ],
   "avatar-showcase": [
@@ -488,6 +540,26 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Controls the button height, padding, and text size."
     }
   ],
+  "chip": [
+    {
+      "name": "tone",
+      "type": "ChipTone",
+      "default": "\"neutral\"",
+      "description": "The semantic color used to communicate the chip's status."
+    },
+    {
+      "name": "variant",
+      "type": "ChipVariant",
+      "default": "\"soft\"",
+      "description": "The surface treatment applied to the chip."
+    },
+    {
+      "name": "size",
+      "type": "ChipSize",
+      "default": "\"md\"",
+      "description": "The compactness of the chip."
+    }
+  ],
   "circular-context-menu": [
     {
       "name": "children",
@@ -562,6 +634,56 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes for the root container."
+    }
+  ],
+  "code-block": [
+    {
+      "name": "code",
+      "type": "string",
+      "default": "required",
+      "description": "Source code to render."
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "default": "\"tsx\"",
+      "description": "Language identifier used for syntax highlighting."
+    },
+    {
+      "name": "filename",
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional filename shown in the header."
+    },
+    {
+      "name": "showLineNumbers",
+      "type": "boolean",
+      "default": "false",
+      "description": "Shows a numbered gutter."
+    },
+    {
+      "name": "highlightLines",
+      "type": "number[] | string",
+      "default": "undefined",
+      "description": "Lines to emphasize, as numbers or a comma-separated range."
+    },
+    {
+      "name": "showDiff",
+      "type": "boolean",
+      "default": "false",
+      "description": "Removes leading diff markers and styles added or removed lines."
+    },
+    {
+      "name": "focusLines",
+      "type": "number[] | string",
+      "default": "undefined",
+      "description": "Lines to keep visually focused."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the code block."
     }
   ],
   "dot-orbit-shader": [
@@ -780,6 +902,68 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes for the root container."
+    }
+  ],
+  "floating-viewer": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Media or reference content that remains mounted while the viewer moves."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Floating media viewer\"",
+      "description": "Accessible name announced for the floating viewer."
+    },
+    {
+      "name": "aspectRatio",
+      "type": "string",
+      "default": "\"16 / 9\"",
+      "description": "CSS aspect-ratio value used by both viewer states."
+    },
+    {
+      "name": "floatingWidth",
+      "type": "number",
+      "default": "320",
+      "description": "Width of the floating surface in pixels."
+    },
+    {
+      "name": "viewportPadding",
+      "type": "number",
+      "default": "16",
+      "description": "Gap between the floating surface and viewport edges in pixels."
+    },
+    {
+      "name": "defaultCorner",
+      "type": "FloatingViewerCorner",
+      "default": "\"bottom-right\"",
+      "description": "Corner used when the viewer first detaches."
+    },
+    {
+      "name": "floatOnExit",
+      "type": "boolean",
+      "default": "true",
+      "description": "Automatically detach when the inline viewer leaves the viewport."
+    },
+    {
+      "name": "showFloatControl",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the built-in Float button while the viewer is inline."
+    },
+    {
+      "name": "onFloatingChange",
+      "type": "(floating: boolean) => void",
+      "default": "undefined",
+      "description": "Called whenever the viewer enters or leaves its floating state."
+    },
+    {
+      "name": "surfaceClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional CSS classes for the media surface."
     }
   ],
   "fluid-slider": [
@@ -1416,6 +1600,68 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Animation speed multiplier. 0 = static."
     }
   ],
+  "morph-surface": [
+    {
+      "name": "value",
+      "type": "string",
+      "default": "required",
+      "description": "A value that identifies the current content state and starts a new morph when it changes."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The current content rendered inside the persistent surface."
+    },
+    {
+      "name": "transition",
+      "type": "Transition",
+      "default": "motionTransition.spatial",
+      "description": "The transition used when the persistent surface changes size."
+    },
+    {
+      "name": "contentTransition",
+      "type": "Transition",
+      "default": "motionTransition.enter",
+      "description": "The transition used when the content changes."
+    },
+    {
+      "name": "contentScale",
+      "type": "number",
+      "default": "0.96",
+      "description": "The scale from which changed content resolves inside the surface."
+    },
+    {
+      "name": "origin",
+      "type": "MorphSurfaceOrigin",
+      "default": "\"center\"",
+      "description": "The shared origin used to grow, shrink, reveal, and scale the surface content."
+    },
+    {
+      "name": "anchorClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the stable layout anchor around the surface."
+    },
+    {
+      "name": "clipClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the internal clipping layer."
+    },
+    {
+      "name": "contentClassName",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the persistent content wrapper."
+    },
+    {
+      "name": "reducedMotion",
+      "type": "MorphSurfaceReducedMotion",
+      "default": "\"user\"",
+      "description": "Controls whether the surface follows, forces, or ignores reduced motion."
+    }
+  ],
   "ripple-button": [
     {
       "name": "children",
@@ -1446,6 +1692,68 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "—",
       "description": "Additional CSS classes for the ripple effect."
+    }
+  ],
+  "schedule-chip": [
+    {
+      "name": "value",
+      "type": "ScheduleValue | null",
+      "default": "required",
+      "description": "The committed schedule. Use null when no schedule is set."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: ScheduleValue | null) => void",
+      "default": "—",
+      "description": "Called after a schedule is successfully applied or cleared."
+    },
+    {
+      "name": "onApply",
+      "type": "(value: ScheduleValue | null) => void | Promise<void>",
+      "default": "—",
+      "description": "Persists the draft before it is committed. Throw or reject to keep the editor open."
+    },
+    {
+      "name": "formatSummary",
+      "type": "(value: ScheduleValue | null) => string",
+      "default": "—",
+      "description": "Converts the committed or draft value into the readable summary."
+    },
+    {
+      "name": "validate",
+      "type": "(value: ScheduleValue | null) => string | null",
+      "default": "—",
+      "description": "Returns an error message for an invalid draft, or null when it is valid."
+    },
+    {
+      "name": "presets",
+      "type": "SchedulePreset[]",
+      "default": "[]",
+      "description": "Quick schedule choices displayed above the precise fields."
+    },
+    {
+      "name": "timezones",
+      "type": "string[]",
+      "default": "[\"UTC\"]",
+      "description": "Timezones available in the editor."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "default": "\"Edit schedule\"",
+      "description": "Accessible label for the schedule control."
+    },
+    {
+      "name": "emptyLabel",
+      "type": "string",
+      "default": "\"Add schedule\"",
+      "description": "Text shown while no schedule is committed."
+    },
+    {
+      "name": "errorMessage",
+      "type": "string",
+      "default": "\"Could not update the schedule. Try again.\"",
+      "description": "Message shown when persistence fails."
     }
   ],
   "section-rail": [
@@ -1764,6 +2072,76 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "T",
       "default": "\"h3\"",
       "description": "The HTML tag to be used for the text container."
+    }
+  ],
+  "stepper": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Step navigation and panels."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "default": "—",
+      "description": "The active step in controlled mode."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "default": "1",
+      "description": "The initially active step in uncontrolled mode."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: number) => void",
+      "default": "—",
+      "description": "Called when a user selects a different step."
+    },
+    {
+      "name": "orientation",
+      "type": "\"horizontal\" | \"vertical\"",
+      "default": "\"horizontal\"",
+      "description": "The direction of the step navigation."
+    }
+  ],
+  "swipe-action-row": [
+    {
+      "name": "threshold",
+      "type": "number",
+      "default": "0.5",
+      "description": "Fraction of the action strip crossed before the row opens."
+    },
+    {
+      "name": "velocityFactor",
+      "type": "number",
+      "default": "0.2",
+      "description": "Seconds of release velocity projected onto the resting position."
+    },
+    {
+      "name": "fullSwipeThreshold",
+      "type": "number",
+      "default": "0.5",
+      "description": "Fraction of row width crossed before a full-swipe action arms."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Prevents pointer and keyboard gesture interaction."
+    },
+    {
+      "name": "closeOnScroll",
+      "type": "boolean",
+      "default": "false",
+      "description": "Closes an open row when the page scrolls."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(state: SwipeActionRowState) => void",
+      "default": "undefined",
+      "description": "Called when the row becomes closed, left-open, or right-open."
     }
   ]
 };

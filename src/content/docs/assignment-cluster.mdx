@@ -1,0 +1,80 @@
+---
+title: Assignment Cluster
+slug: assignment-cluster
+component: assignment-cluster
+tags: ["UI", "Forms", "Component"]
+---
+
+Assignment Cluster keeps a compact responsibility summary connected to an editable people picker. It shows the current assignees as an avatar cluster, keeps changes in a draft state, and commits them only when the user applies the selection.
+
+## Preview
+
+<ComponentPreview component="assignment-cluster" name="default" />
+
+## Installation
+
+<ComponentInstallation component="assignment-cluster" />
+
+## Basic usage
+
+Use a controlled `value` for the committed assignments. Update it from `onChange` after the component has applied the draft. Use `onApply` when the change must be persisted before it becomes committed.
+
+<CodeBlockWrapper language="tsx" filename="reviewers.tsx" code={`import { useState } from "react";
+import AssignmentCluster from "@/components/ui/assignment-cluster/assignment-cluster";
+
+const people = [
+  { id: "maya", name: "Maya Chen" },
+  { id: "noah", name: "Noah Williams" },
+  { id: "ava", name: "Ava Patel" },
+];
+
+export function Reviewers() {
+  const [reviewers, setReviewers] = useState(["maya"]);
+
+  return (
+    <AssignmentCluster
+      items={people}
+      value={reviewers}
+      onChange={setReviewers}
+      onApply={async (next) => {
+        await saveReviewers(next);
+      }}
+    />
+  );
+}`} />
+
+## Examples
+
+Assignment Cluster accepts initials or image URLs for each person. The compact trigger keeps a stable right edge while avatars animate into or out of the cluster.
+
+The editor opens in a collision-aware popover layer beneath the trigger. Search filters the available people without changing the committed selection. Cancel, Escape, and outside interaction discard the draft.
+
+For server-backed assignments, return a promise from `onApply`. If it rejects, the editor remains open and shows an error so the user can retry without losing the draft.
+
+## Usage
+
+<ComponentUsage component="assignment-cluster" />
+
+## API
+
+<PropTable component="assignment-cluster" />
+
+## Accessibility
+
+The trigger is a native button with an accessible assignment count and dialog state. The editor exposes a dialog label, a labeled people search field, native checkbox controls, and an alert for persistence errors. Focus returns to the trigger when the editor closes.
+
+Provide meaningful names for every item. When using `imageUrl`, the image is decorative and the item name remains the accessible text.
+
+## Styling
+
+Use `className` to place the cluster within your layout. The editor renders in a popover layer, stays aligned to the trigger, and can move when the viewport does not have enough space below it.
+
+Layout animation keeps filtered rows, the action button, and avatar changes visually connected. Reduced-motion preferences replace these transitions with immediate state changes.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

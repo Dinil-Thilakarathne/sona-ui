@@ -10,6 +10,7 @@ const Tag: React.FC<TagPropsType> = ({ text, type = "default", className }) => {
     soon: "bg-yellow-200 text-yellow-800 dark:bg-yellow-300 dark:text-yellow-950",
     updated:
       "bg-purple-200 text-purple-800 dark:bg-purple-300 dark:text-purple-950",
+    beta: "bg-amber-200 text-amber-800 dark:bg-amber-300 dark:text-amber-950",
     featured: "bg-blue-200 text-blue-800 dark:bg-blue-300 dark:text-blue-950",
     default: "bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200",
   };
