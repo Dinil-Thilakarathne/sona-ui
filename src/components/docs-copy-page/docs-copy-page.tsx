@@ -9,6 +9,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Share } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { useCopyToClipboard } from "@/components/copy-button/copy-button";
 import { cn } from "@/lib/utils";
 import {
@@ -280,9 +281,10 @@ export function DocsCopyPage({
           {shareItems.map((item) => (
             <AnimatedDropdownItem
               key={item.key}
-              onClick={() => {
+              onClick={async () => {
                 if (item.key === "link") {
-                  void copyLink(url);
+                  await copyLink(url);
+                  toast.success("Link copied");
                 } else if (item.key === "native" && navigator.share) {
                   void navigator.share({
                     title: shareText,

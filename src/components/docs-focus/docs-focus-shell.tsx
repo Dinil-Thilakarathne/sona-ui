@@ -422,7 +422,7 @@ function GuidePage({
             data-guide-document
             className="site-grid-frame min-h-full pt-2 md:p-10 md:pt-16 lg:p-14 lg:pt-16 mobile:pb-8 max-w-(--site-grid-max-width) max-lg:mx-auto xl:mx-auto w-full  mobile:mx-0 "
           >
-            <div className="site-grid-frame__content mx-auto max-w-[82ch] px-2 w-full">
+            <div className="site-grid-frame__content mx-auto max-w-[82ch] px-4 w-full">
               <Mdx
                 code={doc.body.code}
                 className={cn(
