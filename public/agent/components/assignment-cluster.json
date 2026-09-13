@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "name": "assignment-cluster",
+  "title": "Assignment Cluster",
+  "category": "components",
+  "status": "stable",
+  "summary": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
+  "docsSlug": "assignment-cluster",
+  "keywords": [
+    "assignment",
+    "people picker",
+    "reviewers"
+  ],
+  "useWhen": [
+    "A compact responsibility summary with an accessible people picker and reversible assignment draft."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/assignment-cluster.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/assignment-cluster",
+    "rawUrl": "https://sonaui.com/docs/assignment-cluster/raw.md",
+    "sourceTitle": "assignment-cluster"
+  }
+}

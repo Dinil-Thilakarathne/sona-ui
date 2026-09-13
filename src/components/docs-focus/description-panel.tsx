@@ -9,34 +9,50 @@ export function DescriptionPanel({
   doc,
   data,
   copyActions,
+  embedded = false,
+  showHeader = true,
 }: {
   doc: FocusDoc;
   data: ComponentDocumentationData;
   copyActions: ReactNode;
+  embedded?: boolean;
+  showHeader?: boolean;
 }) {
   const hasInlineReference =
     doc.body.raw.includes("<ComponentUsage") ||
     doc.body.raw.includes("<PropTable");
 
   return (
-    <div className="relative h-full overflow-hidden bg-focus-panel lg:bg-background ">
-      <div className="h-full overflow-y-auto overscroll-contain px-4 py-8 lg:pt-32">
-        <section className="border border-transparent">
-          <div className="mb-6 flex items-start justify-between gap-4">
-            <div>
-              <span className="text-sm text-muted-foreground">
-                Component details
-              </span>
-              <h2 className="mt-2 text-xl font-semibold">{doc.title}</h2>
+    <div
+      className={
+        embedded
+          ? "relative bg-background"
+          : "relative h-full overflow-hidden bg-focus-panel lg:bg-background"
+      }
+    >
+      <div
+        className={
+          embedded
+            ? "pt-4 lg:pt-8"
+            : "h-full overflow-y-auto overscroll-contain px-4 py-8 lg:pt-32"
+        }
+      >
+        {showHeader && (
+          <section className="border border-transparent">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <h2 className="mt-2 text-xl font-semibold">{doc.title}</h2>
+              </div>
+              {copyActions}
             </div>
-            {copyActions}
-          </div>
-        </section>
+          </section>
+        )}
         <section id="overview">
           <Mdx
             code={doc.body.code}
             className="docs-focus-prose max-w-none"
             sourceFiles={doc.sourceFiles}
+            as={embedded ? "div" : undefined}
           />
         </section>
         {!hasInlineReference && (
@@ -52,14 +68,18 @@ export function DescriptionPanel({
           </>
         )}
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none hidden lg:block absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-background to-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-focus-panel lg:from-background to-transparent"
-      />
+      {!embedded && (
+        <>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none hidden lg:block absolute inset-x-0 top-0 z-10 h-16 bg-gradient-to-b from-background to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-gradient-to-t from-focus-panel lg:from-background to-transparent"
+          />
+        </>
+      )}
     </div>
   );
 }

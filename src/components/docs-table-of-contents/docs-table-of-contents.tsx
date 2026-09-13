@@ -148,7 +148,7 @@ function ContentsList({
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
                   "relative block rounded-md px-2 py-1.5 text-sm leading-snug transition-colors duration-150 motion-reduce:transition-none",
-                  "hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  "hover:text-foreground hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                   heading.level === 3 && "pl-3",
                   heading.level === 4 && "pl-6",
                   isActive
@@ -215,7 +215,7 @@ export function DocsTableOfContents() {
           render={
             <button
               type="button"
-          className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-4 z-40 flex max-w-[calc(100vw-6rem)] items-center gap-2 rounded-full bg-background/90 px-3 py-2 text-sm smooth-shadow-ring-lg backdrop-blur-md transition-[transform,background-color] duration-150 active:scale-[0.97] motion-reduce:transition-none lg:hidden"
+              className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] left-4 z-40 flex max-w-[calc(100vw-6rem)] items-center gap-2 rounded-full bg-background/90 px-3 py-2 text-sm smooth-shadow-ring-lg backdrop-blur-md transition-[transform,background-color] duration-150 active:scale-[0.97] motion-reduce:transition-none lg:hidden"
               aria-label="Open table of contents"
               aria-expanded={open}
             >

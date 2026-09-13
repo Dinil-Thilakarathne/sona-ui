@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "name": "stepper",
+  "title": "Stepper",
+  "category": "components",
+  "status": "stable",
+  "summary": "A composable, accessible progression control for a small ordered workflow with linked step navigation and content panels.",
+  "docsSlug": "stepper",
+  "keywords": [
+    "stepper",
+    "steps",
+    "workflow",
+    "progress",
+    "installation"
+  ],
+  "useWhen": [
+    "A composable, accessible progression control for a small ordered workflow with linked step navigation and content panels."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/stepper.json",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/stepper",
+    "rawUrl": "https://sonaui.com/docs/stepper/raw.md",
+    "sourceTitle": "stepper"
+  }
+}

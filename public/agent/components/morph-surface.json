@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "name": "morph-surface",
+  "title": "Morph Surface",
+  "category": "foundations",
+  "status": "preview",
+  "summary": "An unstyled layout primitive that preserves one surface while switching between differently sized consumer-owned views.",
+  "docsSlug": "morph-surface",
+  "keywords": [
+    "morph",
+    "surface",
+    "layout",
+    "resize",
+    "continuity",
+    "primitive"
+  ],
+  "useWhen": [
+    "Two or more interface states should feel like one surface changing shape rather than separate panels appearing and disappearing.",
+    "The consumer needs to retain ownership of content, styling, state, focus behavior, and domain actions."
+  ],
+  "avoidWhen": [
+    "The states do not share a spatial identity, such as navigation between unrelated pages.",
+    "A semantic disclosure, dialog, tooltip, or menu primitive is required instead of layout continuity alone."
+  ],
+  "capabilities": [
+    "Single persistent surface API",
+    "Measured center-origin width and height transitions",
+    "One persistent content wrapper with state-driven consumer content",
+    "Consumer-owned content and visual treatment",
+    "Configurable surface transition, content transition, scale, and origin",
+    "System, forced, or disabled reduced-motion behavior",
+    "State exposed through data attributes"
+  ],
+  "accessibility": [
+    "Follows prefers-reduced-motion by default.",
+    "Only the consumer's current content is rendered inside the surface.",
+    "Consumers remain responsible for focus restoration, labels, and meaningful state announcements."
+  ],
+  "motion": {
+    "purpose": "Preserve spatial continuity by growing and shrinking one surface and its changing content around a shared transform origin.",
+    "reducedMotion": "Apply the active view and its dimensions immediately without a layout transition."
+  },
+  "related": [
+    "schedule-chip",
+    "live-activity",
+    "expanding-action"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/morph-surface.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion",
+      "react-use-measure"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-motion",
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/morph-surface",
+    "rawUrl": "https://sonaui.com/docs/morph-surface/raw.md",
+    "sourceTitle": "morph-surface"
+  }
+}

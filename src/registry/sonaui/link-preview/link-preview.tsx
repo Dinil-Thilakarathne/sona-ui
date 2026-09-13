@@ -4,8 +4,8 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useCallback, useState, useSyncExternalStore } from "react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
-import { cn } from "@/lib/sona-utils";
 import { motionTransition } from "@/lib/sona-motion";
+import { cn } from "@/lib/sona-utils";
 
 function useMediaQuery(query: string) {
   const getSnapshot = useCallback(

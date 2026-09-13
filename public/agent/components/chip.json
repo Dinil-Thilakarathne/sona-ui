@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "name": "chip",
+  "title": "Chip",
+  "category": "foundations",
+  "status": "stable",
+  "summary": "A compact, noninteractive annotation for labels, categories, and semantic status.",
+  "docsSlug": "chip",
+  "keywords": [
+    "chip",
+    "badge",
+    "tag",
+    "status",
+    "label"
+  ],
+  "useWhen": [
+    "A compact status, category, or metadata label needs a clear semantic tone.",
+    "A label needs optional icon content without becoming a button or filter control."
+  ],
+  "avoidWhen": [
+    "The label needs click, selection, removal, or keyboard interaction semantics.",
+    "A full alert, message, or progress indicator would better communicate the state."
+  ],
+  "capabilities": [
+    "Neutral, success, warning, and danger semantic tones",
+    "Soft, solid, and outline surface variants",
+    "Composable icon and label slots"
+  ],
+  "accessibility": [
+    "Renders as a noninteractive span so it does not enter the tab order.",
+    "Semantic tone is paired with text or optional icon content rather than color alone."
+  ],
+  "motion": {
+    "purpose": "Remain stable metadata so repeated status labels do not compete with the surrounding content.",
+    "reducedMotion": "Uses no motion, so its meaning and layout remain unchanged when reduced motion is preferred."
+  },
+  "related": [
+    "button",
+    "schedule-chip",
+    "animated-switch"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/chip.json",
+    "type": "registry:ui",
+    "dependencies": [],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/chip",
+    "rawUrl": "https://sonaui.com/docs/chip/raw.md",
+    "sourceTitle": "chip"
+  }
+}

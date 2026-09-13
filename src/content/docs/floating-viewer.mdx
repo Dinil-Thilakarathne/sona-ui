@@ -1,0 +1,36 @@
+---
+title: Floating Viewer
+slug: floating-viewer
+component: floating-viewer
+tags: ["UI", "Media", "Productivity", "Component"]
+---
+
+Use Floating Viewer to keep reference media visible while someone works elsewhere on the page. It can detach automatically when its inline position leaves the viewport or through an explicit control.
+
+## Preview
+
+<ComponentPreview component="floating-viewer" name="default" />
+
+## Installation
+
+<ComponentInstallation component="floating-viewer" />
+
+## Usage
+
+<ComponentUsage component="floating-viewer" />
+
+## Props
+
+<PropTable component="floating-viewer" />
+
+## Accessibility
+
+The floating surface is announced as a labeled region and every action is available without dragging. Restore scrolls the inline position into view, while Close suppresses automatic floating until the inline viewer becomes visible again.
+
+## Motion
+
+The viewer uses a critically damped spring to preserve spatial continuity while snapping between corners. Reduced-motion preferences replace spatial movement with immediate state changes.
+
+## Styling
+
+Use the component for one persistent media surface and let the consumer own the media controls, captions, and content. Avoid placing important page controls beneath the viewport corners where the floating surface can rest.

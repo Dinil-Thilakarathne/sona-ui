@@ -53,7 +53,8 @@ const featured: ComponentShowcaseItem[] = [
 export function FeaturedSection() {
   return (
     <section
-      className="mx-auto w-full max-w-[76rem] px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)]"
+      className="site-grid-section mx-auto w-full max-w-(--site-grid-max-width) px-4 sm:px-6 lg:px-8 py-[clamp(5rem,10vw,9rem)]"
+      data-boundary="both"
       aria-labelledby="noteworthy-title"
     >
       <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">

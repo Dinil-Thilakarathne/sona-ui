@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+} from "motion/react";
 import { type ReactNode, useState } from "react";
 
 import { cn } from "@/lib/sona-utils";
@@ -37,6 +42,7 @@ export default function SpotlightCard({
   onMouseMove,
   ...props
 }: SpotlightCardProps) {
+  const shouldReduceMotion = useReducedMotion();
   // Start off-canvas so the first hover doesn't flash the glow at (0,0).
   const mouseX = useMotionValue(-spotlightSize);
   const mouseY = useMotionValue(-spotlightSize);
@@ -53,7 +59,7 @@ export default function SpotlightCard({
   }
 
   const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
-    if (disabled) return;
+    if (disabled || shouldReduceMotion) return;
     const rect = event.currentTarget.getBoundingClientRect();
     mouseX.set(event.clientX - rect.left);
     mouseY.set(event.clientY - rect.top);
@@ -74,7 +80,7 @@ export default function SpotlightCard({
       )}
       {...props}
     >
-      {!disabled && (
+      {!disabled && !shouldReduceMotion && (
         <motion.div
           aria-hidden="true"
           className={cn(

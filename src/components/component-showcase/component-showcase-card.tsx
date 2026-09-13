@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import {
   type FocusEvent,
@@ -13,6 +12,7 @@ import {
   useState,
 } from "react";
 import Link from "@/components/common/link";
+import Chip from "@/registry/sonaui/chip/chip";
 import { ComponentShowcaseVideoPlayer } from "./component-showcase-video";
 import type { ComponentShowcaseItem } from "./types";
 
@@ -77,11 +77,11 @@ export const ComponentShowcaseCard = forwardRef<
     <motion.article
       ref={setCardRefs}
       layout="position"
-      initial={shouldReduceMotion ? false : { opacity: 0 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={false}
+      animate={{ opacity: 1 }}
       exit={
         shouldReduceMotion
-          ? { opacity: 0, transition: { duration: 0.12 } }
+          ? { opacity: 0, transition: { duration: 0 } }
           : {
               opacity: 0,
               transition: { duration: 0.16, ease: [0.23, 1, 0.32, 1] },
@@ -89,10 +89,9 @@ export const ComponentShowcaseCard = forwardRef<
       }
       transition={{
         layout: shouldReduceMotion
-          ? { duration: 0.12 }
-          : { duration: 0.32, ease: [0.23, 1, 0.32, 1] },
+          ? { duration: 0 }
+          : { duration: 0.22, ease: [0.23, 1, 0.32, 1] },
         opacity: { duration: shouldReduceMotion ? 0 : 0.18 },
-        y: { duration: shouldReduceMotion ? 0 : 0.18 },
       }}
       onBlurCapture={deactivateWhenLeaving}
       onFocusCapture={() => setIsActive(true)}
@@ -119,17 +118,31 @@ export const ComponentShowcaseCard = forwardRef<
 
       <div className="flex items-center justify-between gap-4 p-2 pt-3">
         <div className="min-w-0">
-          <p className="mb-1 truncate font-mono text-[0.625rem] text-muted-foreground uppercase tracking-[0.12em]">
-            {item.category}
-          </p>
           <h2 className="truncate font-semibold text-sm tracking-[-0.015em]">
             {item.name}
           </h2>
         </div>
-        <ArrowUpRight
-          className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-within:-translate-y-0.5 group-focus-within:translate-x-0.5"
-          aria-hidden="true"
-        />
+        <div className="flex shrink-0 items-center gap-2">
+          {item.tag && (
+            <Chip
+              size="sm"
+              tone={
+                item.tag === "new"
+                  ? "success"
+                  : item.tag === "updated" || item.tag === "beta"
+                    ? "warning"
+                    : "neutral"
+              }
+              variant="soft"
+            >
+              <Chip.Label className="uppercase">{item.tag}</Chip.Label>
+            </Chip>
+          )}
+          {/*<ArrowUpRight
+            className="size-4 text-muted-foreground transition-colors duration-150 group-hover:text-foreground group-focus-within:text-foreground motion-reduce:transition-none"
+            aria-hidden="true"
+          />*/}
+        </div>
       </div>
 
       <Link

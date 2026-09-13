@@ -3,6 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
 import { cn } from "@/lib/utils";
@@ -37,6 +38,7 @@ interface CopyButtonProps
   timeout?: number;
   copyIcon?: React.ReactNode;
   checkIcon?: React.ReactNode;
+  label?: React.ReactNode;
 }
 
 function CopyButton({
@@ -45,9 +47,11 @@ function CopyButton({
   className,
   copyIcon,
   checkIcon,
+  label,
   ...props
 }: CopyButtonProps) {
   const { copied, copy } = useCopyToClipboard(timeout);
+  const reduceMotion = useReducedMotion();
 
   const defaultCopyIcon = (
     <HugeiconsIcon icon={Copy01Icon} strokeWidth={2} className="size-4" />
@@ -78,29 +82,38 @@ function CopyButton({
       title={copied ? "Copied!" : "Copy"}
       {...props}
     >
-      {/* Copy Icon - Exits with scale down, fade, and blur */}
-      <span
-        aria-hidden="true"
-        className={cn(
-          "ease flex items-center justify-center blur-none transition-[scale,opacity,filter] delay-0 duration-200 [grid-area:stack] motion-reduce:transition-none",
-          "absolute inset-0",
-          copied && "scale-50 opacity-0 blur-xs delay-0",
-        )}
-      >
-        {copyIcon ?? defaultCopyIcon}
-      </span>
-
-      {/* Check Icon - Enters with scale up and fade in */}
-      <span
-        aria-hidden="true"
-        className={cn(
-          "ease flex scale-50 items-center justify-center opacity-0 blur-xs transition-[scale,opacity,filter] delay-0 duration-200 [grid-area:stack] motion-reduce:transition-none",
-          "absolute inset-0",
-          copied && "scale-100 opacity-100 blur-none delay-0",
-        )}
-      >
-        {checkIcon ?? defaultCheckIcon}
-      </span>
+      {label}
+      <AnimatePresence initial={false} mode="sync">
+        <motion.span
+          key={copied ? "copied" : "copy"}
+          aria-hidden="true"
+          initial={
+            reduceMotion
+              ? { opacity: 0 }
+              : { opacity: 0.2, scale: 0.65, filter: "blur(4px)" }
+          }
+          animate={
+            reduceMotion
+              ? { opacity: 1 }
+              : { opacity: 1, scale: 1, filter: "blur(0px)" }
+          }
+          exit={
+            reduceMotion
+              ? { opacity: 0 }
+              : { opacity: 0.2, scale: 0.65, filter: "blur(4px)" }
+          }
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : { duration: 0.28, ease: [0.22, 1, 0.36, 1] }
+          }
+          className="absolute inset-0 flex items-center justify-center [grid-area:stack]"
+        >
+          {copied
+            ? (checkIcon ?? defaultCheckIcon)
+            : (copyIcon ?? defaultCopyIcon)}
+        </motion.span>
+      </AnimatePresence>
     </Button>
   );
 }

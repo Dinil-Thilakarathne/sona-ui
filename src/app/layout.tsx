@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import FeaturedBar from "@/components/common/featured-bar";
 import { ThemeProvider } from "@/components/common/theme-provider";
+import { TracwellProvider } from "@/components/common/tracwell-provider";
 import Header from "@/components/header";
 import { siteMetaData } from "@/config/metadata";
 import { clashDisplay, HelveticaNeue } from "@/fonts";
@@ -71,21 +72,30 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script>{themeInitializationScript}</script>
-        <script type="application/ld+json">{structuredDataJson}</script>
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap script
+          dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
+        />
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: serialized static site metadata
+          dangerouslySetInnerHTML={{ __html: structuredDataJson }}
+        />
       </head>
       <body
         className={`${geistMono.variable} ${geistSans.variable} ${clashDisplay.variable} ${HelveticaNeue.variable} bg-background text-foreground antialiased relative`}
       >
-        <ThemeProvider>
-          {FEATURE_FLAG && <FeaturedBar />}
-          <Header />
-          {children}
-          <Toaster position="bottom-right" richColors />
-          <DevelopmentGuideframe />
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
+        <TracwellProvider>
+          <ThemeProvider>
+            {FEATURE_FLAG && <FeaturedBar />}
+            <Header />
+            {children}
+            <Toaster position="bottom-right" richColors />
+            <DevelopmentGuideframe />
+            <Analytics />
+            <SpeedInsights />
+          </ThemeProvider>
+        </TracwellProvider>
       </body>
     </html>
   );

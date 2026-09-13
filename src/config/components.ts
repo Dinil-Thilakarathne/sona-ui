@@ -24,34 +24,57 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "ai-agents",
     href: "/docs/ai-agents",
     type: "Getting Started",
-    tag: "new",
   },
   {
     name: "Skills",
     slug: "skills",
     href: "/docs/skills",
     type: "Getting Started",
-    tag: "new",
+  },
+  {
+    name: "Morph Surface",
+    slug: "morph-surface",
+    href: "/docs/morph-surface",
+    type: "Primitives",
+    tag: "beta",
   },
   {
     name: "Animated Dropdown",
     slug: "animated-dropdown",
     href: "/docs/animated-dropdown",
     type: "Navigation & Disclosure",
-    tag: "new",
   },
   {
     name: "Animated Switch",
     slug: "animated-switch",
     href: "/docs/animated-switch",
     type: "Actions & Inputs",
-    tag: "new",
   },
   {
     name: "Animated Dialog",
     slug: "animated-dialog",
     href: "/docs/animated-dialog",
     type: "Navigation & Disclosure",
+  },
+  {
+    name: "Assignment Cluster",
+    slug: "assignment-cluster",
+    href: "/docs/assignment-cluster",
+    type: "Components",
+    tag: "new",
+  },
+  {
+    name: "Schedule Chip",
+    slug: "schedule-chip",
+    href: "/docs/schedule-chip",
+    type: "Actions & Inputs",
+    tag: "new",
+  },
+  {
+    name: "Chip",
+    slug: "chip",
+    href: "/docs/chip",
+    type: "Components",
     tag: "new",
   },
   // {
@@ -73,14 +96,12 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "button",
     href: "/docs/button",
     type: "Actions & Inputs",
-    tag: "new",
   },
   {
     name: "Expanding Action",
     slug: "expanding-action",
     href: "/docs/expanding-action",
     type: "Actions & Inputs",
-    tag: "new",
   },
   {
     name: "Accordion",
@@ -111,28 +132,24 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "split-text",
     href: "/docs/split-text",
     type: "Text",
-    tag: "new",
   },
   {
     name: "Fluid Tabs",
     slug: "fluid-tabs",
     href: "/docs/fluid-tabs",
     type: "Navigation & Disclosure",
-    tag: "new",
   },
   {
     name: "Fluid Tooltip",
     slug: "fluid-tooltip",
     href: "/docs/fluid-tooltip",
     type: "Navigation & Disclosure",
-    tag: "new",
   },
   {
     name: "Fluid Slider",
     slug: "fluid-slider",
     href: "/docs/fluid-slider",
     type: "Actions & Inputs",
-    tag: "new",
   },
   // {
   //   name: "Activity Graph",
@@ -177,7 +194,6 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "marquee",
     href: "/docs/marquee",
     type: "Motion",
-    tag: "updated",
   },
   {
     name: "Bubble Up Button",
@@ -196,7 +212,6 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "image-trail",
     href: "/docs/image-trail",
     type: "Motion",
-    tag: "new",
   },
   // {
   //   name: "Smart Overflow",
@@ -246,3 +261,15 @@ export const groupedComponents = componentNavigationLinks.reduce<
   acc[item.type].push(item);
   return acc;
 }, {});
+
+export const groupedComponentsForSidebar = Object.fromEntries(
+  Object.entries(groupedComponents)
+    .map(([group, items]) => [
+      group,
+      items.filter(
+        (item) =>
+          item.slug !== "chip" && item.slug !== "assignment-cluster",
+      ),
+    ])
+    .filter(([, items]) => items.length > 0),
+) as Record<string, ComponentItemsPropsType[]>;

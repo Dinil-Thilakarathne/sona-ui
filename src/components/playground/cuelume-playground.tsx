@@ -2,8 +2,8 @@
 
 import { bind, play, type SoundName, setEnabled, sounds } from "cuelume";
 import { Check, Copy, Loader2, Trash2, Volume2, VolumeX } from "lucide-react";
-import Link from "@/components/common/link";
 import { useEffect, useRef, useState } from "react";
+import Link from "@/components/common/link";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 import Button from "@/registry/sonaui/button/button";
 import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "animated-checkbox",
+  "title": "Animated Checkbox",
+  "category": "components",
+  "status": "stable",
+  "summary": "An accessible checkbox with a restrained animated checkmark and clear checked state.",
+  "docsSlug": "animated-checkbox",
+  "keywords": [
+    "checkbox",
+    "form control",
+    "boolean setting",
+    "checkmark"
+  ],
+  "useWhen": [
+    "An accessible checkbox with a restrained animated checkmark and clear checked state."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/animated-checkbox.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/animated-checkbox",
+    "rawUrl": "https://sonaui.com/docs/animated-checkbox/raw.md",
+    "sourceTitle": "animated-checkbox"
+  }
+}

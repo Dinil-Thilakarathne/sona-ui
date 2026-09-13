@@ -1,3 +1,5 @@
+"use client";
+
 import { exampleRegistry } from "@/registry";
 
 export function ComponentShowcaseRegistryPreview({ slug }: { slug: string }) {

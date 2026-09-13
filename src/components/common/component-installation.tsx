@@ -1,18 +1,34 @@
 "use client";
 
+import { useReducedMotion } from "motion/react";
 import { useState, ViewTransition } from "react";
+import { TextMorph } from "torph/react";
 import {
   CodeBlock,
   CodeBlockCode,
   CodeBlockHeader,
   CodeBlockPre,
 } from "@/components/code-block/code-block";
+import { ComponentFilePreview } from "@/components/common/component-file-preview";
+import { getDependencies } from "@/components/common/dependency-registry";
+import { CopyButton } from "@/components/copy-button/copy-button";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/tabs/tabs";
+import { cn } from "@/lib/utils";
+import {
+  Stepper,
+  StepperContent,
+  StepperIndicator,
+  StepperItem,
+  StepperNav,
+  StepperPanel,
+  StepperTitle,
+  StepperTrigger,
+} from "@/registry/sonaui/stepper/stepper";
 
 interface ComponentInstallProps {
   component: string;
@@ -32,22 +48,6 @@ interface ComponentInstallProps {
   }>;
 }
 
-function getFileLanguage(path: string) {
-  const extension = path.split(".").pop()?.toLowerCase();
-
-  switch (extension) {
-    case "css":
-      return "css";
-    case "js":
-    case "jsx":
-    case "ts":
-    case "tsx":
-      return extension;
-    default:
-      return "text";
-  }
-}
-
 export function ComponentInstallation({
   component,
   componentFiles,
@@ -55,9 +55,8 @@ export function ComponentInstallation({
   themeFiles,
 }: ComponentInstallProps) {
   const [manualPackageManager, setManualPackageManager] = useState("npm");
-  const [activeFileTab, setActiveFileTab] = useState(
-    componentFiles?.[0]?.path || "",
-  );
+  const reduceMotion = useReducedMotion();
+  const dependencies = getDependencies(metadata?.dependencies ?? []);
 
   const cliCommand = `npx shadcn@latest add @sona-ui/${component}`;
 
@@ -82,6 +81,22 @@ export function ComponentInstallation({
 
   return (
     <div className="my-3 max-w-full min-w-0 w-full not-prose">
+      {dependencies.length > 0 && (
+        <div className="mb-5 flex flex-wrap gap-2">
+          {dependencies.map((dependency) => (
+            <a
+              key={dependency.name}
+              href={dependency.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+            >
+              {dependency.logo}
+              {dependency.name}
+            </a>
+          ))}
+        </div>
+      )}
       <Tabs defaultValue="cli" className="gap-6">
         <TabsList variant="underline">
           <TabsTrigger value="cli">CLI</TabsTrigger>
@@ -97,101 +112,128 @@ export function ComponentInstallation({
         </TabsContent>
         <ViewTransition>
           <TabsContent value="manual">
-            <div className="space-y-4">
-              <div>
-                <p className="mb-2 font-medium text-sm">
-                  Install dependencies:
-                </p>
-                <CodeBlock
-                  code={getInstallCommand(manualPackageManager)}
-                  language="bash"
-                >
-                  <CodeBlockHeader
-                    tabs={[
-                      { value: "npm", label: "npm" },
-                      { value: "pnpm", label: "pnpm" },
-                      { value: "yarn", label: "yarn" },
-                      { value: "bun", label: "bun" },
-                    ]}
-                    activeTab={manualPackageManager}
-                    onTabChange={(value) =>
-                      setManualPackageManager(value as string)
-                    }
-                  />
-                  <CodeBlockPre>
-                    <CodeBlockCode />
-                  </CodeBlockPre>
-                </CodeBlock>
-              </div>
+            <Stepper defaultValue={1} orientation="vertical" className="block">
+              <StepperNav className="hidden">
+                <StepperItem step={1}>
+                  <StepperTrigger>
+                    <StepperIndicator>1</StepperIndicator>
+                    <StepperTitle>Dependencies</StepperTitle>
+                  </StepperTrigger>
+                </StepperItem>
+                <StepperItem step={2}>
+                  <StepperTrigger>
+                    <StepperIndicator>2</StepperIndicator>
+                    <StepperTitle>Component files</StepperTitle>
+                  </StepperTrigger>
+                </StepperItem>
+                {themeFiles && themeFiles.length > 0 && (
+                  <StepperItem step={3}>
+                    <StepperTrigger>
+                      <StepperIndicator>3</StepperIndicator>
+                      <StepperTitle>Theme tokens</StepperTitle>
+                    </StepperTrigger>
+                  </StepperItem>
+                )}
+              </StepperNav>
+              <StepperPanel className="relative pl-10 before:absolute before:bottom-4 before:left-4 before:top-4 before:w-px before:bg-border">
+                <StepperContent value={1} forceMount className="relative mb-12">
+                  <span className="absolute -left-10 top-0 grid size-8 place-items-center rounded-xl bg-muted text-sm text-foreground">
+                    1
+                  </span>
+                  <div>
+                    <h3 className="mb-6 text-xl font-semibold tracking-tight">
+                      Install the following dependencies
+                    </h3>
+                    <div className="overflow-hidden rounded-lg border border-border bg-muted/30">
+                      <div className="flex items-center justify-between border-b border-border px-3 py-2">
+                        <div className="flex items-center gap-1">
+                          {["npm", "pnpm", "yarn", "bun"].map(
+                            (packageManager) => (
+                              <button
+                                key={packageManager}
+                                type="button"
+                                onClick={() =>
+                                  setManualPackageManager(packageManager)
+                                }
+                                className={cn(
+                                  "rounded-md px-2 py-1 font-mono text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-foreground",
+                                  manualPackageManager === packageManager &&
+                                    "bg-accent text-foreground",
+                                )}
+                              >
+                                {packageManager}
+                              </button>
+                            ),
+                          )}
+                        </div>
+                        <CopyButton
+                          content={getInstallCommand(manualPackageManager)}
+                          className="size-7 p-0"
+                        />
+                      </div>
+                      <pre className="overflow-x-auto px-4 py-4 font-mono text-sm">
+                        <code>
+                          <TextMorph
+                            as="span"
+                            duration={260}
+                            ease="cubic-bezier(0.22, 1, 0.36, 1)"
+                            scale={false}
+                            disabled={Boolean(reduceMotion)}
+                          >
+                            {`${manualPackageManager} ${manualPackageManager === "npm" ? "install" : "add"}`}
+                          </TextMorph>{" "}
+                          {metadata?.dependencies?.join(" ") ??
+                            "# No dependencies required"}
+                        </code>
+                      </pre>
+                    </div>
+                  </div>
+                </StepperContent>
 
-              {componentFiles && componentFiles.length > 0 && (
-                <div>
-                  <p className="mb-2 font-medium text-sm">
-                    Copy and paste the component files:
-                  </p>
-                  {componentFiles.length === 1 ? (
-                    // Single file: no tabs needed
-                    <CodeBlock
-                      code={componentFiles[0].content}
-                      language={getFileLanguage(componentFiles[0].target)}
-                    >
-                      <CodeBlockHeader filename={componentFiles[0].target} />
-                      <CodeBlockPre>
-                        <CodeBlockCode />
-                      </CodeBlockPre>
-                    </CodeBlock>
+                <StepperContent value={2} forceMount className="relative mb-12">
+                  <span className="absolute -left-10 top-0 grid size-8 place-items-center rounded-xl bg-muted text-sm text-foreground">
+                    2
+                  </span>
+                  {componentFiles && componentFiles.length > 0 ? (
+                    <div>
+                      <h3 className="mb-6 text-xl font-semibold tracking-tight">
+                        Copy and paste the following code into your project
+                      </h3>
+                      <ComponentFilePreview files={componentFiles} />
+                    </div>
                   ) : (
-                    // Multiple files: use tabs
-                    (() => {
-                      const activeFile =
-                        componentFiles.find((f) => f.path === activeFileTab) ||
-                        componentFiles[0];
+                    <p className="text-sm text-muted-foreground">
+                      No component files are available for manual installation.
+                    </p>
+                  )}
+                </StepperContent>
 
-                      return (
+                {themeFiles && themeFiles.length > 0 && (
+                  <StepperContent value={3} forceMount className="relative">
+                    <span className="absolute -left-10 top-0 grid size-8 place-items-center rounded-xl bg-muted text-sm text-foreground">
+                      3
+                    </span>
+                    <div>
+                      <h3 className="mb-6 text-xl font-semibold tracking-tight">
+                        Add the required Sona theme tokens to your global CSS
+                      </h3>
+                      {themeFiles.map((file) => (
                         <CodeBlock
-                          code={activeFile.content}
-                          language={getFileLanguage(activeFile.target)}
+                          key={file.path}
+                          code={file.content}
+                          language="css"
                         >
-                          <CodeBlockHeader
-                            tabs={componentFiles.map((f) => ({
-                              value: f.path,
-                              label: f.target,
-                            }))}
-                            activeTab={activeFileTab}
-                            onTabChange={(value) =>
-                              setActiveFileTab(value as string)
-                            }
-                          />
+                          <CodeBlockHeader filename={file.path} />
                           <CodeBlockPre>
                             <CodeBlockCode />
                           </CodeBlockPre>
                         </CodeBlock>
-                      );
-                    })()
-                  )}
-                </div>
-              )}
-
-              {themeFiles && themeFiles.length > 0 && (
-                <div>
-                  <p className="mb-2 font-medium text-sm">
-                    Add the required Sona theme tokens to your global CSS:
-                  </p>
-                  {themeFiles.map((file) => (
-                    <CodeBlock
-                      key={file.path}
-                      code={file.content}
-                      language="css"
-                    >
-                      <CodeBlockHeader filename={file.path} />
-                      <CodeBlockPre>
-                        <CodeBlockCode />
-                      </CodeBlockPre>
-                    </CodeBlock>
-                  ))}
-                </div>
-              )}
-            </div>
+                      ))}
+                    </div>
+                  </StepperContent>
+                )}
+              </StepperPanel>
+            </Stepper>
           </TabsContent>
         </ViewTransition>
       </Tabs>

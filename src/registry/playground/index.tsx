@@ -1,6 +1,7 @@
 import {
   Bell,
   BookOpen,
+  Check,
   Clapperboard,
   CreditCard,
   FileText,
@@ -14,8 +15,10 @@ import {
 } from "lucide-react";
 import type * as React from "react";
 import { cn } from "@/lib/sona-utils";
-import SectionRailPlayground from "@/registry/playground/section-rail-playground";
 import { LiveActivityExample } from "@/registry/examples/live-activity/live-activity-demo";
+import ScheduleChipPlayground from "@/registry/playground/schedule-chip-playground";
+import SectionRailPlayground from "@/registry/playground/section-rail-playground";
+import SwipeActionRowPlayground from "@/registry/playground/swipe-action-row-playground";
 import {
   AccordionItem,
   AccordionItemContent,
@@ -44,16 +47,22 @@ import {
 } from "@/registry/sonaui/animated-dropdown/animated-dropdown";
 import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 import AnimatedTabs from "@/registry/sonaui/animated-tabs/animated-tabs";
+import AssignmentCluster from "@/registry/sonaui/assignment-cluster/assignment-cluster";
 import AvatarShowcase, {
   type AvatarShowcaseItem,
 } from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 import Button from "@/registry/sonaui/button/button";
+import Chip from "@/registry/sonaui/chip/chip";
+import CodeBlock from "@/registry/sonaui/code-block/code-block";
 import CircularContextMenu from "@/registry/sonaui/circular-context-menu/circular-context-menu";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import ExpandingAction from "@/registry/sonaui/expanding-action/expanding-action";
 import FanView from "@/registry/sonaui/fan-view/fan-view";
+import FloatingViewer, {
+  type FloatingViewerCorner,
+} from "@/registry/sonaui/floating-viewer/floating-viewer";
 import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
 import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
@@ -63,6 +72,10 @@ import Lightbox from "@/registry/sonaui/lightbox/lightbox";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
 import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
+import MorphSurface, {
+  type MorphSurfaceOrigin,
+  type MorphSurfaceReducedMotion,
+} from "@/registry/sonaui/morph-surface/morph-surface";
 import RippleButton, {
   RippleButtonText,
 } from "@/registry/sonaui/ripple-button/ripple-button";
@@ -147,14 +160,165 @@ const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
 );
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  chip: {
+    controls: [
+      {
+        type: "select",
+        prop: "tone",
+        label: "Tone",
+        options: [
+          { label: "Neutral", value: "neutral" },
+          { label: "Success", value: "success" },
+          { label: "Warning", value: "warning" },
+          { label: "Danger", value: "danger" },
+        ],
+        default: "success",
+      },
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Soft", value: "soft" },
+          { label: "Solid", value: "solid" },
+          { label: "Outline", value: "outline" },
+        ],
+        default: "soft",
+      },
+      {
+        type: "select",
+        prop: "size",
+        label: "Size",
+        options: [
+          { label: "Small", value: "sm" },
+          { label: "Medium", value: "md" },
+        ],
+        default: "md",
+      },
+    ],
+    render: (values) => (
+      <Chip
+        size={values.size as "sm" | "md"}
+        tone={values.tone as "neutral" | "success" | "warning" | "danger"}
+        variant={values.variant as "soft" | "solid" | "outline"}
+      >
+        <Chip.Icon aria-hidden="true">
+          <Check />
+        </Chip.Icon>
+        <Chip.Label>Ready</Chip.Label>
+      </Chip>
+    ),
+  },
+  "floating-viewer": {
+    controls: [
+      {
+        type: "toggle",
+        prop: "floatOnExit",
+        label: "Float on exit",
+        default: true,
+      },
+      {
+        type: "slider",
+        prop: "floatingWidth",
+        label: "Floating width (px)",
+        min: 240,
+        max: 440,
+        step: 8,
+        default: 320,
+      },
+      {
+        type: "select",
+        prop: "defaultCorner",
+        label: "Default corner",
+        options: [
+          { label: "Bottom right", value: "bottom-right" },
+          { label: "Bottom left", value: "bottom-left" },
+          { label: "Top right", value: "top-right" },
+          { label: "Top left", value: "top-left" },
+        ],
+        default: "bottom-right",
+      },
+    ],
+    render: (values) => (
+      <FloatingViewer
+        defaultCorner={values.defaultCorner as FloatingViewerCorner}
+        floatingWidth={values.floatingWidth as number}
+        floatOnExit={values.floatOnExit as boolean}
+      >
+        {/* biome-ignore lint/a11y/useMediaCaption: this demo video has no audio track */}
+        <video
+          aria-label="Animated dialog preview"
+          className="size-full object-cover"
+          controls
+          playsInline
+          poster="/videos/posters/animated-dialog-poster.webp"
+          preload="metadata"
+          src="/videos/animated-dialog.mp4"
+        />
+      </FloatingViewer>
+    ),
+  },
+  "schedule-chip": {
+    controls: [],
+    render: () => <ScheduleChipPlayground />,
+  },
+  "assignment-cluster": {
+    controls: [],
+    render: () => (
+      <AssignmentCluster
+        items={[
+          { id: "1", name: "Maya Chen" },
+          { id: "2", name: "Noah Williams" },
+          { id: "3", name: "Ava Patel" },
+        ]}
+        value={["1", "2"]}
+      />
+    ),
+  },
   "live-activity": {
     controls: [
-      { type: "select", prop: "direction", label: "Expansion direction", options: [{ label: "Down", value: "down" }, { label: "Up", value: "up" }], default: "down" },
-      { type: "select", prop: "align", label: "Horizontal anchor", options: [{ label: "Start", value: "start" }, { label: "Center", value: "center" }, { label: "End", value: "end" }], default: "center" },
-      { type: "toggle", prop: "gestures", label: "Touch gestures", default: true },
-      { type: "toggle", prop: "reduceMotion", label: "Disable motion", default: false },
+      {
+        type: "select",
+        prop: "direction",
+        label: "Expansion direction",
+        options: [
+          { label: "Down", value: "down" },
+          { label: "Up", value: "up" },
+        ],
+        default: "down",
+      },
+      {
+        type: "select",
+        prop: "align",
+        label: "Horizontal anchor",
+        options: [
+          { label: "Start", value: "start" },
+          { label: "Center", value: "center" },
+          { label: "End", value: "end" },
+        ],
+        default: "center",
+      },
+      {
+        type: "toggle",
+        prop: "gestures",
+        label: "Touch gestures",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "reduceMotion",
+        label: "Disable motion",
+        default: false,
+      },
     ],
-    render: (values) => <LiveActivityExample direction={values.direction as "up" | "down"} align={values.align as "start" | "center" | "end"} gestures={values.gestures ? "touch" : false} motion={values.reduceMotion ? "none" : "auto"} />,
+    render: (values) => (
+      <LiveActivityExample
+        direction={values.direction as "up" | "down"}
+        align={values.align as "start" | "center" | "end"}
+        gestures={values.gestures ? "touch" : false}
+        motion={values.reduceMotion ? "none" : "auto"}
+      />
+    ),
   },
   "circular-context-menu": {
     controls: [
@@ -1142,6 +1306,88 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
     ),
   },
 
+  "morph-surface": {
+    controls: [
+      {
+        type: "select",
+        prop: "view",
+        label: "View",
+        options: [
+          { label: "Compact", value: "compact" },
+          { label: "Expanded", value: "expanded" },
+        ],
+        default: "compact",
+      },
+      {
+        type: "select",
+        prop: "reducedMotion",
+        label: "Reduced motion",
+        options: [
+          { label: "Follow system", value: "user" },
+          { label: "Always", value: "always" },
+          { label: "Never", value: "never" },
+        ],
+        default: "user",
+      },
+      {
+        type: "slider",
+        prop: "contentScale",
+        label: "Content scale",
+        min: 0.9,
+        max: 1,
+        step: 0.01,
+        default: 0.96,
+      },
+      {
+        type: "select",
+        prop: "origin",
+        label: "Transform origin",
+        options: [
+          { label: "Center", value: "center" },
+          { label: "Top", value: "top" },
+          { label: "Bottom", value: "bottom" },
+        ],
+        default: "center",
+      },
+    ],
+    render: (v) => (
+      <MorphSurface.Root
+        value={v.view as string}
+        reducedMotion={v.reducedMotion as MorphSurfaceReducedMotion}
+        contentScale={v.contentScale as number}
+        origin={v.origin as MorphSurfaceOrigin}
+        className="rounded-2xl bg-card shadow-smooth-ring-lg"
+      >
+        {v.view === "compact" ? (
+          <div className="px-4 py-3">
+            <p className="font-medium text-sm">Review changes</p>
+          </div>
+        ) : (
+          <div className="w-80 p-5">
+            <h3 className="font-medium text-sm">Three files changed</h3>
+            <p className="mt-2 text-muted-foreground text-sm leading-6">
+              One persistent surface grows around its center while the consumer
+              changes the content inside it.
+            </p>
+          </div>
+        )}
+      </MorphSurface.Root>
+    ),
+  },
+
+  "code-block": {
+    controls: [
+      { type: "toggle", prop: "showLineNumbers", label: "Line numbers", default: true },
+    ],
+    render: (v) => (
+      <CodeBlock
+        code={`export function Greeting() {\n  return <h1>Hello, world!</h1>;\n}`}
+        language="tsx"
+        filename="greeting.tsx"
+        showLineNumbers={v.showLineNumbers as boolean}
+      />
+    ),
+  },
   "spotlight-card": {
     controls: [
       {
@@ -1443,6 +1689,31 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           ))}
         </div>
       </Marquee>
+    ),
+  },
+  "swipe-action-row": {
+    controls: [
+      {
+        type: "slider",
+        prop: "threshold",
+        label: "Open threshold",
+        min: 0.2,
+        max: 0.8,
+        step: 0.05,
+        default: 0.5,
+      },
+      {
+        type: "toggle",
+        prop: "disabled",
+        label: "Disable gesture",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <SwipeActionRowPlayground
+        threshold={v.threshold as number}
+        disabled={v.disabled as boolean}
+      />
     ),
   },
 };

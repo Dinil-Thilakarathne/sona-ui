@@ -11,6 +11,7 @@ type RegistryItem = {
   name: string;
   type: string;
   dependencies?: string[];
+  registryDependencies?: string[];
   files: RegistryFile[];
 };
 
@@ -28,6 +29,21 @@ const foundationAliases = new Map([
   ["@/lib/sona-utils", "sona-utils"],
   ["@/lib/sona-motion", "sona-motion"],
 ]);
+const forbiddenThemeDependency = "@sona-ui/sona-theme";
+const forbiddenRegistryTokens = [
+  "text-danger",
+  "bg-danger",
+  "ring-danger",
+  "border-danger",
+  "color-danger",
+  "--danger",
+  "text-success",
+  "bg-success",
+  "ring-success",
+  "border-success",
+  "color-success",
+  "--success",
+];
 
 function packageName(specifier: string) {
   if (specifier.startsWith("@")) {
@@ -63,6 +79,15 @@ for (const item of metadata) {
     continue;
   }
 
+  if (
+    item.type === "registry:ui" &&
+    item.registryDependencies?.includes(forbiddenThemeDependency)
+  ) {
+    errors.push(
+      `${item.name}: must not depend on ${forbiddenThemeDependency}; use standard shadcn semantic tokens in installable components`,
+    );
+  }
+
   const declaredDependencies = new Set(item.dependencies ?? []);
   const declaredFiles = new Set(item.files.map((file) => file.path));
 
@@ -92,6 +117,14 @@ for (const item of metadata) {
 
     if (sourcePath.endsWith(".css")) continue;
     const source = fs.readFileSync(sourcePath, "utf8");
+    for (const token of forbiddenRegistryTokens) {
+      if (source.includes(token)) {
+        errors.push(
+          `${item.name}: installable source uses Sona-only token ${token}; use standard shadcn semantic tokens`,
+        );
+      }
+    }
+
     for (const match of source.matchAll(importPattern)) {
       const specifier = match[1];
       if (specifier.startsWith(".")) {

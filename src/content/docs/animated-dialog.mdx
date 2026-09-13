@@ -7,13 +7,13 @@ tags: ["UI", "Dialog", "Modal", "Animation", "Component"]
 
 Use Animated Dialog for a modal task that needs an accessible dialog foundation and a short directional entrance. It provides the dialog structure, focus management, and close behavior while leaving the content and actions to your application.
 
-## Install
+## Preview
 
-<CodeBlockWrapper
-  language="bash"
-  filename="terminal"
-  code={`npx shadcn@latest add @sona-ui/animated-dialog`}
-/>
+<ComponentPreview component="animated-dialog" name="default" />
+
+## Installation
+
+<ComponentInstallation component="animated-dialog" />
 
 ## Basic usage
 
@@ -40,7 +40,7 @@ export function ConfirmDialog() {
         </AnimatedDialogDescription>
         <div className="mt-6 flex justify-end gap-3">
           <AnimatedDialogClose>Cancel</AnimatedDialogClose>
-          <AnimatedDialogClose className="bg-danger text-danger-foreground">
+          <AnimatedDialogClose className="bg-destructive text-destructive-foreground">
             Delete
           </AnimatedDialogClose>
         </div>

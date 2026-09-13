@@ -1,0 +1,52 @@
+---
+title: Morph Surface
+slug: morph-surface
+component: morph-surface
+tags: ["UI", "Primitive", "Motion", "Layout"]
+---
+
+Morph Surface is an unstyled layout primitive for changing the dimensions and content of one persistent surface. The same surface grows, shrinks, clips, and reveals around a shared center origin by default, while styling, state, focus behavior, and product actions remain consumer-owned.
+
+## Preview
+
+<ComponentPreview component="morph-surface" name="default" />
+
+## Installation
+
+<ComponentInstallation component="morph-surface" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="morphing-panel.tsx" code={`import MorphSurface from "@/components/ui/morph-surface/morph-surface";
+
+export function MorphingPanel({ view }: { view: "compact" | "expanded" }) {
+  return (
+    <MorphSurface.Root value={view} className="rounded-xl bg-card shadow-lg">
+      {view === "compact" ? <div>Summary</div> : <div>Expanded controls</div>}
+    </MorphSurface.Root>
+  );
+}`} />
+
+## Usage
+
+<ComponentUsage component="morph-surface" />
+
+## API
+
+<PropTable component="morph-surface" />
+
+## Accessibility
+
+Morph Surface follows the user's reduced-motion preference by default and applies dimension and content changes immediately when motion is reduced. Consumers remain responsible for focus movement, accessible labels, and announcing meaningful state changes.
+
+## Styling
+
+The primitive carries no visual surface styles. Apply the background, radius, and elevation to the persistent root with `className`. Put state-specific spacing and dimensions on the content rendered inside it. An internal clip layer preserves the root elevation while clipping content to the inherited radius.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

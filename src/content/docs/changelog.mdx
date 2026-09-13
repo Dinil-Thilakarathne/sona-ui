@@ -11,6 +11,50 @@ Stay up to date with the latest changes in Sona UI.
 
 
 
+# [2.25.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.2...v2.25.0) (2026-09-06)
+
+
+### Bug Fixes
+
+* **accordion:** remove ignored variant prop from AccordionItem ([3a15b2e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3a15b2e2e614515daa77ea4e4173a2078927cb07)), closes [#58](https://github.com/Dinil-Thilakarathne/sona-ui/issues/58)
+* **action-rail:** Animate rail exit on dismiss ([7e42a7e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7e42a7e46072b5cfaab601277d3e6b7c3834aabf))
+* **activity-graph:** keep the leftmost month label ([bfa9b42](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bfa9b426ee44ce49ba4c7b4a0bbe8bb14dc82735))
+* **animated-tabs:** keep indicator in sync with controlled value ([7ebb2cf](https://github.com/Dinil-Thilakarathne/sona-ui/commit/7ebb2cf9725628927ba6772ec289a7789f7ccabf))
+* **api:** re-point /api/read-file to in-repo registry sources ([cadc7c1](https://github.com/Dinil-Thilakarathne/sona-ui/commit/cadc7c169d047d3a40ccae8310c9b978f5e2d0c8))
+* **code-block:** copy marker-stripped code when showDiff is on ([9cde881](https://github.com/Dinil-Thilakarathne/sona-ui/commit/9cde881e5f680b674ac7cb5e128e237b9c39f606))
+* **docs-focus:** Strip @sona-ui/ namespace resolving registry deps ([5305454](https://github.com/Dinil-Thilakarathne/sona-ui/commit/53054544e447605f72bacbf9a1093f7da04f5774))
+* **expandable-tabs:** forward full motionConfig to MotionConfig ([8bda9ee](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8bda9eeecf1a79bc1dfe7aff106711d78581b359))
+* **expanding-action:** prevent trigger clip during close animation ([df6cf1f](https://github.com/Dinil-Thilakarathne/sona-ui/commit/df6cf1fa0ebd66773e90672c853b8e8a8eeb9f8e))
+* **fluid-slider:** Gate drag threshold to track presses only ([54f2828](https://github.com/Dinil-Thilakarathne/sona-ui/commit/54f2828155f2e3154625d27808b2f035fee1a90c))
+* **fluid-tabs:** snap indicator on keyboard activation ([ccaa1ca](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ccaa1ca2b3434349c419b71687c8398a8b3e5ab0))
+* **hold-to-delete-button:** cancel keyboard hold on focus loss ([490b46b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/490b46b8fb26e8bdf3730bc7d7a266cf027ba06f))
+* **landing:** repaint FireFrame on resize in reduced-motion mode ([3290a60](https://github.com/Dinil-Thilakarathne/sona-ui/commit/3290a60baa665b7286dd13f539e277fceba90993)), closes [#80](https://github.com/Dinil-Thilakarathne/sona-ui/issues/80)
+* **link-preview:** compose consumer handlers and merge className ([bfb487b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/bfb487b5e0c3a78955602a5a70ce3944446e724e))
+* **magnetic-button:** re-zero pull on leave so button returns to rest ([a63452d](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a63452de6ad0b0c0548f97d2c31ca5677101307f))
+* **metadata:** emit per-route canonical and og:url on non-doc pages ([ee9232c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ee9232c8567caa1ec649c78df860f68d193c9f6d))
+* **opengraph:** register all Helvetica Neue weights in OG image ([4646d6b](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4646d6b41153db8851313c714f56af2a565c6de0))
+* **playground:** make expandable-tabs tab clicks switch the active tab ([e20d166](https://github.com/Dinil-Thilakarathne/sona-ui/commit/e20d1666229171d8954034d08d26f550378e47ec))
+* **proxy:** fall through multi-segment docs paths to route handlers ([a30747a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a30747a7bb5362054b9f8f7baf04886906fc207d))
+* remove conflicting border-red-300 in component showcase prototype ([ef8f22c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ef8f22c060973e1eae615633d8d73e119f2ca25d))
+* **ripple-button:** add disabled styling and suppress hover cursor ([a59044a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/a59044a9bf36e062fede980ad3fcfd2f623676d2))
+* **split-text:** stop entrance reveal from replaying on ancestor re-render ([4a71a79](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4a71a799da662182fde5744efd815b57bb16564d))
+* **spotlight-card:** reset glow when re-enabling disabled state ([ad5f64a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ad5f64a5d027aff06db1902b781c21c47cef8618))
+* **stagger-text:** split by grapheme cluster so emoji render intact ([db252d3](https://github.com/Dinil-Thilakarathne/sona-ui/commit/db252d32a29ef5607c57f13df9ca877c5b6529cb))
+* wrap positive drift on scroll-up in Marquee for left/up directions ([60588be](https://github.com/Dinil-Thilakarathne/sona-ui/commit/60588bed4a44fe41539103c8504add08df3c9e8d))
+
+
+### Features
+
+* add live activity component ([83fe438](https://github.com/Dinil-Thilakarathne/sona-ui/commit/83fe438c54940220b2aac0b89323f062cf7dcea4))
+
+
+[View on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/releases/tag/v2.25.0)
+<Divider/>
+
+---
+
+
+
 ## [2.24.2](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.24.1...v2.24.2) (2026-09-04)
 
 
@@ -541,22 +585,4 @@ Stay up to date with the latest changes in Sona UI.
 
 
 [View on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/releases/tag/v2.12.0)
-<Divider/>
-
----
-
-
-
-# [2.11.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.10.0...v2.11.0) (2026-02-07)
-
-
-### Features
-
-* Add Simili bot configuration and workflow for automated issue triage. ([1bba8f8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/1bba8f8f19be791a46314eb35667781bfe454e7e))
-
-
-
-
-
-[View on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/releases/tag/v2.11.0)
 <Divider/>

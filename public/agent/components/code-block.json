@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "code-block",
+  "title": "Code Block",
+  "category": "components",
+  "status": "stable",
+  "summary": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
+  "docsSlug": "code-block",
+  "keywords": [
+    "code",
+    "syntax highlighting",
+    "developer tools"
+  ],
+  "useWhen": [
+    "A plug-and-play syntax-highlighted code block for documentation and developer interfaces."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/code-block.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "shiki",
+      "lucide-react",
+      "@icons-pack/react-simple-icons"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/code-block",
+    "rawUrl": "https://sonaui.com/docs/code-block/raw.md",
+    "sourceTitle": "code-block"
+  }
+}

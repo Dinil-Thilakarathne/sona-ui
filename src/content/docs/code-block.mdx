@@ -1,0 +1,48 @@
+---
+title: Code Block
+slug: code-block
+component: code-block
+tags: ["UI", "Code", "Developer"]
+---
+
+Use Code Block to present readable source code with syntax highlighting and a built-in copy action. It supports filenames, line numbers, highlighted ranges, focused lines, and diff states without requiring a separate rendering pipeline in the consumer.
+
+## Preview
+
+<ComponentPreview component="code-block" name="default" />
+
+## Examples
+
+### Highlighted lines
+
+<ComponentPreview component="code-block" name="highlight" />
+
+### Diff
+
+<ComponentPreview component="code-block" name="diff" />
+
+### Focused lines
+
+<ComponentPreview component="code-block" name="focus" />
+
+## Installation
+
+<ComponentInstallation component="code-block" />
+
+## Usage
+
+<ComponentUsage component="code-block" />
+
+## Props
+
+<PropTable component="code-block" />
+
+## Accessibility
+
+The copy action is a labeled native button. Keep the source text complete and understandable without relying only on syntax color, highlighted backgrounds, or diff color.
+
+When showing a diff, retain the surrounding explanation so added and removed lines have context.
+
+## Styling
+
+The component owns scrolling, code spacing, syntax colors, and the optional header. Use `className` to adjust its outer surface or fit it into a wider documentation layout.
