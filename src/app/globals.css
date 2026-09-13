@@ -1074,7 +1074,7 @@ html::-webkit-scrollbar-thumb:hover {
     --_fs: 0.975rem;
     --docs-body-size: var(--_fs);
     --docs-body-leading: 1.6;
-    --docs-h1-size: 1.25rem;
+    --docs-h1-size: clamp(1.875rem, 1.5rem + 1vw, 2.25rem);
     --docs-h2-size: calc(var(--_fs) * 1.125);
     --docs-h3-size: var(--_fs);
     --docs-h4-size: var(--_fs);

@@ -22,7 +22,7 @@ export default function LandingPage() {
         <FinalCtaSection />
         <SiteGridGap />
         {/*<SponsorsSection />*/}
-        <SiteGridGap />
+        {/*<SiteGridGap />*/}
         <LandingFooter />
       </SiteGridFrame>
     </main>

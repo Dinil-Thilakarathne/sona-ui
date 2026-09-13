@@ -120,15 +120,17 @@ export function DocsCopyPage({
   className,
 }: DocsCopyPageProps) {
   const { copied, copy } = useCopyToClipboard();
+  const { copy: copyLink } = useCopyToClipboard();
   const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
-  const shareText = `Check out ${page.split("\n")[0]?.replace(/^#\s*/, "") ?? "this documentation"} on Sona UI`;
+  const pageTitle = page.split("\n")[0]?.replace(/^#\s*/, "") ?? "Sona UI";
+  const shareText = `Explore ${pageTitle} in Sona UI.`.slice(0, 100);
   const shareItems = [
     {
       key: "link",
       label: "Copy Link",
-      href: `javascript:navigator.clipboard.writeText('${url}')`,
+      href: "",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -191,39 +193,47 @@ export function DocsCopyPage({
           aria-label={copied ? "Copied to clipboard" : "Copy page"}
           className="flex h-8 items-center gap-1.5 rounded-l-lg px-2.5 text-muted-foreground transition-colors hover:cursor-pointer hover:text-foreground"
         >
-          <AnimatePresence initial={false} mode="sync">
-            <motion.span
-              key={copied ? "copied" : "copy"}
-              aria-hidden="true"
-              initial={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
-              }
-              animate={
-                reduceMotion
-                  ? { opacity: 1 }
-                  : { opacity: 1, scale: 1, filter: "blur(0px)" }
-              }
-              exit={
-                reduceMotion
-                  ? { opacity: 0 }
-                  : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
-              }
-              transition={
-                reduceMotion
-                  ? { duration: 0 }
-                  : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
-              }
-              className="flex items-center justify-center"
-            >
-              <HugeiconsIcon
-                icon={copied ? Tick02Icon : Copy01Icon}
-                strokeWidth={2}
-                className={cn("size-3.5 lg:size-4", copied && "text-green-500")}
-              />
-            </motion.span>
-          </AnimatePresence>
+          <span
+            aria-hidden="true"
+            className="relative inline-flex size-3.5 shrink-0 items-center justify-center lg:size-4"
+          >
+            <AnimatePresence initial={false} mode="sync">
+              <motion.span
+                key={copied ? "copied" : "copy"}
+                aria-hidden="true"
+                initial={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
+                }
+                animate={
+                  reduceMotion
+                    ? { opacity: 1 }
+                    : { opacity: 1, scale: 1, filter: "blur(0px)" }
+                }
+                exit={
+                  reduceMotion
+                    ? { opacity: 0 }
+                    : { opacity: 0, scale: 0.75, filter: "blur(2px)" }
+                }
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.18, ease: [0.22, 1, 0.36, 1] }
+                }
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <HugeiconsIcon
+                  icon={copied ? Tick02Icon : Copy01Icon}
+                  strokeWidth={2}
+                  className={cn(
+                    "size-3.5 lg:size-4",
+                    copied && "text-green-500",
+                  )}
+                />
+              </motion.span>
+            </AnimatePresence>
+          </span>
           Copy Page
         </button>
         <span
@@ -271,7 +281,9 @@ export function DocsCopyPage({
             <AnimatedDropdownItem
               key={item.key}
               onClick={() => {
-                if (item.key === "native" && navigator.share) {
+                if (item.key === "link") {
+                  void copyLink(url);
+                } else if (item.key === "native" && navigator.share) {
                   void navigator.share({
                     title: shareText,
                     text: shareText,
