@@ -10,7 +10,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useId, useLayoutEffect, useRef, useState } from "react";
 import Link from "@/components/common/link";
-import { groupedComponents } from "@/config/components";
+import { groupedComponentsForSidebar } from "@/config/components";
 import { cn } from "@/lib/utils";
 import Chip from "@/registry/sonaui/chip/chip";
 
@@ -28,7 +28,7 @@ export function DesktopDocsSidebar({
   const [openCategories, setOpenCategories] = useState<Record<string, boolean>>(
     () =>
       Object.fromEntries(
-        Object.keys(groupedComponents).map((group) => [group, true]),
+        Object.keys(groupedComponentsForSidebar).map((group) => [group, true]),
       ),
   );
   const shouldReduceMotion = useReducedMotion();
@@ -79,7 +79,7 @@ export function DesktopDocsSidebar({
           className="apple-scrollbar h-full overflow-y-auto pt-2 pb-16"
         >
           <LayoutGroup id={layoutGroupId}>
-            {Object.entries(groupedComponents).map(([group, items]) => {
+            {Object.entries(groupedComponentsForSidebar).map(([group, items]) => {
               const isOpen = openCategories[group] ?? false;
               const sectionId = `docs-sidebar-${group
                 .toLowerCase()
@@ -169,7 +169,7 @@ export function DesktopDocsSidebar({
                                   onNavigate?.();
                                 }}
                                 className={cn(
-                                  "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-sm text-muted-foreground transition-colors hover:text-foreground",
+                                  "relative flex items-center justify-between rounded-lg py-1.5 px-2 text-sm text-muted-foreground transition-colors hover:text-foreground",
                                   isActive && "font-medium text-foreground",
                                 )}
                               >

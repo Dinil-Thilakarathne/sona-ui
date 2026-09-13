@@ -72,7 +72,7 @@ export function LandingFooter() {
           </div>
         </div>
         <div>
-          <p className="text-[12vw] leading-[80%] font-helvetica-neue text-foreground">
+          <p className="text-[9vw] leading-[80%] font-helvetica-neue text-foreground">
             Beautiful interactions
           </p>
         </div>

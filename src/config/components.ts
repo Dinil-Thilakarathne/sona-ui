@@ -261,3 +261,15 @@ export const groupedComponents = componentNavigationLinks.reduce<
   acc[item.type].push(item);
   return acc;
 }, {});
+
+export const groupedComponentsForSidebar = Object.fromEntries(
+  Object.entries(groupedComponents)
+    .map(([group, items]) => [
+      group,
+      items.filter(
+        (item) =>
+          item.slug !== "chip" && item.slug !== "assignment-cluster",
+      ),
+    ])
+    .filter(([, items]) => items.length > 0),
+) as Record<string, ComponentItemsPropsType[]>;

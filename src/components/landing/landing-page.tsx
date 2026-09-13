@@ -3,6 +3,7 @@ import { FeaturedSection } from "./sections/featured-section";
 import { FinalCtaSection } from "./sections/final-cta-section";
 import { LandingFooter } from "./sections/landing-footer";
 import { LandingHero } from "./sections/landing-hero";
+// import { SponsorsSection } from "./sections/sponsors-section";
 import { SiteGridFrame, SiteGridGap } from "./site-grid";
 // import { ProofSection } from "./sections/proof-section";
 
@@ -19,6 +20,8 @@ export default function LandingPage() {
         {/*<OpenSourceSection />*/}
         <SiteGridGap />
         <FinalCtaSection />
+        <SiteGridGap />
+        {/*<SponsorsSection />*/}
         <SiteGridGap />
         <LandingFooter />
       </SiteGridFrame>

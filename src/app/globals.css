@@ -401,14 +401,14 @@ html::-webkit-scrollbar-thumb:hover {
     --header-max-width: var(--_width);
 }
 
-@media (min-width: 1280) {
+/*@media (min-width: 1280) {
     @theme inline {
         --site-grid-max-width: min(
             var(--_width),
             calc((100vw - 17rem) - (100vw - var(--header-max-width)) / 2)
         );
     }
-}
+}*/
 
 @layer utilities {
     .bg-gradient {
@@ -506,49 +506,12 @@ html::-webkit-scrollbar-thumb:hover {
         isolation: isolate;
     }
 
-    .site-grid-frame[data-component-document]::before,
-    .site-grid-frame[data-component-document]::after {
-        position: fixed;
-        z-index: 0;
-        top: var(--spacing-header-height);
-        bottom: 0;
-        width: 1px;
-        content: "";
-        background: var(--site-grid-line);
-        pointer-events: none;
-    }
-
-    .site-grid-frame[data-component-document]::before {
-        left: max(0px, calc(50% - (var(--site-grid-max-width) / 2)));
-    }
-
-    .site-grid-frame[data-component-document]::after {
-        right: max(0px, calc(50% - (var(--site-grid-max-width) / 2)));
-        /*right: 0;*/
-        /*transform: translateX(calc(100vw - 32rem * 1));*/
-    }
-
-    @media (min-width: 1120px) and (max-width: 1580px) {
-        .site-grid-frame[data-component-document]::after {
-            display: none;
-        }
-    }
-
-    .site-grid-frame__rails {
-        position: absolute;
-        z-index: 0;
-        inset-block: 0;
-        left: 50%;
+    .site-grid-frame__content {
         width: min(
             calc(100% - (var(--site-grid-inline-space) * 2)),
             var(--site-grid-max-width)
         );
-        border-inline: 1px solid var(--site-grid-line);
-        pointer-events: none;
-        transform: translateX(-50%);
-    }
-
-    .site-grid-frame__content {
+        margin-inline: auto;
         position: relative;
         z-index: 1;
     }
@@ -564,32 +527,11 @@ html::-webkit-scrollbar-thumb:hover {
     }
 
     .site-grid-frame__content::before {
-        left: calc(50% - 50vw);
+        left: 0;
     }
 
     .site-grid-frame__content::after {
-        right: calc(50% - 50vw);
-    }
-
-    .site-grid-frame[data-component-document]
-        > .site-grid-frame__content::before,
-    .site-grid-frame[data-component-document]
-        > .site-grid-frame__content::after {
-        position: fixed;
-        top: var(--spacing-header-height);
-        bottom: 0;
-        z-index: 2;
-        pointer-events: none;
-    }
-
-    .site-grid-frame[data-component-document]
-        > .site-grid-frame__content::before {
-        left: max(0px, calc(50% - 28rem));
-    }
-
-    .site-grid-frame[data-component-document]
-        > .site-grid-frame__content::after {
-        right: max(0px, calc(50% - 28rem));
+        right: 0;
     }
 
     .site-grid-section {
@@ -647,10 +589,11 @@ html::-webkit-scrollbar-thumb:hover {
     }
 
     .site-grid-gap[data-orientation="horizontal"] {
-        width: min(
+        /*width: min(
             calc(100% - (var(--site-grid-inline-space) * 2)),
             var(--site-grid-max-width)
-        );
+        );*/
+        width: 100%;
         min-height: var(--site-grid-separator-height);
         margin-inline: auto;
         border-block: 1px solid var(--site-grid-line);
@@ -752,17 +695,6 @@ html::-webkit-scrollbar-thumb:hover {
         width: 100%;
     }
 
-    @media (max-width: 1679px) {
-        .site-grid-frame[data-component-document]::before,
-        .site-grid-frame[data-component-document]::after,
-        .site-grid-frame[data-component-document]
-            > .site-grid-frame__content::before,
-        .site-grid-frame[data-component-document]
-            > .site-grid-frame__content::after {
-            display: none;
-        }
-    }
-
     @media (min-width: 48rem) {
         .site-grid-frame {
             --site-grid-inline-space: 1.5rem;
@@ -796,9 +728,6 @@ html::-webkit-scrollbar-thumb:hover {
     }
 
     @media print {
-        .site-grid-frame__rails,
-        .site-grid-frame[data-component-document]::before,
-        .site-grid-frame[data-component-document]::after,
         .site-grid-frame__content::before,
         .site-grid-frame__content::after,
         .site-grid-section::before,
@@ -1324,4 +1253,17 @@ pre {
 html,
 body {
     overscroll-behavior: none;
+}
+
+body.zen-mode article[data-component-document] {
+    z-index: 99999999;
+}
+
+body.zen-mode [data-component-preview] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999999;
+    height: 100vh;
+    border-radius: 0;
 }

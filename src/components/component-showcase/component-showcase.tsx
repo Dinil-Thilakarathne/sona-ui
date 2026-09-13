@@ -7,7 +7,13 @@ import { ComponentShowcaseRegistryPreview } from "./component-showcase-registry-
 import type { ComponentShowcaseItem } from "./types";
 
 const defaultItems: ComponentShowcaseItem[] = componentNavigationLinks
-  .filter((item) => item.type !== "Getting Started" && item.slug)
+  .filter(
+    (item) =>
+      item.type !== "Getting Started" &&
+      item.slug &&
+      item.slug !== "chip" &&
+      item.slug !== "assignment-cluster",
+  )
   .map((item) => ({
     name: item.name,
     slug: item.slug ?? item.name,
@@ -39,6 +45,7 @@ export function ComponentShowcase({
     <main
       className="site-grid-section relative z-10 mx-auto w-full max-w-(--site-grid-max-width) px-4 pt-[calc(var(--spacing-header-height)+clamp(3rem,7vw,6rem))] pb-[clamp(4rem,8vw,7rem)] sm:px-6 lg:px-8"
       data-boundary="both"
+      data-oreintation="vertical"
     >
       <header className="flex flex-col gap-4  pb-4 ">
         <h1 className="text-balance font-helvetica-neue text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.92] tracking-[-0.04em] translate-x-[-4px]">

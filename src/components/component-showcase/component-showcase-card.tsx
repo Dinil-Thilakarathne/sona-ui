@@ -135,7 +135,7 @@ export const ComponentShowcaseCard = forwardRef<
               }
               variant="soft"
             >
-              <Chip.Label>{item.tag}</Chip.Label>
+              <Chip.Label className="uppercase">{item.tag}</Chip.Label>
             </Chip>
           )}
           {/*<ArrowUpRight

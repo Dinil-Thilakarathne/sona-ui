@@ -21,7 +21,7 @@ import { useDocsFocusPanelState } from "@/components/docs-layout-shell";
 import { componentShowcaseVideos } from "@/config/component-showcase";
 import {
   componentNavigationLinks,
-  groupedComponents,
+  groupedComponentsForSidebar,
 } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -181,65 +181,67 @@ function DocsNavigation({
               className="h-full overflow-y-auto [scrollbar-color:var(--color-scrollbar)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-scrollbar [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1"
               aria-label="Documentation pages"
             >
-              {Object.entries(groupedComponents).map(([group, items]) => {
-                const visible = items.filter((item) =>
-                  [item.name, item.href, group]
-                    .join(" ")
-                    .toLowerCase()
-                    .includes(normalized),
-                );
-                if (!visible.length) return null;
-                return (
-                  <section key={group} className="mb-5">
-                    <h3 className="mb-1.5 text-sm text-muted-foreground">
-                      {group}
-                    </h3>
-                    <div className="grid gap-0.5">
-                      {visible.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          aria-current={
-                            pathname === item.href ? "page" : undefined
-                          }
-                          onClick={(event) => {
-                            onOpenChange(false);
-
-                            if (pathname === item.href) {
-                              event.preventDefault();
+              {Object.entries(groupedComponentsForSidebar).map(
+                ([group, items]) => {
+                  const visible = items.filter((item) =>
+                    [item.name, item.href, group]
+                      .join(" ")
+                      .toLowerCase()
+                      .includes(normalized),
+                  );
+                  if (!visible.length) return null;
+                  return (
+                    <section key={group} className="mb-5">
+                      <h3 className="mb-1.5 text-sm text-muted-foreground">
+                        {group}
+                      </h3>
+                      <div className="grid gap-0.5">
+                        {visible.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            aria-current={
+                              pathname === item.href ? "page" : undefined
                             }
-                          }}
-                          className={cn(
-                            "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-sm text-muted-foreground transition-colors hover:text-foreground before:absolute before:top-1/2 before:left-0 before:h-4 before:w-px before:-translate-y-1/2 before:rounded-full before:bg-primary before:opacity-0 before:transition-opacity",
-                            pathname === item.href &&
-                              "font-medium text-foreground before:opacity-100",
-                          )}
-                        >
-                          {item.name}
-                          {item.tag && (
-                            <Chip
-                              size="sm"
-                              variant="soft"
-                              tone={
-                                item.tag === "new"
-                                  ? "success"
-                                  : item.tag === "updated" ||
-                                      item.tag === "beta"
-                                    ? "warning"
-                                    : "neutral"
+                            onClick={(event) => {
+                              onOpenChange(false);
+
+                              if (pathname === item.href) {
+                                event.preventDefault();
                               }
-                              aria-label={item.tag}
-                              className="min-h-4 px-1 text-[0.5625rem] uppercase tracking-[0.08em]"
-                            >
-                              {item.tag}
-                            </Chip>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
-                  </section>
-                );
-              })}
+                            }}
+                            className={cn(
+                              "relative flex items-center justify-between rounded-lg py-1.5 pl-3 text-sm text-muted-foreground transition-colors hover:text-foreground before:absolute before:top-1/2 before:left-0 before:h-4 before:w-px before:-translate-y-1/2 before:rounded-full before:bg-primary before:opacity-0 before:transition-opacity",
+                              pathname === item.href &&
+                                "font-medium text-foreground before:opacity-100",
+                            )}
+                          >
+                            {item.name}
+                            {item.tag && (
+                              <Chip
+                                size="sm"
+                                variant="soft"
+                                tone={
+                                  item.tag === "new"
+                                    ? "success"
+                                    : item.tag === "updated" ||
+                                        item.tag === "beta"
+                                      ? "warning"
+                                      : "neutral"
+                                }
+                                aria-label={item.tag}
+                                className="min-h-4 px-1 text-[0.5625rem] uppercase tracking-[0.08em]"
+                              >
+                                {item.tag}
+                              </Chip>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </section>
+                  );
+                },
+              )}
             </nav>
             <div
               aria-hidden="true"
@@ -969,7 +971,7 @@ function ComponentPage({
           data-component-document
           className="site-grid-frame apple-scrollbar scrollbar-gutter-stable min-h-0 min-w-0 w-full overflow-x-hidden overflow-y-auto overscroll-contain bg-background lg:pt-16"
         >
-          <div className="lg:site-grid-frame lg:site-grid-frame__content mx-auto w-full max-w-(--site-grid-max-width) px-4 pb-16">
+          <div className="site-grid-frame__content w-full px-4 pb-16  mx-auto max-w-(--site-grid-max-width) ">
             <header
               className="site-grid-section flex flex-wrap items-center justify-between mobile:pb-4"
               data-boundary="both"

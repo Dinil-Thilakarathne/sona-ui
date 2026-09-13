@@ -8,7 +8,6 @@ export function SiteGridFrame({
 }: ComponentProps<"div">) {
   return (
     <div className={cn("site-grid-frame", className)} {...props}>
-      <div className="site-grid-frame__rails" aria-hidden="true" />
       <div className="site-grid-frame__content">{children}</div>
     </div>
   );
