@@ -409,6 +409,13 @@ Object.assign(agentResourceMetadata, {
     "An iOS-inspired switch for immediate binary settings with tactile press feedback, blocked-state cues, and optional thumb drag.",
     ["switch", "toggle", "boolean setting", "drag interaction", "error state"],
   ),
+  "animated-checkbox": catalogEntry(
+    "animated-checkbox",
+    "Animated Checkbox",
+    "components",
+    "An accessible checkbox with a restrained animated checkmark and clear checked state.",
+    ["checkbox", "form control", "boolean setting", "checkmark"],
+  ),
   button: catalogEntry(
     "button",
     "Button",

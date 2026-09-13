@@ -341,6 +341,30 @@ Accessibility:
 Motion: Communicate state, continuity, or feedback at the point of interaction.
 Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
 
+### Animated Checkbox
+
+- Category: components
+- Status: stable
+- Summary: An accessible checkbox with a restrained animated checkmark and clear checked state.
+- Documentation: https://sonaui.com/docs/animated-checkbox
+- Registry item: https://sonaui.com/r/animated-checkbox.json
+
+Use when:
+- An accessible checkbox with a restrained animated checkmark and clear checked state.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
 ### Button
 
 - Category: components

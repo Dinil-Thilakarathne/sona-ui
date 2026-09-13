@@ -230,6 +230,26 @@
       ]
     },
     {
+      "name": "animated-checkbox",
+      "title": "Animated Checkbox",
+      "category": "components",
+      "status": "stable",
+      "summary": "An accessible checkbox with a restrained animated checkmark and clear checked state.",
+      "keywords": [
+        "checkbox",
+        "form control",
+        "boolean setting",
+        "checkmark"
+      ],
+      "docs": "https://sonaui.com/docs/animated-checkbox",
+      "registryItem": "https://sonaui.com/r/animated-checkbox.json",
+      "detail": "https://sonaui.com/agent/components/animated-checkbox.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
       "name": "button",
       "title": "Button",
       "category": "components",
