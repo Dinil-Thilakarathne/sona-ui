@@ -1882,7 +1882,7 @@ export default function MorphSurfaceDemo() {
           <button
             type="button"
             onClick={() => setView("expanded")}
-            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors hover:bg-muted hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors bg-secondary hover:bg-muted hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span className="font-medium">Review changes</span>
             <ArrowRight
@@ -1892,13 +1892,13 @@ export default function MorphSurfaceDemo() {
           </button>
         </div>
       ) : (
-        <div className="w-80 p-4">
+        <div className="w-80 p-4 bg-secondary">
           <div className="flex items-start gap-3">
             <button
               type="button"
               aria-label="Return to summary"
               onClick={() => setView("compact")}
-              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
+              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none  transition-colors hover:bg-muted hover:text-foreground hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
             >
               <ArrowLeft aria-hidden="true" className="size-4" />
             </button>
@@ -1937,7 +1937,7 @@ export default function MorphSurfaceDemo() {
           <button
             type="button"
             onClick={() => setView("expanded")}
-            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors hover:bg-muted hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-colors bg-secondary hover:bg-muted hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
           >
             <span className="font-medium">Review changes</span>
             <ArrowRight
@@ -1947,13 +1947,13 @@ export default function MorphSurfaceDemo() {
           </button>
         </div>
       ) : (
-        <div className="w-80 p-4">
+        <div className="w-80 p-4 bg-secondary">
           <div className="flex items-start gap-3">
             <button
               type="button"
               aria-label="Return to summary"
               onClick={() => setView("compact")}
-              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
+              className="grid size-8 shrink-0 place-items-center rounded-lg text-muted-foreground outline-none  transition-colors hover:bg-muted hover:text-foreground hover:cursor-pointer focus-visible:ring-2 focus-visible:ring-ring"
             >
               <ArrowLeft aria-hidden="true" className="size-4" />
             </button>
