@@ -4,7 +4,7 @@ import Image from "next/image";
 const sponsorshipSlots = [
   { label: "Your logo here", tier: "Platinum sponsor" },
   { label: "Your logo here", tier: "Gold sponsor" },
-  { label: "Become a sponsor", tier: "Support Sona UI" },
+  { label: "Your logo here", tier: "Silver sponsor" },
 ] as const;
 
 export function SponsorsSection() {
@@ -60,7 +60,7 @@ export function SponsorsSection() {
             Platform partner
           </p>
         </div>
-        <div className="grid border-b border-border sm:grid-cols-2">
+        <div className="grid border-y border-border sm:grid-cols-2">
           <a
             href="https://tracwell.app/"
             target="_blank"
