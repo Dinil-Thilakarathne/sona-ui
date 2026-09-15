@@ -1,4 +1,5 @@
 import { Plus } from "lucide-react";
+import Image from "next/image";
 
 const sponsorshipSlots = [
   { label: "Your logo here", tier: "Platinum sponsor" },
@@ -59,16 +60,30 @@ export function SponsorsSection() {
             Platform partner
           </p>
         </div>
-        <a
-          href="https://github.com/sponsors/Dinil-Thilakarathne"
-          target="_blank"
-          rel="noreferrer"
-          className="group flex min-h-36 items-center justify-center border-b border-border text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
-        >
-          <span className="font-helvetica-neue text-3xl font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
-            Platform sponsor logo
-          </span>
-        </a>
+        <div className="grid border-b border-border sm:grid-cols-2">
+          <a
+            href="https://tracwell.app/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Tracwell"
+            className="group flex min-h-36 items-center justify-center gap-4 text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
+          >
+            <Image
+              src="/sponsors/tracwell.svg"
+              alt=""
+              width={48}
+              height={48}
+              className="size-10 object-contain sm:size-12"
+            />
+            <span className="font-helvetica-neue text-3xl font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
+              Tracwell
+            </span>
+          </a>
+          <div
+            aria-hidden="true"
+            className="hidden min-h-36 border-l border-border sm:block"
+          />
+        </div>
       </div>
     </section>
   );
