@@ -233,6 +233,20 @@
     "dependencies": ["@base-ui/react", "motion"]
   },
   {
+    "name": "cursor-hover-card",
+    "type": "registry:ui",
+    "title": "Cursor Hover Card",
+    "description": "A rich Base UI preview card that follows above the pointer, tilts with movement speed and direction, and returns to stable trigger positioning for keyboard users.",
+    "files": [
+      {
+        "path": "registry/sonaui/cursor-hover-card/cursor-hover-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["@base-ui/react", "motion"],
+    "registryDependencies": ["@sona-ui/sona-utils"]
+  },
+  {
     "name": "fluid-slider",
     "type": "registry:ui",
     "title": "Fluid Slider",
@@ -532,11 +546,47 @@
     "dependencies": ["motion"]
   },
   {
+    "name": "testimonial-card",
+    "type": "registry:ui",
+    "title": "Testimonial Card",
+    "description": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+    "files": [
+      {
+        "path": "registry/sonaui/testimonial-card/testimonial-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["lucide-react", "motion"],
+    "registryDependencies": ["@sona-ui/sona-utils"]
+  },
+  {
+    "name": "text-highlight",
+    "type": "registry:ui",
+    "title": "Text Highlight",
+    "description": "An inline emphasis effect with marker, underline, and block reveal treatments.",
+    "files": [
+      {
+        "path": "registry/sonaui/text-highlight/text-highlight.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/sonaui/text-highlight/text-highlight.module.css",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
     "name": "code-block",
     "type": "registry:ui",
     "title": "Code Block",
     "description": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
-    "files": [{"path": "registry/sonaui/code-block/code-block.tsx", "type": "registry:ui"}],
+    "files": [
+      {
+        "path": "registry/sonaui/code-block/code-block.tsx",
+        "type": "registry:ui"
+      }
+    ],
     "dependencies": ["shiki", "lucide-react", "@icons-pack/react-simple-icons"]
   },
   {
@@ -631,6 +681,45 @@
     ],
     "dependencies": ["@ncdai/react-swipe-actions", "motion"],
     "registryDependencies": ["@sona-ui/sona-utils"]
+  },
+  {
+    "name": "radial-card-marquee",
+    "type": "registry:ui",
+    "title": "Circular Card Marquee",
+    "description": "A continuous responsive card marquee that orbits cards around a circular path with configurable speed, direction, controlled pause, and hover pause.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
+    "name": "radial-card-slider",
+    "type": "registry:ui",
+    "title": "Radial Card Slider",
+    "description": "A responsive card carousel arranged on a radial arc with pointer drag, wheel movement, and keyboard navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-slider/radial-card-slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
+  },
+  {
+    "name": "depth-tiles",
+    "type": "registry:ui",
+    "title": "Depth Tiles",
+    "description": "An infinite layered tile stack with autoplay, depth transitions, and horizontal drag navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/depth-tiles/depth-tiles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": ["motion"]
   },
   {
     "name": "stepper",

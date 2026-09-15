@@ -686,6 +686,100 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the code block."
     }
   ],
+  "cursor-hover-card": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Trigger and content parts associated with the card."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Whether the card is open when uncontrolled."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Controlled open state."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "PreviewCard.Root.Props[\"onOpenChange\"]",
+      "default": "undefined",
+      "description": "Called whenever the card requests an open-state change."
+    },
+    {
+      "name": "reducedMotion",
+      "type": "CursorHoverCardReducedMotion",
+      "default": "\"user\"",
+      "description": "Controls whether motion follows, forces, or ignores the user's reduced-motion preference."
+    }
+  ],
+  "depth-tiles": [
+    {
+      "name": "items",
+      "type": "DepthTileItem[]",
+      "default": "required",
+      "description": "Tiles shown in the infinite stack."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "default": "undefined",
+      "description": "Controlled active tile index."
+    },
+    {
+      "name": "defaultIndex",
+      "type": "number",
+      "default": "0",
+      "description": "Initial active tile index when uncontrolled."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "default": "undefined",
+      "description": "Called after the active tile changes."
+    },
+    {
+      "name": "autoplay",
+      "type": "boolean",
+      "default": "true",
+      "description": "Enables automatic forward movement."
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "default": "3200",
+      "description": "Time between automatic advances in milliseconds."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "default": "true",
+      "description": "Pauses autoplay while the pointer is over the component."
+    },
+    {
+      "name": "draggable",
+      "type": "boolean",
+      "default": "true",
+      "description": "Enables horizontal pointer drag and touch swipe."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Depth tiles\"",
+      "description": "Accessible label for the carousel region."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the component."
+    }
+  ],
   "dot-orbit-shader": [
     {
       "name": "colorBack",
@@ -1662,6 +1756,76 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Controls whether the surface follows, forces, or ignores reduced motion."
     }
   ],
+  "radial-card-marquee": [
+    {
+      "name": "items",
+      "type": "RadialCardMarqueeItem[]",
+      "default": "[]",
+      "description": "Cards distributed evenly around the circular path."
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "0.12",
+      "description": "Travel speed measured in card positions per second."
+    },
+    {
+      "name": "direction",
+      "type": "\"forward\" | \"reverse\"",
+      "default": "\"forward\"",
+      "description": "Direction of continuous travel."
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "default": "true",
+      "description": "Pause movement while the pointer is over or pressing the marquee."
+    },
+    {
+      "name": "paused",
+      "type": "boolean",
+      "default": "false",
+      "description": "Pause movement through controlled application state."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the marquee root."
+    }
+  ],
+  "radial-card-slider": [
+    {
+      "name": "items",
+      "type": "RadialCardSliderItem[]",
+      "default": "[]",
+      "description": "Cards to browse."
+    },
+    {
+      "name": "defaultIndex",
+      "type": "number",
+      "default": "0",
+      "description": "Initial active card index."
+    },
+    {
+      "name": "index",
+      "type": "number",
+      "default": "undefined",
+      "description": "Controlled active card index."
+    },
+    {
+      "name": "onIndexChange",
+      "type": "(index: number) => void",
+      "default": "undefined",
+      "description": "Called whenever navigation settles on a card."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the slider."
+    }
+  ],
   "ripple-button": [
     {
       "name": "children",
@@ -2142,6 +2306,100 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "(state: SwipeActionRowState) => void",
       "default": "undefined",
       "description": "Called when the row becomes closed, left-open, or right-open."
+    }
+  ],
+  "testimonial-card": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The testimonial quote."
+    },
+    {
+      "name": "authorName",
+      "type": "string",
+      "default": "required",
+      "description": "Name of the person giving the testimonial."
+    },
+    {
+      "name": "authorMeta",
+      "type": "string",
+      "default": "undefined",
+      "description": "The person's role, company, or both."
+    },
+    {
+      "name": "avatarAlt",
+      "type": "string",
+      "default": "required",
+      "description": "Accessible description for the author avatar."
+    },
+    {
+      "name": "avatarUrl",
+      "type": "string",
+      "default": "undefined",
+      "description": "URL of the author avatar."
+    },
+    {
+      "name": "rating",
+      "type": "number",
+      "default": "5",
+      "description": "Rating shown above the quote, from 0 to 5."
+    },
+    {
+      "name": "eyebrow",
+      "type": "string",
+      "default": "undefined",
+      "description": "Optional label placed above the rating."
+    },
+    {
+      "name": "depth",
+      "type": "TestimonialCardDepth",
+      "default": "\"none\"",
+      "description": "Enables shallow, fine-pointer hover depth."
+    }
+  ],
+  "text-highlight": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "The text or inline content to emphasize."
+    },
+    {
+      "name": "variant",
+      "type": "TextHighlightVariant",
+      "default": "\"marker\"",
+      "description": "The visual treatment used for the highlight."
+    },
+    {
+      "name": "trigger",
+      "type": "TextHighlightTrigger",
+      "default": "\"in-view\"",
+      "description": "Controls when the highlight animation starts."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "\"#facc15\"",
+      "description": "The highlight color. Accepts any CSS color value."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "520",
+      "description": "The animation duration in milliseconds."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": "0",
+      "description": "The animation delay in milliseconds."
+    },
+    {
+      "name": "once",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether an in-view highlight should play only once."
     }
   ]
 };

@@ -614,6 +614,43 @@ Object.assign(agentResourceMetadata, {
         "Remove directional content travel while preserving the tooltip label.",
     },
   },
+  "cursor-hover-card": {
+    name: "cursor-hover-card",
+    title: "Cursor Hover Card",
+    category: "components",
+    status: "stable",
+    summary:
+      "A rich preview card that follows above a fine pointer, tilts with horizontal movement, and uses stable trigger positioning for keyboard access.",
+    docsSlug: "cursor-hover-card",
+    keywords: ["hover card", "preview", "cursor", "pointer"],
+    useWhen: [
+      "A link or compact object benefits from optional rich preview information.",
+      "Keeping the preview near the pointer helps preserve the relationship to a broad trigger.",
+    ],
+    avoidWhen: [
+      "The information is essential and should remain visible without interaction.",
+      "The surface is a workflow that should use a popover, menu, or dialog instead.",
+    ],
+    capabilities: [
+      "Pointer-following virtual anchor",
+      "Capped speed-and-direction-aware rotation",
+      "Origin-aware enter and restrained exit motion",
+      "Stable keyboard-focus positioning",
+      "Collision-aware side flipping and shifting",
+      "Consumer-provided trigger and rich content",
+    ],
+    accessibility: [
+      "Uses Base UI Preview Card semantics, focus behavior, dismissal, and hover grace areas.",
+      "Ignores touch pointer tracking and preserves content when reduced motion is requested.",
+    ],
+    motion: {
+      purpose:
+        "Materialize optional preview content from the pointer, keep it spatially connected, and use slight rotation to reflect movement speed and direction.",
+      reducedMotion:
+        "Keep cursor tracking functional while removing smoothing, rotation, and lifecycle animation.",
+    },
+    related: ["fluid-tooltip", "link-preview"],
+  },
   lightbox: {
     name: "lightbox",
     title: "Lightbox",
@@ -805,6 +842,49 @@ Object.assign(agentResourceMetadata, {
     "A card that reveals localized pointer lighting while keeping content and hierarchy stable.",
     ["card", "spotlight", "hover"],
   ),
+  "testimonial-card": {
+    name: "testimonial-card",
+    title: "Testimonial Card",
+    category: "components",
+    status: "stable",
+    summary:
+      "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+    docsSlug: "testimonial-card",
+    keywords: ["testimonial", "quote", "review", "social proof", "customer"],
+    useWhen: [
+      "A customer quote needs an editorial focal point with concise author attribution.",
+      "A social-proof card benefits from a rating, testimonial, and person-level identity.",
+    ],
+    avoidWhen: [
+      "The content should behave as a live social embed with interactions, loading states, or external data.",
+      "A dense repeated grid would make optional hover depth distracting.",
+    ],
+    capabilities: [
+      "Quote-led composition with optional rating and eyebrow",
+      "Semantic article, blockquote, and author attribution structure",
+      "Optional shallow fine-pointer hover depth",
+      "Theme-aware card and media styling",
+    ],
+    accessibility: [
+      "Uses an article landmark and preserves selectable post content.",
+      "Avatar descriptions are supplied by the consumer.",
+      "The displayed star rating has an accessible text equivalent.",
+    ],
+    motion: {
+      purpose:
+        "Make a featured testimonial feel like a shallow physical surface without changing its reading order or layout.",
+      reducedMotion:
+        "Remove pointer-driven rotation and retain the static, readable card surface.",
+    },
+    related: ["spotlight-card", "avatar-showcase", "cursor-hover-card"],
+  },
+  "text-highlight": catalogEntry(
+    "text-highlight",
+    "Text Highlight",
+    "text",
+    "An inline emphasis effect with marker, underline, and block reveal treatments.",
+    ["text", "highlight", "marker", "underline", "emphasis"],
+  ),
   "hold-to-delete-button": catalogEntry(
     "hold-to-delete-button",
     "Hold To Delete Button",
@@ -825,6 +905,27 @@ Object.assign(agentResourceMetadata, {
     "effects",
     "A fan-like arrangement for browsing a small set of layered visual items.",
     ["gallery", "fan", "cards"],
+  ),
+  "radial-card-marquee": catalogEntry(
+    "radial-card-marquee",
+    "Circular Card Marquee",
+    "effects",
+    "A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.",
+    ["marquee", "circular", "orbit", "cards", "carousel"],
+  ),
+  "radial-card-slider": catalogEntry(
+    "radial-card-slider",
+    "Radial Card Slider",
+    "components",
+    "A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.",
+    ["slider", "radial", "cards", "carousel", "gesture"],
+  ),
+  "depth-tiles": catalogEntry(
+    "depth-tiles",
+    "Depth Tiles",
+    "effects",
+    "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.",
+    ["tiles", "depth", "gallery", "carousel", "drag", "autoplay"],
   ),
   "smart-overflow": {
     name: "smart-overflow",

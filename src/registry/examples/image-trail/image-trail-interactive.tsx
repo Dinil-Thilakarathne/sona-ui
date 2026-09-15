@@ -16,7 +16,10 @@ export default function ImageTrailInteractiveExample() {
   const [clicks, setClicks] = useState(0);
 
   return (
-    <ImageTrail images={images} className="h-full w-full">
+    <ImageTrail
+      images={images}
+      className="h-full min-h-[350px] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
           Sweep the cursor to spawn the trail, then click the button or the link

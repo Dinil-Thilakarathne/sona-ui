@@ -1,0 +1,64 @@
+.highlight {
+  --highlight-color: currentColor;
+  --highlight-duration: 520ms;
+  --highlight-delay: 0ms;
+  position: relative;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.marker {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--highlight-color) 28%, transparent),
+    color-mix(in srgb, var(--highlight-color) 28%, transparent)
+  );
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.62em;
+  transition: background-size var(--highlight-duration)
+    cubic-bezier(0.22, 1, 0.36, 1) var(--highlight-delay);
+}
+
+.underline::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  height: 0.12em;
+  content: "";
+  background: var(--highlight-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.block {
+  background: var(--highlight-color);
+  color: var(--highlight-foreground, canvas);
+  clip-path: inset(0 100% 0 0 round 0.12em);
+  transition: clip-path var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.active.marker {
+  background-size: 100% 0.62em;
+}
+
+.active.underline::after {
+  transform: scaleX(1);
+}
+
+.active.block {
+  clip-path: inset(0 0 0 0 round 0.12em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker,
+  .underline::after,
+  .block {
+    transition: none;
+  }
+}

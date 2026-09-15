@@ -134,6 +134,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     type: "Text",
   },
   {
+    name: "Text Highlight",
+    slug: "text-highlight",
+    href: "/docs/text-highlight",
+    type: "Text",
+    tag: "new",
+  },
+  {
     name: "Fluid Tabs",
     slug: "fluid-tabs",
     href: "/docs/fluid-tabs",
@@ -144,6 +151,13 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     slug: "fluid-tooltip",
     href: "/docs/fluid-tooltip",
     type: "Navigation & Disclosure",
+  },
+  {
+    name: "Cursor Hover Card",
+    slug: "cursor-hover-card",
+    href: "/docs/cursor-hover-card",
+    type: "Navigation & Disclosure",
+    tag: "new",
   },
   {
     name: "Fluid Slider",
@@ -208,10 +222,38 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   //   type: "Components",
   // },
   {
+    name: "Depth Tiles",
+    slug: "depth-tiles",
+    href: "/docs/depth-tiles",
+    type: "Motion",
+    tag: "new",
+  },
+  {
+    name: "Testimonial Card",
+    slug: "testimonial-card",
+    href: "/docs/testimonial-card",
+    type: "Components",
+    tag: "new",
+  },
+  {
     name: "Image Trail",
     slug: "image-trail",
     href: "/docs/image-trail",
     type: "Motion",
+  },
+  {
+    name: "Radial Card Slider",
+    slug: "radial-card-slider",
+    href: "/docs/radial-card-slider",
+    type: "Motion",
+    tag: "new",
+  },
+  {
+    name: "Circular Card Marquee",
+    slug: "radial-card-marquee",
+    href: "/docs/radial-card-marquee",
+    type: "Motion",
+    tag: "new",
   },
   // {
   //   name: "Smart Overflow",
@@ -267,8 +309,7 @@ export const groupedComponentsForSidebar = Object.fromEntries(
     .map(([group, items]) => [
       group,
       items.filter(
-        (item) =>
-          item.slug !== "chip" && item.slug !== "assignment-cluster",
+        (item) => item.slug !== "chip" && item.slug !== "assignment-cluster",
       ),
     ])
     .filter(([, items]) => items.length > 0),

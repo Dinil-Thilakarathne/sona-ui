@@ -53,9 +53,11 @@ import AvatarShowcase, {
 } from "@/registry/sonaui/avatar-showcase/avatar-showcase";
 import Button from "@/registry/sonaui/button/button";
 import Chip from "@/registry/sonaui/chip/chip";
-import CodeBlock from "@/registry/sonaui/code-block/code-block";
 import CircularContextMenu from "@/registry/sonaui/circular-context-menu/circular-context-menu";
 import CircularDockMenu from "@/registry/sonaui/circular-dock-menu/circular-dock-menu";
+import CodeBlock from "@/registry/sonaui/code-block/code-block";
+import CursorHoverCard from "@/registry/sonaui/cursor-hover-card/cursor-hover-card";
+import DepthTiles from "@/registry/sonaui/depth-tiles/depth-tiles";
 import DotOrbitShader from "@/registry/sonaui/dot-orbit-shader/dot-orbit-shader";
 import ExpandableTabs from "@/registry/sonaui/expandable-tabs/expandable-tabs";
 import ExpandingAction from "@/registry/sonaui/expanding-action/expanding-action";
@@ -71,6 +73,7 @@ import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
 import Lightbox from "@/registry/sonaui/lightbox/lightbox";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
+import RadialCardMarquee from "@/registry/sonaui/radial-card-marquee/radial-card-marquee";
 import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
 import MorphSurface, {
   type MorphSurfaceOrigin,
@@ -85,6 +88,8 @@ import SmartOverflow, {
 import SpinningText from "@/registry/sonaui/spinning-text/spinning-text";
 import SplitText from "@/registry/sonaui/split-text/split-text";
 import SpotlightCard from "@/registry/sonaui/spotlight-card/spotlight-card";
+import TestimonialCard from "@/registry/sonaui/testimonial-card/testimonial-card";
+import TextHighlight from "@/registry/sonaui/text-highlight/text-highlight";
 
 /**
  * Hand-authored playground registry.
@@ -140,6 +145,39 @@ const playgroundActivity: ActivityGraphDatum[] = Array.from(
   },
 );
 
+const radialCardMarqueeItems = [
+  {
+    label: "Tropical",
+    alt: "Orange tropical drink",
+    image:
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Leaf",
+    alt: "Leaf seen from below",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Dubai",
+    alt: "Dubai street with palm trees",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Yogal",
+    alt: "Bright outdoor scene",
+    image:
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Radial",
+    alt: "Warm architectural detail",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+  },
+];
+
 function getActivityColors(color: string, levels: number) {
   const count = Math.min(6, Math.max(1, Math.round(levels)));
   return Array.from({ length: count }, (_, index) => {
@@ -160,6 +198,68 @@ const playgroundAvatars: AvatarShowcaseItem[] = Array.from(
 );
 
 export const playgroundRegistry: Record<string, PlaygroundEntry> = {
+  "depth-tiles": {
+    controls: [
+      {
+        type: "toggle",
+        prop: "autoplay",
+        label: "Autoplay",
+        default: true,
+      },
+      {
+        type: "slider",
+        prop: "interval",
+        label: "Autoplay interval (ms)",
+        min: 1200,
+        max: 6000,
+        step: 200,
+        default: 3200,
+      },
+      {
+        type: "toggle",
+        prop: "pauseOnHover",
+        label: "Pause on hover",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "draggable",
+        label: "Drag and swipe",
+        default: true,
+      },
+    ],
+    render: (v) => (
+      <DepthTiles
+        items={[
+          {
+            id: "doodle",
+            image:
+              "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+            alt: "Green leaf with soft natural light",
+            label: "320 / Doodle",
+          },
+          {
+            id: "edges",
+            image:
+              "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+            alt: "Abstract architectural texture",
+            label: "902 / Edges",
+          },
+          {
+            id: "material",
+            image:
+              "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+            alt: "Soft green landscape",
+            label: "114 / Material",
+          },
+        ]}
+        autoplay={v.autoplay as boolean}
+        interval={v.interval as number}
+        pauseOnHover={v.pauseOnHover as boolean}
+        draggable={v.draggable as boolean}
+      />
+    ),
+  },
   chip: {
     controls: [
       {
@@ -350,7 +450,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           { label: "Bottom", value: "bottom" },
           { label: "Left", value: "left" },
         ],
-        default: "right",
+        default: "top",
       },
     ],
     render: (v) => (
@@ -633,7 +733,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           { label: "Right", value: "right" },
           { label: "Left", value: "left" },
         ],
-        default: "right",
+        default: "top",
       },
     ],
     render: (v) => (
@@ -823,6 +923,96 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         </FluidTooltip.Group>
       );
     },
+  },
+  "cursor-hover-card": {
+    controls: [
+      {
+        type: "select",
+        prop: "side",
+        label: "Preferred side",
+        options: [
+          { label: "Right", value: "right" },
+          { label: "Left", value: "left" },
+          { label: "Top", value: "top" },
+          { label: "Bottom", value: "bottom" },
+        ],
+        default: "right",
+      },
+      {
+        type: "slider",
+        prop: "cursorOffset",
+        label: "Cursor offset (px)",
+        min: 4,
+        max: 32,
+        step: 2,
+        default: 14,
+      },
+      {
+        type: "slider",
+        prop: "openDelay",
+        label: "Open delay (ms)",
+        min: 0,
+        max: 800,
+        step: 50,
+        default: 300,
+      },
+      {
+        type: "slider",
+        prop: "maxRotation",
+        label: "Maximum rotation (deg)",
+        min: 0,
+        max: 8,
+        step: 0.5,
+        default: 3,
+      },
+      {
+        type: "select",
+        prop: "reducedMotion",
+        label: "Reduced motion",
+        options: [
+          { label: "Follow system", value: "user" },
+          { label: "Always", value: "always" },
+          { label: "Never", value: "never" },
+        ],
+        default: "user",
+      },
+    ],
+    render: (v) => (
+      <CursorHoverCard.Root
+        reducedMotion={v.reducedMotion as "user" | "always" | "never"}
+      >
+        <CursorHoverCard.Trigger openDelay={v.openDelay as number}>
+          <a
+            href="https://github.com/Dinil-Thilakarathne"
+            className="flex items-center gap-3 rounded-xl px-3 py-2 outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            <span className="grid size-9 place-items-center rounded-full bg-foreground font-semibold text-background text-sm">
+              DT
+            </span>
+            <span>
+              <span className="block font-medium text-sm">
+                Dinil Thilakarathne
+              </span>
+              <span className="block text-muted-foreground text-xs">
+                Design engineer
+              </span>
+            </span>
+          </a>
+        </CursorHoverCard.Trigger>
+        <CursorHoverCard.Content
+          side={v.side as "top" | "right" | "bottom" | "left"}
+          cursorOffset={v.cursorOffset as number}
+          maxRotation={v.maxRotation as number}
+          className="w-72 p-4"
+        >
+          <p className="font-semibold text-sm">Dinil Thilakarathne</p>
+          <p className="mt-1 text-muted-foreground text-sm leading-relaxed">
+            Building clear, expressive interfaces where interaction and motion
+            improve understanding.
+          </p>
+        </CursorHoverCard.Content>
+      </CursorHoverCard.Root>
+    ),
   },
   accordion: {
     controls: [
@@ -1377,7 +1567,12 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
 
   "code-block": {
     controls: [
-      { type: "toggle", prop: "showLineNumbers", label: "Line numbers", default: true },
+      {
+        type: "toggle",
+        prop: "showLineNumbers",
+        label: "Line numbers",
+        default: true,
+      },
     ],
     render: (v) => (
       <CodeBlock
@@ -1426,6 +1621,92 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           Move your cursor across the card to reveal the spotlight.
         </p>
       </SpotlightCard>
+    ),
+  },
+  "testimonial-card": {
+    controls: [
+      {
+        type: "select",
+        prop: "depth",
+        label: "Hover depth",
+        options: [
+          { label: "None", value: "none" },
+          { label: "Subtle", value: "subtle" },
+        ],
+        default: "none",
+      },
+      {
+        type: "toggle",
+        prop: "showEyebrow",
+        label: "Show eyebrow",
+        default: true,
+      },
+      {
+        type: "slider",
+        prop: "rating",
+        label: "Rating",
+        min: 0,
+        max: 5,
+        step: 1,
+        default: 5,
+      },
+    ],
+    render: (v) => (
+      <TestimonialCard
+        authorName="Avery Chen"
+        authorMeta="Product Designer, Linear"
+        avatarAlt="Avery Chen"
+        eyebrow={v.showEyebrow ? "Customer story" : undefined}
+        rating={v.rating as number}
+        depth={v.depth as "none" | "subtle"}
+      >
+        Sona UI gave us a thoughtful baseline without making the product feel
+        assembled from generic parts.
+      </TestimonialCard>
+    ),
+  },
+  "text-highlight": {
+    controls: [
+      {
+        type: "select",
+        prop: "variant",
+        label: "Variant",
+        options: [
+          { label: "Marker", value: "marker" },
+          { label: "Underline", value: "underline" },
+          { label: "Block", value: "block" },
+        ],
+        default: "marker",
+      },
+      {
+        type: "select",
+        prop: "trigger",
+        label: "Trigger",
+        options: [
+          { label: "In view", value: "in-view" },
+          { label: "Immediate", value: "immediate" },
+        ],
+        default: "in-view",
+      },
+      {
+        type: "color",
+        prop: "color",
+        label: "Color",
+        default: "#facc15",
+      },
+    ],
+    render: (v) => (
+      <p className="max-w-sm text-center text-2xl font-medium leading-tight">
+        Details should{" "}
+        <TextHighlight
+          variant={v.variant as "marker" | "underline" | "block"}
+          trigger={v.trigger as "immediate" | "in-view"}
+          color={v.color as string}
+        >
+          feel obvious
+        </TextHighlight>
+        .
+      </p>
     ),
   },
 
@@ -1689,6 +1970,50 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           ))}
         </div>
       </Marquee>
+    ),
+  },
+  "radial-card-marquee": {
+    controls: [
+      {
+        type: "slider",
+        prop: "speed",
+        label: "Orbit speed (cards/s)",
+        min: 0,
+        max: 0.5,
+        step: 0.01,
+        default: 0.2,
+      },
+      {
+        type: "select",
+        prop: "direction",
+        label: "Direction",
+        options: [
+          { label: "Forward", value: "forward" },
+          { label: "Reverse", value: "reverse" },
+        ],
+        default: "forward",
+      },
+      {
+        type: "toggle",
+        prop: "pauseOnHover",
+        label: "Pause on hover",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "paused",
+        label: "Pause orbit",
+        default: false,
+      },
+    ],
+    render: (v) => (
+      <RadialCardMarquee
+        items={radialCardMarqueeItems}
+        speed={v.speed as number}
+        direction={v.direction as "forward" | "reverse"}
+        pauseOnHover={v.pauseOnHover as boolean}
+        paused={v.paused as boolean}
+      />
     ),
   },
   "swipe-action-row": {

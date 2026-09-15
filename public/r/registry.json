@@ -338,6 +338,27 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "cursor-hover-card",
+      "type": "registry:ui",
+      "title": "Cursor Hover Card",
+      "description": "A rich Base UI preview card that follows above the pointer, tilts with movement speed and direction, and returns to stable trigger positioning for keyboard users.",
+      "files": [
+        {
+          "path": "registry/sonaui/cursor-hover-card/cursor-hover-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/cursor-hover-card/cursor-hover-card.tsx"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "fluid-slider",
       "type": "registry:ui",
       "title": "Fluid Slider",
@@ -805,6 +826,50 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "testimonial-card",
+      "type": "registry:ui",
+      "title": "Testimonial Card",
+      "description": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+      "files": [
+        {
+          "path": "registry/sonaui/testimonial-card/testimonial-card.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/testimonial-card/testimonial-card.tsx"
+        }
+      ],
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "text-highlight",
+      "type": "registry:ui",
+      "title": "Text Highlight",
+      "description": "An inline emphasis effect with marker, underline, and block reveal treatments.",
+      "files": [
+        {
+          "path": "registry/sonaui/text-highlight/text-highlight.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/text-highlight/text-highlight.tsx"
+        },
+        {
+          "path": "registry/sonaui/text-highlight/text-highlight.module.css",
+          "type": "registry:ui",
+          "target": "components/ui/text-highlight/text-highlight.module.css"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": []
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
       "name": "code-block",
       "type": "registry:ui",
       "title": "Code Block",
@@ -964,6 +1029,66 @@
       ],
       "dependencies": [
         "@ncdai/react-swipe-actions",
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radial-card-marquee",
+      "type": "registry:ui",
+      "title": "Circular Card Marquee",
+      "description": "A continuous responsive card marquee that orbits cards around a circular path with configurable speed, direction, controlled pause, and hover pause.",
+      "files": [
+        {
+          "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radial-card-marquee/radial-card-marquee.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "radial-card-slider",
+      "type": "registry:ui",
+      "title": "Radial Card Slider",
+      "description": "A responsive card carousel arranged on a radial arc with pointer drag, wheel movement, and keyboard navigation.",
+      "files": [
+        {
+          "path": "registry/sonaui/radial-card-slider/radial-card-slider.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/radial-card-slider/radial-card-slider.tsx"
+        }
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "@sona-ui/sona-utils"
+      ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "depth-tiles",
+      "type": "registry:ui",
+      "title": "Depth Tiles",
+      "description": "An infinite layered tile stack with autoplay, depth transitions, and horizontal drag navigation.",
+      "files": [
+        {
+          "path": "registry/sonaui/depth-tiles/depth-tiles.tsx",
+          "type": "registry:ui",
+          "target": "components/ui/depth-tiles/depth-tiles.tsx"
+        }
+      ],
+      "dependencies": [
         "motion"
       ],
       "registryDependencies": [

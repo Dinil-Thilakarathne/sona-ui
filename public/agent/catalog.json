@@ -425,6 +425,26 @@
       ]
     },
     {
+      "name": "cursor-hover-card",
+      "title": "Cursor Hover Card",
+      "category": "components",
+      "status": "stable",
+      "summary": "A rich preview card that follows above a fine pointer, tilts with horizontal movement, and uses stable trigger positioning for keyboard access.",
+      "keywords": [
+        "hover card",
+        "preview",
+        "cursor",
+        "pointer"
+      ],
+      "docs": "https://sonaui.com/docs/cursor-hover-card",
+      "registryItem": "https://sonaui.com/r/cursor-hover-card.json",
+      "detail": "https://sonaui.com/agent/components/cursor-hover-card.json",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ]
+    },
+    {
       "name": "lightbox",
       "title": "Lightbox",
       "category": "components",
@@ -709,6 +729,47 @@
       ]
     },
     {
+      "name": "testimonial-card",
+      "title": "Testimonial Card",
+      "category": "components",
+      "status": "stable",
+      "summary": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+      "keywords": [
+        "testimonial",
+        "quote",
+        "review",
+        "social proof",
+        "customer"
+      ],
+      "docs": "https://sonaui.com/docs/testimonial-card",
+      "registryItem": "https://sonaui.com/r/testimonial-card.json",
+      "detail": "https://sonaui.com/agent/components/testimonial-card.json",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ]
+    },
+    {
+      "name": "text-highlight",
+      "title": "Text Highlight",
+      "category": "text",
+      "status": "stable",
+      "summary": "An inline emphasis effect with marker, underline, and block reveal treatments.",
+      "keywords": [
+        "text",
+        "highlight",
+        "marker",
+        "underline",
+        "emphasis"
+      ],
+      "docs": "https://sonaui.com/docs/text-highlight",
+      "registryItem": "https://sonaui.com/r/text-highlight.json",
+      "detail": "https://sonaui.com/agent/components/text-highlight.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
       "name": "hold-to-delete-button",
       "title": "Hold To Delete Button",
       "category": "components",
@@ -760,6 +821,67 @@
       "docs": "https://sonaui.com/docs/fan-view",
       "registryItem": "https://sonaui.com/r/fan-view.json",
       "detail": "https://sonaui.com/agent/components/fan-view.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "radial-card-marquee",
+      "title": "Circular Card Marquee",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.",
+      "keywords": [
+        "marquee",
+        "circular",
+        "orbit",
+        "cards",
+        "carousel"
+      ],
+      "docs": "https://sonaui.com/docs/radial-card-marquee",
+      "registryItem": "https://sonaui.com/r/radial-card-marquee.json",
+      "detail": "https://sonaui.com/agent/components/radial-card-marquee.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "radial-card-slider",
+      "title": "Radial Card Slider",
+      "category": "components",
+      "status": "stable",
+      "summary": "A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.",
+      "keywords": [
+        "slider",
+        "radial",
+        "cards",
+        "carousel",
+        "gesture"
+      ],
+      "docs": "https://sonaui.com/docs/radial-card-slider",
+      "registryItem": "https://sonaui.com/r/radial-card-slider.json",
+      "detail": "https://sonaui.com/agent/components/radial-card-slider.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "depth-tiles",
+      "title": "Depth Tiles",
+      "category": "effects",
+      "status": "stable",
+      "summary": "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.",
+      "keywords": [
+        "tiles",
+        "depth",
+        "gallery",
+        "carousel",
+        "drag",
+        "autoplay"
+      ],
+      "docs": "https://sonaui.com/docs/depth-tiles",
+      "registryItem": "https://sonaui.com/r/depth-tiles.json",
+      "detail": "https://sonaui.com/agent/components/depth-tiles.json",
       "dependencies": [
         "motion"
       ]

@@ -11,6 +11,8 @@ import image_trail_image_trail_interactive from "@/registry/examples/image-trail
 import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
 import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
 import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import testimonial_card_testimonial_card_demo from "@/registry/examples/testimonial-card/testimonial-card-demo";
+import text_highlight_text_highlight_demo from "@/registry/examples/text-highlight/text-highlight-demo";
 import code_block_code_block_demo from "@/registry/examples/code-block/code-block-demo";
 import code_block_code_block_diff from "@/registry/examples/code-block/code-block-diff";
 import code_block_code_block_highlight from "@/registry/examples/code-block/code-block-highlight";
@@ -46,7 +48,9 @@ import smart_overflow_smart_overflow_demo from "@/registry/examples/smart-overfl
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
 import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
 import button_button_demo from "@/registry/examples/button/button-demo";
+import radial_card_marquee_radial_card_marquee_demo from "@/registry/examples/radial-card-marquee/radial-card-marquee-demo";
 import assignment_cluster_assignment_cluster_demo from "@/registry/examples/assignment-cluster/assignment-cluster-demo";
+import depth_tiles_depth_tiles_demo from "@/registry/examples/depth-tiles/depth-tiles-demo";
 import fluid_slider_fluid_slider_demo from "@/registry/examples/fluid-slider/fluid-slider-demo";
 import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
 import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
@@ -63,11 +67,13 @@ import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/example
 import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
 import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
+import radial_card_slider_radial_card_slider_demo from "@/registry/examples/radial-card-slider/radial-card-slider-demo";
 import swipe_action_row_swipe_action_row_demo from "@/registry/examples/swipe-action-row/swipe-action-row-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
 import avatar_showcase_avatar_showcase_demo from "@/registry/examples/avatar-showcase/avatar-showcase-demo";
 import floating_viewer_floating_viewer_demo from "@/registry/examples/floating-viewer/floating-viewer-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
+import cursor_hover_card_cursor_hover_card_demo from "@/registry/examples/cursor-hover-card/cursor-hover-card-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -1744,6 +1750,68 @@ export default function ImageTrailTiltExample() {
         </h3>
       </div>
     </ImageTrail>
+  );
+}`,
+    }
+  ],
+  "testimonial-card": [
+    {
+      name: "default",
+      component: testimonial_card_testimonial_card_demo,
+      code: `import TestimonialCard from "@/components/ui/testimonial-card/testimonial-card";
+
+export default function TestimonialCardDemo() {
+  return (
+    <TestimonialCard
+      authorName="Avery Chen"
+      authorMeta="Product Designer, Linear"
+      avatarAlt="Avery Chen"
+      eyebrow="Customer story"
+    >
+      Sona UI gave us a thoughtful baseline without making the product feel
+      assembled from generic parts.
+    </TestimonialCard>
+  );
+}
+`,
+      imports: `import TestimonialCard from "@/components/ui/testimonial-card/testimonial-card";`,
+      anatomy: `export default function TestimonialCardDemo() {
+  return (
+    <TestimonialCard
+      authorName="Avery Chen"
+      authorMeta="Product Designer, Linear"
+      avatarAlt="Avery Chen"
+      eyebrow="Customer story"
+    >
+      Sona UI gave us a thoughtful baseline without making the product feel
+      assembled from generic parts.
+    </TestimonialCard>
+  );
+}`,
+    }
+  ],
+  "text-highlight": [
+    {
+      name: "default",
+      component: text_highlight_text_highlight_demo,
+      code: `import TextHighlight from "@/components/ui/text-highlight/text-highlight";
+
+export default function TextHighlightDemo() {
+  return (
+    <p className="max-w-xl text-center text-3xl font-medium leading-tight tracking-tight">
+      Good interfaces make the important details{" "}
+      <TextHighlight>feel obvious</TextHighlight>.
+    </p>
+  );
+}
+`,
+      imports: `import TextHighlight from "@/components/ui/text-highlight/text-highlight";`,
+      anatomy: `export default function TextHighlightDemo() {
+  return (
+    <p className="max-w-xl text-center text-3xl font-medium leading-tight tracking-tight">
+      Good interfaces make the important details{" "}
+      <TextHighlight>feel obvious</TextHighlight>.
+    </p>
   );
 }`,
     }
@@ -4220,6 +4288,88 @@ import Button from "@/components/ui/button/button";`,
 }`,
     }
   ],
+  "radial-card-marquee": [
+    {
+      name: "default",
+      component: radial_card_marquee_radial_card_marquee_demo,
+      code: `import RadialCardMarquee from "@/components/ui/radial-card-marquee/radial-card-marquee";
+
+const items = [
+  {
+    label: "Tropical",
+    alt: "Orange tropical drink",
+    image:
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Leaf",
+    alt: "Leaf seen from below",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Dubai",
+    alt: "Dubai street with palm trees",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Yogal",
+    alt: "Bright outdoor scene",
+    image:
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Radial",
+    alt: "Warm architectural detail",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+  },
+];
+
+export default function RadialCardMarqueeDemo() {
+  return <RadialCardMarquee items={items} speed={0.2} />;
+}
+`,
+      imports: `import RadialCardMarquee from "@/components/ui/radial-card-marquee/radial-card-marquee";`,
+      anatomy: `const items = [
+  {
+    label: "Tropical",
+    alt: "Orange tropical drink",
+    image:
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Leaf",
+    alt: "Leaf seen from below",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Dubai",
+    alt: "Dubai street with palm trees",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Yogal",
+    alt: "Bright outdoor scene",
+    image:
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Radial",
+    alt: "Warm architectural detail",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+  },
+];
+
+export default function RadialCardMarqueeDemo() {
+  return <RadialCardMarquee items={items} speed={0.2} />;
+}`,
+    }
+  ],
   "assignment-cluster": [
     {
       name: "default",
@@ -4255,6 +4405,70 @@ const people = [
 export default function AssignmentClusterDemo() {
   const [value, setValue] = useState(["1", "2"]);
   return <AssignmentCluster items={people} value={value} onChange={setValue} />;
+}`,
+    }
+  ],
+  "depth-tiles": [
+    {
+      name: "default",
+      component: depth_tiles_depth_tiles_demo,
+      code: `import DepthTiles from "@/components/ui/depth-tiles/depth-tiles";
+
+const items = [
+  {
+    id: "doodle",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+    alt: "Green leaf with soft natural light",
+    label: "320 / Doodle",
+  },
+  {
+    id: "edges",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+    alt: "Abstract architectural texture",
+    label: "902 / Edges",
+  },
+  {
+    id: "material",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    alt: "Soft green landscape",
+    label: "114 / Material",
+  },
+];
+
+export default function DepthTilesDemo() {
+  return <DepthTiles items={items} />;
+}
+`,
+      imports: `import DepthTiles from "@/components/ui/depth-tiles/depth-tiles";`,
+      anatomy: `const items = [
+  {
+    id: "doodle",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+    alt: "Green leaf with soft natural light",
+    label: "320 / Doodle",
+  },
+  {
+    id: "edges",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+    alt: "Abstract architectural texture",
+    label: "902 / Edges",
+  },
+  {
+    id: "material",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    alt: "Soft green landscape",
+    label: "114 / Material",
+  },
+];
+
+export default function DepthTilesDemo() {
+  return <DepthTiles items={items} />;
 }`,
     }
   ],
@@ -5124,6 +5338,38 @@ export default function LinkPreviewExample() {
 }`,
     }
   ],
+  "radial-card-slider": [
+    {
+      name: "default",
+      component: radial_card_slider_radial_card_slider_demo,
+      code: `import RadialCardSlider from "@/components/ui/radial-card-slider/radial-card-slider";
+
+const items = [
+  { label: "Tropical", alt: "Orange tropical drink", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Leaf", alt: "Leaf seen from below", image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Dubai", alt: "Dubai street with palm trees", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" },
+  { label: "Yogal", alt: "Bright outdoor scene", image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85" },
+  { label: "Radial", alt: "Warm architectural detail", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" },
+];
+
+export default function RadialCardSliderDemo() {
+  return <RadialCardSlider items={items} />;
+}
+`,
+      imports: `import RadialCardSlider from "@/components/ui/radial-card-slider/radial-card-slider";`,
+      anatomy: `const items = [
+  { label: "Tropical", alt: "Orange tropical drink", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Leaf", alt: "Leaf seen from below", image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Dubai", alt: "Dubai street with palm trees", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" },
+  { label: "Yogal", alt: "Bright outdoor scene", image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85" },
+  { label: "Radial", alt: "Warm architectural detail", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" },
+];
+
+export default function RadialCardSliderDemo() {
+  return <RadialCardSlider items={items} />;
+}`,
+    }
+  ],
   "swipe-action-row": [
     {
       name: "default",
@@ -5679,6 +5925,102 @@ export default function HoldToDeleteButtonDemo() {
   );
 }`,
     }
+  ],
+  "cursor-hover-card": [
+    {
+      name: "default",
+      component: cursor_hover_card_cursor_hover_card_demo,
+      code: `import { ArrowUpRight } from "lucide-react";
+
+import CursorHoverCard from "@/components/ui/cursor-hover-card/cursor-hover-card";
+
+export default function CursorHoverCardDemo() {
+  return (
+    <CursorHoverCard.Root>
+      <CursorHoverCard.Trigger>
+        <a
+          href="https://github.com/Dinil-Thilakarathne"
+          className="group flex items-center gap-3 rounded-xl px-3 py-2 outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="grid size-9 place-items-center rounded-full bg-foreground font-semibold text-background text-sm">
+            DT
+          </span>
+          <span>
+            <span className="block font-medium text-sm">
+              Dinil Thilakarathne
+            </span>
+            <span className="block text-muted-foreground text-xs">
+              Design engineer
+            </span>
+          </span>
+          <ArrowUpRight className="ml-3 size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+        </a>
+      </CursorHoverCard.Trigger>
+
+      <CursorHoverCard.Content className="w-72 p-4">
+        <div className="flex items-start gap-3">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-foreground font-semibold text-background">
+            DT
+          </span>
+          <div>
+            <p className="font-semibold text-sm">Dinil Thilakarathne</p>
+            <p className="text-muted-foreground text-xs">@dinilthilakarathne</p>
+          </div>
+        </div>
+        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+          Building clear, expressive interfaces where interaction and motion
+          improve understanding.
+        </p>
+      </CursorHoverCard.Content>
+    </CursorHoverCard.Root>
+  );
+}
+`,
+      imports: `import { ArrowUpRight } from "lucide-react";
+
+import CursorHoverCard from "@/components/ui/cursor-hover-card/cursor-hover-card";`,
+      anatomy: `export default function CursorHoverCardDemo() {
+  return (
+    <CursorHoverCard.Root>
+      <CursorHoverCard.Trigger>
+        <a
+          href="https://github.com/Dinil-Thilakarathne"
+          className="group flex items-center gap-3 rounded-xl px-3 py-2 outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="grid size-9 place-items-center rounded-full bg-foreground font-semibold text-background text-sm">
+            DT
+          </span>
+          <span>
+            <span className="block font-medium text-sm">
+              Dinil Thilakarathne
+            </span>
+            <span className="block text-muted-foreground text-xs">
+              Design engineer
+            </span>
+          </span>
+          <ArrowUpRight className="ml-3 size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+        </a>
+      </CursorHoverCard.Trigger>
+
+      <CursorHoverCard.Content className="w-72 p-4">
+        <div className="flex items-start gap-3">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-foreground font-semibold text-background">
+            DT
+          </span>
+          <div>
+            <p className="font-semibold text-sm">Dinil Thilakarathne</p>
+            <p className="text-muted-foreground text-xs">@dinilthilakarathne</p>
+          </div>
+        </div>
+        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+          Building clear, expressive interfaces where interaction and motion
+          improve understanding.
+        </p>
+      </CursorHoverCard.Content>
+    </CursorHoverCard.Root>
+  );
+}`,
+    }
   ]
 };
 
@@ -5713,8 +6055,6 @@ import {
 } from "react";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
-
-const MotionMenuPopup = motion.create(Menu.Popup);
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -5915,13 +6255,7 @@ export function AnimatedDropdownContent({
         sideOffset={sideOffset}
         className="z-50"
       >
-        <MotionMenuPopup
-          layout={!shouldReduceMotion}
-          transition={
-            shouldReduceMotion
-              ? { duration: 0 }
-              : { layout: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } }
-          }
+        <Menu.Popup
           className={cn(
             // Layout
             "z-50 min-w-[160px] rounded-xl p-1",
@@ -5940,7 +6274,7 @@ export function AnimatedDropdownContent({
           )}
         >
           {children}
-        </MotionMenuPopup>
+        </Menu.Popup>
       </Menu.Positioner>
     </Menu.Portal>
   );
@@ -7250,6 +7584,194 @@ export default function ImageTrail({
       target: "components/sonaui/image-trail/image-trail.tsx"
     }
   ],
+  "testimonial-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Quote, Star } from "lucide-react";
+import {
+  motion,
+  useMotionValue,
+  useMotionTemplate,
+  useReducedMotion,
+  useSpring,
+} from "motion/react";
+import { type HTMLAttributes, type ReactNode } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+const TILT_SPRING = { stiffness: 320, damping: 28, mass: 0.45 };
+
+/** The optional pointer-driven depth treatment. */
+export type TestimonialCardDepth = "none" | "subtle";
+
+export interface TestimonialCardProps extends HTMLAttributes<HTMLElement> {
+  /** The testimonial quote. */
+  children: ReactNode;
+  /** Name of the person giving the testimonial. */
+  authorName: string;
+  /** The person's role, company, or both. @default undefined */
+  authorMeta?: string;
+  /** Accessible description for the author avatar. */
+  avatarAlt: string;
+  /** URL of the author avatar. @default undefined */
+  avatarUrl?: string;
+  /** Rating shown above the quote, from 0 to 5. @default 5 */
+  rating?: number;
+  /** Optional label placed above the rating. @default undefined */
+  eyebrow?: string;
+  /** Enables shallow, fine-pointer hover depth. @default "none" */
+  depth?: TestimonialCardDepth;
+}
+
+function Rating({ rating }: { rating: number }) {
+  const roundedRating = Math.max(0, Math.min(5, Math.round(rating)));
+
+  return (
+    <div aria-label={\`\${roundedRating} out of 5 stars\`} className="flex gap-1">
+      {Array.from({ length: 5 }, (_, index) => (
+        <Star
+          key={index}
+          aria-hidden="true"
+          className={cn(
+            "size-3.5",
+            index < roundedRating
+              ? "fill-foreground text-foreground"
+              : "fill-transparent text-muted-foreground/30",
+          )}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function TestimonialCard({
+  children,
+  authorName,
+  authorMeta,
+  avatarAlt,
+  avatarUrl,
+  rating = 5,
+  eyebrow,
+  depth = "none",
+  className,
+  style,
+  onPointerMove,
+  onPointerLeave,
+  ...props
+}: TestimonialCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const rotateX = useSpring(tiltX, TILT_SPRING);
+  const rotateY = useSpring(tiltY, TILT_SPRING);
+  const highlightX = useMotionValue("50%");
+  const highlightY = useMotionValue("50%");
+  const highlight = useMotionTemplate\`radial-gradient(460px circle at \${highlightX} \${highlightY}, color-mix(in oklab, var(--foreground) 7%, transparent), transparent 64%)\`;
+  const isDepthEnabled = depth === "subtle" && !shouldReduceMotion;
+
+  const resetDepth = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
+  return (
+    <motion.div
+      className="w-full [perspective:900px]"
+      style={isDepthEnabled ? { rotateX, rotateY } : undefined}
+    >
+      <article
+        {...props}
+        onPointerMove={(event) => {
+          onPointerMove?.(event);
+          if (
+            event.defaultPrevented ||
+            !isDepthEnabled ||
+            event.pointerType !== "mouse"
+          )
+            return;
+
+          const rect = event.currentTarget.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          tiltX.set(y * -3);
+          tiltY.set(x * 3);
+          highlightX.set(\`\${(x + 0.5) * 100}%\`);
+          highlightY.set(\`\${(y + 0.5) * 100}%\`);
+        }}
+        onPointerLeave={(event) => {
+          resetDepth();
+          onPointerLeave?.(event);
+        }}
+        style={style}
+        className={cn(
+          "group relative w-full max-w-xl overflow-hidden rounded-3xl bg-card p-7 text-card-foreground [transform-style:preserve-3d]",
+          isDepthEnabled
+            ? "smooth-shadow-ring-lg hover:smooth-shadow-ring-xl"
+            : "smooth-shadow-ring-sm",
+          className,
+        )}
+      >
+        {isDepthEnabled && (
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            style={{ background: highlight }}
+          />
+        )}
+        <div className="relative">
+          <div className="flex items-start justify-between gap-6">
+            <div className="space-y-3">
+              {eyebrow && (
+                <p className="font-medium text-muted-foreground text-xs uppercase tracking-[0.16em]">
+                  {eyebrow}
+                </p>
+              )}
+              <Rating rating={rating} />
+            </div>
+            <Quote
+              aria-hidden="true"
+              className="size-7 shrink-0 text-muted-foreground/35"
+            />
+          </div>
+          <blockquote className="mt-8 font-medium text-2xl leading-[1.35] tracking-[-0.025em] sm:text-3xl">
+            “{children}”
+          </blockquote>
+          <footer className="mt-8 flex items-center gap-3">
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt={avatarAlt}
+                className="size-10 shrink-0 rounded-full object-cover"
+              />
+            ) : (
+              <div
+                aria-label={avatarAlt}
+                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted font-medium text-muted-foreground text-sm"
+              >
+                {authorName.slice(0, 1)}
+              </div>
+            )}
+            <div className="min-w-0">
+              <p className="truncate font-medium text-sm">{authorName}</p>
+              {authorMeta && (
+                <p className="truncate text-muted-foreground text-sm">
+                  {authorMeta}
+                </p>
+              )}
+            </div>
+          </footer>
+        </div>
+      </article>
+    </motion.div>
+  );
+}
+`,
+      path: "testimonial-card/testimonial-card.tsx",
+      target: "components/sonaui/testimonial-card/testimonial-card.tsx"
+    }
+  ],
   "sona-utils": [
     {
       type: "registry:ui",
@@ -7263,6 +7785,166 @@ export function cn(...inputs: ClassValue[]) {
 `,
       path: "sona-utils/sona-utils.ts",
       target: "components/sonaui/sona-utils/sona-utils.ts"
+    }
+  ],
+  "text-highlight": [
+    {
+      type: "registry:file",
+      content: `.highlight {
+  --highlight-color: currentColor;
+  --highlight-duration: 520ms;
+  --highlight-delay: 0ms;
+  position: relative;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.marker {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--highlight-color) 28%, transparent),
+    color-mix(in srgb, var(--highlight-color) 28%, transparent)
+  );
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.62em;
+  transition: background-size var(--highlight-duration)
+    cubic-bezier(0.22, 1, 0.36, 1) var(--highlight-delay);
+}
+
+.underline::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  height: 0.12em;
+  content: "";
+  background: var(--highlight-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.block {
+  background: var(--highlight-color);
+  color: var(--highlight-foreground, canvas);
+  clip-path: inset(0 100% 0 0 round 0.12em);
+  transition: clip-path var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.active.marker {
+  background-size: 100% 0.62em;
+}
+
+.active.underline::after {
+  transform: scaleX(1);
+}
+
+.active.block {
+  clip-path: inset(0 0 0 0 round 0.12em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker,
+  .underline::after,
+  .block {
+    transition: none;
+  }
+}
+`,
+      path: "text-highlight/text-highlight.module.css",
+      target: "components/sonaui/text-highlight/text-highlight.module.css"
+    },
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useInView, useReducedMotion } from "motion/react";
+import { type ReactNode, useRef } from "react";
+
+import styles from "./text-highlight.module.css";
+
+export type TextHighlightVariant = "marker" | "underline" | "block";
+export type TextHighlightTrigger = "immediate" | "in-view";
+
+export interface TextHighlightProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
+  /** The text or inline content to emphasize. */
+  children: ReactNode;
+  /** The visual treatment used for the highlight.
+   * @default "marker"
+   */
+  variant?: TextHighlightVariant;
+  /** Controls when the highlight animation starts.
+   * @default "in-view"
+   */
+  trigger?: TextHighlightTrigger;
+  /** The highlight color. Accepts any CSS color value.
+   * @default "#facc15"
+   */
+  color?: string;
+  /** The animation duration in milliseconds.
+   * @default 520
+   */
+  duration?: number;
+  /** The animation delay in milliseconds.
+   * @default 0
+   */
+  delay?: number;
+  /** Whether an in-view highlight should play only once.
+   * @default true
+   */
+  once?: boolean;
+}
+
+export default function TextHighlight({
+  children,
+  className,
+  variant = "marker",
+  trigger = "in-view",
+  color = "#facc15",
+  duration = 520,
+  delay = 0,
+  once = true,
+  style,
+  ...props
+}: TextHighlightProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once, amount: 0.65 });
+  const shouldReduceMotion = useReducedMotion();
+  const active = shouldReduceMotion || trigger === "immediate" || inView;
+
+  return (
+    <span
+      ref={ref}
+      className={[
+        styles.highlight,
+        styles[variant],
+        active && styles.active,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={
+        {
+          ...style,
+          "--highlight-color": color,
+          "--highlight-duration": \`\${duration}ms\`,
+          "--highlight-delay": \`\${delay}ms\`,
+        } as React.CSSProperties
+      }
+      {...props}
+    >
+      {children}
+    </span>
+  );
+}
+`,
+      path: "text-highlight/text-highlight.tsx",
+      target: "components/sonaui/text-highlight/text-highlight.tsx"
     }
   ],
   "code-block": [
@@ -12902,6 +13584,259 @@ export default Button;
       target: "components/sonaui/button/button.tsx"
     }
   ],
+  "radial-card-marquee": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  type MotionValue,
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import { type PointerEvent, useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface RadialCardMarqueeItem {
+  /** Stable identifier used when labels or images repeat. */
+  id?: string;
+  /** The image URL shown by the card. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Label shown beneath the image. */
+  label: string;
+}
+
+export interface RadialCardMarqueeProps {
+  /** Cards distributed evenly around the circular path. @default [] */
+  items: RadialCardMarqueeItem[];
+  /** Travel speed measured in card positions per second. @default 0.12 */
+  speed?: number;
+  /** Direction of continuous travel. @default "forward" */
+  direction?: "forward" | "reverse";
+  /** Pause movement while the pointer is over or pressing the marquee. @default true */
+  pauseOnHover?: boolean;
+  /** Pause movement through controlled application state. @default false */
+  paused?: boolean;
+  /** Additional classes for the marquee root. @default undefined */
+  className?: string;
+}
+
+const FULL_TURN = Math.PI * 2;
+
+function OrbitCard({
+  item,
+  index,
+  itemCount,
+  phase,
+  cardWidth,
+  cardHeight,
+  radiusX,
+  radiusY,
+}: {
+  item: RadialCardMarqueeItem;
+  index: number;
+  itemCount: number;
+  phase: MotionValue<number>;
+  cardWidth: number;
+  cardHeight: number;
+  radiusX: number;
+  radiusY: number;
+}) {
+  const baseAngle = (index / itemCount) * FULL_TURN;
+  const angle = useTransform(phase, (value) => baseAngle + value);
+  const depth = useTransform(angle, (value) => Math.cos(value));
+  const x = useTransform(angle, (value) => Math.sin(value) * radiusX);
+  const y = useTransform(
+    angle,
+    (value) => (1 - Math.cos(value)) * radiusY - radiusY * 0.72,
+  );
+  const rotate = useTransform(angle, (value) => Math.sin(value) * 14);
+  const scale = useTransform(depth, [-1, 1], [0.82, 1]);
+  const opacity = useTransform(depth, [-1, -0.35, 1], [0.24, 0.58, 1]);
+  const zIndex = useTransform(depth, (value) => Math.round((value + 1) * 50));
+
+  return (
+    <motion.article
+      suppressHydrationWarning
+      aria-label={item.label}
+      className="pointer-events-none absolute left-1/2 top-1/2 origin-center overflow-hidden rounded-[1.35rem] bg-[#f3f2ec] p-2 text-[#252824] shadow-[0_20px_55px_rgba(0,0,0,0.22)] sm:rounded-[1.6rem] sm:p-3"
+      style={{
+        width: cardWidth,
+        height: cardHeight,
+        marginLeft: -cardWidth / 2,
+        marginTop: -cardHeight / 2,
+        x,
+        y,
+        rotate,
+        scale,
+        opacity,
+        zIndex,
+      }}
+    >
+      <img
+        src={item.image}
+        alt={item.alt}
+        draggable={false}
+        className="h-[calc(100%-3.5rem)] w-full rounded-[1rem] object-cover sm:rounded-[1.2rem]"
+      />
+      <span className="flex h-14 items-center justify-center text-center text-lg font-black uppercase tracking-tight sm:text-2xl">
+        {item.label}
+      </span>
+    </motion.article>
+  );
+}
+
+export function RadialCardMarquee({
+  items,
+  speed = 0.12,
+  direction = "forward",
+  pauseOnHover = true,
+  paused = false,
+  className,
+}: RadialCardMarqueeProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const rootRef = useRef<HTMLElement>(null);
+  const pointerOverRef = useRef(false);
+  const pointerDownRef = useRef(false);
+  const mountedRef = useRef(false);
+  const speedMultiplierRef = useRef(shouldReduceMotion ? 0 : 1);
+  const phase = useMotionValue(0);
+  const [viewportWidth, setViewportWidth] = useState(900);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const updateWidth = (width: number) => {
+      setViewportWidth((current) =>
+        Math.abs(current - width) >= 1 ? width : current,
+      );
+    };
+    updateWidth(root.getBoundingClientRect().width);
+
+    const observer = new ResizeObserver(([entry]) => {
+      updateWidth(entry.contentRect.width);
+    });
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, []);
+
+  useAnimationFrame((_, delta) => {
+    if (!mountedRef.current) return;
+
+    const interactionPaused =
+      pauseOnHover && (pointerOverRef.current || pointerDownRef.current);
+    const targetMultiplier =
+      shouldReduceMotion || paused || interactionPaused ? 0 : 1;
+
+    speedMultiplierRef.current +=
+      (targetMultiplier - speedMultiplierRef.current) *
+      Math.min(delta / 120, 1);
+
+    if (items.length < 2 || speedMultiplierRef.current < 0.001) return;
+
+    const directionSign = direction === "forward" ? 1 : -1;
+    const radiansPerMillisecond =
+      (Math.max(speed, 0) * FULL_TURN) / items.length / 1000;
+    let next =
+      phase.get() +
+      directionSign *
+        radiansPerMillisecond *
+        Math.min(delta, 64) *
+        speedMultiplierRef.current;
+
+    if (next >= FULL_TURN) next -= FULL_TURN;
+    if (next <= -FULL_TURN) next += FULL_TURN;
+    phase.set(next);
+  });
+
+  const cardWidth =
+    viewportWidth < 540
+      ? Math.min(viewportWidth * 0.52, 236)
+      : Math.min(viewportWidth * 0.25, 300);
+  const cardHeight = cardWidth * 1.24;
+  const cardGap = viewportWidth < 540 ? 16 : viewportWidth < 820 ? 28 : 44;
+  const minimumRadius =
+    items.length > 1
+      ? (cardWidth + cardGap) /
+        (2 * Math.sin(Math.PI / Math.max(items.length, 2)))
+      : 0;
+  const radiusX = Math.max(minimumRadius, cardWidth * 1.05);
+  const radiusY = Math.min(cardHeight * 0.62, radiusX * 0.58);
+
+  const handlePointerDown = (event: PointerEvent<HTMLElement>) => {
+    pointerDownRef.current = true;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerEnd = (event: PointerEvent<HTMLElement>) => {
+    pointerDownRef.current = false;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  if (items.length === 0) return null;
+
+  return (
+    <section
+      ref={rootRef}
+      aria-label="Radial card marquee"
+      className={cn("w-full", className)}
+      onPointerEnter={() => {
+        pointerOverRef.current = true;
+      }}
+      onPointerLeave={() => {
+        pointerOverRef.current = false;
+        pointerDownRef.current = false;
+      }}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
+    >
+      <div className="relative isolate min-h-[31rem] w-full touch-pan-y select-none overflow-hidden rounded-[2rem] bg-[#303a32] px-4 py-12 text-[#f4f3ee] sm:min-h-[38rem] sm:rounded-[2.5rem]">
+        <p className="pointer-events-none absolute inset-x-0 top-6 text-center text-xs font-medium uppercase tracking-[0.28em] text-white/40">
+          Circular marquee
+        </p>
+        <div className="absolute inset-0">
+          {items.map((item, index) => (
+            <OrbitCard
+              key={item.id ?? \`\${item.label}-\${item.image}\`}
+              item={item}
+              index={index}
+              itemCount={items.length}
+              phase={phase}
+              cardWidth={cardWidth}
+              cardHeight={cardHeight}
+              radiusX={radiusX}
+              radiusY={radiusY}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default RadialCardMarquee;
+`,
+      path: "radial-card-marquee/radial-card-marquee.tsx",
+      target: "components/sonaui/radial-card-marquee/radial-card-marquee.tsx"
+    }
+  ],
   "assignment-cluster": [
     {
       type: "registry:ui",
@@ -13307,6 +14242,378 @@ export default function AssignmentCluster({
 `,
       path: "assignment-cluster/assignment-cluster.tsx",
       target: "components/sonaui/assignment-cluster/assignment-cluster.tsx"
+    }
+  ],
+  "depth-tiles": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  animate,
+  type MotionValue,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import {
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface DepthTileItem {
+  /** Stable identifier used to preserve the tile across reorders. */
+  id: string;
+  /** Image URL rendered by the tile. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Small label shown at the bottom of the tile. */
+  label: string;
+}
+
+export interface DepthTilesProps {
+  /** Tiles shown in the infinite stack. */
+  items: DepthTileItem[];
+  /** Controlled active tile index. @default undefined */
+  index?: number;
+  /** Initial active tile index when uncontrolled. @default 0 */
+  defaultIndex?: number;
+  /** Called after the active tile changes. @default undefined */
+  onIndexChange?: (index: number) => void;
+  /** Enables automatic forward movement. @default true */
+  autoplay?: boolean;
+  /** Time between automatic advances in milliseconds. @default 3200 */
+  interval?: number;
+  /** Pauses autoplay while the pointer is over the component. @default true */
+  pauseOnHover?: boolean;
+  /** Enables horizontal pointer drag and touch swipe. @default true */
+  draggable?: boolean;
+  /** Accessible label for the carousel region. @default "Depth tiles" */
+  ariaLabel?: string;
+  /** Additional classes for the component. @default undefined */
+  className?: string;
+}
+
+const SPRING = {
+  type: "spring",
+  stiffness: 330,
+  damping: 36,
+  mass: 0.85,
+} as const;
+const TAU = Math.PI * 2;
+
+const wrapIndex = (value: number, length: number) =>
+  ((value % length) + length) % length;
+
+function getShortestDelta(itemIndex: number, progress: number, length: number) {
+  if (length <= 1) return 0;
+  const half = length / 2;
+  return ((((itemIndex - progress + half) % length) + length) % length) - half;
+}
+
+function DepthTile({
+  item,
+  itemIndex,
+  itemCount,
+  progress,
+  orbitRadius,
+}: {
+  item: DepthTileItem;
+  itemIndex: number;
+  itemCount: number;
+  progress: MotionValue<number>;
+  orbitRadius: number;
+}) {
+  const phase = useTransform(
+    progress,
+    (value) => ((itemIndex - value) / itemCount) * TAU,
+  );
+  const depth = useTransform(phase, (value) => (1 - Math.cos(value)) / 2);
+  const x = useTransform(phase, (value) => Math.sin(value) * orbitRadius);
+  const y = useTransform(depth, (value) => value * 28);
+  const scale = useTransform(depth, (value) => 1 - value * 0.2);
+  const opacity = useTransform(depth, (value) => 1 - value * 0.64);
+  const zIndex = useTransform(depth, (value) => Math.round((1 - value) * 100));
+
+  return (
+    <motion.article
+      aria-hidden="true"
+      className="pointer-events-none absolute aspect-[1.12] w-[min(68vw,25rem)] overflow-hidden rounded-[1.4rem] bg-muted shadow-[0_2px_8px_rgba(0,0,0,.08),0_24px_64px_rgba(0,0,0,.18)] will-change-transform sm:rounded-[1.75rem]"
+      style={{ x, y, scale, opacity, zIndex }}
+    >
+      {/* biome-ignore lint/performance/noImgElement: framework-neutral registry component */}
+      <img
+        src={item.image}
+        alt=""
+        draggable={false}
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 via-black/22 to-transparent px-5 pb-5 pt-20 text-white">
+        <span className="text-base font-medium tracking-[-0.015em] sm:text-lg">
+          {item.label}
+        </span>
+      </div>
+    </motion.article>
+  );
+}
+
+export default function DepthTiles({
+  items,
+  index,
+  defaultIndex = 0,
+  onIndexChange,
+  autoplay = true,
+  interval = 3200,
+  pauseOnHover = true,
+  draggable = true,
+  ariaLabel = "Depth tiles",
+  className,
+}: DepthTilesProps) {
+  const reduceMotion = Boolean(useReducedMotion());
+  const descriptionId = useId();
+  const isControlled = index !== undefined;
+  const [uncontrolledIndex, setUncontrolledIndex] = useState(defaultIndex);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true);
+  const [viewportWidth, setViewportWidth] = useState(960);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const itemCount = items.length;
+  const activeIndex = itemCount
+    ? wrapIndex(isControlled ? index : uncontrolledIndex, itemCount)
+    : 0;
+  const progress = useMotionValue(activeIndex);
+  const dragStartProgress = useRef(activeIndex);
+  const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+
+  const stopAnimation = useCallback(() => {
+    animationRef.current?.stop();
+    animationRef.current = null;
+  }, []);
+
+  const commitIndex = useCallback(
+    (nextIndex: number) => {
+      if (!itemCount) return;
+      const wrapped = wrapIndex(nextIndex, itemCount);
+      if (!isControlled) setUncontrolledIndex(wrapped);
+      if (wrapped !== activeIndex) onIndexChange?.(wrapped);
+    },
+    [activeIndex, isControlled, itemCount, onIndexChange],
+  );
+
+  const settleTo = useCallback(
+    (targetProgress: number) => {
+      stopAnimation();
+      const targetIndex = Math.round(targetProgress);
+      if (reduceMotion) {
+        progress.set(targetIndex);
+        commitIndex(targetIndex);
+        return;
+      }
+      animationRef.current = animate(progress, targetIndex, {
+        ...SPRING,
+        onComplete: () => {
+          animationRef.current = null;
+          commitIndex(targetIndex);
+        },
+      });
+    },
+    [commitIndex, progress, reduceMotion, stopAnimation],
+  );
+
+  const moveBy = useCallback(
+    (direction: 1 | -1) => settleTo(progress.get() + direction),
+    [progress, settleTo],
+  );
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setViewportWidth(entry.contentRect.width);
+    });
+    observer.observe(viewport);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () =>
+      setIsDocumentVisible(document.visibilityState === "visible");
+    handleVisibilityChange();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (!itemCount) return;
+    const current = progress.get();
+    if (wrapIndex(Math.round(current), itemCount) === activeIndex) return;
+    stopAnimation();
+    const target = current + getShortestDelta(activeIndex, current, itemCount);
+    if (reduceMotion) progress.set(target);
+    else animationRef.current = animate(progress, target, SPRING);
+  }, [activeIndex, itemCount, progress, reduceMotion, stopAnimation]);
+
+  useEffect(() => {
+    if (
+      !autoplay ||
+      reduceMotion ||
+      !isDocumentVisible ||
+      isDragging ||
+      isFocused ||
+      (pauseOnHover && isHovered) ||
+      itemCount < 2
+    )
+      return;
+    const timer = window.setTimeout(() => moveBy(1), Math.max(interval, 800));
+    return () => window.clearTimeout(timer);
+  }, [
+    autoplay,
+    interval,
+    isDocumentVisible,
+    isDragging,
+    isFocused,
+    isHovered,
+    itemCount,
+    moveBy,
+    pauseOnHover,
+    reduceMotion,
+  ]);
+
+  useEffect(() => stopAnimation, [stopAnimation]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveBy(1);
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveBy(-1);
+    }
+  };
+
+  if (!itemCount) return null;
+  const activeItem = items[activeIndex];
+  const orbitRadius = Math.min(292, Math.max(126, viewportWidth * 0.31));
+  const dragStep = Math.min(280, Math.max(180, viewportWidth * 0.34));
+
+  return (
+    <section
+      aria-label={ariaLabel}
+      aria-describedby={descriptionId}
+      aria-roledescription="carousel"
+      tabIndex={itemCount > 1 ? 0 : undefined}
+      className={cn("w-full", className)}
+      onFocusCapture={() => setIsFocused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setIsFocused(false);
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onKeyDown={handleKeyDown}
+    >
+      <div
+        ref={viewportRef}
+        className="relative mx-auto flex h-[22rem] w-full max-w-5xl items-center justify-center overflow-hidden sm:h-[31rem]"
+      >
+        {!reduceMotion &&
+          items.map((item, itemIndex) => (
+            <DepthTile
+              key={item.id}
+              item={item}
+              itemIndex={itemIndex}
+              itemCount={itemCount}
+              progress={progress}
+              orbitRadius={orbitRadius}
+            />
+          ))}
+
+        {reduceMotion && (
+          <article className="pointer-events-none absolute aspect-[1.12] w-[min(68vw,25rem)] overflow-hidden rounded-[1.4rem] bg-muted shadow-[0_2px_8px_rgba(0,0,0,.08),0_24px_64px_rgba(0,0,0,.18)] sm:rounded-[1.75rem]">
+            {/* biome-ignore lint/performance/noImgElement: framework-neutral registry component */}
+            <img
+              src={activeItem.image}
+              alt=""
+              draggable={false}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 via-black/22 to-transparent px-5 pb-5 pt-20 text-white">
+              <span className="text-base font-medium tracking-[-0.015em] sm:text-lg">
+                {activeItem.label}
+              </span>
+            </div>
+          </article>
+        )}
+
+        {draggable && itemCount > 1 && !reduceMotion && (
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-0 z-[120] cursor-grab touch-pan-y active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.08}
+            onDragStart={() => {
+              stopAnimation();
+              dragStartProgress.current = progress.get();
+              setIsDragging(true);
+            }}
+            onDrag={(_, info) =>
+              progress.set(dragStartProgress.current - info.offset.x / dragStep)
+            }
+            onDragEnd={(_, info) => {
+              const distance = Math.abs(info.offset.x);
+              const velocity = Math.abs(info.velocity.x);
+              const shouldAdvance = distance > 44 || velocity > 420;
+              const direction =
+                velocity > 420
+                  ? info.velocity.x < 0
+                    ? 1
+                    : -1
+                  : info.offset.x < 0
+                    ? 1
+                    : -1;
+              setIsDragging(false);
+              settleTo(
+                shouldAdvance
+                  ? Math.round(dragStartProgress.current) + direction
+                  : Math.round(dragStartProgress.current),
+              );
+            }}
+          />
+        )}
+      </div>
+
+      <div
+        id={descriptionId}
+        className="sr-only"
+        aria-live={isFocused ? "polite" : "off"}
+        aria-atomic="true"
+      >
+        {activeItem.alt}. {activeItem.label}, item {activeIndex + 1} of{" "}
+        {itemCount}
+        {itemCount > 1
+          ? ". Use the left and right arrow keys to navigate."
+          : ""}
+      </div>
+    </section>
+  );
+}
+
+export { DepthTiles };
+`,
+      path: "depth-tiles/depth-tiles.tsx",
+      target: "components/sonaui/depth-tiles/depth-tiles.tsx"
     }
   ],
   "fluid-slider": [
@@ -16137,6 +17444,261 @@ export default function LinkPreview({
       target: "components/sonaui/link-preview/link-preview.tsx"
     }
   ],
+  "radial-card-slider": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import {
+  type PointerEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type WheelEvent,
+} from "react";
+import { cn } from "@/lib/sona-utils";
+
+export interface RadialCardSliderItem {
+  /** The image URL shown by the card. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Label shown beneath the image. */
+  label: string;
+}
+
+export interface RadialCardSliderProps {
+  /** Cards to browse. @default [] */
+  items: RadialCardSliderItem[];
+  /** Initial active card index. @default 0 */
+  defaultIndex?: number;
+  /** Controlled active card index. @default undefined */
+  index?: number;
+  /** Called whenever navigation settles on a card. @default undefined */
+  onIndexChange?: (index: number) => void;
+  /** Additional classes for the slider. @default undefined */
+  className?: string;
+}
+
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
+
+export function RadialCardSlider({
+  items,
+  defaultIndex = 0,
+  index: controlledIndex,
+  onIndexChange,
+  className,
+}: RadialCardSliderProps) {
+  const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(() =>
+    clamp(defaultIndex, 0, Math.max(items.length - 1, 0)),
+  );
+  const [viewportWidth, setViewportWidth] = useState(900);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const dragStart = useRef({ x: 0, offset: 0 });
+  const [visualOffset, setVisualOffset] = useState(activeIndex);
+  const currentIndex =
+    controlledIndex === undefined
+      ? activeIndex
+      : clamp(controlledIndex, 0, Math.max(items.length - 1, 0));
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const observer = new ResizeObserver(([entry]) =>
+      setViewportWidth(entry.contentRect.width),
+    );
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, []);
+
+  const visibleRadius =
+    viewportWidth < 540 ? 1.2 : viewportWidth < 820 ? 1.55 : 2;
+  const cardWidth =
+    viewportWidth < 540
+      ? Math.min(viewportWidth * 0.58, 260)
+      : Math.min(viewportWidth * 0.3, 340);
+  const cardHeight = cardWidth * 1.24;
+  const cardGap = viewportWidth < 540 ? 18 : viewportWidth < 820 ? 28 : 48;
+  const cardStep = cardWidth + cardGap;
+  const maxOffset = Math.max(items.length - 1, 0);
+
+  const settle = (next: number) => {
+    const target = clamp(Math.round(next), 0, maxOffset);
+    setActiveIndex(target);
+    setVisualOffset(target);
+    onIndexChange?.(target);
+  };
+
+  const moveBy = (delta: number) => settle(activeIndex + delta);
+
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    dragStart.current = { x: event.clientX, offset: visualOffset };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+    const sensitivity = Math.max(cardWidth * 0.72, 180);
+    setVisualOffset(
+      clamp(
+        dragStart.current.offset -
+          (event.clientX - dragStart.current.x) / sensitivity,
+        0,
+        maxOffset,
+      ),
+    );
+  };
+
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.currentTarget.hasPointerCapture(event.pointerId))
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    settle(visualOffset);
+  };
+
+  const onWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (
+      Math.abs(event.deltaX) < Math.abs(event.deltaY) &&
+      Math.abs(event.deltaY) < 8
+    )
+      return;
+    event.preventDefault();
+    moveBy((event.deltaX || event.deltaY) > 0 ? 1 : -1);
+  };
+
+  const cards = useMemo(
+    () => items.map((item, index) => ({ item, index })),
+    [items],
+  );
+  if (!items.length) return null;
+
+  return (
+    <section
+      ref={rootRef}
+      className={cn("w-full", { className })}
+      aria-label="Radial card slider"
+    >
+      <div
+        className="relative isolate flex min-h-[31rem] w-full touch-pan-y select-none items-center justify-center overflow-hidden rounded-[2rem] bg-secondary px-4 py-12 text-[#f4f3ee] sm:min-h-[38rem] sm:rounded-[2.5rem]"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onWheel={onWheel}
+      >
+        <div className="relative h-[25rem] w-full sm:h-[31rem]">
+          {cards.map(({ item, index }) => (
+            <motion.button
+              key={\`\${item.label}-\${index}\`}
+              type="button"
+              aria-label={\`Show \${item.label}\`}
+              className="absolute left-1/2 top-1/2 origin-center cursor-grab overflow-hidden rounded-[1.35rem] bg-[#f3f2ec] p-2 text-left text-[#252824] shadow-[0_20px_55px_rgba(0,0,0,.22)] active:cursor-grabbing sm:rounded-[1.6rem] sm:p-3"
+              style={{
+                width: cardWidth,
+                height: cardHeight,
+                marginLeft: -cardWidth / 2,
+                marginTop: -cardHeight / 2,
+              }}
+              animate={{
+                x:
+                  (index -
+                    (controlledIndex === undefined
+                      ? visualOffset
+                      : currentIndex)) *
+                  cardStep,
+                y:
+                  Math.abs(
+                    index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex),
+                  ) **
+                    2 *
+                  34,
+                rotate:
+                  clamp(
+                    (index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex)) /
+                      visibleRadius,
+                    -1,
+                    1,
+                  ) * 15,
+                scale:
+                  1 -
+                  Math.min(
+                    Math.abs(
+                      index -
+                        (controlledIndex === undefined
+                          ? visualOffset
+                          : currentIndex),
+                    ) * 0.12,
+                    0.24,
+                  ),
+                opacity:
+                  Math.abs(
+                    index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex),
+                  ) > 3
+                    ? 0
+                    : 1,
+                zIndex:
+                  20 -
+                  Math.round(
+                    Math.abs(
+                      index -
+                        (controlledIndex === undefined
+                          ? visualOffset
+                          : currentIndex),
+                    ) * 4,
+                  ),
+              }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 330, damping: 34, mass: 0.85 }
+              }
+              onClick={() => settle(index)}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") {
+                  event.preventDefault();
+                  moveBy(-1);
+                }
+                if (event.key === "ArrowRight") {
+                  event.preventDefault();
+                  moveBy(1);
+                }
+              }}
+            >
+              <img
+                src={item.image}
+                alt={item.alt}
+                draggable={false}
+                className="h-[calc(100%-3.5rem)] w-full rounded-[1rem] object-cover sm:rounded-[1.2rem]"
+              />
+              <span className="flex h-14 items-center justify-center text-center text-lg font-black uppercase tracking-tight sm:text-2xl">
+                {item.label}
+              </span>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default RadialCardSlider;
+`,
+      path: "radial-card-slider/radial-card-slider.tsx",
+      target: "components/sonaui/radial-card-slider/radial-card-slider.tsx"
+    }
+  ],
   "swipe-action-row": [
     {
       type: "registry:ui",
@@ -17359,6 +18921,292 @@ export default function HoldToDeleteButton({
       path: "hold-to-delete-button/hold-to-delete-button.tsx",
       target: "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx"
     }
+  ],
+  "cursor-hover-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { PreviewCard } from "@base-ui/react/preview-card";
+import { useReducedMotion } from "motion/react";
+import {
+  createContext,
+  type ReactElement,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+type CursorPoint = { x: number; y: number };
+type CursorHoverCardSide = "top" | "right" | "bottom" | "left";
+type CursorHoverCardAlign = "start" | "center" | "end";
+export type CursorHoverCardReducedMotion = "user" | "always" | "never";
+
+interface CursorHoverCardContextValue {
+  cursorPoint: CursorPoint | null;
+  pointerVelocity: number;
+  shouldReduceMotion: boolean;
+  setCursorPoint: (point: CursorPoint | null) => void;
+  setPointerVelocity: (velocity: number) => void;
+}
+
+const CursorHoverCardContext =
+  createContext<CursorHoverCardContextValue | null>(null);
+
+function useCursorHoverCardContext(component: string) {
+  const context = useContext(CursorHoverCardContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used inside CursorHoverCard.Root.\`);
+  }
+  return context;
+}
+
+/** Props for the state-owning cursor hover card root. */
+export interface CursorHoverCardRootProps {
+  /** Trigger and content parts associated with the card. */
+  children: ReactNode;
+  /** Whether the card is open when uncontrolled. @default false */
+  defaultOpen?: boolean;
+  /** Controlled open state. @default undefined */
+  open?: boolean;
+  /** Called whenever the card requests an open-state change. @default undefined */
+  onOpenChange?: PreviewCard.Root.Props["onOpenChange"];
+  /** Controls whether motion follows, forces, or ignores the user's reduced-motion preference. @default "user" */
+  reducedMotion?: CursorHoverCardReducedMotion;
+}
+
+export function CursorHoverCardRoot({
+  children,
+  defaultOpen = false,
+  open,
+  onOpenChange,
+  reducedMotion = "user",
+}: CursorHoverCardRootProps) {
+  const userPrefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion =
+    reducedMotion === "always" ||
+    (reducedMotion === "user" && userPrefersReducedMotion === true);
+  const [cursorPoint, setCursorPoint] = useState<CursorPoint | null>(null);
+  const [pointerVelocity, setPointerVelocity] = useState(0);
+  const value = useMemo(
+    () => ({
+      cursorPoint,
+      pointerVelocity,
+      shouldReduceMotion,
+      setCursorPoint,
+      setPointerVelocity,
+    }),
+    [cursorPoint, pointerVelocity, shouldReduceMotion],
+  );
+
+  return (
+    <CursorHoverCardContext.Provider value={value}>
+      <PreviewCard.Root
+        defaultOpen={defaultOpen}
+        open={open}
+        onOpenChange={(nextOpen, details) => {
+          if (!nextOpen) {
+            setCursorPoint(null);
+            setPointerVelocity(0);
+          }
+          onOpenChange?.(nextOpen, details);
+        }}
+      >
+        {children}
+      </PreviewCard.Root>
+    </CursorHoverCardContext.Provider>
+  );
+}
+
+/** Props for the element that opens the cursor hover card. */
+export interface CursorHoverCardTriggerProps
+  extends Omit<PreviewCard.Trigger.Props, "children" | "render"> {
+  /** Existing link or element used as the actual trigger. */
+  children: ReactElement;
+  /** Delay before opening from pointer or keyboard focus, in milliseconds. @default 300 */
+  openDelay?: number;
+  /** Grace period before closing, in milliseconds. @default 120 */
+  closeDelay?: number;
+}
+
+export function CursorHoverCardTrigger({
+  children,
+  openDelay = 300,
+  closeDelay = 120,
+  onPointerMove,
+  onPointerLeave,
+  onFocus,
+  ...props
+}: CursorHoverCardTriggerProps) {
+  const context = useCursorHoverCardContext("CursorHoverCard.Trigger");
+  const frameRef = useRef<number | null>(null);
+  const pointRef = useRef<CursorPoint | null>(null);
+  const velocityRef = useRef(0);
+  const previousPointRef = useRef<CursorPoint | null>(null);
+  const previousTimeRef = useRef<number | null>(null);
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+      if (settleTimerRef.current !== null) clearTimeout(settleTimerRef.current);
+    },
+    [],
+  );
+
+  const updatePointer: NonNullable<
+    CursorHoverCardTriggerProps["onPointerMove"]
+  > = (event) => {
+    onPointerMove?.(event);
+    if (event.defaultPrevented || event.pointerType === "touch") return;
+
+    const nextPoint = { x: event.clientX, y: event.clientY };
+    const previousPoint = previousPointRef.current;
+    const previousTime = previousTimeRef.current;
+    pointRef.current = nextPoint;
+    previousPointRef.current = nextPoint;
+    previousTimeRef.current = event.timeStamp;
+
+    if (previousPoint && previousTime !== null) {
+      const deltaX = nextPoint.x - previousPoint.x;
+      const deltaY = nextPoint.y - previousPoint.y;
+      const elapsed = Math.max(1, event.timeStamp - previousTime);
+      const speed = Math.hypot(deltaX, deltaY) / elapsed;
+      velocityRef.current = Math.sign(deltaX) * speed;
+      if (settleTimerRef.current !== null) clearTimeout(settleTimerRef.current);
+      settleTimerRef.current = setTimeout(() => {
+        velocityRef.current = 0;
+        context.setPointerVelocity(0);
+      }, 80);
+    }
+    if (frameRef.current !== null) return;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = null;
+      context.setCursorPoint(pointRef.current);
+      context.setPointerVelocity(velocityRef.current);
+    });
+  };
+
+  return (
+    <PreviewCard.Trigger
+      {...props}
+      delay={Math.max(0, openDelay)}
+      closeDelay={Math.max(0, closeDelay)}
+      onFocus={(event) => {
+        context.setCursorPoint(null);
+        context.setPointerVelocity(0);
+        onFocus?.(event);
+      }}
+      onPointerLeave={(event) => {
+        if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+        pointRef.current = null;
+        previousPointRef.current = null;
+        previousTimeRef.current = null;
+        velocityRef.current = 0;
+        if (settleTimerRef.current !== null)
+          clearTimeout(settleTimerRef.current);
+        settleTimerRef.current = null;
+        context.setPointerVelocity(0);
+        onPointerLeave?.(event);
+      }}
+      onPointerMove={updatePointer}
+      render={children}
+    />
+  );
+}
+
+/** Props for the floating card surface. */
+export interface CursorHoverCardContentProps {
+  /** Rich preview content rendered inside the card. */
+  children: ReactNode;
+  /** Preferred side of the cursor or focused trigger. @default "top" */
+  side?: CursorHoverCardSide;
+  /** Alignment relative to the cursor or focused trigger. @default "center" */
+  align?: CursorHoverCardAlign;
+  /** Fixed distance between the cursor and card, in pixels. @default 14 */
+  cursorOffset?: number;
+  /** Maximum directional tilt while the pointer moves, in degrees. @default 3 */
+  maxRotation?: number;
+  /** Space kept between the card and collision boundary, in pixels. @default 8 */
+  collisionPadding?: number;
+  /** Additional CSS classes for the card surface. @default undefined */
+  className?: string;
+}
+
+export function CursorHoverCardContent({
+  children,
+  side = "top",
+  align = "center",
+  cursorOffset = 14,
+  maxRotation = 3,
+  collisionPadding = 8,
+  className,
+}: CursorHoverCardContentProps) {
+  const context = useCursorHoverCardContext("CursorHoverCard.Content");
+  const { shouldReduceMotion } = context;
+  const anchor = useMemo(() => {
+    if (!context.cursorPoint) return undefined;
+    const { x, y } = context.cursorPoint;
+    return {
+      getBoundingClientRect: () => new DOMRect(x, y, 0, 0),
+    };
+  }, [context.cursorPoint]);
+
+  return (
+    <PreviewCard.Portal>
+      <PreviewCard.Positioner
+        anchor={anchor}
+        align={align}
+        collisionAvoidance={{ side: "flip", align: "shift" }}
+        collisionPadding={Math.max(0, collisionPadding)}
+        positionMethod="fixed"
+        side={side}
+        sideOffset={Math.max(0, cursorOffset)}
+        className={cn(
+          "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)]",
+          shouldReduceMotion
+            ? "!transition-none"
+            : "transition-transform duration-100 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none",
+        )}
+      >
+        <PreviewCard.Popup
+          className={cn(
+            "relative origin-[var(--transform-origin)] rounded-xl bg-popover text-popover-foreground shadow-[0_0_0_1px_rgb(0_0_0/0.08),0_12px_36px_-12px_rgb(0_0_0/0.3)] outline-none",
+            shouldReduceMotion
+              ? "!transition-none data-ending-style:scale-100 data-ending-style:opacity-100 data-ending-style:blur-none data-starting-style:scale-100 data-starting-style:opacity-100 data-starting-style:blur-none"
+              : "will-change-transform transition-[scale,rotate,opacity,filter] duration-240 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] data-ending-style:scale-[0.985] data-ending-style:opacity-0 data-ending-style:blur-[2px] data-ending-style:duration-140 data-starting-style:scale-[0.94] data-starting-style:opacity-0 data-starting-style:blur-[5px]",
+            className,
+          )}
+          style={{
+            rotate: shouldReduceMotion
+              ? "0deg"
+              : \`\${Math.max(-1, Math.min(1, context.pointerVelocity / 1.25)) * Math.min(12, Math.max(0, maxRotation))}deg\`,
+          }}
+        >
+          {children}
+        </PreviewCard.Popup>
+      </PreviewCard.Positioner>
+    </PreviewCard.Portal>
+  );
+}
+
+export const CursorHoverCard = {
+  Root: CursorHoverCardRoot,
+  Trigger: CursorHoverCardTrigger,
+  Content: CursorHoverCardContent,
+};
+
+export default CursorHoverCard;
+`,
+      path: "cursor-hover-card/cursor-hover-card.tsx",
+      target: "components/sonaui/cursor-hover-card/cursor-hover-card.tsx"
+    }
   ]
 };
 
@@ -17636,6 +19484,25 @@ export const componentMetadata = {
     "dependencies": [
       "@base-ui/react",
       "motion"
+    ]
+  },
+  "cursor-hover-card": {
+    "name": "cursor-hover-card",
+    "type": "registry:ui",
+    "title": "Cursor Hover Card",
+    "description": "A rich Base UI preview card that follows above the pointer, tilts with movement speed and direction, and returns to stable trigger positioning for keyboard users.",
+    "files": [
+      {
+        "path": "registry/sonaui/cursor-hover-card/cursor-hover-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
     ]
   },
   "fluid-slider": {
@@ -18002,6 +19869,44 @@ export const componentMetadata = {
       "motion"
     ]
   },
+  "testimonial-card": {
+    "name": "testimonial-card",
+    "type": "registry:ui",
+    "title": "Testimonial Card",
+    "description": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+    "files": [
+      {
+        "path": "registry/sonaui/testimonial-card/testimonial-card.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "text-highlight": {
+    "name": "text-highlight",
+    "type": "registry:ui",
+    "title": "Text Highlight",
+    "description": "An inline emphasis effect with marker, underline, and block reveal treatments.",
+    "files": [
+      {
+        "path": "registry/sonaui/text-highlight/text-highlight.tsx",
+        "type": "registry:ui"
+      },
+      {
+        "path": "registry/sonaui/text-highlight/text-highlight.module.css",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
   "code-block": {
     "name": "code-block",
     "type": "registry:ui",
@@ -18133,6 +20038,51 @@ export const componentMetadata = {
     ],
     "registryDependencies": [
       "@sona-ui/sona-utils"
+    ]
+  },
+  "radial-card-marquee": {
+    "name": "radial-card-marquee",
+    "type": "registry:ui",
+    "title": "Circular Card Marquee",
+    "description": "A continuous responsive card marquee that orbits cards around a circular path with configurable speed, direction, controlled pause, and hover pause.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "radial-card-slider": {
+    "name": "radial-card-slider",
+    "type": "registry:ui",
+    "title": "Radial Card Slider",
+    "description": "A responsive card carousel arranged on a radial arc with pointer drag, wheel movement, and keyboard navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-slider/radial-card-slider.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "depth-tiles": {
+    "name": "depth-tiles",
+    "type": "registry:ui",
+    "title": "Depth Tiles",
+    "description": "An infinite layered tile stack with autoplay, depth transitions, and horizontal drag navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/depth-tiles/depth-tiles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
     ]
   },
   "stepper": {

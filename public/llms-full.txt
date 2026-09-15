@@ -606,6 +606,37 @@ Accessibility:
 Motion: Preserve orientation as one tooltip surface moves between related controls.
 Reduced motion: Remove directional content travel while preserving the tooltip label.
 
+### Cursor Hover Card
+
+- Category: components
+- Status: stable
+- Summary: A rich preview card that follows above a fine pointer, tilts with horizontal movement, and uses stable trigger positioning for keyboard access.
+- Documentation: https://sonaui.com/docs/cursor-hover-card
+- Registry item: https://sonaui.com/r/cursor-hover-card.json
+
+Use when:
+- A link or compact object benefits from optional rich preview information.
+- Keeping the preview near the pointer helps preserve the relationship to a broad trigger.
+
+Avoid when:
+- The information is essential and should remain visible without interaction.
+- The surface is a workflow that should use a popover, menu, or dialog instead.
+
+Capabilities:
+- Pointer-following virtual anchor
+- Capped speed-and-direction-aware rotation
+- Origin-aware enter and restrained exit motion
+- Stable keyboard-focus positioning
+- Collision-aware side flipping and shifting
+- Consumer-provided trigger and rich content
+
+Accessibility:
+- Uses Base UI Preview Card semantics, focus behavior, dismissal, and hover grace areas.
+- Ignores touch pointer tracking and preserves content when reduced motion is requested.
+
+Motion: Materialize optional preview content from the pointer, keep it spatially connected, and use slight rotation to reflect movement speed and direction.
+Reduced motion: Keep cursor tracking functional while removing smoothing, rotation, and lifecycle animation.
+
 ### Lightbox
 
 - Category: components
@@ -985,6 +1016,60 @@ Accessibility:
 Motion: Communicate state, continuity, or feedback at the point of interaction.
 Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
 
+### Testimonial Card
+
+- Category: components
+- Status: stable
+- Summary: An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.
+- Documentation: https://sonaui.com/docs/testimonial-card
+- Registry item: https://sonaui.com/r/testimonial-card.json
+
+Use when:
+- A customer quote needs an editorial focal point with concise author attribution.
+- A social-proof card benefits from a rating, testimonial, and person-level identity.
+
+Avoid when:
+- The content should behave as a live social embed with interactions, loading states, or external data.
+- A dense repeated grid would make optional hover depth distracting.
+
+Capabilities:
+- Quote-led composition with optional rating and eyebrow
+- Semantic article, blockquote, and author attribution structure
+- Optional shallow fine-pointer hover depth
+- Theme-aware card and media styling
+
+Accessibility:
+- Uses an article landmark and preserves selectable post content.
+- Avatar descriptions are supplied by the consumer.
+- The displayed star rating has an accessible text equivalent.
+
+Motion: Make a featured testimonial feel like a shallow physical surface without changing its reading order or layout.
+Reduced motion: Remove pointer-driven rotation and retain the static, readable card surface.
+
+### Text Highlight
+
+- Category: text
+- Status: stable
+- Summary: An inline emphasis effect with marker, underline, and block reveal treatments.
+- Documentation: https://sonaui.com/docs/text-highlight
+- Registry item: https://sonaui.com/r/text-highlight.json
+
+Use when:
+- An inline emphasis effect with marker, underline, and block reveal treatments.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
 ### Hold To Delete Button
 
 - Category: components
@@ -1043,6 +1128,78 @@ Reduced motion: Reduce nonessential choreography while preserving the state chan
 
 Use when:
 - A fan-like arrangement for browsing a small set of layered visual items.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Circular Card Marquee
+
+- Category: effects
+- Status: stable
+- Summary: A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.
+- Documentation: https://sonaui.com/docs/radial-card-marquee
+- Registry item: https://sonaui.com/r/radial-card-marquee.json
+
+Use when:
+- A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.
+
+Avoid when:
+- The effect would compete with meaningful content or reduce readability.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Add restrained visual depth without competing with the primary task.
+Reduced motion: Use a static or reduced visual treatment when motion is not preferred.
+
+### Radial Card Slider
+
+- Category: components
+- Status: stable
+- Summary: A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.
+- Documentation: https://sonaui.com/docs/radial-card-slider
+- Registry item: https://sonaui.com/r/radial-card-slider.json
+
+Use when:
+- A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.
+
+Avoid when:
+- The interaction does not match the component's focused responsibility.
+
+Capabilities:
+- Source-owned Sona UI component
+- Semantic theme tokens
+
+Accessibility:
+- Preserve the component's documented semantic structure, keyboard behavior, and visible focus state.
+
+Motion: Communicate state, continuity, or feedback at the point of interaction.
+Reduced motion: Reduce nonessential choreography while preserving the state change and feedback.
+
+### Depth Tiles
+
+- Category: effects
+- Status: stable
+- Summary: An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.
+- Documentation: https://sonaui.com/docs/depth-tiles
+- Registry item: https://sonaui.com/r/depth-tiles.json
+
+Use when:
+- An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.
 
 Avoid when:
 - The effect would compete with meaningful content or reduce readability.
