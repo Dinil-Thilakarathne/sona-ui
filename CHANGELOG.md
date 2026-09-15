@@ -1,3 +1,10 @@
+## [2.27.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.27.0...v2.27.1) (2026-09-15)
+
+
+### Bug Fixes
+
+* Update sponsor slots and section borders ([4caa20c](https://github.com/Dinil-Thilakarathne/sona-ui/commit/4caa20cc4a41372481e4b3b821d153448852d50b))
+
 # [2.27.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.26.0...v2.27.0) (2026-09-15)
 
 
