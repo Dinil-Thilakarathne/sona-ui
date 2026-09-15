@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.26.0...v2.27.0) (2026-09-15)
+
+
+### Features
+
+* Add Tracwell to landing page sponsors ([32792da](https://github.com/Dinil-Thilakarathne/sona-ui/commit/32792da542cab09f136751397291e2e13f5e4f48))
+
 # [2.26.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.25.0...v2.26.0) (2026-09-13)
 
 
