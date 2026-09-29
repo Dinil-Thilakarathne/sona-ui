@@ -15,7 +15,13 @@ import {
 } from "lucide-react";
 import type * as React from "react";
 import { cn } from "@/lib/sona-utils";
+import AnimatedSegmentedControlDemo from "@/registry/examples/animated-segmented-control/animated-segmented-control-demo";
+import CommandPalettePreviewDemo from "@/registry/examples/command-palette-preview/command-palette-preview-demo";
+import { RevenueDataCard } from "@/registry/examples/expandable-data-card/expandable-data-card-demo";
 import { LiveActivityExample } from "@/registry/examples/live-activity/live-activity-demo";
+import MagneticDockDemo from "@/registry/examples/magnetic-dock/magnetic-dock-demo";
+import NotificationStackDemo from "@/registry/examples/notification-stack/notification-stack-demo";
+import FluidTabsPlayground from "@/registry/playground/fluid-tabs-playground";
 import ScheduleChipPlayground from "@/registry/playground/schedule-chip-playground";
 import SectionRailPlayground from "@/registry/playground/section-rail-playground";
 import SwipeActionRowPlayground from "@/registry/playground/swipe-action-row-playground";
@@ -66,22 +72,23 @@ import FloatingViewer, {
   type FloatingViewerCorner,
 } from "@/registry/sonaui/floating-viewer/floating-viewer";
 import FluidSlider from "@/registry/sonaui/fluid-slider/fluid-slider";
-import FluidTabs from "@/registry/sonaui/fluid-tabs/fluid-tabs";
 import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
+import GitHubStarHistory from "@/registry/sonaui/github-star-history/github-star-history";
 import HoldToDeleteButton from "@/registry/sonaui/hold-to-delete-button/hold-to-delete-button";
 import ImageTrail from "@/registry/sonaui/image-trail/image-trail";
 import Lightbox from "@/registry/sonaui/lightbox/lightbox";
 import Magnetic from "@/registry/sonaui/magnetic-button/magnetic-button";
 import Marquee from "@/registry/sonaui/marquee/marquee";
-import RadialCardMarquee from "@/registry/sonaui/radial-card-marquee/radial-card-marquee";
 import MeshGradientShader from "@/registry/sonaui/mesh-gradient-shader/mesh-gradient-shader";
 import MorphSurface, {
   type MorphSurfaceOrigin,
   type MorphSurfaceReducedMotion,
 } from "@/registry/sonaui/morph-surface/morph-surface";
+import RadialCardMarquee from "@/registry/sonaui/radial-card-marquee/radial-card-marquee";
 import RippleButton, {
   RippleButtonText,
 } from "@/registry/sonaui/ripple-button/ripple-button";
+import SmartBreadcrumbs from "@/registry/sonaui/smart-breadcrumbs/smart-breadcrumbs";
 import SmartOverflow, {
   SmartOverflowAction,
 } from "@/registry/sonaui/smart-overflow/smart-overflow";
@@ -144,6 +151,21 @@ const playgroundActivity: ActivityGraphDatum[] = Array.from(
     };
   },
 );
+
+const playgroundStarHistory = [
+  { date: "2025-10-05", total: 42 },
+  { date: "2025-11-02", total: 78 },
+  { date: "2025-12-07", total: 126 },
+  { date: "2026-01-04", total: 184 },
+  { date: "2026-02-01", total: 296 },
+  { date: "2026-03-01", total: 431 },
+  { date: "2026-04-05", total: 628 },
+  { date: "2026-05-03", total: 842 },
+  { date: "2026-06-07", total: 1128 },
+  { date: "2026-07-05", total: 1476 },
+  { date: "2026-08-02", total: 1924 },
+  { date: "2026-09-06", total: 2487 },
+];
 
 const radialCardMarqueeItems = [
   {
@@ -803,8 +825,6 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
           { label: "Overview", value: "overview" },
           { label: "Activity", value: "activity" },
           { label: "Settings", value: "settings" },
-          { label: "Security", value: "security" },
-          { label: "Billing", value: "billing" },
         ],
         default: "overview",
       },
@@ -831,18 +851,11 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
       },
     ],
     render: (v) => (
-      <FluidTabs
+      <FluidTabsPlayground
         key={v.value as string}
-        defaultValue={v.value as string}
+        initialValue={v.value as string}
         variant={v.variant as "capsule" | "underline"}
         size={v.size as "sm" | "md" | "lg"}
-        tabs={[
-          { value: "overview", title: "Overview" },
-          { value: "activity", title: "Activity" },
-          { value: "settings", title: "Settings" },
-          { value: "security", title: "Security" },
-          { value: "billing", title: "Billing" },
-        ]}
       />
     ),
   },
@@ -1623,6 +1636,161 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
       </SpotlightCard>
     ),
   },
+  "magnetic-dock": {
+    controls: [
+      {
+        type: "slider",
+        prop: "magnification",
+        label: "Magnification",
+        min: 1,
+        max: 2.2,
+        step: 0.05,
+        default: 1.65,
+      },
+      {
+        type: "slider",
+        prop: "distance",
+        label: "Pointer distance",
+        min: 72,
+        max: 220,
+        step: 4,
+        default: 140,
+      },
+      {
+        type: "slider",
+        prop: "itemSize",
+        label: "Item size",
+        min: 40,
+        max: 64,
+        step: 2,
+        default: 48,
+      },
+    ],
+    render: (v) => (
+      <MagneticDockDemo
+        distance={v.distance as number}
+        itemSize={v.itemSize as number}
+        magnification={v.magnification as number}
+      />
+    ),
+  },
+  "notification-stack": {
+    controls: [
+      {
+        type: "slider",
+        prop: "maxVisible",
+        label: "Visible notifications",
+        min: 1,
+        max: 4,
+        step: 1,
+        default: 4,
+      },
+    ],
+    render: (v) => (
+      <NotificationStackDemo maxVisible={v.maxVisible as number} />
+    ),
+  },
+  "command-palette-preview": {
+    controls: [
+      {
+        type: "text",
+        prop: "placeholder",
+        label: "Search placeholder",
+        default: "Search commands...",
+      },
+    ],
+    render: (v) => (
+      <CommandPalettePreviewDemo placeholder={v.placeholder as string} />
+    ),
+  },
+  "animated-segmented-control": {
+    controls: [],
+    render: () => <AnimatedSegmentedControlDemo />,
+  },
+  "smart-breadcrumbs": {
+    controls: [
+      {
+        type: "slider",
+        prop: "collapseAt",
+        label: "Collapse at",
+        min: 4,
+        max: 6,
+        step: 1,
+        default: 4,
+      },
+    ],
+    render: (values) => (
+      <div className="flex min-h-56 w-full items-center justify-center px-4 py-12">
+        <SmartBreadcrumbs
+          collapseAt={values.collapseAt as number}
+          items={[
+            { label: "Sona UI", href: "/" },
+            { label: "Documentation", href: "/docs/installation" },
+            { label: "Components", href: "/components" },
+            { label: "Navigation", href: "/docs/fluid-tabs" },
+            { label: "Smart Breadcrumbs" },
+          ]}
+        />
+      </div>
+    ),
+  },
+  "expandable-data-card": {
+    controls: [
+      {
+        type: "text",
+        prop: "title",
+        label: "Metric title",
+        default: "Total revenue",
+      },
+    ],
+    render: (values) => (
+      <div className="flex min-h-80 w-full items-start justify-center px-5 py-14">
+        <RevenueDataCard title={values.title as string} />
+      </div>
+    ),
+  },
+  "github-star-history": {
+    controls: [
+      {
+        type: "slider",
+        prop: "height",
+        label: "Chart height (px)",
+        min: 220,
+        max: 420,
+        step: 10,
+        default: 280,
+      },
+      {
+        type: "color",
+        prop: "color",
+        label: "Series color",
+        default: "#8b5cf6",
+      },
+      {
+        type: "toggle",
+        prop: "showChange",
+        label: "Show recorded change",
+        default: true,
+      },
+      {
+        type: "toggle",
+        prop: "animated",
+        label: "Animate reveal",
+        default: true,
+      },
+    ],
+    render: (v) => (
+      <GitHubStarHistory
+        className="max-w-3xl"
+        data={playgroundStarHistory}
+        repository="sonacode/sona-ui"
+        height={v.height as number}
+        color={v.color as string}
+        showChange={v.showChange as boolean}
+        animated={v.animated as boolean}
+      />
+    ),
+  },
   "testimonial-card": {
     controls: [
       {
@@ -1923,7 +2091,7 @@ export const playgroundRegistry: Record<string, PlaygroundEntry> = {
         threshold={v.threshold as number}
         maxImages={v.maxImages as number}
         lifetime={v.lifetime as number}
-        className="h-full min-h-[280px] w-full"
+        className="h-full min-h-[50vh] w-full flex items-center justify-center"
       >
         <div className="flex h-full w-full items-center justify-center">
           <span className="pointer-events-none font-medium text-lg text-muted-foreground">

@@ -168,6 +168,11 @@ export function ComponentInstallation({
                         </div>
                         <CopyButton
                           content={getInstallCommand(manualPackageManager)}
+                          analyticsEvent="dependency_install_command_copied"
+                          analyticsProperties={{
+                            component,
+                            package_manager: manualPackageManager,
+                          }}
                           className="size-7 p-0"
                         />
                       </div>

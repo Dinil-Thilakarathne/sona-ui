@@ -30,6 +30,10 @@ export const componentShowcaseVideos: Partial<
     src: "/videos/button.mp4",
     poster: "/videos/posters/button-poster.webp",
   },
+  "depth-tiles": {
+    src: "/videos/depth-tiles.mp4",
+    poster: "/videos/posters/depth-tiles-poster.webp",
+  },
   "expanding-action": {
     src: "/videos/expanding-action.mp4",
     poster: "/videos/posters/expanding-action-poster.webp",
@@ -65,6 +69,10 @@ export const componentShowcaseVideos: Partial<
   "mesh-gradient-shader": {
     src: "/videos/mesh-gradient-shader.mp4",
     poster: "/videos/posters/mesh-gradient-shader-poster.webp",
+  },
+  "radial-card-marquee": {
+    src: "/videos/circular-card-marquee.mp4",
+    poster: "/videos/posters/circular-card-marquee-poster.webp",
   },
   "ripple-button": {
     src: "/videos/ripple-button.mp4",

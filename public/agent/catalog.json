@@ -729,6 +729,155 @@
       ]
     },
     {
+      "name": "magnetic-dock",
+      "title": "Magnetic Dock",
+      "category": "components",
+      "status": "preview",
+      "summary": "A floating app launcher that enlarges the item nearest a pointer while preserving predictable keyboard navigation.",
+      "keywords": [
+        "dock",
+        "app launcher",
+        "navigation",
+        "magnetic",
+        "pointer"
+      ],
+      "docs": "https://sonaui.com/docs/magnetic-dock",
+      "registryItem": "https://sonaui.com/r/magnetic-dock.json",
+      "detail": "https://sonaui.com/agent/components/magnetic-dock.json",
+      "dependencies": [
+        "motion",
+        "shadow-plugin@^2.1.0"
+      ]
+    },
+    {
+      "name": "notification-stack",
+      "title": "Notification Stack",
+      "category": "components",
+      "status": "preview",
+      "summary": "A top-right live-update stack that materializes new notifications, reflows after dismissal, and keeps status messages easy to scan.",
+      "keywords": [
+        "notification",
+        "toast",
+        "status",
+        "alert",
+        "feedback"
+      ],
+      "docs": "https://sonaui.com/docs/notification-stack",
+      "registryItem": "https://sonaui.com/r/notification-stack.json",
+      "detail": "https://sonaui.com/agent/components/notification-stack.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "shadow-plugin@^2.1.0"
+      ]
+    },
+    {
+      "name": "command-palette-preview",
+      "title": "Command Palette Preview",
+      "category": "components",
+      "status": "preview",
+      "summary": "A centered, searchable command dialog with grouped actions and keyboard-first navigation.",
+      "keywords": [
+        "command",
+        "palette",
+        "search",
+        "keyboard",
+        "dialog"
+      ],
+      "docs": "https://sonaui.com/docs/command-palette-preview",
+      "registryItem": "https://sonaui.com/r/command-palette-preview.json",
+      "detail": "https://sonaui.com/agent/components/command-palette-preview.json",
+      "dependencies": [
+        "lucide-react",
+        "shadow-plugin@^2.1.0"
+      ]
+    },
+    {
+      "name": "animated-segmented-control",
+      "title": "Animated Segmented Control",
+      "category": "components",
+      "status": "preview",
+      "summary": "A compact mode switcher with a fluid shared active surface.",
+      "keywords": [
+        "segmented",
+        "control",
+        "mode",
+        "density"
+      ],
+      "docs": "https://sonaui.com/docs/animated-segmented-control",
+      "registryItem": "https://sonaui.com/r/animated-segmented-control.json",
+      "detail": "https://sonaui.com/agent/components/animated-segmented-control.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "smart-breadcrumbs",
+      "title": "Smart Breadcrumbs",
+      "category": "components",
+      "status": "preview",
+      "summary": "A breadcrumb trail that keeps the root and current page visible while grouping middle levels in an accessible menu.",
+      "keywords": [
+        "breadcrumbs",
+        "navigation",
+        "hierarchy",
+        "menu",
+        "collapse"
+      ],
+      "docs": "https://sonaui.com/docs/smart-breadcrumbs",
+      "registryItem": "https://sonaui.com/r/smart-breadcrumbs.json",
+      "detail": "https://sonaui.com/agent/components/smart-breadcrumbs.json",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react",
+        "shadow-plugin@^2.1.0"
+      ]
+    },
+    {
+      "name": "expandable-data-card",
+      "title": "Expandable Data Card",
+      "category": "components",
+      "status": "preview",
+      "summary": "A metric card that smoothly expands inline to reveal supporting data while keeping its summary in place.",
+      "keywords": [
+        "data",
+        "card",
+        "metric",
+        "expand",
+        "dashboard",
+        "details"
+      ],
+      "docs": "https://sonaui.com/docs/expandable-data-card",
+      "registryItem": "https://sonaui.com/r/expandable-data-card.json",
+      "detail": "https://sonaui.com/agent/components/expandable-data-card.json",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "shadow-plugin@^2.1.0"
+      ]
+    },
+    {
+      "name": "github-star-history",
+      "title": "GitHub Star History",
+      "category": "components",
+      "status": "preview",
+      "summary": "An accessible smooth area chart for inspecting cumulative GitHub repository star growth over time.",
+      "keywords": [
+        "github",
+        "stars",
+        "history",
+        "chart",
+        "repository",
+        "growth"
+      ],
+      "docs": "https://sonaui.com/docs/github-star-history",
+      "registryItem": "https://sonaui.com/r/github-star-history.json",
+      "detail": "https://sonaui.com/agent/components/github-star-history.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
       "name": "testimonial-card",
       "title": "Testimonial Card",
       "category": "components",

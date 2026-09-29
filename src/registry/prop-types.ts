@@ -306,6 +306,44 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Whether the open menu limits interaction to the menu."
     }
   ],
+  "animated-segmented-control": [
+    {
+      "name": "items",
+      "type": "AnimatedSegmentedControlItem[]",
+      "default": "required",
+      "description": "Options rendered in the control."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "default": "—",
+      "description": "Controlled selected value."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "default": "—",
+      "description": "Initial selected value for uncontrolled usage."
+    },
+    {
+      "name": "onValueChange",
+      "type": "( value: string, ) => void",
+      "default": "—",
+      "description": "Called after an option is selected."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"View mode\"",
+      "description": "Accessible name for the group of options."
+    }
+  ],
   "animated-switch": [
     {
       "name": "checked",
@@ -686,6 +724,50 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the code block."
     }
   ],
+  "command-palette-preview": [
+    {
+      "name": "items",
+      "type": "CommandPaletteItem[]",
+      "default": "required",
+      "description": "Commands available in the palette."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "—",
+      "description": "Controlled visibility state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial visibility for uncontrolled usage."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "—",
+      "description": "Called when the palette requests a visibility change."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "\"Search commands...\"",
+      "description": "Placeholder shown in the command search field."
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "\"No commands found.\"",
+      "description": "Copy shown when filtering returns no commands."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the palette surface."
+    }
+  ],
   "cursor-hover-card": [
     {
       "name": "children",
@@ -822,6 +904,50 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "number",
       "default": "1",
       "description": "Animation speed multiplier. 0 = static."
+    }
+  ],
+  "expandable-data-card": [
+    {
+      "name": "title",
+      "type": "string",
+      "default": "required",
+      "description": "Short label describing the data shown in the card."
+    },
+    {
+      "name": "summary",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Always-visible summary content, such as a metric and its change."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "required",
+      "description": "Additional data revealed when the card expands."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "default": "undefined",
+      "description": "Controlled expanded state."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": "false",
+      "description": "Initial expanded state when uncontrolled."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "(open: boolean) => void",
+      "default": "undefined",
+      "description": "Called when the user opens or closes the card."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "undefined",
+      "description": "Additional classes for the card surface."
     }
   ],
   "expandable-tabs": [
@@ -1146,6 +1272,12 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Whether the trailing formatted value is visible."
     },
     {
+      "name": "editableValue",
+      "type": "boolean",
+      "default": "true",
+      "description": "Whether the visible value can be edited as an exact number."
+    },
+    {
       "name": "showHandle",
       "type": "boolean",
       "default": "true",
@@ -1316,6 +1448,50 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "undefined",
       "description": "Additional CSS classes for the positioned tooltip surface."
+    }
+  ],
+  "github-star-history": [
+    {
+      "name": "data",
+      "type": "GitHubStarHistoryDatum[]",
+      "default": "required",
+      "description": "Chronological observations displayed by the chart."
+    },
+    {
+      "name": "repository",
+      "type": "string",
+      "default": "required",
+      "description": "Repository name displayed above the chart, usually owner/repository."
+    },
+    {
+      "name": "height",
+      "type": "number",
+      "default": "280",
+      "description": "Height of the chart plot in pixels."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "\"var(--primary)\"",
+      "description": "CSS color used by the line, area, and active marker."
+    },
+    {
+      "name": "showChange",
+      "type": "boolean",
+      "default": "true",
+      "description": "Shows the recorded change between the first and latest observations."
+    },
+    {
+      "name": "animated",
+      "type": "boolean",
+      "default": "true",
+      "description": "Reveals the chart from left to right when it first appears."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "derived from repository",
+      "description": "Accessible name for the interactive chart."
     }
   ],
   "hold-to-delete-button": [
@@ -1594,6 +1770,38 @@ export const componentProps: Record<string, PropMeta[]> = {
       "description": "Additional classes for the wrapper. Prefer this for new usage."
     }
   ],
+  "magnetic-dock": [
+    {
+      "name": "items",
+      "type": "MagneticDockItem[]",
+      "default": "required",
+      "description": "App-launcher items rendered in the dock."
+    },
+    {
+      "name": "magnification",
+      "type": "number",
+      "default": "1.65",
+      "description": "The maximum item scale nearest the pointer."
+    },
+    {
+      "name": "distance",
+      "type": "number",
+      "default": "140",
+      "description": "The pointer distance in pixels that influences nearby items."
+    },
+    {
+      "name": "itemSize",
+      "type": "number",
+      "default": "48",
+      "description": "The base item size in pixels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the dock surface."
+    }
+  ],
   "marquee": [
     {
       "name": "children",
@@ -1754,6 +1962,38 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "MorphSurfaceReducedMotion",
       "default": "\"user\"",
       "description": "Controls whether the surface follows, forces, or ignores reduced motion."
+    }
+  ],
+  "notification-stack": [
+    {
+      "name": "notifications",
+      "type": "NotificationStackItem[]",
+      "default": "required",
+      "description": "Notifications displayed from newest to oldest."
+    },
+    {
+      "name": "onDismiss",
+      "type": "(id: string) => void",
+      "default": "—",
+      "description": "Called when a notification's dismiss button is selected."
+    },
+    {
+      "name": "placement",
+      "type": "\"top-right\" | \"inline\"",
+      "default": "\"top-right\"",
+      "description": "Controls whether the stack is fixed to the viewport's top-right corner or placed by its parent."
+    },
+    {
+      "name": "maxVisible",
+      "type": "number",
+      "default": "4",
+      "description": "Caps the number of visible notifications."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional CSS classes for the stack container."
     }
   ],
   "radial-card-marquee": [
@@ -2028,6 +2268,32 @@ export const componentProps: Record<string, PropMeta[]> = {
       "type": "string",
       "default": "undefined",
       "description": "Additional classes for the context card surface."
+    }
+  ],
+  "smart-breadcrumbs": [
+    {
+      "name": "items",
+      "type": "SmartBreadcrumbItem[]",
+      "default": "required",
+      "description": "Ordered path from the first level to the current page."
+    },
+    {
+      "name": "collapseAt",
+      "type": "number",
+      "default": "4",
+      "description": "Minimum number of levels before the middle levels collapse."
+    },
+    {
+      "name": "ariaLabel",
+      "type": "string",
+      "default": "\"Breadcrumb\"",
+      "description": "Accessible label for the navigation landmark."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "—",
+      "description": "Additional classes for the navigation landmark."
     }
   ],
   "smart-overflow": [

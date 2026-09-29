@@ -30,6 +30,7 @@ interface ComponentPreviewProps {
   component: React.ReactNode;
   code: string;
   tunableComponent?: string;
+  recordingPreview?: boolean;
 }
 
 function PreviewInspector({
@@ -255,6 +256,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   component,
   code,
   tunableComponent,
+  recordingPreview = false,
 }) => {
   const previewRef = useRef<HTMLDivElement>(null);
   const inspectionRootRef = useRef<HTMLDivElement>(null);
@@ -274,7 +276,11 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   }, []);
 
   return (
-    <Tabs defaultValue="preview" className="my-3 w-full">
+    <Tabs
+      defaultValue="preview"
+      data-recording-preview={recordingPreview || undefined}
+      className="my-3 w-full"
+    >
       <TabsList data-orientation="horizontal">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>

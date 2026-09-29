@@ -27,6 +27,7 @@ export function ComponentPreviewServer({ name, component }: Props) {
         component={<example.component />}
         code={example.code}
         tunableComponent={component}
+        recordingPreview={name === "default"}
       />
     );
   }

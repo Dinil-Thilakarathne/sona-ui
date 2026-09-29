@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "@/components/common/link";
+import { TrackedExternalLink } from "@/components/common/tracked-external-link";
 import { FireFrame } from "../fire-frame";
 
 const footerLinkGroups = [
@@ -87,13 +88,17 @@ type ExternalLinkProps = {
 };
 const ExternalLink = ({ href, label }: ExternalLinkProps) => {
   return (
-    <a
+    <TrackedExternalLink
       href={href}
+      eventName={
+        label === "GitHub" ? "github_link_clicked" : "social_link_clicked"
+      }
+      eventProperties={{ location: "landing_footer", destination: label }}
       className="w-fit lg:w-full flex items-start justify-between gap-1.5 font-semibold text-foreground focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground"
       target="_blank"
       rel="noreferrer"
     >
       {label} <ArrowUpRight className="size-4" aria-hidden="true" />
-    </a>
+    </TrackedExternalLink>
   );
 };

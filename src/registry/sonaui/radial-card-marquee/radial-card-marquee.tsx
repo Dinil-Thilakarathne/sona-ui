@@ -69,7 +69,6 @@ function OrbitCard({
   );
   const rotate = useTransform(angle, (value) => Math.sin(value) * 14);
   const scale = useTransform(depth, [-1, 1], [0.82, 1]);
-  const opacity = useTransform(depth, [-1, -0.35, 1], [0.24, 0.58, 1]);
   const zIndex = useTransform(depth, (value) => Math.round((value + 1) * 50));
 
   return (
@@ -86,7 +85,6 @@ function OrbitCard({
         y,
         rotate,
         scale,
-        opacity,
         zIndex,
       }}
     >
@@ -206,7 +204,7 @@ export function RadialCardMarquee({
     <section
       ref={rootRef}
       aria-label="Radial card marquee"
-      className={cn("w-full", className)}
+      className={cn("w-full min-h-[70vh] xl:min-h-[60vh]", className)}
       onPointerEnter={() => {
         pointerOverRef.current = true;
       }}
@@ -218,25 +216,20 @@ export function RadialCardMarquee({
       onPointerUp={handlePointerEnd}
       onPointerCancel={handlePointerEnd}
     >
-      <div className="relative isolate min-h-[31rem] w-full touch-pan-y select-none overflow-hidden rounded-[2rem] bg-[#303a32] px-4 py-12 text-[#f4f3ee] sm:min-h-[38rem] sm:rounded-[2.5rem]">
-        <p className="pointer-events-none absolute inset-x-0 top-6 text-center text-xs font-medium uppercase tracking-[0.28em] text-white/40">
-          Circular marquee
-        </p>
-        <div className="absolute inset-0">
-          {items.map((item, index) => (
-            <OrbitCard
-              key={item.id ?? `${item.label}-${item.image}`}
-              item={item}
-              index={index}
-              itemCount={items.length}
-              phase={phase}
-              cardWidth={cardWidth}
-              cardHeight={cardHeight}
-              radiusX={radiusX}
-              radiusY={radiusY}
-            />
-          ))}
-        </div>
+      <div className="absolute inset-0 h-full ">
+        {items.map((item, index) => (
+          <OrbitCard
+            key={item.id ?? `${item.label}-${item.image}`}
+            item={item}
+            index={index}
+            itemCount={items.length}
+            phase={phase}
+            cardWidth={cardWidth}
+            cardHeight={cardHeight}
+            radiusX={radiusX}
+            radiusY={radiusY}
+          />
+        ))}
       </div>
     </section>
   );

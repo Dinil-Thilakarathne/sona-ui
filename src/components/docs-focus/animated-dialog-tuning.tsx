@@ -4,6 +4,7 @@ import { DialRoot, useDialKitController } from "dialkit";
 import { useTheme } from "next-themes";
 import {
   createContext,
+  Fragment,
   type ReactNode,
   useContext,
   useEffect,
@@ -61,7 +62,7 @@ export function AnimatedDialogTuningProvider({
   const dial = useDialKitController("Animated Dialog", config, {
     id: "sona-docs-animated-dialog",
     onAction(path) {
-      if (path === "replay") setReplayVersion((version) => version + 1);
+      if (path === "refresh") setReplayVersion((version) => version + 1);
     },
   });
 
@@ -106,8 +107,8 @@ export function DocsTuningToggle({
 }
 
 function dialConfigForControls(controls: Control[]) {
-  return Object.fromEntries(
-    controls.map((control) => {
+  return Object.fromEntries([
+    ...controls.map((control) => {
       if (control.type === "select") {
         return [
           control.prop,
@@ -132,7 +133,8 @@ function dialConfigForControls(controls: Control[]) {
       }
       return [control.prop, { type: "text", default: control.default }];
     }),
-  );
+    ["refresh", { type: "action", label: "Refresh preview" }],
+  ]);
 }
 
 export function GenericTuningProvider({
@@ -146,6 +148,7 @@ export function GenericTuningProvider({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
+  const [refreshVersion, setRefreshVersion] = useState(0);
   const entry = playgroundRegistry[component];
   const config = useMemo(
     () => (entry ? dialConfigForControls(entry.controls) : {}),
@@ -153,6 +156,9 @@ export function GenericTuningProvider({
   );
   const dial = useDialKitController(component, config, {
     id: `sona-docs-${component}`,
+    onAction(path) {
+      if (path === "refresh") setRefreshVersion((version) => version + 1);
+    },
   });
 
   return (
@@ -160,7 +166,11 @@ export function GenericTuningProvider({
       value={{ tuningOpen: open, setTuningOpen: onOpenChange }}
     >
       <GenericTuningContext.Provider
-        value={{ values: dial.values as Record<string, unknown>, entry }}
+        value={{
+          values: dial.values as Record<string, unknown>,
+          entry,
+          refreshVersion,
+        }}
       >
         {children}
       </GenericTuningContext.Provider>
@@ -171,12 +181,17 @@ export function GenericTuningProvider({
 const GenericTuningContext = createContext<{
   values: Record<string, unknown>;
   entry: (typeof playgroundRegistry)[string] | undefined;
+  refreshVersion: number;
 } | null>(null);
 
 export function GenericTunablePreview({ fallback }: { fallback: ReactNode }) {
   const tuning = useContext(GenericTuningContext);
   if (!tuning?.entry) return fallback;
-  return tuning.entry.render(tuning.values);
+  return (
+    <Fragment key={tuning.refreshVersion}>
+      {tuning.entry.render(tuning.values)}
+    </Fragment>
+  );
 }
 
 export function AnimatedDialogTuningPanel() {

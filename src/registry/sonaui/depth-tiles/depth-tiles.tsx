@@ -64,6 +64,8 @@ const TAU = Math.PI * 2;
 const wrapIndex = (value: number, length: number) =>
   ((value % length) + length) % length;
 
+const roundStyleValue = (value: number) => Math.round(value * 1000) / 1000;
+
 function getShortestDelta(itemIndex: number, progress: number, length: number) {
   if (length <= 1) return 0;
   const half = length / 2;
@@ -76,12 +78,14 @@ function DepthTile({
   itemCount,
   progress,
   orbitRadius,
+  hydrated,
 }: {
   item: DepthTileItem;
   itemIndex: number;
   itemCount: number;
   progress: MotionValue<number>;
   orbitRadius: number;
+  hydrated: boolean;
 }) {
   const phase = useTransform(
     progress,
@@ -93,12 +97,19 @@ function DepthTile({
   const scale = useTransform(depth, (value) => 1 - value * 0.2);
   const opacity = useTransform(depth, (value) => 1 - value * 0.64);
   const zIndex = useTransform(depth, (value) => Math.round((1 - value) * 100));
+  const initialPhase = ((itemIndex - progress.get()) / itemCount) * TAU;
+  const initialDepth = (1 - Math.cos(initialPhase)) / 2;
+  const initialStyle = {
+    opacity: roundStyleValue(1 - initialDepth * 0.64),
+    transform: `translateX(${roundStyleValue(Math.sin(initialPhase) * orbitRadius)}px) translateY(${roundStyleValue(initialDepth * 28)}px) scale(${roundStyleValue(1 - initialDepth * 0.2)})`,
+    zIndex: Math.round((1 - initialDepth) * 100),
+  };
 
   return (
     <motion.article
       aria-hidden="true"
       className="pointer-events-none absolute aspect-[1.12] w-[min(68vw,25rem)] overflow-hidden rounded-[1.4rem] bg-muted shadow-[0_2px_8px_rgba(0,0,0,.08),0_24px_64px_rgba(0,0,0,.18)] will-change-transform sm:rounded-[1.75rem]"
-      style={{ x, y, scale, opacity, zIndex }}
+      style={hydrated ? { x, y, scale, opacity, zIndex } : initialStyle}
     >
       {/* biome-ignore lint/performance/noImgElement: framework-neutral registry component */}
       <img
@@ -136,6 +147,7 @@ export default function DepthTiles({
   const [isFocused, setIsFocused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isDocumentVisible, setIsDocumentVisible] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(960);
   const viewportRef = useRef<HTMLDivElement>(null);
   const itemCount = items.length;
@@ -145,6 +157,8 @@ export default function DepthTiles({
   const progress = useMotionValue(activeIndex);
   const dragStartProgress = useRef(activeIndex);
   const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+
+  useEffect(() => setHydrated(true), []);
 
   const stopAnimation = useCallback(() => {
     animationRef.current?.stop();
@@ -287,6 +301,7 @@ export default function DepthTiles({
               itemCount={itemCount}
               progress={progress}
               orbitRadius={orbitRadius}
+              hydrated={hydrated}
             />
           ))}
 

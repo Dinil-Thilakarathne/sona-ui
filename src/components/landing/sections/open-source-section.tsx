@@ -1,6 +1,7 @@
 import { Code2, Terminal } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Link from "@/components/common/link";
+import { TrackedExternalLink } from "@/components/common/tracked-external-link";
 
 const cardClass =
   "grid min-h-44 content-start gap-2.5 rounded-2xl bg-card p-5 smooth-shadow-ring-sm transition-[transform] duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-foreground motion-reduce:transform-none motion-reduce:transition-none";
@@ -21,8 +22,10 @@ export function OpenSourceSection() {
         Engineering proof over marketing filler.
       </h2>
       <div className="mt-8 grid gap-3 md:grid-cols-3">
-        <a
+        <TrackedExternalLink
           href="https://github.com/Dinil-Thilakarathne/sona-ui"
+          eventName="github_link_clicked"
+          eventProperties={{ location: "landing_open_source" }}
           className={cardClass}
           target="_blank"
           rel="noreferrer"
@@ -32,7 +35,7 @@ export function OpenSourceSection() {
           <span className="text-[0.8125rem] leading-relaxed text-muted-foreground">
             Inspect the implementation and contribute.
           </span>
-        </a>
+        </TrackedExternalLink>
         <Link href="/docs/changelog" className={cardClass}>
           <Terminal className="size-5 text-site-brand" aria-hidden="true" />
           <strong className="text-[0.95rem]">Release history</strong>

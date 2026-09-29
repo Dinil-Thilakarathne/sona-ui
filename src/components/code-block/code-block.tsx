@@ -18,6 +18,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import type { BundledLanguage } from "shiki";
 import {
   type FadeEdges,
   ScrollArea,
@@ -25,7 +26,6 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/tabs/tabs";
 import { cn } from "@/lib/utils";
 import { CopyButton } from "../copy-button/copy-button";
-import type { BundledLanguage } from "shiki";
 import { highlight } from "./lib/shiki-shared";
 import { stripDiffMarker } from "./lib/transformers/utils";
 
@@ -39,6 +39,7 @@ interface CodeBlockContextValue {
   hasFocus: boolean;
   showDiff: boolean;
   floatingCopy: boolean;
+  analyticsEvent?: string;
 }
 
 const CodeBlockContext = createContext<CodeBlockContextValue | null>(null);
@@ -87,6 +88,7 @@ interface CodeBlockProps
   extends Omit<useRender.ComponentProps<"div">, "children"> {
   code: string;
   language?: string;
+  analyticsEvent?: string;
   initial?: React.ReactElement;
   floatingCopy?: boolean;
   highlightLines?: number[] | string;
@@ -100,6 +102,7 @@ function CodeBlock({
   language = "javascript",
   initial,
   floatingCopy = false,
+  analyticsEvent,
   highlightLines,
   showDiff,
   focusLines,
@@ -140,14 +143,7 @@ function CodeBlock({
         focusLines,
       }).then(setNodes);
     }
-  }, [
-    code,
-    language,
-    initial,
-    highlightLines,
-    showDiff,
-    focusLines,
-  ]);
+  }, [code, language, initial, highlightLines, showDiff, focusLines]);
 
   // Memoize context value to prevent unnecessary re-renders
   const contextValue = useMemo(
@@ -160,6 +156,7 @@ function CodeBlock({
       hasFocus: !!focusLines,
       showDiff: !!showDiff,
       floatingCopy,
+      analyticsEvent,
     }),
     [
       language,
@@ -170,6 +167,7 @@ function CodeBlock({
       focusLines,
       showDiff,
       floatingCopy,
+      analyticsEvent,
     ],
   );
 
@@ -247,7 +245,11 @@ function CodeBlockHeader({
 
   const endContent = showCopy && copyCode && (
     <div className="flex gap-2 items-center">
-      <CopyButton data-slot="code-block-copy-button" content={copyCode} />
+      <CopyButton
+        data-slot="code-block-copy-button"
+        content={copyCode}
+        analyticsEvent={context.analyticsEvent}
+      />
     </div>
   );
 
@@ -463,6 +465,7 @@ function CodeBlockFloatingCopy({
       <CopyButton
         data-slot="code-block-floating-copy"
         content={copyCode}
+        analyticsEvent={context.analyticsEvent}
         className="pointer-events-auto backdrop-blur-sm"
       />
     ),

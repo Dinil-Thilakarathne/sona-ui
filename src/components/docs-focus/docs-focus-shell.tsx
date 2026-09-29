@@ -489,7 +489,10 @@ function ComponentPage({
 
   const page = (
     <div className="relative h-full overflow-hidden bg-focus-canvas">
-      <header className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4">
+      <header
+        data-docs-chrome
+        className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4"
+      >
         {mobileMatch !== false && (
           <FocusNavigationBar
             open={navOpen}
@@ -508,6 +511,7 @@ function ComponentPage({
       >
         {(isDesktop || mobileMatch === null) && (
           <aside
+            data-docs-chrome
             aria-hidden={!desktopLayoutOpen}
             inert={!desktopLayoutOpen}
             className={cn(

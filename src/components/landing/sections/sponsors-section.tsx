@@ -1,4 +1,5 @@
 import { Plus } from "lucide-react";
+import { TrackedExternalLink } from "@/components/common/tracked-external-link";
 
 const sponsorshipSlots = [
   { label: "Your logo here", tier: "Platinum sponsor" },
@@ -37,9 +38,14 @@ export function SponsorsSection() {
         </div>
         <div className="grid border-b border-border divide-y divide-border sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {sponsorshipSlots.map((slot) => (
-            <a
+            <TrackedExternalLink
               key={slot.tier}
               href="https://github.com/sponsors/Dinil-Thilakarathne"
+              eventName="sponsor_link_clicked"
+              eventProperties={{
+                location: "landing_sponsor_slot",
+                tier: slot.tier,
+              }}
               target="_blank"
               rel="noreferrer"
               className="group flex min-h-40 flex-col items-center justify-center gap-3 px-5 py-8 text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
@@ -50,7 +56,7 @@ export function SponsorsSection() {
               <span className="font-helvetica-neue text-lg  tracking-[-0.03em] text-foreground">
                 {slot.label}
               </span>
-            </a>
+            </TrackedExternalLink>
           ))}
         </div>
 
@@ -59,8 +65,10 @@ export function SponsorsSection() {
             Platform partner
           </p>
         </div>
-        <a
+        <TrackedExternalLink
           href="https://github.com/sponsors/Dinil-Thilakarathne"
+          eventName="sponsor_link_clicked"
+          eventProperties={{ location: "landing_platform_partner" }}
           target="_blank"
           rel="noreferrer"
           className="group flex min-h-36 items-center justify-center border-b border-border text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
@@ -68,7 +76,7 @@ export function SponsorsSection() {
           <span className="font-helvetica-neue text-3xl font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
             Platform sponsor logo
           </span>
-        </a>
+        </TrackedExternalLink>
       </div>
     </section>
   );

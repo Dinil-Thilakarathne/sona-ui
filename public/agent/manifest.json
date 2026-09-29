@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "catalog": "https://sonaui.com/agent/catalog.json",
-  "fullGuidance": "https://sonaui.com/llms-full.txt",
+  "guidance": "https://sonaui.com/llms.txt",
   "skill": "https://sonaui.com/r/agent-skill.json",
-  "updatePolicy": "Fetch this manifest before selecting or installing a component. Installed skill files and full guidance are snapshots; this manifest and its catalog are authoritative when reachable."
+  "updatePolicy": "Fetch this manifest before selecting or installing a component. Installed skill files are snapshots; this manifest and its catalog are authoritative when reachable."
 }

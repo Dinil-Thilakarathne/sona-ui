@@ -87,7 +87,7 @@ export function DesktopDocsSidebar({
               const activeIndicatorId = `${sectionId}-active-indicator`;
 
               return (
-                <section key={group} className="mb-2">
+                <section key={group} className="mb-4">
                   <h2>
                     <button
                       type="button"

@@ -1,26 +1,24 @@
-# Sona UI Agent Resources
+# Sona UI
 
 > Source-owned React components with purposeful motion and accessible interaction.
 
-## Freshness protocol
+Use the current agent manifest and catalog to select components. Fetch a component's detail resource before installing it; this index is intentionally concise.
 
-Before selecting or installing a component, fetch the [agent manifest](https://sonaui.com/agent/manifest.json) and follow its catalog URL. The manifest is the current authority when network access is available.
+When network access is unavailable, treat any installed or downloaded component guidance as a possibly outdated snapshot.
 
-If the manifest cannot be reached, disclose that the installed or downloaded snapshot may be older than production.
+## Get started
 
-## Start here
+- [Installation](https://sonaui.com/docs/installation): Set up the Sona UI registry and install a component.
+- [Theming](https://sonaui.com/docs/theming): Adapt components to the consumer project's theme.
+- [Use with AI](https://sonaui.com/docs/use-with-ai): Connect an agent and verify component selection.
 
-- [Agent manifest](https://sonaui.com/agent/manifest.json)
-- [Installation](https://sonaui.com/docs/installation)
-- [Theming](https://sonaui.com/docs/theming)
-- [Agent component catalog](https://sonaui.com/agent/catalog.json)
-- [Full agent guidance](https://sonaui.com/llms-full.txt)
-- [Registry index](https://sonaui.com/r/registry.json)
-- [OpenAPI description](https://sonaui.com/openapi.json)
+## Component resources
 
-## Integration principles
+- [Agent manifest](https://sonaui.com/agent/manifest.json): Current entry point for the catalog and registry skill.
+- [Component catalog](https://sonaui.com/agent/catalog.json): Searchable component summaries and links to detailed metadata.
+- [Registry index](https://sonaui.com/r/registry.json): Installable registry items.
+- [OpenAPI description](https://sonaui.com/openapi.json): Machine-readable API endpoints.
 
-- Install through the Sona UI shadcn registry rather than copying source into prompts.
-- Inspect accessibility, motion, dependencies, and use cases before composing a component.
-- Preserve the consumer project's existing layout, tokens, and conventions.
-- Respect prefers-reduced-motion and keep decorative effects separate from meaningful content.
+## Optional
+
+- [Component gallery](https://sonaui.com/components): Visual examples of available components.
