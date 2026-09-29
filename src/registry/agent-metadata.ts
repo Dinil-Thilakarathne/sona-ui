@@ -31,7 +31,7 @@ export type AgentResourceMetadata = {
  * generated registry artifacts so the contract can be validated before it is
  * expanded to the rest of the catalog.
  */
-export const agentResourceMetadata = {
+const allAgentResourceMetadata = {
   "morph-surface": {
     name: "morph-surface",
     title: "Morph Surface",
@@ -394,7 +394,7 @@ function catalogEntry(
   };
 }
 
-Object.assign(agentResourceMetadata, {
+Object.assign(allAgentResourceMetadata, {
   "animated-dropdown": catalogEntry(
     "animated-dropdown",
     "Animated Dropdown",
@@ -1264,3 +1264,37 @@ Object.assign(agentResourceMetadata, {
     ["stepper", "steps", "workflow", "progress", "installation"],
   ),
 });
+
+const retiredAgentResourceNames = new Set([
+  "schedule-chip",
+  "chip",
+  "assignment-cluster",
+  "cursor-hover-card",
+  "magnetic-dock",
+  "notification-stack",
+  "command-palette-preview",
+  "animated-segmented-control",
+  "smart-breadcrumbs",
+  "expandable-data-card",
+  "github-star-history",
+  "testimonial-card",
+  "text-highlight",
+  "radial-card-slider",
+]);
+
+export const agentResourceMetadata = Object.fromEntries(
+  Object.entries(allAgentResourceMetadata)
+    .filter(([name]) => !retiredAgentResourceNames.has(name))
+    .map(([name, metadata]) => {
+      const resource = metadata as AgentResourceMetadata;
+      return [
+        name,
+        {
+          ...resource,
+          related: resource.related?.filter(
+            (related) => !retiredAgentResourceNames.has(related),
+          ),
+        },
+      ];
+    }),
+) as Record<string, AgentResourceMetadata>;

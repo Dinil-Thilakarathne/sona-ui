@@ -1547,7 +1547,7 @@ export default function ImageTrailInteractiveExample() {
   return (
     <ImageTrail
       images={images}
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
@@ -1595,7 +1595,7 @@ export default function ImageTrailInteractiveExample() {
   return (
     <ImageTrail
       images={images}
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
@@ -1641,7 +1641,7 @@ export default function ImageTrailBlurExample() {
     <ImageTrail
       images={images}
       variant="blur"
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -1667,7 +1667,7 @@ export default function ImageTrailBlurExample() {
     <ImageTrail
       images={images}
       variant="blur"
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -1696,7 +1696,7 @@ export default function ImageTrailExample() {
   return (
     <ImageTrail
       images={images}
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -1721,7 +1721,7 @@ export default function ImageTrailExample() {
   return (
     <ImageTrail
       images={images}
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -1751,7 +1751,7 @@ export default function ImageTrailTiltExample() {
     <ImageTrail
       images={images}
       variant="tilt"
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -1777,7 +1777,7 @@ export default function ImageTrailTiltExample() {
     <ImageTrail
       images={images}
       variant="tilt"
-      className="h-full min-h-[350px] w-full flex items-center justify-center"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
     >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
@@ -15859,7 +15859,6 @@ function OrbitCard({
   );
   const rotate = useTransform(angle, (value) => Math.sin(value) * 14);
   const scale = useTransform(depth, [-1, 1], [0.82, 1]);
-  const opacity = useTransform(depth, [-1, -0.35, 1], [0.24, 0.58, 1]);
   const zIndex = useTransform(depth, (value) => Math.round((value + 1) * 50));
 
   return (
@@ -15876,7 +15875,6 @@ function OrbitCard({
         y,
         rotate,
         scale,
-        opacity,
         zIndex,
       }}
     >
@@ -15996,7 +15994,7 @@ export function RadialCardMarquee({
     <section
       ref={rootRef}
       aria-label="Radial card marquee"
-      className={cn("w-full", className)}
+      className={cn("w-full min-h-[70vh] xl:min-h-[60vh]", className)}
       onPointerEnter={() => {
         pointerOverRef.current = true;
       }}
@@ -16008,25 +16006,20 @@ export function RadialCardMarquee({
       onPointerUp={handlePointerEnd}
       onPointerCancel={handlePointerEnd}
     >
-      <div className="relative isolate min-h-[31rem] w-full touch-pan-y select-none overflow-hidden rounded-[2rem] bg-[#303a32] px-4 py-12 text-[#f4f3ee] sm:min-h-[38rem] sm:rounded-[2.5rem]">
-        <p className="pointer-events-none absolute inset-x-0 top-6 text-center text-xs font-medium uppercase tracking-[0.28em] text-white/40">
-          Circular marquee
-        </p>
-        <div className="absolute inset-0">
-          {items.map((item, index) => (
-            <OrbitCard
-              key={item.id ?? \`\${item.label}-\${item.image}\`}
-              item={item}
-              index={index}
-              itemCount={items.length}
-              phase={phase}
-              cardWidth={cardWidth}
-              cardHeight={cardHeight}
-              radiusX={radiusX}
-              radiusY={radiusY}
-            />
-          ))}
-        </div>
+      <div className="absolute inset-0 h-full ">
+        {items.map((item, index) => (
+          <OrbitCard
+            key={item.id ?? \`\${item.label}-\${item.image}\`}
+            item={item}
+            index={index}
+            itemCount={items.length}
+            phase={phase}
+            cardWidth={cardWidth}
+            cardHeight={cardHeight}
+            radiusX={radiusX}
+            radiusY={radiusY}
+          />
+        ))}
       </div>
     </section>
   );
@@ -22367,25 +22360,6 @@ export const componentMetadata = {
       "motion"
     ]
   },
-  "cursor-hover-card": {
-    "name": "cursor-hover-card",
-    "type": "registry:ui",
-    "title": "Cursor Hover Card",
-    "description": "A rich Base UI preview card that follows above the pointer, tilts with movement speed and direction, and returns to stable trigger positioning for keyboard users.",
-    "files": [
-      {
-        "path": "registry/sonaui/cursor-hover-card/cursor-hover-card.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ],
-    "registryDependencies": [
-      "@sona-ui/sona-utils"
-    ]
-  },
   "fluid-slider": {
     "name": "fluid-slider",
     "type": "registry:ui",
@@ -22683,58 +22657,6 @@ export const componentMetadata = {
       "motion"
     ]
   },
-  "assignment-cluster": {
-    "name": "assignment-cluster",
-    "type": "registry:ui",
-    "title": "Assignment Cluster",
-    "description": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
-    "files": [
-      {
-        "path": "registry/sonaui/assignment-cluster/assignment-cluster.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ]
-  },
-  "schedule-chip": {
-    "name": "schedule-chip",
-    "type": "registry:ui",
-    "title": "Schedule Chip",
-    "description": "A readable schedule summary that expands in place into a focused date, time, and timezone editor.",
-    "files": [
-      {
-        "path": "registry/sonaui/schedule-chip/schedule-chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion",
-      "lucide-react"
-    ],
-    "registryDependencies": [
-      "@sona-ui/morph-surface",
-      "@sona-ui/sona-utils"
-    ]
-  },
-  "chip": {
-    "name": "chip",
-    "type": "registry:ui",
-    "title": "Chip",
-    "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
-    "files": [
-      {
-        "path": "registry/sonaui/chip/chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [],
-    "registryDependencies": [
-      "@sona-ui/sona-utils"
-    ]
-  },
   "spotlight-card": {
     "name": "spotlight-card",
     "type": "registry:ui",
@@ -22743,172 +22665,6 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/spotlight-card/spotlight-card.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion"
-    ]
-  },
-  "magnetic-dock": {
-    "name": "magnetic-dock",
-    "type": "registry:ui",
-    "title": "Magnetic Dock",
-    "description": "A floating app launcher whose nearby items grow toward the pointer for confident, compact targeting.",
-    "files": [
-      {
-        "path": "registry/sonaui/magnetic-dock/magnetic-dock.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion",
-      "shadow-plugin@^2.1.0"
-    ],
-    "css": {
-      "@plugin shadow-plugin": {}
-    }
-  },
-  "notification-stack": {
-    "name": "notification-stack",
-    "type": "registry:ui",
-    "title": "Notification Stack",
-    "description": "A top-right stack of live updates with semantic presentation, dismiss actions, and polished reflow.",
-    "files": [
-      {
-        "path": "registry/sonaui/notification-stack/notification-stack.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion",
-      "lucide-react",
-      "shadow-plugin@^2.1.0"
-    ],
-    "css": {
-      "@plugin shadow-plugin": {}
-    }
-  },
-  "command-palette-preview": {
-    "name": "command-palette-preview",
-    "type": "registry:ui",
-    "title": "Command Palette Preview",
-    "description": "A centered command palette with searchable grouped actions and keyboard-first navigation.",
-    "files": [
-      {
-        "path": "registry/sonaui/command-palette-preview/command-palette-preview.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "lucide-react",
-      "shadow-plugin@^2.1.0"
-    ],
-    "css": {
-      "@plugin shadow-plugin": {}
-    }
-  },
-  "animated-segmented-control": {
-    "name": "animated-segmented-control",
-    "type": "registry:ui",
-    "title": "Animated Segmented Control",
-    "description": "A compact mutually exclusive control with a fluid shared active surface.",
-    "files": [
-      {
-        "path": "registry/sonaui/animated-segmented-control/animated-segmented-control.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion"
-    ]
-  },
-  "smart-breadcrumbs": {
-    "name": "smart-breadcrumbs",
-    "type": "registry:ui",
-    "title": "Smart Breadcrumbs",
-    "description": "A compact breadcrumb trail that keeps the first and current levels visible while preserving hidden ancestors in a menu.",
-    "files": [
-      {
-        "path": "registry/sonaui/smart-breadcrumbs/smart-breadcrumbs.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "@base-ui/react",
-      "lucide-react",
-      "shadow-plugin@^2.1.0"
-    ],
-    "css": {
-      "@plugin shadow-plugin": {}
-    }
-  },
-  "expandable-data-card": {
-    "name": "expandable-data-card",
-    "type": "registry:ui",
-    "title": "Expandable Data Card",
-    "description": "An inline-morphing metric card that keeps its summary visible while revealing supporting data.",
-    "files": [
-      {
-        "path": "registry/sonaui/expandable-data-card/expandable-data-card.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion",
-      "lucide-react",
-      "shadow-plugin@^2.1.0"
-    ],
-    "css": {
-      "@plugin shadow-plugin": {}
-    }
-  },
-  "github-star-history": {
-    "name": "github-star-history",
-    "type": "registry:ui",
-    "title": "GitHub Star History",
-    "description": "An accessible smooth area chart for exploring cumulative GitHub repository star growth.",
-    "files": [
-      {
-        "path": "registry/sonaui/github-star-history/github-star-history.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion"
-    ]
-  },
-  "testimonial-card": {
-    "name": "testimonial-card",
-    "type": "registry:ui",
-    "title": "Testimonial Card",
-    "description": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
-    "files": [
-      {
-        "path": "registry/sonaui/testimonial-card/testimonial-card.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "lucide-react",
-      "motion"
-    ],
-    "registryDependencies": [
-      "@sona-ui/sona-utils"
-    ]
-  },
-  "text-highlight": {
-    "name": "text-highlight",
-    "type": "registry:ui",
-    "title": "Text Highlight",
-    "description": "An inline emphasis effect with marker, underline, and block reveal treatments.",
-    "files": [
-      {
-        "path": "registry/sonaui/text-highlight/text-highlight.tsx",
-        "type": "registry:ui"
-      },
-      {
-        "path": "registry/sonaui/text-highlight/text-highlight.module.css",
         "type": "registry:ui"
       }
     ],
@@ -23057,21 +22813,6 @@ export const componentMetadata = {
     "files": [
       {
         "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion"
-    ]
-  },
-  "radial-card-slider": {
-    "name": "radial-card-slider",
-    "type": "registry:ui",
-    "title": "Radial Card Slider",
-    "description": "A responsive card carousel arranged on a radial arc with pointer drag, wheel movement, and keyboard navigation.",
-    "files": [
-      {
-        "path": "registry/sonaui/radial-card-slider/radial-card-slider.tsx",
         "type": "registry:ui"
       }
     ],
