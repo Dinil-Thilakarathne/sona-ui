@@ -7,12 +7,18 @@ import { Sheet, SheetContent } from "@/components/common/sheet";
 import { ComponentShowcaseCard } from "@/components/component-showcase/component-showcase-card";
 import { ComponentShowcaseRegistryPreview } from "@/components/component-showcase/component-showcase-registry-preview";
 import { DocsCopyPage } from "@/components/docs-copy-page/docs-copy-page";
+import {
+  AnimatedDialogTuningPanel,
+  AnimatedDialogTuningProvider,
+  GenericTuningProvider,
+} from "@/components/docs-focus/animated-dialog-tuning";
 import { ComponentFeedback } from "@/components/docs-focus/component-feedback";
 import { useDocsFocusPanelState } from "@/components/docs-layout-shell";
 import { componentShowcaseVideos } from "@/config/component-showcase";
 import { componentNavigationLinks } from "@/config/components";
 import { SITE_METADATA } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { playgroundRegistry } from "@/registry/playground";
 import FluidTooltip from "@/registry/sonaui/fluid-tooltip/fluid-tooltip";
 import type { ComponentDocumentationData } from "./component-doc-data";
 import { DescriptionPanel } from "./description-panel";
@@ -455,17 +461,38 @@ function ComponentPage({
   data: ComponentDocumentationData;
   copyActions: ReactNode;
 }) {
-  const { navOpen, setNavOpen, mobileMatch } = useDocsFocusPanelState();
+  const { navOpen, setNavOpen, mobileMatch, toolDrawer, setToolDrawer } =
+    useDocsFocusPanelState();
   const isDesktop = mobileMatch === false;
   const desktopLayoutOpen = isDesktop || mobileMatch === null;
+  const isTunable = Boolean(
+    playgroundRegistry[data.component]?.controls.length,
+  );
+  const isAnimatedDialog = data.component === "animated-dialog";
+  const tuningOpen = isTunable && toolDrawer === "controls";
+  const [compactTools, setCompactTools] = useState<boolean | null>(null);
   const [scrollElement, setScrollElement] = useState<HTMLElement | null>(null);
   const headings = useDocumentHeadings("[data-component-document]");
   useEffect(() => {
     if (isDesktop) setNavOpen(true);
   }, [isDesktop, setNavOpen]);
-  return (
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1279px)");
+    const update = () => setCompactTools(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener("change", update);
+    return () => mediaQuery.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (!isTunable && toolDrawer === "controls") setToolDrawer(null);
+  }, [isTunable, setToolDrawer, toolDrawer]);
+
+  const page = (
     <div className="relative h-full overflow-hidden bg-focus-canvas">
-      <header className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4">
+      <header
+        data-docs-chrome
+        className="pointer-events-none absolute inset-x-2 top-2 z-[100] flex items-center gap-2 md:inset-x-4 md:top-4"
+      >
         {mobileMatch !== false && (
           <FocusNavigationBar
             open={navOpen}
@@ -484,6 +511,7 @@ function ComponentPage({
       >
         {(isDesktop || mobileMatch === null) && (
           <aside
+            data-docs-chrome
             aria-hidden={!desktopLayoutOpen}
             inert={!desktopLayoutOpen}
             className={cn(
@@ -548,15 +576,52 @@ function ComponentPage({
             <div aria-hidden="true" className="h-[20vh]" />
           </div>
         </article>
-        <ComponentContentsRail
-          headings={headings}
-          scrollElement={scrollElement}
-        />
+        {tuningOpen && compactTools === false ? (
+          <AnimatedDialogTuningPanel />
+        ) : (
+          <ComponentContentsRail
+            headings={headings}
+            scrollElement={scrollElement}
+          />
+        )}
       </main>
       {mobileMatch === true && (
         <DocsNavigation open={navOpen} onOpenChange={setNavOpen} />
       )}
+      {isTunable && compactTools === true && (
+        <Sheet
+          modal={false}
+          open={tuningOpen}
+          onOpenChange={(open) => setToolDrawer(open ? "controls" : null)}
+        >
+          <SheetContent
+            side="right"
+            className="top-2! right-2! bottom-2! z-70! h-auto! w-[min(22rem,calc(100vw-1rem))] gap-0! overflow-hidden rounded-[22px] border-0! bg-background p-0 smooth-shadow-ring-xl! data-[side=right]:border-l-0"
+          >
+            <AnimatedDialogTuningPanel />
+          </SheetContent>
+        </Sheet>
+      )}
     </div>
+  );
+
+  return isAnimatedDialog ? (
+    <AnimatedDialogTuningProvider
+      open={tuningOpen}
+      onOpenChange={(open) => setToolDrawer(open ? "controls" : null)}
+    >
+      {page}
+    </AnimatedDialogTuningProvider>
+  ) : isTunable ? (
+    <GenericTuningProvider
+      component={data.component}
+      open={tuningOpen}
+      onOpenChange={(open) => setToolDrawer(open ? "controls" : null)}
+    >
+      {page}
+    </GenericTuningProvider>
+  ) : (
+    page
   );
 }
 

@@ -11,11 +11,15 @@ import image_trail_image_trail_interactive from "@/registry/examples/image-trail
 import image_trail_image_trail_blur from "@/registry/examples/image-trail/image-trail-blur";
 import image_trail_image_trail_demo from "@/registry/examples/image-trail/image-trail-demo";
 import image_trail_image_trail_tilt from "@/registry/examples/image-trail/image-trail-tilt";
+import testimonial_card_testimonial_card_demo from "@/registry/examples/testimonial-card/testimonial-card-demo";
+import text_highlight_text_highlight_demo from "@/registry/examples/text-highlight/text-highlight-demo";
 import code_block_code_block_demo from "@/registry/examples/code-block/code-block-demo";
 import code_block_code_block_diff from "@/registry/examples/code-block/code-block-diff";
 import code_block_code_block_highlight from "@/registry/examples/code-block/code-block-highlight";
 import code_block_code_block_focus from "@/registry/examples/code-block/code-block-focus";
 import magnetic_button_magnetic_button_demo from "@/registry/examples/magnetic-button/magnetic-button-demo";
+import magnetic_dock_magnetic_dock_demo from "@/registry/examples/magnetic-dock/magnetic-dock-demo";
+import notification_stack_notification_stack_demo from "@/registry/examples/notification-stack/notification-stack-demo";
 import morph_surface_morph_surface_demo from "@/registry/examples/morph-surface/morph-surface-demo";
 import fluid_tabs_fluid_tabs_demo from "@/registry/examples/fluid-tabs/fluid-tabs-demo";
 import fluid_tabs_fluid_tabs_underline from "@/registry/examples/fluid-tabs/fluid-tabs-underline";
@@ -29,8 +33,10 @@ import accordion_accordion_demo from "@/registry/examples/accordion/accordion-de
 import accordion_accordion_multistep from "@/registry/examples/accordion/accordion-multistep";
 import accordion_accordion_outlined from "@/registry/examples/accordion/accordion-outlined";
 import spinning_text_spinning_text_demo from "@/registry/examples/spinning-text/spinning-text-demo";
+import expandable_data_card_expandable_data_card_demo from "@/registry/examples/expandable-data-card/expandable-data-card-demo";
 import bubble_up_button_bubble_up_button_demo from "@/registry/examples/bubble-up-button/bubble-up-button-demo";
 import chip_chip_demo from "@/registry/examples/chip/chip-demo";
+import github_star_history_github_star_history_demo from "@/registry/examples/github-star-history/github-star-history-demo";
 import fan_view_fan_view_demo from "@/registry/examples/fan-view/fan-view-demo";
 import stepper_stepper_demo from "@/registry/examples/stepper/stepper-demo";
 import schedule_chip_schedule_chip_demo from "@/registry/examples/schedule-chip/schedule-chip-demo";
@@ -46,7 +52,10 @@ import smart_overflow_smart_overflow_demo from "@/registry/examples/smart-overfl
 import split_text_split_text_demo from "@/registry/examples/split-text/split-text-demo";
 import animated_tabs_animated_tabs_demo from "@/registry/examples/animated-tabs/animated-tabs-demo";
 import button_button_demo from "@/registry/examples/button/button-demo";
+import radial_card_marquee_radial_card_marquee_demo from "@/registry/examples/radial-card-marquee/radial-card-marquee-demo";
 import assignment_cluster_assignment_cluster_demo from "@/registry/examples/assignment-cluster/assignment-cluster-demo";
+import command_palette_preview_command_palette_preview_demo from "@/registry/examples/command-palette-preview/command-palette-preview-demo";
+import depth_tiles_depth_tiles_demo from "@/registry/examples/depth-tiles/depth-tiles-demo";
 import fluid_slider_fluid_slider_demo from "@/registry/examples/fluid-slider/fluid-slider-demo";
 import animated_switch_animated_switch_demo from "@/registry/examples/animated-switch/animated-switch-demo";
 import animated_switch_animated_switch_disabled from "@/registry/examples/animated-switch/animated-switch-disabled";
@@ -54,6 +63,7 @@ import animated_switch_animated_switch_controlled from "@/registry/examples/anim
 import animated_switch_animated_switch_sizes from "@/registry/examples/animated-switch/animated-switch-sizes";
 import animated_switch_animated_switch_disable from "@/registry/examples/animated-switch/animated-switch-disable";
 import activity_graph_activity_graph_demo from "@/registry/examples/activity-graph/activity-graph-demo";
+import smart_breadcrumbs_smart_breadcrumbs_demo from "@/registry/examples/smart-breadcrumbs/smart-breadcrumbs-demo";
 import expandable_tabs_expandable_tabs_demo from "@/registry/examples/expandable-tabs/expandable-tabs-demo";
 import expanding_action_expanding_action_demo from "@/registry/examples/expanding-action/expanding-action-demo";
 import fluid_tooltip_fluid_tooltip_demo from "@/registry/examples/fluid-tooltip/fluid-tooltip-demo";
@@ -63,11 +73,14 @@ import mesh_gradient_shader_mesh_gradient_shader_sunset from "@/registry/example
 import mesh_gradient_shader_mesh_gradient_shader_static from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-static";
 import mesh_gradient_shader_mesh_gradient_shader_monochrome from "@/registry/examples/mesh-gradient-shader/mesh-gradient-shader-monochrome";
 import link_preview_link_preview_demo from "@/registry/examples/link-preview/link-preview-demo";
+import radial_card_slider_radial_card_slider_demo from "@/registry/examples/radial-card-slider/radial-card-slider-demo";
 import swipe_action_row_swipe_action_row_demo from "@/registry/examples/swipe-action-row/swipe-action-row-demo";
 import stagger_text_stagger_text_demo from "@/registry/examples/stagger-text/stagger-text-demo";
 import avatar_showcase_avatar_showcase_demo from "@/registry/examples/avatar-showcase/avatar-showcase-demo";
 import floating_viewer_floating_viewer_demo from "@/registry/examples/floating-viewer/floating-viewer-demo";
 import hold_to_delete_button_hold_to_delete_button_demo from "@/registry/examples/hold-to-delete-button/hold-to-delete-button-demo";
+import cursor_hover_card_cursor_hover_card_demo from "@/registry/examples/cursor-hover-card/cursor-hover-card-demo";
+import animated_segmented_control_animated_segmented_control_demo from "@/registry/examples/animated-segmented-control/animated-segmented-control-demo";
 
 export type RegistryEntry = {
   name: string;
@@ -1532,7 +1545,10 @@ export default function ImageTrailInteractiveExample() {
   const [clicks, setClicks] = useState(0);
 
   return (
-    <ImageTrail images={images} className="h-full w-full">
+    <ImageTrail
+      images={images}
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
           Sweep the cursor to spawn the trail, then click the button or the link
@@ -1577,7 +1593,10 @@ export default function ImageTrailInteractiveExample() {
   const [clicks, setClicks] = useState(0);
 
   return (
-    <ImageTrail images={images} className="h-full w-full">
+    <ImageTrail
+      images={images}
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full flex-col items-center justify-center gap-4">
         <p className="pointer-events-none text-center text-muted-foreground text-sm">
           Sweep the cursor to spawn the trail, then click the button or the link
@@ -1619,7 +1638,11 @@ const images = [
 
 export default function ImageTrailBlurExample() {
   return (
-    <ImageTrail images={images} variant="blur" className="h-full w-full">
+    <ImageTrail
+      images={images}
+      variant="blur"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Blur trail
@@ -1641,7 +1664,11 @@ export default function ImageTrailBlurExample() {
 
 export default function ImageTrailBlurExample() {
   return (
-    <ImageTrail images={images} variant="blur" className="h-full w-full">
+    <ImageTrail
+      images={images}
+      variant="blur"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Blur trail
@@ -1667,7 +1694,10 @@ const images = [
 
 export default function ImageTrailExample() {
   return (
-    <ImageTrail images={images} className="h-full w-full">
+    <ImageTrail
+      images={images}
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Move your cursor here
@@ -1689,7 +1719,10 @@ export default function ImageTrailExample() {
 
 export default function ImageTrailExample() {
   return (
-    <ImageTrail images={images} className="h-full w-full">
+    <ImageTrail
+      images={images}
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Move your cursor here
@@ -1715,7 +1748,11 @@ const images = [
 
 export default function ImageTrailTiltExample() {
   return (
-    <ImageTrail images={images} variant="tilt" className="h-full w-full">
+    <ImageTrail
+      images={images}
+      variant="tilt"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Tilt trail
@@ -1737,13 +1774,79 @@ export default function ImageTrailTiltExample() {
 
 export default function ImageTrailTiltExample() {
   return (
-    <ImageTrail images={images} variant="tilt" className="h-full w-full">
+    <ImageTrail
+      images={images}
+      variant="tilt"
+      className="h-full min-h-[50vh] w-full flex items-center justify-center"
+    >
       <div className="flex h-full w-full items-center justify-center">
         <h3 className="pointer-events-none text-center font-semibold text-2xl text-foreground">
           Tilt trail
         </h3>
       </div>
     </ImageTrail>
+  );
+}`,
+    }
+  ],
+  "testimonial-card": [
+    {
+      name: "default",
+      component: testimonial_card_testimonial_card_demo,
+      code: `import TestimonialCard from "@/components/ui/testimonial-card/testimonial-card";
+
+export default function TestimonialCardDemo() {
+  return (
+    <TestimonialCard
+      authorName="Avery Chen"
+      authorMeta="Product Designer, Linear"
+      avatarAlt="Avery Chen"
+      eyebrow="Customer story"
+    >
+      Sona UI gave us a thoughtful baseline without making the product feel
+      assembled from generic parts.
+    </TestimonialCard>
+  );
+}
+`,
+      imports: `import TestimonialCard from "@/components/ui/testimonial-card/testimonial-card";`,
+      anatomy: `export default function TestimonialCardDemo() {
+  return (
+    <TestimonialCard
+      authorName="Avery Chen"
+      authorMeta="Product Designer, Linear"
+      avatarAlt="Avery Chen"
+      eyebrow="Customer story"
+    >
+      Sona UI gave us a thoughtful baseline without making the product feel
+      assembled from generic parts.
+    </TestimonialCard>
+  );
+}`,
+    }
+  ],
+  "text-highlight": [
+    {
+      name: "default",
+      component: text_highlight_text_highlight_demo,
+      code: `import TextHighlight from "@/components/ui/text-highlight/text-highlight";
+
+export default function TextHighlightDemo() {
+  return (
+    <p className="max-w-xl text-center text-3xl font-medium leading-tight tracking-tight">
+      Good interfaces make the important details{" "}
+      <TextHighlight>feel obvious</TextHighlight>.
+    </p>
+  );
+}
+`,
+      imports: `import TextHighlight from "@/components/ui/text-highlight/text-highlight";`,
+      anatomy: `export default function TextHighlightDemo() {
+  return (
+    <p className="max-w-xl text-center text-3xl font-medium leading-tight tracking-tight">
+      Good interfaces make the important details{" "}
+      <TextHighlight>feel obvious</TextHighlight>.
+    </p>
   );
 }`,
     }
@@ -1853,6 +1956,272 @@ export default function MagneticButtonExample() {
           Magnetic Button
         </button>
       </Magnetic>
+    </div>
+  );
+}`,
+    }
+  ],
+  "magnetic-dock": [
+    {
+      name: "default",
+      component: magnetic_dock_magnetic_dock_demo,
+      code: `"use client";
+
+import { Bell, Folder, House, Settings, Sparkles } from "lucide-react";
+import { useState } from "react";
+
+import MagneticDock from "@/components/ui/magnetic-dock/magnetic-dock";
+
+const apps = [
+  { id: "home", label: "Home", icon: House, href: "#home" },
+  { id: "projects", label: "Projects", icon: Folder, href: "#projects" },
+  { id: "create", label: "Create", icon: Sparkles, href: "#create" },
+  {
+    id: "notifications",
+    label: "Notifications",
+    icon: Bell,
+    href: "#notifications",
+  },
+  { id: "settings", label: "Settings", icon: Settings, href: "#settings" },
+];
+
+export default function MagneticDockDemo({
+  distance,
+  itemSize,
+  magnification,
+}: {
+  distance?: number;
+  itemSize?: number;
+  magnification?: number;
+}) {
+  const [selected, setSelected] = useState("Home");
+  return (
+    <div className="flex flex-col gap-14 min-h-72 w-full items-center justify-end bg-[radial-gradient(circle_at_center,_var(--color-secondary),_transparent_65%)] px-4 pb-8 pt-12">
+      <p role="status" className="text-sm text-muted-foreground">
+        {selected}
+      </p>
+      <MagneticDock
+        distance={distance}
+        itemSize={itemSize}
+        magnification={magnification}
+        items={apps.map((app) => ({
+          id: app.id,
+          label: app.label,
+          icon: app.icon,
+          onClick: () => setSelected(app.label),
+        }))}
+      />
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Bell, Folder, House, Settings, Sparkles } from "lucide-react";
+import { useState } from "react";
+
+import MagneticDock from "@/components/ui/magnetic-dock/magnetic-dock";
+
+const apps = [
+  { id: "home", label: "Home", icon: House, href: "#home" },
+  { id: "projects", label: "Projects", icon: Folder, href: "#projects" },
+  { id: "create", label: "Create", icon: Sparkles, href: "#create" },
+  {
+    id: "notifications",
+    label: "Notifications",
+    icon: Bell,
+    href: "#notifications",
+  },
+  { id: "settings", label: "Settings", icon: Settings, href: "#settings" },
+];
+
+export default function MagneticDockDemo({
+  distance,
+  itemSize,
+  magnification,
+}: {
+  distance?: number;
+  itemSize?: number;
+  magnification?: number;
+}) {
+  const [selected, setSelected] = useState("Home");
+  return (
+    <div className="flex flex-col gap-14 min-h-72 w-full items-center justify-end bg-[radial-gradient(circle_at_center,_var(--color-secondary),_transparent_65%)] px-4 pb-8 pt-12">
+      <p role="status" className="text-sm text-muted-foreground">
+        {selected}
+      </p>
+      <MagneticDock
+        distance={distance}
+        itemSize={itemSize}
+        magnification={magnification}
+        items={apps.map((app) => ({
+          id: app.id,
+          label: app.label,
+          icon: app.icon,
+          onClick: () => setSelected(app.label),
+        }))}
+      />
+    </div>
+  );
+}`,
+    }
+  ],
+  "notification-stack": [
+    {
+      name: "default",
+      component: notification_stack_notification_stack_demo,
+      code: `"use client";
+
+import { RotateCcw } from "lucide-react";
+import { useState } from "react";
+
+import NotificationStack, {
+  type NotificationStackItem,
+} from "@/components/ui/notification-stack/notification-stack";
+
+const initialNotifications: NotificationStackItem[] = [
+  {
+    id: "deploy",
+    title: "Deployment completed",
+    description: "Your production release is live.",
+    variant: "success",
+    action: { label: "View deployment" },
+  },
+  {
+    id: "review",
+    title: "New review requested",
+    description: "Maya asked for feedback on the interaction pass.",
+    action: { label: "Open review" },
+  },
+  {
+    id: "storage",
+    title: "Storage is nearly full",
+    description: "Free space before your next backup.",
+    variant: "warning",
+    action: { label: "Manage storage" },
+  },
+];
+
+export default function NotificationStackDemo({
+  maxVisible = 4,
+}: {
+  maxVisible?: number;
+}) {
+  const [notifications, setNotifications] = useState(initialNotifications);
+  const [selected, setSelected] = useState("");
+
+  return (
+    <div className="relative flex flex-col items-end gap-3 min-h-80 w-full overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_80%_10%,_var(--color-secondary),_transparent_48%)] p-4">
+      <NotificationStack
+        placement="inline"
+        maxVisible={maxVisible}
+        notifications={notifications.map((notification) => ({
+          ...notification,
+          action: notification.action
+            ? {
+                ...notification.action,
+                onClick: () => setSelected(notification.action?.label ?? ""),
+              }
+            : undefined,
+        }))}
+        onDismiss={(id) =>
+          setNotifications((current) =>
+            current.filter((notification) => notification.id !== id),
+          )
+        }
+      />
+      <p role="status" className="text-xs text-muted-foreground">
+        {selected && \`Selected: \${selected}\`}
+      </p>
+      {notifications.length === 0 && (
+        <button
+          type="button"
+          className="self-center rounded-lg border border-border bg-background px-3 py-2 font-medium text-sm shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          onClick={() => setNotifications(initialNotifications)}
+        >
+          <RotateCcw className="mr-2 inline size-4" />
+          Restore notifications
+        </button>
+      )}
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { RotateCcw } from "lucide-react";
+import { useState } from "react";
+
+import NotificationStack, {
+  type NotificationStackItem,
+} from "@/components/ui/notification-stack/notification-stack";
+
+const initialNotifications: NotificationStackItem[] = [
+  {
+    id: "deploy",
+    title: "Deployment completed",
+    description: "Your production release is live.",
+    variant: "success",
+    action: { label: "View deployment" },
+  },
+  {
+    id: "review",
+    title: "New review requested",
+    description: "Maya asked for feedback on the interaction pass.",
+    action: { label: "Open review" },
+  },
+  {
+    id: "storage",
+    title: "Storage is nearly full",
+    description: "Free space before your next backup.",
+    variant: "warning",
+    action: { label: "Manage storage" },
+  },
+];
+
+export default function NotificationStackDemo({
+  maxVisible = 4,
+}: {
+  maxVisible?: number;
+}) {
+  const [notifications, setNotifications] = useState(initialNotifications);
+  const [selected, setSelected] = useState("");
+
+  return (
+    <div className="relative flex flex-col items-end gap-3 min-h-80 w-full overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_80%_10%,_var(--color-secondary),_transparent_48%)] p-4">
+      <NotificationStack
+        placement="inline"
+        maxVisible={maxVisible}
+        notifications={notifications.map((notification) => ({
+          ...notification,
+          action: notification.action
+            ? {
+                ...notification.action,
+                onClick: () => setSelected(notification.action?.label ?? ""),
+              }
+            : undefined,
+        }))}
+        onDismiss={(id) =>
+          setNotifications((current) =>
+            current.filter((notification) => notification.id !== id),
+          )
+        }
+      />
+      <p role="status" className="text-xs text-muted-foreground">
+        {selected && \`Selected: \${selected}\`}
+      </p>
+      {notifications.length === 0 && (
+        <button
+          type="button"
+          className="self-center rounded-lg border border-border bg-background px-3 py-2 font-medium text-sm shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          onClick={() => setNotifications(initialNotifications)}
+        >
+          <RotateCcw className="mr-2 inline size-4" />
+          Restore notifications
+        </button>
+      )}
     </div>
   );
 }`,
@@ -1976,27 +2345,161 @@ export default function MorphSurfaceDemo() {
     {
       name: "default",
       component: fluid_tabs_fluid_tabs_demo,
-      code: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+      code: `"use client";
+
+import { useState } from "react";
+
+import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
 
 const tabs = [
-  { value: "overview", title: "Overview" },
-  { value: "activity", title: "Activity" },
-  { value: "settings", title: "Settings" },
+  {
+    value: "overview",
+    title: "Overview",
+    ariaControls: "fluid-tabs-overview-panel",
+  },
+  {
+    value: "activity",
+    title: "Activity",
+    ariaControls: "fluid-tabs-activity-panel",
+  },
+  {
+    value: "settings",
+    title: "Settings",
+    ariaControls: "fluid-tabs-settings-panel",
+  },
+];
+
+const panels = [
+  {
+    value: "overview",
+    title: "Project overview",
+    description: "A clear view of what is ready and what needs attention.",
+    detail: "3 active projects",
+  },
+  {
+    value: "activity",
+    title: "Recent activity",
+    description: "Maya updated the interaction review two hours ago.",
+    detail: "12 updates this week",
+  },
+  {
+    value: "settings",
+    title: "Workspace settings",
+    description: "Manage your team, notifications, and preferences.",
+    detail: "Personal workspace",
+  },
 ];
 
 export default function FluidTabsDemo() {
-  return <FluidTabs tabs={tabs} />;
+  const [activeTab, setActiveTab] = useState("overview");
+
+  return (
+    <div className="w-full max-w-md space-y-4">
+      <FluidTabs
+        ariaLabel="Project sections"
+        tabs={tabs}
+        value={activeTab}
+        onValueChange={setActiveTab}
+      />
+      {panels.map((panel) => (
+        <section
+          key={panel.value}
+          id={\`fluid-tabs-\${panel.value}-panel\`}
+          role="tabpanel"
+          aria-label={panel.title}
+          hidden={activeTab !== panel.value}
+          className="min-h-36 rounded-xl border border-border bg-background p-5"
+        >
+          <p className="font-medium text-foreground text-sm">{panel.title}</p>
+          <p className="mt-1.5 text-muted-foreground text-sm">
+            {panel.description}
+          </p>
+          <p className="mt-5 font-medium text-foreground text-xs">
+            {panel.detail}
+          </p>
+        </section>
+      ))}
+    </div>
+  );
 }
 `,
-      imports: `import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";`,
-      anatomy: `const tabs = [
-  { value: "overview", title: "Overview" },
-  { value: "activity", title: "Activity" },
-  { value: "settings", title: "Settings" },
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+
+import FluidTabs from "@/components/ui/fluid-tabs/fluid-tabs";
+
+const tabs = [
+  {
+    value: "overview",
+    title: "Overview",
+    ariaControls: "fluid-tabs-overview-panel",
+  },
+  {
+    value: "activity",
+    title: "Activity",
+    ariaControls: "fluid-tabs-activity-panel",
+  },
+  {
+    value: "settings",
+    title: "Settings",
+    ariaControls: "fluid-tabs-settings-panel",
+  },
+];
+
+const panels = [
+  {
+    value: "overview",
+    title: "Project overview",
+    description: "A clear view of what is ready and what needs attention.",
+    detail: "3 active projects",
+  },
+  {
+    value: "activity",
+    title: "Recent activity",
+    description: "Maya updated the interaction review two hours ago.",
+    detail: "12 updates this week",
+  },
+  {
+    value: "settings",
+    title: "Workspace settings",
+    description: "Manage your team, notifications, and preferences.",
+    detail: "Personal workspace",
+  },
 ];
 
 export default function FluidTabsDemo() {
-  return <FluidTabs tabs={tabs} />;
+  const [activeTab, setActiveTab] = useState("overview");
+
+  return (
+    <div className="w-full max-w-md space-y-4">
+      <FluidTabs
+        ariaLabel="Project sections"
+        tabs={tabs}
+        value={activeTab}
+        onValueChange={setActiveTab}
+      />
+      {panels.map((panel) => (
+        <section
+          key={panel.value}
+          id={\`fluid-tabs-\${panel.value}-panel\`}
+          role="tabpanel"
+          aria-label={panel.title}
+          hidden={activeTab !== panel.value}
+          className="min-h-36 rounded-xl border border-border bg-background p-5"
+        >
+          <p className="font-medium text-foreground text-sm">{panel.title}</p>
+          <p className="mt-1.5 text-muted-foreground text-sm">
+            {panel.description}
+          </p>
+          <p className="mt-5 font-medium text-foreground text-xs">
+            {panel.detail}
+          </p>
+        </section>
+      ))}
+    </div>
+  );
 }`,
     },
     {
@@ -2850,6 +3353,134 @@ export default function SpinningTextExample() {
 }`,
     }
   ],
+  "expandable-data-card": [
+    {
+      name: "default",
+      component: expandable_data_card_expandable_data_card_demo,
+      code: `import { ArrowUpRight } from "lucide-react";
+
+import ExpandableDataCard from "@/components/ui/expandable-data-card/expandable-data-card";
+
+const sources = [
+  { name: "Subscriptions", amount: "\$24,840", share: "62%" },
+  { name: "One-time", amount: "\$10,320", share: "26%" },
+  { name: "Services", amount: "\$4,660", share: "12%" },
+];
+
+export function RevenueDataCard({
+  title = "Total revenue",
+}: {
+  title?: string;
+}) {
+  return (
+    <ExpandableDataCard
+      title={title}
+      summary={
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+          <div>
+            <p className="text-3xl font-semibold tracking-tight tabular-nums">
+              \$39,820
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">Sep 1 to Sep 30</p>
+          </div>
+          <span className="inline-flex items-center gap-0.5 rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-foreground">
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            +12.8%
+          </span>
+        </div>
+      }
+    >
+      <div className="mb-3 flex items-center justify-between text-xs text-muted-foreground">
+        <span>Revenue by source</span>
+        <span>Sep 1 to Sep 30</span>
+      </div>
+      <div className="space-y-3">
+        {sources.map((source) => (
+          <div key={source.name} className="flex items-center gap-3 text-sm">
+            <span className="min-w-0 flex-1 truncate text-muted-foreground">
+              {source.name}
+            </span>
+            <span className="font-medium tabular-nums">{source.amount}</span>
+            <span className="w-8 text-right text-xs tabular-nums text-muted-foreground">
+              {source.share}
+            </span>
+          </div>
+        ))}
+      </div>
+    </ExpandableDataCard>
+  );
+}
+
+export default function ExpandableDataCardDemo() {
+  return (
+    <div className="flex min-h-80 w-full items-start justify-center px-5 py-14">
+      <RevenueDataCard />
+    </div>
+  );
+}
+`,
+      imports: `import { ArrowUpRight } from "lucide-react";
+
+import ExpandableDataCard from "@/components/ui/expandable-data-card/expandable-data-card";`,
+      anatomy: `const sources = [
+  { name: "Subscriptions", amount: "\$24,840", share: "62%" },
+  { name: "One-time", amount: "\$10,320", share: "26%" },
+  { name: "Services", amount: "\$4,660", share: "12%" },
+];
+
+export function RevenueDataCard({
+  title = "Total revenue",
+}: {
+  title?: string;
+}) {
+  return (
+    <ExpandableDataCard
+      title={title}
+      summary={
+        <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+          <div>
+            <p className="text-3xl font-semibold tracking-tight tabular-nums">
+              \$39,820
+            </p>
+            <p className="mt-1 text-xs text-muted-foreground">Sep 1 to Sep 30</p>
+          </div>
+          <span className="inline-flex items-center gap-0.5 rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-foreground">
+            <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            +12.8%
+          </span>
+        </div>
+      }
+    >
+      <div className="mb-3 flex items-center justify-between text-xs text-muted-foreground">
+        <span>Revenue by source</span>
+        <span>Sep 1 to Sep 30</span>
+      </div>
+      <div className="space-y-3">
+        {sources.map((source) => (
+          <div key={source.name} className="flex items-center gap-3 text-sm">
+            <span className="min-w-0 flex-1 truncate text-muted-foreground">
+              {source.name}
+            </span>
+            <span className="font-medium tabular-nums">{source.amount}</span>
+            <span className="w-8 text-right text-xs tabular-nums text-muted-foreground">
+              {source.share}
+            </span>
+          </div>
+        ))}
+      </div>
+    </ExpandableDataCard>
+  );
+}
+
+export default function ExpandableDataCardDemo() {
+  return (
+    <div className="flex min-h-80 w-full items-start justify-center px-5 py-14">
+      <RevenueDataCard />
+    </div>
+  );
+}`,
+    }
+  ],
   "bubble-up-button": [
     {
       name: "default",
@@ -2916,6 +3547,196 @@ import Chip from "@/components/ui/chip/chip";`,
         <Chip.Label>Deprecated</Chip.Label>
       </Chip>
     </div>
+  );
+}`,
+    }
+  ],
+  "github-star-history": [
+    {
+      name: "default",
+      component: github_star_history_github_star_history_demo,
+      code: `"use client";
+
+import { useEffect, useState } from "react";
+
+import GitHubStarHistory, {
+  type GitHubStarHistoryDatum,
+} from "@/components/ui/github-star-history/github-star-history";
+
+type StarHistoryState =
+  | { status: "loading" }
+  | {
+      status: "success";
+      data: GitHubStarHistoryDatum[];
+      repository: string;
+    }
+  | { status: "error"; message: string };
+
+export default function GitHubStarHistoryDemo() {
+  const [state, setState] = useState<StarHistoryState>({ status: "loading" });
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadHistory() {
+      try {
+        const response = await fetch("/api/github-star-history", {
+          signal: controller.signal,
+        });
+        const payload = (await response.json()) as
+          | { repository: string; data: GitHubStarHistoryDatum[] }
+          | { error?: { message?: string } };
+
+        if (!response.ok || !("data" in payload)) {
+          throw new Error(
+            "error" in payload && payload.error?.message
+              ? payload.error.message
+              : "GitHub star history is unavailable.",
+          );
+        }
+
+        setState({
+          status: "success",
+          data: payload.data,
+          repository: payload.repository,
+        });
+      } catch (error) {
+        if (controller.signal.aborted) return;
+        setState({
+          status: "error",
+          message:
+            error instanceof Error
+              ? error.message
+              : "GitHub star history is unavailable.",
+        });
+      }
+    }
+
+    void loadHistory();
+    return () => controller.abort();
+  }, []);
+
+  if (state.status === "loading") {
+    return (
+      <div
+        className="w-full max-w-3xl rounded-xl border border-border bg-muted/30 p-6 text-sm text-muted-foreground"
+        role="status"
+      >
+        Loading repository star history…
+      </div>
+    );
+  }
+
+  if (state.status === "error") {
+    return (
+      <div className="w-full max-w-3xl rounded-xl border border-border bg-muted/30 p-6 text-sm">
+        <p className="font-medium text-foreground">
+          GitHub star history is unavailable
+        </p>
+        <p className="mt-1 text-muted-foreground">{state.message}</p>
+      </div>
+    );
+  }
+
+  return (
+    <GitHubStarHistory
+      className="max-w-3xl"
+      data={state.data}
+      repository={state.repository}
+    />
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useEffect, useState } from "react";
+
+import GitHubStarHistory, {
+  type GitHubStarHistoryDatum,
+} from "@/components/ui/github-star-history/github-star-history";
+
+type StarHistoryState =
+  | { status: "loading" }
+  | {
+      status: "success";
+      data: GitHubStarHistoryDatum[];
+      repository: string;
+    }
+  | { status: "error"; message: string };
+
+export default function GitHubStarHistoryDemo() {
+  const [state, setState] = useState<StarHistoryState>({ status: "loading" });
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadHistory() {
+      try {
+        const response = await fetch("/api/github-star-history", {
+          signal: controller.signal,
+        });
+        const payload = (await response.json()) as
+          | { repository: string; data: GitHubStarHistoryDatum[] }
+          | { error?: { message?: string } };
+
+        if (!response.ok || !("data" in payload)) {
+          throw new Error(
+            "error" in payload && payload.error?.message
+              ? payload.error.message
+              : "GitHub star history is unavailable.",
+          );
+        }
+
+        setState({
+          status: "success",
+          data: payload.data,
+          repository: payload.repository,
+        });
+      } catch (error) {
+        if (controller.signal.aborted) return;
+        setState({
+          status: "error",
+          message:
+            error instanceof Error
+              ? error.message
+              : "GitHub star history is unavailable.",
+        });
+      }
+    }
+
+    void loadHistory();
+    return () => controller.abort();
+  }, []);
+
+  if (state.status === "loading") {
+    return (
+      <div
+        className="w-full max-w-3xl rounded-xl border border-border bg-muted/30 p-6 text-sm text-muted-foreground"
+        role="status"
+      >
+        Loading repository star history…
+      </div>
+    );
+  }
+
+  if (state.status === "error") {
+    return (
+      <div className="w-full max-w-3xl rounded-xl border border-border bg-muted/30 p-6 text-sm">
+        <p className="font-medium text-foreground">
+          GitHub star history is unavailable
+        </p>
+        <p className="mt-1 text-muted-foreground">{state.message}</p>
+      </div>
+    );
+  }
+
+  return (
+    <GitHubStarHistory
+      className="max-w-3xl"
+      data={state.data}
+      repository={state.repository}
+    />
   );
 }`,
     }
@@ -4220,6 +5041,88 @@ import Button from "@/components/ui/button/button";`,
 }`,
     }
   ],
+  "radial-card-marquee": [
+    {
+      name: "default",
+      component: radial_card_marquee_radial_card_marquee_demo,
+      code: `import RadialCardMarquee from "@/components/ui/radial-card-marquee/radial-card-marquee";
+
+const items = [
+  {
+    label: "Tropical",
+    alt: "Orange tropical drink",
+    image:
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Leaf",
+    alt: "Leaf seen from below",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Dubai",
+    alt: "Dubai street with palm trees",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Yogal",
+    alt: "Bright outdoor scene",
+    image:
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Radial",
+    alt: "Warm architectural detail",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+  },
+];
+
+export default function RadialCardMarqueeDemo() {
+  return <RadialCardMarquee items={items} speed={0.2} />;
+}
+`,
+      imports: `import RadialCardMarquee from "@/components/ui/radial-card-marquee/radial-card-marquee";`,
+      anatomy: `const items = [
+  {
+    label: "Tropical",
+    alt: "Orange tropical drink",
+    image:
+      "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Leaf",
+    alt: "Leaf seen from below",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Dubai",
+    alt: "Dubai street with palm trees",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Yogal",
+    alt: "Bright outdoor scene",
+    image:
+      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85",
+  },
+  {
+    label: "Radial",
+    alt: "Warm architectural detail",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+  },
+];
+
+export default function RadialCardMarqueeDemo() {
+  return <RadialCardMarquee items={items} speed={0.2} />;
+}`,
+    }
+  ],
   "assignment-cluster": [
     {
       name: "default",
@@ -4255,6 +5158,250 @@ const people = [
 export default function AssignmentClusterDemo() {
   const [value, setValue] = useState(["1", "2"]);
   return <AssignmentCluster items={people} value={value} onChange={setValue} />;
+}`,
+    }
+  ],
+  "command-palette-preview": [
+    {
+      name: "default",
+      component: command_palette_preview_command_palette_preview_demo,
+      code: `"use client";
+
+import { Command } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import CommandPalettePreview from "@/components/ui/command-palette-preview/command-palette-preview";
+
+const commands = [
+  {
+    id: "new-project",
+    label: "Create project",
+    description: "Start a new workspace.",
+    group: "Create",
+    shortcut: "⌘ N",
+  },
+  {
+    id: "invite",
+    label: "Invite teammate",
+    description: "Give a collaborator access.",
+    group: "Create",
+  },
+  {
+    id: "search",
+    label: "Search projects",
+    description: "Find a workspace or file.",
+    group: "Navigate",
+    shortcut: "⌘ P",
+    keywords: ["find"],
+  },
+  {
+    id: "settings",
+    label: "Open settings",
+    description: "Manage your workspace preferences.",
+    group: "Navigate",
+    shortcut: "⌘ ,",
+  },
+];
+
+export default function CommandPalettePreviewDemo({
+  placeholder = "Search commands...",
+}: {
+  placeholder?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("");
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setOpen((current) => !current);
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+
+  return (
+    <div className="flex min-h-72 w-full flex-col gap-4 items-center justify-center rounded-2xl bg-secondary/45 p-6">
+      <button
+        type="button"
+        className="flex items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        onClick={() => setOpen(true)}
+      >
+        <Command className="size-4 text-muted-foreground" />
+        <span className="min-w-40 text-muted-foreground text-sm">
+          Search commands...
+        </span>
+        <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-medium text-[10px] text-muted-foreground">
+          ⌘ K
+        </kbd>
+      </button>
+      <p role="status" className="min-h-5 text-xs text-muted-foreground">
+        {selected && \`Selected: \${selected}\`}
+      </p>
+      <CommandPalettePreview
+        placeholder={placeholder}
+        items={commands.map((command) => ({
+          ...command,
+          onSelect: () => setSelected(command.label),
+        }))}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { Command } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import CommandPalettePreview from "@/components/ui/command-palette-preview/command-palette-preview";
+
+const commands = [
+  {
+    id: "new-project",
+    label: "Create project",
+    description: "Start a new workspace.",
+    group: "Create",
+    shortcut: "⌘ N",
+  },
+  {
+    id: "invite",
+    label: "Invite teammate",
+    description: "Give a collaborator access.",
+    group: "Create",
+  },
+  {
+    id: "search",
+    label: "Search projects",
+    description: "Find a workspace or file.",
+    group: "Navigate",
+    shortcut: "⌘ P",
+    keywords: ["find"],
+  },
+  {
+    id: "settings",
+    label: "Open settings",
+    description: "Manage your workspace preferences.",
+    group: "Navigate",
+    shortcut: "⌘ ,",
+  },
+];
+
+export default function CommandPalettePreviewDemo({
+  placeholder = "Search commands...",
+}: {
+  placeholder?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("");
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setOpen((current) => !current);
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+
+  return (
+    <div className="flex min-h-72 w-full flex-col gap-4 items-center justify-center rounded-2xl bg-secondary/45 p-6">
+      <button
+        type="button"
+        className="flex items-center gap-3 rounded-xl border border-border bg-background px-4 py-3 text-left shadow-sm outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        onClick={() => setOpen(true)}
+      >
+        <Command className="size-4 text-muted-foreground" />
+        <span className="min-w-40 text-muted-foreground text-sm">
+          Search commands...
+        </span>
+        <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-medium text-[10px] text-muted-foreground">
+          ⌘ K
+        </kbd>
+      </button>
+      <p role="status" className="min-h-5 text-xs text-muted-foreground">
+        {selected && \`Selected: \${selected}\`}
+      </p>
+      <CommandPalettePreview
+        placeholder={placeholder}
+        items={commands.map((command) => ({
+          ...command,
+          onSelect: () => setSelected(command.label),
+        }))}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </div>
+  );
+}`,
+    }
+  ],
+  "depth-tiles": [
+    {
+      name: "default",
+      component: depth_tiles_depth_tiles_demo,
+      code: `import DepthTiles from "@/components/ui/depth-tiles/depth-tiles";
+
+const items = [
+  {
+    id: "doodle",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+    alt: "Green leaf with soft natural light",
+    label: "320 / Doodle",
+  },
+  {
+    id: "edges",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+    alt: "Abstract architectural texture",
+    label: "902 / Edges",
+  },
+  {
+    id: "material",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    alt: "Soft green landscape",
+    label: "114 / Material",
+  },
+];
+
+export default function DepthTilesDemo() {
+  return <DepthTiles items={items} />;
+}
+`,
+      imports: `import DepthTiles from "@/components/ui/depth-tiles/depth-tiles";`,
+      anatomy: `const items = [
+  {
+    id: "doodle",
+    image:
+      "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
+    alt: "Green leaf with soft natural light",
+    label: "320 / Doodle",
+  },
+  {
+    id: "edges",
+    image:
+      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85",
+    alt: "Abstract architectural texture",
+    label: "902 / Edges",
+  },
+  {
+    id: "material",
+    image:
+      "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=85",
+    alt: "Soft green landscape",
+    label: "114 / Material",
+  },
+];
+
+export default function DepthTilesDemo() {
+  return <DepthTiles items={items} />;
 }`,
     }
   ],
@@ -4756,6 +5903,46 @@ export default function ActivityGraphDemo() {
 }`,
     }
   ],
+  "smart-breadcrumbs": [
+    {
+      name: "default",
+      component: smart_breadcrumbs_smart_breadcrumbs_demo,
+      code: `import SmartBreadcrumbs from "@/components/ui/smart-breadcrumbs/smart-breadcrumbs";
+
+const path = [
+  { label: "Sona UI", href: "/" },
+  { label: "Documentation", href: "/docs/installation" },
+  { label: "Components", href: "/components" },
+  { label: "Navigation", href: "/docs/fluid-tabs" },
+  { label: "Smart Breadcrumbs" },
+];
+
+export default function SmartBreadcrumbsDemo() {
+  return (
+    <div className="flex min-h-56 w-full items-center justify-center px-4 py-12">
+      <SmartBreadcrumbs items={path} />
+    </div>
+  );
+}
+`,
+      imports: `import SmartBreadcrumbs from "@/components/ui/smart-breadcrumbs/smart-breadcrumbs";`,
+      anatomy: `const path = [
+  { label: "Sona UI", href: "/" },
+  { label: "Documentation", href: "/docs/installation" },
+  { label: "Components", href: "/components" },
+  { label: "Navigation", href: "/docs/fluid-tabs" },
+  { label: "Smart Breadcrumbs" },
+];
+
+export default function SmartBreadcrumbsDemo() {
+  return (
+    <div className="flex min-h-56 w-full items-center justify-center px-4 py-12">
+      <SmartBreadcrumbs items={path} />
+    </div>
+  );
+}`,
+    }
+  ],
   "expandable-tabs": [
     {
       name: "default",
@@ -5121,6 +6308,38 @@ export default function LinkPreviewExample() {
       </ul>
     </div>
   );
+}`,
+    }
+  ],
+  "radial-card-slider": [
+    {
+      name: "default",
+      component: radial_card_slider_radial_card_slider_demo,
+      code: `import RadialCardSlider from "@/components/ui/radial-card-slider/radial-card-slider";
+
+const items = [
+  { label: "Tropical", alt: "Orange tropical drink", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Leaf", alt: "Leaf seen from below", image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Dubai", alt: "Dubai street with palm trees", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" },
+  { label: "Yogal", alt: "Bright outdoor scene", image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85" },
+  { label: "Radial", alt: "Warm architectural detail", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" },
+];
+
+export default function RadialCardSliderDemo() {
+  return <RadialCardSlider items={items} />;
+}
+`,
+      imports: `import RadialCardSlider from "@/components/ui/radial-card-slider/radial-card-slider";`,
+      anatomy: `const items = [
+  { label: "Tropical", alt: "Orange tropical drink", image: "https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Leaf", alt: "Leaf seen from below", image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85" },
+  { label: "Dubai", alt: "Dubai street with palm trees", image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=85" },
+  { label: "Yogal", alt: "Bright outdoor scene", image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=85" },
+  { label: "Radial", alt: "Warm architectural detail", image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85" },
+];
+
+export default function RadialCardSliderDemo() {
+  return <RadialCardSlider items={items} />;
 }`,
     }
   ],
@@ -5679,6 +6898,240 @@ export default function HoldToDeleteButtonDemo() {
   );
 }`,
     }
+  ],
+  "cursor-hover-card": [
+    {
+      name: "default",
+      component: cursor_hover_card_cursor_hover_card_demo,
+      code: `import { ArrowUpRight } from "lucide-react";
+
+import CursorHoverCard from "@/components/ui/cursor-hover-card/cursor-hover-card";
+
+export default function CursorHoverCardDemo() {
+  return (
+    <CursorHoverCard.Root>
+      <CursorHoverCard.Trigger>
+        <a
+          href="https://github.com/Dinil-Thilakarathne"
+          className="group flex items-center gap-3 rounded-xl px-3 py-2 outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="grid size-9 place-items-center rounded-full bg-foreground font-semibold text-background text-sm">
+            DT
+          </span>
+          <span>
+            <span className="block font-medium text-sm">
+              Dinil Thilakarathne
+            </span>
+            <span className="block text-muted-foreground text-xs">
+              Design engineer
+            </span>
+          </span>
+          <ArrowUpRight className="ml-3 size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+        </a>
+      </CursorHoverCard.Trigger>
+
+      <CursorHoverCard.Content className="w-72 p-4">
+        <div className="flex items-start gap-3">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-foreground font-semibold text-background">
+            DT
+          </span>
+          <div>
+            <p className="font-semibold text-sm">Dinil Thilakarathne</p>
+            <p className="text-muted-foreground text-xs">@dinilthilakarathne</p>
+          </div>
+        </div>
+        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+          Building clear, expressive interfaces where interaction and motion
+          improve understanding.
+        </p>
+      </CursorHoverCard.Content>
+    </CursorHoverCard.Root>
+  );
+}
+`,
+      imports: `import { ArrowUpRight } from "lucide-react";
+
+import CursorHoverCard from "@/components/ui/cursor-hover-card/cursor-hover-card";`,
+      anatomy: `export default function CursorHoverCardDemo() {
+  return (
+    <CursorHoverCard.Root>
+      <CursorHoverCard.Trigger>
+        <a
+          href="https://github.com/Dinil-Thilakarathne"
+          className="group flex items-center gap-3 rounded-xl px-3 py-2 outline-none transition-colors hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <span className="grid size-9 place-items-center rounded-full bg-foreground font-semibold text-background text-sm">
+            DT
+          </span>
+          <span>
+            <span className="block font-medium text-sm">
+              Dinil Thilakarathne
+            </span>
+            <span className="block text-muted-foreground text-xs">
+              Design engineer
+            </span>
+          </span>
+          <ArrowUpRight className="ml-3 size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+        </a>
+      </CursorHoverCard.Trigger>
+
+      <CursorHoverCard.Content className="w-72 p-4">
+        <div className="flex items-start gap-3">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-foreground font-semibold text-background">
+            DT
+          </span>
+          <div>
+            <p className="font-semibold text-sm">Dinil Thilakarathne</p>
+            <p className="text-muted-foreground text-xs">@dinilthilakarathne</p>
+          </div>
+        </div>
+        <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
+          Building clear, expressive interfaces where interaction and motion
+          improve understanding.
+        </p>
+      </CursorHoverCard.Content>
+    </CursorHoverCard.Root>
+  );
+}`,
+    }
+  ],
+  "animated-segmented-control": [
+    {
+      name: "default",
+      component: animated_segmented_control_animated_segmented_control_demo,
+      code: `"use client";
+
+import { useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+import AnimatedSegmentedControl from "@/components/ui/animated-segmented-control/animated-segmented-control";
+
+const items = [
+  { value: "compact", label: "Compact" },
+  { value: "comfortable", label: "Comfortable" },
+  { value: "spacious", label: "Spacious" },
+];
+
+const tasks = [
+  { name: "Review new components", detail: "Design system" },
+  { name: "Refine motion details", detail: "Interaction pass" },
+  { name: "Publish release notes", detail: "Documentation" },
+];
+
+const rowSpacing = {
+  compact: "py-1.5",
+  comfortable: "py-3",
+  spacious: "py-5",
+} as const;
+
+export default function AnimatedSegmentedControlDemo() {
+  const [density, setDensity] =
+    useState<keyof typeof rowSpacing>("comfortable");
+
+  return (
+    <div className="flex w-full max-w-sm flex-col items-center gap-5 py-5">
+      <div className="w-full">
+        <p className="font-medium text-foreground text-sm">List density</p>
+        <p className="text-muted-foreground text-xs">
+          Choose how much room each row uses.
+        </p>
+      </div>
+      <AnimatedSegmentedControl
+        items={items}
+        value={density}
+        onValueChange={(nextValue) =>
+          setDensity(nextValue as keyof typeof rowSpacing)
+        }
+      />
+      <div className="w-full divide-y divide-border rounded-xl border border-border bg-background px-4">
+        {tasks.map((task) => (
+          <div
+            key={task.name}
+            className={cn(
+              "flex items-center justify-between gap-3",
+              rowSpacing[density],
+            )}
+          >
+            <span className="font-medium text-foreground text-sm">
+              {task.name}
+            </span>
+            <span className="shrink-0 text-muted-foreground text-xs">
+              {task.detail}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+`,
+      imports: ``,
+      anatomy: `"use client";
+
+import { useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+import AnimatedSegmentedControl from "@/components/ui/animated-segmented-control/animated-segmented-control";
+
+const items = [
+  { value: "compact", label: "Compact" },
+  { value: "comfortable", label: "Comfortable" },
+  { value: "spacious", label: "Spacious" },
+];
+
+const tasks = [
+  { name: "Review new components", detail: "Design system" },
+  { name: "Refine motion details", detail: "Interaction pass" },
+  { name: "Publish release notes", detail: "Documentation" },
+];
+
+const rowSpacing = {
+  compact: "py-1.5",
+  comfortable: "py-3",
+  spacious: "py-5",
+} as const;
+
+export default function AnimatedSegmentedControlDemo() {
+  const [density, setDensity] =
+    useState<keyof typeof rowSpacing>("comfortable");
+
+  return (
+    <div className="flex w-full max-w-sm flex-col items-center gap-5 py-5">
+      <div className="w-full">
+        <p className="font-medium text-foreground text-sm">List density</p>
+        <p className="text-muted-foreground text-xs">
+          Choose how much room each row uses.
+        </p>
+      </div>
+      <AnimatedSegmentedControl
+        items={items}
+        value={density}
+        onValueChange={(nextValue) =>
+          setDensity(nextValue as keyof typeof rowSpacing)
+        }
+      />
+      <div className="w-full divide-y divide-border rounded-xl border border-border bg-background px-4">
+        {tasks.map((task) => (
+          <div
+            key={task.name}
+            className={cn(
+              "flex items-center justify-between gap-3",
+              rowSpacing[density],
+            )}
+          >
+            <span className="font-medium text-foreground text-sm">
+              {task.name}
+            </span>
+            <span className="shrink-0 text-muted-foreground text-xs">
+              {task.detail}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}`,
+    }
   ]
 };
 
@@ -5713,8 +7166,6 @@ import {
 } from "react";
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
-
-const MotionMenuPopup = motion.create(Menu.Popup);
 
 // ─── Context ─────────────────────────────────────────────────────────────────
 
@@ -5915,13 +7366,7 @@ export function AnimatedDropdownContent({
         sideOffset={sideOffset}
         className="z-50"
       >
-        <MotionMenuPopup
-          layout={!shouldReduceMotion}
-          transition={
-            shouldReduceMotion
-              ? { duration: 0 }
-              : { layout: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } }
-          }
+        <Menu.Popup
           className={cn(
             // Layout
             "z-50 min-w-[160px] rounded-xl p-1",
@@ -5940,7 +7385,7 @@ export function AnimatedDropdownContent({
           )}
         >
           {children}
-        </MotionMenuPopup>
+        </Menu.Popup>
       </Menu.Positioner>
     </Menu.Portal>
   );
@@ -7152,9 +8597,11 @@ export default function ImageTrail({
   const [trail, setTrail] = useState<TrailItem[]>([]);
 
   const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const containerRect = useRef<DOMRect | null>(null);
   const imageIndex = useRef(0);
   const idCounter = useRef(0);
   const timers = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+  const preloadedImages = useRef(new Set<string>());
 
   // Clear any pending removals when the component unmounts.
   useEffect(() => {
@@ -7164,6 +8611,17 @@ export default function ImageTrail({
       pending.clear();
     };
   }, []);
+
+  // Decode the images before the first interaction so pointer movement does
+  // not compete with image loading and decoding.
+  useEffect(() => {
+    images.forEach((src) => {
+      if (preloadedImages.current.has(src)) return;
+      preloadedImages.current.add(src);
+      const image = new Image();
+      image.src = src;
+    });
+  }, [images]);
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (prefersReducedMotion || event.pointerType !== "mouse") return;
@@ -7178,7 +8636,9 @@ export default function ImageTrail({
       return;
     }
 
-    const rect = event.currentTarget.getBoundingClientRect();
+    const rect =
+      containerRect.current ?? event.currentTarget.getBoundingClientRect();
+    containerRect.current = rect;
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
@@ -7210,8 +8670,12 @@ export default function ImageTrail({
   return (
     <div
       onPointerMove={handlePointerMove}
+      onPointerEnter={(event) => {
+        containerRect.current = event.currentTarget.getBoundingClientRect();
+      }}
       onPointerLeave={() => {
         lastPos.current = null;
+        containerRect.current = null;
       }}
       className={cn("relative overflow-hidden", className)}
     >
@@ -7230,13 +8694,14 @@ export default function ImageTrail({
               draggable={false}
               className={cn(
                 "absolute -translate-x-1/2 -translate-y-1/2 rounded-lg object-cover shadow-lg",
+                "will-change-transform",
                 itemClassName,
               )}
               style={{ left: item.x, top: item.y, rotate: item.rotate }}
               initial={active.initial}
               animate={active.animate}
               exit={active.exit}
-              transition={motionTransition.expressive}
+              transition={motionTransition.enter}
             />
           ))}
         </AnimatePresence>
@@ -7248,6 +8713,194 @@ export default function ImageTrail({
 `,
       path: "image-trail/image-trail.tsx",
       target: "components/sonaui/image-trail/image-trail.tsx"
+    }
+  ],
+  "testimonial-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Quote, Star } from "lucide-react";
+import {
+  motion,
+  useMotionValue,
+  useMotionTemplate,
+  useReducedMotion,
+  useSpring,
+} from "motion/react";
+import { type HTMLAttributes, type ReactNode } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+const TILT_SPRING = { stiffness: 320, damping: 28, mass: 0.45 };
+
+/** The optional pointer-driven depth treatment. */
+export type TestimonialCardDepth = "none" | "subtle";
+
+export interface TestimonialCardProps extends HTMLAttributes<HTMLElement> {
+  /** The testimonial quote. */
+  children: ReactNode;
+  /** Name of the person giving the testimonial. */
+  authorName: string;
+  /** The person's role, company, or both. @default undefined */
+  authorMeta?: string;
+  /** Accessible description for the author avatar. */
+  avatarAlt: string;
+  /** URL of the author avatar. @default undefined */
+  avatarUrl?: string;
+  /** Rating shown above the quote, from 0 to 5. @default 5 */
+  rating?: number;
+  /** Optional label placed above the rating. @default undefined */
+  eyebrow?: string;
+  /** Enables shallow, fine-pointer hover depth. @default "none" */
+  depth?: TestimonialCardDepth;
+}
+
+function Rating({ rating }: { rating: number }) {
+  const roundedRating = Math.max(0, Math.min(5, Math.round(rating)));
+
+  return (
+    <div aria-label={\`\${roundedRating} out of 5 stars\`} className="flex gap-1">
+      {Array.from({ length: 5 }, (_, index) => (
+        <Star
+          key={index}
+          aria-hidden="true"
+          className={cn(
+            "size-3.5",
+            index < roundedRating
+              ? "fill-foreground text-foreground"
+              : "fill-transparent text-muted-foreground/30",
+          )}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function TestimonialCard({
+  children,
+  authorName,
+  authorMeta,
+  avatarAlt,
+  avatarUrl,
+  rating = 5,
+  eyebrow,
+  depth = "none",
+  className,
+  style,
+  onPointerMove,
+  onPointerLeave,
+  ...props
+}: TestimonialCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const tiltX = useMotionValue(0);
+  const tiltY = useMotionValue(0);
+  const rotateX = useSpring(tiltX, TILT_SPRING);
+  const rotateY = useSpring(tiltY, TILT_SPRING);
+  const highlightX = useMotionValue("50%");
+  const highlightY = useMotionValue("50%");
+  const highlight = useMotionTemplate\`radial-gradient(460px circle at \${highlightX} \${highlightY}, color-mix(in oklab, var(--foreground) 7%, transparent), transparent 64%)\`;
+  const isDepthEnabled = depth === "subtle" && !shouldReduceMotion;
+
+  const resetDepth = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+  };
+
+  return (
+    <motion.div
+      className="w-full [perspective:900px]"
+      style={isDepthEnabled ? { rotateX, rotateY } : undefined}
+    >
+      <article
+        {...props}
+        onPointerMove={(event) => {
+          onPointerMove?.(event);
+          if (
+            event.defaultPrevented ||
+            !isDepthEnabled ||
+            event.pointerType !== "mouse"
+          )
+            return;
+
+          const rect = event.currentTarget.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          tiltX.set(y * -3);
+          tiltY.set(x * 3);
+          highlightX.set(\`\${(x + 0.5) * 100}%\`);
+          highlightY.set(\`\${(y + 0.5) * 100}%\`);
+        }}
+        onPointerLeave={(event) => {
+          resetDepth();
+          onPointerLeave?.(event);
+        }}
+        style={style}
+        className={cn(
+          "group relative w-full max-w-xl overflow-hidden rounded-3xl bg-card p-7 text-card-foreground [transform-style:preserve-3d]",
+          isDepthEnabled
+            ? "smooth-shadow-ring-lg hover:smooth-shadow-ring-xl"
+            : "smooth-shadow-ring-sm",
+          className,
+        )}
+      >
+        {isDepthEnabled && (
+          <motion.div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            style={{ background: highlight }}
+          />
+        )}
+        <div className="relative">
+          <div className="flex items-start justify-between gap-6">
+            <div className="space-y-3">
+              {eyebrow && (
+                <p className="font-medium text-muted-foreground text-xs uppercase tracking-[0.16em]">
+                  {eyebrow}
+                </p>
+              )}
+              <Rating rating={rating} />
+            </div>
+            <Quote
+              aria-hidden="true"
+              className="size-7 shrink-0 text-muted-foreground/35"
+            />
+          </div>
+          <blockquote className="mt-8 font-medium text-2xl leading-[1.35] tracking-[-0.025em] sm:text-3xl">
+            “{children}”
+          </blockquote>
+          <footer className="mt-8 flex items-center gap-3">
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt={avatarAlt}
+                className="size-10 shrink-0 rounded-full object-cover"
+              />
+            ) : (
+              <div
+                aria-label={avatarAlt}
+                className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted font-medium text-muted-foreground text-sm"
+              >
+                {authorName.slice(0, 1)}
+              </div>
+            )}
+            <div className="min-w-0">
+              <p className="truncate font-medium text-sm">{authorName}</p>
+              {authorMeta && (
+                <p className="truncate text-muted-foreground text-sm">
+                  {authorMeta}
+                </p>
+              )}
+            </div>
+          </footer>
+        </div>
+      </article>
+    </motion.div>
+  );
+}
+`,
+      path: "testimonial-card/testimonial-card.tsx",
+      target: "components/sonaui/testimonial-card/testimonial-card.tsx"
     }
   ],
   "sona-utils": [
@@ -7263,6 +8916,166 @@ export function cn(...inputs: ClassValue[]) {
 `,
       path: "sona-utils/sona-utils.ts",
       target: "components/sonaui/sona-utils/sona-utils.ts"
+    }
+  ],
+  "text-highlight": [
+    {
+      type: "registry:file",
+      content: `.highlight {
+  --highlight-color: currentColor;
+  --highlight-duration: 520ms;
+  --highlight-delay: 0ms;
+  position: relative;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.marker {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--highlight-color) 28%, transparent),
+    color-mix(in srgb, var(--highlight-color) 28%, transparent)
+  );
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  background-size: 0% 0.62em;
+  transition: background-size var(--highlight-duration)
+    cubic-bezier(0.22, 1, 0.36, 1) var(--highlight-delay);
+}
+
+.underline::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.08em;
+  left: 0;
+  height: 0.12em;
+  content: "";
+  background: var(--highlight-color);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.block {
+  background: var(--highlight-color);
+  color: var(--highlight-foreground, canvas);
+  clip-path: inset(0 100% 0 0 round 0.12em);
+  transition: clip-path var(--highlight-duration) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--highlight-delay);
+}
+
+.active.marker {
+  background-size: 100% 0.62em;
+}
+
+.active.underline::after {
+  transform: scaleX(1);
+}
+
+.active.block {
+  clip-path: inset(0 0 0 0 round 0.12em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marker,
+  .underline::after,
+  .block {
+    transition: none;
+  }
+}
+`,
+      path: "text-highlight/text-highlight.module.css",
+      target: "components/sonaui/text-highlight/text-highlight.module.css"
+    },
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { useInView, useReducedMotion } from "motion/react";
+import { type ReactNode, useRef } from "react";
+
+import styles from "./text-highlight.module.css";
+
+export type TextHighlightVariant = "marker" | "underline" | "block";
+export type TextHighlightTrigger = "immediate" | "in-view";
+
+export interface TextHighlightProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
+  /** The text or inline content to emphasize. */
+  children: ReactNode;
+  /** The visual treatment used for the highlight.
+   * @default "marker"
+   */
+  variant?: TextHighlightVariant;
+  /** Controls when the highlight animation starts.
+   * @default "in-view"
+   */
+  trigger?: TextHighlightTrigger;
+  /** The highlight color. Accepts any CSS color value.
+   * @default "#facc15"
+   */
+  color?: string;
+  /** The animation duration in milliseconds.
+   * @default 520
+   */
+  duration?: number;
+  /** The animation delay in milliseconds.
+   * @default 0
+   */
+  delay?: number;
+  /** Whether an in-view highlight should play only once.
+   * @default true
+   */
+  once?: boolean;
+}
+
+export default function TextHighlight({
+  children,
+  className,
+  variant = "marker",
+  trigger = "in-view",
+  color = "#facc15",
+  duration = 520,
+  delay = 0,
+  once = true,
+  style,
+  ...props
+}: TextHighlightProps) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once, amount: 0.65 });
+  const shouldReduceMotion = useReducedMotion();
+  const active = shouldReduceMotion || trigger === "immediate" || inView;
+
+  return (
+    <span
+      ref={ref}
+      className={[
+        styles.highlight,
+        styles[variant],
+        active && styles.active,
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      style={
+        {
+          ...style,
+          "--highlight-color": color,
+          "--highlight-duration": \`\${duration}ms\`,
+          "--highlight-delay": \`\${delay}ms\`,
+        } as React.CSSProperties
+      }
+      {...props}
+    >
+      {children}
+    </span>
+  );
+}
+`,
+      path: "text-highlight/text-highlight.tsx",
+      target: "components/sonaui/text-highlight/text-highlight.tsx"
     }
   ],
   "code-block": [
@@ -7627,6 +9440,463 @@ export default function Magnetic({
 `,
       path: "magnetic-button/magnetic-button.tsx",
       target: "components/sonaui/magnetic-button/magnetic-button.tsx"
+    }
+  ],
+  "magnetic-dock": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  motion,
+  useMotionValue,
+  useReducedMotionConfig,
+  useSpring,
+  useTransform,
+} from "motion/react";
+import {
+  type ComponentType,
+  type HTMLAttributes,
+  type Ref,
+  type SVGProps,
+  useRef,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+type DockIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
+export interface MagneticDockItem {
+  /** A stable identifier used as the rendered item key. */
+  id: string;
+  /** The accessible and visible label for the item. */
+  label: string;
+  /** The icon rendered inside the launcher item. */
+  icon: DockIcon;
+  /** Optional destination for an item that navigates. */
+  href?: string;
+  /** Prevents interaction with an item. */
+  disabled?: boolean;
+  /** Runs when a button item is activated. @default undefined */
+  onClick?: () => void;
+}
+
+export interface MagneticDockProps extends HTMLAttributes<HTMLElement> {
+  /** App-launcher items rendered in the dock. */
+  items: MagneticDockItem[];
+  /**
+   * The maximum item scale nearest the pointer.
+   * @default 1.65
+   */
+  magnification?: number;
+  /**
+   * The pointer distance in pixels that influences nearby items.
+   * @default 140
+   */
+  distance?: number;
+  /**
+   * The base item size in pixels.
+   * @default 48
+   */
+  itemSize?: number;
+  /** Additional CSS classes for the dock surface. */
+  className?: string;
+}
+
+type MagneticDockItemButtonProps = {
+  item: MagneticDockItem;
+  pointerX: ReturnType<typeof useMotionValue<number>>;
+  magnification: number;
+  distance: number;
+  itemSize: number;
+};
+
+function MagneticDockItemButton({
+  item,
+  pointerX,
+  magnification,
+  distance,
+  itemSize,
+}: MagneticDockItemButtonProps) {
+  const itemRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotionConfig();
+
+  const rawScale = useTransform(pointerX, (pointerPosition) => {
+    const element = itemRef.current;
+    if (shouldReduceMotion || !element || item.disabled) return 1;
+    const center = element.offsetLeft + element.offsetWidth / 2;
+    const proximity = Math.max(
+      0,
+      1 - Math.abs(pointerPosition - center) / distance,
+    );
+    return 1 + (magnification - 1) * proximity * proximity;
+  });
+  const scale = useSpring(rawScale, {
+    damping: 24,
+    stiffness: 360,
+    mass: 0.32,
+  });
+  const translateY = useTransform(
+    scale,
+    (value) => -(itemSize * (value - 1)) / 2,
+  );
+  const Icon = item.icon;
+  const sharedProps = {
+    "aria-label": item.label,
+    className:
+      "group relative grid shrink-0 place-items-center rounded-2xl bg-background text-muted-foreground smooth-shadow-ring-sm outline-none transition-colors motion-reduce:transition-none hover:bg-accent hover:text-foreground focus-visible:bg-accent focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-45",
+    style: {
+      width: itemSize,
+      height: itemSize,
+      scale: shouldReduceMotion ? 1 : scale,
+      y: shouldReduceMotion ? 0 : translateY,
+    },
+  };
+  const content = (
+    <>
+      <Icon aria-hidden="true" className="size-5" strokeWidth={1.8} />
+      <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-foreground px-2 py-1 font-medium text-background text-xs opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+        {item.label}
+      </span>
+    </>
+  );
+
+  if (item.href && !item.disabled) {
+    return (
+      <motion.a
+        {...sharedProps}
+        ref={itemRef as Ref<HTMLAnchorElement>}
+        href={item.href}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.button
+      {...sharedProps}
+      ref={itemRef as Ref<HTMLButtonElement>}
+      type="button"
+      disabled={item.disabled}
+      onClick={item.onClick}
+    >
+      {content}
+    </motion.button>
+  );
+}
+
+export default function MagneticDock({
+  items,
+  magnification = 1.65,
+  distance = 140,
+  itemSize = 48,
+  className,
+  onPointerMove,
+  onPointerLeave,
+  onPointerCancel,
+  ...props
+}: MagneticDockProps) {
+  const pointerX = useMotionValue(-10000);
+  const shouldReduceMotion = useReducedMotionConfig();
+  const resolvedMagnification = Math.max(1, magnification);
+  const resolvedDistance = Math.max(1, distance);
+  const resolvedItemSize = Math.max(32, itemSize);
+
+  return (
+    <nav
+      aria-label="App launcher"
+      className={cn(
+        "relative inline-flex items-end gap-2 rounded-[1.35rem] bg-background/80 p-2 smooth-shadow-ring-lg backdrop-blur-xl",
+        className,
+      )}
+      onPointerMove={(event) => {
+        onPointerMove?.(event);
+        if (
+          !event.defaultPrevented &&
+          !shouldReduceMotion &&
+          event.pointerType !== "touch"
+        ) {
+          const rect = event.currentTarget.getBoundingClientRect();
+          pointerX.set(event.clientX - rect.left);
+        }
+      }}
+      onPointerLeave={(event) => {
+        pointerX.set(-10000);
+        onPointerLeave?.(event);
+      }}
+      onPointerCancel={(event) => {
+        pointerX.set(-10000);
+        onPointerCancel?.(event);
+      }}
+      {...props}
+    >
+      {items.map((item) => (
+        <MagneticDockItemButton
+          key={item.id}
+          distance={resolvedDistance}
+          item={item}
+          itemSize={resolvedItemSize}
+          magnification={resolvedMagnification}
+          pointerX={pointerX}
+        />
+      ))}
+    </nav>
+  );
+}
+`,
+      path: "magnetic-dock/magnetic-dock.tsx",
+      target: "components/sonaui/magnetic-dock/magnetic-dock.tsx"
+    }
+  ],
+  "notification-stack": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotionConfig,
+  useIsPresent,
+} from "motion/react";
+import { type ReactNode, useRef } from "react";
+import {
+  CheckCircle2,
+  Info,
+  OctagonAlert,
+  TriangleAlert,
+  X,
+} from "lucide-react";
+
+import { cn } from "@/lib/sona-utils";
+
+export type NotificationVariant = "default" | "success" | "warning" | "error";
+
+export interface NotificationStackAction {
+  /** The label displayed on the secondary notification action. */
+  label: string;
+  /** Called when the secondary action is selected. */
+  onClick?: () => void;
+}
+
+export interface NotificationStackItem {
+  /** A stable identifier used to preserve each notification during reordering. */
+  id: string;
+  /** The primary notification message. */
+  title: string;
+  /** Optional supporting detail. */
+  description?: string;
+  /**
+   * Semantic presentation for the notification.
+   * @default "default"
+   */
+  variant?: NotificationVariant;
+  /** Optional visible secondary action. Requires onClick to be enabled. */
+  action?: NotificationStackAction;
+}
+
+export interface NotificationStackProps {
+  /** Notifications displayed from newest to oldest. */
+  notifications: NotificationStackItem[];
+  /** Called when a notification's dismiss button is selected. */
+  onDismiss?: (id: string) => void;
+  /**
+   * Controls whether the stack is fixed to the viewport's top-right corner or placed by its parent.
+   * @default "top-right"
+   */
+  placement?: "top-right" | "inline";
+  /**
+   * Caps the number of visible notifications.
+   * @default 4
+   */
+  maxVisible?: number;
+  /** Additional CSS classes for the stack container. */
+  className?: string;
+}
+
+const variants = {
+  default: {
+    icon: Info,
+    iconClassName: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+  },
+  success: {
+    icon: CheckCircle2,
+    iconClassName: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  },
+  warning: {
+    icon: TriangleAlert,
+    iconClassName: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  },
+  error: {
+    icon: OctagonAlert,
+    iconClassName: "bg-destructive/10 text-destructive",
+  },
+} as const;
+
+const enterTransition = {
+  type: "spring",
+  stiffness: 420,
+  damping: 32,
+  mass: 0.72,
+} as const;
+const exitTransition = { duration: 0.16, ease: [0.32, 0.72, 0, 1] } as const;
+
+function NotificationContent({ children }: { children: ReactNode }) {
+  const isPresent = useIsPresent();
+  return (
+    <div
+      className="contents"
+      inert={!isPresent}
+      aria-hidden={!isPresent || undefined}
+    >
+      {children}
+    </div>
+  );
+}
+
+export default function NotificationStack({
+  notifications,
+  onDismiss,
+  placement = "top-right",
+  maxVisible = 4,
+  className,
+}: NotificationStackProps) {
+  const shouldReduceMotion = useReducedMotionConfig();
+  const listRef = useRef<HTMLOListElement>(null);
+  const visibleNotifications = notifications.slice(0, Math.max(0, maxVisible));
+
+  return (
+    <ol
+      ref={listRef}
+      tabIndex={-1}
+      aria-label="Notifications"
+      aria-live="polite"
+      className={cn(
+        "z-50 flex w-[min(24rem,calc(100vw-2rem))] flex-col gap-2",
+        placement === "top-right"
+          ? "fixed top-4 right-4"
+          : "relative max-w-full",
+        className,
+      )}
+    >
+      <AnimatePresence initial={false} mode="popLayout">
+        {visibleNotifications.map((notification, index) => {
+          const variant = notification.variant ?? "default";
+          const Icon = variants[variant].icon;
+
+          return (
+            <motion.li
+              key={notification.id}
+              layout={!shouldReduceMotion}
+              initial={
+                shouldReduceMotion
+                  ? { opacity: 0 }
+                  : {
+                      opacity: 0,
+                      x: 20,
+                      y: -8,
+                      scale: 0.98,
+                      filter: "blur(5px)",
+                    }
+              }
+              animate={{
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                transition: shouldReduceMotion
+                  ? { duration: 0.12 }
+                  : { ...enterTransition, delay: Math.min(index, 3) * 0.035 },
+              }}
+              exit={
+                shouldReduceMotion
+                  ? { opacity: 0, transition: { duration: 0.1 } }
+                  : {
+                      opacity: 0,
+                      x: 12,
+                      y: -4,
+                      scale: 0.99,
+                      filter: "blur(2px)",
+                      transition: exitTransition,
+                    }
+              }
+              className="group relative grid grid-cols-[auto_1fr_auto] gap-x-3 rounded-2xl bg-background/95 p-3 smooth-shadow-ring-lg backdrop-blur-xl"
+            >
+              <NotificationContent>
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "mt-0.5 grid size-8 place-items-center rounded-full",
+                    variants[variant].iconClassName,
+                  )}
+                >
+                  <Icon className="size-4" strokeWidth={2} />
+                </span>
+                <div className="min-w-0 pr-1">
+                  <p className="font-medium text-foreground text-sm leading-5">
+                    {notification.title}
+                  </p>
+                  {notification.description && (
+                    <p className="mt-0.5 text-muted-foreground text-sm leading-5">
+                      {notification.description}
+                    </p>
+                  )}
+                  {notification.action && (
+                    <button
+                      type="button"
+                      disabled={!notification.action.onClick}
+                      className="mt-2 rounded-md font-medium text-foreground text-xs outline-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      onClick={notification.action.onClick}
+                    >
+                      {notification.action.label}
+                    </button>
+                  )}
+                </div>
+                {onDismiss && (
+                  <button
+                    type="button"
+                    aria-label={\`Dismiss \${notification.title}\`}
+                    className="grid size-7 place-items-center rounded-md text-muted-foreground outline-none transition-colors duration-150 hover:bg-muted hover:text-foreground focus-visible:bg-muted focus-visible:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                    data-dismiss=""
+                    onClick={(event) => {
+                      if (document.activeElement === event.currentTarget) {
+                        const buttons = Array.from(
+                          listRef.current?.querySelectorAll<HTMLButtonElement>(
+                            "button[data-dismiss]",
+                          ) ?? [],
+                        );
+                        const currentIndex = buttons.indexOf(
+                          event.currentTarget,
+                        );
+                        const target =
+                          buttons[currentIndex + 1] ??
+                          buttons[currentIndex - 1] ??
+                          listRef.current;
+                        target?.focus({ preventScroll: true });
+                      }
+                      onDismiss(notification.id);
+                    }}
+                  >
+                    <X
+                      aria-hidden="true"
+                      className="size-4"
+                      strokeWidth={1.8}
+                    />
+                  </button>
+                )}
+              </NotificationContent>
+            </motion.li>
+          );
+        })}
+      </AnimatePresence>
+    </ol>
+  );
+}
+`,
+      path: "notification-stack/notification-stack.tsx",
+      target: "components/sonaui/notification-stack/notification-stack.tsx"
     }
   ],
   "morph-surface": [
@@ -8696,6 +10966,164 @@ export default function SpinningText({
       target: "components/sonaui/spinning-text/spinning-text.tsx"
     }
   ],
+  "expandable-data-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { ChevronDown } from "lucide-react";
+import {
+  AnimatePresence,
+  motion,
+  useIsPresent,
+  useReducedMotionConfig,
+} from "motion/react";
+import {
+  type ReactNode,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+function CardDetails({ children }: { children: ReactNode }) {
+  const isPresent = useIsPresent();
+
+  return (
+    <div inert={!isPresent} aria-hidden={!isPresent || undefined}>
+      {children}
+    </div>
+  );
+}
+
+export interface ExpandableDataCardProps {
+  /** Short label describing the data shown in the card. */
+  title: string;
+  /** Always-visible summary content, such as a metric and its change. */
+  summary: ReactNode;
+  /** Additional data revealed when the card expands. */
+  children: ReactNode;
+  /** Controlled expanded state. @default undefined */
+  open?: boolean;
+  /** Initial expanded state when uncontrolled. @default false */
+  defaultOpen?: boolean;
+  /** Called when the user opens or closes the card. @default undefined */
+  onOpenChange?: (open: boolean) => void;
+  /** Additional classes for the card surface. @default undefined */
+  className?: string;
+}
+
+export default function ExpandableDataCard({
+  title,
+  summary,
+  children,
+  open,
+  defaultOpen = false,
+  onOpenChange,
+  className,
+}: ExpandableDataCardProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [inputModality, setInputModality] = useState<"pointer" | "keyboard">(
+    "pointer",
+  );
+  const shouldReduceMotion = useReducedMotionConfig();
+  const generatedId = useId();
+  const titleId = \`\${generatedId}-title\`;
+  const triggerId = \`\${generatedId}-trigger\`;
+  const detailsId = \`\${generatedId}-details\`;
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const detailsRef = useRef<HTMLDivElement>(null);
+  const isOpen = open ?? internalOpen;
+  useLayoutEffect(() => {
+    if (!isOpen && detailsRef.current?.contains(document.activeElement)) {
+      triggerRef.current?.focus({ preventScroll: true });
+    }
+  }, [isOpen]);
+  const shouldAnimate = !shouldReduceMotion && inputModality !== "keyboard";
+  const transition = shouldAnimate
+    ? { type: "spring" as const, duration: 0.32, bounce: 0 }
+    : { duration: 0 };
+
+  function toggle() {
+    const nextOpen = !isOpen;
+    if (open === undefined) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  }
+
+  return (
+    <motion.article
+      layout
+      transition={transition}
+      className={cn(
+        "w-full max-w-md overflow-hidden rounded-2xl bg-card text-card-foreground smooth-shadow-ring-md",
+        className,
+      )}
+    >
+      <motion.div
+        layout="position"
+        transition={transition}
+        className="p-5 sm:p-6"
+      >
+        <div className="flex items-center justify-between gap-4">
+          <h3
+            id={titleId}
+            className="min-w-0 break-words text-sm font-medium text-muted-foreground"
+          >
+            {title}
+          </h3>
+          <button
+            ref={triggerRef}
+            id={triggerId}
+            type="button"
+            aria-label={\`\${isOpen ? "Collapse" : "Expand"} \${title} details\`}
+            aria-expanded={isOpen}
+            aria-controls={detailsId}
+            onClick={toggle}
+            onKeyDownCapture={() => setInputModality("keyboard")}
+            onPointerDownCapture={() => setInputModality("pointer")}
+            className="inline-flex min-h-8 shrink-0 items-center gap-1 rounded-lg px-2 text-xs font-medium text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+          >
+            <span>Details</span>
+            <motion.span
+              aria-hidden="true"
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={transition}
+              className="inline-flex"
+            >
+              <ChevronDown className="size-3.5" />
+            </motion.span>
+          </button>
+        </div>
+        <div className="mt-5">{summary}</div>
+      </motion.div>
+
+      <div id={detailsId} ref={detailsRef}>
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              role="region"
+              aria-labelledby={titleId}
+              initial={shouldAnimate ? { opacity: 0, y: -6 } : false}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: shouldAnimate ? -3 : 0 }}
+              transition={transition}
+              className="border-t border-border/70 px-5 py-4 sm:px-6"
+            >
+              <CardDetails>{children}</CardDetails>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.article>
+  );
+}
+`,
+      path: "expandable-data-card/expandable-data-card.tsx",
+      target: "components/sonaui/expandable-data-card/expandable-data-card.tsx"
+    }
+  ],
   "sona-motion": [
     {
       type: "registry:ui",
@@ -8931,6 +11359,461 @@ export default Chip;
 `,
       path: "chip/chip.tsx",
       target: "components/sonaui/chip/chip.tsx"
+    }
+  ],
+  "github-star-history": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  type KeyboardEvent,
+  type PointerEvent,
+  type RefObject,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface GitHubStarHistoryDatum {
+  /** Date represented by this cumulative observation. */
+  date: Date | string;
+  /** Total repository stars recorded at this observation. */
+  total: number;
+}
+
+export interface GitHubStarHistoryProps
+  extends Omit<ComponentPropsWithoutRef<"div">, "children"> {
+  /** Chronological observations displayed by the chart. */
+  data: GitHubStarHistoryDatum[];
+  /** Repository name displayed above the chart, usually owner/repository. */
+  repository: string;
+  /**
+   * Height of the chart plot in pixels.
+   * @default 280
+   */
+  height?: number;
+  /**
+   * CSS color used by the line, area, and active marker.
+   * @default "var(--primary)"
+   */
+  color?: string;
+  /**
+   * Shows the recorded change between the first and latest observations.
+   * @default true
+   */
+  showChange?: boolean;
+  /**
+   * Reveals the chart from left to right when it first appears.
+   * @default true
+   */
+  animated?: boolean;
+  /**
+   * Accessible name for the interactive chart.
+   * @default derived from repository
+   */
+  ariaLabel?: string;
+}
+
+interface NormalizedDatum {
+  date: Date;
+  total: number;
+}
+
+const VIEWBOX_WIDTH = 720;
+const PADDING = { top: 18, right: 18, bottom: 32, left: 56 };
+const TOOLTIP_EDGE_PADDING = 8;
+const numberFormatter = new Intl.NumberFormat("en", { notation: "compact" });
+const preciseNumberFormatter = new Intl.NumberFormat("en");
+const dateFormatter = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
+
+function normalizeData(data: GitHubStarHistoryDatum[]) {
+  return data
+    .map((item) => ({
+      date: item.date instanceof Date ? item.date : new Date(item.date),
+      total: Math.max(0, item.total),
+    }))
+    .filter(
+      (item) =>
+        !Number.isNaN(item.date.getTime()) && Number.isFinite(item.total),
+    )
+    .sort((a, b) => a.date.getTime() - b.date.getTime());
+}
+
+function formatCompact(value: number) {
+  return value < 1000
+    ? String(Math.round(value))
+    : numberFormatter.format(value);
+}
+
+function buildSmoothPath(
+  points: NormalizedDatum[],
+  getX: (index: number) => number,
+  getY: (total: number) => number,
+) {
+  const firstPoint = points[0];
+  if (!firstPoint) return "";
+
+  const start = \`M \${getX(0)} \${getY(firstPoint.total)}\`;
+  return points.slice(1).reduce((path, point, index) => {
+    const currentIndex = index + 1;
+    const previousX = getX(index);
+    const currentX = getX(currentIndex);
+    const controlX = previousX + (currentX - previousX) / 2;
+
+    return \`\${path} C \${controlX} \${getY(points[index].total)}, \${controlX} \${getY(point.total)}, \${currentX} \${getY(point.total)}\`;
+  }, start);
+}
+
+function ChartTooltip({
+  active,
+  activeX,
+  activeY,
+  chartHeight,
+  chartRef,
+}: {
+  active: NormalizedDatum;
+  activeX: number;
+  activeY: number;
+  chartHeight: number;
+  chartRef: RefObject<HTMLDivElement | null>;
+}) {
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const [tooltipLeft, setTooltipLeft] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const chart = chartRef.current;
+    const tooltip = tooltipRef.current;
+    if (!chart || !tooltip) return;
+
+    const updatePosition = () => {
+      const desiredLeft = (activeX / VIEWBOX_WIDTH) * chart.clientWidth;
+      const tooltipHalfWidth = tooltip.offsetWidth / 2;
+      const minimumLeft = TOOLTIP_EDGE_PADDING + tooltipHalfWidth;
+      const maximumLeft =
+        chart.clientWidth - TOOLTIP_EDGE_PADDING - tooltipHalfWidth;
+
+      setTooltipLeft(
+        maximumLeft < minimumLeft
+          ? chart.clientWidth / 2
+          : Math.min(maximumLeft, Math.max(minimumLeft, desiredLeft)),
+      );
+    };
+
+    updatePosition();
+    const resizeObserver = new ResizeObserver(updatePosition);
+    resizeObserver.observe(chart);
+    resizeObserver.observe(tooltip);
+
+    return () => resizeObserver.disconnect();
+  }, [activeX, chartRef]);
+
+  return (
+    <div
+      ref={tooltipRef}
+      className="border-border bg-popover text-popover-foreground pointer-events-none absolute z-10 w-max whitespace-nowrap rounded-lg border px-2.5 py-2 text-xs shadow-md"
+      style={{
+        left:
+          tooltipLeft === null
+            ? \`\${(activeX / VIEWBOX_WIDTH) * 100}%\`
+            : \`\${tooltipLeft}px\`,
+        top: \`\${(activeY / chartHeight) * 100}%\`,
+        transform: "translate(-50%, calc(-100% - 12px))",
+      }}
+    >
+      <p className="font-medium tabular-nums">
+        {preciseNumberFormatter.format(active.total)} stars
+      </p>
+      <p className="text-muted-foreground">
+        {dateFormatter.format(active.date)}
+      </p>
+    </div>
+  );
+}
+
+export default function GitHubStarHistory({
+  data,
+  repository,
+  height = 280,
+  color = "var(--primary)",
+  showChange = true,
+  animated = true,
+  ariaLabel,
+  className,
+  style,
+  ...props
+}: GitHubStarHistoryProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const gradientId = useId().replaceAll(":", "");
+  const clipId = useId().replaceAll(":", "");
+  const normalizedData = useMemo(() => normalizeData(data), [data]);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isFocused, setIsFocused] = useState(false);
+
+  if (normalizedData.length === 0) {
+    return (
+      <div
+        className={cn(
+          "border-border bg-card text-card-foreground flex min-h-48 items-center justify-center rounded-xl border p-6 text-center",
+          className,
+        )}
+        style={style}
+        {...props}
+      >
+        <p className="text-muted-foreground text-sm">
+          No star history is available for {repository}.
+        </p>
+      </div>
+    );
+  }
+
+  const plotWidth = VIEWBOX_WIDTH - PADDING.left - PADDING.right;
+  const plotHeight = height - PADDING.top - PADDING.bottom;
+  const totals = normalizedData.map((item) => item.total);
+  const minimum = Math.min(...totals);
+  const maximum = Math.max(...totals);
+  const range = Math.max(1, maximum - minimum);
+  const baseline = Math.max(0, minimum - range * 0.12);
+  const chartRange = Math.max(1, maximum - baseline);
+  const xForIndex = (index: number) =>
+    PADDING.left +
+    (normalizedData.length === 1
+      ? plotWidth
+      : (index / (normalizedData.length - 1)) * plotWidth);
+  const yForTotal = (total: number) =>
+    PADDING.top + ((maximum - total) / chartRange) * plotHeight;
+
+  const linePath = buildSmoothPath(normalizedData, xForIndex, yForTotal);
+  const areaPath = \`\${linePath} V \${PADDING.top + plotHeight} H \${PADDING.left} Z\`;
+  const latest = normalizedData.at(-1) as NormalizedDatum;
+  const change = latest.total - normalizedData[0].total;
+  const resolvedActiveIndex = activeIndex ?? normalizedData.length - 1;
+  const active = normalizedData[resolvedActiveIndex];
+  const activeX = xForIndex(resolvedActiveIndex);
+  const activeY = yForTotal(active.total);
+  const reveal = animated && !shouldReduceMotion;
+  const ticks = Array.from({ length: 4 }, (_, index) => {
+    const ratio = index / 3;
+    return {
+      value: maximum - ratio * chartRange,
+      y: PADDING.top + ratio * plotHeight,
+    };
+  });
+
+  const updateFromPointer = (event: PointerEvent<SVGRectElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const relativeX = Math.min(
+      1,
+      Math.max(0, (event.clientX - rect.left) / rect.width),
+    );
+    setActiveIndex(
+      Math.round(relativeX * Math.max(0, normalizedData.length - 1)),
+    );
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
+      return;
+    }
+    event.preventDefault();
+    const current = activeIndex ?? normalizedData.length - 1;
+    if (event.key === "Home") setActiveIndex(0);
+    if (event.key === "End") setActiveIndex(normalizedData.length - 1);
+    if (event.key === "ArrowLeft") setActiveIndex(Math.max(0, current - 1));
+    if (event.key === "ArrowRight") {
+      setActiveIndex(Math.min(normalizedData.length - 1, current + 1));
+    }
+  };
+
+  return (
+    <div
+      className={cn(
+        "border-border bg-card text-card-foreground w-full rounded-xl border p-4 shadow-sm sm:p-5",
+        className,
+      )}
+      style={{ ...style, "--star-history-color": color } as CSSProperties}
+      {...props}
+    >
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="min-w-0">
+          <p className="text-muted-foreground text-xs font-medium">
+            GitHub star history
+          </p>
+          <h3 className="truncate font-medium text-sm">{repository}</h3>
+        </div>
+        <div className="shrink-0 text-right">
+          <p className="font-semibold text-xl tabular-nums">
+            {preciseNumberFormatter.format(latest.total)}
+          </p>
+          {showChange && (
+            <p className="text-muted-foreground text-xs tabular-nums">
+              {change >= 0 ? "+" : ""}
+              {preciseNumberFormatter.format(change)} recorded
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div
+        ref={chartRef}
+        role="slider"
+        tabIndex={0}
+        aria-label={ariaLabel ?? \`\${repository} GitHub star history\`}
+        aria-valuemin={0}
+        aria-valuemax={normalizedData.length - 1}
+        aria-valuenow={resolvedActiveIndex}
+        aria-valuetext={\`\${dateFormatter.format(active.date)}, \${preciseNumberFormatter.format(active.total)} stars\`}
+        onBlur={() => setIsFocused(false)}
+        onFocus={() => setIsFocused(true)}
+        onKeyDown={handleKeyDown}
+        className="focus-visible:ring-ring relative rounded-md outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+      >
+        <svg
+          role="img"
+          aria-hidden="true"
+          viewBox={\`0 0 \${VIEWBOX_WIDTH} \${height}\`}
+          className="block h-auto w-full overflow-visible"
+        >
+          <defs>
+            <linearGradient id={gradientId} x1="0" x2="0" y1="0" y2="1">
+              <stop
+                offset="0%"
+                stopColor="var(--star-history-color)"
+                stopOpacity="0.28"
+              />
+              <stop
+                offset="100%"
+                stopColor="var(--star-history-color)"
+                stopOpacity="0.02"
+              />
+            </linearGradient>
+            <clipPath id={clipId}>
+              <motion.rect
+                x={PADDING.left}
+                y={0}
+                height={height}
+                initial={reveal ? { width: 0 } : { width: plotWidth }}
+                animate={{ width: plotWidth }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              />
+            </clipPath>
+          </defs>
+
+          {ticks.map((tick) => (
+            <g key={tick.y}>
+              <line
+                x1={PADDING.left}
+                x2={VIEWBOX_WIDTH - PADDING.right}
+                y1={tick.y}
+                y2={tick.y}
+                className="stroke-border"
+                strokeDasharray="3 5"
+              />
+              <text
+                x={PADDING.left - 10}
+                y={tick.y + 4}
+                textAnchor="end"
+                className="fill-muted-foreground text-[11px]"
+              >
+                {formatCompact(Math.max(0, tick.value))}
+              </text>
+            </g>
+          ))}
+
+          <g clipPath={\`url(#\${clipId})\`}>
+            <path d={areaPath} fill={\`url(#\${gradientId})\`} />
+            <path
+              d={linePath}
+              fill="none"
+              stroke="var(--star-history-color)"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2.5"
+            />
+          </g>
+
+          <text
+            x={PADDING.left}
+            y={height - 7}
+            className="fill-muted-foreground text-[11px]"
+          >
+            {dateFormatter.format(normalizedData[0].date)}
+          </text>
+          <text
+            x={VIEWBOX_WIDTH - PADDING.right}
+            y={height - 7}
+            textAnchor="end"
+            className="fill-muted-foreground text-[11px]"
+          >
+            {dateFormatter.format(latest.date)}
+          </text>
+
+          {(activeIndex !== null || isFocused) && (
+            <g className="pointer-events-none">
+              <line
+                x1={activeX}
+                x2={activeX}
+                y1={PADDING.top}
+                y2={PADDING.top + plotHeight}
+                className="stroke-muted-foreground/50"
+                strokeDasharray="3 4"
+              />
+              <motion.circle
+                animate={{ cx: activeX, cy: activeY }}
+                initial={false}
+                r="5"
+                className="stroke-card"
+                fill="var(--star-history-color)"
+                strokeWidth="3"
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { type: "spring", stiffness: 420, damping: 38, mass: 0.5 }
+                }
+              />
+            </g>
+          )}
+
+          <rect
+            x={PADDING.left}
+            y={PADDING.top}
+            width={plotWidth}
+            height={plotHeight}
+            fill="transparent"
+            onPointerEnter={updateFromPointer}
+            onPointerMove={updateFromPointer}
+            onPointerLeave={() => setActiveIndex(null)}
+          />
+        </svg>
+
+        {(activeIndex !== null || isFocused) && (
+          <ChartTooltip
+            active={active}
+            activeX={activeX}
+            activeY={activeY}
+            chartHeight={height}
+            chartRef={chartRef}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+`,
+      path: "github-star-history/github-star-history.tsx",
+      target: "components/sonaui/github-star-history/github-star-history.tsx"
     }
   ],
   "animated-checkbox": [
@@ -12902,6 +15785,252 @@ export default Button;
       target: "components/sonaui/button/button.tsx"
     }
   ],
+  "radial-card-marquee": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  type MotionValue,
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import { type PointerEvent, useEffect, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface RadialCardMarqueeItem {
+  /** Stable identifier used when labels or images repeat. */
+  id?: string;
+  /** The image URL shown by the card. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Label shown beneath the image. */
+  label: string;
+}
+
+export interface RadialCardMarqueeProps {
+  /** Cards distributed evenly around the circular path. @default [] */
+  items: RadialCardMarqueeItem[];
+  /** Travel speed measured in card positions per second. @default 0.12 */
+  speed?: number;
+  /** Direction of continuous travel. @default "forward" */
+  direction?: "forward" | "reverse";
+  /** Pause movement while the pointer is over or pressing the marquee. @default true */
+  pauseOnHover?: boolean;
+  /** Pause movement through controlled application state. @default false */
+  paused?: boolean;
+  /** Additional classes for the marquee root. @default undefined */
+  className?: string;
+}
+
+const FULL_TURN = Math.PI * 2;
+
+function OrbitCard({
+  item,
+  index,
+  itemCount,
+  phase,
+  cardWidth,
+  cardHeight,
+  radiusX,
+  radiusY,
+}: {
+  item: RadialCardMarqueeItem;
+  index: number;
+  itemCount: number;
+  phase: MotionValue<number>;
+  cardWidth: number;
+  cardHeight: number;
+  radiusX: number;
+  radiusY: number;
+}) {
+  const baseAngle = (index / itemCount) * FULL_TURN;
+  const angle = useTransform(phase, (value) => baseAngle + value);
+  const depth = useTransform(angle, (value) => Math.cos(value));
+  const x = useTransform(angle, (value) => Math.sin(value) * radiusX);
+  const y = useTransform(
+    angle,
+    (value) => (1 - Math.cos(value)) * radiusY - radiusY * 0.72,
+  );
+  const rotate = useTransform(angle, (value) => Math.sin(value) * 14);
+  const scale = useTransform(depth, [-1, 1], [0.82, 1]);
+  const zIndex = useTransform(depth, (value) => Math.round((value + 1) * 50));
+
+  return (
+    <motion.article
+      suppressHydrationWarning
+      aria-label={item.label}
+      className="pointer-events-none absolute left-1/2 top-1/2 origin-center overflow-hidden rounded-[1.35rem] bg-[#f3f2ec] p-2 text-[#252824] shadow-[0_20px_55px_rgba(0,0,0,0.22)] sm:rounded-[1.6rem] sm:p-3"
+      style={{
+        width: cardWidth,
+        height: cardHeight,
+        marginLeft: -cardWidth / 2,
+        marginTop: -cardHeight / 2,
+        x,
+        y,
+        rotate,
+        scale,
+        zIndex,
+      }}
+    >
+      <img
+        src={item.image}
+        alt={item.alt}
+        draggable={false}
+        className="h-[calc(100%-3.5rem)] w-full rounded-[1rem] object-cover sm:rounded-[1.2rem]"
+      />
+      <span className="flex h-14 items-center justify-center text-center text-lg font-black uppercase tracking-tight sm:text-2xl">
+        {item.label}
+      </span>
+    </motion.article>
+  );
+}
+
+export function RadialCardMarquee({
+  items,
+  speed = 0.12,
+  direction = "forward",
+  pauseOnHover = true,
+  paused = false,
+  className,
+}: RadialCardMarqueeProps) {
+  const shouldReduceMotion = useReducedMotion();
+  const rootRef = useRef<HTMLElement>(null);
+  const pointerOverRef = useRef(false);
+  const pointerDownRef = useRef(false);
+  const mountedRef = useRef(false);
+  const speedMultiplierRef = useRef(shouldReduceMotion ? 0 : 1);
+  const phase = useMotionValue(0);
+  const [viewportWidth, setViewportWidth] = useState(900);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const updateWidth = (width: number) => {
+      setViewportWidth((current) =>
+        Math.abs(current - width) >= 1 ? width : current,
+      );
+    };
+    updateWidth(root.getBoundingClientRect().width);
+
+    const observer = new ResizeObserver(([entry]) => {
+      updateWidth(entry.contentRect.width);
+    });
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, []);
+
+  useAnimationFrame((_, delta) => {
+    if (!mountedRef.current) return;
+
+    const interactionPaused =
+      pauseOnHover && (pointerOverRef.current || pointerDownRef.current);
+    const targetMultiplier =
+      shouldReduceMotion || paused || interactionPaused ? 0 : 1;
+
+    speedMultiplierRef.current +=
+      (targetMultiplier - speedMultiplierRef.current) *
+      Math.min(delta / 120, 1);
+
+    if (items.length < 2 || speedMultiplierRef.current < 0.001) return;
+
+    const directionSign = direction === "forward" ? 1 : -1;
+    const radiansPerMillisecond =
+      (Math.max(speed, 0) * FULL_TURN) / items.length / 1000;
+    let next =
+      phase.get() +
+      directionSign *
+        radiansPerMillisecond *
+        Math.min(delta, 64) *
+        speedMultiplierRef.current;
+
+    if (next >= FULL_TURN) next -= FULL_TURN;
+    if (next <= -FULL_TURN) next += FULL_TURN;
+    phase.set(next);
+  });
+
+  const cardWidth =
+    viewportWidth < 540
+      ? Math.min(viewportWidth * 0.52, 236)
+      : Math.min(viewportWidth * 0.25, 300);
+  const cardHeight = cardWidth * 1.24;
+  const cardGap = viewportWidth < 540 ? 16 : viewportWidth < 820 ? 28 : 44;
+  const minimumRadius =
+    items.length > 1
+      ? (cardWidth + cardGap) /
+        (2 * Math.sin(Math.PI / Math.max(items.length, 2)))
+      : 0;
+  const radiusX = Math.max(minimumRadius, cardWidth * 1.05);
+  const radiusY = Math.min(cardHeight * 0.62, radiusX * 0.58);
+
+  const handlePointerDown = (event: PointerEvent<HTMLElement>) => {
+    pointerDownRef.current = true;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerEnd = (event: PointerEvent<HTMLElement>) => {
+    pointerDownRef.current = false;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  if (items.length === 0) return null;
+
+  return (
+    <section
+      ref={rootRef}
+      aria-label="Radial card marquee"
+      className={cn("w-full min-h-[70vh] xl:min-h-[60vh]", className)}
+      onPointerEnter={() => {
+        pointerOverRef.current = true;
+      }}
+      onPointerLeave={() => {
+        pointerOverRef.current = false;
+        pointerDownRef.current = false;
+      }}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerEnd}
+      onPointerCancel={handlePointerEnd}
+    >
+      <div className="absolute inset-0 h-full ">
+        {items.map((item, index) => (
+          <OrbitCard
+            key={item.id ?? \`\${item.label}-\${item.image}\`}
+            item={item}
+            index={index}
+            itemCount={items.length}
+            phase={phase}
+            cardWidth={cardWidth}
+            cardHeight={cardHeight}
+            radiusX={radiusX}
+            radiusY={radiusY}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default RadialCardMarquee;
+`,
+      path: "radial-card-marquee/radial-card-marquee.tsx",
+      target: "components/sonaui/radial-card-marquee/radial-card-marquee.tsx"
+    }
+  ],
   "assignment-cluster": [
     {
       type: "registry:ui",
@@ -13309,6 +16438,683 @@ export default function AssignmentCluster({
       target: "components/sonaui/assignment-cluster/assignment-cluster.tsx"
     }
   ],
+  "command-palette-preview": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Command, Search } from "lucide-react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface CommandPaletteItem {
+  /** A stable identifier used for selection and callbacks. */
+  id: string;
+  /** Primary command label. */
+  label: string;
+  /** Group label used to organize results. */
+  group?: string;
+  /** Optional supporting description. */
+  description?: string;
+  /** Optional keyboard shortcut label. */
+  shortcut?: string;
+  /** Optional alternate terms used for filtering. */
+  keywords?: string[];
+  /** Called when the command is selected. */
+  onSelect?: () => void;
+  /** Prevents selection of this command. */
+  disabled?: boolean;
+}
+
+export interface CommandPalettePreviewProps {
+  /** Commands available in the palette. */
+  items: CommandPaletteItem[];
+  /** Controlled visibility state. */
+  open?: boolean;
+  /**
+   * Initial visibility for uncontrolled usage.
+   * @default false
+   */
+  defaultOpen?: boolean;
+  /** Called when the palette requests a visibility change. */
+  onOpenChange?: (open: boolean) => void;
+  /**
+   * Placeholder shown in the command search field.
+   * @default "Search commands..."
+   */
+  placeholder?: string;
+  /**
+   * Copy shown when filtering returns no commands.
+   * @default "No commands found."
+   */
+  emptyMessage?: string;
+  /** Additional CSS classes for the palette surface. */
+  className?: string;
+}
+
+export default function CommandPalettePreview({
+  items,
+  open: controlledOpen,
+  defaultOpen = false,
+  onOpenChange,
+  placeholder = "Search commands...",
+  emptyMessage = "No commands found.",
+  className,
+}: CommandPalettePreviewProps) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [query, setQuery] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const listId = useId();
+  const isControlled = controlledOpen !== undefined;
+  const isOpen = isControlled ? controlledOpen : internalOpen;
+
+  const filteredItems = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    if (!normalizedQuery) return items;
+
+    return items.filter((item) =>
+      [item.label, item.description, item.group, ...(item.keywords ?? [])]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedQuery),
+    );
+  }, [items, query]);
+
+  const groupedItems = useMemo(() => {
+    return filteredItems.reduce<Map<string, CommandPaletteItem[]>>(
+      (groups, item) => {
+        const group = item.group ?? "Commands";
+        const groupItems = groups.get(group) ?? [];
+        groupItems.push(item);
+        groups.set(group, groupItems);
+        return groups;
+      },
+      new Map(),
+    );
+  }, [filteredItems]);
+
+  const setOpen = (nextOpen: boolean) => {
+    if (!isControlled) setInternalOpen(nextOpen);
+    onOpenChange?.(nextOpen);
+  };
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    if (isOpen && !dialog.open) {
+      dialog.showModal();
+      inputRef.current?.focus();
+    } else if (!isOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [isOpen]);
+
+  const selectableItems = Array.from(groupedItems.values())
+    .flat()
+    .filter((item) => !item.disabled);
+  const resolvedIndex = Math.min(
+    activeIndex,
+    Math.max(0, selectableItems.length - 1),
+  );
+  const activeItem = selectableItems[resolvedIndex];
+  const activeId = activeItem ? \`\${listId}-\${activeItem.id}\` : undefined;
+  useEffect(() => {
+    if (isOpen && activeId)
+      document.getElementById(activeId)?.scrollIntoView({ block: "nearest" });
+  }, [isOpen, activeId]);
+  const selectItem = (item: CommandPaletteItem) => {
+    if (item.disabled) return;
+    item.onSelect?.();
+    setOpen(false);
+  };
+
+  return (
+    <dialog
+      ref={dialogRef}
+      aria-modal="true"
+      aria-label="Command palette"
+      onCancel={(event) => {
+        event.preventDefault();
+        setOpen(false);
+      }}
+      onClick={(event) => {
+        if (event.target !== event.currentTarget) return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        if (
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom
+        )
+          setOpen(false);
+      }}
+      className={cn(
+        "fixed inset-x-0 top-[min(18vh,9rem)] m-0 mx-auto p-0",
+        "w-[calc(100%_-_2rem)] max-w-xl max-h-[80dvh] overflow-y-auto rounded-2xl border-0 bg-background text-foreground smooth-shadow-ring-2xl backdrop:bg-foreground/20 backdrop:backdrop-blur-[2px]",
+        className,
+      )}
+      onKeyDown={(event) => {
+        if (event.nativeEvent.isComposing) return;
+        if (event.key === "ArrowDown") {
+          event.preventDefault();
+          setActiveIndex(
+            selectableItems.length
+              ? (resolvedIndex + 1) % selectableItems.length
+              : 0,
+          );
+        }
+        if (event.key === "ArrowUp") {
+          event.preventDefault();
+          setActiveIndex(
+            selectableItems.length
+              ? (resolvedIndex - 1 + selectableItems.length) %
+                  selectableItems.length
+              : 0,
+          );
+        }
+        if (event.key === "Enter" && activeItem) {
+          event.preventDefault();
+          selectItem(activeItem);
+        }
+      }}
+    >
+      <label className="flex items-center gap-3 border-border border-b px-4 py-3">
+        <Search aria-hidden="true" className="size-5 text-muted-foreground" />
+        <input
+          ref={inputRef}
+          role="combobox"
+          aria-expanded={isOpen}
+          aria-autocomplete="list"
+          value={query}
+          aria-controls={listId}
+          aria-activedescendant={activeId}
+          aria-label="Search commands"
+          className="min-w-0 flex-1 bg-transparent text-foreground text-sm outline-none placeholder:text-muted-foreground"
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setActiveIndex(0);
+          }}
+          placeholder={placeholder}
+        />
+        <kbd className="rounded border border-border bg-muted px-1.5 py-0.5 font-medium text-[10px] text-muted-foreground">
+          Esc
+        </kbd>
+      </label>
+      <div
+        id={listId}
+        role="listbox"
+        aria-label="Commands"
+        className="max-h-[min(20rem,45dvh)] overflow-y-auto p-2"
+      >
+        {filteredItems.length === 0 ? (
+          <p className="px-3 py-8 text-center text-muted-foreground text-sm">
+            {emptyMessage}
+          </p>
+        ) : (
+          Array.from(groupedItems).map(([group, groupItems]) => (
+            <fieldset key={group} aria-label={group} className="pb-2 last:pb-0">
+              <p className="px-2 pb-1 pt-2 font-medium text-[11px] text-muted-foreground uppercase tracking-[0.12em]">
+                {group}
+              </p>
+              {groupItems.map((item) => {
+                const itemIndex = selectableItems.findIndex(
+                  (selectableItem) => selectableItem.id === item.id,
+                );
+                const isActive = itemIndex >= 0 && itemIndex === resolvedIndex;
+
+                return (
+                  <button
+                    id={\`\${listId}-\${item.id}\`}
+                    key={item.id}
+                    type="button"
+                    role="option"
+                    tabIndex={-1}
+                    aria-disabled={item.disabled || undefined}
+                    aria-selected={isActive}
+                    disabled={item.disabled}
+                    className={cn(
+                      "flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left outline-none transition-colors duration-150 motion-reduce:transition-none",
+                      isActive && "bg-accent text-accent-foreground",
+                      "hover:bg-accent focus-visible:bg-accent disabled:pointer-events-none disabled:opacity-45",
+                    )}
+                    onMouseEnter={() => {
+                      if (itemIndex >= 0) setActiveIndex(itemIndex);
+                    }}
+                    onClick={() => selectItem(item)}
+                    onMouseDown={(event) => event.preventDefault()}
+                  >
+                    <span className="grid size-8 shrink-0 place-items-center rounded-md bg-muted text-muted-foreground">
+                      <Command
+                        aria-hidden="true"
+                        className="size-4"
+                        strokeWidth={1.8}
+                      />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-medium text-sm">
+                        {item.label}
+                      </span>
+                      {item.description && (
+                        <span className="mt-0.5 block truncate text-muted-foreground text-xs">
+                          {item.description}
+                        </span>
+                      )}
+                    </span>
+                    {item.shortcut && (
+                      <kbd className="rounded border border-border bg-background px-1.5 py-0.5 font-medium text-[10px] text-muted-foreground">
+                        {item.shortcut}
+                      </kbd>
+                    )}
+                  </button>
+                );
+              })}
+            </fieldset>
+          ))
+        )}
+      </div>
+      <footer className="flex items-center justify-between border-border border-t px-4 py-2 text-muted-foreground text-xs">
+        <span>↑ ↓ to navigate</span>
+        <span>↵ to select</span>
+      </footer>
+    </dialog>
+  );
+}
+`,
+      path: "command-palette-preview/command-palette-preview.tsx",
+      target: "components/sonaui/command-palette-preview/command-palette-preview.tsx"
+    }
+  ],
+  "depth-tiles": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import {
+  animate,
+  type MotionValue,
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useTransform,
+} from "motion/react";
+import {
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface DepthTileItem {
+  /** Stable identifier used to preserve the tile across reorders. */
+  id: string;
+  /** Image URL rendered by the tile. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Small label shown at the bottom of the tile. */
+  label: string;
+}
+
+export interface DepthTilesProps {
+  /** Tiles shown in the infinite stack. */
+  items: DepthTileItem[];
+  /** Controlled active tile index. @default undefined */
+  index?: number;
+  /** Initial active tile index when uncontrolled. @default 0 */
+  defaultIndex?: number;
+  /** Called after the active tile changes. @default undefined */
+  onIndexChange?: (index: number) => void;
+  /** Enables automatic forward movement. @default true */
+  autoplay?: boolean;
+  /** Time between automatic advances in milliseconds. @default 3200 */
+  interval?: number;
+  /** Pauses autoplay while the pointer is over the component. @default true */
+  pauseOnHover?: boolean;
+  /** Enables horizontal pointer drag and touch swipe. @default true */
+  draggable?: boolean;
+  /** Accessible label for the carousel region. @default "Depth tiles" */
+  ariaLabel?: string;
+  /** Additional classes for the component. @default undefined */
+  className?: string;
+}
+
+const SPRING = {
+  type: "spring",
+  stiffness: 330,
+  damping: 36,
+  mass: 0.85,
+} as const;
+const TAU = Math.PI * 2;
+
+const wrapIndex = (value: number, length: number) =>
+  ((value % length) + length) % length;
+
+const roundStyleValue = (value: number) => Math.round(value * 1000) / 1000;
+
+function getShortestDelta(itemIndex: number, progress: number, length: number) {
+  if (length <= 1) return 0;
+  const half = length / 2;
+  return ((((itemIndex - progress + half) % length) + length) % length) - half;
+}
+
+function DepthTile({
+  item,
+  itemIndex,
+  itemCount,
+  progress,
+  orbitRadius,
+  hydrated,
+}: {
+  item: DepthTileItem;
+  itemIndex: number;
+  itemCount: number;
+  progress: MotionValue<number>;
+  orbitRadius: number;
+  hydrated: boolean;
+}) {
+  const phase = useTransform(
+    progress,
+    (value) => ((itemIndex - value) / itemCount) * TAU,
+  );
+  const depth = useTransform(phase, (value) => (1 - Math.cos(value)) / 2);
+  const x = useTransform(phase, (value) => Math.sin(value) * orbitRadius);
+  const y = useTransform(depth, (value) => value * 28);
+  const scale = useTransform(depth, (value) => 1 - value * 0.2);
+  const opacity = useTransform(depth, (value) => 1 - value * 0.64);
+  const zIndex = useTransform(depth, (value) => Math.round((1 - value) * 100));
+  const initialPhase = ((itemIndex - progress.get()) / itemCount) * TAU;
+  const initialDepth = (1 - Math.cos(initialPhase)) / 2;
+  const initialStyle = {
+    opacity: roundStyleValue(1 - initialDepth * 0.64),
+    transform: \`translateX(\${roundStyleValue(Math.sin(initialPhase) * orbitRadius)}px) translateY(\${roundStyleValue(initialDepth * 28)}px) scale(\${roundStyleValue(1 - initialDepth * 0.2)})\`,
+    zIndex: Math.round((1 - initialDepth) * 100),
+  };
+
+  return (
+    <motion.article
+      aria-hidden="true"
+      className="pointer-events-none absolute aspect-[1.12] w-[min(68vw,25rem)] overflow-hidden rounded-[1.4rem] bg-muted shadow-[0_2px_8px_rgba(0,0,0,.08),0_24px_64px_rgba(0,0,0,.18)] will-change-transform sm:rounded-[1.75rem]"
+      style={hydrated ? { x, y, scale, opacity, zIndex } : initialStyle}
+    >
+      {/* biome-ignore lint/performance/noImgElement: framework-neutral registry component */}
+      <img
+        src={item.image}
+        alt=""
+        draggable={false}
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 via-black/22 to-transparent px-5 pb-5 pt-20 text-white">
+        <span className="text-base font-medium tracking-[-0.015em] sm:text-lg">
+          {item.label}
+        </span>
+      </div>
+    </motion.article>
+  );
+}
+
+export default function DepthTiles({
+  items,
+  index,
+  defaultIndex = 0,
+  onIndexChange,
+  autoplay = true,
+  interval = 3200,
+  pauseOnHover = true,
+  draggable = true,
+  ariaLabel = "Depth tiles",
+  className,
+}: DepthTilesProps) {
+  const reduceMotion = Boolean(useReducedMotion());
+  const descriptionId = useId();
+  const isControlled = index !== undefined;
+  const [uncontrolledIndex, setUncontrolledIndex] = useState(defaultIndex);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(960);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const itemCount = items.length;
+  const activeIndex = itemCount
+    ? wrapIndex(isControlled ? index : uncontrolledIndex, itemCount)
+    : 0;
+  const progress = useMotionValue(activeIndex);
+  const dragStartProgress = useRef(activeIndex);
+  const animationRef = useRef<ReturnType<typeof animate> | null>(null);
+
+  useEffect(() => setHydrated(true), []);
+
+  const stopAnimation = useCallback(() => {
+    animationRef.current?.stop();
+    animationRef.current = null;
+  }, []);
+
+  const commitIndex = useCallback(
+    (nextIndex: number) => {
+      if (!itemCount) return;
+      const wrapped = wrapIndex(nextIndex, itemCount);
+      if (!isControlled) setUncontrolledIndex(wrapped);
+      if (wrapped !== activeIndex) onIndexChange?.(wrapped);
+    },
+    [activeIndex, isControlled, itemCount, onIndexChange],
+  );
+
+  const settleTo = useCallback(
+    (targetProgress: number) => {
+      stopAnimation();
+      const targetIndex = Math.round(targetProgress);
+      if (reduceMotion) {
+        progress.set(targetIndex);
+        commitIndex(targetIndex);
+        return;
+      }
+      animationRef.current = animate(progress, targetIndex, {
+        ...SPRING,
+        onComplete: () => {
+          animationRef.current = null;
+          commitIndex(targetIndex);
+        },
+      });
+    },
+    [commitIndex, progress, reduceMotion, stopAnimation],
+  );
+
+  const moveBy = useCallback(
+    (direction: 1 | -1) => settleTo(progress.get() + direction),
+    [progress, settleTo],
+  );
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setViewportWidth(entry.contentRect.width);
+    });
+    observer.observe(viewport);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleVisibilityChange = () =>
+      setIsDocumentVisible(document.visibilityState === "visible");
+    handleVisibilityChange();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  useEffect(() => {
+    if (!itemCount) return;
+    const current = progress.get();
+    if (wrapIndex(Math.round(current), itemCount) === activeIndex) return;
+    stopAnimation();
+    const target = current + getShortestDelta(activeIndex, current, itemCount);
+    if (reduceMotion) progress.set(target);
+    else animationRef.current = animate(progress, target, SPRING);
+  }, [activeIndex, itemCount, progress, reduceMotion, stopAnimation]);
+
+  useEffect(() => {
+    if (
+      !autoplay ||
+      reduceMotion ||
+      !isDocumentVisible ||
+      isDragging ||
+      isFocused ||
+      (pauseOnHover && isHovered) ||
+      itemCount < 2
+    )
+      return;
+    const timer = window.setTimeout(() => moveBy(1), Math.max(interval, 800));
+    return () => window.clearTimeout(timer);
+  }, [
+    autoplay,
+    interval,
+    isDocumentVisible,
+    isDragging,
+    isFocused,
+    isHovered,
+    itemCount,
+    moveBy,
+    pauseOnHover,
+    reduceMotion,
+  ]);
+
+  useEffect(() => stopAnimation, [stopAnimation]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveBy(1);
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveBy(-1);
+    }
+  };
+
+  if (!itemCount) return null;
+  const activeItem = items[activeIndex];
+  const orbitRadius = Math.min(292, Math.max(126, viewportWidth * 0.31));
+  const dragStep = Math.min(280, Math.max(180, viewportWidth * 0.34));
+
+  return (
+    <section
+      aria-label={ariaLabel}
+      aria-describedby={descriptionId}
+      aria-roledescription="carousel"
+      tabIndex={itemCount > 1 ? 0 : undefined}
+      className={cn("w-full", className)}
+      onFocusCapture={() => setIsFocused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          setIsFocused(false);
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onKeyDown={handleKeyDown}
+    >
+      <div
+        ref={viewportRef}
+        className="relative mx-auto flex h-[22rem] w-full max-w-5xl items-center justify-center overflow-hidden sm:h-[31rem]"
+      >
+        {!reduceMotion &&
+          items.map((item, itemIndex) => (
+            <DepthTile
+              key={item.id}
+              item={item}
+              itemIndex={itemIndex}
+              itemCount={itemCount}
+              progress={progress}
+              orbitRadius={orbitRadius}
+              hydrated={hydrated}
+            />
+          ))}
+
+        {reduceMotion && (
+          <article className="pointer-events-none absolute aspect-[1.12] w-[min(68vw,25rem)] overflow-hidden rounded-[1.4rem] bg-muted shadow-[0_2px_8px_rgba(0,0,0,.08),0_24px_64px_rgba(0,0,0,.18)] sm:rounded-[1.75rem]">
+            {/* biome-ignore lint/performance/noImgElement: framework-neutral registry component */}
+            <img
+              src={activeItem.image}
+              alt=""
+              draggable={false}
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/72 via-black/22 to-transparent px-5 pb-5 pt-20 text-white">
+              <span className="text-base font-medium tracking-[-0.015em] sm:text-lg">
+                {activeItem.label}
+              </span>
+            </div>
+          </article>
+        )}
+
+        {draggable && itemCount > 1 && !reduceMotion && (
+          <motion.div
+            aria-hidden="true"
+            className="absolute inset-0 z-[120] cursor-grab touch-pan-y active:cursor-grabbing"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.08}
+            onDragStart={() => {
+              stopAnimation();
+              dragStartProgress.current = progress.get();
+              setIsDragging(true);
+            }}
+            onDrag={(_, info) =>
+              progress.set(dragStartProgress.current - info.offset.x / dragStep)
+            }
+            onDragEnd={(_, info) => {
+              const distance = Math.abs(info.offset.x);
+              const velocity = Math.abs(info.velocity.x);
+              const shouldAdvance = distance > 44 || velocity > 420;
+              const direction =
+                velocity > 420
+                  ? info.velocity.x < 0
+                    ? 1
+                    : -1
+                  : info.offset.x < 0
+                    ? 1
+                    : -1;
+              setIsDragging(false);
+              settleTo(
+                shouldAdvance
+                  ? Math.round(dragStartProgress.current) + direction
+                  : Math.round(dragStartProgress.current),
+              );
+            }}
+          />
+        )}
+      </div>
+
+      <div
+        id={descriptionId}
+        className="sr-only"
+        aria-live={isFocused ? "polite" : "off"}
+        aria-atomic="true"
+      >
+        {activeItem.alt}. {activeItem.label}, item {activeIndex + 1} of{" "}
+        {itemCount}
+        {itemCount > 1
+          ? ". Use the left and right arrow keys to navigate."
+          : ""}
+      </div>
+    </section>
+  );
+}
+
+export { DepthTiles };
+`,
+      path: "depth-tiles/depth-tiles.tsx",
+      target: "components/sonaui/depth-tiles/depth-tiles.tsx"
+    }
+  ],
   "fluid-slider": [
     {
       type: "registry:ui",
@@ -13323,7 +17129,9 @@ import {
   useTransform,
 } from "motion/react";
 import {
+  type ChangeEvent,
   type CSSProperties,
+  type KeyboardEvent,
   type ReactNode,
   useEffect,
   useId,
@@ -13369,6 +17177,8 @@ export interface FluidSliderProps {
   locale?: Intl.LocalesArgument;
   /** Whether the trailing formatted value is visible. @default true */
   showValue?: boolean;
+  /** Whether the visible value can be edited as an exact number. @default true */
+  editableValue?: boolean;
   /** Whether the active boundary grip is visible. @default true */
   showHandle?: boolean;
   /** Whether the slider ignores user interaction. @default false */
@@ -13413,11 +17223,44 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
 
-function rubberband(overshoot: number, dimension: number, constant = 0.55) {
+function rubberband(overshoot: number) {
+  const deadZone = 32;
+  const maximumStretch = 8;
+  const cursorRange = 200;
+  const direction = Math.sign(overshoot);
+  const distancePastEdge = Math.max(0, Math.abs(overshoot) - deadZone);
+
   return (
-    (overshoot * dimension * constant) /
-    (dimension + constant * Math.abs(overshoot))
+    direction *
+    maximumStretch *
+    Math.sqrt(Math.min(distancePastEdge / cursorRange, 1))
   );
+}
+
+function decimalPlaces(value: number) {
+  const [, exponent = "0"] = String(value).toLowerCase().split("e");
+  const fraction = String(value).split(".")[1]?.length ?? 0;
+  return Math.max(0, fraction - Number(exponent));
+}
+
+function roundToStep(value: number, min: number, max: number, step: number) {
+  const clamped = clamp(value, min, max);
+  if (clamped === min || clamped === max || step <= 0) return clamped;
+  const rounded = min + Math.round((clamped - min) / step) * step;
+  return Number(
+    clamp(rounded, min, max).toFixed(
+      Math.max(decimalPlaces(step), decimalPlaces(min), decimalPlaces(max)),
+    ),
+  );
+}
+
+function snapToMagneticDecile(value: number, min: number, max: number) {
+  if (max <= min) return min;
+  const normalized = (value - min) / (max - min);
+  const nearest = Math.round(normalized * 10) / 10;
+  return Math.abs(normalized - nearest) <= 0.03125
+    ? min + nearest * (max - min)
+    : value;
 }
 
 export default function FluidSlider({
@@ -13435,6 +17278,7 @@ export default function FluidSlider({
   format,
   locale,
   showValue = true,
+  editableValue = true,
   showHandle = true,
   disabled = false,
   name,
@@ -13452,10 +17296,13 @@ export default function FluidSlider({
   const [internalValue, setInternalValue] = useState(() =>
     clamp(defaultValue, min, max),
   );
+  const [editingValue, setEditingValue] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const currentValue = clamp(value ?? internalValue, min, max);
   const range = max - min;
   const progress = range === 0 ? 0 : ((currentValue - min) / range) * 100;
   const controlRef = useRef<HTMLDivElement>(null);
+  const valueInputRef = useRef<HTMLInputElement>(null);
   const pointerActiveRef = useRef(false);
   const trackPressRef = useRef(false);
   const dragMovedRef = useRef(false);
@@ -13529,6 +17376,16 @@ export default function FluidSlider({
     const insetStart = isRtl ? inset : 0;
     return \`inset(0px \${insetEnd}% 0px \${insetStart}% round var(--fluid-slider-border-radius))\`;
   });
+  // The visual track stretches beyond the active edge as the drag exceeds the
+  // boundary. Keeping this separate from Slider.Control preserves its stable
+  // hit target and Base UI's range semantics.
+  const rubberBandWidth = useTransform(
+    overshoot,
+    (stretch) => \`calc(100% + \${Math.abs(stretch)}px)\`,
+  );
+  const rubberBandX = useTransform(overshoot, (stretch) =>
+    stretch < 0 ? stretch : 0,
+  );
 
   // Immediate-response squash: the active surface compresses slightly while
   // pressed and eases back on release. Presentation only — never the value.
@@ -13556,6 +17413,12 @@ export default function FluidSlider({
     ? formatValue(currentValue)
     : formatter.format(currentValue);
   const visibleMarks = marks.filter((mark) => mark >= min && mark <= max);
+
+  useEffect(() => {
+    if (!editingValue) return;
+    valueInputRef.current?.focus();
+    valueInputRef.current?.select();
+  }, [editingValue]);
 
   const settleOvershoot = () => {
     pointerActiveRef.current = false;
@@ -13585,6 +17448,23 @@ export default function FluidSlider({
   // component, we drive Base UI's hidden range input directly: it fires the
   // real onValueChange with proper event details, which flows through the
   // Slider.Root handler below.
+  const applyValue = (nextValue: number) => {
+    const control = controlRef.current;
+    if (!control) return;
+
+    const input = control.querySelector<HTMLInputElement>(
+      'input[type="range"]',
+    );
+    if (!input || Number(input.value) === nextValue) return;
+
+    const nativeSetter = Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      "value",
+    )?.set;
+    nativeSetter?.call(input, String(nextValue));
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  };
+
   const applyValueFromClientX = (clientX: number) => {
     const control = controlRef.current;
     if (!control) return;
@@ -13598,27 +17478,55 @@ export default function FluidSlider({
     ratio = clamp(ratio, 0, 1);
 
     const raw = min + ratio * range;
-    const stepped = clamp(
-      Math.round((raw - min) / step) * step + min,
-      min,
-      max,
-    );
+    const stepCount = range / step;
+    const snapped =
+      stepCount <= 10
+        ? roundToStep(raw, min, max, step)
+        : roundToStep(snapToMagneticDecile(raw, min, max), min, max, step);
 
-    const input = control.querySelector<HTMLInputElement>(
-      'input[type="range"]',
-    );
-    if (!input || Number(input.value) === stepped) return;
+    applyValue(snapped);
+  };
 
-    const nativeSetter = Object.getOwnPropertyDescriptor(
-      HTMLInputElement.prototype,
-      "value",
-    )?.set;
-    nativeSetter?.call(input, String(stepped));
-    input.dispatchEvent(new Event("input", { bubbles: true }));
+  const startValueEdit = () => {
+    if (disabled || !editableValue) return;
+    setInputValue(
+      currentValue.toFixed(
+        Math.max(decimalPlaces(step), decimalPlaces(min), decimalPlaces(max)),
+      ),
+    );
+    setEditingValue(true);
+  };
+
+  const finishValueEdit = (commit: boolean) => {
+    if (commit) {
+      const parsed = Number(inputValue);
+      if (Number.isFinite(parsed))
+        applyValue(roundToStep(parsed, min, max, step));
+    }
+    setEditingValue(false);
+    controlRef.current
+      ?.querySelector<HTMLInputElement>('input[type="range"]')
+      ?.focus({ preventScroll: true });
+  };
+
+  const handleValueInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleValueInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== "Enter" && event.key !== "Escape") return;
+    event.preventDefault();
+    finishValueEdit(event.key === "Enter");
   };
 
   const handlePointerDown = (event: PointerEvent) => {
     if (disabled || event.button !== 0) return;
+
+    if (
+      (event.target as HTMLElement).closest("[data-fluid-slider-value-control]")
+    ) {
+      return;
+    }
 
     settleAnimationRef.current?.stop();
     pointerActiveRef.current = true;
@@ -13700,7 +17608,7 @@ export default function FluidSlider({
           ? presentedBoundary - rect.right
           : 0;
 
-    overshoot.set(rubberband(rawOvershoot, rect.width));
+    overshoot.set(rubberband(rawOvershoot));
   };
 
   useEffect(() => {
@@ -13758,40 +17666,43 @@ export default function FluidSlider({
         data-fluid-slider-control=""
         className={cn(
           "group/fluid-slider-control relative h-12 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
-          "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
+          "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background overflow-visible rounded-(--fluid-slider-border-radius)",
           trackClassName,
         )}
       >
         <Slider.Track className="relative h-12 w-full [container-type:inline-size]">
-          <div
+          <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]"
-          />
+            className="pointer-events-none absolute inset-y-0 start-0"
+            style={{ width: rubberBandWidth, x: rubberBandX }}
+          >
+            <div className="absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]" />
 
-          <Slider.Indicator
-            render={
-              <motion.div
-                style={{ clipPath: surfaceClipPath, scaleY: surfaceScaleY }}
-              />
-            }
-            className={cn(
-              "w-full! pointer-events-none absolute inset-0 origin-left rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-surface) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--background)_55%,transparent),0_1px_2px_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-[filter,background-color] duration-150 rtl:origin-right",
-              surfaceClassName,
-            )}
-            style={{ insetInlineStart: 0, insetInlineEnd: 0 }}
-          />
+            <Slider.Indicator
+              render={
+                <motion.div
+                  style={{ clipPath: surfaceClipPath, scaleY: surfaceScaleY }}
+                />
+              }
+              className={cn(
+                "w-full! absolute inset-0 origin-left rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-surface) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--background)_55%,transparent),0_1px_2px_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-[filter,background-color] duration-150 rtl:origin-right",
+                surfaceClassName,
+              )}
+              style={{ insetInlineStart: 0, insetInlineEnd: 0 }}
+            />
 
-          {visibleMarks.map((mark) => {
-            const markProgress = range === 0 ? 0 : ((mark - min) / range) * 100;
-            return (
-              <span
-                key={mark}
-                aria-hidden="true"
-                className="pointer-events-none absolute top-1/2 z-5 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-mark) rtl:translate-x-1/2"
-                style={{ insetInlineStart: \`\${markProgress}%\` }}
-              />
-            );
-          })}
+            {visibleMarks.map((mark) => {
+              const markProgress =
+                range === 0 ? 0 : ((mark - min) / range) * 100;
+              return (
+                <span
+                  key={mark}
+                  className="absolute top-1/2 z-5 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-mark) rtl:translate-x-1/2"
+                  style={{ insetInlineStart: \`\${markProgress}%\` }}
+                />
+              );
+            })}
+          </motion.div>
 
           <Slider.Label
             className={cn(
@@ -13803,14 +17714,41 @@ export default function FluidSlider({
           </Slider.Label>
 
           {showValue && (
-            <Slider.Value
-              className={cn(
-                "pointer-events-none absolute inset-y-0 end-5 z-10 flex items-center font-medium text-(--fluid-slider-value) text-sm tabular-nums",
-                valueClassName,
-              )}
+            <div
+              data-fluid-slider-value-control=""
+              className="absolute inset-y-0 end-5 z-30 flex items-center"
             >
-              {() => formattedValue}
-            </Slider.Value>
+              {editingValue ? (
+                <input
+                  ref={valueInputRef}
+                  type="text"
+                  inputMode="decimal"
+                  aria-label="Edit slider value"
+                  value={inputValue}
+                  onChange={handleValueInputChange}
+                  onKeyDown={handleValueInputKeyDown}
+                  onBlur={() => finishValueEdit(true)}
+                  className={cn(
+                    "w-[5.5ch] bg-transparent text-end font-medium text-(--fluid-slider-label) text-sm tabular-nums outline-none",
+                    valueClassName,
+                  )}
+                />
+              ) : (
+                <button
+                  type="button"
+                  disabled={!editableValue || disabled}
+                  onClick={startValueEdit}
+                  className={cn(
+                    "font-medium text-(--fluid-slider-value) text-sm tabular-nums outline-none transition-colors duration-150 focus-visible:text-(--fluid-slider-label) disabled:cursor-default disabled:pointer-events-none",
+                    editableValue &&
+                      "cursor-text hover:text-(--fluid-slider-label)",
+                    valueClassName,
+                  )}
+                >
+                  {formattedValue}
+                </button>
+              )}
+            </div>
           )}
 
           <Slider.Thumb
@@ -15175,6 +19113,156 @@ export default ActivityGraph;
       target: "components/sonaui/activity-graph/activity-graph.tsx"
     }
   ],
+  "smart-breadcrumbs": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { Fragment } from "react";
+import { Menu } from "@base-ui/react/menu";
+import { ChevronRight, Ellipsis } from "lucide-react";
+
+import { cn } from "@/lib/sona-utils";
+
+export interface SmartBreadcrumbItem {
+  /** Optional stable identity for a path level. @default undefined */
+  id?: string;
+  /** Text shown for this level. */
+  label: string;
+  /** Destination for a level that can be revisited. */
+  href?: string;
+}
+
+export interface SmartBreadcrumbsProps {
+  /** Ordered path from the first level to the current page. */
+  items: SmartBreadcrumbItem[];
+  /**
+   * Minimum number of levels before the middle levels collapse.
+   * @default 4
+   */
+  collapseAt?: number;
+  /**
+   * Accessible label for the navigation landmark.
+   * @default "Breadcrumb"
+   */
+  ariaLabel?: string;
+  /** Additional classes for the navigation landmark. */
+  className?: string;
+}
+
+function Separator() {
+  return (
+    <ChevronRight
+      aria-hidden="true"
+      className="size-3.5 shrink-0 text-muted-foreground/60"
+    />
+  );
+}
+
+export default function SmartBreadcrumbs({
+  items,
+  collapseAt = 4,
+  ariaLabel = "Breadcrumb",
+  className,
+}: SmartBreadcrumbsProps) {
+  if (items.length === 0) return null;
+
+  const shouldCollapse = items.length >= Math.max(4, collapseAt);
+  const keyedItems = items.map((item, depth) => ({
+    ...item,
+    key:
+      item.id ??
+      JSON.stringify(
+        items.slice(0, depth + 1).map((level) => [level.href, level.label]),
+      ),
+  }));
+  const middleItems = shouldCollapse ? keyedItems.slice(1, -1) : [];
+  const visibleItems = shouldCollapse
+    ? [keyedItems[0], keyedItems[keyedItems.length - 1]]
+    : keyedItems;
+
+  return (
+    <nav aria-label={ariaLabel} className={cn("min-w-0 max-w-full", className)}>
+      <ol className="flex min-w-0 items-center gap-1.5 text-sm">
+        {visibleItems.map((item, index) => {
+          const isCurrent = index === visibleItems.length - 1;
+
+          return (
+            <Fragment key={item.key}>
+              {shouldCollapse && index === 1 && (
+                <li className="flex shrink-0 items-center gap-1.5">
+                  <Separator />
+                  <Menu.Root modal={false}>
+                    <Menu.Trigger
+                      aria-label={\`Show \${middleItems.length} hidden breadcrumb levels\`}
+                      className="grid size-7 shrink-0 place-items-center rounded-md text-muted-foreground outline-none transition-colors hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+                    >
+                      <Ellipsis aria-hidden="true" className="size-4" />
+                    </Menu.Trigger>
+                    <Menu.Portal>
+                      <Menu.Positioner
+                        side="bottom"
+                        align="start"
+                        sideOffset={6}
+                        className="z-50"
+                      >
+                        <Menu.Popup className="min-w-40 max-w-[calc(100vw-2rem)] max-h-[var(--available-height)] overflow-y-auto origin-(--transform-origin) rounded-xl bg-popover p-1 text-popover-foreground smooth-shadow-ring-md transition-[opacity,transform] duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0 motion-reduce:transition-none">
+                          {middleItems.map((hiddenItem) => (
+                            <Menu.Item
+                              key={hiddenItem.key}
+                              render={
+                                hiddenItem.href ? (
+                                  <a href={hiddenItem.href}>
+                                    {hiddenItem.label}
+                                  </a>
+                                ) : undefined
+                              }
+                              disabled={!hiddenItem.href}
+                              className="flex min-h-9 cursor-pointer items-center rounded-lg px-3 py-2 text-sm break-words [overflow-wrap:anywhere] outline-none data-highlighted:bg-accent data-highlighted:text-accent-foreground data-disabled:cursor-default data-disabled:opacity-50"
+                            >
+                              {hiddenItem.href ? undefined : hiddenItem.label}
+                            </Menu.Item>
+                          ))}
+                        </Menu.Popup>
+                      </Menu.Positioner>
+                    </Menu.Portal>
+                  </Menu.Root>
+                </li>
+              )}
+              <li className="flex min-w-0 items-center gap-1.5">
+                {index > 0 && <Separator />}
+                {isCurrent ? (
+                  <span
+                    aria-current="page"
+                    className="min-w-0 truncate font-medium text-foreground"
+                  >
+                    {item.label}
+                  </span>
+                ) : item.href ? (
+                  <a
+                    href={item.href}
+                    className="min-w-0 truncate rounded-sm text-muted-foreground outline-none transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <span className="min-w-0 truncate text-muted-foreground">
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            </Fragment>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+`,
+      path: "smart-breadcrumbs/smart-breadcrumbs.tsx",
+      target: "components/sonaui/smart-breadcrumbs/smart-breadcrumbs.tsx"
+    }
+  ],
   "expandable-tabs": [
     {
       type: "registry:ui",
@@ -16135,6 +20223,261 @@ export default function LinkPreview({
 `,
       path: "link-preview/link-preview.tsx",
       target: "components/sonaui/link-preview/link-preview.tsx"
+    }
+  ],
+  "radial-card-slider": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { motion, useReducedMotion } from "motion/react";
+import {
+  type PointerEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type WheelEvent,
+} from "react";
+import { cn } from "@/lib/sona-utils";
+
+export interface RadialCardSliderItem {
+  /** The image URL shown by the card. */
+  image: string;
+  /** Accessible description for the image. */
+  alt: string;
+  /** Label shown beneath the image. */
+  label: string;
+}
+
+export interface RadialCardSliderProps {
+  /** Cards to browse. @default [] */
+  items: RadialCardSliderItem[];
+  /** Initial active card index. @default 0 */
+  defaultIndex?: number;
+  /** Controlled active card index. @default undefined */
+  index?: number;
+  /** Called whenever navigation settles on a card. @default undefined */
+  onIndexChange?: (index: number) => void;
+  /** Additional classes for the slider. @default undefined */
+  className?: string;
+}
+
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(Math.max(value, min), max);
+
+export function RadialCardSlider({
+  items,
+  defaultIndex = 0,
+  index: controlledIndex,
+  onIndexChange,
+  className,
+}: RadialCardSliderProps) {
+  const reduceMotion = useReducedMotion();
+  const [activeIndex, setActiveIndex] = useState(() =>
+    clamp(defaultIndex, 0, Math.max(items.length - 1, 0)),
+  );
+  const [viewportWidth, setViewportWidth] = useState(900);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const dragStart = useRef({ x: 0, offset: 0 });
+  const [visualOffset, setVisualOffset] = useState(activeIndex);
+  const currentIndex =
+    controlledIndex === undefined
+      ? activeIndex
+      : clamp(controlledIndex, 0, Math.max(items.length - 1, 0));
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const observer = new ResizeObserver(([entry]) =>
+      setViewportWidth(entry.contentRect.width),
+    );
+    observer.observe(root);
+    return () => observer.disconnect();
+  }, []);
+
+  const visibleRadius =
+    viewportWidth < 540 ? 1.2 : viewportWidth < 820 ? 1.55 : 2;
+  const cardWidth =
+    viewportWidth < 540
+      ? Math.min(viewportWidth * 0.58, 260)
+      : Math.min(viewportWidth * 0.3, 340);
+  const cardHeight = cardWidth * 1.24;
+  const cardGap = viewportWidth < 540 ? 18 : viewportWidth < 820 ? 28 : 48;
+  const cardStep = cardWidth + cardGap;
+  const maxOffset = Math.max(items.length - 1, 0);
+
+  const settle = (next: number) => {
+    const target = clamp(Math.round(next), 0, maxOffset);
+    setActiveIndex(target);
+    setVisualOffset(target);
+    onIndexChange?.(target);
+  };
+
+  const moveBy = (delta: number) => settle(activeIndex + delta);
+
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    dragStart.current = { x: event.clientX, offset: visualOffset };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+    const sensitivity = Math.max(cardWidth * 0.72, 180);
+    setVisualOffset(
+      clamp(
+        dragStart.current.offset -
+          (event.clientX - dragStart.current.x) / sensitivity,
+        0,
+        maxOffset,
+      ),
+    );
+  };
+
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.currentTarget.hasPointerCapture(event.pointerId))
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    settle(visualOffset);
+  };
+
+  const onWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (
+      Math.abs(event.deltaX) < Math.abs(event.deltaY) &&
+      Math.abs(event.deltaY) < 8
+    )
+      return;
+    event.preventDefault();
+    moveBy((event.deltaX || event.deltaY) > 0 ? 1 : -1);
+  };
+
+  const cards = useMemo(
+    () => items.map((item, index) => ({ item, index })),
+    [items],
+  );
+  if (!items.length) return null;
+
+  return (
+    <section
+      ref={rootRef}
+      className={cn("w-full", { className })}
+      aria-label="Radial card slider"
+    >
+      <div
+        className="relative isolate flex min-h-[31rem] w-full touch-pan-y select-none items-center justify-center overflow-hidden rounded-[2rem] bg-secondary px-4 py-12 text-[#f4f3ee] sm:min-h-[38rem] sm:rounded-[2.5rem]"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onWheel={onWheel}
+      >
+        <div className="relative h-[25rem] w-full sm:h-[31rem]">
+          {cards.map(({ item, index }) => (
+            <motion.button
+              key={\`\${item.label}-\${index}\`}
+              type="button"
+              aria-label={\`Show \${item.label}\`}
+              className="absolute left-1/2 top-1/2 origin-center cursor-grab overflow-hidden rounded-[1.35rem] bg-[#f3f2ec] p-2 text-left text-[#252824] shadow-[0_20px_55px_rgba(0,0,0,.22)] active:cursor-grabbing sm:rounded-[1.6rem] sm:p-3"
+              style={{
+                width: cardWidth,
+                height: cardHeight,
+                marginLeft: -cardWidth / 2,
+                marginTop: -cardHeight / 2,
+              }}
+              animate={{
+                x:
+                  (index -
+                    (controlledIndex === undefined
+                      ? visualOffset
+                      : currentIndex)) *
+                  cardStep,
+                y:
+                  Math.abs(
+                    index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex),
+                  ) **
+                    2 *
+                  34,
+                rotate:
+                  clamp(
+                    (index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex)) /
+                      visibleRadius,
+                    -1,
+                    1,
+                  ) * 15,
+                scale:
+                  1 -
+                  Math.min(
+                    Math.abs(
+                      index -
+                        (controlledIndex === undefined
+                          ? visualOffset
+                          : currentIndex),
+                    ) * 0.12,
+                    0.24,
+                  ),
+                opacity:
+                  Math.abs(
+                    index -
+                      (controlledIndex === undefined
+                        ? visualOffset
+                        : currentIndex),
+                  ) > 3
+                    ? 0
+                    : 1,
+                zIndex:
+                  20 -
+                  Math.round(
+                    Math.abs(
+                      index -
+                        (controlledIndex === undefined
+                          ? visualOffset
+                          : currentIndex),
+                    ) * 4,
+                  ),
+              }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { type: "spring", stiffness: 330, damping: 34, mass: 0.85 }
+              }
+              onClick={() => settle(index)}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") {
+                  event.preventDefault();
+                  moveBy(-1);
+                }
+                if (event.key === "ArrowRight") {
+                  event.preventDefault();
+                  moveBy(1);
+                }
+              }}
+            >
+              <img
+                src={item.image}
+                alt={item.alt}
+                draggable={false}
+                className="h-[calc(100%-3.5rem)] w-full rounded-[1rem] object-cover sm:rounded-[1.2rem]"
+              />
+              <span className="flex h-14 items-center justify-center text-center text-lg font-black uppercase tracking-tight sm:text-2xl">
+                {item.label}
+              </span>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default RadialCardSlider;
+`,
+      path: "radial-card-slider/radial-card-slider.tsx",
+      target: "components/sonaui/radial-card-slider/radial-card-slider.tsx"
     }
   ],
   "swipe-action-row": [
@@ -17359,6 +21702,385 @@ export default function HoldToDeleteButton({
       path: "hold-to-delete-button/hold-to-delete-button.tsx",
       target: "components/sonaui/hold-to-delete-button/hold-to-delete-button.tsx"
     }
+  ],
+  "cursor-hover-card": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { PreviewCard } from "@base-ui/react/preview-card";
+import { useReducedMotion } from "motion/react";
+import {
+  createContext,
+  type ReactElement,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+
+import { cn } from "@/lib/sona-utils";
+
+type CursorPoint = { x: number; y: number };
+type CursorHoverCardSide = "top" | "right" | "bottom" | "left";
+type CursorHoverCardAlign = "start" | "center" | "end";
+export type CursorHoverCardReducedMotion = "user" | "always" | "never";
+
+interface CursorHoverCardContextValue {
+  cursorPoint: CursorPoint | null;
+  pointerVelocity: number;
+  shouldReduceMotion: boolean;
+  setCursorPoint: (point: CursorPoint | null) => void;
+  setPointerVelocity: (velocity: number) => void;
+}
+
+const CursorHoverCardContext =
+  createContext<CursorHoverCardContextValue | null>(null);
+
+function useCursorHoverCardContext(component: string) {
+  const context = useContext(CursorHoverCardContext);
+  if (!context) {
+    throw new Error(\`\${component} must be used inside CursorHoverCard.Root.\`);
+  }
+  return context;
+}
+
+/** Props for the state-owning cursor hover card root. */
+export interface CursorHoverCardRootProps {
+  /** Trigger and content parts associated with the card. */
+  children: ReactNode;
+  /** Whether the card is open when uncontrolled. @default false */
+  defaultOpen?: boolean;
+  /** Controlled open state. @default undefined */
+  open?: boolean;
+  /** Called whenever the card requests an open-state change. @default undefined */
+  onOpenChange?: PreviewCard.Root.Props["onOpenChange"];
+  /** Controls whether motion follows, forces, or ignores the user's reduced-motion preference. @default "user" */
+  reducedMotion?: CursorHoverCardReducedMotion;
+}
+
+export function CursorHoverCardRoot({
+  children,
+  defaultOpen = false,
+  open,
+  onOpenChange,
+  reducedMotion = "user",
+}: CursorHoverCardRootProps) {
+  const userPrefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion =
+    reducedMotion === "always" ||
+    (reducedMotion === "user" && userPrefersReducedMotion === true);
+  const [cursorPoint, setCursorPoint] = useState<CursorPoint | null>(null);
+  const [pointerVelocity, setPointerVelocity] = useState(0);
+  const value = useMemo(
+    () => ({
+      cursorPoint,
+      pointerVelocity,
+      shouldReduceMotion,
+      setCursorPoint,
+      setPointerVelocity,
+    }),
+    [cursorPoint, pointerVelocity, shouldReduceMotion],
+  );
+
+  return (
+    <CursorHoverCardContext.Provider value={value}>
+      <PreviewCard.Root
+        defaultOpen={defaultOpen}
+        open={open}
+        onOpenChange={(nextOpen, details) => {
+          if (!nextOpen) {
+            setCursorPoint(null);
+            setPointerVelocity(0);
+          }
+          onOpenChange?.(nextOpen, details);
+        }}
+      >
+        {children}
+      </PreviewCard.Root>
+    </CursorHoverCardContext.Provider>
+  );
+}
+
+/** Props for the element that opens the cursor hover card. */
+export interface CursorHoverCardTriggerProps
+  extends Omit<PreviewCard.Trigger.Props, "children" | "render"> {
+  /** Existing link or element used as the actual trigger. */
+  children: ReactElement;
+  /** Delay before opening from pointer or keyboard focus, in milliseconds. @default 300 */
+  openDelay?: number;
+  /** Grace period before closing, in milliseconds. @default 120 */
+  closeDelay?: number;
+}
+
+export function CursorHoverCardTrigger({
+  children,
+  openDelay = 300,
+  closeDelay = 120,
+  onPointerMove,
+  onPointerLeave,
+  onFocus,
+  ...props
+}: CursorHoverCardTriggerProps) {
+  const context = useCursorHoverCardContext("CursorHoverCard.Trigger");
+  const frameRef = useRef<number | null>(null);
+  const pointRef = useRef<CursorPoint | null>(null);
+  const velocityRef = useRef(0);
+  const previousPointRef = useRef<CursorPoint | null>(null);
+  const previousTimeRef = useRef<number | null>(null);
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+      if (settleTimerRef.current !== null) clearTimeout(settleTimerRef.current);
+    },
+    [],
+  );
+
+  const updatePointer: NonNullable<
+    CursorHoverCardTriggerProps["onPointerMove"]
+  > = (event) => {
+    onPointerMove?.(event);
+    if (event.defaultPrevented || event.pointerType === "touch") return;
+
+    const nextPoint = { x: event.clientX, y: event.clientY };
+    const previousPoint = previousPointRef.current;
+    const previousTime = previousTimeRef.current;
+    pointRef.current = nextPoint;
+    previousPointRef.current = nextPoint;
+    previousTimeRef.current = event.timeStamp;
+
+    if (previousPoint && previousTime !== null) {
+      const deltaX = nextPoint.x - previousPoint.x;
+      const deltaY = nextPoint.y - previousPoint.y;
+      const elapsed = Math.max(1, event.timeStamp - previousTime);
+      const speed = Math.hypot(deltaX, deltaY) / elapsed;
+      velocityRef.current = Math.sign(deltaX) * speed;
+      if (settleTimerRef.current !== null) clearTimeout(settleTimerRef.current);
+      settleTimerRef.current = setTimeout(() => {
+        velocityRef.current = 0;
+        context.setPointerVelocity(0);
+      }, 80);
+    }
+    if (frameRef.current !== null) return;
+    frameRef.current = requestAnimationFrame(() => {
+      frameRef.current = null;
+      context.setCursorPoint(pointRef.current);
+      context.setPointerVelocity(velocityRef.current);
+    });
+  };
+
+  return (
+    <PreviewCard.Trigger
+      {...props}
+      delay={Math.max(0, openDelay)}
+      closeDelay={Math.max(0, closeDelay)}
+      onFocus={(event) => {
+        context.setCursorPoint(null);
+        context.setPointerVelocity(0);
+        onFocus?.(event);
+      }}
+      onPointerLeave={(event) => {
+        if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+        frameRef.current = null;
+        pointRef.current = null;
+        previousPointRef.current = null;
+        previousTimeRef.current = null;
+        velocityRef.current = 0;
+        if (settleTimerRef.current !== null)
+          clearTimeout(settleTimerRef.current);
+        settleTimerRef.current = null;
+        context.setPointerVelocity(0);
+        onPointerLeave?.(event);
+      }}
+      onPointerMove={updatePointer}
+      render={children}
+    />
+  );
+}
+
+/** Props for the floating card surface. */
+export interface CursorHoverCardContentProps {
+  /** Rich preview content rendered inside the card. */
+  children: ReactNode;
+  /** Preferred side of the cursor or focused trigger. @default "top" */
+  side?: CursorHoverCardSide;
+  /** Alignment relative to the cursor or focused trigger. @default "center" */
+  align?: CursorHoverCardAlign;
+  /** Fixed distance between the cursor and card, in pixels. @default 14 */
+  cursorOffset?: number;
+  /** Maximum directional tilt while the pointer moves, in degrees. @default 3 */
+  maxRotation?: number;
+  /** Space kept between the card and collision boundary, in pixels. @default 8 */
+  collisionPadding?: number;
+  /** Additional CSS classes for the card surface. @default undefined */
+  className?: string;
+}
+
+export function CursorHoverCardContent({
+  children,
+  side = "top",
+  align = "center",
+  cursorOffset = 14,
+  maxRotation = 3,
+  collisionPadding = 8,
+  className,
+}: CursorHoverCardContentProps) {
+  const context = useCursorHoverCardContext("CursorHoverCard.Content");
+  const { shouldReduceMotion } = context;
+  const anchor = useMemo(() => {
+    if (!context.cursorPoint) return undefined;
+    const { x, y } = context.cursorPoint;
+    return {
+      getBoundingClientRect: () => new DOMRect(x, y, 0, 0),
+    };
+  }, [context.cursorPoint]);
+
+  return (
+    <PreviewCard.Portal>
+      <PreviewCard.Positioner
+        anchor={anchor}
+        align={align}
+        collisionAvoidance={{ side: "flip", align: "shift" }}
+        collisionPadding={Math.max(0, collisionPadding)}
+        positionMethod="fixed"
+        side={side}
+        sideOffset={Math.max(0, cursorOffset)}
+        className={cn(
+          "z-9999 h-[var(--positioner-height)] w-[var(--positioner-width)] max-w-[var(--available-width)]",
+          shouldReduceMotion
+            ? "!transition-none"
+            : "transition-transform duration-100 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] data-instant:transition-none",
+        )}
+      >
+        <PreviewCard.Popup
+          className={cn(
+            "relative origin-[var(--transform-origin)] rounded-xl bg-popover text-popover-foreground shadow-[0_0_0_1px_rgb(0_0_0/0.08),0_12px_36px_-12px_rgb(0_0_0/0.3)] outline-none",
+            shouldReduceMotion
+              ? "!transition-none data-ending-style:scale-100 data-ending-style:opacity-100 data-ending-style:blur-none data-starting-style:scale-100 data-starting-style:opacity-100 data-starting-style:blur-none"
+              : "will-change-transform transition-[scale,rotate,opacity,filter] duration-240 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] data-ending-style:scale-[0.985] data-ending-style:opacity-0 data-ending-style:blur-[2px] data-ending-style:duration-140 data-starting-style:scale-[0.94] data-starting-style:opacity-0 data-starting-style:blur-[5px]",
+            className,
+          )}
+          style={{
+            rotate: shouldReduceMotion
+              ? "0deg"
+              : \`\${Math.max(-1, Math.min(1, context.pointerVelocity / 1.25)) * Math.min(12, Math.max(0, maxRotation))}deg\`,
+          }}
+        >
+          {children}
+        </PreviewCard.Popup>
+      </PreviewCard.Positioner>
+    </PreviewCard.Portal>
+  );
+}
+
+export const CursorHoverCard = {
+  Root: CursorHoverCardRoot,
+  Trigger: CursorHoverCardTrigger,
+  Content: CursorHoverCardContent,
+};
+
+export default CursorHoverCard;
+`,
+      path: "cursor-hover-card/cursor-hover-card.tsx",
+      target: "components/sonaui/cursor-hover-card/cursor-hover-card.tsx"
+    }
+  ],
+  "animated-segmented-control": [
+    {
+      type: "registry:ui",
+      content: `"use client";
+
+import { motion, useReducedMotionConfig } from "motion/react";
+import { useId, useState } from "react";
+import { cn } from "@/lib/sona-utils";
+
+export interface AnimatedSegmentedControlItem {
+  /** Stable option value. */ value: string /** Visible option label. */;
+  label: string /** Prevents selection. */;
+  disabled?: boolean;
+}
+export interface AnimatedSegmentedControlProps {
+  /** Options rendered in the control. */ items: AnimatedSegmentedControlItem[];
+  /** Controlled selected value. */ value?: string;
+  /** Initial selected value for uncontrolled usage. */ defaultValue?: string;
+  /** Called after an option is selected. */ onValueChange?: (
+    value: string,
+  ) => void;
+  /** Additional CSS classes. */ className?: string;
+  /** Accessible name for the group of options. @default "View mode" */ ariaLabel?: string;
+}
+export default function AnimatedSegmentedControl({
+  items,
+  value,
+  defaultValue,
+  onValueChange,
+  className,
+  ariaLabel = "View mode",
+}: AnimatedSegmentedControlProps) {
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? items.find((item) => !item.disabled)?.value ?? "",
+  );
+  const [keyboard, setKeyboard] = useState(false);
+  const selectedValue =
+    value ??
+    (items.some((item) => item.value === internalValue && !item.disabled)
+      ? internalValue
+      : items.find((item) => !item.disabled)?.value);
+  const shouldReduceMotion = useReducedMotionConfig() || keyboard;
+  const layoutId = useId();
+  return (
+    <fieldset
+      aria-label={ariaLabel}
+      className={cn("inline-flex rounded-xl bg-muted p-1", className)}
+    >
+      {items.map((item) => {
+        const selected = item.value === selectedValue;
+        return (
+          <button
+            key={item.value}
+            type="button"
+            aria-pressed={selected}
+            disabled={item.disabled}
+            onPointerDown={() => setKeyboard(false)}
+            onKeyDown={() => setKeyboard(true)}
+            onClick={() => {
+              if (selected) return;
+              if (value === undefined) setInternalValue(item.value);
+              onValueChange?.(item.value);
+            }}
+            className="relative isolate rounded-lg px-3 py-1.5 font-medium text-sm outline-none transition-colors duration-150 motion-reduce:transition-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-45"
+          >
+            {selected && (
+              <motion.span
+                layoutId={layoutId}
+                aria-hidden="true"
+                className="absolute inset-0 -z-10 rounded-lg bg-background shadow-sm"
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { type: "spring", stiffness: 420, damping: 32, mass: 0.7 }
+                }
+              />
+            )}
+            <span
+              className={selected ? "text-foreground" : "text-muted-foreground"}
+            >
+              {item.label}
+            </span>
+          </button>
+        );
+      })}
+    </fieldset>
+  );
+}
+`,
+      path: "animated-segmented-control/animated-segmented-control.tsx",
+      target: "components/sonaui/animated-segmented-control/animated-segmented-control.tsx"
+    }
   ]
 };
 
@@ -17935,58 +22657,6 @@ export const componentMetadata = {
       "motion"
     ]
   },
-  "assignment-cluster": {
-    "name": "assignment-cluster",
-    "type": "registry:ui",
-    "title": "Assignment Cluster",
-    "description": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
-    "files": [
-      {
-        "path": "registry/sonaui/assignment-cluster/assignment-cluster.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "@base-ui/react",
-      "motion"
-    ]
-  },
-  "schedule-chip": {
-    "name": "schedule-chip",
-    "type": "registry:ui",
-    "title": "Schedule Chip",
-    "description": "A readable schedule summary that expands in place into a focused date, time, and timezone editor.",
-    "files": [
-      {
-        "path": "registry/sonaui/schedule-chip/schedule-chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [
-      "motion",
-      "lucide-react"
-    ],
-    "registryDependencies": [
-      "@sona-ui/morph-surface",
-      "@sona-ui/sona-utils"
-    ]
-  },
-  "chip": {
-    "name": "chip",
-    "type": "registry:ui",
-    "title": "Chip",
-    "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
-    "files": [
-      {
-        "path": "registry/sonaui/chip/chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [],
-    "registryDependencies": [
-      "@sona-ui/sona-utils"
-    ]
-  },
   "spotlight-card": {
     "name": "spotlight-card",
     "type": "registry:ui",
@@ -18133,6 +22803,36 @@ export const componentMetadata = {
     ],
     "registryDependencies": [
       "@sona-ui/sona-utils"
+    ]
+  },
+  "radial-card-marquee": {
+    "name": "radial-card-marquee",
+    "type": "registry:ui",
+    "title": "Circular Card Marquee",
+    "description": "A continuous responsive card marquee that orbits cards around a circular path with configurable speed, direction, controlled pause, and hover pause.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  "depth-tiles": {
+    "name": "depth-tiles",
+    "type": "registry:ui",
+    "title": "Depth Tiles",
+    "description": "An infinite layered tile stack with autoplay, depth transitions, and horizontal drag navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/depth-tiles/depth-tiles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
     ]
   },
   "stepper": {

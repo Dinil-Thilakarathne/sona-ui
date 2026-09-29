@@ -52,15 +52,6 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: "/llms-full.txt",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=0, must-revalidate",
-          },
-        ],
-      },
     ];
   },
   skipTrailingSlashRedirect: true,

@@ -47,10 +47,6 @@ if (!fs.existsSync(path.join(root, "public/llms.txt"))) {
   errors.push("missing generated public/llms.txt");
 }
 
-if (!fs.existsSync(path.join(root, "public/llms-full.txt"))) {
-  errors.push("missing generated public/llms-full.txt");
-}
-
 const manifestPath = path.join(root, "public/agent/manifest.json");
 if (!fs.existsSync(manifestPath)) {
   errors.push("missing generated agent manifest");
@@ -58,12 +54,16 @@ if (!fs.existsSync(manifestPath)) {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")) as {
     schemaVersion?: number;
     catalog?: string;
+    guidance?: string;
   };
   if (manifest.schemaVersion !== 1) {
     errors.push("manifest: unsupported or missing schemaVersion");
   }
   if (!manifest.catalog?.endsWith("/agent/catalog.json")) {
     errors.push("manifest: invalid catalog URL");
+  }
+  if (!manifest.guidance?.endsWith("/llms.txt")) {
+    errors.push("manifest: invalid guidance URL");
   }
 }
 

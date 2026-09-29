@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "name": "command-palette-preview",
+  "title": "Command Palette Preview",
+  "category": "components",
+  "status": "preview",
+  "summary": "A centered, searchable command dialog with grouped actions and keyboard-first navigation.",
+  "docsSlug": "command-palette-preview",
+  "keywords": [
+    "command",
+    "palette",
+    "search",
+    "keyboard",
+    "dialog"
+  ],
+  "useWhen": [
+    "A product needs quick keyboard-led access to a focused set of actions.",
+    "Commands benefit from search, groups, shortcuts, and arrow-key navigation."
+  ],
+  "avoidWhen": [
+    "A persistent navigation menu or long-lived task list is more appropriate.",
+    "An action needs a multi-step form before it can run."
+  ],
+  "capabilities": [
+    "Controlled or uncontrolled visibility",
+    "Searchable grouped commands",
+    "Arrow-key and Enter selection",
+    "Escape dismissal",
+    "Optional shortcuts and descriptions"
+  ],
+  "accessibility": [
+    "Uses a native modal dialog with combobox and listbox semantics.",
+    "Focuses the search input when opened.",
+    "Keeps background content inert and restores focus when closed.",
+    "Keyboard navigation follows visible groups and ignores IME composition.",
+    "Uses native buttons for keyboard activation."
+  ],
+  "motion": {
+    "purpose": "Keep a keyboard-led action surface immediate and focused by avoiding decorative opening animation.",
+    "reducedMotion": "No motion is required to use or understand the palette."
+  },
+  "related": [
+    "animated-dropdown",
+    "smart-overflow",
+    "fluid-tabs"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/command-palette-preview.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "shadow-plugin@^2.1.0"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/command-palette-preview",
+    "rawUrl": "https://sonaui.com/docs/command-palette-preview/raw.md",
+    "sourceTitle": "command-palette-preview"
+  }
+}

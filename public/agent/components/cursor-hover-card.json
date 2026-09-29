@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "name": "cursor-hover-card",
+  "title": "Cursor Hover Card",
+  "category": "components",
+  "status": "stable",
+  "summary": "A rich preview card that follows above a fine pointer, tilts with horizontal movement, and uses stable trigger positioning for keyboard access.",
+  "docsSlug": "cursor-hover-card",
+  "keywords": [
+    "hover card",
+    "preview",
+    "cursor",
+    "pointer"
+  ],
+  "useWhen": [
+    "A link or compact object benefits from optional rich preview information.",
+    "Keeping the preview near the pointer helps preserve the relationship to a broad trigger."
+  ],
+  "avoidWhen": [
+    "The information is essential and should remain visible without interaction.",
+    "The surface is a workflow that should use a popover, menu, or dialog instead."
+  ],
+  "capabilities": [
+    "Pointer-following virtual anchor",
+    "Capped speed-and-direction-aware rotation",
+    "Origin-aware enter and restrained exit motion",
+    "Stable keyboard-focus positioning",
+    "Collision-aware side flipping and shifting",
+    "Consumer-provided trigger and rich content"
+  ],
+  "accessibility": [
+    "Uses Base UI Preview Card semantics, focus behavior, dismissal, and hover grace areas.",
+    "Ignores touch pointer tracking and preserves content when reduced motion is requested."
+  ],
+  "motion": {
+    "purpose": "Materialize optional preview content from the pointer, keep it spatially connected, and use slight rotation to reflect movement speed and direction.",
+    "reducedMotion": "Keep cursor tracking functional while removing smoothing, rotation, and lifecycle animation."
+  },
+  "related": [
+    "fluid-tooltip",
+    "link-preview"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/cursor-hover-card.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/cursor-hover-card",
+    "rawUrl": "https://sonaui.com/docs/cursor-hover-card/raw.md",
+    "sourceTitle": "cursor-hover-card"
+  }
+}

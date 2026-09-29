@@ -1,0 +1,32 @@
+---
+title: Animated Segmented Control
+slug: animated-segmented-control
+component: animated-segmented-control
+tags: ["UI", "Control", "Navigation", "Component"]
+---
+
+Use Animated Segmented Control for compact settings and view modes, such as interface density, layout style, theme, or alignment. It changes one local value at a time, rather than navigating between content panels.
+
+## Preview
+
+<ComponentPreview component="animated-segmented-control" name="default" />
+
+## Installation
+
+<ComponentInstallation component="animated-segmented-control" />
+
+## Usage
+
+<ComponentUsage component="animated-segmented-control" />
+
+## When to use it
+
+Use this component for a small local mode switch. For navigation between content panels, use Fluid Tabs instead.
+
+## API
+
+<PropTable component="animated-segmented-control" />
+
+## Accessibility
+
+Set `ariaLabel` to describe the setting. The control groups native toggle buttons, with Tab navigation and Space or Enter activation. Uncontrolled selection starts at the first enabled option and falls back when the selected option is removed or disabled. A controlled `value` remains the parent's responsibility. Keyboard selection and reduced-motion mode change the active surface immediately.

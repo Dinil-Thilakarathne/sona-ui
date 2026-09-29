@@ -53,7 +53,7 @@ export function LandingHero() {
 
   return (
     <section
-      className="site-grid-section relative isolate grid min-h-[calc(100svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
+      className="site-grid-section relative isolate grid min-h-[calc(90svh-var(--spacing-header-height))] place-items-center px-4 py-[clamp(3.5rem,9svh,8rem)] text-center"
       data-boundary="both"
       aria-labelledby="landing-title"
       onPointerEnter={moveLight}

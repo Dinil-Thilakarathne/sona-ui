@@ -56,27 +56,6 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
     href: "/docs/animated-dialog",
     type: "Navigation & Disclosure",
   },
-  {
-    name: "Assignment Cluster",
-    slug: "assignment-cluster",
-    href: "/docs/assignment-cluster",
-    type: "Components",
-    tag: "new",
-  },
-  {
-    name: "Schedule Chip",
-    slug: "schedule-chip",
-    href: "/docs/schedule-chip",
-    type: "Actions & Inputs",
-    tag: "new",
-  },
-  {
-    name: "Chip",
-    slug: "chip",
-    href: "/docs/chip",
-    type: "Components",
-    tag: "new",
-  },
   // {
   //   name: "Lightbox",
   //   slug: "lightbox",
@@ -208,10 +187,24 @@ export const componentNavigationLinks: ComponentItemsPropsType[] = [
   //   type: "Components",
   // },
   {
+    name: "Depth Tiles",
+    slug: "depth-tiles",
+    href: "/docs/depth-tiles",
+    type: "Motion",
+    tag: "new",
+  },
+  {
     name: "Image Trail",
     slug: "image-trail",
     href: "/docs/image-trail",
     type: "Motion",
+  },
+  {
+    name: "Circular Card Marquee",
+    slug: "radial-card-marquee",
+    href: "/docs/radial-card-marquee",
+    type: "Motion",
+    tag: "new",
   },
   // {
   //   name: "Smart Overflow",
@@ -267,8 +260,7 @@ export const groupedComponentsForSidebar = Object.fromEntries(
     .map(([group, items]) => [
       group,
       items.filter(
-        (item) =>
-          item.slug !== "chip" && item.slug !== "assignment-cluster",
+        (item) => item.slug !== "chip" && item.slug !== "assignment-cluster",
       ),
     ])
     .filter(([, items]) => items.length > 0),

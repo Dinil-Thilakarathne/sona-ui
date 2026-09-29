@@ -1,0 +1,49 @@
+---
+title: Command Palette Preview
+slug: command-palette-preview
+component: command-palette-preview
+tags: ["UI", "Command", "Search", "Component"]
+---
+
+Use Command Palette Preview for a centered, searchable command interface. It is designed for keyboard-led navigation, with predictable filtering, arrow-key selection, and focused command groups.
+
+## Preview
+
+<ComponentPreview component="command-palette-preview" name="default" />
+
+## Installation
+
+<ComponentInstallation component="command-palette-preview" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="command-menu.tsx" code={`import CommandPalettePreview from "@/components/ui/command-palette-preview/command-palette-preview";
+
+const commands = [
+  { id: "search", label: "Search projects", group: "Navigate" },
+  { id: "settings", label: "Open settings", group: "Navigate" },
+];
+
+export function CommandMenu() {
+  return <CommandPalettePreview defaultOpen items={commands} />;
+}`} />
+
+## Usage
+
+<ComponentUsage component="command-palette-preview" />
+
+## API
+
+<PropTable component="command-palette-preview" />
+
+## Accessibility
+
+The palette uses a native modal dialog and a combobox with a labelled listbox. Opening focuses search and makes the surrounding page inert. Closing returns focus to the opener. Arrow keys follow the visible group order and keep the active result in view; Enter selects it and Escape dismisses the palette. IME composition does not activate commands.
+
+Provide `onSelect` callbacks for command actions. The consumer owns the launcher and any global shortcut; the demo wires Command/Ctrl+K. Item `shortcut` values are display labels, not registered shortcuts. Filtering is retained when the palette is reopened.
+
+## Styling
+
+CLI installation registers the shadow utilities automatically. For manual installation, install `shadow-plugin` and add `@plugin "shadow-plugin";` to your Tailwind v4 stylesheet.
+
+The palette intentionally uses an immediate open state because command interfaces are commonly keyboard-initiated. Style the surface with `className` while preserving the centered dialog hierarchy.

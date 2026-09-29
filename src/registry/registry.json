@@ -11,7 +11,10 @@
         "target": "@lib/sona-utils.ts"
       }
     ],
-    "dependencies": ["clsx", "tailwind-merge"]
+    "dependencies": [
+      "clsx",
+      "tailwind-merge"
+    ]
   },
   {
     "name": "sona-motion",
@@ -25,7 +28,9 @@
         "target": "@lib/sona-motion.ts"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "sona-theme",
@@ -97,7 +102,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "animated-checkbox",
@@ -110,8 +118,13 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   {
     "name": "morph-surface",
@@ -124,8 +137,14 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion", "react-use-measure"],
-    "registryDependencies": ["@sona-ui/sona-motion", "@sona-ui/sona-utils"]
+    "dependencies": [
+      "motion",
+      "react-use-measure"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-motion",
+      "@sona-ui/sona-utils"
+    ]
   },
   {
     "name": "animated-switch",
@@ -138,7 +157,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "animated-dialog",
@@ -151,7 +173,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "button",
@@ -165,7 +190,10 @@
         "target": "@ui/button.tsx"
       }
     ],
-    "dependencies": ["class-variance-authority", "motion"]
+    "dependencies": [
+      "class-variance-authority",
+      "motion"
+    ]
   },
   {
     "name": "dot-orbit-shader",
@@ -178,7 +206,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react", "motion"]
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   {
     "name": "mesh-gradient-shader",
@@ -191,7 +222,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@paper-design/shaders-react", "motion"]
+    "dependencies": [
+      "@paper-design/shaders-react",
+      "motion"
+    ]
   },
   {
     "name": "magnetic-button",
@@ -204,7 +238,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "fluid-tabs",
@@ -217,7 +253,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "fluid-tooltip",
@@ -230,7 +269,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "fluid-slider",
@@ -243,7 +285,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "activity-graph",
@@ -256,8 +301,13 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   {
     "name": "animated-tabs",
@@ -270,7 +320,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "expanding-action",
@@ -283,8 +336,14 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["lucide-react", "motion", "react-use-measure"],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "lucide-react",
+      "motion",
+      "react-use-measure"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   {
     "name": "accordion",
@@ -306,7 +365,10 @@
         "target": "components/ui/accordion/styles.module.css"
       }
     ],
-    "dependencies": ["@base-ui/react", "class-variance-authority"]
+    "dependencies": [
+      "@base-ui/react",
+      "class-variance-authority"
+    ]
   },
   {
     "name": "ripple-button",
@@ -319,7 +381,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "marquee",
@@ -332,7 +396,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "spinning-text",
@@ -345,7 +411,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "stagger-text",
@@ -358,7 +426,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "link-preview",
@@ -371,7 +441,11 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion", "react-icons", "react-use-measure"]
+    "dependencies": [
+      "motion",
+      "react-icons",
+      "react-use-measure"
+    ]
   },
   {
     "name": "bubble-up-button",
@@ -384,7 +458,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "expandable-tabs",
@@ -397,7 +473,11 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion", "react-icons"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion",
+      "react-icons"
+    ]
   },
   {
     "name": "split-text",
@@ -410,7 +490,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["gsap", "@gsap/react"]
+    "dependencies": [
+      "gsap",
+      "@gsap/react"
+    ]
   },
   {
     "name": "image-trail",
@@ -423,7 +506,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "lightbox",
@@ -436,7 +521,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "motion"
+    ]
   },
   {
     "name": "avatar-showcase",
@@ -449,7 +537,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "circular-context-menu",
@@ -462,7 +552,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "live-activity",
@@ -475,48 +567,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
-  },
-  {
-    "name": "assignment-cluster",
-    "type": "registry:ui",
-    "title": "Assignment Cluster",
-    "description": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
-    "files": [
-      {
-        "path": "registry/sonaui/assignment-cluster/assignment-cluster.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": ["@base-ui/react", "motion"]
-  },
-  {
-    "name": "schedule-chip",
-    "type": "registry:ui",
-    "title": "Schedule Chip",
-    "description": "A readable schedule summary that expands in place into a focused date, time, and timezone editor.",
-    "files": [
-      {
-        "path": "registry/sonaui/schedule-chip/schedule-chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": ["motion", "lucide-react"],
-    "registryDependencies": ["@sona-ui/morph-surface", "@sona-ui/sona-utils"]
-  },
-  {
-    "name": "chip",
-    "type": "registry:ui",
-    "title": "Chip",
-    "description": "A compact, noninteractive annotation for labels, categories, and semantic status.",
-    "files": [
-      {
-        "path": "registry/sonaui/chip/chip.tsx",
-        "type": "registry:ui"
-      }
-    ],
-    "dependencies": [],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "spotlight-card",
@@ -529,15 +582,26 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "code-block",
     "type": "registry:ui",
     "title": "Code Block",
     "description": "A plug-and-play syntax-highlighted code block for documentation and developer interfaces.",
-    "files": [{"path": "registry/sonaui/code-block/code-block.tsx", "type": "registry:ui"}],
-    "dependencies": ["shiki", "lucide-react", "@icons-pack/react-simple-icons"]
+    "files": [
+      {
+        "path": "registry/sonaui/code-block/code-block.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "shiki",
+      "lucide-react",
+      "@icons-pack/react-simple-icons"
+    ]
   },
   {
     "name": "hold-to-delete-button",
@@ -550,7 +614,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["lucide-react", "motion"]
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ]
   },
   {
     "name": "circular-dock-menu",
@@ -563,7 +630,10 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion", "lucide-react"]
+    "dependencies": [
+      "motion",
+      "lucide-react"
+    ]
   },
   {
     "name": "fan-view",
@@ -576,7 +646,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "smart-overflow",
@@ -589,7 +661,11 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@base-ui/react", "lucide-react", "motion"]
+    "dependencies": [
+      "@base-ui/react",
+      "lucide-react",
+      "motion"
+    ]
   },
   {
     "name": "section-rail",
@@ -602,7 +678,9 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"]
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "floating-viewer",
@@ -615,8 +693,12 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["motion"],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   },
   {
     "name": "swipe-action-row",
@@ -629,8 +711,43 @@
         "type": "registry:ui"
       }
     ],
-    "dependencies": ["@ncdai/react-swipe-actions", "motion"],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "dependencies": [
+      "@ncdai/react-swipe-actions",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  {
+    "name": "radial-card-marquee",
+    "type": "registry:ui",
+    "title": "Circular Card Marquee",
+    "description": "A continuous responsive card marquee that orbits cards around a circular path with configurable speed, direction, controlled pause, and hover pause.",
+    "files": [
+      {
+        "path": "registry/sonaui/radial-card-marquee/radial-card-marquee.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
+  },
+  {
+    "name": "depth-tiles",
+    "type": "registry:ui",
+    "title": "Depth Tiles",
+    "description": "An infinite layered tile stack with autoplay, depth transitions, and horizontal drag navigation.",
+    "files": [
+      {
+        "path": "registry/sonaui/depth-tiles/depth-tiles.tsx",
+        "type": "registry:ui"
+      }
+    ],
+    "dependencies": [
+      "motion"
+    ]
   },
   {
     "name": "stepper",
@@ -644,6 +761,8 @@
       }
     ],
     "dependencies": [],
-    "registryDependencies": ["@sona-ui/sona-utils"]
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
   }
 ]

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "name": "radial-card-slider",
+  "title": "Radial Card Slider",
+  "category": "components",
+  "status": "stable",
+  "summary": "A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.",
+  "docsSlug": "radial-card-slider",
+  "keywords": [
+    "slider",
+    "radial",
+    "cards",
+    "carousel",
+    "gesture"
+  ],
+  "useWhen": [
+    "A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state."
+  ],
+  "avoidWhen": [
+    "The interaction does not match the component's focused responsibility."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Communicate state, continuity, or feedback at the point of interaction.",
+    "reducedMotion": "Reduce nonessential choreography while preserving the state change and feedback."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/radial-card-slider.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/radial-card-slider",
+    "rawUrl": "https://sonaui.com/docs/radial-card-slider/raw.md",
+    "sourceTitle": "radial-card-slider"
+  }
+}

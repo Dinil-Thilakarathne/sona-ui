@@ -10,6 +10,11 @@ import {
 } from "@/components/code-block/code-block";
 import ComponentWrapper from "@/components/common/component-wrapper";
 import {
+  DocsTuningToggle,
+  GenericTunablePreview,
+  TunableAnimatedDialogPreview,
+} from "@/components/docs-focus/animated-dialog-tuning";
+import {
   Tabs,
   TabsContent,
   TabsList,
@@ -24,6 +29,8 @@ import AnimatedSwitch from "@/registry/sonaui/animated-switch/animated-switch";
 interface ComponentPreviewProps {
   component: React.ReactNode;
   code: string;
+  tunableComponent?: string;
+  recordingPreview?: boolean;
 }
 
 function PreviewInspector({
@@ -248,6 +255,8 @@ function PreviewRulers({
 const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   component,
   code,
+  tunableComponent,
+  recordingPreview = false,
 }) => {
   const previewRef = useRef<HTMLDivElement>(null);
   const inspectionRootRef = useRef<HTMLDivElement>(null);
@@ -267,7 +276,11 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
   }, []);
 
   return (
-    <Tabs defaultValue="preview" className="my-3 w-full">
+    <Tabs
+      defaultValue="preview"
+      data-recording-preview={recordingPreview || undefined}
+      className="my-3 w-full"
+    >
       <TabsList data-orientation="horizontal">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>
@@ -295,6 +308,22 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
                 aria-label="Toggle reduced motion"
               />
             </div>
+            {tunableComponent && (
+              <DocsTuningToggle>
+                {({ open, onOpenChange }) => (
+                  <div className="inline-flex items-center gap-1 text-muted-foreground">
+                    Tune:
+                    <span className="min-w-[3ch]">{open ? "On" : "Off"}</span>
+                    <AnimatedSwitch
+                      size="sm"
+                      checked={open}
+                      onCheckedChange={onOpenChange}
+                      aria-label="Toggle component tuning"
+                    />
+                  </div>
+                )}
+              </DocsTuningToggle>
+            )}
             {!isMobile && (
               <div className="inline-flex items-center gap-1 text-muted-foreground">
                 Inspect
@@ -318,7 +347,15 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
               <MotionConfig
                 reducedMotion={motionMode === "reduced" ? "always" : "never"}
               >
-                <ComponentWrapper>{component}</ComponentWrapper>
+                <ComponentWrapper>
+                  {tunableComponent === "animated-dialog" ? (
+                    <TunableAnimatedDialogPreview fallback={component} />
+                  ) : tunableComponent ? (
+                    <GenericTunablePreview fallback={component} />
+                  ) : (
+                    component
+                  )}
+                </ComponentWrapper>
               </MotionConfig>
             </PreviewMotionProvider>
             <PreviewInspector

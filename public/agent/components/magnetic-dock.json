@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "name": "magnetic-dock",
+  "title": "Magnetic Dock",
+  "category": "components",
+  "status": "preview",
+  "summary": "A floating app launcher that enlarges the item nearest a pointer while preserving predictable keyboard navigation.",
+  "docsSlug": "magnetic-dock",
+  "keywords": [
+    "dock",
+    "app launcher",
+    "navigation",
+    "magnetic",
+    "pointer"
+  ],
+  "useWhen": [
+    "A small set of primary destinations benefits from compact, visually expressive bottom navigation.",
+    "Desktop and pointer-first interfaces need faster targeting without adding a persistent sidebar."
+  ],
+  "avoidWhen": [
+    "The navigation has enough destinations that labels must be continuously visible.",
+    "Mobile navigation needs platform-specific tab semantics and large fixed touch targets."
+  ],
+  "capabilities": [
+    "Pointer-proximity magnification",
+    "Optional link destinations per item",
+    "Action callbacks for button items and composed pointer handlers",
+    "Keyboard-focusable launcher items",
+    "Configurable item size, range, and magnification",
+    "Translucent floating surface"
+  ],
+  "accessibility": [
+    "Renders a labelled navigation landmark.",
+    "Each item has an accessible label and a visible focus label.",
+    "Uses native anchors or buttons for keyboard interaction."
+  ],
+  "motion": {
+    "purpose": "Increase the pointer-nearest target to make scanning and selection feel direct without moving the dock itself.",
+    "reducedMotion": "Keep all targets and labels available while removing pointer-driven magnification."
+  },
+  "related": [
+    "magnetic-button",
+    "circular-dock-menu",
+    "fluid-tabs"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/magnetic-dock.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion",
+      "shadow-plugin@^2.1.0"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/magnetic-dock",
+    "rawUrl": "https://sonaui.com/docs/magnetic-dock/raw.md",
+    "sourceTitle": "magnetic-dock"
+  }
+}

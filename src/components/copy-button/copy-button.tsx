@@ -5,10 +5,15 @@ import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
+import type { TracwellClient } from "tracwell";
+import { trackTracwellEvent } from "@/components/common/tracwell-provider";
 import { copyToClipboard } from "@/components/copy-button/lib/copy-to-clipboard";
 import { cn } from "@/lib/utils";
 
-export function useCopyToClipboard(timeout: number = 2000) {
+export function useCopyToClipboard(
+  timeout: number = 2000,
+  onCopied?: () => void,
+) {
   const [copied, setCopied] = useState(false);
 
   // Clean up timeout on unmount or when copied changes
@@ -23,6 +28,7 @@ export function useCopyToClipboard(timeout: number = 2000) {
     const success = await copyToClipboard(text);
     if (success) {
       setCopied(true);
+      onCopied?.();
     }
   };
 
@@ -39,6 +45,8 @@ interface CopyButtonProps
   copyIcon?: React.ReactNode;
   checkIcon?: React.ReactNode;
   label?: React.ReactNode;
+  analyticsEvent?: string;
+  analyticsProperties?: Parameters<TracwellClient["track"]>[1];
 }
 
 function CopyButton({
@@ -48,9 +56,15 @@ function CopyButton({
   copyIcon,
   checkIcon,
   label,
+  analyticsEvent,
+  analyticsProperties,
   ...props
 }: CopyButtonProps) {
-  const { copied, copy } = useCopyToClipboard(timeout);
+  const { copied, copy } = useCopyToClipboard(timeout, () => {
+    if (analyticsEvent) {
+      trackTracwellEvent(analyticsEvent, analyticsProperties);
+    }
+  });
   const reduceMotion = useReducedMotion();
 
   const defaultCopyIcon = (

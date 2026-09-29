@@ -1,0 +1,49 @@
+---
+title: Depth Tiles
+slug: depth-tiles
+component: depth-tiles
+tags: ["UI", "Gallery", "Motion", "Component"]
+---
+
+Use Depth Tiles to present a small set of visual cards as a continuously cycling, layered stack. The active tile stays in focus while neighboring tiles recede behind it, and people can move through the loop automatically or with a horizontal drag.
+
+## Preview
+
+<ComponentPreview component="depth-tiles" name="default" />
+
+## Features
+
+- Infinite autoplay cycling
+- Continuous, velocity-aware pointer drag and touch swipe
+- Controlled and uncontrolled active index support
+- Pauses while hovered, focused, dragged, or hidden in a background tab
+- Arrow-key and screen-reader navigation
+- Reduced-motion mode with instant tile changes and no autoplay
+
+## Playground
+
+<ComponentPlayground component="depth-tiles" />
+
+## Installation
+
+<ComponentInstallation component="depth-tiles" />
+
+## Usage
+
+<ComponentUsage component="depth-tiles" />
+
+## API
+
+<PropTable component="depth-tiles" />
+
+## Accessibility
+
+Provide meaningful `alt` text for every tile image. The active tile is exposed as the current visual item, while tiles behind it are hidden from assistive technology.
+
+## Styling
+
+Use `className` to size or position the component within its layout. The component owns the card overlap and depth treatment so the stack remains responsive.
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

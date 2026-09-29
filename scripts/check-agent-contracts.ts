@@ -18,7 +18,6 @@ const errors: string[] = [];
 const productionOrigin = "https://sonaui.com";
 const requiredPublicFiles = [
   "public/llms.txt",
-  "public/llms-full.txt",
   "public/agent/manifest.json",
   "public/r/registry.json",
   "public/r/agent-skill.json",

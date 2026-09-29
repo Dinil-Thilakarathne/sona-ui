@@ -1,0 +1,60 @@
+---
+title: Testimonial Card
+slug: testimonial-card
+component: testimonial-card
+tags: ["UI", "Card", "Testimonial", "Component"]
+---
+
+Use Testimonial Card to give a customer quote a calm, editorial presence. The quote leads the composition, while a rating and author identity supply concise proof.
+
+## Preview
+
+<ComponentPreview component="testimonial-card" name="default" />
+
+## Installation
+
+<ComponentInstallation component="testimonial-card" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="testimonial.tsx" code={`import TestimonialCard from "@/components/ui/testimonial-card/testimonial-card";
+
+export function Testimonial() {
+  return (
+    <TestimonialCard
+      authorName="Avery Chen"
+      authorMeta="Product Designer, Linear"
+      avatarAlt="Avery Chen"
+    >
+      This made our interface feel immediately more considered.
+    </TestimonialCard>
+  );
+}`} />
+
+## Examples
+
+Use the static card in grids, carousels, and editorial proof points. Enable `depth="subtle"` only for a featured testimonial with enough room to respond to a fine pointer.
+
+## Usage
+
+<ComponentUsage component="testimonial-card" />
+
+## API
+
+<PropTable component="testimonial-card" />
+
+## Accessibility
+
+The testimonial uses an article and blockquote structure. The rating includes an accessible text equivalent, avatar descriptions are supplied by the consumer, and the depth treatment is removed when reduced motion is preferred.
+
+## Styling
+
+Use `className` to adjust width or placement. The card uses semantic theme tokens and a smooth-shadow ring, so it adapts cleanly to the active Sona UI theme.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

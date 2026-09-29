@@ -9,7 +9,9 @@ import {
   useTransform,
 } from "motion/react";
 import {
+  type ChangeEvent,
   type CSSProperties,
+  type KeyboardEvent,
   type ReactNode,
   useEffect,
   useId,
@@ -55,6 +57,8 @@ export interface FluidSliderProps {
   locale?: Intl.LocalesArgument;
   /** Whether the trailing formatted value is visible. @default true */
   showValue?: boolean;
+  /** Whether the visible value can be edited as an exact number. @default true */
+  editableValue?: boolean;
   /** Whether the active boundary grip is visible. @default true */
   showHandle?: boolean;
   /** Whether the slider ignores user interaction. @default false */
@@ -99,11 +103,44 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
 
-function rubberband(overshoot: number, dimension: number, constant = 0.55) {
+function rubberband(overshoot: number) {
+  const deadZone = 32;
+  const maximumStretch = 8;
+  const cursorRange = 200;
+  const direction = Math.sign(overshoot);
+  const distancePastEdge = Math.max(0, Math.abs(overshoot) - deadZone);
+
   return (
-    (overshoot * dimension * constant) /
-    (dimension + constant * Math.abs(overshoot))
+    direction *
+    maximumStretch *
+    Math.sqrt(Math.min(distancePastEdge / cursorRange, 1))
   );
+}
+
+function decimalPlaces(value: number) {
+  const [, exponent = "0"] = String(value).toLowerCase().split("e");
+  const fraction = String(value).split(".")[1]?.length ?? 0;
+  return Math.max(0, fraction - Number(exponent));
+}
+
+function roundToStep(value: number, min: number, max: number, step: number) {
+  const clamped = clamp(value, min, max);
+  if (clamped === min || clamped === max || step <= 0) return clamped;
+  const rounded = min + Math.round((clamped - min) / step) * step;
+  return Number(
+    clamp(rounded, min, max).toFixed(
+      Math.max(decimalPlaces(step), decimalPlaces(min), decimalPlaces(max)),
+    ),
+  );
+}
+
+function snapToMagneticDecile(value: number, min: number, max: number) {
+  if (max <= min) return min;
+  const normalized = (value - min) / (max - min);
+  const nearest = Math.round(normalized * 10) / 10;
+  return Math.abs(normalized - nearest) <= 0.03125
+    ? min + nearest * (max - min)
+    : value;
 }
 
 export default function FluidSlider({
@@ -121,6 +158,7 @@ export default function FluidSlider({
   format,
   locale,
   showValue = true,
+  editableValue = true,
   showHandle = true,
   disabled = false,
   name,
@@ -138,10 +176,13 @@ export default function FluidSlider({
   const [internalValue, setInternalValue] = useState(() =>
     clamp(defaultValue, min, max),
   );
+  const [editingValue, setEditingValue] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const currentValue = clamp(value ?? internalValue, min, max);
   const range = max - min;
   const progress = range === 0 ? 0 : ((currentValue - min) / range) * 100;
   const controlRef = useRef<HTMLDivElement>(null);
+  const valueInputRef = useRef<HTMLInputElement>(null);
   const pointerActiveRef = useRef(false);
   const trackPressRef = useRef(false);
   const dragMovedRef = useRef(false);
@@ -215,6 +256,16 @@ export default function FluidSlider({
     const insetStart = isRtl ? inset : 0;
     return `inset(0px ${insetEnd}% 0px ${insetStart}% round var(--fluid-slider-border-radius))`;
   });
+  // The visual track stretches beyond the active edge as the drag exceeds the
+  // boundary. Keeping this separate from Slider.Control preserves its stable
+  // hit target and Base UI's range semantics.
+  const rubberBandWidth = useTransform(
+    overshoot,
+    (stretch) => `calc(100% + ${Math.abs(stretch)}px)`,
+  );
+  const rubberBandX = useTransform(overshoot, (stretch) =>
+    stretch < 0 ? stretch : 0,
+  );
 
   // Immediate-response squash: the active surface compresses slightly while
   // pressed and eases back on release. Presentation only — never the value.
@@ -242,6 +293,12 @@ export default function FluidSlider({
     ? formatValue(currentValue)
     : formatter.format(currentValue);
   const visibleMarks = marks.filter((mark) => mark >= min && mark <= max);
+
+  useEffect(() => {
+    if (!editingValue) return;
+    valueInputRef.current?.focus();
+    valueInputRef.current?.select();
+  }, [editingValue]);
 
   const settleOvershoot = () => {
     pointerActiveRef.current = false;
@@ -271,6 +328,23 @@ export default function FluidSlider({
   // component, we drive Base UI's hidden range input directly: it fires the
   // real onValueChange with proper event details, which flows through the
   // Slider.Root handler below.
+  const applyValue = (nextValue: number) => {
+    const control = controlRef.current;
+    if (!control) return;
+
+    const input = control.querySelector<HTMLInputElement>(
+      'input[type="range"]',
+    );
+    if (!input || Number(input.value) === nextValue) return;
+
+    const nativeSetter = Object.getOwnPropertyDescriptor(
+      HTMLInputElement.prototype,
+      "value",
+    )?.set;
+    nativeSetter?.call(input, String(nextValue));
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+  };
+
   const applyValueFromClientX = (clientX: number) => {
     const control = controlRef.current;
     if (!control) return;
@@ -284,27 +358,55 @@ export default function FluidSlider({
     ratio = clamp(ratio, 0, 1);
 
     const raw = min + ratio * range;
-    const stepped = clamp(
-      Math.round((raw - min) / step) * step + min,
-      min,
-      max,
-    );
+    const stepCount = range / step;
+    const snapped =
+      stepCount <= 10
+        ? roundToStep(raw, min, max, step)
+        : roundToStep(snapToMagneticDecile(raw, min, max), min, max, step);
 
-    const input = control.querySelector<HTMLInputElement>(
-      'input[type="range"]',
-    );
-    if (!input || Number(input.value) === stepped) return;
+    applyValue(snapped);
+  };
 
-    const nativeSetter = Object.getOwnPropertyDescriptor(
-      HTMLInputElement.prototype,
-      "value",
-    )?.set;
-    nativeSetter?.call(input, String(stepped));
-    input.dispatchEvent(new Event("input", { bubbles: true }));
+  const startValueEdit = () => {
+    if (disabled || !editableValue) return;
+    setInputValue(
+      currentValue.toFixed(
+        Math.max(decimalPlaces(step), decimalPlaces(min), decimalPlaces(max)),
+      ),
+    );
+    setEditingValue(true);
+  };
+
+  const finishValueEdit = (commit: boolean) => {
+    if (commit) {
+      const parsed = Number(inputValue);
+      if (Number.isFinite(parsed))
+        applyValue(roundToStep(parsed, min, max, step));
+    }
+    setEditingValue(false);
+    controlRef.current
+      ?.querySelector<HTMLInputElement>('input[type="range"]')
+      ?.focus({ preventScroll: true });
+  };
+
+  const handleValueInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleValueInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== "Enter" && event.key !== "Escape") return;
+    event.preventDefault();
+    finishValueEdit(event.key === "Enter");
   };
 
   const handlePointerDown = (event: PointerEvent) => {
     if (disabled || event.button !== 0) return;
+
+    if (
+      (event.target as HTMLElement).closest("[data-fluid-slider-value-control]")
+    ) {
+      return;
+    }
 
     settleAnimationRef.current?.stop();
     pointerActiveRef.current = true;
@@ -386,7 +488,7 @@ export default function FluidSlider({
           ? presentedBoundary - rect.right
           : 0;
 
-    overshoot.set(rubberband(rawOvershoot, rect.width));
+    overshoot.set(rubberband(rawOvershoot));
   };
 
   useEffect(() => {
@@ -444,40 +546,43 @@ export default function FluidSlider({
         data-fluid-slider-control=""
         className={cn(
           "group/fluid-slider-control relative h-12 w-full cursor-pointer rounded-2xl outline-none touch-pan-y",
-          "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background _overflow-clip rounded-(--fluid-slider-border-radius)",
+          "has-[input:focus-visible]:ring-2 has-[input:focus-visible]:ring-(--fluid-slider-focus-ring) has-[input:focus-visible]:ring-offset-2 has-[input:focus-visible]:ring-offset-background overflow-visible rounded-(--fluid-slider-border-radius)",
           trackClassName,
         )}
       >
         <Slider.Track className="relative h-12 w-full [container-type:inline-size]">
-          <div
+          <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]"
-          />
+            className="pointer-events-none absolute inset-y-0 start-0"
+            style={{ width: rubberBandWidth, x: rubberBandX }}
+          >
+            <div className="absolute inset-0 rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-track) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--foreground)_4%,transparent)]" />
 
-          <Slider.Indicator
-            render={
-              <motion.div
-                style={{ clipPath: surfaceClipPath, scaleY: surfaceScaleY }}
-              />
-            }
-            className={cn(
-              "w-full! pointer-events-none absolute inset-0 origin-left rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-surface) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--background)_55%,transparent),0_1px_2px_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-[filter,background-color] duration-150 rtl:origin-right",
-              surfaceClassName,
-            )}
-            style={{ insetInlineStart: 0, insetInlineEnd: 0 }}
-          />
+            <Slider.Indicator
+              render={
+                <motion.div
+                  style={{ clipPath: surfaceClipPath, scaleY: surfaceScaleY }}
+                />
+              }
+              className={cn(
+                "w-full! absolute inset-0 origin-left rounded-(--fluid-slider-border-radius) bg-(--fluid-slider-surface) shadow-[inset_0_1px_0_color-mix(in_oklab,var(--background)_55%,transparent),0_1px_2px_color-mix(in_oklab,var(--foreground)_5%,transparent)] transition-[filter,background-color] duration-150 rtl:origin-right",
+                surfaceClassName,
+              )}
+              style={{ insetInlineStart: 0, insetInlineEnd: 0 }}
+            />
 
-          {visibleMarks.map((mark) => {
-            const markProgress = range === 0 ? 0 : ((mark - min) / range) * 100;
-            return (
-              <span
-                key={mark}
-                aria-hidden="true"
-                className="pointer-events-none absolute top-1/2 z-5 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-mark) rtl:translate-x-1/2"
-                style={{ insetInlineStart: `${markProgress}%` }}
-              />
-            );
-          })}
+            {visibleMarks.map((mark) => {
+              const markProgress =
+                range === 0 ? 0 : ((mark - min) / range) * 100;
+              return (
+                <span
+                  key={mark}
+                  className="absolute top-1/2 z-5 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-(--fluid-slider-mark) rtl:translate-x-1/2"
+                  style={{ insetInlineStart: `${markProgress}%` }}
+                />
+              );
+            })}
+          </motion.div>
 
           <Slider.Label
             className={cn(
@@ -489,14 +594,41 @@ export default function FluidSlider({
           </Slider.Label>
 
           {showValue && (
-            <Slider.Value
-              className={cn(
-                "pointer-events-none absolute inset-y-0 end-5 z-10 flex items-center font-medium text-(--fluid-slider-value) text-sm tabular-nums",
-                valueClassName,
-              )}
+            <div
+              data-fluid-slider-value-control=""
+              className="absolute inset-y-0 end-5 z-30 flex items-center"
             >
-              {() => formattedValue}
-            </Slider.Value>
+              {editingValue ? (
+                <input
+                  ref={valueInputRef}
+                  type="text"
+                  inputMode="decimal"
+                  aria-label="Edit slider value"
+                  value={inputValue}
+                  onChange={handleValueInputChange}
+                  onKeyDown={handleValueInputKeyDown}
+                  onBlur={() => finishValueEdit(true)}
+                  className={cn(
+                    "w-[5.5ch] bg-transparent text-end font-medium text-(--fluid-slider-label) text-sm tabular-nums outline-none",
+                    valueClassName,
+                  )}
+                />
+              ) : (
+                <button
+                  type="button"
+                  disabled={!editableValue || disabled}
+                  onClick={startValueEdit}
+                  className={cn(
+                    "font-medium text-(--fluid-slider-value) text-sm tabular-nums outline-none transition-colors duration-150 focus-visible:text-(--fluid-slider-label) disabled:cursor-default disabled:pointer-events-none",
+                    editableValue &&
+                      "cursor-text hover:text-(--fluid-slider-label)",
+                    valueClassName,
+                  )}
+                >
+                  {formattedValue}
+                </button>
+              )}
+            </div>
           )}
 
           <Slider.Thumb

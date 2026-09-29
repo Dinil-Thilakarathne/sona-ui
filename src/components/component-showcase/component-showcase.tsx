@@ -30,16 +30,17 @@ type ComponentShowcaseProps = {
 export function ComponentShowcase({
   items = defaultItems,
 }: ComponentShowcaseProps) {
-  const groups = items.reduce<Map<string, ComponentShowcaseItem[]>>(
-    (categories, item) => {
+  const newItems = items.filter((item) => item.tag === "new");
+  const groups = items
+    .filter((item) => item.tag !== "new")
+    .reduce<Map<string, ComponentShowcaseItem[]>>((categories, item) => {
       const categoryItems = categories.get(item.category) ?? [];
       categoryItems.push(item);
       categories.set(item.category, categoryItems);
       return categories;
-    },
-    new Map(),
-  );
+    }, new Map());
   const categoryGroups = Array.from(groups);
+  if (newItems.length > 0) categoryGroups.unshift(["New", newItems]);
 
   return (
     <main
