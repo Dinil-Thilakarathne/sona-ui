@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "name": "notification-stack",
+  "title": "Notification Stack",
+  "category": "components",
+  "status": "preview",
+  "summary": "A top-right live-update stack that materializes new notifications, reflows after dismissal, and keeps status messages easy to scan.",
+  "docsSlug": "notification-stack",
+  "keywords": [
+    "notification",
+    "toast",
+    "status",
+    "alert",
+    "feedback"
+  ],
+  "useWhen": [
+    "A product needs a compact, non-blocking place to report asynchronous status changes.",
+    "Several recent updates should remain visible long enough to scan or dismiss independently."
+  ],
+  "avoidWhen": [
+    "A message must block progress or require a deliberate confirmation before continuing.",
+    "A long-running history of events needs filtering, timestamps, or deep inspection."
+  ],
+  "capabilities": [
+    "Top-right fixed or parent-owned inline placement",
+    "Semantic default, success, warning, and error states",
+    "Dismiss and optional secondary actions",
+    "Motion-based stack reflow",
+    "Visible-item cap"
+  ],
+  "accessibility": [
+    "Uses a polite live region for non-interruptive update announcements.",
+    "Dismiss buttons are explicitly labelled and keyboard reachable.",
+    "Dismissal recovers focus and exiting controls become inert.",
+    "Secondary actions remain visible on touch devices.",
+    "Native buttons preserve focus and activation behavior."
+  ],
+  "motion": {
+    "purpose": "Provide concise arrival context for new status updates and preserve spatial continuity when the stack closes after dismissal.",
+    "reducedMotion": "Use brief opacity changes only while retaining announcements, actions, and the final stack order."
+  },
+  "related": [
+    "live-activity",
+    "animated-dropdown",
+    "schedule-chip"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/notification-stack.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion",
+      "lucide-react",
+      "shadow-plugin@^2.1.0"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/notification-stack",
+    "rawUrl": "https://sonaui.com/docs/notification-stack/raw.md",
+    "sourceTitle": "notification-stack"
+  }
+}

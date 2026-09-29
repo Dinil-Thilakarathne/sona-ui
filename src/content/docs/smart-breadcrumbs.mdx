@@ -1,0 +1,52 @@
+---
+title: Smart Breadcrumbs
+slug: smart-breadcrumbs
+component: smart-breadcrumbs
+tags: ["UI", "Navigation", "Breadcrumbs", "Component"]
+---
+
+Use Smart Breadcrumbs to show where a page sits in a deeper hierarchy. The first and current levels stay visible while an ellipsis menu keeps the middle levels available on compact paths.
+
+## Preview
+
+<ComponentPreview component="smart-breadcrumbs" name="default" />
+
+## Installation
+
+<ComponentInstallation component="smart-breadcrumbs" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="page-breadcrumbs.tsx" code={`import SmartBreadcrumbs from "@/components/ui/smart-breadcrumbs/smart-breadcrumbs";
+
+const items = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Design System", href: "/projects/design-system" },
+  { label: "Components", href: "/projects/design-system/components" },
+  { label: "Buttons" },
+];
+
+export function PageBreadcrumbs() {
+  return <SmartBreadcrumbs items={items} />;
+}`} />
+
+## Usage
+
+<ComponentUsage component="smart-breadcrumbs" />
+
+## API
+
+<PropTable component="smart-breadcrumbs" />
+
+## Accessibility
+
+The path is an ordered list inside a labelled navigation landmark. The last level exposes `aria-current="page"`. Hidden levels remain available through a keyboard accessible menu with Escape dismissal and focus management.
+
+Repeated labels and destinations are supported. Supply a unique `id` on each item when path levels need an identity independent of their label or destination. Long ancestor menus scroll within the available viewport.
+
+## Styling
+
+CLI installation registers the shadow utilities automatically. For manual installation, install `shadow-plugin` and add `@plugin "shadow-plugin";` to your Tailwind v4 stylesheet.
+
+Pass `className` to position the navigation landmark. The component owns the breadcrumb links, separators, truncation, and collapsed menu.

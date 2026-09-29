@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "name": "github-star-history",
+  "title": "GitHub Star History",
+  "category": "components",
+  "status": "preview",
+  "summary": "An accessible smooth area chart for inspecting cumulative GitHub repository star growth over time.",
+  "docsSlug": "github-star-history",
+  "keywords": [
+    "github",
+    "stars",
+    "history",
+    "chart",
+    "repository",
+    "growth"
+  ],
+  "useWhen": [
+    "A repository page, launch recap, or open-source dashboard needs to communicate star growth over time.",
+    "People should be able to inspect individual cumulative observations with pointer or keyboard input."
+  ],
+  "avoidWhen": [
+    "Only the current star count is needed and historical context would add noise.",
+    "Multiple repositories need to be compared as separate series in one chart."
+  ],
+  "capabilities": [
+    "Cumulative smooth area visualization",
+    "Responsive SVG geometry",
+    "Pointer and keyboard scrubbing",
+    "Current total and recorded-change summary",
+    "Configurable plot height and series color",
+    "Graceful empty-data state"
+  ],
+  "accessibility": [
+    "The chart is exposed as a keyboard-operable slider with a changing date and star-count value.",
+    "Left and Right Arrow keys move between observations while Home and End jump to the boundaries.",
+    "Visible focus styling identifies the active chart.",
+    "The decorative SVG is hidden from assistive technology to avoid duplicate announcements."
+  ],
+  "motion": {
+    "purpose": "Reveal the series chronologically so the visual entrance reinforces repository growth over time.",
+    "reducedMotion": "Render the complete chart immediately while retaining pointer and keyboard exploration."
+  },
+  "related": [
+    "activity-graph",
+    "testimonial-card",
+    "code-block"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/github-star-history.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/github-star-history",
+    "rawUrl": "https://sonaui.com/docs/github-star-history/raw.md",
+    "sourceTitle": "github-star-history"
+  }
+}

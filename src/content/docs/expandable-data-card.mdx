@@ -1,0 +1,48 @@
+---
+title: Expandable Data Card
+slug: expandable-data-card
+component: expandable-data-card
+tags: ["UI", "Card", "Data", "Component"]
+---
+
+Use Expandable Data Card to keep a key metric visible while revealing its breakdown in the same surface. The card grows inline, so the detail stays connected to the summary without an overlay.
+
+## Preview
+
+<ComponentPreview component="expandable-data-card" name="default" />
+
+## Installation
+
+<ComponentInstallation component="expandable-data-card" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="revenue-card.tsx" code={`import ExpandableDataCard from "@/components/ui/expandable-data-card/expandable-data-card";
+
+export function RevenueCard() {
+  return (
+    <ExpandableDataCard title="Revenue" summary={<strong>$39,820</strong>}>
+      <p>Subscriptions account for 62% of revenue.</p>
+    </ExpandableDataCard>
+  );
+}`} />
+
+## Usage
+
+<ComponentUsage component="expandable-data-card" />
+
+## API
+
+<PropTable component="expandable-data-card" />
+
+## Accessibility
+
+The Details button exposes its expanded state and maintains a stable connection to the detail container. The card title labels the revealed region. Exiting content becomes inert immediately, and focus returns to the Details button if a controlled close would remove the focused element. Reduced-motion users receive the same content without the morphing transition.
+
+Detail content unmounts after closing. Keep any form values or other state that must survive reopening in the parent component.
+
+## Styling
+
+CLI installation registers the shadow utilities automatically. For manual installation, install `shadow-plugin` and add `@plugin "shadow-plugin";` to your Tailwind v4 stylesheet.
+
+The component owns the expandable surface and interaction. Supply your own metric summary and detail content, and use `className` to adapt the card width or surface color.
