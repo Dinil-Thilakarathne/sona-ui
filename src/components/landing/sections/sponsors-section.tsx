@@ -1,10 +1,11 @@
 import { Plus } from "lucide-react";
+import Image from "next/image";
 import { TrackedExternalLink } from "@/components/common/tracked-external-link";
 
 const sponsorshipSlots = [
   { label: "Your logo here", tier: "Platinum sponsor" },
   { label: "Your logo here", tier: "Gold sponsor" },
-  { label: "Become a sponsor", tier: "Support Sona UI" },
+  { label: "Your logo here", tier: "Silver sponsor" },
 ] as const;
 
 export function SponsorsSection() {
@@ -65,18 +66,35 @@ export function SponsorsSection() {
             Platform partner
           </p>
         </div>
-        <TrackedExternalLink
-          href="https://github.com/sponsors/Dinil-Thilakarathne"
-          eventName="sponsor_link_clicked"
-          eventProperties={{ location: "landing_platform_partner" }}
-          target="_blank"
-          rel="noreferrer"
-          className="group flex min-h-36 items-center justify-center border-b border-border text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
-        >
-          <span className="font-helvetica-neue text-3xl font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
-            Platform sponsor logo
-          </span>
-        </TrackedExternalLink>
+        <div className="grid border-y border-border sm:grid-cols-2">
+          <TrackedExternalLink
+            href="https://tracwell.app/"
+            eventName="sponsor_link_clicked"
+            eventProperties={{
+              location: "landing_platform_partner",
+              sponsor: "Tracwell",
+            }}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit Tracwell"
+            className="group flex min-h-36 items-center justify-center gap-4 text-center transition-colors hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-foreground"
+          >
+            <Image
+              src="/sponsors/tracwell.svg"
+              alt=""
+              width={48}
+              height={48}
+              className="size-10 object-contain sm:size-12"
+            />
+            <span className="font-helvetica-neue text-3xl font-semibold tracking-[-0.05em] text-foreground sm:text-5xl">
+              Tracwell
+            </span>
+          </TrackedExternalLink>
+          <div
+            aria-hidden="true"
+            className="hidden min-h-36 border-l border-border sm:block"
+          />
+        </div>
       </div>
     </section>
   );
