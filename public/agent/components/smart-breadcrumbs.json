@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "name": "smart-breadcrumbs",
+  "title": "Smart Breadcrumbs",
+  "category": "components",
+  "status": "preview",
+  "summary": "A breadcrumb trail that keeps the root and current page visible while grouping middle levels in an accessible menu.",
+  "docsSlug": "smart-breadcrumbs",
+  "keywords": [
+    "breadcrumbs",
+    "navigation",
+    "hierarchy",
+    "menu",
+    "collapse"
+  ],
+  "useWhen": [
+    "A page has several navigable ancestor levels that would crowd a horizontal trail.",
+    "People need a visible path back to the root and direct access to hidden ancestors."
+  ],
+  "avoidWhen": [
+    "A two-level path is already easy to scan without compression.",
+    "The interface has no meaningful hierarchy of ancestor pages."
+  ],
+  "capabilities": [
+    "Always-visible first and current levels",
+    "Configurable collapse threshold",
+    "Keyboard accessible ancestor menu",
+    "Current page semantics and labelled navigation landmark"
+  ],
+  "accessibility": [
+    "Uses an ordered list inside a labelled navigation landmark.",
+    "Marks the last level with aria-current page.",
+    "Uses Base UI menu focus and Escape behavior for hidden ancestors."
+  ],
+  "motion": {
+    "purpose": "Provide a brief spatial cue as the hidden ancestor menu opens.",
+    "reducedMotion": "Opens the menu without a transition."
+  },
+  "related": [
+    "smart-overflow",
+    "fluid-tabs",
+    "animated-dropdown"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/smart-breadcrumbs.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "@base-ui/react",
+      "lucide-react",
+      "shadow-plugin@^2.1.0"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/smart-breadcrumbs",
+    "rawUrl": "https://sonaui.com/docs/smart-breadcrumbs/raw.md",
+    "sourceTitle": "smart-breadcrumbs"
+  }
+}

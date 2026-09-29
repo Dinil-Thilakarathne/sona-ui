@@ -14,6 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${siteUrl}/tools/motion-lab`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
   ];
 
   const docPages = allDocs

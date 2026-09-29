@@ -30,6 +30,7 @@ export function ComponentFilePreview({ files }: { files: SourceFile[] }) {
           key={file.path}
           code={file.content}
           language={languageFor(file.target)}
+          analyticsEvent="component_source_copied"
         >
           <CodeBlockHeader filename={file.target} />
           <CodeBlockPre>

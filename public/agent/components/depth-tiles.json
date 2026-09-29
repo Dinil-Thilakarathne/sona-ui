@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "name": "depth-tiles",
+  "title": "Depth Tiles",
+  "category": "effects",
+  "status": "stable",
+  "summary": "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.",
+  "docsSlug": "depth-tiles",
+  "keywords": [
+    "tiles",
+    "depth",
+    "gallery",
+    "carousel",
+    "drag",
+    "autoplay"
+  ],
+  "useWhen": [
+    "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support."
+  ],
+  "avoidWhen": [
+    "The effect would compete with meaningful content or reduce readability."
+  ],
+  "capabilities": [
+    "Source-owned Sona UI component",
+    "Semantic theme tokens"
+  ],
+  "accessibility": [
+    "Preserve the component's documented semantic structure, keyboard behavior, and visible focus state."
+  ],
+  "motion": {
+    "purpose": "Add restrained visual depth without competing with the primary task.",
+    "reducedMotion": "Use a static or reduced visual treatment when motion is not preferred."
+  },
+  "registry": {
+    "url": "https://sonaui.com/r/depth-tiles.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/depth-tiles",
+    "rawUrl": "https://sonaui.com/docs/depth-tiles/raw.md",
+    "sourceTitle": "depth-tiles"
+  }
+}

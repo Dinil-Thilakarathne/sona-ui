@@ -31,7 +31,7 @@ export function proxy(request: NextRequest) {
       : markdownResponse(notFoundMarkdown(pathname), 404);
   }
 
-  const knownPaths = new Set(["/components", "/llms.txt", "/llms-full.txt"]);
+  const knownPaths = new Set(["/components", "/llms.txt"]);
   if (
     knownPaths.has(pathname) ||
     pathname.startsWith("/agent/") ||

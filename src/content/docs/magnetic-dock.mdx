@@ -1,0 +1,50 @@
+---
+title: Magnetic Dock
+slug: magnetic-dock
+component: magnetic-dock
+tags: ["UI", "Navigation", "Motion", "Component"]
+---
+
+Use Magnetic Dock for a compact floating app launcher. Nearby items grow toward the pointer so people can scan and target actions without losing the dock's calm, stable structure.
+
+## Preview
+
+<ComponentPreview component="magnetic-dock" name="default" />
+
+## Installation
+
+<ComponentInstallation component="magnetic-dock" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="app-dock.tsx" code={`import { House, Settings } from "lucide-react";
+import MagneticDock from "@/components/ui/magnetic-dock/magnetic-dock";
+
+const apps = [
+  { id: "home", label: "Home", icon: House, href: "/" },
+  { id: "settings", label: "Settings", icon: Settings, href: "/settings" },
+];
+
+export function AppDock() {
+  return <MagneticDock items={apps} />;
+}`} />
+
+## Usage
+
+<ComponentUsage component="magnetic-dock" />
+
+## API
+
+<PropTable component="magnetic-dock" />
+
+## Accessibility
+
+The dock is a labelled navigation landmark. Each item exposes its label to assistive technology, remains keyboard-focusable, and shows a visible label on focus. Reduced-motion preferences keep the dock fully functional while removing magnification movement.
+
+Use `href` for navigation or `onClick` for an action button. Disabled items do not magnify. Touch input keeps the dock at its base size. Caller pointer handlers are composed with the magnetic behavior, and pointer cancellation resets the magnification.
+
+## Styling
+
+CLI installation registers the shadow utilities automatically. For manual installation, install `shadow-plugin` and add `@plugin "shadow-plugin";` to your Tailwind v4 stylesheet.
+
+Place the dock in a fixed or sticky bottom container in your application. Use `className` to adapt its material, spacing, or placement without changing the magnetic targeting behavior.

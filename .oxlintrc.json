@@ -1,0 +1,36 @@
+{
+  "jsPlugins": ["@shadcn/lint"],
+  "settings": {
+    "shadcn": {
+      "ui": "@/registry/sonaui",
+      "note": "Use Sona UI semantic tokens, component variants, and public APIs. Components own their internal styling and motion; consumers own layout and placement."
+    }
+  },
+  "rules": {
+    "shadcn/no-restyle": [
+      "warn",
+      {
+        "allow": ["layout"],
+        "message": {
+          "spacing": "Use a {{component}} size when available. Use margin or parent gap for external spacing.",
+          "default": "Use a {{component}} variant when available. Keep appearance and interaction inside the component."
+        }
+      }
+    ],
+    "shadcn/no-raw-colors": [
+      "warn",
+      {
+        "message": "Use a semantic theme color for {{className}}. See {{file}}. Suggested tokens: {{suggestions}}."
+      }
+    ],
+    "shadcn/no-unknown-classes": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["src/registry/sonaui/**"],
+      "rules": {
+        "shadcn/no-restyle": "off"
+      }
+    }
+  ]
+}

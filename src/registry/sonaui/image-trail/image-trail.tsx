@@ -114,9 +114,11 @@ export default function ImageTrail({
   const [trail, setTrail] = useState<TrailItem[]>([]);
 
   const lastPos = useRef<{ x: number; y: number } | null>(null);
+  const containerRect = useRef<DOMRect | null>(null);
   const imageIndex = useRef(0);
   const idCounter = useRef(0);
   const timers = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+  const preloadedImages = useRef(new Set<string>());
 
   // Clear any pending removals when the component unmounts.
   useEffect(() => {
@@ -126,6 +128,17 @@ export default function ImageTrail({
       pending.clear();
     };
   }, []);
+
+  // Decode the images before the first interaction so pointer movement does
+  // not compete with image loading and decoding.
+  useEffect(() => {
+    images.forEach((src) => {
+      if (preloadedImages.current.has(src)) return;
+      preloadedImages.current.add(src);
+      const image = new Image();
+      image.src = src;
+    });
+  }, [images]);
 
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (prefersReducedMotion || event.pointerType !== "mouse") return;
@@ -140,7 +153,9 @@ export default function ImageTrail({
       return;
     }
 
-    const rect = event.currentTarget.getBoundingClientRect();
+    const rect =
+      containerRect.current ?? event.currentTarget.getBoundingClientRect();
+    containerRect.current = rect;
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
@@ -172,8 +187,12 @@ export default function ImageTrail({
   return (
     <div
       onPointerMove={handlePointerMove}
+      onPointerEnter={(event) => {
+        containerRect.current = event.currentTarget.getBoundingClientRect();
+      }}
       onPointerLeave={() => {
         lastPos.current = null;
+        containerRect.current = null;
       }}
       className={cn("relative overflow-hidden", className)}
     >
@@ -192,13 +211,14 @@ export default function ImageTrail({
               draggable={false}
               className={cn(
                 "absolute -translate-x-1/2 -translate-y-1/2 rounded-lg object-cover shadow-lg",
+                "will-change-transform",
                 itemClassName,
               )}
               style={{ left: item.x, top: item.y, rotate: item.rotate }}
               initial={active.initial}
               animate={active.animate}
               exit={active.exit}
-              transition={motionTransition.expressive}
+              transition={motionTransition.enter}
             />
           ))}
         </AnimatePresence>

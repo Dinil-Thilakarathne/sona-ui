@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "name": "animated-segmented-control",
+  "title": "Animated Segmented Control",
+  "category": "components",
+  "status": "preview",
+  "summary": "A compact mode switcher with a fluid shared active surface.",
+  "docsSlug": "animated-segmented-control",
+  "keywords": [
+    "segmented",
+    "control",
+    "mode",
+    "density"
+  ],
+  "useWhen": [
+    "A small local setting or view mode should remain visible together."
+  ],
+  "avoidWhen": [
+    "Each option reveals a substantial content panel, where Fluid Tabs is more appropriate."
+  ],
+  "capabilities": [
+    "Controlled or uncontrolled selection",
+    "Shared active-pill layout transition",
+    "Disabled options"
+  ],
+  "accessibility": [
+    "Groups native pressed buttons under a configurable accessible name.",
+    "Uncontrolled selection skips disabled items and recovers when the selected item is removed."
+  ],
+  "motion": {
+    "purpose": "Preserve selection continuity as the active surface moves between adjacent options.",
+    "reducedMotion": "Changes the active surface immediately."
+  },
+  "related": [
+    "fluid-tabs",
+    "animated-tabs",
+    "fluid-slider"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/animated-segmented-control.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/animated-segmented-control",
+    "rawUrl": "https://sonaui.com/docs/animated-segmented-control/raw.md",
+    "sourceTitle": "animated-segmented-control"
+  }
+}

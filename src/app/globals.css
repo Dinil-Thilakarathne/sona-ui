@@ -300,6 +300,30 @@ html::-webkit-scrollbar-thumb:hover {
     );
 }
 
+/* DialKit is embedded in the docs and Motion Lab, so it inherits the same
+   semantic surfaces as the surrounding site instead of its bundled theme. */
+.motion-lab-dialkit .dialkit-root[data-theme] {
+    --dial-surface: var(--secondary);
+    --dial-surface-hover: var(--accent);
+    --dial-surface-active: color-mix(in oklab, var(--accent) 82%, var(--foreground));
+    --dial-surface-subtle: var(--muted);
+    --dial-text-root: var(--foreground);
+    --dial-text-section: var(--muted-foreground);
+    --dial-text-label: var(--muted-foreground);
+    --dial-text-focus: var(--foreground);
+    --dial-text-primary: var(--foreground);
+    --dial-text-secondary: var(--muted-foreground);
+    --dial-text-tertiary: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+    --dial-border: var(--border);
+    --dial-border-hover: color-mix(in oklab, var(--foreground) 18%, var(--border));
+    --dial-focus-ring: var(--foreground);
+    --dial-glass-bg: var(--background);
+    --dial-dropdown-bg: var(--popover);
+    --dial-shadow: 0 8px 32px color-mix(in oklab, var(--foreground) 14%, transparent);
+    --dial-shadow-collapsed: 0 4px 16px color-mix(in oklab, var(--foreground) 10%, transparent);
+    --dial-shadow-dropdown: 0 8px 24px color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
 @theme inline {
     /* Fonts */
     --font-sans: var(--font-sans);
@@ -1255,15 +1279,35 @@ body {
     overscroll-behavior: none;
 }
 
-body.zen-mode article[data-component-document] {
-    z-index: 99999999;
+/* Add zen-mode to DocsLayoutShell's main class while recording a component. */
+main.zen-mode {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    padding-top: 0;
 }
 
-body.zen-mode [data-component-preview] {
+main.zen-mode [data-docs-chrome],
+main.zen-mode [data-component-document] ~ * {
+    display: none;
+}
+
+main.zen-mode [data-component-document] {
+    position: relative;
+    z-index: 1;
+}
+
+main.zen-mode [data-recording-preview] [data-component-preview] {
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999999999;
-    height: 100vh;
+    inset: 0;
+    z-index: 50;
+    width: 100vw;
+    height: 100dvh;
     border-radius: 0;
+    box-shadow: none;
+}
+
+main.zen-mode [data-recording-preview] [data-preview-inspector-layer],
+main.zen-mode [data-recording-preview] [data-preview-controls] {
+    display: none;
 }

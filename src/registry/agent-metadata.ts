@@ -31,7 +31,7 @@ export type AgentResourceMetadata = {
  * generated registry artifacts so the contract can be validated before it is
  * expanded to the rest of the catalog.
  */
-export const agentResourceMetadata = {
+const allAgentResourceMetadata = {
   "morph-surface": {
     name: "morph-surface",
     title: "Morph Surface",
@@ -394,7 +394,7 @@ function catalogEntry(
   };
 }
 
-Object.assign(agentResourceMetadata, {
+Object.assign(allAgentResourceMetadata, {
   "animated-dropdown": catalogEntry(
     "animated-dropdown",
     "Animated Dropdown",
@@ -614,6 +614,43 @@ Object.assign(agentResourceMetadata, {
         "Remove directional content travel while preserving the tooltip label.",
     },
   },
+  "cursor-hover-card": {
+    name: "cursor-hover-card",
+    title: "Cursor Hover Card",
+    category: "components",
+    status: "stable",
+    summary:
+      "A rich preview card that follows above a fine pointer, tilts with horizontal movement, and uses stable trigger positioning for keyboard access.",
+    docsSlug: "cursor-hover-card",
+    keywords: ["hover card", "preview", "cursor", "pointer"],
+    useWhen: [
+      "A link or compact object benefits from optional rich preview information.",
+      "Keeping the preview near the pointer helps preserve the relationship to a broad trigger.",
+    ],
+    avoidWhen: [
+      "The information is essential and should remain visible without interaction.",
+      "The surface is a workflow that should use a popover, menu, or dialog instead.",
+    ],
+    capabilities: [
+      "Pointer-following virtual anchor",
+      "Capped speed-and-direction-aware rotation",
+      "Origin-aware enter and restrained exit motion",
+      "Stable keyboard-focus positioning",
+      "Collision-aware side flipping and shifting",
+      "Consumer-provided trigger and rich content",
+    ],
+    accessibility: [
+      "Uses Base UI Preview Card semantics, focus behavior, dismissal, and hover grace areas.",
+      "Ignores touch pointer tracking and preserves content when reduced motion is requested.",
+    ],
+    motion: {
+      purpose:
+        "Materialize optional preview content from the pointer, keep it spatially connected, and use slight rotation to reflect movement speed and direction.",
+      reducedMotion:
+        "Keep cursor tracking functional while removing smoothing, rotation, and lifecycle animation.",
+    },
+    related: ["fluid-tooltip", "link-preview"],
+  },
   lightbox: {
     name: "lightbox",
     title: "Lightbox",
@@ -805,6 +842,304 @@ Object.assign(agentResourceMetadata, {
     "A card that reveals localized pointer lighting while keeping content and hierarchy stable.",
     ["card", "spotlight", "hover"],
   ),
+  "magnetic-dock": {
+    name: "magnetic-dock",
+    title: "Magnetic Dock",
+    category: "components",
+    status: "preview",
+    summary:
+      "A floating app launcher that enlarges the item nearest a pointer while preserving predictable keyboard navigation.",
+    docsSlug: "magnetic-dock",
+    keywords: ["dock", "app launcher", "navigation", "magnetic", "pointer"],
+    useWhen: [
+      "A small set of primary destinations benefits from compact, visually expressive bottom navigation.",
+      "Desktop and pointer-first interfaces need faster targeting without adding a persistent sidebar.",
+    ],
+    avoidWhen: [
+      "The navigation has enough destinations that labels must be continuously visible.",
+      "Mobile navigation needs platform-specific tab semantics and large fixed touch targets.",
+    ],
+    capabilities: [
+      "Pointer-proximity magnification",
+      "Optional link destinations per item",
+      "Action callbacks for button items and composed pointer handlers",
+      "Keyboard-focusable launcher items",
+      "Configurable item size, range, and magnification",
+      "Translucent floating surface",
+    ],
+    accessibility: [
+      "Renders a labelled navigation landmark.",
+      "Each item has an accessible label and a visible focus label.",
+      "Uses native anchors or buttons for keyboard interaction.",
+    ],
+    motion: {
+      purpose:
+        "Increase the pointer-nearest target to make scanning and selection feel direct without moving the dock itself.",
+      reducedMotion:
+        "Keep all targets and labels available while removing pointer-driven magnification.",
+    },
+    related: ["magnetic-button", "circular-dock-menu", "fluid-tabs"],
+  },
+  "notification-stack": {
+    name: "notification-stack",
+    title: "Notification Stack",
+    category: "components",
+    status: "preview",
+    summary:
+      "A top-right live-update stack that materializes new notifications, reflows after dismissal, and keeps status messages easy to scan.",
+    docsSlug: "notification-stack",
+    keywords: ["notification", "toast", "status", "alert", "feedback"],
+    useWhen: [
+      "A product needs a compact, non-blocking place to report asynchronous status changes.",
+      "Several recent updates should remain visible long enough to scan or dismiss independently.",
+    ],
+    avoidWhen: [
+      "A message must block progress or require a deliberate confirmation before continuing.",
+      "A long-running history of events needs filtering, timestamps, or deep inspection.",
+    ],
+    capabilities: [
+      "Top-right fixed or parent-owned inline placement",
+      "Semantic default, success, warning, and error states",
+      "Dismiss and optional secondary actions",
+      "Motion-based stack reflow",
+      "Visible-item cap",
+    ],
+    accessibility: [
+      "Uses a polite live region for non-interruptive update announcements.",
+      "Dismiss buttons are explicitly labelled and keyboard reachable.",
+      "Dismissal recovers focus and exiting controls become inert.",
+      "Secondary actions remain visible on touch devices.",
+      "Native buttons preserve focus and activation behavior.",
+    ],
+    motion: {
+      purpose:
+        "Provide concise arrival context for new status updates and preserve spatial continuity when the stack closes after dismissal.",
+      reducedMotion:
+        "Use brief opacity changes only while retaining announcements, actions, and the final stack order.",
+    },
+    related: ["live-activity", "animated-dropdown", "schedule-chip"],
+  },
+  "command-palette-preview": {
+    name: "command-palette-preview",
+    title: "Command Palette Preview",
+    category: "components",
+    status: "preview",
+    summary:
+      "A centered, searchable command dialog with grouped actions and keyboard-first navigation.",
+    docsSlug: "command-palette-preview",
+    keywords: ["command", "palette", "search", "keyboard", "dialog"],
+    useWhen: [
+      "A product needs quick keyboard-led access to a focused set of actions.",
+      "Commands benefit from search, groups, shortcuts, and arrow-key navigation.",
+    ],
+    avoidWhen: [
+      "A persistent navigation menu or long-lived task list is more appropriate.",
+      "An action needs a multi-step form before it can run.",
+    ],
+    capabilities: [
+      "Controlled or uncontrolled visibility",
+      "Searchable grouped commands",
+      "Arrow-key and Enter selection",
+      "Escape dismissal",
+      "Optional shortcuts and descriptions",
+    ],
+    accessibility: [
+      "Uses a native modal dialog with combobox and listbox semantics.",
+      "Focuses the search input when opened.",
+      "Keeps background content inert and restores focus when closed.",
+      "Keyboard navigation follows visible groups and ignores IME composition.",
+      "Uses native buttons for keyboard activation.",
+    ],
+    motion: {
+      purpose:
+        "Keep a keyboard-led action surface immediate and focused by avoiding decorative opening animation.",
+      reducedMotion: "No motion is required to use or understand the palette.",
+    },
+    related: ["animated-dropdown", "smart-overflow", "fluid-tabs"],
+  },
+  "animated-segmented-control": {
+    name: "animated-segmented-control",
+    title: "Animated Segmented Control",
+    category: "components",
+    status: "preview",
+    summary: "A compact mode switcher with a fluid shared active surface.",
+    docsSlug: "animated-segmented-control",
+    keywords: ["segmented", "control", "mode", "density"],
+    useWhen: [
+      "A small local setting or view mode should remain visible together.",
+    ],
+    avoidWhen: [
+      "Each option reveals a substantial content panel, where Fluid Tabs is more appropriate.",
+    ],
+    capabilities: [
+      "Controlled or uncontrolled selection",
+      "Shared active-pill layout transition",
+      "Disabled options",
+    ],
+    accessibility: [
+      "Groups native pressed buttons under a configurable accessible name.",
+      "Uncontrolled selection skips disabled items and recovers when the selected item is removed.",
+    ],
+    motion: {
+      purpose:
+        "Preserve selection continuity as the active surface moves between adjacent options.",
+      reducedMotion: "Changes the active surface immediately.",
+    },
+    related: ["fluid-tabs", "animated-tabs", "fluid-slider"],
+  },
+  "smart-breadcrumbs": {
+    name: "smart-breadcrumbs",
+    title: "Smart Breadcrumbs",
+    category: "components",
+    status: "preview",
+    summary:
+      "A breadcrumb trail that keeps the root and current page visible while grouping middle levels in an accessible menu.",
+    docsSlug: "smart-breadcrumbs",
+    keywords: ["breadcrumbs", "navigation", "hierarchy", "menu", "collapse"],
+    useWhen: [
+      "A page has several navigable ancestor levels that would crowd a horizontal trail.",
+      "People need a visible path back to the root and direct access to hidden ancestors.",
+    ],
+    avoidWhen: [
+      "A two-level path is already easy to scan without compression.",
+      "The interface has no meaningful hierarchy of ancestor pages.",
+    ],
+    capabilities: [
+      "Always-visible first and current levels",
+      "Configurable collapse threshold",
+      "Keyboard accessible ancestor menu",
+      "Current page semantics and labelled navigation landmark",
+    ],
+    accessibility: [
+      "Uses an ordered list inside a labelled navigation landmark.",
+      "Marks the last level with aria-current page.",
+      "Uses Base UI menu focus and Escape behavior for hidden ancestors.",
+    ],
+    motion: {
+      purpose: "Provide a brief spatial cue as the hidden ancestor menu opens.",
+      reducedMotion: "Opens the menu without a transition.",
+    },
+    related: ["smart-overflow", "fluid-tabs", "animated-dropdown"],
+  },
+  "expandable-data-card": {
+    name: "expandable-data-card",
+    title: "Expandable Data Card",
+    category: "components",
+    status: "preview",
+    summary:
+      "A metric card that smoothly expands inline to reveal supporting data while keeping its summary in place.",
+    docsSlug: "expandable-data-card",
+    keywords: ["data", "card", "metric", "expand", "dashboard", "details"],
+    useWhen: [
+      "A dashboard metric needs optional context without leaving the current view.",
+      "The summary should remain visible as supporting data is revealed inline.",
+    ],
+    avoidWhen: [
+      "The details are a long workflow better suited to a dedicated page or dialog.",
+      "The data can be displayed clearly without progressive disclosure.",
+    ],
+    capabilities: [
+      "Controlled or uncontrolled expanded state",
+      "Composable summary and detail content",
+      "Inline layout morphing",
+      "Pointer, keyboard, and reduced-motion behavior",
+    ],
+    accessibility: [
+      "Uses a native button with aria-expanded.",
+      "Labels the revealed region from the stable card title.",
+      "Makes exiting content inert and restores focus when a controlled close hides the focused detail.",
+      "Keeps the metric summary visible in both states.",
+    ],
+    motion: {
+      purpose:
+        "Preserve spatial continuity between the summary card and its inline detail region.",
+      reducedMotion:
+        "Reveals or hides the detail immediately while preserving the same controls and content.",
+    },
+    related: ["spotlight-card", "activity-graph", "github-star-history"],
+  },
+  "github-star-history": {
+    name: "github-star-history",
+    title: "GitHub Star History",
+    category: "components",
+    status: "preview",
+    summary:
+      "An accessible smooth area chart for inspecting cumulative GitHub repository star growth over time.",
+    docsSlug: "github-star-history",
+    keywords: ["github", "stars", "history", "chart", "repository", "growth"],
+    useWhen: [
+      "A repository page, launch recap, or open-source dashboard needs to communicate star growth over time.",
+      "People should be able to inspect individual cumulative observations with pointer or keyboard input.",
+    ],
+    avoidWhen: [
+      "Only the current star count is needed and historical context would add noise.",
+      "Multiple repositories need to be compared as separate series in one chart.",
+    ],
+    capabilities: [
+      "Cumulative smooth area visualization",
+      "Responsive SVG geometry",
+      "Pointer and keyboard scrubbing",
+      "Current total and recorded-change summary",
+      "Configurable plot height and series color",
+      "Graceful empty-data state",
+    ],
+    accessibility: [
+      "The chart is exposed as a keyboard-operable slider with a changing date and star-count value.",
+      "Left and Right Arrow keys move between observations while Home and End jump to the boundaries.",
+      "Visible focus styling identifies the active chart.",
+      "The decorative SVG is hidden from assistive technology to avoid duplicate announcements.",
+    ],
+    motion: {
+      purpose:
+        "Reveal the series chronologically so the visual entrance reinforces repository growth over time.",
+      reducedMotion:
+        "Render the complete chart immediately while retaining pointer and keyboard exploration.",
+    },
+    related: ["activity-graph", "testimonial-card", "code-block"],
+  },
+  "testimonial-card": {
+    name: "testimonial-card",
+    title: "Testimonial Card",
+    category: "components",
+    status: "stable",
+    summary:
+      "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+    docsSlug: "testimonial-card",
+    keywords: ["testimonial", "quote", "review", "social proof", "customer"],
+    useWhen: [
+      "A customer quote needs an editorial focal point with concise author attribution.",
+      "A social-proof card benefits from a rating, testimonial, and person-level identity.",
+    ],
+    avoidWhen: [
+      "The content should behave as a live social embed with interactions, loading states, or external data.",
+      "A dense repeated grid would make optional hover depth distracting.",
+    ],
+    capabilities: [
+      "Quote-led composition with optional rating and eyebrow",
+      "Semantic article, blockquote, and author attribution structure",
+      "Optional shallow fine-pointer hover depth",
+      "Theme-aware card and media styling",
+    ],
+    accessibility: [
+      "Uses an article landmark and preserves selectable post content.",
+      "Avatar descriptions are supplied by the consumer.",
+      "The displayed star rating has an accessible text equivalent.",
+    ],
+    motion: {
+      purpose:
+        "Make a featured testimonial feel like a shallow physical surface without changing its reading order or layout.",
+      reducedMotion:
+        "Remove pointer-driven rotation and retain the static, readable card surface.",
+    },
+    related: ["spotlight-card", "avatar-showcase", "cursor-hover-card"],
+  },
+  "text-highlight": catalogEntry(
+    "text-highlight",
+    "Text Highlight",
+    "text",
+    "An inline emphasis effect with marker, underline, and block reveal treatments.",
+    ["text", "highlight", "marker", "underline", "emphasis"],
+  ),
   "hold-to-delete-button": catalogEntry(
     "hold-to-delete-button",
     "Hold To Delete Button",
@@ -825,6 +1160,27 @@ Object.assign(agentResourceMetadata, {
     "effects",
     "A fan-like arrangement for browsing a small set of layered visual items.",
     ["gallery", "fan", "cards"],
+  ),
+  "radial-card-marquee": catalogEntry(
+    "radial-card-marquee",
+    "Circular Card Marquee",
+    "effects",
+    "A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.",
+    ["marquee", "circular", "orbit", "cards", "carousel"],
+  ),
+  "radial-card-slider": catalogEntry(
+    "radial-card-slider",
+    "Radial Card Slider",
+    "components",
+    "A responsive radial card slider with pointer drag, wheel movement, keyboard navigation, and controlled index state.",
+    ["slider", "radial", "cards", "carousel", "gesture"],
+  ),
+  "depth-tiles": catalogEntry(
+    "depth-tiles",
+    "Depth Tiles",
+    "effects",
+    "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.",
+    ["tiles", "depth", "gallery", "carousel", "drag", "autoplay"],
   ),
   "smart-overflow": {
     name: "smart-overflow",
@@ -908,3 +1264,37 @@ Object.assign(agentResourceMetadata, {
     ["stepper", "steps", "workflow", "progress", "installation"],
   ),
 });
+
+const retiredAgentResourceNames = new Set([
+  "schedule-chip",
+  "chip",
+  "assignment-cluster",
+  "cursor-hover-card",
+  "magnetic-dock",
+  "notification-stack",
+  "command-palette-preview",
+  "animated-segmented-control",
+  "smart-breadcrumbs",
+  "expandable-data-card",
+  "github-star-history",
+  "testimonial-card",
+  "text-highlight",
+  "radial-card-slider",
+]);
+
+export const agentResourceMetadata = Object.fromEntries(
+  Object.entries(allAgentResourceMetadata)
+    .filter(([name]) => !retiredAgentResourceNames.has(name))
+    .map(([name, metadata]) => {
+      const resource = metadata as AgentResourceMetadata;
+      return [
+        name,
+        {
+          ...resource,
+          related: resource.related?.filter(
+            (related) => !retiredAgentResourceNames.has(related),
+          ),
+        },
+      ];
+    }),
+) as Record<string, AgentResourceMetadata>;

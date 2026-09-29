@@ -23,7 +23,12 @@ export function ComponentPreviewServer({ name, component }: Props) {
     }
 
     return (
-      <ComponentPreview component={<example.component />} code={example.code} />
+      <ComponentPreview
+        component={<example.component />}
+        code={example.code}
+        tunableComponent={component}
+        recordingPreview={name === "default"}
+      />
     );
   }
 

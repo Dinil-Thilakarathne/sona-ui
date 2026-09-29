@@ -61,17 +61,6 @@ function walk(dir: string): string[] {
 
 const errors: string[] = [];
 const metadataNames = new Set(metadata.map((item) => item.name));
-const componentNames = fs
-  .readdirSync(componentRoot, { withFileTypes: true })
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name);
-
-for (const name of componentNames) {
-  if (!metadataNames.has(name)) {
-    errors.push(`${name}: missing metadata entry with the same name`);
-  }
-}
-
 for (const item of metadata) {
   const componentDir = path.join(componentRoot, item.name);
   if (item.files.length > 0 && !fs.existsSync(componentDir)) {

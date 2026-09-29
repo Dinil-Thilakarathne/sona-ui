@@ -41,7 +41,6 @@
     "reducedMotion": "Apply the active view and its dimensions immediately without a layout transition."
   },
   "related": [
-    "schedule-chip",
     "live-activity",
     "expanding-action"
   ],

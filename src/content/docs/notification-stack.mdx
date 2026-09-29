@@ -1,0 +1,53 @@
+---
+title: Notification Stack
+slug: notification-stack
+component: notification-stack
+tags: ["UI", "Notification", "Feedback", "Component"]
+---
+
+Use Notification Stack for a concise, top-right summary of asynchronous updates. New items materialize with a small amount of spatial context, while the stack quietly closes gaps as items are dismissed.
+
+## Preview
+
+<ComponentPreview component="notification-stack" name="default" />
+
+## Installation
+
+<ComponentInstallation component="notification-stack" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="notifications.tsx" code={`import NotificationStack from "@/components/ui/notification-stack/notification-stack";
+
+const notifications = [
+  {
+    id: "deploy",
+    title: "Deployment completed",
+    description: "Your production release is live.",
+    variant: "success",
+  },
+];
+
+export function Notifications() {
+  return <NotificationStack notifications={notifications} />;
+}`} />
+
+## Usage
+
+<ComponentUsage component="notification-stack" />
+
+## API
+
+<PropTable component="notification-stack" />
+
+## Accessibility
+
+The stack uses a polite live region so new updates are announced without interrupting active work. Dismiss controls have explicit labels and remain keyboard accessible. Reduced motion replaces spatial movement with a short opacity transition.
+
+Provide `onDismiss` and remove the matching item from your notification array to enable dismissal. Without a callback, dismiss buttons are omitted. Dismissal moves focus to a neighbouring dismiss button or the stack. Exiting content becomes inert immediately. Actions remain visible for touch users and are disabled when they have no `onClick` callback.
+
+## Styling
+
+CLI installation registers the shadow utilities automatically. For manual installation, install `shadow-plugin` and add `@plugin "shadow-plugin";` to your Tailwind v4 stylesheet.
+
+The default placement is fixed at the top-right of the viewport. Use `placement="inline"` to keep the stack in normal document flow, with its width bounded by its parent.

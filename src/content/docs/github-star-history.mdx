@@ -1,0 +1,79 @@
+---
+title: GitHub Star History
+slug: github-star-history
+component: github-star-history
+tags: ["UI", "Chart", "GitHub", "Data Visualization"]
+---
+
+Use GitHub Star History to present cumulative repository growth as an interactive smooth area chart. Supply normalized observations from your own GitHub request, cache, or static data source.
+
+## Preview
+
+<ComponentPreview component="github-star-history" name="default" />
+
+## Installation
+
+<ComponentInstallation component="github-star-history" />
+
+## Basic usage
+
+<CodeBlockWrapper language="tsx" filename="repository-stars.tsx" code={`import GitHubStarHistory from "@/components/ui/github-star-history/github-star-history";
+
+const history = [
+  { date: "2026-07-05", total: 1476 },
+  { date: "2026-08-02", total: 1924 },
+  { date: "2026-09-06", total: 2487 },
+];
+
+export function RepositoryStars() {
+  return (
+    <GitHubStarHistory
+      data={history}
+      repository="sonacode/sona-ui"
+    />
+  );
+}`} />
+
+GitHub's star-history endpoint returns weekly objects with `week`, `total`, and `days`. Convert `week` from Unix seconds before passing the records to the chart:
+
+<CodeBlockWrapper language="tsx" filename="github-star-history-data.ts" code={`const response = await fetch(
+  "https://api.github.com/repos/owner/repository/stargazers/history",
+  {
+    headers: {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2026-03-10",
+    },
+  },
+);
+
+const weeks = await response.json();
+const history = weeks
+  .map((item) => ({
+    date: new Date(item.week * 1000),
+    total: item.total,
+  }))
+  .reverse();`} />
+
+## Usage
+
+<ComponentUsage component="github-star-history" />
+
+## API
+
+<PropTable component="github-star-history" />
+
+## Accessibility
+
+The chart is keyboard explorable. Focus it, then use the Left and Right Arrow keys to move through observations. Home and End jump to the first and latest values. The current date and star total are exposed to assistive technology.
+
+## Styling
+
+Use `color` for the series color and `className` to adapt the containing surface. The component uses semantic theme tokens for its background, border, labels, and tooltip.
+
+## Contact
+
+Found a bug or need help using this component? [Open an issue on GitHub](https://github.com/Dinil-Thilakarathne/sona-ui/issues).
+
+## License & Usage
+
+Sona UI is available under the MIT license. You may use, modify, and distribute this component in personal and commercial projects.

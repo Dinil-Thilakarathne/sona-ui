@@ -12,7 +12,7 @@ interface Release {
   html_url: string;
 }
 
-async function fetchReleases() {
+async function fetchReleases(): Promise<Release[] | null> {
   console.log(`Fetching releases from ${GITHUB_REPO}...`);
   try {
     const response = await fetch(
@@ -31,8 +31,11 @@ async function fetchReleases() {
     const releases: Release[] = await response.json();
     return releases;
   } catch (error) {
-    console.warn("Error fetching releases, skipping changelog update:", error);
-    return [];
+    console.warn(
+      "Error fetching releases; keeping the existing changelog:",
+      error,
+    );
+    return null;
   }
 }
 
@@ -74,6 +77,7 @@ ${release.body}
 
 async function main() {
   const releases = await fetchReleases();
+  if (!releases) return;
   const markdown = generateMarkdown(releases);
   writeFileSync(OUTPUT_FILE, markdown);
   console.log(`Changelog updated at ${OUTPUT_FILE}`);

@@ -17,8 +17,6 @@ import {
 import { motionTransition } from "@/lib/sona-motion";
 import { cn } from "@/lib/sona-utils";
 
-const MotionMenuPopup = motion.create(Menu.Popup);
-
 // ─── Context ─────────────────────────────────────────────────────────────────
 
 interface DropdownContextValue {
@@ -218,13 +216,7 @@ export function AnimatedDropdownContent({
         sideOffset={sideOffset}
         className="z-50"
       >
-        <MotionMenuPopup
-          layout={!shouldReduceMotion}
-          transition={
-            shouldReduceMotion
-              ? { duration: 0 }
-              : { layout: { duration: 0.18, ease: [0.16, 1, 0.3, 1] } }
-          }
+        <Menu.Popup
           className={cn(
             // Layout
             "z-50 min-w-[160px] rounded-xl p-1",
@@ -243,7 +235,7 @@ export function AnimatedDropdownContent({
           )}
         >
           {children}
-        </MotionMenuPopup>
+        </Menu.Popup>
       </Menu.Positioner>
     </Menu.Portal>
   );

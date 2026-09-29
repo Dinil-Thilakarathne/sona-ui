@@ -47,65 +47,6 @@
       ]
     },
     {
-      "name": "schedule-chip",
-      "title": "Schedule Chip",
-      "category": "components",
-      "status": "preview",
-      "summary": "A readable schedule summary that expands in place into a reversible date, time, and timezone editing transaction.",
-      "keywords": [
-        "schedule",
-        "date",
-        "time",
-        "timezone",
-        "reminder",
-        "publishing"
-      ],
-      "docs": "https://sonaui.com/docs/schedule-chip",
-      "registryItem": "https://sonaui.com/r/schedule-chip.json",
-      "detail": "https://sonaui.com/agent/components/schedule-chip.json",
-      "dependencies": [
-        "motion",
-        "lucide-react"
-      ]
-    },
-    {
-      "name": "chip",
-      "title": "Chip",
-      "category": "foundations",
-      "status": "stable",
-      "summary": "A compact, noninteractive annotation for labels, categories, and semantic status.",
-      "keywords": [
-        "chip",
-        "badge",
-        "tag",
-        "status",
-        "label"
-      ],
-      "docs": "https://sonaui.com/docs/chip",
-      "registryItem": "https://sonaui.com/r/chip.json",
-      "detail": "https://sonaui.com/agent/components/chip.json",
-      "dependencies": []
-    },
-    {
-      "name": "assignment-cluster",
-      "title": "Assignment Cluster",
-      "category": "components",
-      "status": "stable",
-      "summary": "A compact responsibility summary with an accessible people picker and reversible assignment draft.",
-      "keywords": [
-        "assignment",
-        "people picker",
-        "reviewers"
-      ],
-      "docs": "https://sonaui.com/docs/assignment-cluster",
-      "registryItem": "https://sonaui.com/r/assignment-cluster.json",
-      "detail": "https://sonaui.com/agent/components/assignment-cluster.json",
-      "dependencies": [
-        "@base-ui/react",
-        "motion"
-      ]
-    },
-    {
       "name": "live-activity",
       "title": "Live Activity",
       "category": "components",
@@ -760,6 +701,47 @@
       "docs": "https://sonaui.com/docs/fan-view",
       "registryItem": "https://sonaui.com/r/fan-view.json",
       "detail": "https://sonaui.com/agent/components/fan-view.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "radial-card-marquee",
+      "title": "Circular Card Marquee",
+      "category": "effects",
+      "status": "stable",
+      "summary": "A continuous circular card marquee that orbits cards around an adaptive path with configurable speed, direction, pause, and reduced-motion behavior.",
+      "keywords": [
+        "marquee",
+        "circular",
+        "orbit",
+        "cards",
+        "carousel"
+      ],
+      "docs": "https://sonaui.com/docs/radial-card-marquee",
+      "registryItem": "https://sonaui.com/r/radial-card-marquee.json",
+      "detail": "https://sonaui.com/agent/components/radial-card-marquee.json",
+      "dependencies": [
+        "motion"
+      ]
+    },
+    {
+      "name": "depth-tiles",
+      "title": "Depth Tiles",
+      "category": "effects",
+      "status": "stable",
+      "summary": "An infinite layered tile stack with autoplay, depth transitions, horizontal drag navigation, and reduced-motion support.",
+      "keywords": [
+        "tiles",
+        "depth",
+        "gallery",
+        "carousel",
+        "drag",
+        "autoplay"
+      ],
+      "docs": "https://sonaui.com/docs/depth-tiles",
+      "registryItem": "https://sonaui.com/r/depth-tiles.json",
+      "detail": "https://sonaui.com/agent/components/depth-tiles.json",
       "dependencies": [
         "motion"
       ]

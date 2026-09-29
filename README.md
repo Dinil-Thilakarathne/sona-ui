@@ -6,10 +6,20 @@
 
 Beautifully animated, accessible, and fully typed components built on React 19, Tailwind CSS 4, and Motion. Install what you need with a single command and own the code.
 
-[![license](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+<p>
+<a href="https://vercel.com/open-source-program">
+  <img alt="Vercel Open Source Program" src="https://vercel.com/oss/program-badge-2026.svg" height="48" />
+</a>
+</p>
 
-[**Website**](https://sonaui.com) · [**Documentation**](https://sonaui.com/docs/home) · [**Components**](https://sonaui.com/docs/accordion)
+<p>
+<a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-green.svg" /></a>
+<a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" /></a>
+</p>
+
+<p>
+<a href="https://sonaui.com">Website</a> · <a href="https://sonaui.com/docs/home">Documentation</a> · <a href="https://sonaui.com/components">Components</a> · <a href="https://sonaui.com/tools/motion-lab">Motion Lab</a>
+</p>
 
 </div>
 
@@ -55,11 +65,15 @@ Browse the full catalog, source, API, and live previews in the [documentation](h
 
 ## Components
 
-Sona UI includes 30+ source-owned components across actions, inputs, navigation, disclosure, text, motion, and shaders. Explore every component, its source, API, and live demo in the [documentation](https://sonaui.com/docs/home).
+Sona UI includes 40+ source-owned components across actions, inputs, navigation, disclosure, text, motion, and shaders. Explore the catalog in the [component gallery](https://sonaui.com/components), then open a component's documentation for its source, API, and live demo.
 
 ## AI Agents
 
-Sona UI includes resources for coding agents to discover, select, install, and validate components with the same accessibility and motion expectations as the documentation. Start with the [AI agents guide](https://sonaui.com/docs/ai-agents) or [Sona UI Skills](https://sonaui.com/docs/skills).
+Sona UI includes resources for coding agents to discover, select, install, and validate components with the same accessibility and motion expectations as the documentation. Start with the [agent catalog](https://sonaui.com/agent/catalog.json) or the [LLM index](https://sonaui.com/llms.txt).
+
+## Motion Lab
+
+[Motion Lab](https://sonaui.com/tools/motion-lab) lets you tune the Animated Dialog visually, compare motion presets, and copy the resulting code.
 
 ## Tech Stack
 

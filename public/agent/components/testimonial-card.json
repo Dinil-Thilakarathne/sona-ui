@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "name": "testimonial-card",
+  "title": "Testimonial Card",
+  "category": "components",
+  "status": "stable",
+  "summary": "An editorial testimonial surface that lets a customer quote lead while preserving concise credibility details.",
+  "docsSlug": "testimonial-card",
+  "keywords": [
+    "testimonial",
+    "quote",
+    "review",
+    "social proof",
+    "customer"
+  ],
+  "useWhen": [
+    "A customer quote needs an editorial focal point with concise author attribution.",
+    "A social-proof card benefits from a rating, testimonial, and person-level identity."
+  ],
+  "avoidWhen": [
+    "The content should behave as a live social embed with interactions, loading states, or external data.",
+    "A dense repeated grid would make optional hover depth distracting."
+  ],
+  "capabilities": [
+    "Quote-led composition with optional rating and eyebrow",
+    "Semantic article, blockquote, and author attribution structure",
+    "Optional shallow fine-pointer hover depth",
+    "Theme-aware card and media styling"
+  ],
+  "accessibility": [
+    "Uses an article landmark and preserves selectable post content.",
+    "Avatar descriptions are supplied by the consumer.",
+    "The displayed star rating has an accessible text equivalent."
+  ],
+  "motion": {
+    "purpose": "Make a featured testimonial feel like a shallow physical surface without changing its reading order or layout.",
+    "reducedMotion": "Remove pointer-driven rotation and retain the static, readable card surface."
+  },
+  "related": [
+    "spotlight-card",
+    "avatar-showcase",
+    "cursor-hover-card"
+  ],
+  "registry": {
+    "url": "https://sonaui.com/r/testimonial-card.json",
+    "type": "registry:ui",
+    "dependencies": [
+      "lucide-react",
+      "motion"
+    ],
+    "registryDependencies": [
+      "@sona-ui/sona-utils"
+    ]
+  },
+  "docs": {
+    "url": "https://sonaui.com/docs/testimonial-card",
+    "rawUrl": "https://sonaui.com/docs/testimonial-card/raw.md",
+    "sourceTitle": "testimonial-card"
+  }
+}
