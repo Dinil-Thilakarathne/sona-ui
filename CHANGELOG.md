@@ -1,3 +1,15 @@
+# [2.28.0](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.27.1...v2.28.0) (2026-09-29)
+
+
+### Features
+
+* Add motion lab and new animated components ([ee3129a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/ee3129a3f5256f3f816cbbe102797fa2394b4db4))
+* Add seven accessible, animated UI components and star history API ([fd923c2](https://github.com/Dinil-Thilakarathne/sona-ui/commit/fd923c2bd2fb0a00e703155c7c25f9f37c2a15b0))
+* Add Tracwell sponsor and enable sponsor section ([8afd04e](https://github.com/Dinil-Thilakarathne/sona-ui/commit/8afd04e795d3167f40452d0e639f58321e0c1067))
+* Add Vercel as a project supporter ([814ea0a](https://github.com/Dinil-Thilakarathne/sona-ui/commit/814ea0af92cfdb412f0a820d744ccbebb69c85ad))
+* Expand agent resources and refine component demos and analytics ([63dc1a5](https://github.com/Dinil-Thilakarathne/sona-ui/commit/63dc1a5d20e3b7f0b938bf00961b75f3bfdc19c4))
+* Retire outdated registry entries and update marquee behavior ([02d02b8](https://github.com/Dinil-Thilakarathne/sona-ui/commit/02d02b8845e7e965dfaf68c77907646ff7bb52d0))
+
 ## [2.27.1](https://github.com/Dinil-Thilakarathne/sona-ui/compare/v2.27.0...v2.27.1) (2026-09-15)
 
 
