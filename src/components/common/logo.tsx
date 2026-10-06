@@ -10,7 +10,12 @@ interface LogoProps {
 const Logo = ({ className, showVersion, version }: LogoProps) => {
   return (
     <div role="presentation" className="flex gap-2 items-center">
-      <h1 className={cn("font-helvetica-neue text-lg font-bold", className)}>
+      <h1
+        className={cn(
+          "font-helvetica-neue text-sm md:text-lg font-bold",
+          className,
+        )}
+      >
         Sona UI
       </h1>
       {showVersion && version && (

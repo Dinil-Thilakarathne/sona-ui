@@ -292,7 +292,7 @@ const ComponentPreview: React.FC<ComponentPreviewProps> = ({
         <div ref={previewRef} className="relative w-full">
           <div
             data-preview-controls
-            className="mb-2 flex items-center justify-end gap-4 text-xs absolute right-0 -top-6"
+            className="mb-2 flex mobile:flex-col mobile:items-end md:items-center justify-end gap-4 text-xs absolute right-0 mobile:-translate-y-full mobile:-top-2 md:-top-6"
           >
             <div className="inline-flex items-center gap-1 text-muted-foreground">
               Reduce motion:
