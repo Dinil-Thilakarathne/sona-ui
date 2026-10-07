@@ -17982,6 +17982,9 @@ export default function AnimatedSwitch({
         }}
         onPointerDownCapture={(event) => {
           onPointerDownCapture?.(event);
+          // A browser may not dispatch a click after a touch drag. Clear a
+          // stale suppression flag before beginning the next interaction.
+          suppressClickRef.current = false;
           if (event.button !== 0 || disabled) return;
           if (error) {
             blockedInteractionRef.current = "pointer";
@@ -18029,7 +18032,16 @@ export default function AnimatedSwitch({
           if (didDragRef.current) {
             const nextChecked =
               (dragXRef.current ?? restingX) >= sizes.xTranslate / 2;
-            suppressClickRef.current = nextChecked === resolvedChecked;
+            // A drag owns its state transition. Relying on the synthetic
+            // click that follows pointerup leaves touch drags uncommitted on
+            // browsers that suppress that click after movement.
+            suppressClickRef.current = true;
+
+            if (nextChecked !== resolvedChecked) {
+              setVisualChecked(nextChecked);
+              onCheckedChange?.(nextChecked);
+            }
+
             if (nextChecked === resolvedChecked) {
               thumbAnimationRef.current?.stop();
               if (shouldReduceMotion) {
