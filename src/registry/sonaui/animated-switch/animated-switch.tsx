@@ -251,17 +251,18 @@ export default function AnimatedSwitch({
               onCheckedChange?.(nextChecked);
             }
 
-            if (nextChecked === resolvedChecked) {
-              thumbAnimationRef.current?.stop();
-              if (shouldReduceMotion) {
-                thumbX.set(restingX);
-              } else {
-                thumbAnimationRef.current = animate(
-                  thumbX,
-                  restingX,
-                  motionTransition.feedback,
-                );
-              }
+            // Always settle on the committed position. If the parent applies
+            // the change, the restingX effect retargets this animation; if it
+            // does not, the thumb still returns to match `checked`.
+            thumbAnimationRef.current?.stop();
+            if (shouldReduceMotion) {
+              thumbX.set(restingX);
+            } else {
+              thumbAnimationRef.current = animate(
+                thumbX,
+                restingX,
+                motionTransition.feedback,
+              );
             }
           }
           resetPointerState();
